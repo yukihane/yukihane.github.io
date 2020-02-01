@@ -2,6 +2,9 @@
 title: "Nodeのnative moduleをRustで書いてみる(Neon)"
 date: 2020-02-01T05:09:38Z
 draft: false
+tags:
+  - rust
+  - neon
 ---
 
 RustプログラムのGUIにElectronを使うことを考えています。
