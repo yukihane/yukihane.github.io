@@ -1,0 +1,37 @@
+---
+title: "Spring Bootでは `-parameters` オプションは有効化されている"
+date: 2020-02-20T06:25:59Z
+draft: false
+tags:
+  - sprig-boot
+  - mybatis
+---
+
+MyBatisの設定項目として https://github.com/mybatis/mybatis-3/issues/549#issuecomment-218483088[`useActualParamName`] というものがあります。マニュアルの説明によると、
+
+[quote, 'https://mybatis.org/mybatis-3/ja/configuration.html#settings[設定 > settings]']
+____
+ステートメントの引数を参照する際、メソッドシグネチャで宣言されている名前で参照できるようにします。 このオプションを有効にする場合、プロジェクトを Java 8 （コンパイラオプション -parameters 付き）でコンパイルする必要があります。 (導入されたバージョン: 3.4.1)
+____
+
+もう少し具体的には、
+
+[quote, 'https://mybatis.org/mybatis-3/ja/sqlmap-xml.html#constructor[Mapper XML ファイル > constructor]']
+____
+3.4.3 以降では、引数名を指定することによって arg 要素を順不同で記述できるようになりました。引数を名前で指定するためには、各引数に @Param アノテーションを追加するか、プロジェクトを '-parameters' オプション付きでコンパイルし、useActualParamName に true （デフォルト値です）を設定します。
+____
+
+とあります。説明されているセクションが期待するものと違うのでわかりにくい…
+
+ちなみに `@Param` の意味を調べようと検索すると、説明には次のように書かれており、 `useActualParamName` という機能があることに気づかないので不親切に感じます。
+
+[quote, 'https://mybatis.org/mybatis-3/ja/java-api.html#Mapper_.E3.82.A2.E3.83.8E.E3.83.86.E3.83.BC.E3.82.B7.E3.83.A7.E3.83.B3[Java API]']
+____
+Mapper メソッドが複数の引数を取る場合、このアノテーションを付加することで各引数を名前で参照できるようになります。アノテーションがない場合、各引数は位置を表す数字で #{param1}, #{param2} のように参照します（RowBounds 引数はカウントしません）。 引数に @Param("person") というアノテーションを付加すると、この引数は #{person} として参照できるようになります。
+____
+
+閑話休題。
+この `useActualParamName` は引用部にある通りデフォルトで `true` ですが、実際に使うには `-parameters` オプション付きでコンパイルする必要があります。
+この `-parameters` オプションはどうやって付ければ良いのでしょうか？
+
+…というのを調べようとしたのですが、Spring Boot の場合、 `spring-boot-starter-parent` で https://github.com/spring-projects/spring-boot/blob/v2.1.9.RELEASE/spring-boot-project/spring-boot-starters/spring-boot-starter-parent/pom.xml#L78[`-parameters` オプションが有効になるような設定が為されている] ので、明示的に設定しなくても利用できます。
