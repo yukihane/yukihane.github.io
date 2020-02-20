@@ -25,7 +25,7 @@ ____
 
 ちなみに `@Param` の意味を調べようと検索すると、説明には次のように書かれており、 `useActualParamName` という機能があることに気づかないので不親切に感じます。
 
-[quote, 'https://mybatis.org/mybatis-3/ja/java-api.html#Mapper_.E3.82.A2.E3.83.8E.E3.83.86.E3.83.BC.E3.82.B7.E3.83.A7.E3.83.B3[Java API]']
+[quote, 'https://mybatis.org/mybatis-3/ja/java-api.html#Mapper_.E3.82.A2.E3.83.8E.E3.83.86.E3.83.BC.E3.82.B7.E3.83.A7.E3.83.B3[Java API > Mapper アノテーション]']
 ____
 Mapper メソッドが複数の引数を取る場合、このアノテーションを付加することで各引数を名前で参照できるようになります。アノテーションがない場合、各引数は位置を表す数字で #{param1}, #{param2} のように参照します（RowBounds 引数はカウントしません）。 引数に @Param("person") というアノテーションを付加すると、この引数は #{person} として参照できるようになります。
 ____
