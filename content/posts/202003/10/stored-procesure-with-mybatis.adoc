@@ -1,0 +1,43 @@
+---
+title: "MyBatisでストアドプロシージャを実行する"
+date: 2020-03-10T05:44:01Z
+draft: false
+tags: 
+  - mybatis
+---
+
+(もしかしたら以前どこかで書いたかも…)
+
+MyBatisでストアドプロシージャを実行する必要に迫られたことがありましたが、オフィシャルリファレンスを見てもどこにもストアドプロシージャについて記述がないので困った記憶をふと思い出しました。
+
+実際には、MyBatisのテストケースにストアドプロシージャは登場します。
+
+.https://github.com/mybatis/mybatis-3/blob/mybatis-3.5.4/src/test/java/org/apache/ibatis/submitted/sptests/SPMapper.xml#L53[src/test/java/org/apache/ibatis/submitted/sptests/SPMapper.xml]
+----
+
+  <!-- Important things for stored procedures:
+    1. Must set the statement type to CALLABLE
+    2. Must use the JDBC standard escape sequence for stored procedures:
+       {call xxx (parm1, parm2)}
+    3. Must set the MODE of all parameters (IN, OUT, INOUT)
+    4. All IN, OUT, and INOUT parameters must be a part of the
+       parameterType or parameterMap (discouraged).  The only exception
+       is if you are using a Map as a parameter object.  In that case you
+       do not need to add OUT parameters to the map before calling, MyBatis
+       will add them for you automatically.
+    5. resultType or resultMap (more typically) is only used if
+       the procedure returns a result set. IMPORTANT: Oracle ref
+       cursors are usually returned as parameters, NOT directly
+       from the stored proc.  So with ref cursors, resultMap
+       and/or resultType is usually not used.
+   -->
+
+  <select id="adderAsSelect" parameterType="org.apache.ibatis.submitted.sptests.Parameter" statementType="CALLABLE">
+    {call sptest.adder(
+      #{addend1,jdbcType=INTEGER,mode=IN},
+      #{addend2,jdbcType=INTEGER,mode=IN},
+      #{sum,jdbcType=INTEGER,mode=OUT}
+    )}
+  </select>
+(後略)
+----
