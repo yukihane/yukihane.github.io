@@ -1,0 +1,127 @@
+---
+title: "いきなりJavaアプリケーションサーバの保守を任されることになった人のためのチートシート(1)"
+date: 2020-04-02T06:15:28Z
+draft: false
+tags:
+  - Java
+  - javaee
+  - spring
+---
+:toc:
+
+== 目的
+
+Javaを用いた開発にある程度慣れている場合でも、初めてアプリケーションフレームワーク上で開発するとなると戸惑うことがあります。
+
+ここでは、ある程度Javaに対する知識が、Java EE/Spring Bootアプリケーションの保守を担当になって、ローカルで実行する、そしてデバッグを行おうとした際に引っかかりそうなポイントをまとめていきたいと考えています。
+
+説明に用いているコードは次になります:
+
+* https://github.com/yukihane/java-application-frameworks-cheat-sheet
+
+== アプリケーションをデプロイする
+
+ローカル実行環境でアプリケーションを実行する場合、アプリケーションサーバにアプリケーションをデプロイする必要があります。
+
+デプロイの方法はアプリケーションサーバのツールセットとしてMavenプラグインとして提供されていたり、IDEの機能として提供されていたり様々あります。
+
+ところでデプロイというのは何をやっているかというと、アプリケーションファイル( `.war` だったり `.jar` だったりします)をアプリケーションサーバの所定のディレクトリにコピーしているだけです。
+
+ですので、専用ツールやコマンドラインを使わずとも、デプロイすることは可能です。
+
+なお、Spring BootやWildFly Thorntailは `jar` の中にアプリケーションサーバー機能を組み込んでいるので、デプロイ操作が不要でそのまま `jar` ファイルを実行できるようになっています。
+
+ mvn clean package -pl servlet-sample
+
+コマンドを実行すると、アプリケーション `servlet-sample/target/servlet-sample.war` がビルドできますので、これをデプロイして起動してみましょう。
+
+=== Tomcat にデプロイする
+
+Tomcatのデプロイディレクトリは `webapps` なのでこの下に `servlet-sample.war` をコピーし、 `bin/startup.sh` コマンドを実行します。そして http://localhost:8080/servlet-sample/ にアクセスしてみます。 終了するには `bin/shutdown.sh` コマンドを実行します。
+
+=== WildFly にデプロイする
+
+WildFlyのデプロイディレクトリは `standalone/deployments` なのでこの下に `servlet-sample.war` をコピーし、 `/bin/standalone.sh` コマンドを実行します。して http://localhost:8080/servlet-sample/ にアクセスしてみます。終了するには `Ctrl + C` です。
+
+== デバッガを接続しステップ実行できるようにする
+
+アプリケーションサーバをデバッガ接続可能状態にするオプションをつけて起動した上で、IDEからデバッガをアタッチする、というのが基本的なデバッガ利用法になります。いわゆる「リモートデバッグ」という形態になります。
+
+これもまた、IDE組み込み機能でアプリケーションを起動させたりする方法もあったり、現場で実際にどう行っているかは様々だと思います。
+
+アプリケーション起動手順はアプリケーションサーバごとに違うのでリファレンスなど記載箇所を検索してください(あるいは、起動スクリプト内の記述がヒントになります(ex. https://github.com/apache/tomcat/blob/9.0.33/bin/catalina.sh#L632-L641[Tomcat], https://github.com/wildfly/wildfly-core/blob/11.0.0.Final/core-feature-pack/src/main/resources/content/bin/standalone.sh#L3[WildFly]))。
+
+デバッガのアタッチ方法も IDE ごとに異なるのでこちらも検索が必要です。
+
+=== Tomcat へ Eclipse でデバッガをアタッチする
+
+Tomcatでリモートデバッグできるようにする設定は次に記載があります:
+
+* https://cwiki.apache.org/confluence/display/TOMCAT/Developing#Developing-Q1
+
+まず、`servlet-sample.war` をデプロイし、Tomcatに上記に記載されているJVMオプションをつけて起動します:
+
+ JAVA_OPTS='-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n' bin/startup.sh
+ 
+あるいは、これもリンク先に書いていますが、 `catalina` コマンドにデバッグ可能オプションをつけて起動するのが短くて良いかもしれません。
+
+ bin/catalina.sh jdpa start
+
+これで 8000番ポートでデバッガ接続できる状態で起動しました。
+
+続いてEclipseからアタッチします。
+
+Eclipseで `servlet-sample` プロジェクトをインポートし、Package Explorer で右クリック、 Debug As > Debug Configurations... を選択します。
+
+{{< figure src="/20200402/01eclipse-configuration.png" >}}
+
+表示されたダイアログで "Remote Java Application" を右クリックし "New Configuration" を選択します。
+
+新しくデバッグのconfigurationが"servlet-sample"という名前で作成されますのでこれを編集していきます…が、今回はこのままの設定で動きますので何も触りません。
+
+ダイアログ右下の"Debug"ボタンを押してアタッチします。
+
+以上でデバッグ環境が整いました。 https://github.com/yukihane/java-application-frameworks-cheat-sheet/blob/5ac9fdcd16886ad43d9804750bc0943ccc1b6709/servlet-sample/src/main/java/jp/himeji_cs/example/servlet/ServletByAnnotation.java#L22[`ServletByAnnotation`]クラスにbreakポイントを設定して http://localhost:8080/servlet-sample/annotation へアクセスすることで実行が一時停止することを確認してみましょう。
+
+デバッガをデタッチする場合はDebugパースペクティブに表示されている "Disconnect" ボタンを押します。
+
+{{< figure src="/20200402/02disconnect.png" >}}
+
+=== WildFly へ Eclipse でデバッガをアタッチする
+
+WildFlyのリモートデバッグ方法の記述は次にあります footnote:[久しぶりにWildFlyのリファレンス見ましたが、以前にも増して混沌としていますね…]:
+
+* https://docs.wildfly.org/19/Getting_Started_Developing_Applications_Guide.html#debugging-project-with-intellij-and-as7
+
+`servlet-sample.war` をデプロイした後、次のコマンドでWildFlyを起動します:
+
+ bin/standalone.sh --debug
+
+(Tomcatとは異なり)デフォルトでは8787番ポートでデバッガがアタッチできるような状態で起動します。
+
+続いてEclipseからアタッチします。手順の詳細は前述Tomcatの節を参照してください。ただし1点気をつけるべきは、デフォルト設定では8000番ポートへ接続しようとするので、 "Connect" タブの "Connection Properties" 設定の "Port" 値を `8787` に変更してください。
+
+実行確認、デタッチ方法はTomcat節に記載した手順と同じです。
+
+=== Spring Boot アプリケーションへ Eclipse をアタッチする
+
+Spring Boot アプリケーションは前述の通りデプロイを必要とせず単独で実行できます。通常の実行コマンドにデバッグオプションを付与すれば良いです。
+
+`spring-boot-sample` プロジェクトをビルドします:
+
+  mvn clean package -pl spring-boot-sample
+
+作成された `spring-boot-sample-0.0.1-SNAPSHOT.jar` をデバッガアタッチ可能な状態で起動します:
+
+ java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000 \
+ -jar spring-boot-sample/target/spring-boot-sample-0.0.1-SNAPSHOT.jar
+
+Eclipseからアタッチする方法は前述Tomcat節と同じです。
+
+また、Spring Bootアプリケーションにははじめから https://docs.spring.io/spring-boot/docs/current/maven-plugin/examples/run-debug.html[Spring Boot Maven Plugin]が組み込まれているため、こちらから起動することになるかもしれません。その場合はリンク先を参照してください。
+
+=== その他のアプリケーションサーバ、IDEを利用する
+
+ここまで書いてきて、次のサイトでも同じことについて言及しているの気づきました。WebLogic, Glassfish, Jetty, IntelliJなどについての言及もあるようでしたので参照してください:
+
+* https://www.baeldung.com/spring-debugging
