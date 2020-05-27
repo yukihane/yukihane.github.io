@@ -9,10 +9,8 @@ tags:
 kubernetesの試験を受けるに当たって、最小限の `.vimrc` を覚えておくためのメモ:
 
 ```
-" Tab文字を半角スペースにする
+set autoindent
 set expandtab
-" 行頭以外のTab文字の表示幅（スペースいくつ分）
 set tabstop=2
-" 行頭でのTab文字の表示幅
 set shiftwidth=2
 ```
