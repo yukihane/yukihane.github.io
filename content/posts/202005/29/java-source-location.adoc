@@ -6,7 +6,7 @@ tags:
   - java
 ---
 
-https://twitter.com/hishidama/status/1266177837049864192
+https://twitter.com/hishidama/status/1266176675768745984
 
 > packageの宣言と実際のディレクトリが一致していなくてもmvn compile（やjavac）が成功するんですが、そういうもんでしたっけ？
 
