@@ -1,7 +1,9 @@
 ---
 title: "List#contains(null)は使わないほうが良い"
 date: 2020-06-13T10:34:19Z
-draft: true
+draft: false
+tags:
+  - java
 ---
 
 `List`(などのコレクション)が要素に `null` を含むかどうかの判定に、 `contains(null)` を利用すると `NullPointerException` が発生することがあります。
