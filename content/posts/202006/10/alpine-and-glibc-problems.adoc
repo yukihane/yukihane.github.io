@@ -1,0 +1,14 @@
+---
+title: "Alpine Linuxでglibcじゃないことに起因する問題ってちょくちょくあるよね"
+date: 2020-06-10T10:17:55Z
+draft: false
+tags:
+  - linux
+---
+
+…と少し思い返していました。といっても思い出せたのは次の2つなのですが。
+
+* https://ja.stackoverflow.com/q/66812/2808[alpine Linuxへのawscliインストール]
+* https://ja.stackoverflow.com/q/67494/2808[alpineでgitがcolorにならない]
+
+Alpine特有の問題については、「取り敢えずglibc/GNU版コマンドをインストールしてみろ」ってのが最初に採ってみる方策としてアリなのかも。
