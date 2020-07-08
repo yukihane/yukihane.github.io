@@ -1,5 +1,5 @@
 ---
-title: Hibernate Map Char to String
+title: Hibernate で CHAR を String にマップする
 date: 2019-02-04T20:01:19Z
 # description: ""
 # keywords: []
