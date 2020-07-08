@@ -1,5 +1,5 @@
 ---
-title: Polymer2 で <input>の値を「親エレメントの値と」バインドする
+title: Polymer2 で &lt;input&gt; の値を「親エレメントの値と」バインドする
 date: 2018-01-21T19:12:25Z
 # description: ""
 # keywords: []

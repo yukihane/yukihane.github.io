@@ -1,5 +1,5 @@
 ---
-title: Polymer2 で <input>の値をバインドする
+title: Polymer2 で &lt;input&gt; の値をバインドする
 date: 2018-01-21T19:08:22Z
 # description: ""
 # keywords: []
