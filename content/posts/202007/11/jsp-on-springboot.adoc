@@ -30,8 +30,8 @@ https://start.spring.io/ で depencencies に `Spring Web` を追加して生成
 .application.properties
 [source,properties]
 ----
-spring.mvc.view.prefix= /WEB-INF/view/
-spring.mvc.view.suffix= .jsp
+spring.mvc.view.prefix=/WEB-INF/view/
+spring.mvc.view.suffix=.jsp
 ----
 
 `src/main/webapp/WEB-INF/view/` の下に JSP ファイルを作成します。
