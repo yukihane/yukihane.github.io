@@ -38,6 +38,10 @@ spring.mvc.view.suffix= .jsp
 
 コントローラではThymeleaf利用時などと同様、 `return "index";` とすることで `index.jsp` を返すようになります。
 
+参考:
+
+* https://repo.spring.io/release/org/springframework/boot/spring-boot-sample-web-jsp/1.0.0.RC1/spring-boot-sample-web-jsp-1.0.0.RC1.pom[Spring Boot version 1 のころのサンプル `pom.xml`]
+
 出典:
 
 * https://stackoverflow.com/a/62545655/4506703[Can you use jsp for your front end while your backend routes are restful in Spring Boot?] - Stack Overflow
