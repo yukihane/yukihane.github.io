@@ -1,0 +1,86 @@
+---
+title: "Gradleプラグイン/アノテーションプロセッシング調査"
+date: 2020-07-14T15:58:57Z
+draft: false
+tags:
+  - java
+  - gradle
+---
+
+元々JBoss/WildFlyの流れで開発してきたのでずっとMavenを利用してきたのですが、今度のプロジェクトではGradleを使うことに決まったようで、新しい知識が必要となりました。
+
+特にMavenで利用していたプラグインと同等のものがあるかどうかを調べる必要を感じたので調査しました。
+
+結論としては、これまで利用してきた静的解析系のプラグインは同じようなものがあり、問題なさそう、という感触です。
+
+ただし、buildshipという、Eclipseに組み込まれている Gradle -> Eclipse プロジェクト変換ツール(Mavenでいうところのm2eみたいなもの)の機能が不十分で、Gradle + Eclipse という組み合わせでは使わない方が良さそうです。
+(Gradleを使いたいのならIntelliJなどを利用し、Eclipseが使いたいのならMavenを利用する)
+
+== プラグイン
+
+=== formatter
+
+Mavenでは https://github.com/revelc/formatter-maven-plugin[formatter-maven-plugin] を利用していました。
+
+これは、Eclipseに組み込まれているフォーマッタをMavenプラグインとして利用できるようにしたもので、設定ファイルもEclipseのものを読み込め、IDEと設定を共通化できるのが強みです。
+(IDEと外部フォーマッタの挙動が少しでも違っているとかなりストレスを感じますよね)
+
+=== checkstyle
+
+Gradleオフィシャルプラグンとして存在している？
+
+* https://docs.gradle.org/current/userguide/plugin_reference.html#code_analysis
+* https://docs.gradle.org/current/userguide/checkstyle_plugin.html
+
+=== pmd
+
+同じくオフィシャル。
+
+* https://docs.gradle.org/current/userguide/pmd_plugin.html
+
+=== spotbugs
+
+spotbugsコミュニティが提供しているみたいです。
+
+https://github.com/spotbugs/spotbugs-gradle-plugin
+
+=== その他プラグイン
+
+今まで利用したことがないが、今回の調査中に見つけた、有用そうなプラグイン。
+
+==== https://errorprone.info/[Error Prone]
+
+Google製Spotbugs(?)。
+Gradleプラグインは第三者が開発しているものを利用するようです。
+
+https://github.com/tbroyer/gradle-errorprone-plugin
+
+== アノテーションプロセッシング
+
+気になっているのは処理する順番を明示的に設定できるのかどうかという点。
+MavenでMapStructとLombokを併用する場合も問題になったが、Gradleではどうなのか。
+
+結論としては、 https://github.com/mapstruct/mapstruct-examples/blob/master/mapstruct-lombok/build.gradle[ここ] にあるような書き方で行けそうなんじゃないかな、と。
+
+[source,groovy]
+----
+dependencies {
+    annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}", "org.projectlombok:lombok:${lombokVersion}"
+}
+----
+
+やってみたところ、コマンドラインからは上手く行っているように見えます。
+
+ただし、Eclipseで操作するとMapStructアノテーションプロセッシングが動作しません。おそらく以下のissueが関連しています。
+
+* https://github.com/eclipse/buildship/issues/329[Annotation Processor configuration from Gradle Eclipse Plugin #329] - eclipse/buildship
+
+また、ビルド結果が `build` ディレクトリでなく `bin` ディレクトリに出力されたりと、統合具合が Maven(m2e)と比較して低い感じを受けました。
+
+=== lombok
+
+https://projectlombok.org/setup/gradle
+
+=== MapStruct
+
+https://mapstruct.org/documentation/installation/#gradle
