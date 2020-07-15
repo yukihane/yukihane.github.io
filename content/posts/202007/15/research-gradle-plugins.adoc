@@ -25,6 +25,8 @@ Mavenでは https://github.com/revelc/formatter-maven-plugin[formatter-maven-plu
 これは、Eclipseに組み込まれているフォーマッタをMavenプラグインとして利用できるようにしたもので、設定ファイルもEclipseのものを読み込め、IDEと設定を共通化できるのが強みです。
 (IDEと外部フォーマッタの挙動が少しでも違っているとかなりストレスを感じますよね)
 
+GradleでEclipseのフォーマッタ設定を流用できそうなものとしては https://github.com/diffplug/spotless[spotless] というものがあるようです。
+
 === checkstyle
 
 Gradleオフィシャルプラグンとして存在している？
