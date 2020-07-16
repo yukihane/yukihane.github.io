@@ -1,5 +1,5 @@
 ---
-title: "Spring Bootブックレビュー: Spring Boot 2 入門: 基礎から実演まで"
+title: "Spring Bootブックレビュー Spring Boot 2 入門: 基礎から実演まで"
 date: 2020-07-15T14:28:39Z
 draft: false
 tags:
