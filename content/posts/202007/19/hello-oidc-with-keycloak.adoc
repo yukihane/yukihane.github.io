@@ -1,0 +1,34 @@
+---
+title: "KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる"
+date: 2020-07-19T05:42:58Z
+draft: true
+tags:
+  - spring-boot
+  - spring-security
+  - oauth
+  - oidc
+---
+
+== はじめに
+
+Keycloakは https://www.keycloak.org/docs/latest/securing_apps/#java-adapters[クライアントライブラリ]も提供しており(Spring系のもので言うと、Spring Securityを利用しないもの、Spring Securityを利用するもの、の2種があるようです。詳細は https://github.com/keycloak/keycloak-quickstarts[実装サンプル]にあります)、Keycloakを利用するのであればそちらを使うのが良さそうです。
+
+ただし、今回は、最終的にKeycloakをIdPとして使うわけではなく、仮に利用しているだけなので、それらは用いず、Spring Securityの汎用機能 https://docs.spring.io/spring-security/site/docs/current/reference/html5/#oauth2client[Spring Security OAuth 2.0 Client] を利用します。
+
+== Keycloakセットアップ
+
+Keycloakのセットアップは https://www.keycloak.org/getting-started/getting-started-zip[Getting Started] 、 IdPとしての設定は https://qiita.com/mkyz08/items/62b1552fa9511fb11574[Qiita記事] を参考にしました。
+
+…ので、ここでの詳細記述は省略します。
+
+ただし、追加として、ClientsのSettingsでAccess Typeをconfidentialに変更する必要があります(https://keycloak-documentation.openstandia.jp/4.0.0.Final/ja_JP/server_admin/index.html#_client-credentials[参考])。
+そうするとCredentialsタブが表示され、client-secretが取得できるようになります。
+
+== クライアント(Spring Boot)設定
+
+はじめに、で記載した通り、 Spring Securityの機能を利用します。
+
+Spring Boot では、 https://start.spring.io/ で "OAuth 2.0 Client" を選ぶことで追加される https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-starters/spring-boot-starter-oauth2-client/build.gradle[`spring-boot-starter-oauth2-client`] を用いることになります。
+
+余談ですが(&結構何回も書いてきていますが)、 https://spring.io/projects/spring-security-oauth[`spring-security-auth2`] と、今回利用する `spring-security-oauth2-client` は名前が似ているだけで別系統のライブラリです(そして前者はdeprecatedです)。
+

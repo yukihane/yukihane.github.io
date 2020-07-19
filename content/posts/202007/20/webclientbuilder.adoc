@@ -1,0 +1,19 @@
+---
+title: "`WebClient` の 覚書"
+date: 2020-07-19T23:26:51Z
+draft: false
+tags:
+  - spring-boot
+---
+
+`RestTemplateBuilder` の `Bean` がsingleton-socpeかつちょっと変態的なインスタンス生成を行っていたので驚いた、というエントリを昔書きました:
+
+* https://yukihane.github.io/posts/201912/10/resttemplatebuilder/[RestTemplateBuilderに関する覚書]
+
+ところで、現時点で https://docs.spring.io/spring-framework/docs/5.2.7.RELEASE/javadoc-api/org/springframework/web/client/RestTemplate.html[`RestTemplate` は既に maintenance mode] なので、新規実装に用いるのは忍びないなあ、と思い、 `WebClient` を利用する前提で薦めることにしました。
+
+* `webflux` のモジュールに属している？ということは依存関係が追加になる？
+* `RestTemplateBuildr` と異なり `WebClient.Builder` クラスは Spring Boot所属のクラスではない
+* `WebClientAutoConfiguration` によってインジェクトされる `Builder` は prototype-scope。
+
+`RestTemplateBuilder` は singlton-scopeで何か設定を与える度にインスタンスを生成し直して…みたいな歪な感じになっていたのに対し、こちらは素直なものになっているようです。
