@@ -1,0 +1,38 @@
+---
+title: "クッキーの挙動は Same Origin Policy に従う…わけではない"
+date: 2020-07-19T11:59:29Z
+draft: false
+tag:
+  - web
+---
+
+次のQiitaのコメントを見て、そうなんだ、となりました:
+
+* https://qiita.com/github0013@github/items/e57c452de28f3918bf05#comment-4df8a971cd5c8c2d0673[Auth TokenをlocalStorageに入れようが、cookieに入れようがどっちもXSS危険性には無防備（同ドメイン内なら ...）]
+
+根拠を探してみたところ、同じくQiitaの記事
+
+* https://qiita.com/kubocchi/items/020352173d014cbf5332#%E5%95%8F2[君はできるかな？Cookie ＆ Same Origin Policyセキュリティークイズ4問]
+
+の出典として https://tools.ietf.org/html/rfc6265[RFC6265 HTTP State Management Mechanism]が挙げられており、そちらのドキュメントの冒頭にバッチリ書いてありました:
+
+[quote, 'https://tools.ietf.org/html/rfc6265#section-1[1. Introduction]']
+____
+(前略)Similarly, cookies for a given host are shared across all the ports on that host, even though the usual "same-origin policy" used by web browsers isolates content retrieved via different ports.
+____
+
+[quote, 'https://tools.ietf.org/html/rfc6265#section-8.5[8.5. Weak Confidentiality]']
+____
+Cookies do not provide isolation by port.  If a cookie is readable by
+   a service running on one port, the cookie is also readable by a
+   service running on another port of the same server.  If a cookie is
+   writable by a service on one port, the cookie is also writable by a
+   service running on another port of the same server.  For this reason,
+   servers SHOULD NOT both run mutually distrusting services on
+   different ports of the same host and use cookies to store security-
+   sensitive information.
+____
+
+ちなみに後続の文章ではスキーマ(`http` とか)が違っても送信されるよ、と書いてありまして、そういやその問題を抑制する方策のひとつとして `secure` があるのだな、と。
+
+逆に言えば、 `secure` 属性みたいなのが必要ってことはcookiesはsame-origin-policyに従っているわけではないのだな、という推測が可能ですね。
