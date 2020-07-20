@@ -12,7 +12,8 @@ tags:
 
 ところで、現時点で https://docs.spring.io/spring-framework/docs/5.2.7.RELEASE/javadoc-api/org/springframework/web/client/RestTemplate.html[`RestTemplate` は既に maintenance mode] なので、新規実装に用いるのは忍びないなあ、と思い、 `WebClient` を利用する前提で薦めることにしました。
 
-* `webflux` のモジュールに属している？ということは依存関係が追加になる？
+* 利用するには `spring-boot-starter-webflux` を依存関係に追加する。(https://docs.spring.io/spring-boot/docs/2.3.1.RELEASE/reference/htmlsingle/#boot-features-webclient-runtime[4.16.1. WebClient Runtime])
+** なお、Spring MVC と Spring WebFlux が同居する場合、デフォルトで Spring MVC が有効化されるhttps://docs.spring.io/spring-boot/docs/2.3.1.RELEASE/reference/htmlsingle/#boot-features-web-environment[4.1.8. Web Environment])。
 * `RestTemplateBuildr` と異なり `WebClient.Builder` クラスは Spring Boot所属のクラスではない
 * `WebClientAutoConfiguration` によってインジェクトされる `Builder` は prototype-scope。
 
