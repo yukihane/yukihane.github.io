@@ -4,7 +4,7 @@ date: 2020-07-14T23:47:11Z
 draft: false
 tags:
   - spring-security
-  - auth2.0
+  - oauth
   - spring-boot
 ---
 

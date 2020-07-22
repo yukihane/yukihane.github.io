@@ -3,7 +3,7 @@ title: "Spring Bootでは `-parameters` オプションは有効化されてい�
 date: 2020-02-20T06:25:59Z
 draft: false
 tags:
-  - sprig-boot
+  - spring-boot
   - mybatis
 ---
 

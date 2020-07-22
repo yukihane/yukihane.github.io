@@ -6,7 +6,7 @@ date: 2020-05-06T21:03:24Z
 # authors: []
 # categories: []
 # series: []
-tags: [k8s]
+tags: [kubernetes]
 # images: []
 # videos: []
 # audio: []
