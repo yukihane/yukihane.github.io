@@ -1,5 +1,5 @@
 logo = true
-logoText = "ZDoc"
+logoText = "発火後忘失"
 logoType = "short" # long, short
 description = "Yukihane official site"
 themeOptions = ["light", "dark"]
