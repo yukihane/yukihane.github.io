@@ -3,7 +3,7 @@
 # If a command fails then the deploy stops
 set -e
 
-alias hugo='docker run --rm -it -u $(id -u $USER) -v $(pwd):/src -v $(pwd)/output:/target klakegg/hugo:0.62.2-ext-asciidoctor'
+alias hugo='docker run --rm -it -u $(id -u $USER) -v $(pwd):/src -v $(pwd)/output:/target klakegg/hugo:0.74.1-ext-asciidoctor'
 
 printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
 
