@@ -3,8 +3,8 @@ identifier = "blog"
 name = "Blog"
 url = "blog"
 weight = 1
-# [[main]]
-# identifier = "docs"
-# name = "Docs"
-# url = "docs"
-# weight = 2
+[[main]]
+identifier = "docs"
+name = "Docs"
+url = "docs"
+weight = 2
