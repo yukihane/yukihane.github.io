@@ -5,7 +5,7 @@
 	path = themes/okayish
 	url = https://github.com/kongdivin/hugo-theme-okayish-blog.git
 [submodule "output"]
-	path = output
+	path = public
 	url = https://github.com/yukihane/yukihane.github.io.git
 [submodule "themes/zdoc"]
 	path = themes/zdoc
