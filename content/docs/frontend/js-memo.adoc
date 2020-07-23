@@ -1,0 +1,25 @@
+---
+title: "JS覚え書き"
+date: 2020-07-23T14:50:04Z
+draft: false
+---
+
+== TypeScript
+
+=== ReturnType
+
+https://redux.js.org/recipes/usage-with-typescript#type-checking-reducers[Redux reducer の 戻り値型]として初出。
+
+関数型を簡単に？定義するための構文だろうか。
+
+* https://www.typescriptlang.org/docs/handbook/utility-types.html#returntypet[公式サイトリンク]
+
+== JavaScript
+
+=== 角カッコ [] の戻り値
+
+* https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment[分割代入]
+
+関数の戻り値が配列で、それを分割代入する書式。 https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Array_destructuring[配列の分割代入]。
+
+波カッコ `{}` は https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring[オブジェクトの分割代入]。
