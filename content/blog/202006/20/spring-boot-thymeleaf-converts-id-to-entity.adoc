@@ -6,6 +6,8 @@ tags:
   - spring-boot
 ---
 
+追記: 2020-07-24にリリースされた2.3.2, 2.2.9 でこの問題は修正されました。ただし、2.1.16では未修正のままのようでした。
+
 Spring Bootは[Spring Data Commons](https://docs.spring.io/spring-data/commons/docs/current/reference/html/)を利用して、Thymeleaf(など)からのリクエストからオブジェクトへ変換する際、Sprint Data JPAと連携して、IDからエンティティオブジェクトへマッピングする機能があります(link:https://docs.spring.io/spring-data/commons/docs/2.3.1.RELEASE/reference/html/#mapping.property-population[3.2. Property population])。
 
 こんな機能があるなんて知りませんでした…。というのも、JPA Entityをそのままリクエストやレスポンスに使うことはなくて、いわゆるDTOへ変換したものを常に使っていたからでした。
