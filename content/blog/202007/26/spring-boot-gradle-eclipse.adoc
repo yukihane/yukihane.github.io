@@ -1,0 +1,51 @@
+---
+title: "GradleでSpring Bootプロジェクトを作成してSTS(Eclipse)でインポートする手順"
+date: 2020-07-25T18:11:15Z
+draft: false
+tags:
+  - spring-boot
+  - eclipse
+---
+
+== はじめに
+
+https://start.spring.io/[Spring Initializr]を使ってGradle形式でプロジェクトを作成した場合、どうやってSTS(Eclipse)へインポートするのか逡巡しました。
+
+https://github.com/eclipse/buildship/wiki/Migration-guide-from-STS-Gradle-to-Buildship[公式]では Buildship 推しのように見えるのですが、Buildshipを使うとlink:https://github.com/eclipse/buildship/issues/329[annotation processorの設定がまるっと落ちてしまい]Eclipse上で改めて手動設定が必要になってしまいます。
+
+結局、上記リンク先でも示唆されている通り、 https://plugins.gradle.org/plugin/com.diffplug.eclipse.apt[`com.diffplug.eclipse.apt`] プラグインを利用するのが最も無難なように思われます。(なお、 `net.ltgt.apt-eclipse` を薦めている記事などが存在しますが、これはもはやdeprecatedで、代わりにforkしてメンテが続けられているのが `com.diffplug.eclipse.apt` らしいです)
+
+== 手順
+
+https://start.spring.io/[Spring Initializr]  で作成した `build.gradle` を開き、冒頭の `plugins` セクションに https://docs.gradle.org/current/userguide/eclipse_plugin.html[`eclipse`] と https://plugins.gradle.org/plugin/com.diffplug.eclipse.apt[`com.diffplug.eclipse.apt`] を追加します。
+
+[source]
+----
+plugins {
+  id 'org.springframework.boot' version '2.3.2.RELEASE'
+  id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+  id 'java'
+  id 'eclipse'
+  id "com.diffplug.eclipse.apt" version "3.23.0"
+}
+----
+
+次に下記コマンドを実行し、Eclipseのプロジェクト構成ファイル群を生成します。
+
+[source,bash]
+----
+gradle eclipse
+----
+
+そして、Eclipseでインポートします。このとき選択するのは **Existing Projects into Workspace** です。Existing Gradle Projectではないことに注意してください(こちらを選ぶとBuildshipでインポートされ、annotation processorの設定が行われません)。
+
+Gradleの設定を変更した場合は、 `gradle eclipse` コマンドを実行し直し、インポートし直せばよいかと思います。
+
+なお、Gradleが種t力するディレクトリ(`/build`)と、Eclipseが出力するディレクトリ(`/bin`, `.apt_generated` など)が異なるのは敢えてのようです？
+
+
+== サンプルコード
+
+MapStructを利用し、アノテーションプロセッサにオプションを渡すサンプルです。
+
+* https://github.com/yukihane/hello-java/tree/master/spring/gradle-eclipse-example
