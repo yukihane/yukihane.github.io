@@ -1,0 +1,199 @@
+---
+title: "Rust環境セットアップ"
+date: 2020-07-24T00:41:54Z
+draft: false
+---
+
+[[windows_インストール]]
+== Windows インストール
+
+WinodowsにRustとEclipseベースIDEをインストールする手順。
+
+=== 資料
+
+* https://www.rust-lang.org/ja-JP/install.html[Rustのインストール]
+およびここからたどれる
+https://github.com/rust-lang-nursery/rustup.rs/blob/master/README.md#working-with-rust-on-windows[rustup
+- Working with Rust on Windows]
+* IDE(Eclipseベース):
+https://github.com/RustDT/RustDT/blob/latest/documentation/Installation.md[RustDT
+Installation]およびここからたどれる
+https://github.com/RustDT/RustDT/blob/latest/documentation/UserGuide.md#configuration[User
+Guide - Configuration]
+
+=== 事前知識
+
+[[windows_に関する特記事項]]
+==== Windows に関する特記事項
+
+上記のリンク中に説明があるが、Windows版はMSVC ABI と GNU
+ABIどちらか向けにビルドできる模様(なお、おそらくインストール後でもターゲットはhttps://github.com/rust-lang-nursery/rustup.rs/blob/master/README.md#working-with-rust-on-windows[`rustup`コマンドで変更(追加?)可能]だと思われる)。
+
+MSVCは必須ではない模様で、おそらく学習用途であればGNU
+ABIだけでも良いのではないか。
+
+MSVC ABI を利用するにはhttps://www.visualstudio.com/ja/downloads/[Build
+Tools for Visual Studio 2017]か、Visual
+Studio本体(VSを使用する場合、1.19より前のバージョンではhttp://hiratara.hatenadiary.jp/entry/2017/03/28/222553[少し別途対応が要るらしい])のインストールが必要。
+
+==== IDE/デバッガの種類
+
+https://forge.rust-lang.org/ides.html[Rust and IDEs · The Rust Forge]
+にIDEの一覧がある。
+
+現状、GDBデバッガ(つまりGNU
+ABI向け)対応しているのは本ページで説明しているEclipseプラグイン(RustDT)のみの模様。
+
+本ページ記載時MSVC ABI向けデバッガは無いと思い込んでいたが、Visual
+StudioもしくはVisual Studio Codeで実現できる模様。
+
+* http://www.jonathanturner.org/2017/03/rust-in-windows.html[Using Rust
+in Windows]
+* http://www.brycevandyk.com/debug-rust-on-windows-with-visual-studio-code-and-the-msvc-debugger/[Debug
+Rust on Windows with Visual Studio Code and the MSVC Debugger]
+
+=== 手順
+
+==== 事前準備
+
+MSVC ABI
+をターゲットにしたいのならhttps://www.visualstudio.com/ja/downloads/[Build
+Tools for Visual Studio 2017]をダウンロードしてインストールしておく。
+
+GNU ABI だけでよいのなら不要。本格開発でなく勉強目的なら不要だろう。
+この場合、インストール時に(もちろん後からでも編集可能だが)、default host
+triple を
+`x86_64-pc-windows-msvc`から`x86_64-pc-windows-gnu`に変更しておく。
+
+なお、インストールせずに次に記載している `rustup‑init.exe`
+を実行した場合、次の通りBuild Toolsインストールを促される。
+
+____
+Rust Visual C++ prerequisites
+
+Rust requires the Microsoft C++ build tools for Visual Studio 2013 or
+later, but they don't seem to be installed.
+
+The easiest way to acquire the build tools is by installing Microsoft
+Visual C++ Build Tools 2015 which provides just the Visual C++ build
+tools:
+
+` `http://landinghub.visualstudio.com/visual-cpp-build-tools[`http://landinghub.visualstudio.com/visual-cpp-build-tools`]
+
+Alternately, you can install Visual Studio 2015 or Visual Studio 2013
+and during install select the "C++ tools":
+
+` `https://www.visualstudio.com/downloads/[`https://www.visualstudio.com/downloads/`]
+
+Install the C++ build tools before proceeding.
+
+If you will be targetting the GNU ABI or otherwise know what you are
+doing then it is fine to continue installation without the build tools,
+but otherwise, install the C++ build tools before proceeding.
+
+Continue? (Y/n)
+____
+
+==== Rustインストール
+
+https://www.rust-lang.org/ja-JP/install.html
+から`rustup‑init.exe`をダウンロードし実行する。これだけでコンパイルはできるようになる。
+
+ここまでの手順通りインストールを進めるとMSVC
+ABIがデフォルトになっているためGDBデバッガでデバッグできない。GNU
+ABIをデフォルトに設定しなおす。(Build
+Toolsをインストールしていない場合はGNU
+ABIがデフォルトになっていると思われるので本コマンド実行は不要なはず)
+<syntaxhighlight lang="bash> rustup install stable-x86_64-pc-windows-gnu
+rustup set default-host x86_64-pc-windows-gnu
+
+あるいは、あらかじめ`rustup‑init.exe`実行時のインストールオプションで`default host triple`を`x86_64-pc-windows-gnu`に変更したうえでインストールを行う。
+
+後はIDEのための設定。
+
+* 次のコマンドを実行する(https://github.com/RustDT/RustDT/blob/latest/documentation/UserGuide.md#configuration[参考]):
+
+[source,bash]
+----
+rustup component add rust-src
+----
+
+==== IDEインストール
+
+http://www.oracle.com/technetwork/java/javase/downloads/index.html[Oracle
+JDK]をインストールする。
+
+http://archive.eclipse.org/eclipse/downloads/[Eclipseアーカイブダウンロードページ]
+> 最新バージョン > Platform Runtime Binary セクションの該当OSバイナリ
+をダウンロードして展開する。
+
+Eclipseを起動し、Help > Install New Software > Add で
+https://rustdt.github.io/releases/ を追加する。
+
+RustDT にチェックを入れてインストールする。その際、"Contact all update
+sites during install to find required
+software"にもチェックを入れておくこと(依存モジュールも同時にインストールされるようになる)。
+
+インストール完了後、Eclipse再起動を促されるので再起動する。
+
+Window > Preference メニューを開き、 Rust
+を選択する。このダイアログ入力欄に次のように値を設定する。
+
+[cols=",",options="header",]
+|===
+|項目名 |入力値
+|Directory
+|%USERPROFILE%\.rustup\toolchains\stable-x86_64-pc-windows-gnu
+
+|Rust 'src' Directory
+|%USERPROFILE%\.rustup\toolchains\stable-x86_64-pc-windows-gnu\lib\rustlib\src\rust\src
+|===
+
+＊ `%USERPROFILE%`は実際にはホームディレクトリを指定する。
+
+Racer, Rainicorn parse_describe,
+rustfmtはそれぞれDownloadボタンで自動設定できる(コンパイル挟むのでそれなりに時間がかかる)。実行すると、自動で次のようにpathが設定される。
+
+[cols=",",options="header",]
+|===
+|項目名 |入力値
+|Racer |%USERPROFILE%\.cargo\RustDT\bin\racer.exe
+
+|Rainicorn parse_describe
+|%USERPROFILE%\.cargo\RustDT\bin\parse_describe.exe
+
+|rustfmt |%USERPROFILE%\.cargo\RustDT\bin\rustfmt.exe
+|===
+
+==== デバッガ(GDB)及びコンパイラインストール
+
+デバッガ(GDB)をセットアップします。
+また、次のページに書かれていることに従って、コンパイラ(GCC)もインストールしておいた方が良いのかもしれません。
+
+* http://sunday-programming.hatenablog.com/entry/2016/05/07/231639[Rust
+Win GNU ABI で実際何か作る時は MinGW-w64 の gcc
+にパスを通しておくのが実質必須と言うお話 - 日曜プログラミング]
+
+これらはMSYS2を用いてセットアップします。link:MSYS2インストール[MSYS2インストールを参照してください]。
+
+なお、GDB(とGCC)だけでよいのであれば、http://tdm-gcc.tdragon.net/download[TDM-GCC]が容量も小さいのでこちらの方が良いかもしれません。
+ただし、ここではこの後Qtのビルドも行いたいので、MSYS2を選んでいます(複数のパッケージ導入はMSYS2上で管理する方が簡単)。
+
+== プロジェクト作成/実行
+
+=== 注意点
+
+現状、RustDTのメニューからプロジェクトを生成した場合、テストファイルは1つも生成されないが、この状態だと
+Run や Debug で "Executable file doesnt exist", "Program file doesnt
+exist"などと言われてしまう。
+
+対処法は
+`tests/dummy.rs`に空ファイルを生成すること。テストコードが1つもない場合上の事象になってしまうようだ(https://github.com/RustDT/RustDT/issues/30#issuecomment-235007244[参考]。なお他にもボタンを押したときの実行コマンドラインを変更するといったワークアラウンドもある模様
+)。
+
+=== プロジェクトインポート
+
+新規プロジェクト作成と同様の手順(New > Project > Rust > Rust Cargo
+Project)で進め、LocationでCargo.tomlを置いているディレクトリを指定すればよい。
+通常のプロジェクトインポート(Importメニュー)とは異なるので注意。
+

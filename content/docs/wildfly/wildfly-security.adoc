@@ -1,0 +1,15 @@
+---
+title: "Wildfly Security"
+date: 2020-07-24T01:14:53Z
+draft: false
+---
+
+[[security_realm_と_security_domain]]
+== Security-Realm と Security-Domain
+
+* EAP6：http://www.natswell.com/techcolumn/2013/08/22/eap6%EF%BC%9A%E3%81%9D%E3%81%AE6-%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%83%AC%E3%83%AB%E3%83%A0%E3%81%A8%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%83%89%E3%83%A1/[その6
+– セキュリティレルムとセキュリティドメイン – ナッツウェル 技術研究室]
+* remote ejb invocation で単一の認証方式(JAAS)を用いたい -
+https://developer.jboss.org/thread/203314[Security Realms, Security
+Domains, and remote EJB invocation | JBoss Developer]
+

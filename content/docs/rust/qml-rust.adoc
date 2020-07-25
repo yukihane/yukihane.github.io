@@ -1,0 +1,53 @@
+---
+title: "QML-rust"
+date: 2020-07-24T00:48:19Z
+draft: false
+---
+
+
+https://github.com/White-Oak/qml-rust
+
+== インストール
+
+リポジトリをcloneし、そのディレクトリに移動します。
+
+`git clone  `https://github.com/White-Oak/qml-rust.git[`https://github.com/White-Oak/qml-rust.git`] +
+`cd qml-rust`
+
+サブモジュールを取得します。
+
+`git submodule init` +
+`git submodule update`
+
+`build.rs` をMinGW向けに編集します。
+`cfg!(windows)` という箇所(2箇所)を `false` に置換します。
+
+....
+diff --git a/build.rs b/build.rs
+index 9371841f..a5043701 100644
+--- a/build.rs
++++ b/build.rs
+@@ -11,7 +11,7 @@ fn build_dos(cmake_cfg: &mut cmake::Config) {
+ 
+     println!("cargo:rustc-link-search=native={}", dst.join("lib").display());
+ 
+-    if cfg!(windows) {
++    if false {
+         println!("cargo:rustc-link-search=native={}", dst.join("build").join("lib").join("Release").display());
+     } else {
+         println!("cargo:rustc-link-search=native={}", dst.join("build").join("lib").display());
+@@ -75,7 +75,7 @@ fn find_qt5(_: &mut cmake::Config) {
+         }
+     }
+ 
+-    if cfg!(windows) {
++    if false {
+         let mut qt5_lib_path = PathBuf::new();
+         qt5_lib_path.push(env::var("QTDIR").unwrap_or(String::from("C:\\Qt\\5.7\\msvc2015_64")));
+ 
+....
+
+exampleを実行してみます。
+
+`cargo run --example properties`
+

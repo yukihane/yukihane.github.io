@@ -1,0 +1,60 @@
+---
+title: "Rust 勝手に FAQ"
+date: 2020-07-24T01:08:11Z
+draft: false
+---
+
+自身の勉強中にまとめているページなので誤っている可能性も大きいです。
+
+== 簡単に実行できる環境が欲しい
+
+Webブラウザ上で実行結果が確認できます:
+
+https://play.rust-lang.org/
+
+== 変数束縛の方が知りたい
+
+その変数の存在しないフィールドアクセスなどを行ってコンパイルエラーを起こさせるのが簡単そう。
+
+* https://stackoverflow.com/q/21747136/4506703[How do I print the type
+of a variable in Rust? - Stack Overflow]
+
+[[to_string_と_to_owned_どちらを使うのが正しいのか]]
+== to_string() と to_owned() どちらを使うのが正しいのか
+
+どちらでもよい。
+
+* http://qiita.com/uasi/items/3b08a5ba81fede837531[&str を String
+に変換する4つの方法 - Qiita]
+* https://mgattozzi.github.io/2016/05/26/how-do-i-str-string.html[How do
+I convert a &str to a String in Rust?]
+
+[[crate_type_とは]]
+== crate_type とは？
+
+* http://qiita.com/etoilevi/items/4bd4c5b726e41f5a6689[Rust の
+crate_type をまとめてみた - Qiita]
+* https://doc.rust-lang.org/reference/linkage.html[Linkage - The Rust
+Reference]
+
+== トレイト(trait)とは？
+
+____
+トレイト(trait)とは任意の型となりうる`Self`に対して定義されたメソッドの集合のことです。
+____
+
+* http://rust-lang-ja.org/rust-by-example/trait.html
+
+== "?"とは？
+
+`Result`に対するエラー伝播のためのショートカット(糖衣構文)。
+`Ok`なら内容を取得し、`Err`ならその`Err`でリターンする。
+戻り値が`Result`であるような関数内で使用できる。
+
+ありがちなのは、`main`関数の中で使用しようとしてコンパイルエラーになること。
+(`main`は戻り値が`()`であり、上の条件を満たさないので使用できない)
+
+参考:
+https://doc.rust-lang.org/book/second-edition/ch09-02-recoverable-errors-with-result.html[Recoverable
+Errors with `Result` - The Rust Programming Language]
+

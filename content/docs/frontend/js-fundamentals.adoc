@@ -1,0 +1,174 @@
+---
+title: "フロントエンド基礎知識"
+date: 2020-07-23T15:38:25Z
+draft: false
+---
+
+== 言語仕様
+
+=== JavaScriptの「オブジェクト」
+
+* JavaScriptのオブジェクトは、カッコ `{...}` で表される。
+* JavaScriptのオブジェクトは「プロパティ」の集合 footnote:[https://www.ecma-international.org/ecma-262/6.0/#sec-object-type]。
+* プロパティは、「データプロパティ」と「アクセサプロパティ」の2種類がある footnote:[http://numb86-tech.hatenablog.com/entry/2016/06/04/152912]。
+* データプロパティは、よく見かける  `key : value` の形のもの。
+* アクセサプロパティは `get` , `set` キーワードを使うgetter/setterのこと？
+* プロパティ属性(Property Attributes) footnote:[https://www.ecma-international.org/ecma-262/6.0/#sec-property-attributes]というものがある。
+
+=== プロパティ属性
+
+https://javascript.g.hatena.ne.jp/edvakf/20091117/1258442026
+
+ES3 互換のオブジェクト定義。
+[source,js]
+----
+var obj = { x : 1 };
+----
+これが以下と等価となる。
+[source,js]
+----
+var obj = Object.create(Object.prototype, 
+  { x : {
+    value : 1,
+    writable : true,     // x の値が変更できる
+    enumerable : true,   // for (var k in obj) で x を辿ることができる
+    configurable : true  // 下に説明
+  }}
+)
+----
+
+=== メソッド定義の簡略構文
+
+https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Functions_and_function_scope/Method_definitions
+
+[source,js]
+----
+var obj = {
+  foo() {},
+  bar() {}
+};
+----
+
+上のような構文はデータプロパティの形式( `キー : バリュー` )でないのでアクセサプロパティか？と思うが違う。
+単に下のものを簡略した書式であり、データプロパティ。
+
+[source,js]
+----
+var obj = {
+  foo: function() {},
+  bar: function() {}
+};
+[source,js]
+----
+
+== Webブラウザ
+
+=== Windows8.1にはEdgeはインストールできない(IE11まで)
+
+MS Edgeをインストールできるのは現時点ではWindows10のみ。
+
+Windows8.1の延長サポート期限は *2023年1月10日* であり、このOSにインストールできるMS製ブラウザは *IE11* だけ。
+
+
+* http://www.atmarkit.co.jp/ait/articles/1405/30/news092.html[各Windows OSで利用できるIEのバージョンを知る：Tech TIPS - ＠IT]
+* https://www.microsoft.com/ja-jp/atlife/article/windows10-portal/eos.aspx[ご存じですか? OS にはサポート期限があります! - Microsoft atLife]
+
+== HTML
+
+=== HTMLは他のHTMLをインクルードできない
+
+(Webページの設計を行いたかったのでHTML解説書籍を見て回ったが参考になる記述が全く見つからなかった。
+なぜならばHTMLにそのような機能がなかったからだ、という話。)
+
+
+例えば複数のページ(htmlファイル)に共通ヘッダ(、共通フッタ、共通メニュー、等)を表示させたい場合、
+普通に考えればヘッダ部を別ファイルに書き、各ページではそのファイルをインクルードすれば良いが、そのような仕組みはHTML自体は持っていないと考えてよい(iframeを使えば実現可能だが、今回提示したような用途には向いていないようだ。あくまで「元々分離されたもの」を埋め込むのに使うべき？例えばSNSシェアボタンなど)。
+
+そのようにしたい場合、現在ではおおむね2種類の方法のどちらかで解決している。
+
+* サーバサイドインクルード(SSI; Server-Side Include)
+** WebサーバがあらかじめHTMLを結合した上でクライアントへ送信する。つまりWebサーバの機能。
+** Webフレームワークが提供しているテンプレートエンジンの機能もサーバサイドという意味ではこちらか。
+* JavaScriptでリクエストを投げ、その結果を結合する。
+
+ただし、将来的には上記の話は正しくない。 http://w3c.github.io/webcomponents/spec/imports/[HTML Imports] という仕様が実装されればHTML自体がインクルード機能を持つようになるらしい(…という話だったが、実装は取りやめになる方向？)。
+現状はChromeのみ実装の模様(https://caniuse.com/#search=html%20imports[参考])。
+
+* https://www.html5rocks.com/ja/tutorials/webcomponents/imports/[HTML Imports: ウェブのための #include - HTML5 Rocks]
+
+=== WebComponents界隈の用語について
+
+==== WebComponents
+
+HTML仕様の一部。(※おそらくこれは正しい表現ではない)
+
+ブラウザ上で動作するUI(GUI)について、コンポーネント化できるようにする仕様の集合体。
+HTML importsもWebComponentsの一部。
+
+==== https://github.com/webcomponents/webcomponentsjs[webcomponents.js]
+
+WebComponentsを様々なブラウザ(これらはそれぞれ実装が異なる)で動作するようにするライブラリの名前。
+単なる1ライブラリの名前に仕様名を冠するのはどうなの…？まぎらわしい。
+ただ提供ドメイン(https://www.webcomponents.org/polyfills/[webcomponents.org])から想像するに、実質上のWebComponents標準ライブラリなのだろう。
+
+ちなみにこういったブラウザ間の差異を吸収してどのブラウザでも同じような機能をできるようにする実装のことをJS界隈ではpolyfillと呼ぶ。
+
+==== https://www.polymer-project.org/[polymer]
+
+歴史的な前後関係を置いておくと、一言で言えば webcomponents.js のラッパー＋便利機能が付いたライブラリ。
+
+Googleの方が書かれた解説がわかりやすい(ただし古いので無くなったものもあるようだ)。
+文中のplatform.jsが現在のwebcomponents.js。
+
+http://steps.dodgson.org/b/2013/05/19/polymer-and-web-components/[Polymer と Web Components - steps to phantasien]
+
+== JavaScript
+
+=== <プロダクト名>.js(例えばVue.jsとか) の .js の意味
+
+単にJavaScript向けプロダクトという意味の符牒。別に1ファイルから成るとかいう意味ではない。
+
+Java向けプロダクトである Log4J や Twitter4J の '''4J''' と同じ意味合い。
+
+== WebComponents / Polymer
+
+=== Polymer Elements の名前
+
+旧来 `core-xxx` と呼んでいたものはv1かv2で `iron-xxx` という名前に変わった。
+
+=== Polymer2.0はtype-extensionをサポートしない
+
+* https://www.polymer-project.org/2.0/docs/about_20#type-extension
+
+https://www.youtube.com/watch?v=qzh56Ja1eaw&t=3h46m35s で説明していた頃(v0.x)には存在していたようだが、現在はない。
+ここで説明している
+
+[source,html]
+----
+<input type="text" is="core-input" value="{{text}}">
+----
+は、
+[source,html]
+----
+<iron-input>
+  <input type="text" value="{{text}}">
+</iron-input>
+----
+と書くようだ footnote:[https://www.webcomponents.org/element/PolymerElements/iron-input]。
+
+== Bower
+
+* https://bower.io/blog/
+
+Bower自身がコミュニティからもはやdeprecatedとみなされている。
+新規プロジェクトで仕様すべきでは無さそう。
+
+=== bower install
+
+[source,bash]
+----
+bower install  PolymerElements/iron-list
+----
+
+としたときの引数 `PolymerElements/iron-list` はgithub.comのリポジトリ名の模様。
+例えばこの例の場合だと https://github.com/PolymerElements/iron-list 。

@@ -1,0 +1,24 @@
+---
+title: "Kubernetes"
+date: 2020-07-23T17:03:23Z
+draft: false
+---
+
+== Kubernetesとは？
+
+* https://www.redhat.com/ja/topics/containers/what-is-kubernetes[Kubernetes
+とは(Red Hat社サイト)]
+
+____
+Linux
+コンテナを実行しているホストをまとめてクラスタ化できるということです。Kubernetes
+はこれらのクラスタを容易に、そして効率的に管理するために役立ちます。
+____
+
+== 試してみる/動かしてみる
+
+https://kubernetes.io/docs/user-journeys/users/application-developer/foundational/[オフィシャルドキュメント]にMinikubeで試して見る方法が書かれているのでこれに従う。
+
+チュートリアルの内容はこちらに日本語で解説されている:
+
+* https://speakerdeck.com/hihihiroro/kubernetesniru-men-sitai[Kubernetesに入門したい]

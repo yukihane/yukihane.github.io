@@ -1,0 +1,58 @@
+---
+title: "hugo"
+date: 2020-07-23T17:01:48Z
+draft: false
+---
+
+AsciiDoc形式でblogを書くためにHugoをセットアップする。
+Hugo自体はGo言語製、またAsciiDocの処理にはAsciidoctorが必要で、こちらはRuby製。
+これらの環境をローカルで行いたくないのでDockerコンテナ上で実行させることにする。
+
+https://discourse.gohugo.io/t/klakeggs-wonderful-hugo-docker-image-update-thread/20347[klakeggさん？]のイメージを用いることにする。
+
+* https://hub.docker.com/r/klakegg/hugo/[dockerhub]
+
+== quickstart
+
+公式サイトの https://gohugo.io/getting-started/quick-start/[Quick Start]
+節を実行してみる。
+
+[[step_1_install_hugo]]
+=== Step 1: Install Hugo
+
+次の設定を`.bashrc`に設定する。ダブルクオートでなく、**シングルクオートで囲う**こと。
+
+....
+# https://github.com/klakegg/docker-hugo
+alias hugo='docker run --rm -it -u $(id -u $USER) -v $(pwd):/src -v $(pwd)/output:/target klakegg/hugo:0.62.2-ext-asciidoctor'
+alias hugo-server='docker run --rm -it -u $(id -u $USER) -v $(pwd):/src -v $(pwd)/output:/target klakegg/hugo:0.62.2-ext-asciidoctor server'
+....
+
+これで、`hugo`をタイプすればDockerコンテナの中でhugoコマンドが実行される。
+
+[[step_2_create_a_new_site]]
+=== Step 2: Create a New Site
+
+....
+hugo new site quickstart
+....
+
+を実行すると、カレントディレクトリに`quickstart`,
+`output`ディレクトリができる。
+
+`output`は不要なので削除する(alias設定したコマンド上、カレントディレクトリに、本来不要でも、常にできてしまう):
+
+....
+rmdir output
+....
+
+Step 3 以降は特に違いがなかったので省略。
+
+== 初期設定
+
+=== 参考リンク
+
+* https://gohugo.io/getting-started/configuration/[Configure Hugo] -
+config.toml の設定内容
+* https://gohugo.io/content-management/front-matter/[Front Matter] -
+postのヘッダに書く内容

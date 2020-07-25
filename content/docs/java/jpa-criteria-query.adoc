@@ -1,0 +1,61 @@
+---
+title: "JPA Criteria Query"
+date: 2020-07-23T18:37:41Z
+draft: false
+---
+
+https://docs.oracle.com/javaee/6/tutorial/doc/gjivm.html
+
+[source,java]
+----
+            // CriteriaBuilder を使用したクエリ構築
+            // ここでは メールアドレス hello@example.co.jp を持つ Member の検索を行います
+
+            // CriteriaBuilder インスタンスを生成します.
+            final CriteriaBuilder cb = em.getCriteriaBuilder();
+
+            // CriteriaQuery インスタンスを生成します.
+            // ここで引数に指定するのは, クエリ実行結果として期待する型です.
+            final CriteriaQuery<Member> cq = cb.createQuery(Member.class);
+
+            // FROM句で指定する情報相当のものをセットします.
+            // クエリルートインスタンスが生成されます.
+            final Root<Member> member = cq.from(Member.class);
+
+            // where で条件を設定します.
+            // フィールドの指定にはMetamodel(エンティティ名にアンダーバーを付与したもの)が使えます.
+            // where member.mailaddress = 'hello@example.co.jp'
+            // と指定したようなイメージです
+            cq.where(cb.equal(member.get(Member_.mailAddress), "hello@example.co.jp"));
+
+            // クライテリアクエリが完成したら, そのインスタンスからクエリを生成します.
+            final TypedQuery<Member> q = em.createQuery(cq);
+
+            // ただ1つの結果となることを期待するクエリであれば
+            // getSingleResult メソッドを実行し結果を取得します.
+            final Member res = q.getSingleResult();
+----
+
+[source,java]
+----
+            // CriteriaBuilder を使用したクエリ構築 その2
+            // リレーションシップが関係するクエリ.
+            // Division "DIV" に所属する Member を取得する例.
+
+            final CriteriaBuilder cb = em.getCriteriaBuilder();
+            final CriteriaQuery<Member> cq = cb.createQuery(Member.class);
+
+            final Root<Member> member = cq.from(Member.class);
+
+            // リレーションシップをたどるにはjoinメソッドを使用します.
+            final Join<Member, Division> division = member.join(Member_.division);
+
+            // 関連先のエンティティの条件指定も, 前回と同様です.
+            cq.where(cb.equal(division.get(Division_.name), "DIV"));
+
+            final TypedQuery<Member> q = em.createQuery(cq);
+
+            // 複数件取得できる可能性があるのでgetResultListを用います.
+            final List<Member> res = q.getResultList();
+----
+
