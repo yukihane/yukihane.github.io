@@ -1,0 +1,248 @@
+---
+title: "Chocolatey"
+date: 2020-07-26T02:52:35Z
+draft: false
+---
+
+https://chocolatey.org/
+
+== インストール
+
+[[powershell_プロファイル作成]]
+=== PowerShell プロファイル作成
+
+プロファイルが存在しない状態でChocolateyインストールを行うと警告が出て気持ち悪いので、プロファイルがなければ先に作成しておく。ただ、PowerShell2では挙動は変わらないようなので無視しても良さそう。
+
+参考:
+https://technet.microsoft.com/ja-jp/scriptcenter/powershell_owner06.aspx
+
+PowerShellを起動し
+
+[source,powershell]
+----
+$profile
+----
+
+を実行。これがプロファイル設定ファイルなので、ここにファイルが存在しなければファイルを作成する。
+
+https://github.com/chocolatey/choco/issues/991[Not setting tab
+completion · Issue #991 · chocolatey/choco]
+によるとファイルサイズが4バイト以上無ければならないようなので、適当に数文字コメントを書いておく。このコメントはインストール後削除すれば良い。
+
+[[chocolatey_インストール]]
+=== Chocolatey インストール
+
+参考: https://chocolatey.org/install
+
+管理者権限無しでインストールする方法もあるようだが、以下では管理者権限でインストールする前提。
+PowerShellやコマンドプロンプトを右クリックで「管理者として実行」メニューから実行し、その上でコマンドを叩く。
+
+PowerShell3では冒頭に記載されているコマンドでインストールできるのだろうが、Windows7のPowerShell2では実行できなかった。
+
+[source,winbatch]
+----
+PS C:\Windows\system32> iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
+用語 'iwr' は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前として認識されません。名前が
+正しく記述されていることを確認し、パスが含まれている場合はそのパスが正しいことを確認してから、再試行してください。
+発生場所 行:1 文字:4
++ iwr <<<<  https://chocolatey.org/install.ps1 -UseBasicParsing | iex
+    + CategoryInfo          : ObjectNotFound: (iwr:String) []、CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+----
+
+代わりに、https://chocolatey.org/install#alternative-installation-options[Alternative
+Installation Options]のCommand Lineに書いてある方法を採用。
+
+[source,winbatch]
+----
+C:\Windows\system32>@powershell -NoProfile -ExecutionPolicy unrestricted -Command "(iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))) >$null 2>&1" && SET PATH="%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+WARNING: It's very likely you will need to close and reopen your shell
+  before you can use choco.
+WARNING: You can safely ignore errors related to missing log files when
+  upgrading from a version of Chocolatey less than 0.9.9.
+  'Batch file could not be found' is also safe to ignore.
+  'The system cannot find the file specified' - also safe.
+PATH environment variable does not have C:\ProgramData\chocolatey\bin in it. Adding...
+WARNING: Chocolatey profile installed. Reload your profile - type . $profile
+WARNING: Tab completion does not currently work in PowerShell v2.
+ Please upgrade to a more recent version of PowerShell to take advantage of tab completion.
+----
+
+幾つか警告が出ているがインストールされた模様。
+環境変数 `ChocolateyInstall` にインストール先(デフォルトでは `C:\ProgramData\chocolatey` )が設定されたりしている。
+
+インストール後、コマンドプロンプトを新しく起動し、 `choco` コマンドを実行してバージョンが出力されればOKだと思われる。
+
+[[補足_プロファイル設定ファイルがなかった場合]]
+=== 補足: プロファイル設定ファイルがなかった場合
+
+[source,winbatch]
+----
+C:\Windows\system32>@powershell -NoProfile -ExecutionPolicy unrestricted -Command "(iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))) >$null 2>&1" && SET PATH="%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+WARNING: It's very likely you will need to close and reopen your shell
+  before you can use choco.
+WARNING: You can safely ignore errors related to missing log files when
+  upgrading from a version of Chocolatey less than 0.9.9.
+  'Batch file could not be found' is also safe to ignore.
+  'The system cannot find the file specified' - also safe.
+PATH environment variable does not have C:\ProgramData\chocolatey\bin in it. Adding...
+警告: Not setting tab completion: Profile file does not exist at
+'C:\Users\xxx\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1'.
+----
+
+インストール後、次の内容が `$profile` ファイルに追記されるので、もしインストール時にこのような警告を受け取っても、後から手で編集すればよいだろう。
+なお、先に示した設定ファイルが存在する場合のインストールログから分かる通り、いずれにせよWindows7のPowerShell2では補完は機能しない模様。
+
+[source,powershell]
+----
+# Chocolatey profile
+$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+if (Test-Path($ChocolateyProfile)) {
+  Import-Module "$ChocolateyProfile"
+}
+----
+
+== アンインストール
+
+参考: https://chocolatey.org/docs/uninstallation
+
+アンインストールスクリプトもあるようだが、手動で行うことにする。
+
+* インストールディレクトリ: `C:\ProgramData\chocolatey` を削除する.
+* 環境変数: `ChocolateyInstall`, `ChocolateyBinRoot`,
+`ChocolateyToolsLocation`を削除する. また,
+`PATH`にもchocolateyのものが含まれているので削る。
+
+なお当方の環境では、環境変数は `ChocolateyInstall` しか存在しなかった。
+
+古いバージョンではインストールディレクトリが異なっていたりするようなので、正確な情報は先に示したURLを参照するのが良い。
+
+[[パッケージ_インストール]]
+== パッケージ インストール
+
+ここではpython(Python3)をインストールしてみる。
+
+[source,winbatch]
+----
+C:\Windows\system32>cinst python
+Chocolatey v0.10.3
+Installing the following packages:
+python
+By installing you accept licenses for the packages.
+
+python3 v3.6.0 [Approved]
+python3 package files install completed. Performing other installation steps.
+The package python3 wants to run 'chocolateyInstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider setting
+ 'allowGlobalConfirmation'. Run 'choco feature -h' for more details.
+Do you want to run the script?([Y]es/[N]o/[P]rint): y
+
+Using system proxy server '[xxxx]'.
+Downloading python3 64 bit
+  from 'https://www.python.org/ftp/python/3.6.0/python-3.6.0-amd64.exe'
+Using system proxy server 'xxxx'.
+Progress: 100% - Completed download of C:\Users\xxx\AppData\Local\Temp\chocolatey\python3\3.6.0\python-3.6.0-amd64.exe
+(30.05 MB).
+Download of python-3.6.0-amd64.exe (30.05 MB) completed.
+Hashes match.
+Installing python3...
+python3 has been installed.
+Installed to 'C:\Python36'
+Environment Vars (like PATH) have changed. Close/reopen your shell to
+ see the changes (or in powershell/cmd.exe just type `refreshenv`).
+ The install of python3 was successful.
+  Software installed as 'EXE', install location is likely default.
+
+python v3.6.0 [Approved]
+python package files install completed. Performing other installation steps.
+ The install of python was successful.
+  Software install location not explicitly set, could be in package or
+  default install location if installer.
+
+Chocolatey installed 2/2 packages. 0 packages failed.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+----
+
+新しく(一般権限で)コマンドプロンプトを起動し `python --version` を打ってみるとインストールされているのが確認できる。
+
+本題とは外れるが、上記インストールログ中に `refreshenv` コマンドというものが登場するので、インストールした直後のコマンドプロンプトで挙動を確認しておく。
+
+[source,winbatch]
+----
+C:\Windows\system32>python --version
+'python' は、内部コマンドまたは外部コマンド、
+操作可能なプログラムまたはバッチ ファイルとして認識されていません。
+
+C:\Windows\system32>refreshenv
+Refreshing environment variables from registry for cmd.exe. Please wait...Finished..
+
+C:\Windows\system32>python --version
+Python 3.6.0
+----
+
+[[パッケージ_アンインストール]]
+== パッケージ アンインストール
+
+`python` パッケージをインストールすると、 `python`, `python3` パッケージがインストールされるので、両方アンインストールする必要がある。
+
+現在インストールされているパッケージ一覧は `choco version all` で参照できる。
+
+[source,winbatch]
+----
+C:\Windows\system32>choco version all
+Chocolatey v0.10.3
+
+DEPRECATION NOTICE - choco version command is deprecated and will be
+ removed in version 1.0.0. Please use `choco upgrade pgkname --noop`
+ instead.
+_ Chocolatey:ChocolateyVersionCommand - Noop Mode _
+chocolatey v0.10.3 is the latest version available based on your source(s).
+python v3.6.0 is the latest version available based on your source(s).
+python3 v3.6.0 is the latest version available based on your source(s).
+----
+
+アンインストールを実行。
+
+[source,winbatch]
+----
+C:\Windows\system32>cuninst python
+Chocolatey v0.10.3
+Uninstalling the following packages:
+python
+
+python v3.6.0
+ Skipping auto uninstaller - No registry snapshot.
+ python has been successfully uninstalled.
+
+Chocolatey uninstalled 1/1 packages. 0 packages failed.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+C:\Windows\system32>cuninst python3
+Chocolatey v0.10.3
+Uninstalling the following packages:
+python3
+
+python3 v3.6.0
+ Running auto uninstaller...
+ Auto uninstaller has successfully uninstalled python3 or detected previous uninstall.
+ Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
+ Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
+ Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
+ Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
+ Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
+ Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
+ Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
+ Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
+ Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
+ Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
+ Auto uninstaller has successfully uninstalled python3 or detected previous uninstall.
+ python3 has been successfully uninstalled.
+Environment Vars (like PATH) have changed. Close/reopen your shell to
+ see the changes (or in powershell/cmd.exe just type `refreshenv`).
+
+Chocolatey uninstalled 1/1 packages. 0 packages failed.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+----
+
+インストール時に環境変数 `PATH` にPython関係のものがいくつか追加されていたようだが、このアンインストール手順では削除されない。手動で行う必要がある。
+

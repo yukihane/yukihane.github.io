@@ -1,0 +1,56 @@
+---
+title: "GWT用語集"
+date: 2020-07-26T02:36:40Z
+draft: false
+---
+
+== JsInterop
+
+https://discuss.kotlinlang.org/t/interop-with-googles-j2cl-what-would-it-take/2991[こちら]より:
+
+[quote]
+____
+a spec & collection of Java annotations for interoperability with
+JavaScript. A way to “consume” existing JavaScript libraries as well
+as to export Java code for consumption from JS
+____
+
+* https://docs.google.com/document/d/10fmlEYIHcyead_4R1S5wKGs1t2I7Fnp_PaNaa7XTEk0/edit?usp=sharing
+* http://redhat.slides.com/mbarkley/gwt-con-2016-4/fullscreen/[ERRAI 4
+AND JSINTEROP BEST PRACTICES] - Erraiに特化した話でなく基礎の説明がある
+
+== J2CL
+
+元々は**Java to Closure**の略称だと思われる。
+Javaのソースコードを https://developers.google.com/closure/[Goole Colusure Tools]のエコシステムに乗せる(乗せられるようにする)こと(あるいはそのような変換ツール)をJ2CLと呼称している？
+
+* https://discuss.kotlinlang.org/t/interop-with-googles-j2cl-what-would-it-take/2991
+
+こちらの動画(39m15sあたり。実際はもう少し前からJ2CLの話をしている)に説明がある。
+
+* https://www.youtube.com/watch?v=P4VhPck5s_g&t=39m15s
+
+== https://github.com/google/elemental2[Elemental2]
+
+::
+  _Elemental2 provides type checked access to all browser APIs for Java
+  code._
+
+Java(GWT)からブラウザAPIを使用するためのライブラリ。
+下記リンクはver1のものだが、Example
+Usageを見ればおおむね理解できると思われる。
+
+* Elemental1に関するドキュメント:
+http://www.gwtproject.org/articles/elemental.html
+
+== JSO
+
+JavaScriptObjectの略と思われる。
+http://www.gwtproject.org/javadoc/latest/com/google/gwt/core/client/JavaScriptObject.html[`com.google.gwt.core.client.JavaScriptObject`]クラスを継承したクラスの総称。
+
+* http://www.gwtproject.org/doc/latest/DevGuideCodingBasicsOverlay.html#javascript-objects
+
+== TURDUCKENパターン
+
+巨大なモジュールを分割統治するデザインパターン名。link:GWTコンパイル時間増大問題[GWTコンパイル時間増大問題参照]。
+

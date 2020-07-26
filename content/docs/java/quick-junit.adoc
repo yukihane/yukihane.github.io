@@ -1,0 +1,81 @@
+---
+title: "QuickJUnit"
+date: 2020-07-26T02:43:41Z
+draft: false
+---
+
+== マニュアルなど
+
+* https://github.com/yukihane/quick-junit/blob/develop/ja/README.textile
+(https://github.com/yukihane/quick-junit/blob/develop/README.textile[英版]にのみ書かれている情報も)
+* http://web.archive.org/web/20080422234145/www.morijp.com/masarl/homepage3.nifty.com/masarl/article/eclipse/quick-junit.html
+
+== モジュール
+
+以下の種類のfeatureが`repository/target/repository/`以下に生成される:
+
+* junit.extensions.eclipse.quick.feature
+* junit.extensions.eclipse.quick.mock.feature
+* junit.extensions.eclipse.quick.notifications.feature
+* junit.extensions.eclipse.quick.pde.feature
+* junit.extensions.eclipse.quick.process.feature
+* junit.extensions.eclipse.quick.template.feature
+
+=== junit.extensions.eclipse.quick.feature
+
+* `Ctrl+9`: プロダクトコードとテストコード切り替え
+* `Ctrl+0`: テスト実行
+* `Ctrl+Shift+0`: テストデバッグ実行
+
+=== mock
+
+Mockito Integration
+
+=== notifications
+
+テスト結果を通知する機能？
+
+* http://d.hatena.ne.jp/kompiro/20110626/1309093111
+
+=== pde
+
+* `Ctrl+-`: PDEテスト実行
+* `Ctrl+Shift+-`: PDEテストデバッグ実行
+
+=== process
+
+____
+This plugin provides to launch a process when the test is ended.This
+feature’s main purpose is to notify test results.
+____
+
+=== template
+
+コンテントアシストの追加
+
+* http://d.hatena.ne.jp/kompiro/20101119/1290179113
+
+== 開発
+
+次のようなエラーが出力される。現行バージョンのEclipseで動作させるためには変更が必要な模様。
+
+____
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2017-01-23
+23:26:12.178 !MESSAGE Unable to acquire PluginConverter service during
+generation for:
+/Users/dewa/opt/raclipsemac1.2.0/Eclipse.app/Contents/Eclipse/dropins/quickjunit/eclipse/features/junit.extensions.eclipse.quick.feature-0.7.0-SNAPSHOT.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2017-01-23
+23:26:12.206 !MESSAGE Unable to acquire PluginConverter service during
+generation for:
+/Users/dewa/opt/raclipsemac1.2.0/Eclipse.app/Contents/Eclipse/dropins/quickjunit/eclipse/features/junit.extensions.eclipse.quick.feature-0.7.0-SNAPSHOT.jar.
+____
+
+* http://stackoverflow.com/questions/24896960/in-eclipse-4-4-rcp-builds-the-service-plugin-converter-could-not-be-acquired
+
+変更せずに使用するには *Eclipse 2.0 Style Plugin Support*
+プラグインを別途インストールする必要がある(4.4以降footnote:[https://bugs.eclipse.org/bugs/show_bug.cgi?id=407312[Bug
+407312 – Remove support for 2.0 old style plugin support]])。
+
+各Eclipseバージョンのアップデートサイトにアクセスすれば取得できる。URLはデフォルトで登録済みのはずなので、そこから選択すれば良い。
+
