@@ -117,3 +117,22 @@ Usernameに `myuser` を、それ以外の項目も適当に埋め "Save" ボタ
 このタブで client-secret を確認できます(後ほど使用します)。
 
 これで認可サーバであるKeycloak側の設定は終了です。
+
+== curl コマンドを用いた接続確認
+
+ここまでに設定したKeycloakに `curl` コマンドでアクセスして想定通り情報が取得できるか確認してみます。
+
+=== 必要な情報の確認
+
+* 次のURLにアクセスすることで OpenID Connect configuration が確認できます。エンドポイントの設定などはここの情報を参照して行うことになります。
+** http://localhost:8080/auth/realms/myrealm/.well-known/openid-configuration
+
+=== 実行
+
+==== 認可リクエスト
+
+参考: https://openid-foundation-japan.github.io/rfc6749.ja.html#code-authz-req
+
+|===
+|authorization_endpoint |http://localhost:8080/auth/realms/myrealm/protocol/openid-connect/auth
+|===
