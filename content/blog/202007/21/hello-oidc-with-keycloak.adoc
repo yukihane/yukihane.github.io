@@ -1,7 +1,7 @@
 ---
 title: "KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる"
 date: 2020-07-20T18:54:23Z
-draft: true
+draft: false
 tags:
   - spring-boot
   - spring-security
@@ -126,9 +126,103 @@ Usernameに `myuser` を、それ以外の項目も適当に埋め "Save" ボタ
 
 == クライアント(Spring Boot)設定
 
+コードはこちらになります。
+
+* https://github.com/yukihane/hello-java/tree/master/spring/oidc-example
+
+
 はじめに、で記載した通り、 Spring Securityの機能を利用します。
 
 Spring Boot では、 https://start.spring.io/ で "OAuth 2.0 Client" を選ぶことで追加される https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-starters/spring-boot-starter-oauth2-client/build.gradle[`spring-boot-starter-oauth2-client`] を用いることになります。
 
 余談ですが(&結構何回も書いてきていますが)、 https://spring.io/projects/spring-security-oauth[`spring-security-auth2`] と、今回利用する `spring-security-oauth2-client` は名前が似ているだけで別系統のライブラリです(そして前者はdeprecatedです)。
 
+=== spring-boot-starter-oauth2-client 依存関係追加
+
+Spring Boot で auto-configuration を効かせてOAuth 2.0 Login/Clientを利用するには `spring-boot-starter-oauth2-client` を用います。
+
+.link:https://github.com/yukihane/hello-java/blob/0d49734/spring/oidc-example/pom.xml#L22-L25[pom.xml]
+----
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-oauth2-client</artifactId>
+    </dependency>
+----
+
+=== security config 設定
+
+link:{{< relref "/blog/202007/20/spring-security-oauth-2.0-client.adoc" >}}[Spring Security OAuth 2.0 Client の auto-configuration] で記載した通り、
+`OAuth2WebSecurityConfiguration` で次のような自動設定が為されていますので、このままとします。
+
+
+.link:https://github.com/spring-projects/spring-boot/blob/v2.3.2.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2WebSecurityConfiguration.java[OAuth2WebSecurityConfiguration.java]
+----
+class OAuth2WebSecurityConfiguration {
+
+	@Bean
+	@ConditionalOnMissingBean
+	OAuth2AuthorizedClientService authorizedClientService(ClientRegistrationRepository clientRegistrationRepository) {
+		return new InMemoryOAuth2AuthorizedClientService(clientRegistrationRepository);
+	}
+
+	@Bean
+	@ConditionalOnMissingBean
+	OAuth2AuthorizedClientRepository authorizedClientRepository(OAuth2AuthorizedClientService authorizedClientService) {
+		return new AuthenticatedPrincipalOAuth2AuthorizedClientRepository(authorizedClientService);
+	}
+
+	@Configuration(proxyBeanMethods = false)
+	@ConditionalOnMissingBean(WebSecurityConfigurerAdapter.class)
+	static class OAuth2WebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
+
+		@Override
+		protected void configure(HttpSecurity http) throws Exception {
+			http.authorizeRequests((requests) -> requests.anyRequest().authenticated());
+			http.oauth2Login(Customizer.withDefaults());
+			http.oauth2Client();
+		}
+
+	}
+
+}
+----
+
+=== プロパティ
+
+.link:https://github.com/yukihane/hello-java/blob/0d49734ccc5758e05a2acc9d472f1acd43b0e6a3/spring/oidc-example/src/main/resources/application.yml[application.yml]
+----
+server:
+  port: 8081
+
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          mykeycloak:
+            # https://www.keycloak.org/docs/latest/securing_apps/index.html#endpoints-2
+            # http://localhost:8080/auth/realms/myrealm/.well-known/openid-configuration
+            issuer-uri: http://localhost:8080/auth/realms/myrealm
+            # https://www.keycloak.org/docs/11.0/securing_apps/index.html
+            user-name-attribute: preferred_username
+        registration:
+          myspring:
+            authorization-grant-type: authorization_code
+            # 上で定義しているprovider名
+            provider: mykeycloak
+            # keycloakに登録したidと対応するsecret
+            # http://localhost:8080/auth/admin/master/console/#/realms/myrealm/clients
+            client-id: myclient
+            client-secret: e3b8886b-5b6e-49a7-91c2-c28caadf0a2b
+----
+
+* client-secret は、実際にはKeycloakの設定画面で表示されているもので差し替える必要があります。
+* `8080` ポートは今回Keycloakが利用しているので `8081` を使います。
+* いくつかのサンプルと見ているとエンドポイント(`authorization-uri` など)をそれぞれ設定していましたが、 `issuer-uri` だけ設定すれば後はそこから自動設定できるようです。
+* `user-name-attribute` は、link:https://www.keycloak.org/docs/11.0/securing_apps/index.html[リファレンス]の "principal-attibute" からそれっぽいものを選びました。
+
+=== コントローラを作成してアクセスしてみる
+
+link:https://github.com/yukihane/hello-java/blob/0d49734ccc5758e05a2acc9d472f1acd43b0e6a3/spring/oidc-example/src/main/java/com/example/oidcexample/HelloController.java[適当にコントローラを作成]して http://localhost:8081/ へアクセスしてみます。
+
+Keycloakのログイン画面へリダイレクトされるので、事前に作成したユーザのid, password(myuser, myuser)を入力すれば、コントローラが結果を返してくれます。
