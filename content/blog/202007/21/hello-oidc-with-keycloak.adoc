@@ -152,10 +152,10 @@ Spring Boot で auto-configuration を効かせてOAuth 2.0 Login/Clientを利�
 === security config 設定
 
 link:{{< relref "/blog/202007/20/spring-security-oauth-2.0-client.adoc" >}}[Spring Security OAuth 2.0 Client の auto-configuration] で記載した通り、
-`OAuth2WebSecurityConfiguration` で次のような自動設定が為されていますので、このままとします。
+`OAuth2WebSecurityConfiguration` で次のような自動設定が為されていますので、 *特に何も行う必要はありません* 。
 
 
-.link:https://github.com/spring-projects/spring-boot/blob/v2.3.2.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2WebSecurityConfiguration.java[OAuth2WebSecurityConfiguration.java]
+.(参考)link:https://github.com/spring-projects/spring-boot/blob/v2.3.2.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2WebSecurityConfiguration.java[OAuth2WebSecurityConfiguration.java]
 ----
 class OAuth2WebSecurityConfiguration {
 
