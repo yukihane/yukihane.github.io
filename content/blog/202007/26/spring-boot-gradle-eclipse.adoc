@@ -5,6 +5,7 @@ draft: false
 tags:
   - spring-boot
   - eclipse
+  - gradle
 ---
 
 == はじめに
@@ -26,7 +27,7 @@ plugins {
   id 'io.spring.dependency-management' version '1.0.9.RELEASE'
   id 'java'
   id 'eclipse'
-  id "com.diffplug.eclipse.apt" version "3.23.0"
+  id 'com.diffplug.eclipse.apt' version '3.23.0'
 }
 ----
 
