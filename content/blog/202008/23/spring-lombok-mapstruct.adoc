@@ -1,0 +1,114 @@
+---
+title: "Spring BootプロジェクトにLombokとMapStructを追加する(Eclipse & Maven/Gradle)"
+date: 2020-08-23T03:23:31Z
+draft: false
+tags:
+  - eclipse
+  - gradle
+  - maven
+  - lombok
+  - mapstruct
+---
+
+Spring Boot プロジェクトにLombokとMapStructを追加し、かつ Eclipse で開発を行う場合の設定です。
+
+同じようなことを何回か書いてきた気がするのですが、結局どうすれば良いの？というのをまとめて書いたものが無いっぽいので改めて記事に起こしました。
+
+== 実コード
+
+* https://github.com/yukihane/hello-java/tree/master/spring/lombok-mapstruct-example
+
+== まとめ
+
+* MapStruct 1.4.0 以降を利用する。
+** ただし現時点では正式リリースされていない(1.4.0.Beta3が最新)ので、どうしても安定版を利用したい場合は以下を参照して Eclipse にインストールする lombok.jar にパッチを当てる。
+*** https://himeji-cs.jp/blog2/blog/2019/08/eclipse-lombok-mapstruct.html[Lombokプラグインを入れているEclipseでMapStruct自動生成が機能しない]
+* (Maven) `maven-compiler-plugin` で anotation processing を行う。
+* (Gradle) Buildshipは利用せず、 `eclipse`, `com.diffplug.eclipse.apt` プラグインを利用し Eclipse プロジェクトへ変換する。
+
+== 設定ポイント
+
+コードの全体は、冒頭のリンク先参照。
+
+=== Maven
+
+[source,xml]
+.pom.xml
+----
+  <dependencies>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct</artifactId>
+      <version>${mapstruct.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.6.2</version>
+          <configuration>
+            <annotationProcessorPaths>
+              <path>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${mapstruct.version}</version>
+              </path>
+              <path>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+              </path>
+            </annotationProcessorPaths>
+            <compilerArgs>
+              <compilerArg>
+                -Amapstruct.defaultComponentModel=spring
+              </compilerArg>
+            </compilerArgs>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    ...
+  <build>
+----
+
+=== Gradle
+
+[souce,groovy]
+.build.gradle
+----
+plugins {
+    id 'eclipse'
+    id 'com.diffplug.eclipse.apt' version '3.24.0'
+}
+
+dependencies {
+    implementation "org.mapstruct:mapstruct:$mapstructVersion"
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor "org.mapstruct:mapstruct-processor:$mapstructVersion"
+    annotationProcessor 'org.projectlombok:lombok'
+}
+
+compileJava {
+    aptOptions {
+        processorArgs = [
+            'mapstruct.defaultComponentModel': 'spring',
+        ]
+    }
+}
+----
+
+なお、Eclipseにインポートする際には、 "Existing Gradle Project" メニュー footnote:[これがBuildshipでのインポートです。] からでなく、次のコマンドを実行した後、"*Existing Projects into Workspace*" でインポートします。
+
+----
+gradle eclipse
+----
