@@ -97,6 +97,16 @@ extension機能を用い、次のようにハンドラの引数を宣言する�
 
 == 備考
 
+この対応を行った後、
+
+* link:https://github.com/OpenAPITools/openapi-generator/issues/4680#issuecomment-656199687[[REQ\] How to add Principal parameter to Spring interface method? #4680]
+
+というissueがあるのに気づきました。
+しかし、個々に書かれている対応を行ってみたものの上手く行きませんでした。
+( `in: query` って指定しているから `@RequestParam` が付く、つまりクエリパラメータとみなされてしまう。リンク先のような出力にはならない、よね…？)
+
+'''
+
 そういえば、modelの方にもカスタムバリデーションのアノテーションとかも付与したくなるよな…と考えたのですが、こちらは既に行われている方がいらっしゃいました:
 
 *  https://int128.hatenablog.com/entry/2017/08/14/014253[Swagger Codegenにおけるカスタムバリデーションの追加 - GeekFactory]
