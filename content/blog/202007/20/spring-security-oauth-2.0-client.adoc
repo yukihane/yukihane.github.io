@@ -5,6 +5,7 @@ draft: false
 tags:
   - spring-boot
   - spring-security
+  - oauth2
 ---
 
 * https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2ClientAutoConfiguration.java[`OAuth2ClientAutoConfiguration`]
