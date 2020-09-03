@@ -112,9 +112,11 @@ Usernameに `myuser` を、それ以外の項目も適当に埋め "Save" ボタ
 
 クライアント作成が完了したら続いてこのクライアント設定画面で 次の通り設定変更し "Save" ボタンを押します。
 
+( `myspring` というのは、後でSpring Bootに設定する `registration-id` です。詳細は link:https://docs.spring.io/spring-security/site/docs/current/reference/html5/#oauth2login-sample-redirect-uri[Spring Security リファレンス]を "/login/oauth2/code" で検索してみてください)
+
 |===
 |Access Type|confidential
-|Valid Redirect URL| \http://localhost:8080/*
+|Valid Redirect URL| \http://localhost:8080/login/oauth2/code/myspring
 |===
 
 上記の通り Access Type を `confidential` に設定すると、この画面上部に "Credentials" タブが表示されます。
