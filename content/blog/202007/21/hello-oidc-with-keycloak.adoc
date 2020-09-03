@@ -34,12 +34,12 @@ https://www.keycloak.org/downloads からスタンドアロンサーバをダウ
 
 [source,bash]
 ----
-./bin/standalone.sh
+./bin/standalone.sh -Djboss.socket.binding.port-offset=1
 ----
 
 === admin ユーザ作成
 
-adminユーザ未作成状態で http://localhost:8080/auth/ へアクセスすると、adminユーザのユーザ名とパスワード入力を促されます。
+adminユーザ未作成状態で http://localhost:8081/auth/ へアクセスすると、adminユーザのユーザ名とパスワード入力を促されます。
 
 ここではユーザ名、パスワードとも `admin` とすることにします。
 
@@ -50,13 +50,13 @@ adminユーザ未作成状態で http://localhost:8080/auth/ へアクセスす�
 
 **Create** ボタンを押すと上記で入力したadminユーザが作成されます。
 
-http://localhost:8080/auth/admin/[Administration Console] リンクを押して次の画面に進みます。
+http://localhost:8081/auth/admin/[Administration Console] リンクを押して次の画面に進みます。
 
 === realm作成
 
 Administration Console を開くと、左上に "Master" というプルダウンメニューのようなものがあると思います。
 
-ここにマウスカーソルを合わせると "Add realm" というボタンが表れるのでそれを押します。そうすると http://localhost:8080/auth/admin/master/console/#/create/realm へ遷移します。
+ここにマウスカーソルを合わせると "Add realm" というボタンが表れるのでそれを押します。そうすると http://localhost:8081/auth/admin/master/console/#/create/realm へ遷移します。
 
 Nameに `myrealm` と入力ｋし、 Create ボタンを押します。
 
@@ -71,7 +71,7 @@ Nameに `myrealm` と入力ｋし、 Create ボタンを押します。
 
 === ユーザ作成
 
-画面左のメニュー http://localhost:8080/auth/admin/master/console/#/realms/myrealm/users[Users] を選択し、 "Add user" ボタンを押します。
+画面左のメニュー http://localhost:8081/auth/admin/master/console/#/realms/myrealm/users[Users] を選択し、 "Add user" ボタンを押します。
 
 Usernameに `myuser` を、それ以外の項目も適当に埋め "Save" ボタンを押します。
 
@@ -98,9 +98,9 @@ Usernameに `myuser` を、それ以外の項目も適当に埋め "Save" ボタ
 
 ここでいう "クライアント" というのはOAuth2.0でいうところの認可クライアント、OIDCでいうところのRPです。
 
-画面左のメニュー http://localhost:8080/auth/admin/master/console/#/realms/myrealm/clients[Clients] をクリックします。
+画面左のメニュー http://localhost:8081/auth/admin/master/console/#/realms/myrealm/clients[Clients] をクリックします。
 
-続いて画面右の http://localhost:8080/auth/admin/master/console/#/create/client/myrealm[Create]ボタンを押します。
+続いて画面右の http://localhost:8081/auth/admin/master/console/#/create/client/myrealm[Create]ボタンを押します。
 
 この画面で次のように入力して、 "Save" ボタンを押します。
 
@@ -114,7 +114,7 @@ Usernameに `myuser` を、それ以外の項目も適当に埋め "Save" ボタ
 
 |===
 |Access Type|confidential
-|Valid Redirect URL| \http://localhost:8081/*
+|Valid Redirect URL| \http://localhost:8080/*
 |===
 
 上記の通り Access Type を `confidential` に設定すると、この画面上部に "Credentials" タブが表示されます。
@@ -191,9 +191,6 @@ class OAuth2WebSecurityConfiguration {
 
 .link:https://github.com/yukihane/hello-java/blob/0d49734ccc5758e05a2acc9d472f1acd43b0e6a3/spring/oidc-example/src/main/resources/application.yml[application.yml]
 ----
-server:
-  port: 8081
-
 spring:
   security:
     oauth2:
@@ -201,8 +198,8 @@ spring:
         provider:
           mykeycloak:
             # https://www.keycloak.org/docs/latest/securing_apps/index.html#endpoints-2
-            # http://localhost:8080/auth/realms/myrealm/.well-known/openid-configuration
-            issuer-uri: http://localhost:8080/auth/realms/myrealm
+            # http://localhost:8081/auth/realms/myrealm/.well-known/openid-configuration
+            issuer-uri: http://localhost:8081/auth/realms/myrealm
             # https://www.keycloak.org/docs/11.0/securing_apps/index.html
             user-name-attribute: preferred_username
         registration:
@@ -211,18 +208,17 @@ spring:
             # 上で定義しているprovider名
             provider: mykeycloak
             # keycloakに登録したidと対応するsecret
-            # http://localhost:8080/auth/admin/master/console/#/realms/myrealm/clients
+            # http://localhost:8081/auth/admin/master/console/#/realms/myrealm/clients
             client-id: myclient
             client-secret: e3b8886b-5b6e-49a7-91c2-c28caadf0a2b
 ----
 
 * client-secret は、実際にはKeycloakの設定画面で表示されているもので差し替える必要があります。
-* `8080` ポートは今回Keycloakが利用しているので `8081` を使います。
 * いくつかのサンプルと見ているとエンドポイント(`authorization-uri` など)をそれぞれ設定していましたが、 `issuer-uri` だけ設定すれば後はそこから自動設定できるようです。
 * `user-name-attribute` は、link:https://www.keycloak.org/docs/11.0/securing_apps/index.html[リファレンス]の "principal-attibute" からそれっぽいものを選びました。
 
 === コントローラを作成してアクセスしてみる
 
-link:https://github.com/yukihane/hello-java/blob/0d49734ccc5758e05a2acc9d472f1acd43b0e6a3/spring/oidc-example/src/main/java/com/example/oidcexample/HelloController.java[適当にコントローラを作成]して http://localhost:8081/ へアクセスしてみます。
+link:https://github.com/yukihane/hello-java/blob/0d49734ccc5758e05a2acc9d472f1acd43b0e6a3/spring/oidc-example/src/main/java/com/example/oidcexample/HelloController.java[適当にコントローラを作成]して http://localhost:8080/ へアクセスしてみます。
 
 Keycloakのログイン画面へリダイレクトされるので、事前に作成したユーザのid, password(myuser, myuser)を入力すれば、コントローラが結果を返してくれます。
