@@ -12,6 +12,10 @@ tags:
 
 link:{{< relref "/blog/202007/21/hello-oidc-with-keycloak" >}}[KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる] で作成したコードに対して、 カスタム `redirect_uri` の設定を行ってみます。
 
+今回のコードはこちら:
+
+* https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redirect-uri
+
 == 変更手順
 
 === KeyCloak 登録情報の変更
