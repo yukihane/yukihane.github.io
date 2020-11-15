@@ -2,6 +2,10 @@
 title: "Spring Boot 2.3.5 で MapStruct を利用しているプロジェクトのビルドが失敗した"
 date: 2020-11-14T07:41:01Z
 draft: false
+tags:
+  - mapstruct
+  - lombok
+  - spring-boot
 ---
 
 調査したところSpring Bootの問題と言うよりは、Lombokのバージョンが `1.18.12` から `1.18.16` に上がったことによる非互換性の問題でした。
