@@ -1,5 +1,5 @@
 ---
-title: "DevToolsを組み込んでいると再起動してもsessiongが引き継がれる"
+title: "DevToolsを組み込んでいると再起動してもsessionが引き継がれる"
 date: 2020-09-01T18:46:13Z
 draft: false
 tags:
