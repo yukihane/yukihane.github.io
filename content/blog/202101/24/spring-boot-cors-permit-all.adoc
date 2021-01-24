@@ -1,0 +1,46 @@
+---
+title: "Spring Boot の CORS 設定を全許可する"
+date: 2021-01-24T13:59:39Z
+draft: false
+tags:
+  - spring-boot
+---
+
+* https://stackoverflow.com/a/65867566/4506703[How to configure CORS in a Spring Boot + Spring Security application?] - Stack Overflow
+
+[source,java]
+----
+// https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#boot-features-cors
+@Configuration
+public class MyConfiguration {
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(final CorsRegistry registry) {
+                registry.addMapping("/**");
+            }
+        };
+    }
+}
+----
+
+Spring Security を利用しているのであれば、追加で次の設定も行います:
+
+[source,java]
+----
+// https://docs.spring.io/spring-security/site/docs/5.4.2/reference/html5/#cors
+@EnableWebSecurity
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Override
+    protected void configure(final HttpSecurity http) throws Exception {
+        // ...
+
+        // if Spring MVC is on classpath and no CorsConfigurationSource is provided,
+        // Spring Security will use CORS configuration provided to Spring MVC
+        http.cors(Customizer.withDefaults());
+    }
+}
+----
