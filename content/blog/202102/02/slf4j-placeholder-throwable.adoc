@@ -1,0 +1,16 @@
+---
+title: "SLF4Jでplaceholderも使いつつstacktraceも出力したい"
+date: 2021-02-01T16:38:42Z
+draft: false
+tags:
+  - java
+---
+
+SLF4J の `Logger` のメソッドを眺めていると、 `Throwable` を引数にとれるのは 他に `Marker` と `String` メッセージだけを持つものばかりで、プレースホルダを利用したい場合にはどうしたら良いのだろう…と思っていたら、普通にプレースホルダと併用できるようです。
+
+* https://stackoverflow.com/questions/5951209/how-to-log-exception-and-message-with-placeholders-with-slf4j#comment74706365_5955934[How to log exception and message with placeholders with SLF4J] - Stack Overflow
+* http://www.slf4j.org/faq.html#paramException[In the presence of an exception/throwable, is it possible to parameterize a logging statement?] - 公式FAQ
+
+メッセージの後にプレースホルダ分のオブジェクトを指定して、その後に `Throwable` オブジェクトも指定すれば適切に取り扱ってくれるようです。
+
+後から気づいたんですが、ちゃんと http://www.slf4j.org/apidocs/org/slf4j/Logger.html[API doc] からもリンクされていました…
