@@ -1,6 +1,6 @@
 ---
-title: "Spring Security OAuth2.0 Login の通信ログを全部出したい"
-date: 2020-11-15T08:59:32Z
+title: "Spring Security OAuth2.0 Login の通信ログ全部出す"
+date: 2021-02-01T08:59:32Z
 draft: true
 tags:
   - spring-boot
@@ -54,3 +54,9 @@ Keycloakのadminコンソールで、
 * Client Session Idle
 
 の時間を設定すれば良さそうです。それぞれ 1分、2分に設定しました。
+
+
+https://docs.spring.io/spring-security/site/docs/current/reference/html5/#requesting-an-access-token
+
+BufferingClientHttpResponseWrapper
+
