@@ -142,7 +142,45 @@ MonoインストールとGeckoインストールを促されますが、両方�
 install file の選択に置いて、先にダウンロードしておいた Kindle for
 PCのインストーラexeを指定します。
 
-== 未解決の問題
+=== 文字化けの解消
 
-Kindle for PCアプリケーション上の日本語が豆腐になっている。
+ここまでの設定でKindleは起動できるようになります。
+が、起動してみると分かる通りメニューの日本語が豆腐表示になっています。
+これを解消します。
 
+* 参考: https://pri-light.hatenadiary.org/entry/20170723/p1[LubuntuにplayonlinuxでKindleをインストール] - Jiyu na Blog
+
+今回は https://github.com/miiton/Cica[Cicaフォント](`Cica-Regular.ttf`)を利用しました。他のフォントを利用する場合は適宜読み替えてください。
+
+==== フォントを配備
+`~/PlayOnLinux's virtual drives/for_kindle/drive_c/windows/Fonts` にフォントファイル `Cica-Regular.ttf` を置きます。
+
+==== レジストリファイル作成
+
+`~/Documents/kindle_font.reg` というファイル名で次の内容を保存します。
+エンコーディングはShift JISとします。(なお、改行コードは今回LFで行いましたが、これで問題ありませんでした。)
+
+[source, reg]
+----
+REGEDIT4
+
+[HKEY_CURRENT_USER\Software\Wine\Fonts\Replacements]
+"Andale Mono"="Cica"
+"Arial Unicode MS"="Cica"
+"Batang"="Cica"
+"Dotum"="Cica"
+"MS Gothic"="Cica"
+"MS Mincho"="Cica"
+"MS PGothic"="Cica"
+"MS PMincho"="Cica"
+"MS UI Gothic"="Cica"
+"Tahoma"="Cica"
+"ＭＳ ゴシック"="Cica"
+"ＭＳ 明朝"="Cica"
+"ＭＳ Ｐゴシック"="Cica"
+"ＭＳ Ｐ明朝"="Cica"
+----
+
+PlayOnLinuxのランチャー画面でKindleアイコンを右クリックし、コンテキストメニューからレジストリエディタを起動します。
+
+レジストリエディタのメニューから「レジストリのインポート」を選択し、上記で作成したファイルを選択するとフォント置換設定がインポートされ、上の設定の通りCicaフォントで表示されるようになります。
