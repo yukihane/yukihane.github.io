@@ -19,6 +19,12 @@ draft: false
 * playonlinux 4.3.4
 * Kindle for PC 1.26.0(55076)
 
+== ちなみに
+
+素のwineの環境は `~/.wine` に、 PlayOnLinux の環境は `~/.PlayOnLinux` にあるので、初期状態に戻したければこれらのディレクトリを削除すればよいでしょう。
+
+また、wineのデフォルト設定ではWindowsのマイドキュメントがUbuntuの `~/Documents` にシンボリックリンクされているようなので、 `~/Documents/My\ Kindle\ Content` にKindleの書籍データが入っています。初期状態に戻したいのであればこれも削除しましょう。
+
 == Wine インストール
 
 今回の手順では PlayOnLinux を利用せず直接このwineを利用して Kindle for PC を起動します。
