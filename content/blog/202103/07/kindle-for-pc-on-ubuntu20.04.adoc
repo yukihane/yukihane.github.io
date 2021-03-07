@@ -1,0 +1,16 @@
+---
+title: "Ubuntu20.04 で Kindle for PC"
+date: 2021-03-07T05:21:25Z
+draft: false
+tags:
+  - ubuntu
+---
+
+以前記載していたUbuntu16.04(及び18.04)用の Kindle for PC セットアップ手順だと起動時にネットワーク接続できず利用できなくなってしまっていた
+....
+接続できません ネットワークの設定とプロキシの構成を確認してください。
+....
+ので、 20.04 向けのセットアップ手順を改めて書き起こしました:
+
+* link:{{< relref "/docs/ubuntu/kindle-for-pc-ubuntu20.04.adoc" >}}[Ubuntu20.04 で Kindle for PCを使う]
+* (参考)16.04, 18.04時代のもの: link:{{< relref "/docs/ubuntu/kindle-for-pc.adoc" >}}[UbuntuでKindle for PCを使う]
