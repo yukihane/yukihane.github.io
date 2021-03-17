@@ -17,4 +17,6 @@ tags:
 
 試しに https://github.com/mapstruct/mapstruct/releases[現時点での最新リリースバージョンである `1.4.0.Beta3`]を利用してみたところ、確かに記載通りひと手間無しにそのままでLombokもMapStructも想定通り動くようになっていました！
 
-追記: 本文記載からまた状況は変わって、現在は https://projectlombok.org/changelog[v1.18.16のchangelog]にあるとおり、 https://search.maven.org/artifact/org.projectlombok/lombok-mapstruct-binding[`lombok-mapstruct-binding`] を依存関係に追加することで問題を解消するような対応になっていました。
+'''
+
+追記: 本文記載からまた状況は変わって、現在は https://projectlombok.org/changelog[v1.18.16のchangelog]にあるとおり、 https://search.maven.org/artifact/org.projectlombok/lombok-mapstruct-binding[`lombok-mapstruct-binding`] を依存関係に追加することで問題を解消するような対応になっていました。 link:{{< relref "/blog/202011/14/mapstruct-with-spring-boot-2.3.5.adoc" >}}[参考]
