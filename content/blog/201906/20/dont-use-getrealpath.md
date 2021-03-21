@@ -22,7 +22,7 @@ draft: false
 - [画像の保存と紐付けの同時アップロード](https://qiita.com/yume21116/items/8a6c0117ac866eb9a058)
 - [画像アップロードのパスの設定について](https://qiita.com/k499778/items/0ab656a612456741924b)
 
-#### どうして利用しては駄目なのか
+### どうして利用しては駄目なのか
 
 [Stack Overflow](https://ja.stackoverflow.com/a/55904/2808)に理由を記載しています。
 私の説明だけでは不安なのであれば、次も参照してみてください。
