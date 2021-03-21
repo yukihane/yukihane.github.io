@@ -13,7 +13,7 @@ tags: [java, servlet]
 draft: false
 ---
 
-色んなところでそういうサンプルコードが見つかる、と聞いて嘘やん思いながら検索してみたところ、日本語英語を問わず確かに多い。
+タイトルに書いたような、ファイル出力先として `ServletContext#getRealPath` を利用しているサンプルコードが見つかる、と聞いて検索してみたところ、日本語、非日本語にかかわらず確かにそのようなサンプルコードは散見されました。
 例えば Qiita では(順不同):
 
 - [SpringMVC と JasperReports で帳票を印刷してみた 番外編（画像編）](https://qiita.com/shibafu/items/a660ce88e3e8a1d6902d)
@@ -22,20 +22,11 @@ draft: false
 - [画像の保存と紐付けの同時アップロード](https://qiita.com/yume21116/items/8a6c0117ac866eb9a058)
 - [画像アップロードのパスの設定について](https://qiita.com/k499778/items/0ab656a612456741924b)
 
-#### なんでつこたらアカンの？
+#### どうして利用しては駄目なのか
 
-[リンク先](https://ja.stackoverflow.com/a/55904/2808)に長文書いてもたんでそっち見て。
-どこの馬の骨が書いたかわからん説明信じられるか？はい、そんな人のために upvoted 数の多い Stack Overflow の記事をご用意しました:
+[Stack Overflow](https://ja.stackoverflow.com/a/55904/2808)に理由を記載しています。
+私の説明だけでは不安なのであれば、次も参照してみてください。
 
-- [Recommended way to save uploaded files in a servlet application](https://stackoverflow.com/q/18664579/4506703)
+- [Recommended way to save uploaded files in a servlet application](https://stackoverflow.com/q/18664579/4506703) - Stack Overflow
 
-[いかがでしたか？](https://www.google.co.jp/search?q=%E3%81%84%E3%81%8B%E3%81%8C%E3%81%A7%E3%81%97%E3%81%9F%E3%81%8B%EF%BC%9F)
-
-# 何も考えずに今までファイルアップロードをコピペ実装したことがある人、先生怒らないから手を挙げなさい
-
-てかなんでこんな実装インターネット上に氾濫してんのやろ？
-オフィシャルがそうやってるからやろか…と思て[The Java EE Tutorial](https://docs.oracle.com/javaee/7/tutorial/servlets016.htm)見てみたらクライアントが path 指定するようになってた。
-
-**なお悪いわ！！**
-
-(おわり)
+ちなみに、[The Java EE Tutorial](https://docs.oracle.com/javaee/7/tutorial/servlets016.htm)見てみたらクライアントが path 指定するようになってました…まあ、変に正しい実装はこれだと混乱させることは無い分まし、なの、かな…？
