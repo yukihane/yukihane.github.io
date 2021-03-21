@@ -35,14 +35,16 @@ plugins {
 
 [source,bash]
 ----
-gradle eclipse
+gradle build cleanEclipse eclipse
 ----
+
+`eclipse` プラグインは、実行した時点で存在しないディレクトリは無視するようになっているようです。そのため上記では一旦 `build` を行って自動生成ディレクトリなどを確実に作成するようにしています。
 
 そして、Eclipseでインポートします。このとき選択するのは **Existing Projects into Workspace** です。Existing Gradle Projectではないことに注意してください(こちらを選ぶとBuildshipでインポートされ、annotation processorの設定が行われません)。
 
-Gradleの設定を変更した場合は、 `gradle eclipse` コマンドを実行し直し、インポートし直せばよいかと思います。
+Gradleの設定を変更した場合は、 `gradle cleanEclipse eclipse` コマンドを実行し直し、インポートし直せばよいかと思います。
 
-なお、Gradleが種t力するディレクトリ(`/build`)と、Eclipseが出力するディレクトリ(`/bin`, `.apt_generated` など)が異なるのは敢えてのようです？
+なお、Gradleが種t力するディレクトリ(`/build`)と、Eclipseが出力するディレクトリ(`/bin`, `.apt_generated` など)が異なるのは敢えてそうなっているようです。 Maven を利用し続けてきた身からすると違和感がありますが、問題が起きたときの切り分けのしやすさ的にはこちらの方が良いですよね。
 
 
 == サンプルコード
