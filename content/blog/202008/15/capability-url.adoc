@@ -33,7 +33,7 @@ ____
 
 * https://security.stackexchange.com/a/140753[Java UUID.randomUUID() or SecureRandom for id segment on URL? - Information Security Stack Exchange]
 
-の回答にあるように、Javaの場合、重複しないことが重雨ようなら UUID, 推測されないことが重要なら SecureRandom を用いるのが良いのかなと思いました(冒頭の要件なら SecureRandom ですね)。
+の回答にあるように、Javaの場合、重複しないことが重要なようなら UUID, 推測されないことが重要なら SecureRandom を用いるのが良いのかなと思いました(冒頭の要件なら SecureRandom ですね)。
 
 ちなみに Docker で `/dev/random` を使うと、起動してからエントロピーが貯まるまで処理がブロックされる、みたいな問題も何回か聞いたことがあります
 
