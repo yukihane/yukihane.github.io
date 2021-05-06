@@ -1,10 +1,15 @@
-= Intel iGPU環境でのAmethyst 開発環境セットアップ
-yukihane
-2019-10-08
+---
+title: Intel iGPU環境でのAmethyst 開発環境セットアップ
+date: 2019-10-08
+draft: false
+tags:
+  - rust
+  - ubuntu
 :jbake-type: post
 :jbake-status: published
 :jbake-tags: rust, ubuntu
 :idprefix:
+---
 
 == TL;DR
 
