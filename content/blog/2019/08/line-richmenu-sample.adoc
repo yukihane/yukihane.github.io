@@ -1,0 +1,14 @@
+= LINE リッチメニューを試してみる
+yukihane
+2019-08-25
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: java,springboot,line
+:idprefix:
+
+* https://github.com/yukihane/hello-java/tree/master/line/richmenu-sample
+
+https://developers.line.biz/ja/docs/messaging-api/using-rich-menus/[公式リファレンス] に書いてある通りですが、リッチメニューを試してみました。
+メニューをタップするとPostBackEventを送信します。
+
+botでハンドリングするために、 https://himeji-cs.jp/blog2/blog/2019/08/line-bot-sample.html[前回] 作成した https://github.com/yukihane/hello-java/tree/master/line/line-bot-sample[bot] に、PostBackEvent のハンドラを追加しています。

@@ -1,0 +1,97 @@
+= Windows10上に開発環境を整える
+yukihane
+2019-08-23
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: windows
+:idprefix:
+
+== 前提
+
+* 主にJava開発を行う人(要は私自身)向け記述多し
+* パッケージ管理はscoopを使いますが、Java関係はなるべくSDKMAN!を使います
+
+== パッケージ管理ツール scoop
+
+https://scoop.sh/
+
+何はともあれパッケージ管理ツールをインストールします。
+Macで言うところのHomeBrewのようなものです。
+
+== Scoopでインストール: git, zip, conemu, vscode-portable, maven
+
+Scoopはコマンドプロンプトでも操作できるはずですが、私はPowerShell(あるいはGitBash)で扱っています。
+
+インストールするものは人によると思いますが、私の場合こんな感じ:
+
+----
+scoop install git zip conemu vscode-portable maven
+----
+
+VSCodeくらいになると、Scoopに任せるべきか公式インストーラで入れるべきか迷いますね。
+私は、開発ツールはなるべくScoopで管理する、という方針にしていますのでこのようになっています。
+
+大抵のUNIX系ユーティリティコマンドはGit Bash付属のもので賄えるのですが、なぜかGitBashには `zip` コマンドが入っていないのでそれだけScoopからインストールしています。
+`zip` コマンドはSDKMAN!インストール時に必要になります。
+
+MavenはJava関係なのでSDKMAN!でインストールしようと思ったのですが、GitBashで `winsymlink:lnk` を設定した場合うまく動作しなかったのでScoopでインストールすることにしました。
+
+== ConEmu 初期設定
+
+ConEmu起動時GitBashを使いたいので、 `Settings` メニューから `Startup` メニューを選択し、 `Command line` のところに次のように `git-cmd` をフルパスで設定します。
+
+----
+C:\Users\yuki\scoop\apps\git\current\git-cmd.exe --no-cd --command=usr/bin/bash.exe -l -i
+----
+
+パスは環境によって違うのでこのまま適用できませんが、自身の環境での場所は想像がつくかと思います。
+
+* 参考: https://conemu.github.io/en/GitForWindows.html[Using Git for Windows] - オフィシャルリファレンス
+
+== Bash初期設定(SDKMAN!利用準備)
+
+これ以降は、上記で設定したConEmu上で行っていきます。
+
+WindowsでSDKMAN!を利用するために、 `.bashrc` に次の行を加えます。
+
+..bashrc
+----
+export MSYS=winsymlinks:lnk
+----
+
+* 参考: https://github.com/sdkman/sdkman-cli/issues/593#issuecomment-467767923[__sdkman_post_installation_hook: command not found #593]
+
+
+== Git初期設定
+
+Git for Windows は https://git-scm.com/book/ja/v2/Git-%E3%81%AE%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA-Git-%E3%81%AE%E8%A8%AD%E5%AE%9A#_code_core_autocrlf_code[`core.autocrlf`] の設定がデフォルトで `true` になっているのでこれを変更しておきます。また、名前とemailの設定も行います。
+
+----
+git config --global core.autocrlf false
+git config --global user.name yukihane
+git config --global user.email ...@example.com
+----
+
+
+== SDKMAN!インストール
+
+https://sdkman.io/
+
+前述の通り、Java関連のツールはなるべくSDKMAN!で管理することにしています。
+Scoopでも https://github.com/lukesampson/scoop/wiki/Java[Java bucket]をインストールすることで各種JDKを取り扱えるようになりますが、SDKMAN!の方がJDKの切り替えに柔軟性があったり、他OSとやりかたが統一できたりというメリットがあると考え、SDKMAN!を使っています。
+
+前述のとおり、インストール時に `zip` コマンドが必要ですのであらかじめScoopでインストールしておきます。
+
+次にこれまた前述の通り、 `.bashrc` にシンボリックリンクの取り扱いの設定を追記しておきます。
+
+また、私は遭遇したことがないのですが、Windows10付属の `curl` が用いられてしまってうまく動作しないこともあるようです。
+何か問題が出た場合にはこういったことも疑ってみてください。
+
+* https://nowokay.hatenablog.com/entry/2019/06/12/035324[Windows(Cygwin)でSDKMANがうまく動かないのはcurlのせい] - きしだのはてな
+
+== SDKMAN! で JDK他をインストール
+
+----
+sdk install java 11.0.4.j9-adpt
+sdk install jbake
+----

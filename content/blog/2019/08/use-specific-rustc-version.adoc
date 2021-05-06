@@ -1,0 +1,20 @@
+= cargo build で特定のバージョンの rustc を利用する
+yukihane
+2019-08-03
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: rust
+:idprefix:
+
+----
+rustup run 1.15.1 cargo build
+----
+
+もちろん事前に使用するバージョンをインストールしておく必要がある:
+----
+rustup install 1.15.1
+----
+
+参考:
+
+* https://doc.rust-lang.org/edition-guide/rust-2018/rustup-for-managing-rust-versions.html[Rustup for managing Rust versions]

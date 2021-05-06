@@ -1,0 +1,11 @@
+= JBakeはじめました
+yukihane
+2019-08-03
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: diary
+:idprefix:
+
+個人的にMarkDownはあまり好きではなく(標準だと表現力が弱いし方言が多い！)、ずっとblogをAsciiDocで書く方法を模索していました。
+
+一時期は https://www.gatsbyjs.org/[GatsbyJS] でなんとかならないものかと考えたりもしていたのですが、AsciiDocサポート入れる時間がないからblog書けない…という状況が5ヶ月くらい続いて、結局最初からAsciiDocサポートしているこの https://jbake.org/[JBake] を使用することにしました。
