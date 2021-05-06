@@ -1,10 +1,14 @@
-= Cargo.lock をバージョン管理するや否や
-yukihane
-2019-09-01
+---
+title: Cargo.lock をバージョン管理するや否や
+date: 2019-09-01
+draft: false
+tags:
+  - rust
 :jbake-type: post
 :jbake-status: published
 :jbake-tags: rust
 :idprefix:
+---
 
 `cargo new --bin` したパッケージに対して、たまたまデフォルで生成される `.gitignore` を用いずに https://gitignore.io/ で生成してものを用いていたのですが、 `Cargo.lock` ファイルの扱いが異なるように思われ、あれ？と思って見直してみました。
 
