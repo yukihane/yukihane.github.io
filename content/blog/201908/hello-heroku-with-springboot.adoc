@@ -1,10 +1,16 @@
-= HerokuでSpringBootアプリを動かしてみる
-yukihane
-2019-08-22
+---
+title: HerokuでSpringBootアプリを動かしてみる
+date: 2019-08-22
+draft: false
+tags:
+  - java
+  - spring-boot
+  - heroku
 :jbake-type: post
 :jbake-status: published
 :jbake-tags: java,springboot,heroku
 :idprefix:
+---
 
 == 背景
 

@@ -1,10 +1,11 @@
-= bashで標準出力をファイルに、標準エラー出力を画面とファイルに出力したい
-yukihane
-2019-08-19
-:jbake-type: post
-:jbake-status: published
-:jbake-tags: bash,git
-:idprefix:
+---
+title: bashで標準出力をファイルに、標準エラー出力を画面とファイルに出力したい
+date: 2019-08-19
+draft: false
+tags:
+  - bash
+  - git
+---
 
 Git の pre-push でテスト実行を行おうとした際、通常テスト実行ではデバッグログを出しているところを、エラーを表すものだけに絞って出すようにしようと考えました。
 

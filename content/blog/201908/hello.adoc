@@ -1,10 +1,14 @@
-= JBakeはじめました
-yukihane
-2019-08-03
+---
+title: JBakeはじめました
+date: 2019-08-03
+draft: false
+tags:
+  - diary
 :jbake-type: post
 :jbake-status: published
 :jbake-tags: diary
 :idprefix:
+---
 
 個人的にMarkDownはあまり好きではなく(標準だと表現力が弱いし方言が多い！)、ずっとblogをAsciiDocで書く方法を模索していました。
 

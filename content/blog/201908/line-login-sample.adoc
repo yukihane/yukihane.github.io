@@ -1,10 +1,16 @@
-= LINEログイン機能を試してみる
-yukihane
-2019-08-25
+---
+title: LINEログイン機能を試してみる
+date: 2019-08-25
+draft: false
+tags:
+  - java
+  - spring-boot
+  - line
 :jbake-type: post
 :jbake-status: published
 :jbake-tags: java,springboot,line
 :idprefix:
+---
 
 Spring SecurityのOAuth実装は https://qiita.com/yukihane/items/fc97f888ecb6a6850ea7[こちらに書いたとおり] 歴史的経緯により複数存在しますが、 https://start.spring.io/ の
  Dependencies で "OAuth2 Client" を選択した場合に追加されるものは一番新しいSpring Securityの https://docs.spring.io/spring-security/site/docs/5.1.6.RELEASE/reference/html/modules.html#spring-security-oauth2-client[`spring-security-oauth2-client`] (及び `spring-security-oauth2-jose`)でした。

@@ -1,10 +1,10 @@
-= 電子キーボードを買いました
-yukihane
-2019-08-31
-:jbake-type: post
-:jbake-status: published
-:jbake-tags: diary,piano
-:idprefix:
+---
+title: 電子キーボードを買いました
+date: 2019-08-31
+draft: false
+tags:
+  - diary
+---
 
 ## 経緯
 

@@ -1,10 +1,17 @@
-= Lombokプラグインを入れているEclipseでMapStruct自動生成が機能しない
-yukihane
-2019-08-18
+---
+title: Lombokプラグインを入れているEclipseでMapStruct自動生成が機能しない
+date: 2019-08-18
+draft: false
+tags:
+  - java
+  - lombok
+  - mapstruct
+  - eclipse
 :jbake-type: post
 :jbake-status: published
 :jbake-tags: java,lombok,mapstruct,eclipse
 :idprefix:
+---
 
 * サンプルコード: https://github.com/yukihane/hello-java/tree/master/mapstruct/hello-mapstruct
 

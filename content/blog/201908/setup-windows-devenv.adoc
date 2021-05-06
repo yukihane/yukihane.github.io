@@ -1,10 +1,14 @@
-= Windows10上に開発環境を整える
-yukihane
-2019-08-23
+---
+title: Windows10上に開発環境を整える
+date: 2019-08-23
+draft: false
+tags:
+  - windows
 :jbake-type: post
 :jbake-status: published
 :jbake-tags: windows
 :idprefix:
+---
 
 == 前提
 

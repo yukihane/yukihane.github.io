@@ -1,10 +1,16 @@
-= Gradleプロジェクトで生成した実行スクリプトがGitBash(MSYS環境)でうまく動かない
-yukihane
-2019-08-23
+---
+title: Gradleプロジェクトで生成した実行スクリプトがGitBash(MSYS環境)でうまく動かない
+date: 2019-08-23
+draft: false
+tags:
+  - java
+  - jbake
+  - gradle
 :jbake-type: post
 :jbake-status: published
 :jbake-tags: java,jbake,gradle
 :idprefix:
+---
 
 GitBash環境でSDKMAN!を使ってJBakeをインストールしたのですが、 `jbake` コマンドを実行すると次のようなエラーが出てうまく動きませんでした。
 
