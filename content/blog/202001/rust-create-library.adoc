@@ -1,10 +1,14 @@
-= Rustでライブラリを作成する
-yukihane
-2019-12-31
+---
+title: Rustでライブラリを作成する
+date: 2019-12-31
+draft: false
+tags:
+  - rust
 :jbake-type: post
 :jbake-status: draft
 :jbake-tags: rust
 :idprefix:
+---
 
 == はじめに
 
