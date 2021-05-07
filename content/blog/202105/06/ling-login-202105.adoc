@@ -58,3 +58,12 @@ LINEログイン v2.1 API で https://openid-foundation-japan.github.io/openid-c
 実装においては、APIリファレンスを見れば分かる通り、 `/verify` へのリクエストには `id_token` と `client_id` パラメータが必須なので、少し工夫が必要でした。
 
 https://github.com/yukihane/hello-java/commit/8cdce2ae55382a06ae11386369e3bdfd08cae63a[`8cdce2a`]
+
+== まとめ
+
+LINE社の主張に反し、 LINEログイン v2.1 API は OpenID Connect プロトコルには準拠していないと考えます。
+なぜならば、 userinfo エンドポイントに相当するエンドポイントを備えていないからです。
+(LINE社が言うところのOIDCサポートは、発行者を検証できるid tokenを返している、という部分でしょうか。それだけでは片手落ちでしょう。)
+
+Spring Security のデフォルト実装を用いる場合、 `openid` スコープを指定するとうまく動作しません。
+本文では `openid` を指定した実装を無理やり行いましたが、指定しない場合の実装(つまりOIDCでなくOAuth2.0として処理する)を https://github.com/yukihane/hello-java/tree/tags/line-login-without-openid/line/sample-line-webapp[`tags/line-login-without-openid`] タグで行っており、こちらの方が自然だと考えます。
