@@ -10,7 +10,7 @@ timeout = 10000
 enableEmoji = true
 paginate = 13
 rssLimit = 100
-googleAnalytics = ""
+googleAnalytics = "G-E9J8FN5B4Q"
 disableKinds = ["taxonomyTerm"]
 
 [markup]
