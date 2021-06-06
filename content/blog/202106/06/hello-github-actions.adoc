@@ -76,3 +76,13 @@ Name は後で GitHub Actions スクリプトから変数名として利用す�
 * https://github.com/hello-github-actions/updater/blob/main/.github/workflows/update.yml
 
 前述した通り、 **ACTIONS_DEPLOY_KEY** という名前を変数として用いています。
+
+== 成果物
+
+* https://hello-github-actions.github.io/
+
+1時間おきに https://ja.stackoverflow.com/ の上位の質問を取得して一覧します。
+
+毎時15分に更新する設定にしていますが、 [GitHub Actionsのログ](https://github.com/hello-github-actions/updater/actions)を見ると 30-40分程度遅れて実行されているようです。
+(検証時、書き方が間違っているせいで実行できていないのかとあせりました…)
+
