@@ -83,6 +83,6 @@ Name は後で GitHub Actions スクリプトから変数名として利用す�
 
 1時間おきに https://ja.stackoverflow.com/ の上位の質問を取得して一覧します。
 
-毎時15分に更新する設定にしていますが、 [GitHub Actionsのログ](https://github.com/hello-github-actions/updater/actions)を見ると 30-40分程度遅れて実行されているようです。
+毎時15分に更新する設定にしていますが、 https://github.com/hello-github-actions/updater/actions[GitHub Actionsのログ]を見ると 30-40分程度遅れて実行されているようです。
 (検証時、書き方が間違っているせいで実行できていないのかとあせりました…)
 
