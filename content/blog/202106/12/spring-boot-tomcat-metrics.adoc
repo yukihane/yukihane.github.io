@@ -26,3 +26,5 @@ https://github.com/micrometer-metrics/micrometer/blob/main/micrometer-core/src/m
 # https://docs.spring.io/spring-boot/docs/2.5.1/reference/html/actuator.html#actuator.metrics.supported.tomcat
 server.tomcat.mbeanregistry.enabled=true
 ----
+
+サンプル実装はこちら: https://github.com/yukihane/hello-java/tree/master/spring/tomcat-monitoring-example
