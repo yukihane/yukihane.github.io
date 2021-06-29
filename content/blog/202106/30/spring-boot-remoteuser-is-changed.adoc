@@ -1,0 +1,59 @@
+---
+title: "Spring Boot 2.5.0(Spring Security 5.5.0-M2)でremoteUserの値が変わった"
+date: 2021-06-29T20:00:43Z
+draft: false
+tags:
+  - spring-boot
+  - spring-security
+---
+
+`HttpServletRequest#getRemoteUser()` をログ出力(Tomcatの https://tomcat.apache.org/tomcat-9.0-doc/config/valve.html#Access_Log_Valve/Attributes[`%u`])しているのですが、Spring Boot 2.5.0 から返ってくる値が変わったようです。
+
+どの変更が影響しているのか調べたところ、次のものが該当するようです。
+
+* https://github.com/spring-projects/spring-security/releases/tag/5.5.0-M2[5.5.0-M2 Release Notes]
+** https://github.com/spring-projects/spring-security/pull/9211[getRemoteUser() returns principal name #9211]
+
+実際にどうなったか見てみます。
+
+* https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/[KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる – 発火後忘失]
+
+で作成した サンプル実装であるところの
+
+* https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-example
+
+を利用します。
+
+上記のサンプル実装を次のように変更します。
+
+[source,java]
+----
+public class HelloController {
+
+    @GetMapping
+    public String index(final HttpServletRequest request) {
+        final Authentication authn = SecurityContextHolder.getContext().getAuthentication();
+        log.info("Authentication: {}", authn);
+        return request.getRemoteUser();
+    }
+}
+----
+
+また、Spring Bootのバージョンを `2.4` 系の最新版である `2.4.8` にアップグレードします(Spring Security のバージョンは `5.4.7` になります)。
+
+その上で http://localhost:8080 にアクセスしてログインすると、次の出力を得ます。
+
+[source]
+----
+Name: [myuser], Granted Authorities: [[ROLE_USER, SCOPE_email, SCOPE_profile]], User Attributes: [{sub=5512f41b-43b1-40cf-858c-ab27bc6a5e9f, email_verified=false, name=my-firstname my-lastname, preferred_username=myuser, given_name=my-firstname, family_name=my-lastname, email=myuser@example.com}]
+----
+
+続いて、ソースコードはそのまま、Spring Bootのバージョンを `2.5.0` に変更して同様にアクセスしてみると、次の出力を得ます。
+なおSpring Securityのバージョンは `5.5.0` です。
+
+[source]
+----
+myuser
+----
+
+以上、Spring Boot `2.5.0` 以降(Spring Security `5.5.0-M2` 以降)で `HttpServletRequest#getRemoteUser()` の値が変わっていることを確認できました。
