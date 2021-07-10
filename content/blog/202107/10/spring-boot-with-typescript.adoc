@@ -4,7 +4,7 @@ date: 2021-07-09T22:54:04Z
 draft: false
 tags:
   - spring-boot
-  - typescript
+  - javascript
 ---
 
 Spring Boot で JavaScript を扱うときは素のJSをhtml(Thymeleafテンプレート)に `<script>` タグで埋め込む、というのが多分一般的で手っ取り早い方法かと思います。

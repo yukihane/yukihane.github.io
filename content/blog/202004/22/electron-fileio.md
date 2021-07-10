@@ -6,7 +6,7 @@ date: 2020-04-22T20:59:12Z
 # authors: []
 # categories: []
 # series: []
-tags: [js, electron]
+tags: [javascript, electron]
 # images: []
 # videos: []
 # audio: []
