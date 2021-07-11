@@ -7,6 +7,8 @@ tags:
   - javascript
 ---
 
+== はじめに
+
 Spring Boot で JavaScript を扱うときは素のJSをhtml(Thymeleafテンプレート)に `<script>` タグで埋め込む、というのが多分一般的で手っ取り早い方法かと思います。
 
 ただ、そろそろ素のJSを書くのをやめたい、という思いもあり、今回設定方法を考え、記録しました。
@@ -112,7 +114,8 @@ rm README.md index.html src/index.ts
 ----
 
 `tsconfig.json` を次のように書き換えます:
-[source]
+[source,json]
+.tsconfig.json
 ----
 {
   "compilerOptions": {
