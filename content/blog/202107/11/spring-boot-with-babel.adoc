@@ -1,0 +1,170 @@
+---
+title: "Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle) その2"
+date: 2021-07-10T23:53:20Z
+draft: false
+tags:
+  - spring-boot
+  - javascript
+---
+
+== はじめに
+
+link:{{< relref "/blog/202107/10/spring-boot-with-typescript.adoc" >}}[前回] は `ts-loader` を用いて TypeScript をビルドしました。
+
+簡潔にセットアップできたのは良いのですが、実際にはPolyfillを行いたいので `babel-loader` をベースに再構築することにします。また、自動テスト( `jest` )も導入します。
+
+今回の実証コードはこちらです:
+
+* https://github.com/yukihane/hello-java/tree/master/spring/with-ts-babel
+
+== 手順
+
+=== Spring Boot プロジェクトを構成する
+
+link:{{< relref "/blog/202107/10/spring-boot-with-typescript.adoc" >}}[前回] と同じです。
+
+=== Yarn プロジェクトを構成する
+
+今回は `webpack init` コマンドを利用せず、必要なものを明示的に導入します。
+次のコマンドで dependencies を追加します:
+
+[source]
+----
+yarn init -y
+yarn add --dev typescript webpack webpack-cli babel-loader @babel/core @babel/plugin-proposal-class-properties @babel/preset-env @babel/preset-typescript
+yarn add core-js
+----
+
+`package.json` に前回自動で追加された `scripts` セクションを手動で追加します:
+[source]
+.package.json
+----
+"scripts": {
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch"
+  }
+----
+
+`webpack.config.js`, `tsconfig.json` は link:{{< relref "/blog/202107/10/spring-boot-with-typescript.adoc" >}}[前回] のものをコピーしてきます。
+
+その上で、 `webpack.config.js` に記述されている `ts-loader` 部分を `babel-loader` に書き換え、 `@babel/preset-env` の設定を追記します。
+
+[source, javascript]
+.webpack.config.js
+----
+...
+      {
+        loader: "babel-loader",
+        options: {
+          exclude: [
+            // \\ for Windows, \/ for Mac OS and Linux
+            /node_modules[\\\/]core-js/,
+            /node_modules[\\\/]webpack[\\\/]buildin/,
+          ],
+          presets: [
+            [
+              "@babel/preset-env",
+              {
+                useBuiltIns: "usage",
+                corejs: "3",
+                shippedProposals: true,
+              },
+            ],
+            "@babel/preset-typescript",
+          ],
+          plugins: ["@babel/plugin-proposal-class-properties"],
+        },
+      },
+...
+----
+
+更に、 `package.json` へ `browserslist` の設定を追記します。
+[source]
+.package.json
+----
+  "browserslist": [
+    "defaults"
+  ]
+----
+
+==== 補足
+
+必要な dependencies は次を参照しました:
+
+* https://webpack.js.org/loaders/babel-loader/[babel-loader | webpack]
+* https://github.com/microsoft/TypeScript-Babel-Starter[microsoft
+/
+TypeScript-Babel-Starter - GitHub]
+
+`browserslist` など、 `@babel/preset-env` の設定は次を参考にしました:
+
+* https://babeljs.io/docs/en/babel-preset-env#browserslist-integration[@babel/preset-env > Browserslist Integration · Babel]
+* https://github.com/browserslist/browserslist#browserslist-[browserslist
+/
+browserslist - GitHub]
+
+`browserslist` で設定する値は https://github.com/browserslist/browserslist#full-list[公式のFull List]に記載されています。
+また、設定値が具体的にどのブラウザを対象にしているかは、次のコマンドで確認できます:
+[source]
+----
+npx browserslist "defaults"
+----
+
+=== Yarn を Gradle に統合する, 及び以降の作業
+
+link:{{< relref "/blog/202107/10/spring-boot-with-typescript.adoc" >}}[前回] と同じです。
+
+=== Jest をセットアップする
+
+いくつかやり方はあるようですが、今回は `ts-jest` を利用します。
+
+[source]
+----
+yarn add --dev jest @types/jest ts-jest
+----
+
+`package.json` に `jest` セクションを追加します:
+[source,json]
+.package.json
+----
+  "jest": {
+    "roots": [
+      "<rootDir>/src/main/js"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json",
+      "jsx"
+    ]
+  }
+----
+
+`script` セクションを編集し、testを組み込みます。
+
+[source,json]
+.package.json
+----
+  "scripts": {
+    "build": "jest && webpack --mode=production --node-env=production",
+    ...
+    "test": "jest"
+  },
+----
+
+==== 補足
+
+Jest の設定は次を参考にしています:
+
+* https://typescript-jp.gitbook.io/deep-dive/intro-1/jest[Jest - TypeScript Deep Dive 日本語版]
+
+Jest の公式ドキュメントでは、別の実現手段として、Babel経由でテストする設定が説明されています:
+
+* https://jestjs.io/ja/docs/getting-started#typescript-%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B[はじめましょう > TypeScript を使用する · Jest]
