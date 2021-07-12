@@ -168,3 +168,45 @@ Jest の設定は次を参考にしています:
 Jest の公式ドキュメントでは、別の実現手段として、Babel経由でテストする設定が説明されています:
 
 * https://jestjs.io/ja/docs/getting-started#typescript-%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B[はじめましょう > TypeScript を使用する · Jest]
+
+=== 型チェックを行う
+
+`@babel/preset-typescript` は https://github.com/babel/babel/issues/9028[型チェックを行ってくれない] ので、別途チェックする必要が有ります。これは `tsc` で実現します。
+
+そのために `tsconfig.json` を再編集します。
+
+[source]
+.tsconfig.json
+----
+{
+  "include": ["src/main/js/**/*"],
+  "compilerOptions": {
+    "strict": true,
+    "module": "es6",
+    "target": "es5",
+    "moduleResolution": "Node",
+    "noEmit": true
+  }
+}
+----
+
+`package.json` の `script` セクションを書き換え、型チェックも行うようにします:
+[source]
+.package.json
+----
+  "scripts": {
+    "build": "yarn run test && webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch",
+    "test": "tsc && jest"
+  },
+----
+
+==== 補足
+
+`tsconfig.json` の設定については下記を参考にしました:
+
+* https://www.typescriptlang.org/docs/handbook/babel-with-typescript.html[TypeScript: Documentation - Using Babel with TypeScript]
+* https://stackoverflow.com/a/43019209/4506703[Producing ES6-module output from TypeScript, with Jest installed, without producing errors - Stack Overflow]
+** https://stackoverflow.com/a/43019209/4506703[Typescript cannot find redux - Stack Overflow]
