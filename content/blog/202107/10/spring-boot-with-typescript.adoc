@@ -126,7 +126,8 @@ rm README.md index.html src/index.ts
 }
 ----
 
-`javascript` ファイルは `src/main/js` に、そして出力は `build/resources/main/static` に出力するよう設定します:
+`javascript` ファイルは `src/main/js` に、そして出力は `build/resources/main/static/static` に出力するよう設定します。
+また、 `mylib` という名前のライブラリとして生成します。
 
 [source, javascript]
 .webpack.config.js
@@ -139,9 +140,14 @@ const path = require("path");
 const isProduction = process.env.NODE_ENV == "production";
 
 const config = {
-  entry: "./src/main/js/index.ts",
+  // https://webpack.js.org/concepts/output/#multiple-entry-points
+  // https://webpack.js.org/configuration/output/#outputlibrary
+  entry: {
+    mylib: "./src/main/js/index.ts",
+  },
   output: {
-    path: path.resolve(__dirname, "build/resources/main/static"),
+    library: "[name]",
+    path: path.resolve(__dirname, "build/resources/main/static/static"),
   },
   plugins: [
     // Add your plugins here
@@ -182,6 +188,11 @@ module.exports = () => {
 * https://webpack.js.org/guides/getting-started/#basic-setup[Getting Started | webpack]
 
 `webpack.config.js` の設定は、 `ts-loader`のリファレンス中で https://github.com/TypeStrong/ts-loader#examples["simplest"] と表現されていた https://github.com/TypeStrong/ts-loader/tree/main/examples/vanilla[こちらのサンプル] も参考にしています。
+
+また、次の説明も参考にしています:
+
+* https://webpack.js.org/concepts/output/#multiple-entry-points[Output > Multiple Entry Points | webpack]
+* https://webpack.js.org/configuration/output/#outputlibrary[Output > output.library | webpack]
 
 === Yarn を Gradle に統合する
 
