@@ -1,5 +1,5 @@
 ---
-title: "Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle) その2"
+title: "Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle) - Polyfillも必要とする場合"
 date: 2021-07-10T23:53:20Z
 draft: false
 tags:
@@ -112,11 +112,58 @@ browserslist - GitHub]
 npx browserslist "defaults"
 ----
 
-=== Yarn を Gradle に統合する, 及び以降の作業
+=== Yarn を Gradle に統合する
 
 link:{{< relref "/blog/202107/10/spring-boot-with-typescript.adoc" >}}[前回] と同じです。
 
-=== Jest をセットアップする
+=== ビルドしてみる
+
+link:{{< relref "/blog/202107/10/spring-boot-with-typescript.adoc" >}}[前回] と同じく、 `UAParser.js` をインストールし、同じサンプルコードを追加します。
+
+加えて、 `babel-loader` の設定で、 `ua-parser-js` を除外するよう設定します。
+
+[source,javascript]
+.webpack.config.js
+----
+...
+  module: {
+    rules: [
+      {
+        loader: "babel-loader",
+        options: {
+          exclude: [
+            ...
+            /node_modules[\\\/]ua-parser-js/,
+          ],
+...
+----
+
+==== 補足
+
+上記の設定追加を行わない場合、コンパイル時に次の警告
+
+[source]
+----
+WARNING in ./src/main/js/index.ts 3:19-27
+export 'UAParser' (imported as 'UAParser') was not found in 'ua-parser-js' (module has no exports)
+----
+及び実行時に次のエラー
+[source]
+----
+Uncaught TypeError: ua_parser_js__WEBPACK_IMPORTED_MODULE_0__.UAParser is not a constructor
+----
+が発生します。
+
+この件に関して詳細は次を参照してみてください:
+
+* https://ja.stackoverflow.com/q/78174/2808[UAParser.js をインポートできない - スタック・オーバーフロー]
+
+
+=== Spring Boot プロセスにデバッガ(Eclipse)をアタッチする
+
+同じく link:{{< relref "/blog/202107/10/spring-boot-with-typescript.adoc" >}}[前回] を参照してください。
+
+=== 自動テストを実行する(Jest)
 
 いくつかやり方はあるようですが、今回は `ts-jest` を利用します。
 
@@ -153,7 +200,7 @@ yarn add --dev jest @types/jest ts-jest
 .package.json
 ----
   "scripts": {
-    "build": "jest && webpack --mode=production --node-env=production",
+    "build": "yarn run test && webpack --mode=production --node-env=production",
     ...
     "test": "jest"
   },
