@@ -218,6 +218,17 @@ processResources.dependsOn yarn_build
 設定はここまでで完了しました。
 試しにサンプルコードをおいてビルドしてみます。
 
+なお、サンプルコードでは  https://github.com/faisalman/ua-parser-js[`UAParser.js`] を利用していますので、事前に
+
+[source]
+----
+yarn add ua-parser-js
+yarn add --dev @types/ua-parser-js
+----
+を実行しています。
+
+以下、サンプルコード:
+
 [source,java]
 .src/main/java/com/github/yukihane/withts/MyController.java
 ----
@@ -240,11 +251,46 @@ public class MyController {
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table,
+      td,
+      th {
+        border: 1px solid;
+      }
+    </style>
   </head>
   <body>
-    <div th:text="${now}"></div>
-    <div id="client"></div>
-    <script src="main.js"></script>
+    <table>
+      <tbody>
+        <tr>
+          <td>サーバ時刻</td>
+          <td id="server"></td>
+        </tr>
+        <tr>
+          <td>ブラウザ</td>
+          <td id="client"></td>
+        </tr>
+      </tbody>
+    </table>
+    <script
+      type="text/javascript"
+      src="../../../../build/resources/main/static/static/mylib.js"
+      th:src="@{/static/mylib.js}"
+    ></script>
+    <script th:inline="javascript">
+      window.addEventListener("DOMContentLoaded", (event) => {
+        const serverTime = /*[[${now}]]*/ "2020-01-01T10:10:10.000+09:00";
+        const server = document.getElementById("server");
+        server.innerText = serverTime;
+
+        const clientTime = mylib.getOS();
+        const client = document.getElementById("client");
+        client.innerText = clientTime;
+      });
+    </script>
   </body>
 </html>
 ----
@@ -252,21 +298,11 @@ public class MyController {
 [source, javascript]
 .src/main/js/index.ts
 ----
-import { getDate } from "./date";
+import { UAParser } from "ua-parser-js";
 
-document.addEventListener("DOMContentLoaded", (event) => {
-  const elm = document.getElementById("client");
-  if (elm) {
-    elm.innerText = getDate().toString();
-  }
-});
-----
-
-[source, javascript]
-.src/main/js/date.ts
-----
-export const getDate = () => {
-  return new Date();
+export const getOS = (userAgent: string) => {
+  const parser = new UAParser(userAgent);
+  return JSON.stringify(parser.getOS());
 };
 ----
 
@@ -277,7 +313,7 @@ gradle clean build
 java -jar build/libs/with-ts-0.0.1-SNAPSHOT.jar
 ----
 
-http://localhost:8080 にアクセスすると、サーバ側で取得した時刻がThymeleafによって挿入され、また、ブラウザ側で取得した時刻が JavaScript によって挿入されているのが確認できます。
+http://localhost:8080 にアクセスすると、サーバ側で取得した時刻がThymeleafによって挿入され、また、ブラウザ側で取得したOS情報が JavaScript によって挿入されているのが確認できます。
 
 === Hot Swapping する(コード変更を自動反映する)
 
@@ -345,3 +381,10 @@ Grdleプロジェクトのデバッグオプションについてはこちらに
 
 * link:{{< relref "/blog/202006/15/spring-boot-debugging.adoc" >}}[Spring BootのGradleでのデバッグ実行方法] – 発火後忘失
 * https://stackoverflow.com/a/62567812/4506703[debug gradle bootRun having server=n] - Stack Overflow
+
+=== 自動テストを実行する(Jest)
+
+説明が前後してしまいますが、次の記事を参照してください。
+次の記事はBabelを組み込む方法ですが、Jestに関しては同じ設定でいけるはずです。
+
+* link:{{< relref "/blog/202107/11/spring-boot-with-babel.adoc" >}}[Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle) - Polyfillも必要とする場合]
