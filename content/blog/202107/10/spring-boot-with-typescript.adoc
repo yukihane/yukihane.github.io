@@ -75,7 +75,7 @@ yarn add --dev webpack webpack-cli
 yarn webpack init
 ----
 
-`yarn webpack init` を実行するとインタラクティブにぷとジェクトが構成されます。
+`yarn webpack init` を実行するとインタラクティブにプロジェクトが構成されます。
 それぞれの質問には次のように返答します:
 
 [cols="8,2"]
