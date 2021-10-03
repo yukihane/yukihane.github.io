@@ -1,5 +1,5 @@
 ---
-title: "JPA Entity に Lombok の @Data(@EqualsAndHashCode) 利用は避けるべき"
+title: "JPA Entity には Lombok の @Data(@EqualsAndHashCode) を使用すべきでない"
 date: 2021-07-30T17:57:08Z
 draft: false
 tags:
