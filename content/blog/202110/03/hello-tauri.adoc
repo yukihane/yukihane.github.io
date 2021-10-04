@@ -201,6 +201,8 @@ fn main() {
 
 * 冒頭でも少し触れましたが、 https://serde.rs/[Serde] という crate が JS - Rust 間データ変換を担っているので、この crate の知識が少し必要になりそうでした。
 ** 今回のコードでいうと、 `Date` 型のオブジェクトを渡すのに https://github.com/yukihane/hello-rust/blob/d18f92e49f5bbe3a50cece81469fc29b31d1cd21/hello-tauri/src-tauri/Cargo.toml#L20[`Cargo.toml` の dependencies] に `chrono = { version = "0.4.19", features = ["serde"] }` を追加する必要がありましたが、解答に辿り着くまで結構時間がかかりました。
-* 解説やサンプルが少ないです。公式/非公式ドキュメントも少なく、サンプルコードも動かなくなっているものが多いです。
+* 解説やサンプルが少ないです。公式/非公式ドキュメントも少なく、 https://tauri.studio/en/showcase[showcase] からリンクされているコードを理解しようにも、まず動かすまでにも至れなかったりしました。
 ** https://github.com/tauri-apps/tauri/tree/next/examples[公式リポジトリの examples] が数少ない情報源でした。今回のことについては https://github.com/tauri-apps/tauri/tree/next/examples/commands[commands] が該当します。
 ** examples 以下のコードを実行するには、リポジトリをチェックアウトして `cargo run --example commands` (など)。
+* 現状、 JS - Rust 間のやりとりは JSON のみなので、例えばバイナリを高頻度で送受信する必要があるようなアプリケーションではパフォーマンス問題が表出しそうにも思われます。
+** refs: https://github.com/tauri-apps/tauri/issues/1271[Pass messages between Rust frontend and backend without JSON serialization #1271]
