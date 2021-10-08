@@ -28,6 +28,7 @@ API, `jextract` コマンド引数など、 Java14 当時と結構変わって�
 == 環境
 
 * Ubuntu 20.04
+** 後で Windows10 上でも試してみましたが、こちらも上手く動作しました
 * Java Corretto-17.0.0.35.1
 * `jextract` Build 17-panama+3-167 (2021/5/18)
 * rustc 1.55.0
@@ -225,6 +226,7 @@ public class Main extends JFrame {
 [source,sh]
 ----
 javac \
+-encoding utf-8 \
 -d ./classes \
 -cp ./classes \
 --add-modules jdk.incubator.foreign \
@@ -239,11 +241,14 @@ javac \
 ----
 LD_LIBRARY_PATH=./greeter/target/release \
 java \
+-Dfile.encoding=utf-8 \
 --enable-native-access=ALL-UNNAMED \
 --add-modules jdk.incubator.foreign \
 -cp ./classes Main
 ----
 
-==== 参考
+==== 参考/補足
 
+* Windows で実行する場合、 `LD_LIBRARY_PATH` は機能しません。
+代わりに、 `./greeter/target/release/greeter.dll` をカレントディレクトリにコピーしてから上のコマンドを実行します。
 * https://github.com/openjdk/panama-foreign/blob/foreign-jextract/doc/panama_jextract.md#running-the-java-code-that-invokes-helloworld[Using the jextract tool > Running the Java code that invokes helloworld]
