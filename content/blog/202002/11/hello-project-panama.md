@@ -13,6 +13,8 @@ tags: [java,rust]
 draft: false
 ---
 
+追記: [Hello Project Panama, on Java17](/blog/202110/08/hello-project-panama-on-java17) に Java17 版を記載しました。
+
 ## はじめに
 
 今個人的にすごく知りたいのはこちらです。ご回答よろしくお願いします！！！！
