@@ -6,7 +6,7 @@ date: 2020-02-11T20:43:43Z
 # authors: []
 # categories: []
 # series: []
-tags: [java]
+tags: [java,rust]
 # images: []
 # videos: []
 # audio: []
