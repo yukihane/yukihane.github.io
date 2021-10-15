@@ -3,17 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://yukihane.github.io/blog/</loc>
+    <lastmod>2021-10-15T20:31:37+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yukihane.github.io/tags/java/</loc>
+    <lastmod>2021-10-15T20:31:37+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yukihane.github.io/blog/202110/15/servlet-with-cookies-samesite/</loc>
+    <lastmod>2021-10-15T20:31:37+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://yukihane.github.io/tags/android/</loc>
     <lastmod>2021-10-15T16:36:00+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://yukihane.github.io/blog/202110/15/develop-android-firefox-addons/</loc>
-    <lastmod>2021-10-15T16:36:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yukihane.github.io/blog/</loc>
     <lastmod>2021-10-15T16:36:00+09:00</lastmod>
   </url>
   
@@ -49,11 +59,6 @@
   
   <url>
     <loc>https://yukihane.github.io/blog/202110/08/hello-project-panama-on-java17/</loc>
-    <lastmod>2021-10-08T04:49:30+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yukihane.github.io/tags/java/</loc>
     <lastmod>2021-10-08T04:49:30+00:00</lastmod>
   </url>
   

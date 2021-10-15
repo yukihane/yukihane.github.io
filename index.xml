@@ -15,6 +15,15 @@
     
       
       <item>
+        <title>Servlet 5.1 で Samesite 属性を設定できるようになる</title>
+        <link>https://yukihane.github.io/blog/202110/15/servlet-with-cookies-samesite/</link>
+        <pubDate>Fri, 15 Oct 2021 20:31:37 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202110/15/servlet-with-cookies-samesite/</guid>
+        <description>現在の Servlet API では Cookie に SameSite 属性を設定するメソッドがありません。 そのため、仕様外の、フレームワーク固有の方法だったり、低レイヤーの仕組みを使って設定</description>
+      </item>
+      
+      <item>
         <title>Android Firefox Webextensions 開発/デバッグ覚え書き</title>
         <link>https://yukihane.github.io/blog/202110/15/develop-android-firefox-addons/</link>
         <pubDate>Fri, 15 Oct 2021 16:36:00 +0900</pubDate>

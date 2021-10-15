@@ -7,12 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Fri, 08 Oct 2021 04:49:30 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 15 Oct 2021 20:31:37 +0900</lastBuildDate>
     
         <atom:link href="https://yukihane.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     
     
     
+      
+      <item>
+        <title>Servlet 5.1 で Samesite 属性を設定できるようになる</title>
+        <link>https://yukihane.github.io/blog/202110/15/servlet-with-cookies-samesite/</link>
+        <pubDate>Fri, 15 Oct 2021 20:31:37 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202110/15/servlet-with-cookies-samesite/</guid>
+        <description>現在の Servlet API では Cookie に SameSite 属性を設定するメソッドがありません。 そのため、仕様外の、フレームワーク固有の方法だったり、低レイヤーの仕組みを使って設定</description>
+      </item>
       
       <item>
         <title>Hello Project Panama, on Java17</title>
