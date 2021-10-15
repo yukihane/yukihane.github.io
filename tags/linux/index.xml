@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/linux/</link>
+    <description>Recent content in linux on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Sun, 30 Aug 2020 21:32:44 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>CentOS6にGCC10.2.0をインストールしたときのメモ</title>
+        <link>https://yukihane.github.io/blog/202008/31/gcc-installation/</link>
+        <pubDate>Sun, 30 Aug 2020 21:32:44 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202008/31/gcc-installation/</guid>
+        <description>ビルド作業は次のページを参考にしました: gcc-10.1.0をCentOS7にソースインストール | 株式会社オルタ 環境は こちら に記載したもので</description>
+      </item>
+      
+      <item>
+        <title>Alpine Linuxでglibcじゃないことに起因する問題ってちょくちょくあるよね</title>
+        <link>https://yukihane.github.io/blog/202006/10/alpine-and-glibc-problems/</link>
+        <pubDate>Wed, 10 Jun 2020 10:17:55 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202006/10/alpine-and-glibc-problems/</guid>
+        <description>…と少し思い返していました。といっても思い出せたのは次の2つなのですが。 alpine Linuxへのawscliインストール alpineでgitがcol</description>
+      </item>
+      
+      <item>
+        <title>ワンライナー sudoers 編集</title>
+        <link>https://yukihane.github.io/blog/201805/09/edit-sudoers-oneliner/</link>
+        <pubDate>Wed, 09 May 2018 19:24:15 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201805/09/edit-sudoers-oneliner/</guid>
+        <description>Dockerfile 内で sudoers を編集しユーザ情報を追加したかった。 RUN echo &#39;myuser ALL=(ALL) NOPASSWD: ALL&#39; | EDITOR=&#39;tee -a&#39; visudo 参考: linux - How do I edit /etc/sudoers from a script? - Stack Overflow</description>
+      </item>
+      
+      <item>
+        <title>手っ取り早くRPMパッケージを作成したかった</title>
+        <link>https://yukihane.github.io/blog/201803/20/building-rpm/</link>
+        <pubDate>Tue, 20 Mar 2018 19:21:51 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201803/20/building-rpm/</guid>
+        <description>前提 既にビルド方法は確立しており、パッケージシステムに配布方法だけ任せたい、という場合に最小限の手間で RPM パッケージを作ることを考えます ビルド</description>
+      </item>
+      
+    
+  </channel>
+</rss>

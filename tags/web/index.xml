@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>web on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/web/</link>
+    <description>Recent content in web on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Sun, 23 Aug 2020 17:24:37 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Restful API, path を使うか query を使うか</title>
+        <link>https://yukihane.github.io/blog/202008/24/rest-path-or-query/</link>
+        <pubDate>Sun, 23 Aug 2020 17:24:37 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202008/24/rest-path-or-query/</guid>
+        <description>特に結論はなく、情報収集です。 Google の検索 URI「http://www.google.com/search?q=jellyfish」について考え</description>
+      </item>
+      
+      <item>
+        <title>ランダム文字列URL生成に関するメモ</title>
+        <link>https://yukihane.github.io/blog/202008/15/capability-url/</link>
+        <pubDate>Sat, 15 Aug 2020 10:26:40 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202008/15/capability-url/</guid>
+        <description>推測されないような文字列を動的に生成しURLに利用できるような仕組みを調べていますが、その調査メモです。 ちょうど私が調べている時期と重なって</description>
+      </item>
+      
+      <item>
+        <title>https://hatena.ne.jp/ にアクセスできてるとお思いで？</title>
+        <link>https://yukihane.github.io/blog/201912/03/auto-redirecting-chrome/</link>
+        <pubDate>Tue, 03 Dec 2019 20:39:39 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201912/03/auto-redirecting-chrome/</guid>
+        <description>はじめに: 試した環境 Windows10 の現時点での最新安定版 Google Chrome および Firefox を用いました。 Google Chrome 78.0.3904.108 Firefox 70.0.1 また実行に際しては、キャッシュ等の影響を避けるため、Chro</description>
+      </item>
+      
+    
+  </channel>
+</rss>

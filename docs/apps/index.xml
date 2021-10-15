@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Apps on 発火後忘失</title>
+    <link>https://yukihane.github.io/docs/apps/</link>
+    <description>Recent content in Apps on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Thu, 23 Jul 2020 15:31:22 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/docs/apps/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>hugo</title>
+        <link>https://yukihane.github.io/docs/apps/hugo/</link>
+        <pubDate>Thu, 23 Jul 2020 17:01:48 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/apps/hugo/</guid>
+        <description>AsciiDoc形式でblogを書くためにHugoをセットアップする。 Hugo自体はGo言語製、またAsciiDocの処理にはAsciido</description>
+      </item>
+      
+      <item>
+        <title>VS Code</title>
+        <link>https://yukihane.github.io/docs/apps/vscode/</link>
+        <pubDate>Thu, 23 Jul 2020 16:31:20 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/apps/vscode/</guid>
+        <description>設定 開いたタブをそのままにする { &amp;#34;workbench.editor.enablePreview&amp;#34;: false }</description>
+      </item>
+      
+      <item>
+        <title>ラノゲメーカーMV</title>
+        <link>https://yukihane.github.io/docs/apps/visual-novel-maker/</link>
+        <pubDate>Thu, 23 Jul 2020 16:28:57 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/apps/visual-novel-maker/</guid>
+        <description>リンク 基本情報 オフィシャルサイト オフィシャルのDL版 Steam メモ: ストア版(非Steam版)ではインストールできるのは1台(RPGツクールMVのみ</description>
+      </item>
+      
+      <item>
+        <title>Davinci Resolve</title>
+        <link>https://yukihane.github.io/docs/apps/davinci-resolve/</link>
+        <pubDate>Thu, 23 Jul 2020 16:26:52 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/apps/davinci-resolve/</guid>
+        <description>録画フォーマット OBS Studioでオーディオをマルチトラックで録画する場合にはmkvを使うのがよさそう。 ただしそのままではDavinci Res</description>
+      </item>
+      
+      <item>
+        <title>Google Chrome</title>
+        <link>https://yukihane.github.io/docs/apps/google-chrome/</link>
+        <pubDate>Thu, 23 Jul 2020 16:22:28 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/apps/google-chrome/</guid>
+        <description>インストールする機能拡張 octotree Quick Javascript Switcher uBlock Origin 検索エンジン設定 検索エンジン キーワード URL alc alc https://eow.alc.co.jp/search?q=%s Maven Central mvn https://search.maven.org/search?q=%s</description>
+      </item>
+      
+      <item>
+        <title>curl</title>
+        <link>https://yukihane.github.io/docs/apps/curl/</link>
+        <pubDate>Thu, 23 Jul 2020 15:32:22 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/apps/curl/</guid>
+        <description>〜がしたい Basic認証 -u オプション。 curl -u user:password http://example.com HTTPステータスコード表示 -i オプションで出力にHTTPヘッダ情報を含められる。 curl -i http://example.com</description>
+      </item>
+      
+    
+  </channel>
+</rss>

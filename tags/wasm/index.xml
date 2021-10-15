@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>wasm on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/wasm/</link>
+    <description>Recent content in wasm on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Thu, 09 Apr 2020 20:52:10 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/wasm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>rustでwasmでhello, world(2020-04-08版) の次</title>
+        <link>https://yukihane.github.io/blog/202004/09/hello-wasm-next/</link>
+        <pubDate>Thu, 09 Apr 2020 20:52:10 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202004/09/hello-wasm-next/</guid>
+        <description>目標 rust で wasm で hello, worldの次として、JavaScript で実装されたプロジェクトを Rust に書き直してみます。 最近N 予備校のプログラミング入門 Web ア</description>
+      </item>
+      
+      <item>
+        <title>Hello, Wasm with Rust</title>
+        <link>https://yukihane.github.io/blog/202004/08/hello-wasm-with-rust/</link>
+        <pubDate>Tue, 07 Apr 2020 22:39:49 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202004/08/hello-wasm-with-rust/</guid>
+        <description>はじめに wasmに挑戦してみようとHello, worldをやってみようとしました。 公式っぽいドキュメントとしてはググると次のものが見つかりま</description>
+      </item>
+      
+    
+  </channel>
+</rss>

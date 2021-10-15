@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>azure on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/azure/</link>
+    <description>Recent content in azure on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Sat, 29 Sep 2018 19:51:56 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/azure/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Azure FunctionsでPowerShell使えなくなっとる</title>
+        <link>https://yukihane.github.io/blog/201809/29/pwsh-on-azure-function/</link>
+        <pubDate>Sat, 29 Sep 2018 19:51:56 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201809/29/pwsh-on-azure-function/</guid>
+        <description>v1 で実験的サポートだった PowerShell が、実行環境のバージョンが上がったとかで v2 になり、選べなくなっているみたい？一時的な話？ 実行環境を作る https://portal.azure.com/ から 「リソ</description>
+      </item>
+      
+    
+  </channel>
+</rss>

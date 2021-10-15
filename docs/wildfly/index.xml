@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WildFly on 発火後忘失</title>
+    <link>https://yukihane.github.io/docs/wildfly/</link>
+    <description>Recent content in WildFly on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Fri, 24 Jul 2020 01:09:21 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/docs/wildfly/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>CORS</title>
+        <link>https://yukihane.github.io/docs/wildfly/cors/</link>
+        <pubDate>Fri, 24 Jul 2020 01:45:25 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/wildfly/cors/</guid>
+        <description>RestyGwtを使用してWildFlyへクロスドメインのリクエストを投げたい場合の設定。 下記のURLあたりを参考に。 jboss - CORS: AngularJS Resteasy 3 + Wildfly - Stack Overflow</description>
+      </item>
+      
+      <item>
+        <title>Swagger</title>
+        <link>https://yukihane.github.io/docs/wildfly/swagger/</link>
+        <pubDate>Fri, 24 Jul 2020 01:42:56 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/wildfly/swagger/</guid>
+        <description>WildFlyにはRestEasyが組み込まれているのでそれを前提に。 公式Wiki Swagger セットアップ pom.xml `swagger-jaxrs`を依存関係に</description>
+      </item>
+      
+      <item>
+        <title>JAAS</title>
+        <link>https://yukihane.github.io/docs/wildfly/jaas/</link>
+        <pubDate>Fri, 24 Jul 2020 01:16:09 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/wildfly/jaas/</guid>
+        <description>https://github.com/yukihane/hello-rest-environment の hello-wildfly-rest にサンプルコードを置いている。 WildFly設定 standalone/configuration/standalone.xml Security subsystem configuration - WildFly 10 - Project Documentation Editor Authentication Modules - WildFly 10 - Project Documentation Editor Wildfly 8でJAAS - hatenob standalone/configuration/standalone.xml の security サブシステム設定部分に</description>
+      </item>
+      
+      <item>
+        <title>Wildfly Security</title>
+        <link>https://yukihane.github.io/docs/wildfly/wildfly-security/</link>
+        <pubDate>Fri, 24 Jul 2020 01:14:53 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/wildfly/wildfly-security/</guid>
+        <description>Security-Realm と Security-Domain EAP6：http://www.natswell.com/techcolumn/2013/08/22/eap6%EF%BC%9A%E3</description>
+      </item>
+      
+    
+  </channel>
+</rss>

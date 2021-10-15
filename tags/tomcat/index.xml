@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tomcat on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/tomcat/</link>
+    <description>Recent content in tomcat on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Sat, 12 Jun 2021 10:07:19 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/tomcat/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Spring Boot で Tomcat のメトリクスを出力する</title>
+        <link>https://yukihane.github.io/blog/202106/12/spring-boot-tomcat-metrics/</link>
+        <pubDate>Sat, 12 Jun 2021 10:07:19 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202106/12/spring-boot-tomcat-metrics/</guid>
+        <description>Spring Boot アプリケーションの性能評価を行っているのですが、実装したアプリケーション部分ではなく、webサーバかどこかがパフォーマンスボトルネックに</description>
+      </item>
+      
+      <item>
+        <title>Tomcat上でJSF実現</title>
+        <link>https://yukihane.github.io/blog/201807/07/jsf-on-tomcat/</link>
+        <pubDate>Sat, 07 Jul 2018 21:47:59 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201807/07/jsf-on-tomcat/</guid>
+        <description>非 JavaEE なサーブレットコンテナ上で JSF を実行するように変更する手順。 TL;DR Mojarra を依存関係に含める JSF リソースを javax.faces.webapp.FacesServlet にマップするよう web.xml で設定する 実装例 https://github.com/yukihane/hello-jsf/tree/feature/server/tomcat feature/server/tomcat ブラ</description>
+      </item>
+      
+    
+  </channel>
+</rss>

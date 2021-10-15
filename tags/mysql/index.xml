@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mysql on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/mysql/</link>
+    <description>Recent content in mysql on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Wed, 28 Apr 2021 15:55:52 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>MySQL Connector/J 8.0.23 でタイムゾーン変換メカニズムが変更になった</title>
+        <link>https://yukihane.github.io/blog/202104/29/mysql-connector-j-8.0.23/</link>
+        <pubDate>Wed, 28 Apr 2021 15:55:52 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202104/29/mysql-connector-j-8.0.23/</guid>
+        <description>MySQL Connector/J 8.0.23 でタイムゾーン変換のメカニズムが変わりました(Spring Boot では 2.3.9以降, 2.4.3以降でこれを採用しています)。 Important Change: A new mechanism has been</description>
+      </item>
+      
+    
+  </channel>
+</rss>

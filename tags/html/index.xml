@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>html on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/html/</link>
+    <description>Recent content in html on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Tue, 18 May 2021 22:38:11 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/html/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>script src に設定する URL の &amp; はどう書けば良い？</title>
+        <link>https://yukihane.github.io/blog/202105/19/url-amp/</link>
+        <pubDate>Tue, 18 May 2021 22:38:11 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202105/19/url-amp/</guid>
+        <description>&amp;lt;script&amp;gt; タグの src に URL 書く場合、クエリパラメータ連結の &amp;amp; ってどう書くべきなんだろう、という話です。 結論としては、以下のように、 &amp;amp;amp; とするのが無難、とい</description>
+      </item>
+      
+    
+  </channel>
+</rss>

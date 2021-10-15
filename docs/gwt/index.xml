@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GWT on 発火後忘失</title>
+    <link>https://yukihane.github.io/docs/gwt/</link>
+    <description>Recent content in GWT on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Sun, 26 Jul 2020 02:07:02 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/docs/gwt/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>GWT用語集</title>
+        <link>https://yukihane.github.io/docs/gwt/gwt-term/</link>
+        <pubDate>Sun, 26 Jul 2020 02:36:40 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/gwt/gwt-term/</guid>
+        <description>JsInterop こちらより: a spec &amp;amp; collection of Java annotations for interoperability with JavaScript. A way to “consume” existing JavaScript libraries as well as to export Java code for consumption from JS https://docs.google.com/document/d/10fmlEYIHcyead_4R1S5wKGs1t2I7Fnp_PaNaa7XTEk0/edit?usp=sharing ERRAI 4 AND JSINTEROP BEST PRACTICES - Erraiに特化した話でなく基礎の説</description>
+      </item>
+      
+      <item>
+        <title>GwtCon2017</title>
+        <link>https://yukihane.github.io/docs/gwt/gwtcon2017/</link>
+        <pubDate>Sun, 26 Jul 2020 02:34:19 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/gwt/gwtcon2017/</guid>
+        <description>スライド要旨 GwtCon2017のスライドを簡単にまとめます。 Present and Future of GWT from a developer perspective 既に陳腐化した(使うべきでない)GWT要素技術の紹介。代替方</description>
+      </item>
+      
+      <item>
+        <title>GWTコンパイル時間増大問題</title>
+        <link>https://yukihane.github.io/docs/gwt/gwt-compilation-time/</link>
+        <pubDate>Sun, 26 Jul 2020 02:22:47 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/gwt/gwt-compilation-time/</guid>
+        <description>問題解説 GWTアプリケーションの規模が大きくなると、コンパイル時間が非常に長くかかってしまうようになる問題。 非常に長くかかる、というのは、自</description>
+      </item>
+      
+      <item>
+        <title>GXT</title>
+        <link>https://yukihane.github.io/docs/gwt/gxt/</link>
+        <pubDate>Sun, 26 Jul 2020 02:19:25 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/gwt/gxt/</guid>
+        <description>オフィシャルサイト GXT3 GXT4 GXTのマニュアルのURLはこれまで頻繁に変わってきたので、上記のリンクもいつの間にか切れている可能性もある。 またSe</description>
+      </item>
+      
+      <item>
+        <title>GWT</title>
+        <link>https://yukihane.github.io/docs/gwt/gwt/</link>
+        <pubDate>Sun, 26 Jul 2020 02:07:09 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/gwt/gwt/</guid>
+        <description>プロジェクトのセットアップ 手順 Mavenを用い、次のコマンドで pom.xml を生成する。 mvn archetype:generate \ -DarchetypeGroupId=net.ltgt.gwt.archetypes \ -DarchetypeVersion=2017.10.20 \ -DarchetypeArtifactId=modular-webapp 備考 オフィシャルサイトにはAntでのセットアップ</description>
+      </item>
+      
+    
+  </channel>
+</rss>

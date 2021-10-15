@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Windows on 発火後忘失</title>
+    <link>https://yukihane.github.io/docs/windows/</link>
+    <description>Recent content in Windows on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Sun, 26 Jul 2020 02:51:24 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/docs/windows/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>バッチファイル</title>
+        <link>https://yukihane.github.io/docs/windows/batch/</link>
+        <pubDate>Sun, 26 Jul 2020 02:56:23 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/windows/batch/</guid>
+        <description>エスケープ ^ でエスケープ。改行をエスケープする場合は文末に置けばよい。</description>
+      </item>
+      
+      <item>
+        <title>Chocolatey</title>
+        <link>https://yukihane.github.io/docs/windows/chocolatey/</link>
+        <pubDate>Sun, 26 Jul 2020 02:52:35 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/windows/chocolatey/</guid>
+        <description>https://chocolatey.org/ インストール PowerShell プロファイル作成 プロファイルが存在しない状態でChocolateyインストールを行うと警告が出て気持ち悪いので、プロファイル</description>
+      </item>
+      
+      <item>
+        <title>Windows</title>
+        <link>https://yukihane.github.io/docs/windows/windows/</link>
+        <pubDate>Sun, 26 Jul 2020 02:50:26 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/windows/windows/</guid>
+        <description>システムイメージ作成(Windows7) https://121ware.com/qasearch/1007/app/servlet/relatedqa?QID=012941 https://121ware.com/qasearch/1007/app/servlet/qadoc?QID=013667 コントロールパネル &amp;gt; バックアップの作成 &amp;gt; システムイメージの作成 ハードディスクに作成する場合は起動</description>
+      </item>
+      
+    
+  </channel>
+</rss>

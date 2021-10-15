@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>oauth on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/oauth/</link>
+    <description>Recent content in oauth on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Tue, 04 Aug 2020 21:39:37 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/oauth/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Spring Security OAuth 2.0 Login を自動テストする</title>
+        <link>https://yukihane.github.io/blog/202008/05/spring-boot-oidc-testing/</link>
+        <pubDate>Tue, 04 Aug 2020 21:39:37 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202008/05/spring-boot-oidc-testing/</guid>
+        <description>KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる で作成したプログラムの自動テスト方法です。 今回のコードも前回と同じく次のディレ</description>
+      </item>
+      
+      <item>
+        <title>KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる</title>
+        <link>https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/</link>
+        <pubDate>Mon, 20 Jul 2020 18:54:23 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/</guid>
+        <description>はじめに Spring Boot で Spring Security OAuth 2.0 Login / Client を利用する手順をまとめます。 また、認可サーバ(IdP)にはローカルで立てたKeycloakを用いますのでそちらの</description>
+      </item>
+      
+      <item>
+        <title>Spring Security から認可サーバサポートが無くなる、というのは取り敢えず見直されています</title>
+        <link>https://yukihane.github.io/blog/202007/19/spring-security-authentication-server/</link>
+        <pubDate>Sun, 19 Jul 2020 06:10:14 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202007/19/spring-security-authentication-server/</guid>
+        <description>世の中に認可サーバー製品がたくさんあるので、Spring Securityではサポートしないことを決定しました — Spring Security OAuth2はあと数年でサ</description>
+      </item>
+      
+      <item>
+        <title>Spring SecurityのOAuth2.0関連の歴史を調査し実装してみた</title>
+        <link>https://yukihane.github.io/blog/202007/15/history-of-spring-oauth2-libraries/</link>
+        <pubDate>Tue, 14 Jul 2020 23:47:11 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202007/15/history-of-spring-oauth2-libraries/</guid>
+        <description>Qiita に昔(2019年中頃)書いていた資料を転記し忘れていたので構成を見直してアップロードし直します。 2020年現在の状況はまた更新されています</description>
+      </item>
+      
+      <item>
+        <title>Spring Security OAuth 2.0 Client(OAuth 2.0 Login)でトークンの管理をしているのはOAuth2AuthorizedClientService</title>
+        <link>https://yukihane.github.io/blog/202006/17/oauth2authorizedclientservice/</link>
+        <pubDate>Wed, 17 Jun 2020 09:24:57 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202006/17/oauth2authorizedclientservice/</guid>
+        <description>私も今回の質問(本文末参照)を見たとき少しの間勘違いしてしまったのですが、OAuth2.0のクライアントがどこで各リソースオーナーのトークン</description>
+      </item>
+      
+    
+  </channel>
+</rss>

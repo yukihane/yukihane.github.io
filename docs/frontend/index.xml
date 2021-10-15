@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Frontend on 発火後忘失</title>
+    <link>https://yukihane.github.io/docs/frontend/</link>
+    <description>Recent content in Frontend on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Thu, 23 Jul 2020 14:46:07 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/docs/frontend/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Angular</title>
+        <link>https://yukihane.github.io/docs/frontend/angular/</link>
+        <pubDate>Fri, 24 Jul 2020 01:49:16 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/frontend/angular/</guid>
+        <description>参考 Angular2によるモダンWeb開発 TypeScriptを使った基本プログラミング データダウンロードページ 用語 コンポーネント(comp</description>
+      </item>
+      
+      <item>
+        <title>Firefox Webextension</title>
+        <link>https://yukihane.github.io/docs/frontend/firefox-webextension/</link>
+        <pubDate>Thu, 23 Jul 2020 15:59:39 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/frontend/firefox-webextension/</guid>
+        <description>リンク パッケージ化とインストール - Mozilla | MDN アドオンを投稿する - Mozilla | MDN Developer Hub :: Add-ons for Firefox</description>
+      </item>
+      
+      <item>
+        <title>vue.js</title>
+        <link>https://yukihane.github.io/docs/frontend/vue/</link>
+        <pubDate>Thu, 23 Jul 2020 15:53:22 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/frontend/vue/</guid>
+        <description>初歩的な疑問/TIPSなど htmlの書き下しを簡単に行う Emmetというプラグイン？がある。 VSCodeには標準で入っていた。 使い方はググろ</description>
+      </item>
+      
+      <item>
+        <title>フロントエンド基礎知識</title>
+        <link>https://yukihane.github.io/docs/frontend/js-fundamentals/</link>
+        <pubDate>Thu, 23 Jul 2020 15:38:25 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/frontend/js-fundamentals/</guid>
+        <description>言語仕様 JavaScriptの「オブジェクト」 JavaScriptのオブジェクトは、カッコ {…​} で表される。 JavaScriptのオブジェ</description>
+      </item>
+      
+      <item>
+        <title>JS覚え書き</title>
+        <link>https://yukihane.github.io/docs/frontend/js-memo/</link>
+        <pubDate>Thu, 23 Jul 2020 14:50:04 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/frontend/js-memo/</guid>
+        <description>TypeScript ReturnType Redux reducer の 戻り値型として初出。 関数型を簡単に？定義するための構文だろうか。 公式サイトリンク JavaScript 角カッコ [] の戻り値 分割代入 関数の戻り値が配列で、</description>
+      </item>
+      
+    
+  </channel>
+</rss>

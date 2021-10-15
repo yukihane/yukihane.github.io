@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>spring-boot on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/spring-boot/</link>
+    <description>Recent content in spring-boot on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Sat, 24 Jul 2021 19:53:33 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/spring-boot/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>RestTemplateが採用するHTTPクライアント実装の順序</title>
+        <link>https://yukihane.github.io/blog/202107/25/resttemplate-impl-order/</link>
+        <pubDate>Sat, 24 Jul 2021 19:53:33 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202107/25/resttemplate-impl-order/</guid>
+        <description>By default the built RestTemplate will attempt to use the most suitable ClientHttpRequestFactory — RestTemplateBuilder JavaDoc とありますが、具体的にどうやって決めているの？という話です。 ClientHttpRequestFactory</description>
+      </item>
+      
+      <item>
+        <title>Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle) - Polyfillも必要とする場合</title>
+        <link>https://yukihane.github.io/blog/202107/11/spring-boot-with-babel/</link>
+        <pubDate>Sat, 10 Jul 2021 23:53:20 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202107/11/spring-boot-with-babel/</guid>
+        <description>はじめに 前回 は ts-loader を用いて TypeScript をビルドしました。 簡潔にセットアップできたのは良いのですが、実際にはPolyfillを行いたいので babel-loader をベースに再構</description>
+      </item>
+      
+      <item>
+        <title>Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle)</title>
+        <link>https://yukihane.github.io/blog/202107/10/spring-boot-with-typescript/</link>
+        <pubDate>Fri, 09 Jul 2021 22:54:04 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202107/10/spring-boot-with-typescript/</guid>
+        <description>はじめに Spring Boot で JavaScript を扱うときは素のJSをhtml(Thymeleafテンプレート)に &amp;lt;script&amp;gt; タグで埋め込む、というのが多分一般的で手っ取り早い方法か</description>
+      </item>
+      
+      <item>
+        <title>Spring Boot 2.5.0(Spring Security 5.5.0-M2)でremoteUserの値が変わった</title>
+        <link>https://yukihane.github.io/blog/202106/30/spring-boot-remoteuser-is-changed/</link>
+        <pubDate>Tue, 29 Jun 2021 20:00:43 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202106/30/spring-boot-remoteuser-is-changed/</guid>
+        <description>HttpServletRequest#getRemoteUser() をログ出力(Tomcatの %u)しているのですが、Spring Boot 2.5.0 から返ってくる値が変わったようです。 どの変更が影響しているのか調べたとこ</description>
+      </item>
+      
+      <item>
+        <title>Spring Boot で Tomcat のメトリクスを出力する</title>
+        <link>https://yukihane.github.io/blog/202106/12/spring-boot-tomcat-metrics/</link>
+        <pubDate>Sat, 12 Jun 2021 10:07:19 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202106/12/spring-boot-tomcat-metrics/</guid>
+        <description>Spring Boot アプリケーションの性能評価を行っているのですが、実装したアプリケーション部分ではなく、webサーバかどこかがパフォーマンスボトルネックに</description>
+      </item>
+      
+      <item>
+        <title>Spring BootでTomcatのデフォルトエラーページが出るのを抑止する</title>
+        <link>https://yukihane.github.io/blog/202105/21/spring-boot-avoid-tomcat-error-page/</link>
+        <pubDate>Thu, 20 May 2021 20:58:00 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202105/21/spring-boot-avoid-tomcat-error-page/</guid>
+        <description>Spring Boot を実行していると、Tomcatのデフォルトエラーページが表示されるような事象に遭遇することがあります。 Tomcat invokes ErrorReportValve directly for malformed URLs · Issue #21257 · spring-projects/spring-boot このページ</description>
+      </item>
+      
+      <item>
+        <title>MySQL Connector/J 8.0.23 でタイムゾーン変換メカニズムが変更になった</title>
+        <link>https://yukihane.github.io/blog/202104/29/mysql-connector-j-8.0.23/</link>
+        <pubDate>Wed, 28 Apr 2021 15:55:52 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202104/29/mysql-connector-j-8.0.23/</guid>
+        <description>MySQL Connector/J 8.0.23 でタイムゾーン変換のメカニズムが変わりました(Spring Boot では 2.3.9以降, 2.4.3以降でこれを採用しています)。 Important Change: A new mechanism has been</description>
+      </item>
+      
+      <item>
+        <title>ガバガバOIDCモックサーバを作る</title>
+        <link>https://yukihane.github.io/blog/202101/30/gava-oidc-idp/</link>
+        <pubDate>Sat, 30 Jan 2021 06:29:06 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202101/30/gava-oidc-idp/</guid>
+        <description>OIDCフローの調査などで本物でないOIDC IdP Mock Serverが欲しくなったので検索してみました。 世に数多あるように見えたのですが、結構真面目</description>
+      </item>
+      
+      <item>
+        <title>Spring Boot の CORS 設定を全許可する</title>
+        <link>https://yukihane.github.io/blog/202101/24/spring-boot-cors-permit-all/</link>
+        <pubDate>Sun, 24 Jan 2021 13:59:39 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202101/24/spring-boot-cors-permit-all/</guid>
+        <description>How to configure CORS in a Spring Boot + Spring Security application? - Stack Overflow Spring Boot のリファレンス 4.7.1. The “Spring Web MVC Framework” &amp;gt; CORS Support を見ると、次のように設定すれば良いように見え</description>
+      </item>
+      
+      <item>
+        <title>Spring Sessionをインメモリで利用する</title>
+        <link>https://yukihane.github.io/blog/202101/24/spring-session-in-memory/</link>
+        <pubDate>Sun, 24 Jan 2021 13:31:55 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202101/24/spring-session-in-memory/</guid>
+        <description>What should be a replacement for StoreType.HASH_MAP in spring-boot 2 昔は spring.session.store-type の選択肢に hash_map というものがあったようですが、現在は存在しません。(ちなみに none は Spring Session を利用しない、という意味になるよう</description>
+      </item>
+      
+      <item>
+        <title>ControllerでUnauthorizedExceptionを投げると401でなく403になる</title>
+        <link>https://yukihane.github.io/blog/202101/23/throw-unauthorizedexception-in-controller/</link>
+        <pubDate>Sat, 23 Jan 2021 14:14:04 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202101/23/throw-unauthorizedexception-in-controller/</guid>
+        <description>Authentication handling in Spring boot 2.x with WebSecurityConfigurerAdapter - Stack Overflow Http403ForbiddenEntryPoint がデフォルトで設定されているため、 ExceptionTranslationFilter において AuthenticationException のサブクラスは全て 403 になっている模様。 認証通った上でunauthori</description>
+      </item>
+      
+      <item>
+        <title>Spring Boot 2.4.1-&gt;2.4.2アップグレードで発生した問題メモ</title>
+        <link>https://yukihane.github.io/blog/202101/21/ploblem-in-springboot2.4.2/</link>
+        <pubDate>Thu, 21 Jan 2021 15:51:37 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202101/21/ploblem-in-springboot2.4.2/</guid>
+        <description>Spring Framework 5.3.3 で対応された Update OncePerRequestFilter.isAsyncDispatch to use HttpServletRequest.getDispatcherType() #26282 コード差分 の影響で、 HttpServletRequest#getDispatcherType() メソッドが呼ばれるようになっています。 これにより、 HttpServletRequest をモック化して実行していたテストケー</description>
+      </item>
+      
+      <item>
+        <title>Spring Boot 2.3.5 で MapStruct を利用しているプロジェクトのビルドが失敗した</title>
+        <link>https://yukihane.github.io/blog/202011/14/mapstruct-with-spring-boot-2.3.5/</link>
+        <pubDate>Sat, 14 Nov 2020 07:41:01 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202011/14/mapstruct-with-spring-boot-2.3.5/</guid>
+        <description>調査したところSpring Bootの問題と言うよりは、Lombokのバージョンが 1.18.12 から 1.18.16 に上がったことによる非互換性の問題でした。 Lombo</description>
+      </item>
+      
+      <item>
+        <title>claimとscopeを追加して取得してみる</title>
+        <link>https://yukihane.github.io/blog/202009/04/oidc-add-claim-and-scope/</link>
+        <pubDate>Thu, 03 Sep 2020 23:24:39 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202009/04/oidc-add-claim-and-scope/</guid>
+        <description>はじめに Keycloak上で新しいclaimと、それを取得できる新しいscopeを定義し、Spring Securityを使って参照してみます</description>
+      </item>
+      
+      <item>
+        <title>Spring Security: OIDC の redirect_uri を変更する</title>
+        <link>https://yukihane.github.io/blog/202009/04/oidc-change-redirect-uri/</link>
+        <pubDate>Thu, 03 Sep 2020 22:50:21 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202009/04/oidc-change-redirect-uri/</guid>
+        <description>はじめに KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる で作成したコードに対して、 カスタム redirect_uri の設定を行ってみます。 今回のコード</description>
+      </item>
+      
+      <item>
+        <title>DevToolsを組み込んでいると再起動してもsessionが引き継がれる</title>
+        <link>https://yukihane.github.io/blog/202009/02/spring-boot-session-take-over-on-restart-with-devtools/</link>
+        <pubDate>Tue, 01 Sep 2020 18:46:13 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202009/02/spring-boot-session-take-over-on-restart-with-devtools/</guid>
+        <description>Spring Boot開発中、再起動するとsessionは消失すると思いこんでいたのですが、どうも引き継がれているように見えて混乱しました。 その後、調査</description>
+      </item>
+      
+      <item>
+        <title>gradle bootRun でプロファイルを指定するには？</title>
+        <link>https://yukihane.github.io/blog/202008/30/gradle-bootrun-parameter/</link>
+        <pubDate>Sat, 29 Aug 2020 23:16:09 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202008/30/gradle-bootrun-parameter/</guid>
+        <description>gradle bootRun を実行する際にアクティブ化するプロファイルの指定を行いたかったのですが、ぱっと思いつかなかったのでメモ。 まず、 gradle bootRun -Dprofiles.active=myproile はうまくいきません。</description>
+      </item>
+      
+      <item>
+        <title>openapi-generaterで生成したcontrollerにカスタム引数を追加する</title>
+        <link>https://yukihane.github.io/blog/202008/30/openapi-spring-mvc-handler-args/</link>
+        <pubDate>Sat, 29 Aug 2020 19:23:06 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202008/30/openapi-spring-mvc-handler-args/</guid>
+        <description>はじめに openapi generator を Spring Boot で利用してみる で openapi-generator を用いて Spring MVC のコントローラ(のインタフェース)を自動生成してみました。 その後、これを実際に利用してみて気</description>
+      </item>
+      
+      <item>
+        <title>openapi generator を Spring Boot で利用してみる</title>
+        <link>https://yukihane.github.io/blog/202008/23/openapi-generator/</link>
+        <pubDate>Sun, 23 Aug 2020 05:09:07 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202008/23/openapi-generator/</guid>
+        <description>今回の成果物 https://github.com/yukihane/hello-java/tree/master/spring/openapi-sample 設定 build.gradle openapi-generator-gradle-plugin spring generator 辺りを参考にしています。 build.gradle plugins { id &amp;#39;eclipse&amp;#39; id &amp;#39;org.openapi.generator&amp;#39; version &amp;#39;4.3.1&amp;#39; } ext { openApiOutputDir = &amp;#34;$rootDir/build/generated/openapi&amp;#34; } sourceSets.main.java.srcDirs += [&amp;#34;$openApiOutputDir/src/main/java&amp;#34;] dependencies { // これらは自動生成クラスが import しているので必要 implementation &amp;#39;org.springframework.boot:spring-boot-starter-validation&amp;#39;</description>
+      </item>
+      
+      <item>
+        <title>Spring Security OAuth 2.0 Login を自動テストする</title>
+        <link>https://yukihane.github.io/blog/202008/05/spring-boot-oidc-testing/</link>
+        <pubDate>Tue, 04 Aug 2020 21:39:37 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202008/05/spring-boot-oidc-testing/</guid>
+        <description>KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる で作成したプログラムの自動テスト方法です。 今回のコードも前回と同じく次のディレ</description>
+      </item>
+      
+      <item>
+        <title>GradleでSpring Bootプロジェクトを作成してSTS(Eclipse)でインポートする手順</title>
+        <link>https://yukihane.github.io/blog/202007/26/spring-boot-gradle-eclipse/</link>
+        <pubDate>Sat, 25 Jul 2020 18:11:15 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202007/26/spring-boot-gradle-eclipse/</guid>
+        <description>はじめに Spring Initializrを使ってGradle形式でプロジェクトを作成した場合、どうやってSTS(Eclipse)へインポートするのか逡</description>
+      </item>
+      
+      <item>
+        <title>KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる</title>
+        <link>https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/</link>
+        <pubDate>Mon, 20 Jul 2020 18:54:23 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/</guid>
+        <description>はじめに Spring Boot で Spring Security OAuth 2.0 Login / Client を利用する手順をまとめます。 また、認可サーバ(IdP)にはローカルで立てたKeycloakを用いますのでそちらの</description>
+      </item>
+      
+      <item>
+        <title>Spring Security OAuth 2.0 Client の auto-configuration</title>
+        <link>https://yukihane.github.io/blog/202007/20/spring-security-oauth-2.0-client/</link>
+        <pubDate>Mon, 20 Jul 2020 06:36:51 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202007/20/spring-security-oauth-2.0-client/</guid>
+        <description>OAuth2ClientAutoConfiguration 上記のクラスが Import しているもの(など): OAuth2ClientRegistrationRepositoryConfiguration ClientRegistrationRepository bean 定義。 OAuth2ClientProperties(spring.security.oauth</description>
+      </item>
+      
+      <item>
+        <title>`WebClient` の 覚書</title>
+        <link>https://yukihane.github.io/blog/202007/20/webclientbuilder/</link>
+        <pubDate>Sun, 19 Jul 2020 23:26:51 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202007/20/webclientbuilder/</guid>
+        <description>RestTemplateBuilder の Bean がsingleton-socpeかつちょっと変態的なインスタンス生成を行っていたので驚いた、というエントリを昔書きました: RestTe</description>
+      </item>
+      
+      <item>
+        <title>Spring Bootブックレビュー Spring Boot 2 入門: 基礎から実演まで</title>
+        <link>https://yukihane.github.io/blog/202007/15/spring-boot-books-review/</link>
+        <pubDate>Wed, 15 Jul 2020 14:28:39 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202007/15/spring-boot-books-review/</guid>
+        <description>Kindle Unlimited でいくつかのSpring Framework/Spring Boot 本が読めることに気づきました。 もし入門本として有用なものがあれば初心者の方に薦めていきたいなと考え、今回それ</description>
+      </item>
+      
+      <item>
+        <title>Spring SecurityのOAuth2.0関連の歴史を調査し実装してみた</title>
+        <link>https://yukihane.github.io/blog/202007/15/history-of-spring-oauth2-libraries/</link>
+        <pubDate>Tue, 14 Jul 2020 23:47:11 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202007/15/history-of-spring-oauth2-libraries/</guid>
+        <description>Qiita に昔(2019年中頃)書いていた資料を転記し忘れていたので構成を見直してアップロードし直します。 2020年現在の状況はまた更新されています</description>
+      </item>
+      
+      <item>
+        <title>Spring Boot で Controller と Repositoryを同じクラスで併用する</title>
+        <link>https://yukihane.github.io/blog/202007/11/same-class-controller-and-repository/</link>
+        <pubDate>Sat, 11 Jul 2020 00:41:41 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202007/11/same-class-controller-and-repository/</guid>
+        <description>…なんてことができたんですね。こんなコード: @RestController @Repository public interface VehicleInterface extends JpaRepository&amp;lt;vehicle, Long&amp;gt; { @Query(&amp;#34;select u from vehicle u where u.year = :year&amp;#34;) @RequestMapping(value = &amp;#34;/vehicles&amp;#34;, method = RequestMethod.GET) List&amp;lt;vehicle&amp;gt; findByYearEquals(@Param(&amp;#34;year&amp;#34;) Integer year); } http://localhost:8080/vehicles?year=2010 的なURLでアクセスします。 サンプル</description>
+      </item>
+      
+      <item>
+        <title>Spring-BootでJSPを使う</title>
+        <link>https://yukihane.github.io/blog/202007/11/jsp-on-springboot/</link>
+        <pubDate>Fri, 10 Jul 2020 21:54:33 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202007/11/jsp-on-springboot/</guid>
+        <description>https://start.spring.io/ で depencencies に Spring Web を追加して生成します。 生成された pom.xml に次の依存関係を追加します: pom.xml &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.tomcat.embed&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;tomcat-embed-jasper&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;!-- 必要に応じて --&amp;gt; &amp;lt;groupId&amp;gt;javax.servlet&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;jstl&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; appliction.properties にﾂｲ着を追加します: application.properties spring.mvc.view.prefix=/WEB-INF/view/ spring.mvc.view.suffix=.jsp src/main/webapp/WEB-INF/view/</description>
+      </item>
+      
+      <item>
+        <title>Spring Boot でなるべく依存関係を小さくしてWebMVCを使ってみる</title>
+        <link>https://yukihane.github.io/blog/202007/02/minimal-webmvc-with-springboot/</link>
+        <pubDate>Thu, 02 Jul 2020 21:11:04 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202007/02/minimal-webmvc-with-springboot/</guid>
+        <description>特に実用性とかは考えていない。何となくやってみたというだけ。 動かしたいやつ 1 2 3 4 5 6 7 8 9 @RestController @RequestMapping(&amp;#34;/&amp;#34;) public class MyController { @GetMapping(&amp;#34;/&amp;#34;) public String index() { return &amp;#34;hello&amp;#34;; } } 設定 1 2 3 4 5 6 7</description>
+      </item>
+      
+      <item>
+        <title>${...}と#{...}の違い</title>
+        <link>https://yukihane.github.io/blog/202007/02/difference-between-doller-and-hash/</link>
+        <pubDate>Thu, 02 Jul 2020 00:31:47 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202007/02/difference-between-doller-and-hash/</guid>
+        <description>Spring Expression Language (SpEL) with @Value: dollar vs. hash ($ vs. #) より。 ${…​} は単なるプロパティのプレースホルダ。 #{…​} は Spring Expression Language(SpEL) の構文。 プレースホルダは置き換えるだけだけれど</description>
+      </item>
+      
+      <item>
+        <title>Spring 2.3.0 で時刻オフセットの書式コロン付き&#43;09:00みたいに変わっとるやん</title>
+        <link>https://yukihane.github.io/blog/202006/30/json-datetime-format-changed-on-springboot-2.3/</link>
+        <pubDate>Tue, 30 Jun 2020 21:09:44 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202006/30/json-datetime-format-changed-on-springboot-2.3/</guid>
+        <description>正確には jackson-databind 2.11.0 で。 jackson 2.11 リリースノート Change default textual serialization of java.util.Date/Calendar to include colon in timezone offset #2643 このへん見ると分かるけど、Spring Boot 2.2 系列は jackson-databind 2.10.x が採用されていて、 2.3.0 で 2.11.0 が採</description>
+      </item>
+      
+      <item>
+        <title>Spring MVCにはJPA EntityのIDからエンティティオブジェクトに変換する機能がある(が、2.3.1では機能しない)</title>
+        <link>https://yukihane.github.io/blog/202006/20/spring-boot-thymeleaf-converts-id-to-entity/</link>
+        <pubDate>Sat, 20 Jun 2020 08:16:28 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202006/20/spring-boot-thymeleaf-converts-id-to-entity/</guid>
+        <description>追記: 2020-07-24にリリースされた2.3.2, 2.2.9 でこの問題は修正されました。ただし、2.1.16では未修正のままのようでした。 Spring Bo</description>
+      </item>
+      
+      <item>
+        <title>Spring Security OAuth 2.0 Client(OAuth 2.0 Login)でトークンの管理をしているのはOAuth2AuthorizedClientService</title>
+        <link>https://yukihane.github.io/blog/202006/17/oauth2authorizedclientservice/</link>
+        <pubDate>Wed, 17 Jun 2020 09:24:57 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202006/17/oauth2authorizedclientservice/</guid>
+        <description>私も今回の質問(本文末参照)を見たとき少しの間勘違いしてしまったのですが、OAuth2.0のクライアントがどこで各リソースオーナーのトークン</description>
+      </item>
+      
+      <item>
+        <title>Spring BootのGradleでのデバッグ実行方法</title>
+        <link>https://yukihane.github.io/blog/202006/15/spring-boot-debugging/</link>
+        <pubDate>Mon, 15 Jun 2020 07:42:25 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202006/15/spring-boot-debugging/</guid>
+        <description>gradle bootRun --debug-jvm というように、--debug-jvm オプションを付与すれば良いようです。 これで、デバッガ接続の待受状態で起動します。 BootRun は JavaExec を継承してい</description>
+      </item>
+      
+      <item>
+        <title>So many UserDetailsService samples considered harmful for beginners</title>
+        <link>https://yukihane.github.io/blog/202006/13/userdetailsservice-samples-considered-harmful-for-biginners/</link>
+        <pubDate>Sat, 13 Jun 2020 21:07:40 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202006/13/userdetailsservice-samples-considered-harmful-for-biginners/</guid>
+        <description>やっぱり一発目の Spring Security やってみたで UserDetailsService 使うのは止めようず。So many UserDetailsService samples considered harmful for beginners. はじめに ちょっと待って！その UserDetails、本当に必要ですか</description>
+      </item>
+      
+      <item>
+        <title>UserDetailsServiceは誤解されている</title>
+        <link>https://yukihane.github.io/blog/202006/12/userdetailsservice-conidered-harmful/</link>
+        <pubDate>Fri, 12 Jun 2020 09:37:26 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202006/12/userdetailsservice-conidered-harmful/</guid>
+        <description>サンプルコード等だけを見ていると UserDetailsService を利用することがSpring Securityの唯一の認証処理実現方法だと誤解しがちですが、 UserDetailsService はむしろユーテ</description>
+      </item>
+      
+      <item>
+        <title>Spring Bootでは `-parameters` オプションは有効化されている</title>
+        <link>https://yukihane.github.io/blog/202002/20/spring-boot-compiler-parameters/</link>
+        <pubDate>Thu, 20 Feb 2020 06:25:59 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202002/20/spring-boot-compiler-parameters/</guid>
+        <description>MyBatisの設定項目として useActualParamName というものがあります。マニュアルの説明によると、 ステートメントの引数を参照する際、メソッドシグネチャで宣言さ</description>
+      </item>
+      
+      <item>
+        <title>Spring BootのRestTemplateで text/plain;Windows-31J なRESTレスポンスを処理する</title>
+        <link>https://yukihane.github.io/blog/202001/26/resttemplate-with-illformed-json/</link>
+        <pubDate>Sun, 26 Jan 2020 14:48:47 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202001/26/resttemplate-with-illformed-json/</guid>
+        <description>要旨 JSONを返してくるのだけれどMIME typeが text/plain;charset=Windows-31J なレスポンスを、RestTemplateで扱いたい。 @GetMapping(produces = &amp;#34;text/plain;charset=Windows-31J&amp;#34;) public String response() { return &amp;#34;{\&amp;#34;text\&amp;#34;: \&amp;#34;こん</description>
+      </item>
+      
+      <item>
+        <title>RestTemplateBuilderに関する覚書</title>
+        <link>https://yukihane.github.io/blog/201912/10/resttemplatebuilder/</link>
+        <pubDate>Tue, 10 Dec 2019 20:41:15 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201912/10/resttemplatebuilder/</guid>
+        <description>RestTemplateBuilder RestTemplate は Spring Framework(spring-web)だけれども RestTemplateBuilder は Spring Boot。 Java の世界の なんちゃらBuilder (StringBuilderと</description>
+      </item>
+      
+      <item>
+        <title>Spring Boot のプロパティではkebab-formatが推奨されている</title>
+        <link>https://yukihane.github.io/blog/201911/28/kebab-format-recommended-on-spring-boot-properties/</link>
+        <pubDate>Thu, 28 Nov 2019 20:38:12 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201911/28/kebab-format-recommended-on-spring-boot-properties/</guid>
+        <description>Relaxed Binding 2.0 という仕組みにより spring.jpa.database-platform=mysql spring.jpa.databasePlatform=mysql spring.JPA.database_platform=mysql いずれの形式でも正しくバインドできる。 が、公式ドキュメントからは一番上の database-platform が推奨されているように読み取れる。 Relaxed</description>
+      </item>
+      
+      <item>
+        <title>MockMvc でURLエンコード済みのpathを渡したいときは new URI(...) を引数にする</title>
+        <link>https://yukihane.github.io/blog/201910/29/encoded-url-passing-to-mockmvc/</link>
+        <pubDate>Tue, 29 Oct 2019 20:36:42 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201910/29/encoded-url-passing-to-mockmvc/</guid>
+        <description>OAuth2.0 の redirect_uri をゴニョった実装をテストしたいときにハマった。 mockMvc.perform(get(new URI(&amp;quot;/line/oauth/authorize?redirece_uri=https%3A%2F%2Fexample.com&amp;quot;) ってやらないと二重にエンコードされてしまう。 参考 MockMvc needs to accept prepared URI with encoded URI path variables [SPR-11441] #16067 EncodedUriTests.java</description>
+      </item>
+      
+      <item>
+        <title>LINE Messaging API を試してみる</title>
+        <link>https://yukihane.github.io/blog/201908/line-bot-sample/</link>
+        <pubDate>Sun, 25 Aug 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201908/line-bot-sample/</guid>
+        <description>準備 Spring Boot セットアップ https://start.spring.io/ でテンプレートを作成して次の依存関係を追加します。 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.linecorp.bot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;line-bot-spring-boot&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.7.0&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; リポジトリ: https://github.com/line/line-bot-sdk-java/tree/master/line-bot-spring-boot Heroku セットアップ 今回は linebotbeta というアプリケーション</description>
+      </item>
+      
+      <item>
+        <title>LINE リッチメニューを試してみる</title>
+        <link>https://yukihane.github.io/blog/201908/line-richmenu-sample/</link>
+        <pubDate>Sun, 25 Aug 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201908/line-richmenu-sample/</guid>
+        <description>https://github.com/yukihane/hello-java/tree/master/line/richmenu-sample 公式リファレンス に書いてある通りですが、リッチメニューを試してみました。 メニューをタップするとPostBackEventを送信します。 bo</description>
+      </item>
+      
+      <item>
+        <title>LINEログイン機能を試してみる(Spring Boot 2.1.7/Spring Security 5.1.6)</title>
+        <link>https://yukihane.github.io/blog/201908/line-login-sample/</link>
+        <pubDate>Sun, 25 Aug 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201908/line-login-sample/</guid>
+        <description>Important 本ページは Spring Boot 2.1.7 の頃のものですが、後続として 2.4.5 対応版があります: LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6) – 発火後忘失 Spring Secur</description>
+      </item>
+      
+      <item>
+        <title>HerokuでSpringBootアプリを動かしてみる</title>
+        <link>https://yukihane.github.io/blog/201908/hello-heroku-with-springboot/</link>
+        <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201908/hello-heroku-with-springboot/</guid>
+        <description>背景 最終的にはLINE platformのAPIを理解したいのですが、 リファレンスを読んでいるとサンプルプログラム(サンプルbot)をHero</description>
+      </item>
+      
+      <item>
+        <title>h2-consoleとspring-boot-starter-securityと私</title>
+        <link>https://yukihane.github.io/blog/201907/12/h2-console-on-spring-boot/</link>
+        <pubDate>Fri, 12 Jul 2019 20:33:40 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201907/12/h2-console-on-spring-boot/</guid>
+        <description>概要 spring-boot-starter-security を導入しても http://localhost:8080/h2-console にアクセスしたかった。 作業結果: https://github.com/yukihane/hello-java/tree/master/spring/h2-console-spring-security-example 手順 h2-console が使える依存関係を追加してプロジェクトセットアップ 8113d7 1 2 3 4 5 6 7 8 9 10 11 12 13 14</description>
+      </item>
+      
+      <item>
+        <title>spring-boot-starter-security を入れたら認証画面が！</title>
+        <link>https://yukihane.github.io/blog/201907/04/spring-boot-and-spring-security/</link>
+        <pubDate>Thu, 04 Jul 2019 20:32:21 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201907/04/spring-boot-and-spring-security/</guid>
+        <description>WebSecurityConfigurerAdapter#configure(HttpSecurity) で form 認証を有効化しているのでこれをディスる。 WebSecurityConfigurerAdapterを継承した Spring コンポーネントをスキャン対</description>
+      </item>
+      
+      <item>
+        <title>Spring Bootで コンポーネント外からコンポーネントを取得したかった</title>
+        <link>https://yukihane.github.io/blog/201906/01/spring-boot-component-out-of-container/</link>
+        <pubDate>Sat, 01 Jun 2019 20:15:54 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201906/01/spring-boot-component-out-of-container/</guid>
+        <description>動機 CDI で言うところの CDI.current().getBeans(...) とか CDI.current().select(...)とかそんな感じのことをやりたかった。 参考リファレンス ドキュメント</description>
+      </item>
+      
+      <item>
+        <title>Spring Boot 2.1 でテスト時 @Bean を挿げ替えたかった</title>
+        <link>https://yukihane.github.io/blog/201905/31/spring-boot-bean-on-testing/</link>
+        <pubDate>Fri, 31 May 2019 20:14:41 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201905/31/spring-boot-bean-on-testing/</guid>
+        <description>動機 ユニットテスト実行時に java.time.Clock を挿げ替えてストップ・ザ・ワールド(GC的な意味でなくジョジョ的な意味で)したかった。 考え方/方針 @Configuration で @Bean を定義し</description>
+      </item>
+      
+      <item>
+        <title>text/plain で JSON を投げつけてくるヤツに対処する</title>
+        <link>https://yukihane.github.io/blog/201905/21/spring-boog-json-convert/</link>
+        <pubDate>Tue, 21 May 2019 20:12:30 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201905/21/spring-boog-json-convert/</guid>
+        <description>RestTemplate でレスポンスの Content-Type を変更する。 の別解。 @Autowired private RestTemplateBuilder builder; ... final MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter(); converter.setSupportedMediaTypes(Arrays.asList(MediaType.TEXT_PLAIN)); final RestTemplate restTemplate = builder.additionalMessageConverters(converter).build(); ちなみに上記のようにコンバータを明示的に設定しない場合だと次のような</description>
+      </item>
+      
+      <item>
+        <title>Testing the Web Layer のコードを JUnit Jupiter にマイグレーションしてみる</title>
+        <link>https://yukihane.github.io/blog/201904/16/migration-to-junit5/</link>
+        <pubDate>Tue, 16 Apr 2019 20:06:33 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201904/16/migration-to-junit5/</guid>
+        <description>概要 (追記: ここで試したのは2.1.4.RELEASE時点のもの。2.2.0.M3以降では #14736の通り JUnit5 がデフォルトになっている模様。</description>
+      </item>
+      
+      <item>
+        <title>Spring Validator(でラップされたBean Validation)のメッセージをi18nしたときの覚え書き</title>
+        <link>https://yukihane.github.io/blog/201903/26/change-spring-validator-message/</link>
+        <pubDate>Tue, 26 Mar 2019 20:04:13 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201903/26/change-spring-validator-message/</guid>
+        <description>やりたかったこと BeanValidation のプロパティファイル ValidationMessages.properties でなく、 Spring のメッセージプロパティに統合したい。 Spring のメッセージプロパティとは？ Accept-Langu</description>
+      </item>
+      
+    
+  </channel>
+</rss>

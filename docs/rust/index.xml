@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rust on 発火後忘失</title>
+    <link>https://yukihane.github.io/docs/rust/</link>
+    <description>Recent content in Rust on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Fri, 24 Jul 2020 00:42:44 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/docs/rust/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Rust 勝手に FAQ</title>
+        <link>https://yukihane.github.io/docs/rust/rust-faq/</link>
+        <pubDate>Fri, 24 Jul 2020 01:08:11 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/rust/rust-faq/</guid>
+        <description>自身の勉強中にまとめているページなので誤っている可能性も大きいです。 簡単に実行できる環境が欲しい Webブラウザ上で実行結果が確認できます: https://play.rust-lang.org/</description>
+      </item>
+      
+      <item>
+        <title>Rust学習メモ</title>
+        <link>https://yukihane.github.io/docs/rust/rust-memo/</link>
+        <pubDate>Fri, 24 Jul 2020 01:06:39 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/rust/rust-memo/</guid>
+        <description>リンク Rust Playground https://imoz.jp/note/rust-functions.html[Rustは何が新しいのか（基本的な言語機能の紹介</description>
+      </item>
+      
+      <item>
+        <title>QML-rust</title>
+        <link>https://yukihane.github.io/docs/rust/qml-rust/</link>
+        <pubDate>Fri, 24 Jul 2020 00:48:19 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/rust/qml-rust/</guid>
+        <description>https://github.com/White-Oak/qml-rust インストール リポジトリをcloneし、そのディレクトリに移動します。 git clone `https://github.com/White-Oak/qml-rust.git[`https://github.com/White-Oak/qml-rust.git] cd qml-rust サブモジュールを取得します。 git submodule init git submodule update build.rs をMinGW向けに</description>
+      </item>
+      
+      <item>
+        <title>MSYS2インストール</title>
+        <link>https://yukihane.github.io/docs/rust/msys2/</link>
+        <pubDate>Fri, 24 Jul 2020 00:46:39 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/rust/msys2/</guid>
+        <description>RustでデバッグするためのGDBと、Qtコンパイル用環境をMSYS2上でセットアップします。 インストール オフィシャルページ http://www.msys2.org/ から64bit</description>
+      </item>
+      
+      <item>
+        <title>Rust環境セットアップ</title>
+        <link>https://yukihane.github.io/docs/rust/rust-setup/</link>
+        <pubDate>Fri, 24 Jul 2020 00:41:54 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/rust/rust-setup/</guid>
+        <description>Windows インストール WinodowsにRustとEclipseベースIDEをインストールする手順。 資料 Rustのインストール およびここからたどれる</description>
+      </item>
+      
+    
+  </channel>
+</rss>

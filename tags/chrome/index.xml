@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>chrome on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/chrome/</link>
+    <description>Recent content in chrome on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Tue, 03 Dec 2019 20:39:39 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/chrome/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>https://hatena.ne.jp/ にアクセスできてるとお思いで？</title>
+        <link>https://yukihane.github.io/blog/201912/03/auto-redirecting-chrome/</link>
+        <pubDate>Tue, 03 Dec 2019 20:39:39 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201912/03/auto-redirecting-chrome/</guid>
+        <description>はじめに: 試した環境 Windows10 の現時点での最新安定版 Google Chrome および Firefox を用いました。 Google Chrome 78.0.3904.108 Firefox 70.0.1 また実行に際しては、キャッシュ等の影響を避けるため、Chro</description>
+      </item>
+      
+    
+  </channel>
+</rss>

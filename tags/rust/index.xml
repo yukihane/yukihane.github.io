@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rust on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/rust/</link>
+    <description>Recent content in rust on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Sat, 09 Oct 2021 02:14:55 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Rust に reduce は、あります</title>
+        <link>https://yukihane.github.io/blog/202110/09/rust-reduce/</link>
+        <pubDate>Sat, 09 Oct 2021 02:14:55 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202110/09/rust-reduce/</guid>
+        <description>ググっていると、ちょくちょく 「Rust に reduce は無い、代わりに fold を使え」という話が出てくるのが疑問だったのですが、 reduce が導入されたのって 1.51.</description>
+      </item>
+      
+      <item>
+        <title>Rust の Result を良い感じにまとめるには</title>
+        <link>https://yukihane.github.io/blog/202110/09/rust-result/</link>
+        <pubDate>Fri, 08 Oct 2021 18:50:43 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202110/09/rust-result/</guid>
+        <description>…というのを検索する用語が &amp;#34;エラーハンドリング(error handling)&amp;#34; だということに気付くまでにも時間がかかるくらいの初級者です。 Rust でのエラー</description>
+      </item>
+      
+      <item>
+        <title>Hello Project Panama, on Java17</title>
+        <link>https://yukihane.github.io/blog/202110/08/hello-project-panama-on-java17/</link>
+        <pubDate>Fri, 08 Oct 2021 04:49:30 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202110/08/hello-project-panama-on-java17/</guid>
+        <description>はじめに Hello Project Panama – 発火後忘失 で、 Project Panama (リンク1, リンク2) の機能を利用して、 Java から Rust を呼び出してみました。 当時(Java14)は Project Panama 用にビルド</description>
+      </item>
+      
+      <item>
+        <title>Tauri を GUI にして Rust と React に入門する</title>
+        <link>https://yukihane.github.io/blog/202110/03/hello-tauri/</link>
+        <pubDate>Sun, 03 Oct 2021 08:20:21 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202110/03/hello-tauri/</guid>
+        <description>はじめに Tauri という、 WebView を利用して GUI を実現する Rust 製フレームワークを試してみました。 Rust も React も入門書から陸続きで書き始められるので、余計なことに気を</description>
+      </item>
+      
+      <item>
+        <title>rustでwasmでhello, world(2020-04-08版) の次</title>
+        <link>https://yukihane.github.io/blog/202004/09/hello-wasm-next/</link>
+        <pubDate>Thu, 09 Apr 2020 20:52:10 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202004/09/hello-wasm-next/</guid>
+        <description>目標 rust で wasm で hello, worldの次として、JavaScript で実装されたプロジェクトを Rust に書き直してみます。 最近N 予備校のプログラミング入門 Web ア</description>
+      </item>
+      
+      <item>
+        <title>Hello, Wasm with Rust</title>
+        <link>https://yukihane.github.io/blog/202004/08/hello-wasm-with-rust/</link>
+        <pubDate>Tue, 07 Apr 2020 22:39:49 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202004/08/hello-wasm-with-rust/</guid>
+        <description>はじめに wasmに挑戦してみようとHello, worldをやってみようとしました。 公式っぽいドキュメントとしてはググると次のものが見つかりま</description>
+      </item>
+      
+      <item>
+        <title>Hello Project Panama</title>
+        <link>https://yukihane.github.io/blog/202002/11/hello-project-panama/</link>
+        <pubDate>Tue, 11 Feb 2020 20:43:43 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202002/11/hello-project-panama/</guid>
+        <description>追記: Hello Project Panama, on Java17 に Java17 版を記載しました。 はじめに 今個人的にすごく知りたいのはこちらです。ご回答よろしくお願いします！！！！ 動的確保したメモリー</description>
+      </item>
+      
+      <item>
+        <title>Nodeのnative moduleをRustで書いてみる(Neon)</title>
+        <link>https://yukihane.github.io/blog/202002/01/hello-rust-neon/</link>
+        <pubDate>Sat, 01 Feb 2020 05:09:38 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202002/01/hello-rust-neon/</guid>
+        <description>RustプログラムのGUIにElectronを使うことを考えています。 その前調査としてNodeのネイティブモジュールとしてRustプログラム</description>
+      </item>
+      
+      <item>
+        <title>reqwest使おうとしたけどよくわからん</title>
+        <link>https://yukihane.github.io/blog/202001/01/rust-reqwest/</link>
+        <pubDate>Wed, 01 Jan 2020 20:42:42 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202001/01/rust-reqwest/</guid>
+        <description>はじめに 年の瀬にスクレイピングしたくなって Rust 勉強し始めたけれど、直前に reqwest ライブラリに更新が入ったみたいでコピペコーディングが阻まれた。 知っと</description>
+      </item>
+      
+      <item>
+        <title>Rustでライブラリを作成する</title>
+        <link>https://yukihane.github.io/blog/202001/rust-create-library/</link>
+        <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202001/rust-create-library/</guid>
+        <description>はじめに 他の言語で言うところの&amp;#34;ライブラリ&amp;#34;は、Rustでは &amp;#34;ライブラリクレート&amp;#34;(library crate) と呼ぶよ</description>
+      </item>
+      
+      <item>
+        <title>Intel iGPU環境でのAmethyst 開発環境セットアップ</title>
+        <link>https://yukihane.github.io/blog/201910/setup-amethyst/</link>
+        <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201910/setup-amethyst/</guid>
+        <description>TL;DR Ubuntu18.04, Coffee Lake iGPU で vulkan での実行を可能にするには mesa-vulkan-drivers パッケージインストール /etc/X11/xorg.conf.d/20-intel.conf で DRI3 有効化 の2点が必要。 (おそらく実際には、実行に libvulkan1 、及び開発には加えて libvulkan-dev も</description>
+      </item>
+      
+      <item>
+        <title>Cargo.lock をバージョン管理するや否や</title>
+        <link>https://yukihane.github.io/blog/201909/rust-cago.lock/</link>
+        <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201909/rust-cago.lock/</guid>
+        <description>cargo new --bin したパッケージに対して、たまたまデフォルで生成される .gitignore を用いずに https://gitignore.io/ で生成してものを用いていたのですが、 Cargo.lock ファイルの扱いが異なるように思</description>
+      </item>
+      
+      <item>
+        <title>VSCodeでRustの整形ができない？</title>
+        <link>https://yukihane.github.io/blog/201908/rust-format-on-vscode/</link>
+        <pubDate>Sun, 18 Aug 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201908/rust-format-on-vscode/</guid>
+        <description>Format not work #534 - rust-lang/rls-vscode VSCodeでRustの勉強をしているのですが、現在、どうもコード整形機能が上手く働いていない…？ 代替策としては、 rustfmt を使って、 cargo</description>
+      </item>
+      
+      <item>
+        <title>cargo build で特定のバージョンの rustc を利用する</title>
+        <link>https://yukihane.github.io/blog/201908/use-specific-rustc-version/</link>
+        <pubDate>Sat, 03 Aug 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201908/use-specific-rustc-version/</guid>
+        <description>rustup run 1.15.1 cargo build もちろん事前に使用するバージョンをインストールしておく必要がある: rustup install 1.15.1 参考: Rustup for managing Rust versions</description>
+      </item>
+      
+    
+  </channel>
+</rss>

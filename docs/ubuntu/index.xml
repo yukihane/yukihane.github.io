@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu on 発火後忘失</title>
+    <link>https://yukihane.github.io/docs/ubuntu/</link>
+    <description>Recent content in Ubuntu on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Fri, 24 Jul 2020 02:14:29 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/docs/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Ubuntu20.04 で Kindle for PCを使う</title>
+        <link>https://yukihane.github.io/docs/ubuntu/kindle-for-pc-ubuntu20.04/</link>
+        <pubDate>Sun, 07 Mar 2021 01:57:49 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/ubuntu/kindle-for-pc-ubuntu20.04/</guid>
+        <description>はじめに 2021-03-07時点では、 UbuntuでKindle for PCを使う の方法で Ubuntu20.04 に Kindle for PC をインストールして起動すると、次のようなエラー</description>
+      </item>
+      
+      <item>
+        <title>Ubuntuその他設定</title>
+        <link>https://yukihane.github.io/docs/ubuntu/ubuntu-misc/</link>
+        <pubDate>Sun, 26 Jul 2020 02:03:01 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/ubuntu/ubuntu-misc/</guid>
+        <description>Ubuntu18.04で入力ソース切り替え(日本語/英語切り替え)を Shift+Spaceに変更する 設定画面からShift+Spaceに変更</description>
+      </item>
+      
+      <item>
+        <title>gromit-mpx</title>
+        <link>https://yukihane.github.io/docs/ubuntu/gromit-mpx/</link>
+        <pubDate>Sun, 26 Jul 2020 02:01:32 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/ubuntu/gromit-mpx/</guid>
+        <description>プレゼンテーションツール。 https://github.com/bk138/gromit-mpx sudo apt install cmake libgtk-3-dev libappindicator3-dev cmake -DCMAKE_INSTALL_PREFIX=$HOME/local make make install</description>
+      </item>
+      
+      <item>
+        <title>UbuntuでKindle for PCを使う</title>
+        <link>https://yukihane.github.io/docs/ubuntu/kindle-for-pc/</link>
+        <pubDate>Sun, 26 Jul 2020 01:57:49 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/ubuntu/kindle-for-pc/</guid>
+        <description>書きかけのページです。次のリンク先が参考になります。 https://qiita.com/giwagiwa/items/d2e447af5225c1ce9800 Ubuntu16.04上で、PlayOnLinxで管理されたWine環境でKindle</description>
+      </item>
+      
+      <item>
+        <title>Ubuntu18.04 ハイバネート(休止)</title>
+        <link>https://yukihane.github.io/docs/ubuntu/hibernate/</link>
+        <pubDate>Sun, 26 Jul 2020 01:39:30 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/ubuntu/hibernate/</guid>
+        <description>Ubuntu16.04 の頃には特に問題なくハイバネートできていたがそれ以降のバージョンでうまくいかない/設定方法がわからない、という記事をよく見かけます。 自分も</description>
+      </item>
+      
+      <item>
+        <title>UbuntuでdGPU/iGPUのデュアルモニタ設定</title>
+        <link>https://yukihane.github.io/docs/ubuntu/dual-monitor/</link>
+        <pubDate>Fri, 24 Jul 2020 02:17:53 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/ubuntu/dual-monitor/</guid>
+        <description>1枚のNVIDIA GPUと、CPUの統合グラフィクス(iGPU)の2つのGPUにそれぞれモニタを接続してデュアルディスプレイ環境をセットアッ</description>
+      </item>
+      
+      <item>
+        <title>NASを自動マウント</title>
+        <link>https://yukihane.github.io/docs/ubuntu/nas/</link>
+        <pubDate>Fri, 24 Jul 2020 02:15:31 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/ubuntu/nas/</guid>
+        <description>参考リンク Ubuntu 18.04: SMBクライアントのcifs-utilsをインストールする - Narrow Escape Ubuntu18.04でcifs mountが失敗する場合 - Qiita 設</description>
+      </item>
+      
+    
+  </channel>
+</rss>

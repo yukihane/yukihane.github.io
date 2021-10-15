@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gradle on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/gradle/</link>
+    <description>Recent content in gradle on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Sat, 12 Sep 2020 12:26:22 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/gradle/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>WindowsでGradleが扱うリソースのファイルエンコーディング設定</title>
+        <link>https://yukihane.github.io/blog/202009/12/gradle-resource-encoding/</link>
+        <pubDate>Sat, 12 Sep 2020 12:26:22 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202009/12/gradle-resource-encoding/</guid>
+        <description>問題 Spring Bootの自動テストで data.sql を作成しているのですが、 gradle check でテストを実行すると、失敗してしまう。 原因を調べたのですが、どうも日本語のカラムを</description>
+      </item>
+      
+      <item>
+        <title>gradle bootRun でプロファイルを指定するには？</title>
+        <link>https://yukihane.github.io/blog/202008/30/gradle-bootrun-parameter/</link>
+        <pubDate>Sat, 29 Aug 2020 23:16:09 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202008/30/gradle-bootrun-parameter/</guid>
+        <description>gradle bootRun を実行する際にアクティブ化するプロファイルの指定を行いたかったのですが、ぱっと思いつかなかったのでメモ。 まず、 gradle bootRun -Dprofiles.active=myproile はうまくいきません。</description>
+      </item>
+      
+      <item>
+        <title>Spring BootプロジェクトにLombokとMapStructを追加する(Eclipse &amp; Maven/Gradle)</title>
+        <link>https://yukihane.github.io/blog/202008/23/spring-lombok-mapstruct/</link>
+        <pubDate>Sun, 23 Aug 2020 03:23:31 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202008/23/spring-lombok-mapstruct/</guid>
+        <description>Spring Boot プロジェクトにLombokとMapStructを追加し、かつ Eclipse で開発を行う場合の設定です。 同じようなことを何回か書いてきた気がするのです</description>
+      </item>
+      
+      <item>
+        <title>Gradleでintegration testを作成するも実行できない(JUnit5)</title>
+        <link>https://yukihane.github.io/blog/202008/16/gradle-test-not-working/</link>
+        <pubDate>Sun, 16 Aug 2020 14:20:16 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202008/16/gradle-test-not-working/</guid>
+        <description>Gradle で integration-test 用にテストディレクトリを分けようとして リファレンス を参考に build.gradle を編集しました。 しかし、コンパイル対象には入っているようですがこのテストが</description>
+      </item>
+      
+      <item>
+        <title>GradleでSpring Bootプロジェクトを作成してSTS(Eclipse)でインポートする手順</title>
+        <link>https://yukihane.github.io/blog/202007/26/spring-boot-gradle-eclipse/</link>
+        <pubDate>Sat, 25 Jul 2020 18:11:15 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202007/26/spring-boot-gradle-eclipse/</guid>
+        <description>はじめに Spring Initializrを使ってGradle形式でプロジェクトを作成した場合、どうやってSTS(Eclipse)へインポートするのか逡</description>
+      </item>
+      
+      <item>
+        <title>Gradleプラグイン/アノテーションプロセッシング調査</title>
+        <link>https://yukihane.github.io/blog/202007/15/research-gradle-plugins/</link>
+        <pubDate>Tue, 14 Jul 2020 15:58:57 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202007/15/research-gradle-plugins/</guid>
+        <description>元々JBoss/WildFlyの流れで開発してきたのでずっとMavenを利用してきたのですが、今度のプロジェクトではGradleを使うことに</description>
+      </item>
+      
+      <item>
+        <title>Spring BootのGradleでのデバッグ実行方法</title>
+        <link>https://yukihane.github.io/blog/202006/15/spring-boot-debugging/</link>
+        <pubDate>Mon, 15 Jun 2020 07:42:25 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202006/15/spring-boot-debugging/</guid>
+        <description>gradle bootRun --debug-jvm というように、--debug-jvm オプションを付与すれば良いようです。 これで、デバッガ接続の待受状態で起動します。 BootRun は JavaExec を継承してい</description>
+      </item>
+      
+      <item>
+        <title>Gradleプロジェクトで生成した実行スクリプトがGitBash(MSYS環境)でうまく動かない</title>
+        <link>https://yukihane.github.io/blog/201908/gradle-msys/</link>
+        <pubDate>Fri, 23 Aug 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201908/gradle-msys/</guid>
+        <description>GitBash環境でSDKMAN!を使ってJBakeをインストールしたのですが、 jbake コマンドを実行すると次のようなエラーが出てうまく動きません</description>
+      </item>
+      
+    
+  </channel>
+</rss>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fluentd on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/fluentd/</link>
+    <description>Recent content in fluentd on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Mon, 09 Mar 2020 07:54:53 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/fluentd/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>td-agentにプロキシを設定する</title>
+        <link>https://yukihane.github.io/blog/202003/09/td-agent-with-proxy/</link>
+        <pubDate>Mon, 09 Mar 2020 07:54:53 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202003/09/td-agent-with-proxy/</guid>
+        <description>sudo systemctl edit td-agent で編集画面を開き、次を記述: [Service] Environment=&amp;#34;HTTP_PROXY=http://myproxy.example.com:8080&amp;#34;</description>
+      </item>
+      
+      <item>
+        <title>`fluent-plugin-bigquery` のパラメータ `request_timeout_sec` 、未設定の場合はどうなるの？</title>
+        <link>https://yukihane.github.io/blog/202001/30/fluentd-request_timeout_sec-default/</link>
+        <pubDate>Thu, 30 Jan 2020 02:17:02 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202001/30/fluentd-request_timeout_sec-default/</guid>
+        <description>要旨 fluent-plugin-bigquery の README を読んでいると、 request_timeout_sec のデフォルト値が nil になっている(その下の request_open_timeout_sec には 60 が設定されているのに)のが気になりました。 結論としては、 request_timeout_sec は最終</description>
+      </item>
+      
+    
+  </channel>
+</rss>

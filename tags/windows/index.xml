@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>windows on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/windows/</link>
+    <description>Recent content in windows on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Fri, 23 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Windows10上に開発環境を整える</title>
+        <link>https://yukihane.github.io/blog/201908/setup-windows-devenv/</link>
+        <pubDate>Fri, 23 Aug 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201908/setup-windows-devenv/</guid>
+        <description>前提 主にJava開発を行う人(要は私自身)向け記述多し パッケージ管理はscoopを使いますが、Java関係はなるべくSDKMAN!を使います</description>
+      </item>
+      
+      <item>
+        <title>OpenJDK11をWindowsで自前ビルドする</title>
+        <link>https://yukihane.github.io/blog/201809/30/selfbuild-openjdk/</link>
+        <pubDate>Sun, 30 Sep 2018 19:53:56 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201809/30/selfbuild-openjdk/</guid>
+        <description>Java の有償化ってより身近なところでは GPL 化と言った方が現状に即してるな、と思っています。 それはともかく、何となく OpenJDK をデバッグ情報付きでビルドした</description>
+      </item>
+      
+      <item>
+        <title>Invoke-WebRequestやCompress-Archiveを使っていると画面上部に一瞬表示される何かの表示を非表示に</title>
+        <link>https://yukihane.github.io/blog/201809/08/pwsh-progress-silent/</link>
+        <pubDate>Sat, 08 Sep 2018 19:50:04 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201809/08/pwsh-progress-silent/</guid>
+        <description>進捗状況(progress)が表示されているそうです。少量のデータを扱っている場合には画面の一部がフラッシュしているように見えており、何のた</description>
+      </item>
+      
+      <item>
+        <title>Windows向けrsyncがなくなったみたい？</title>
+        <link>https://yukihane.github.io/blog/201808/22/windows-rsync-unavailable/</link>
+        <pubDate>Wed, 22 Aug 2018 19:48:21 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201808/22/windows-rsync-unavailable/</guid>
+        <description>vagrantでrsyncが使いたくなった。 そこでscoopでrsyncをインストールしようとしたが、見つからない。 おや？と思い検索してみる</description>
+      </item>
+      
+      <item>
+        <title>vim で E117 未知の関数です</title>
+        <link>https://yukihane.github.io/blog/201808/08/gvim-unknown-function/</link>
+        <pubDate>Wed, 08 Aug 2018 19:43:44 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201808/08/gvim-unknown-function/</guid>
+        <description>vim は ~/.vim ディレクトリを読むのに対し gvim は~/vimfilesディレクトリを読むためだそうです。Windows ならジャンクションを作りましょう。 cd</description>
+      </item>
+      
+      <item>
+        <title>Git for Windowsでzipコマンドを再現する</title>
+        <link>https://yukihane.github.io/blog/201807/13/zip-on-git-for-windows/</link>
+        <pubDate>Fri, 13 Jul 2018 19:36:48 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201807/13/zip-on-git-for-windows/</guid>
+        <description>git-archive使えば何とかなることに気付きました。 ちなみにunzipコマンドは標準で使えます。 mkdir workrepo cd workrepo git init cp -r [target_file_or_dir] . git add . git commit -m commit git archive</description>
+      </item>
+      
+    
+  </channel>
+</rss>

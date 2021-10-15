@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>javaee on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/javaee/</link>
+    <description>Recent content in javaee on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Mon, 06 Apr 2020 01:52:30 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/javaee/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Hello, JSF</title>
+        <link>https://yukihane.github.io/blog/202004/06/hello-jsf/</link>
+        <pubDate>Mon, 06 Apr 2020 01:52:30 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202004/06/hello-jsf/</guid>
+        <description>はじめに JSFを少し触ってみようと思ったのですが、もはやロストテクノロジーでどう始めるのかすらドキュメントを探すのが大変… 今回はかろうじてこ</description>
+      </item>
+      
+      <item>
+        <title>いきなりJavaアプリケーションサーバの保守を任されることになった人のためのチートシート(2)</title>
+        <link>https://yukihane.github.io/blog/202004/03/java-application-frameworks-cheat-sheet2/</link>
+        <pubDate>Fri, 03 Apr 2020 02:44:22 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202004/03/java-application-frameworks-cheat-sheet2/</guid>
+        <description>はじめに 前回はアプリケーションサーバにデバッガをアタッチする方法までを説明しました。 今回は、ソースコードを眺めているだけでは通ることを見つけ</description>
+      </item>
+      
+      <item>
+        <title>いきなりJavaアプリケーションサーバの保守を任されることになった人のためのチートシート(1)</title>
+        <link>https://yukihane.github.io/blog/202004/02/java-application-frameworks-cheat-sheet/</link>
+        <pubDate>Thu, 02 Apr 2020 06:15:28 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202004/02/java-application-frameworks-cheat-sheet/</guid>
+        <description>目的 Javaを用いた開発にある程度慣れている場合でも、初めてアプリケーションフレームワーク上で開発するとなると戸惑うことがあります。 ここでは</description>
+      </item>
+      
+    
+  </channel>
+</rss>

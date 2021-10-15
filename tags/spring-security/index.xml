@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>spring-security on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/spring-security/</link>
+    <description>Recent content in spring-security on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Tue, 29 Jun 2021 20:00:43 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/spring-security/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Spring Boot 2.5.0(Spring Security 5.5.0-M2)でremoteUserの値が変わった</title>
+        <link>https://yukihane.github.io/blog/202106/30/spring-boot-remoteuser-is-changed/</link>
+        <pubDate>Tue, 29 Jun 2021 20:00:43 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202106/30/spring-boot-remoteuser-is-changed/</guid>
+        <description>HttpServletRequest#getRemoteUser() をログ出力(Tomcatの %u)しているのですが、Spring Boot 2.5.0 から返ってくる値が変わったようです。 どの変更が影響しているのか調べたとこ</description>
+      </item>
+      
+      <item>
+        <title>LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6)</title>
+        <link>https://yukihane.github.io/blog/202105/06/ling-login-202105/</link>
+        <pubDate>Thu, 06 May 2021 10:43:04 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202105/06/ling-login-202105/</guid>
+        <description>はじめに LINEログイン機能を試してみる – 発火後忘失 で、 Spring Boot 2.1.7 (Spring Security 5.1.6) を利用してLINEログインを行ってみました。 本ドキュメントは、このコード</description>
+      </item>
+      
+      <item>
+        <title>ControllerでUnauthorizedExceptionを投げると401でなく403になる</title>
+        <link>https://yukihane.github.io/blog/202101/23/throw-unauthorizedexception-in-controller/</link>
+        <pubDate>Sat, 23 Jan 2021 14:14:04 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202101/23/throw-unauthorizedexception-in-controller/</guid>
+        <description>Authentication handling in Spring boot 2.x with WebSecurityConfigurerAdapter - Stack Overflow Http403ForbiddenEntryPoint がデフォルトで設定されているため、 ExceptionTranslationFilter において AuthenticationException のサブクラスは全て 403 になっている模様。 認証通った上でunauthori</description>
+      </item>
+      
+      <item>
+        <title>Spring SecurityのOAuth 2.0 Login でログインしても UserInfo Endpoint にアクセスしてくれない</title>
+        <link>https://yukihane.github.io/blog/202009/12/oidc-userinfo-not-fetched-for-custom-claims/</link>
+        <pubDate>Sat, 12 Sep 2020 12:56:30 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202009/12/oidc-userinfo-not-fetched-for-custom-claims/</guid>
+        <description>Spring Security OAuth 2.0 Login を利用してログインしたのですが、通常ログイン後 UserInfo Endpoint へアクセスしてくれるはずなのにこの処理がスキップされてしまうような事象に出会いま</description>
+      </item>
+      
+      <item>
+        <title>claimとscopeを追加して取得してみる</title>
+        <link>https://yukihane.github.io/blog/202009/04/oidc-add-claim-and-scope/</link>
+        <pubDate>Thu, 03 Sep 2020 23:24:39 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202009/04/oidc-add-claim-and-scope/</guid>
+        <description>はじめに Keycloak上で新しいclaimと、それを取得できる新しいscopeを定義し、Spring Securityを使って参照してみます</description>
+      </item>
+      
+      <item>
+        <title>Spring Security: OIDC の redirect_uri を変更する</title>
+        <link>https://yukihane.github.io/blog/202009/04/oidc-change-redirect-uri/</link>
+        <pubDate>Thu, 03 Sep 2020 22:50:21 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202009/04/oidc-change-redirect-uri/</guid>
+        <description>はじめに KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる で作成したコードに対して、 カスタム redirect_uri の設定を行ってみます。 今回のコード</description>
+      </item>
+      
+      <item>
+        <title>Spring Security OAuth 2.0 Login を自動テストする</title>
+        <link>https://yukihane.github.io/blog/202008/05/spring-boot-oidc-testing/</link>
+        <pubDate>Tue, 04 Aug 2020 21:39:37 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202008/05/spring-boot-oidc-testing/</guid>
+        <description>KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる で作成したプログラムの自動テスト方法です。 今回のコードも前回と同じく次のディレ</description>
+      </item>
+      
+      <item>
+        <title>KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる</title>
+        <link>https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/</link>
+        <pubDate>Mon, 20 Jul 2020 18:54:23 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/</guid>
+        <description>はじめに Spring Boot で Spring Security OAuth 2.0 Login / Client を利用する手順をまとめます。 また、認可サーバ(IdP)にはローカルで立てたKeycloakを用いますのでそちらの</description>
+      </item>
+      
+      <item>
+        <title>Spring Security OAuth 2.0 Client の auto-configuration</title>
+        <link>https://yukihane.github.io/blog/202007/20/spring-security-oauth-2.0-client/</link>
+        <pubDate>Mon, 20 Jul 2020 06:36:51 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202007/20/spring-security-oauth-2.0-client/</guid>
+        <description>OAuth2ClientAutoConfiguration 上記のクラスが Import しているもの(など): OAuth2ClientRegistrationRepositoryConfiguration ClientRegistrationRepository bean 定義。 OAuth2ClientProperties(spring.security.oauth</description>
+      </item>
+      
+      <item>
+        <title>Spring Security から認可サーバサポートが無くなる、というのは取り敢えず見直されています</title>
+        <link>https://yukihane.github.io/blog/202007/19/spring-security-authentication-server/</link>
+        <pubDate>Sun, 19 Jul 2020 06:10:14 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202007/19/spring-security-authentication-server/</guid>
+        <description>世の中に認可サーバー製品がたくさんあるので、Spring Securityではサポートしないことを決定しました — Spring Security OAuth2はあと数年でサ</description>
+      </item>
+      
+      <item>
+        <title>Spring SecurityのOAuth2.0関連の歴史を調査し実装してみた</title>
+        <link>https://yukihane.github.io/blog/202007/15/history-of-spring-oauth2-libraries/</link>
+        <pubDate>Tue, 14 Jul 2020 23:47:11 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202007/15/history-of-spring-oauth2-libraries/</guid>
+        <description>Qiita に昔(2019年中頃)書いていた資料を転記し忘れていたので構成を見直してアップロードし直します。 2020年現在の状況はまた更新されています</description>
+      </item>
+      
+      <item>
+        <title>Spring Security OAuth 2.0 Client(OAuth 2.0 Login)でトークンの管理をしているのはOAuth2AuthorizedClientService</title>
+        <link>https://yukihane.github.io/blog/202006/17/oauth2authorizedclientservice/</link>
+        <pubDate>Wed, 17 Jun 2020 09:24:57 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202006/17/oauth2authorizedclientservice/</guid>
+        <description>私も今回の質問(本文末参照)を見たとき少しの間勘違いしてしまったのですが、OAuth2.0のクライアントがどこで各リソースオーナーのトークン</description>
+      </item>
+      
+      <item>
+        <title>So many UserDetailsService samples considered harmful for beginners</title>
+        <link>https://yukihane.github.io/blog/202006/13/userdetailsservice-samples-considered-harmful-for-biginners/</link>
+        <pubDate>Sat, 13 Jun 2020 21:07:40 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202006/13/userdetailsservice-samples-considered-harmful-for-biginners/</guid>
+        <description>やっぱり一発目の Spring Security やってみたで UserDetailsService 使うのは止めようず。So many UserDetailsService samples considered harmful for beginners. はじめに ちょっと待って！その UserDetails、本当に必要ですか</description>
+      </item>
+      
+      <item>
+        <title>UserDetailsServiceは誤解されている</title>
+        <link>https://yukihane.github.io/blog/202006/12/userdetailsservice-conidered-harmful/</link>
+        <pubDate>Fri, 12 Jun 2020 09:37:26 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202006/12/userdetailsservice-conidered-harmful/</guid>
+        <description>サンプルコード等だけを見ていると UserDetailsService を利用することがSpring Securityの唯一の認証処理実現方法だと誤解しがちですが、 UserDetailsService はむしろユーテ</description>
+      </item>
+      
+      <item>
+        <title>spring-boot-starter-security を入れたら認証画面が！</title>
+        <link>https://yukihane.github.io/blog/201907/04/spring-boot-and-spring-security/</link>
+        <pubDate>Thu, 04 Jul 2019 20:32:21 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201907/04/spring-boot-and-spring-security/</guid>
+        <description>WebSecurityConfigurerAdapter#configure(HttpSecurity) で form 認証を有効化しているのでこれをディスる。 WebSecurityConfigurerAdapterを継承した Spring コンポーネントをスキャン対</description>
+      </item>
+      
+    
+  </channel>
+</rss>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DevOps on 発火後忘失</title>
+    <link>https://yukihane.github.io/docs/devops/</link>
+    <description>Recent content in DevOps on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Thu, 23 Jul 2020 17:03:06 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/docs/devops/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Kubernetes</title>
+        <link>https://yukihane.github.io/docs/devops/kubernetes/</link>
+        <pubDate>Thu, 23 Jul 2020 17:03:23 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/devops/kubernetes/</guid>
+        <description>Kubernetesとは？ Kubernetes とは(Red Hat社サイト) Linux コンテナを実行しているホストをまとめてクラスタ化できるということです。Kubern</description>
+      </item>
+      
+      <item>
+        <title>Docker</title>
+        <link>https://yukihane.github.io/docs/devops/docker/</link>
+        <pubDate>Thu, 23 Jul 2020 17:03:16 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/devops/docker/</guid>
+        <description>取り敢えず実行したい docker run -it --rm centos:7 /bin/bash</description>
+      </item>
+      
+    
+  </channel>
+</rss>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hibernate on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/hibernate/</link>
+    <description>Recent content in hibernate on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Mon, 04 Feb 2019 20:01:19 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/hibernate/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Hibernate で CHAR を String にマップする</title>
+        <link>https://yukihane.github.io/blog/201902/04/hibernate-map-char-to-string/</link>
+        <pubDate>Mon, 04 Feb 2019 20:01:19 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201902/04/hibernate-map-char-to-string/</guid>
+        <description>例えば、生 JDBC でchar型カラムのクエリを書くとString型にマップされます final Connection connection = DriverManager.getConnection(...); final Statement statement = connection.createStatement(); final ResultSet resultSet = statement.executeQuery(&amp;quot;select char_column from foo_table&amp;quot;); // java.lang.String resultSet.getMetaData().getColumnClassName(1); が、Hibernate</description>
+      </item>
+      
+    
+  </channel>
+</rss>

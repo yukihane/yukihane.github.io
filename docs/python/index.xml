@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on 発火後忘失</title>
+    <link>https://yukihane.github.io/docs/python/</link>
+    <description>Recent content in Python on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Sun, 26 Jul 2020 02:59:08 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/docs/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Windows Python</title>
+        <link>https://yukihane.github.io/docs/python/windows-python/</link>
+        <pubDate>Sun, 26 Jul 2020 03:02:03 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/python/windows-python/</guid>
+        <description>ChocolateyでインストールしたPython3の運用について。 proxy pip コマンドは環境変数 http_proxy , https_proxy を見ているので、プロキシ環境下ではこれらの設</description>
+      </item>
+      
+      <item>
+        <title>Python</title>
+        <link>https://yukihane.github.io/docs/python/python/</link>
+        <pubDate>Sun, 26 Jul 2020 02:59:15 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/python/python/</guid>
+        <description>セットアップ pip pip を使い、非rootでインストールするには --user オプションを付ける。 このオプションをつけると ~/.local 以下にインストールされる。 ただ、 pip の</description>
+      </item>
+      
+    
+  </channel>
+</rss>

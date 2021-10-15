@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>react on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/react/</link>
+    <description>Recent content in react on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Sun, 03 Oct 2021 08:20:21 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Tauri を GUI にして Rust と React に入門する</title>
+        <link>https://yukihane.github.io/blog/202110/03/hello-tauri/</link>
+        <pubDate>Sun, 03 Oct 2021 08:20:21 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202110/03/hello-tauri/</guid>
+        <description>はじめに Tauri という、 WebView を利用して GUI を実現する Rust 製フレームワークを試してみました。 Rust も React も入門書から陸続きで書き始められるので、余計なことに気を</description>
+      </item>
+      
+      <item>
+        <title>redux-devtools-extension をTypeScriptで使う</title>
+        <link>https://yukihane.github.io/blog/202004/24/redux-devtools-extension-with-typescript/</link>
+        <pubDate>Fri, 24 Apr 2020 21:00:56 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202004/24/redux-devtools-extension-with-typescript/</guid>
+        <description>https://github.com/zalmoxisus/redux-devtools-extension/blob/master/README.md#13-use-redux-devtools-extension-package-from-npm というわけで型付けされているので const store = createStore(rootReducer, undefined, devToolsEnhancer({})); で良い。 何か Qiia の記事とかを見てるとこっちの方法でばっかり書いてあるが。 Electron から使う場合はElec</description>
+      </item>
+      
+      <item>
+        <title>ReduxのBasic TutorialにTypeScriptで型を付けただけ</title>
+        <link>https://yukihane.github.io/blog/202004/15/redux-basic-tutorial/</link>
+        <pubDate>Wed, 15 Apr 2020 20:56:22 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202004/15/redux-basic-tutorial/</guid>
+        <description>Redux 多分使わないけど理解のため写経。 答え合わせに他の方が似たようなことやってないかググったけれども プラスアルファ要素(Redux Toolkit を使う、fe</description>
+      </item>
+      
+      <item>
+        <title>React Router &lt;Route&gt; で描画したいコンポーネントの指定方法が人によってまちまちなんだけどどれが正解なの？</title>
+        <link>https://yukihane.github.io/blog/202004/13/react-router/</link>
+        <pubDate>Mon, 13 Apr 2020 20:54:12 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202004/13/react-router/</guid>
+        <description>https://reacttraining.com/react-router/web/api/Route/route-render-methods The recommended method of rendering something with a is to use children elements, as shown above. There are, however, a few other methods you can use to render something with a . These are provided mostly for supporting apps that were built with earlier versions of the router before hooks were introduced. &amp;lt;Route component&amp;gt; &amp;lt;Route render&amp;gt; &amp;lt;Route children&amp;gt; function つまり、引用部の直前</description>
+      </item>
+      
+    
+  </channel>
+</rss>

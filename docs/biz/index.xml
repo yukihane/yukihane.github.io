@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>仕事 on 発火後忘失</title>
+    <link>https://yukihane.github.io/docs/biz/</link>
+    <description>Recent content in 仕事 on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Thu, 23 Jul 2020 17:06:52 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/docs/biz/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>用語集</title>
+        <link>https://yukihane.github.io/docs/biz/term/</link>
+        <pubDate>Thu, 23 Jul 2020 17:16:55 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/biz/term/</guid>
+        <description>CTIソリューション CTIとは Computer Telephony Integration の略。 コールセンターで利用するシステムのこと？</description>
+      </item>
+      
+      <item>
+        <title>フリーランス契約</title>
+        <link>https://yukihane.github.io/docs/biz/contract/</link>
+        <pubDate>Thu, 23 Jul 2020 17:13:25 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/biz/contract/</guid>
+        <description>フリーランスで働く上での契約についての知識。 契約形態 請負契約と準委任契約、どっちで契約すればいいの？〜請負契約・準委任契約・労働者派遣契約の</description>
+      </item>
+      
+      <item>
+        <title>確定申告</title>
+        <link>https://yukihane.github.io/docs/biz/report/</link>
+        <pubDate>Thu, 23 Jul 2020 17:09:11 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/biz/report/</guid>
+        <description>初めて青色申告、はやめにやっておくこと 確定申告に使うサービスの初期セットアップ 自分は当初http://www.yayoi-kk.co.jp/</description>
+      </item>
+      
+      <item>
+        <title>freee</title>
+        <link>https://yukihane.github.io/docs/biz/freee/</link>
+        <pubDate>Thu, 23 Jul 2020 17:07:53 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/docs/biz/freee/</guid>
+        <description>売掛金 未決済の取引を登録する・消し込む(売掛金・買掛金など) – freee ヘルプセンター</description>
+      </item>
+      
+    
+  </channel>
+</rss>

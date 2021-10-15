@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>maven on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/maven/</link>
+    <description>Recent content in maven on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Sun, 23 Aug 2020 03:23:31 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/maven/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Spring BootプロジェクトにLombokとMapStructを追加する(Eclipse &amp; Maven/Gradle)</title>
+        <link>https://yukihane.github.io/blog/202008/23/spring-lombok-mapstruct/</link>
+        <pubDate>Sun, 23 Aug 2020 03:23:31 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202008/23/spring-lombok-mapstruct/</guid>
+        <description>Spring Boot プロジェクトにLombokとMapStructを追加し、かつ Eclipse で開発を行う場合の設定です。 同じようなことを何回か書いてきた気がするのです</description>
+      </item>
+      
+      <item>
+        <title>Maven Enforcer Pluginの実行をスキップする</title>
+        <link>https://yukihane.github.io/blog/202003/30/skip-maven-enforcer-plugin/</link>
+        <pubDate>Mon, 30 Mar 2020 05:37:45 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202003/30/skip-maven-enforcer-plugin/</guid>
+        <description>とあるMavenプロジェクトを mvn clean install しようとしたところ、次のエラーになり正常終了しませんでした。 [WARNING] Rule 0: org.apache.maven.plugins.enforcer.BannedRepositories failed with message: Current maven session contains banned repository urls, please double check your pom or settings.xml: central</description>
+      </item>
+      
+    
+  </channel>
+</rss>

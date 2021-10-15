@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rest on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/rest/</link>
+    <description>Recent content in rest on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Sun, 23 Aug 2020 17:24:37 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/rest/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Restful API, path を使うか query を使うか</title>
+        <link>https://yukihane.github.io/blog/202008/24/rest-path-or-query/</link>
+        <pubDate>Sun, 23 Aug 2020 17:24:37 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202008/24/rest-path-or-query/</guid>
+        <description>特に結論はなく、情報収集です。 Google の検索 URI「http://www.google.com/search?q=jellyfish」について考え</description>
+      </item>
+      
+    
+  </channel>
+</rss>

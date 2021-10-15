@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kubernetes on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/kubernetes/</link>
+    <description>Recent content in kubernetes on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Tue, 26 May 2020 21:58:21 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>ミニマル `.vimrc`</title>
+        <link>https://yukihane.github.io/blog/202005/27/minimal-vimrc/</link>
+        <pubDate>Tue, 26 May 2020 21:58:21 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202005/27/minimal-vimrc/</guid>
+        <description>kubernetesの試験を受けるに当たって、最小限の .vimrc を覚えておくためのメモ: set autoindent set expandtab set tabstop=2 set shiftwidth=2</description>
+      </item>
+      
+      <item>
+        <title>DockerfileのENTRYPOINTに対応するのはcommand, CMDに対応するのがargs</title>
+        <link>https://yukihane.github.io/blog/202005/06/k8s-command-args/</link>
+        <pubDate>Wed, 06 May 2020 21:03:24 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202005/06/k8s-command-args/</guid>
+        <description>CMD と command が対応しているわけではないのでまぎらわしい… Kubernetes リファレンス: Container v1 core 参考として Dockerfile リファレンス: ENTRYPOINT CMD</description>
+      </item>
+      
+      <item>
+        <title>GKE(Goole Kubernetes Engine)の始め方</title>
+        <link>https://yukihane.github.io/blog/202004/26/gke-getting-started/</link>
+        <pubDate>Sun, 26 Apr 2020 14:05:12 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202004/26/gke-getting-started/</guid>
+        <description>Kubernetes入門の書籍やドキュメントの中には、Kubernetes環境が既に手元にある前提で書かれているものも多いです。 そういう場合</description>
+      </item>
+      
+      <item>
+        <title>Kubernetes the hard way を最新版の1.18.2でやってみた</title>
+        <link>https://yukihane.github.io/blog/202004/26/kubernetes-the-hard-way-v1.18.2/</link>
+        <pubDate>Sun, 26 Apr 2020 13:00:50 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202004/26/kubernetes-the-hard-way-v1.18.2/</guid>
+        <description>要約 kube-apiserver の起動引数を --runtime-config=api/all=true に修正すれば v1.18.2 でも記述どおりで動作する。 本文 現時点で本家 Kubernetes The Hard Way は1.15.3をターゲットにして構築を行っていますが、せ</description>
+      </item>
+      
+      <item>
+        <title>Kubernetes the hard wayを試すためのtmux基礎知識</title>
+        <link>https://yukihane.github.io/blog/202004/25/tmux/</link>
+        <pubDate>Sat, 25 Apr 2020 02:43:13 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202004/25/tmux/</guid>
+        <description>Kubernetes the hard wayをやるのに`tmux`の操作を覚えておくのが良さそうだったので使いそうなものを記載しておくことにしました。 Ctrl キーと b キーの同時押</description>
+      </item>
+      
+    
+  </channel>
+</rss>

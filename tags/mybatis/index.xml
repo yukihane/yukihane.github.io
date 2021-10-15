@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mybatis on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/mybatis/</link>
+    <description>Recent content in mybatis on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Tue, 10 Mar 2020 05:44:01 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/mybatis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>MyBatisでストアドプロシージャを実行する</title>
+        <link>https://yukihane.github.io/blog/202003/10/stored-procesure-with-mybatis/</link>
+        <pubDate>Tue, 10 Mar 2020 05:44:01 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202003/10/stored-procesure-with-mybatis/</guid>
+        <description>(もしかしたら以前どこかで書いたかも…) MyBatisでストアドプロシージャを実行する必要に迫られたことがありましたが、オフィシャルリファレ</description>
+      </item>
+      
+      <item>
+        <title>Spring Bootでは `-parameters` オプションは有効化されている</title>
+        <link>https://yukihane.github.io/blog/202002/20/spring-boot-compiler-parameters/</link>
+        <pubDate>Thu, 20 Feb 2020 06:25:59 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202002/20/spring-boot-compiler-parameters/</guid>
+        <description>MyBatisの設定項目として useActualParamName というものがあります。マニュアルの説明によると、 ステートメントの引数を参照する際、メソッドシグネチャで宣言さ</description>
+      </item>
+      
+    
+  </channel>
+</rss>

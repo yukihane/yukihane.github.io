@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/git/</link>
+    <description>Recent content in git on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Tue, 18 May 2021 23:01:49 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Git の merge も思いの外危険</title>
+        <link>https://yukihane.github.io/blog/202105/19/git-merge-risk/</link>
+        <pubDate>Tue, 18 May 2021 23:01:49 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202105/19/git-merge-risk/</guid>
+        <description>次のblogエントリがバズっていました: Gitのワークフローについての私のスタンス | おそらくはそれさえも平凡な日々 大局としては同意なのですが</description>
+      </item>
+      
+      <item>
+        <title>いつもGitブランチ運用でこまること、考慮すべきポイントのまとめ</title>
+        <link>https://yukihane.github.io/blog/202007/21/why-git-branching-is-difficult/</link>
+        <pubDate>Mon, 20 Jul 2020 17:59:29 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202007/21/why-git-branching-is-difficult/</guid>
+        <description>現在、新しいプロジェクトに参画してGitのブランチ戦略を考えています。 何回かブランチ戦略を考え、そして運用してきたのですが、思うところを書い</description>
+      </item>
+      
+      <item>
+        <title>`git config pull.ff only` を設定しておこう</title>
+        <link>https://yukihane.github.io/blog/202007/19/use-git-pull-ff-only/</link>
+        <pubDate>Sun, 19 Jul 2020 06:47:48 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202007/19/use-git-pull-ff-only/</guid>
+        <description>私は普段全く git pull は使わず、 git fetch で賄ってきたのですが、今日たまたま git pull を行ったところ、いつの頃からか次のようなメッセージが出るようになっている</description>
+      </item>
+      
+      <item>
+        <title>bashで標準出力をファイルに、標準エラー出力を画面とファイルに出力したい</title>
+        <link>https://yukihane.github.io/blog/201908/bash-redirect-earch-other/</link>
+        <pubDate>Mon, 19 Aug 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201908/bash-redirect-earch-other/</guid>
+        <description>Git の pre-push でテスト実行を行おうとした際、通常テスト実行ではデバッグログを出しているところを、エラーを表すものだけに絞って出すようにしようと考えま</description>
+      </item>
+      
+      <item>
+        <title>gitで利用するエディタを設定したかった</title>
+        <link>https://yukihane.github.io/blog/201807/27/set-git-commit-editor/</link>
+        <pubDate>Fri, 27 Jul 2018 19:40:03 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201807/27/set-git-commit-editor/</guid>
+        <description>あるいは vim-plug をセットアップしたら git commit したときに E492: Not an editor command って怒られるようになっちゃった。 Vagrant で CentOS の Box を作るたびにひっかかる。 Git が使う editor を(vi で</description>
+      </item>
+      
+      <item>
+        <title>Git for Windowsでzipコマンドを再現する</title>
+        <link>https://yukihane.github.io/blog/201807/13/zip-on-git-for-windows/</link>
+        <pubDate>Fri, 13 Jul 2018 19:36:48 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201807/13/zip-on-git-for-windows/</guid>
+        <description>git-archive使えば何とかなることに気付きました。 ちなみにunzipコマンドは標準で使えます。 mkdir workrepo cd workrepo git init cp -r [target_file_or_dir] . git add . git commit -m commit git archive</description>
+      </item>
+      
+    
+  </channel>
+</rss>

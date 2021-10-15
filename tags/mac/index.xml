@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mac on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/mac/</link>
+    <description>Recent content in mac on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Wed, 16 Jan 2019 19:58:26 +0000</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Eclipseの起動に使用するJDKを指定する（Mac）</title>
+        <link>https://yukihane.github.io/blog/201901/16/set-jvm-to-eclipse-on-mac/</link>
+        <pubDate>Wed, 16 Jan 2019 19:58:26 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201901/16/set-jvm-to-eclipse-on-mac/</guid>
+        <description>最新の JDK をインストールしたが、古いバージョンの Eclipse も利用したい(が最新のバージョンでは起動できない)ような場合に必要となる設定です。 設定するフ</description>
+      </item>
+      
+    
+  </channel>
+</rss>
