@@ -1,6 +1,6 @@
 ---
 title: "Android Firefox に addons をインストールする方法"
-date: 2021-10-15T15:27+09:00
+date: 2021-10-15T15:27:00+09:00
 draft: false
 tags:
   - android
