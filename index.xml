@@ -15,6 +15,15 @@
     
       
       <item>
+        <title>STS(Eclipse) で Import Getting Started Content が進まない</title>
+        <link>https://yukihane.github.io/blog/202110/16/sts-import-getting-started-content-is-stuck/</link>
+        <pubDate>Sat, 16 Oct 2021 08:16:59 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202110/16/sts-import-getting-started-content-is-stuck/</guid>
+        <description>Spring Tools 4 for Eclipse を利用していると、バージョンによって？ プロジェクト新規作成時などで &amp;#34;Import Getting Started Content&amp;#34; というタスクが走るのですがこれが全く終わらないことがあり</description>
+      </item>
+      
+      <item>
         <title>map で Result を引き回すときに Err を意識したくない その2</title>
         <link>https://yukihane.github.io/blog/202110/15/rust-map-with-result/</link>
         <pubDate>Fri, 15 Oct 2021 21:12:09 +0900</pubDate>
