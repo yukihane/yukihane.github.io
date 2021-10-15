@@ -15,6 +15,15 @@
     
       
       <item>
+        <title>map で Result を引き回すときに Err を意識したくない その2</title>
+        <link>https://yukihane.github.io/blog/202110/15/rust-map-with-result/</link>
+        <pubDate>Fri, 15 Oct 2021 21:12:09 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202110/15/rust-map-with-result/</guid>
+        <description>その1はこちらです: map で Result を引き回すときに Err を意識したくない - スタック・オーバーフロー その1では戻り値が i * 2 の i32 型になる話でしたが、その次</description>
+      </item>
+      
+      <item>
         <title>Servlet 5.1 で Samesite 属性を設定できるようになる</title>
         <link>https://yukihane.github.io/blog/202110/15/servlet-with-cookies-samesite/</link>
         <pubDate>Fri, 15 Oct 2021 20:31:37 +0900</pubDate>
