@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>webextensions on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/webextensions/</link>
+    <description>Recent content in webextensions on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    
+        <atom:link href="https://yukihane.github.io/tags/webextensions/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Android Firefox Webextensions 開発/デバッグ覚え書き</title>
+        <link>https://yukihane.github.io/blog/202110/15/develop-android-firefox-addons/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202110/15/develop-android-firefox-addons/</guid>
+        <description>HAXM を有効化するためには 今でも Hyper-V を無効化しておく必要があるらしいです。つまり Android 開発と WSL2 は両立できないということに。 私は最初 Hyper-V 有効か状態で開発環</description>
+      </item>
+      
+      <item>
+        <title>Android Firefox に addons をインストールする方法</title>
+        <link>https://yukihane.github.io/blog/202110/15/install-addon-to-android-firefox/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202110/15/install-addon-to-android-firefox/</guid>
+        <description>Firefox 69 以降かな？ Fenix というコードネームになってから Android Firefox にインストールできる Webextensions(addons) に制約ができ、公式がお薦めとしているものだけしか通常の手順ではインス</description>
+      </item>
+      
+    
+  </channel>
+</rss>
