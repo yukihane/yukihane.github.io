@@ -10,6 +10,8 @@ tags:
   - mapstruct
 ---
 
+(2021-10-16 更新)
+
 Spring Boot プロジェクトにLombokとMapStructを追加し、かつ Eclipse で開発を行う場合の設定です。
 
 同じようなことを何回か書いてきた気がするのですが、結局どうすれば良いの？というのをまとめて書いたものが無いっぽいので改めて記事に起こしました。
@@ -21,8 +23,8 @@ Spring Boot プロジェクトにLombokとMapStructを追加し、かつ Eclipse
 == まとめ
 
 * MapStruct 1.4.0 以降を利用する。
-** ただし現時点では正式リリースされていない(1.4.0.Beta3が最新)ので、どうしても安定版を利用したい場合は以下を参照して Eclipse にインストールする lombok.jar にパッチを当てる。
-*** https://himeji-cs.jp/blog2/blog/2019/08/eclipse-lombok-mapstruct.html[Lombokプラグインを入れているEclipseでMapStruct自動生成が機能しない]
+* Lombok 1.18.16 意向を利用する。
+* lombok-mapstruct-binding も annoation processor として追加する(link:{{< relref "/blog/202011/14/mapstruct-with-spring-boot-2.3.5" >}}[参考])。
 * (Maven) `maven-compiler-plugin` で anotation processing を行う。
 * (Gradle) Buildshipは利用せず、 `eclipse`, `com.diffplug.eclipse.apt` プラグインを利用し Eclipse プロジェクトへ変換する。
 
@@ -67,6 +69,12 @@ Spring Boot プロジェクトにLombokとMapStructを追加し、かつ Eclipse
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
               </path>
+              <!-- https://mapstruct.org/faq/#Can-I-use-MapStruct-together-with-Project-Lombok -->
+              <path>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok-mapstruct-binding</artifactId>
+                <version>${lombok-mapstruct-binding.version}</version>
+              </path>
             </annotationProcessorPaths>
             <compilerArgs>
               <compilerArg>
@@ -96,6 +104,8 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor "org.mapstruct:mapstruct-processor:$mapstructVersion"
     annotationProcessor 'org.projectlombok:lombok'
+    // https://mapstruct.org/faq/#Can-I-use-MapStruct-together-with-Project-Lombok
+    annotationProcessor "org.projectlombok:lombok-mapstruct-binding:$lombokMapstructBindingVersion"
 }
 
 compileJava {
