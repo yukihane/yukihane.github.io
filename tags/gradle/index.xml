@@ -38,7 +38,7 @@
         <pubDate>Sun, 23 Aug 2020 03:23:31 +0000</pubDate>
         
         <guid>https://yukihane.github.io/blog/202008/23/spring-lombok-mapstruct/</guid>
-        <description>Spring Boot プロジェクトにLombokとMapStructを追加し、かつ Eclipse で開発を行う場合の設定です。 同じようなことを何回か書いてきた気がするのです</description>
+        <description>(2021-10-16 更新) Spring Boot プロジェクトにLombokとMapStructを追加し、かつ Eclipse で開発を行う場合の設定です。 同じようなことを何回か書いてきた気がす</description>
       </item>
       
       <item>
