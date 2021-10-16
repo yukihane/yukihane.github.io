@@ -24,7 +24,7 @@ Spring Boot プロジェクトにLombokとMapStructを追加し、かつ Eclipse
 
 * MapStruct 1.4.0 以降を利用する。
 * Lombok 1.18.16 意向を利用する。
-* lombok-mapstruct-binding も annoation processor として追加する(link:{{< relref "/blog/202011/14/mapstruct-with-spring-boot-2.3.5" >}}[参考])。
+* lombok-mapstruct-binding も annoation processor として追加する(link:{{< relref "/blog/202011/14/mapstruct-with-spring-boot-2.3.5.adoc" >}}[参考])。
 * (Maven) `maven-compiler-plugin` で anotation processing を行う。
 * (Gradle) Buildshipは利用せず、 `eclipse`, `com.diffplug.eclipse.apt` プラグインを利用し Eclipse プロジェクトへ変換する。
 
