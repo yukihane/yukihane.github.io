@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Testing the Web Layer のコードを JUnit Jupiter にマイグレーションしてみる – 発火後忘失</title>
+    <title>Mapstruct Spring Extensions を試してみる – 発火後忘失</title>
     
 
 
@@ -30,7 +30,7 @@
     
     var baseurl = JSON.parse("\"https://yukihane.github.io\"");
     
-    var permalink = JSON.parse("\"https://yukihane.github.io/blog/201904/16/migration-to-junit5/\"");
+    var permalink = JSON.parse("\"https://yukihane.github.io/blog/202110/18/mapstruct-spring-extensions/\"");
 
     
     var toggleSidebarElem = document.getElementById("toggle-sidebar");
@@ -1074,19 +1074,19 @@
 
     <meta name="description" content="" />
 <meta name="keywords" content="">
-<meta name="created" content="2019-04-16T20:06:33&#43;0000">
-<meta name="modified" content="2019-04-16T20:06:33&#43;0000">
+<meta name="created" content="2021-10-18T02:44:46&#43;0900">
+<meta name="modified" content="2021-10-18T02:44:46&#43;0900">
 
 
 <meta property="og:site_name" content="発火後忘失">
-<meta property="og:title" content="Testing the Web Layer のコードを JUnit Jupiter にマイグレーションしてみる">
-<meta property="og:url" content="https://yukihane.github.io/blog/201904/16/migration-to-junit5/">
+<meta property="og:title" content="Mapstruct Spring Extensions を試してみる">
+<meta property="og:url" content="https://yukihane.github.io/blog/202110/18/mapstruct-spring-extensions/">
 <meta property="og:type" content="article">
 
 <meta name="generator" content="Hugo 0.88.1" />
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="theme-color" content="#ffffff">
-<link rel="canonical" href="https://yukihane.github.io/blog/201904/16/migration-to-junit5/">
+<link rel="canonical" href="https://yukihane.github.io/blog/202110/18/mapstruct-spring-extensions/">
 <link rel="manifest" href="/manifest.json">
 
   <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
@@ -1110,12 +1110,12 @@
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "Testing the Web Layer のコードを JUnit Jupiter にマイグレーションしてみる",
-    "datePublished": "2019-04-16T20:06:33Z",
-    "dateModified": "2019-04-16T20:06:33Z",
-    "url" : "https://yukihane.github.io/blog/201904/16/migration-to-junit5/",
-    "description": "概要 (追記: ここで試したのは2.1.4.RELEASE時点のもの。2.2.0.M3以降では #14736の通り JUnit5 がデフォルトになっている模様。",
-    "keywords": ["spring-boot"],
+    "headline": "Mapstruct Spring Extensions を試してみる",
+    "datePublished": "2021-10-18T02:44:46+09:00",
+    "dateModified": "2021-10-18T02:44:46+09:00",
+    "url" : "https://yukihane.github.io/blog/202110/18/mapstruct-spring-extensions/",
+    "description": "はじめに MapStruct の公式サイトを見ていると、 Mapstruct Spring Extensions なるサブプロジェクトが発足していたので、何者か調べようと試してみました。 結果、これは Spring の ConversionService の Converter と MapStruct",
+    "keywords": ["mapstruct","spring-boot"],
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://yukihane.github.io"
@@ -1186,7 +1186,7 @@ if (!doNotTrack) {
     <div class="menu">
   <h6 class="menu__label">
     
-      Testing the Web Layer のコードを JUnit Jupiter にマイグレーションしてみる
+      Mapstruct Spring Extensions を試してみる
     
   </h6>
   <ul>
@@ -1208,9 +1208,9 @@ if (!doNotTrack) {
   
   
   
-  <li class="">
+  <li class="active">
     <a href="https://yukihane.github.io/blog/202110/18/mapstruct-spring-extensions/"
-      class="menu__title ">Mapstruct Spring Extensions を試してみる</a>
+      class="menu__title active">Mapstruct Spring Extensions を試してみる</a>
   </li>
   
 
@@ -4451,9 +4451,9 @@ if (!doNotTrack) {
   
   
   
-  <li class="active">
+  <li class="">
     <a href="https://yukihane.github.io/blog/201904/16/migration-to-junit5/"
-      class="menu__title active">Testing the Web Layer のコードを JUnit Jupiter にマイグレーションしてみる</a>
+      class="menu__title ">Testing the Web Layer のコードを JUnit Jupiter にマイグレーションしてみる</a>
   </li>
   
 
@@ -5373,7 +5373,7 @@ if (!doNotTrack) {
   
   <li  class="is-active" >
     
-      <span>Testing the Web Layer のコードを JUnit Jupiter にマイグレーションしてみる</span>
+      <span>Mapstruct Spring Extensions を試してみる</span>
     
   </li>
   
@@ -5384,80 +5384,272 @@ if (!doNotTrack) {
       <div class="single" data-display="block">
   
     <div class="single__title">
-      Testing the Web Layer のコードを JUnit Jupiter にマイグレーションしてみる
+      Mapstruct Spring Extensions を試してみる
     </div>
     <div class="single__meta">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2019-04-16 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 2 min read</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-10-18 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 3 min read</span>
     </div>
   
 
   <article class="single__contents" data-dir="ltr">
-    <h1 id="概要">概要</h1>
-<p>(追記: ここで試したのは<code>2.1.4.RELEASE</code>時点のもの。<code>2.2.0.M3</code>以降では <a href="https://github.com/spring-projects/spring-boot/issues/14736" target="_blank">#14736</a>の通り JUnit5 がデフォルトになっている模様。)</p>
-<p>spring-boot-starter-test の JUnit5 対応はこちらの issue:</p>
+    <div class="sect1">
+<h2 id="_はじめに">はじめに</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://mapstruct.org/">MapStruct の公式サイト</a>を見ていると、 <a href="https://mapstruct.org/documentation/spring-extensions/reference/html/">Mapstruct Spring Extensions</a> なるサブプロジェクトが発足していたので、何者か調べようと試してみました。</p>
+</div>
+<div class="paragraph">
+<p>結果、これは Spring の <a href="https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#core-convert-ConversionService-API"><code>ConversionService</code></a> の <a href="https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#core-convert-Converter-API"><code>Converter</code></a> と MapStruct の <code>Mapper</code> を統合して、実装を少し楽にしよう、というもののようでした。</p>
+</div>
+<div class="paragraph">
+<p>今回は、 MapStruct の基本的な使い方から始めて、順に Spring Boot に統合していってみます。</p>
+</div>
+<div class="paragraph">
+<p>ちなみに公式サンプルは <a href="https://github.com/mapstruct/mapstruct-spring-extensions/tree/main/examples">こちら</a> になります。
+(いろいろ機能を紹介するサンプルになっていて本質が分かりづらいので、今回シンプルな実装で試してみています。)</p>
+</div>
+<div class="paragraph">
+<p>今回のコードはこちらです。</p>
+</div>
+<div class="ulist">
 <ul>
-<li><a href="https://github.com/spring-projects/spring-boot/issues/14736" target="_blank">Investigate JUnit 5 starter upgrade #14736</a></li>
-</ul>
-<p>現時点でいわゆる out-of-the-box では使えない。手を入れる必要がある。</p>
-<p>そこで試しに<a href="https://spring.io/guides/gs/testing-web/" target="_blank">Testing the Web Layer</a> のサンプルコードを JUnit4 から JUnit Jupiter に変更してみた(Maven 用の <code>pom.xml</code> のみ)。</p>
-<ul>
-<li><a href="https://github.com/yukihane/gs-testing-web/tree/feature/junit-jupiter/complete" target="_blank">https://github.com/yukihane/gs-testing-web/tree/feature/junit-jupiter/complete</a></li>
-</ul>
-<h1 id="参考">参考</h1>
-<ul>
-<li><a href="https://spring.io/guides/gs/testing-web/" target="_blank">Testing the Web Layer</a> - Spring project&rsquo;s guides</li>
-<li><a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/testing.html#testcontext-junit-jupiter-extension" target="_blank">SpringExtension for JUnit Jupiter</a> - Spring Famework Testing
-<ul>
-<li><a href="https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html#boot-features-testing-spring-boot-applications" target="_blank">Testing Spring Boot Applications</a> - Spring Boot reference</li>
-</ul>
+<li>
+<p><a href="https://github.com/yukihane/hello-java/tree/master/spring/mapstruct-spring-extensions-example" class="bare">https://github.com/yukihane/hello-java/tree/master/spring/mapstruct-spring-extensions-example</a></p>
 </li>
-<li><a href="https://github.com/spring-projects/spring-boot/issues/14716" target="_blank">Provide dedicated Spring Boot starter for JUnit 5 #14716</a> - Spring Boot Issues</li>
-<li><a href="https://junit.org/junit5/docs/current/user-guide/#running-tests-build-maven-engines-configure" target="_blank">Configuring Test Engines</a> - JUnit 5 official guide</li>
 </ul>
-<h1 id="変更手順">変更手順</h1>
-<p>詳しくは冒頭に記載した Git リポジトリ参照のこと。</p>
-<ol>
-<li><code>spring-boot-starter-test</code> が <code>junit</code>(JUnit4)に依存しているので除外する。 (<a href="https://github.com/yukihane/gs-testing-web/commit/d77d7087c2e64f5233f525c35cab1b0251656cde#diff-fbdb7c22a3fe16b8cab5b3cb905bd96a" target="_blank">差分リンク</a>)</li>
-<li>JUnit5 関連の依存関係を追加設定する。 <code>junit-jupiter-engine</code>, <code>junit-jupiter-api</code> (<a href="https://github.com/yukihane/gs-testing-web/commit/1fb1b1e402198d2703d4b8e4f1721421aca5d32b#diff-fbdb7c22a3fe16b8cab5b3cb905bd96a" target="_blank">差分リンク</a>)</li>
-<li><del>テストクラスに付与されているアノテーション <code>@RunWith(SpringRunner.class)</code> を <code>@ExtendWith(SpringExtension.class)</code> に置換する。</del> (<a href="https://github.com/yukihane/gs-testing-web/commit/4e347ee8b9fb3ce4e1569ff88400925d6b3386b5#diff-d9a22d7a8178d5b42a8750123cbfe5b1" target="_blank">差分リンク</a>)</li>
-<li><code>@RunWith(SpringRunner.class)</code> を単に削除する。
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_実装">実装</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_前提">前提</h3>
+<div class="ulist">
 <ul>
-<li><code>@ExtendWith(SpringExtension.class)</code> は <code>@SpringBootTest</code> や <code>@WebMvcTest</code> に含まれるため明示的な設定は不要。</li>
-</ul>
+<li>
+<p>Java17</p>
 </li>
-<li>JUnit4 の <code>import</code> を JUnit Jupiter のものに置換する。(差分は上のものに含まれる)</li>
+<li>
+<p>Spring Boot 2.6.0-M3</p>
+</li>
+<li>
+<p>MapStruct 1.4.2.Final</p>
+</li>
+<li>
+<p>MapStruct Spring Extensions 0.1.0</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/yukihane/hello-java/tree/master/spring/mapstruct-spring-extensions-example#readme">README</a> にも書いていますが、どのタイミングでもリクエストは次のコマンドで行います。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sh" data-lang="sh">curl --location --request POST &#39;http://localhost:8080/&#39; \
+--header &#39;Content-Type: application/json&#39; \
+--data-raw &#39;{
+    &#34;name&#34;: &#34;my car&#34;,
+    &#34;wheel&#34;: {
+        &#34;size&#34;: 100
+    },
+    &#34;pedal&#34;: {
+        &#34;size&#34;: 20
+    }
+}&#39;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_1_普通の使い方で_mapstruct_を組み込む">1. 普通の使い方で MapStruct を組み込む</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>コード: <a href="https://github.com/yukihane/hello-java/tree/c4deee39b1856b76ffde0e2841a368812310b316/spring/mapstruct-spring-extensions-example"><code>c4deee3</code></a></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">@Data
+public class Car {
+    private String name;
+    private Wheel wheel;
+    private Pedal pedal;
+}
+
+@Data
+public class Wheel {
+    private int size;
+}
+
+@Data
+public class Pedal {
+    private int size;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>のようなコードを、</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">@Data
+public class CarDto {
+    private String name;
+    private WheelDto steeringWheel;
+    private PedalDto footPedal;
+}
+
+@Data
+public class WheelDto {
+    private int wheelSize;
+}
+
+@Data
+public class PedalDto {
+    private int pedalSize;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>にマッピングすることを考えます。
+このとき、マッパーは次のような実装になります。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">@Mapper(uses = { WheelMapper.class, PedalMapper.class })
+public interface CarMapper {
+    @Mappings({
+        @Mapping(source = &#34;wheel&#34;, target = &#34;steeringWheel&#34;),
+        @Mapping(source = &#34;pedal&#34;, target = &#34;footPedal&#34;),
+    })
+    CarDto convert(Car car);
+}
+
+@Mapper
+public interface WheelMapper {
+    @Mapping(source = &#34;size&#34;, target = &#34;wheelSize&#34;)
+    WheelDto convert(Wheel wheel);
+}
+
+@Mapper
+public interface PedalMapper {
+    @Mapping(source = &#34;size&#34;, target = &#34;pedalSize&#34;)
+    PedalDto convert(Pedal pedal);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>マッピング処理を行いたい箇所でマッパーをインジェクションして利用します。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">@RestController
+@RequiredArgsConstructor
+@Slf4j
+public class MyController {
+
+    private final CarMapper carMapper;
+
+    @PostMapping(&#34;/&#34;)
+    public CarDto index(@RequestBody final Car car) {
+        log.info(&#34;car: {}&#34;, car);
+
+        final CarDto dto = carMapper.convert(car);
+        log.info(&#34;dto: {}&#34;, dto);
+
+        return dto;
+    }
+
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_2_converter_として実装する">2. <code>Converter</code> として実装する</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>コード: <a href="https://github.com/yukihane/hello-java/tree/eb23410a8327d43d42111a5c384a51c64f3194d0/spring/mapstruct-spring-extensions-example"><code>eb23410</code></a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>マッパーが <code>org.springframework.core.convert.converter.Converter</code> を実装したコンポーネントであれば <code>ConversionService</code> の仕組みで変換できるよね、というのが次の発想になります。 <code>extends Converter&lt;_,_&gt;</code> を加えるだけです(正確には、 MapStruct 変換メソッド名は何でもよかったのですが、 <code>Converter</code> を実装するなら <code>convert</code> という名前でないといけないので一般的にはメソッド名変更も伴います)。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">@Mapper(uses = { WheelMapper.class, PedalMapper.class })
+public interface CarMapper extends Converter&lt;Car, CarDto&gt; {
+    @Override
+    @Mappings({
+        @Mapping(source = &#34;wheel&#34;, target = &#34;steeringWheel&#34;),
+        @Mapping(source = &#34;pedal&#34;, target = &#34;footPedal&#34;),
+    })
+    CarDto convert(Car car);
+}
+
+// (他の2つのマッパーも同様に extends Converter する)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>そうすると、利用個所ではマッパーの代わりに <code>ConversionService</code> をインジェクションして変換できるようになります。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">@RestController
+@RequiredArgsConstructor
+@Slf4j
+public class MyController {
+
+    private final ConversionService conversionService;
+
+    @PostMapping(&#34;/&#34;)
+    public CarDto index(@RequestBody final Car car) {
+        log.info(&#34;car: {}&#34;, car);
+
+        final CarDto dto = conversionService.convert(car, CarDto.class);
+        log.info(&#34;dto: {}&#34;, dto);
+
+        return dto;
+    }
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>現在、 <code>CarMapper</code> で <code>uses = { WheelMapper.class, PedalMapper.class }</code> というように、内包するエンティティのマッパーも明示的に指定していますが、 <code>ConversionService</code> にどの <code>Converter</code> を使って変換するかは任せてしまえるんじゃないか、というのがこのライブラリのモチベーションのようです(<a href="https://stackoverflow.com/q/58081224">参考</a>)。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_mapstruct_spring_extensions_を利用する">3. Mapstruct Spring Extensions を利用する</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>コード: <a href="https://github.com/yukihane/hello-java/tree/105b5098d6ccf366c9e501174d279ec8e636ddca/spring/mapstruct-spring-extensions-example"><code>105b509</code></a></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>アノテーションとアノテーションプロセッサを追加(参考: <a href="https://mapstruct.org/documentation/spring-extensions/reference/html/#setup">2. Set up</a>)します(<a href="https://github.com/yukihane/hello-java/commit/105b5098d6ccf366c9e501174d279ec8e636ddca#diff-32c322b0f4bd4686efaf6e9e3d6c38524e924a61b10e937f72b1edd4ad97034e">link</a>)。</p>
+</li>
+<li>
+<p>Application クラスに <code>@SpringMapperConfig</code> アノテーションを付与します(<a href="https://github.com/yukihane/hello-java/commit/105b5098d6ccf366c9e501174d279ec8e636ddca#diff-59a1cd626633f05243312e7d5b654d47f437d80b7b9ada8c826800eda16c3b92">link</a>)。</p>
+</li>
+<li>
+<p>マッパーの <code>uses</code> 値を <code>ConversionServiceAdapter.class</code> に置き換えます(<a href="https://github.com/yukihane/hello-java/commit/105b5098d6ccf366c9e501174d279ec8e636ddca#diff-fe114dfe3394d15990446499f086103b2e528c78da0939c11cad7e092d02f089">link</a>)。</p>
+</li>
 </ol>
-<h1 id="備考">備考</h1>
-<h2 id="hamcrest-vs-assertj">Hamcrest vs AssertJ</h2>
-<ul>
-<li><a href="https://github.com/spring-projects/spring-boot/issues/15789" target="_blank">Spring Boot Starter adds both AssertJ and Hamcrest assertion libraries #15789</a></li>
-</ul>
-<p>からは、 Spring Boot では AssertJ を使うことが推奨されているように感じる。ただし、</p>
-<ul>
-<li><a href="https://github.com/spring-projects/spring-framework/issues/21178" target="_blank">Support AssertJ variant in MockMvc [SPR-16637] #21178</a>
-<ul>
-<li><a href="https://github.com/spring-projects/spring-boot/issues/5729" target="_blank">Consider AssertJ variant of MockMvc #5729</a></li>
-</ul>
+</div>
 </li>
 </ul>
-<p>にあるとおり、 現時点では MockMvc が Hamcrest に依存しているので完全には Hamcrest を除外できない。</p>
-<h2 id="extendwithspringextensionclass"><code>@ExtendWith(SpringExtension.class)</code></h2>
-<p><a href="https://qiita.com/gumimin/items/f15eaede3e0e5b7a11a5" target="_blank">Spring Boot + JUnit5 + Kotlin でテストを書く - Qiita</a> などでは本アノテーションを付与する旨記載されているが、Spring Boot のテストに用いるアノテーションには既に設定されているため、自分(テストコード記述者)が明示的に設定する必要は(もはや)ない。</p>
-<p><a href="https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html#boot-features-testing-spring-boot-applications" target="_blank">46.3 Testing Spring Boot Applications</a> - Spring Boot リファレンス:</p>
-<blockquote>
-<p>If you are using JUnit 5, there’s no need to add the equivalent @ExtendWith(SpringExtension.class) as @SpringBootTest and the other @…Test annotations are already annotated with it.</p>
-</blockquote>
-<p>及び関連する issue:</p>
-<ul>
-<li><a href="https://github.com/spring-projects/spring-boot/issues/13739" target="_blank">Annotate @…Test annotations with @ExtendWith(SpringExtension.class) #13739</a></li>
-</ul>
-<h2 id="コンポーネントスキャン">コンポーネントスキャン</h2>
-<p><a href="https://qiita.com/thankkingdom/items/f1b600a3b27ee858c448#%E3%83%86%E3%82%B9%E3%83%88%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A3%E3%82%B0%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%9C%E6%88%90" target="_blank">SpringBoot と JUnit5 で MockMvc を使うには - Qiita</a> では</p>
-<blockquote>
-<p>③ テストコンフィグファイルの作成<br />
-これが重要でした。個々のテストクラスで、コンポーネントスキャンしてクラスを参照できるようにしてあげます。</p>
-</blockquote>
-<p>と書かれているが、今回無くても動作した。</p>
+</div>
+<div class="paragraph">
+<p>この手順の最後で行っている <code>uses</code> 値が固定値で良くなる、というのが本ライブラリを使うメリット、ということのようです。</p>
+</div>
+</div>
+</div>
+</div>
 
   </article>
 </div>
@@ -5466,17 +5658,10 @@ if (!doNotTrack) {
 <nav class="pagination-single">
   
     
-      <a href="https://yukihane.github.io/blog/201904/27/java-properties-is-not-utf8/" title="Java9以降.propertiesファイルをUTF-8で書けるようになった、は正しい？" class="pagination-single__left">
-        <div class="pagination-single__icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M19 11H7.83l4.88-4.88c.39-.39.39-1.03 0-1.42-.39-.39-1.02-.39-1.41 0l-6.59 6.59c-.39.39-.39 1.02 0 1.41l6.59 6.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L7.83 13H19c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg>
-        </div>
-        <div class="pagination-single__right-title">Java9以降.propertiesファイルをUTF-8で書けるようになった、は正しい？</div>
-      </a>
-    
     <div class="grow"></div>
     
-      <a href="https://yukihane.github.io/blog/201903/26/change-spring-validator-message/" title="Spring Validator(でラップされたBean Validation)のメッセージをi18nしたときの覚え書き" class="pagination-single__right">
-        <div class="pagination-single__left-title">Spring Validator(でラップされたBean Validation)のメッセージをi18nしたときの覚え書き</div>
+      <a href="https://yukihane.github.io/blog/202110/16/sts-import-getting-started-content-is-stuck/" title="STS(Eclipse) で Import Getting Started Content が進まない" class="pagination-single__right">
+        <div class="pagination-single__left-title">STS(Eclipse) で Import Getting Started Content が進まない</div>
         <div class="pagination-single__icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/></svg>
         </div>

@@ -15,6 +15,15 @@
     
       
       <item>
+        <title>Mapstruct Spring Extensions を試してみる</title>
+        <link>https://yukihane.github.io/blog/202110/18/mapstruct-spring-extensions/</link>
+        <pubDate>Mon, 18 Oct 2021 02:44:46 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202110/18/mapstruct-spring-extensions/</guid>
+        <description>はじめに MapStruct の公式サイトを見ていると、 Mapstruct Spring Extensions なるサブプロジェクトが発足していたので、何者か調べようと試してみました。 結果、これは Spring の ConversionService の Converter と MapStruct</description>
+      </item>
+      
+      <item>
         <title>STS(Eclipse) で Import Getting Started Content が進まない</title>
         <link>https://yukihane.github.io/blog/202110/16/sts-import-getting-started-content-is-stuck/</link>
         <pubDate>Sat, 16 Oct 2021 08:16:59 +0900</pubDate>
