@@ -7,12 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Mon, 18 Oct 2021 10:03:46 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 18 Oct 2021 12:59:08 +0900</lastBuildDate>
     
         <atom:link href="https://yukihane.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     
+      
+      <item>
+        <title>Spring Boot でカスタム validator に injection する</title>
+        <link>https://yukihane.github.io/blog/202110/18/spring-inject-in-validator/</link>
+        <pubDate>Mon, 18 Oct 2021 12:59:08 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202110/18/spring-inject-in-validator/</guid>
+        <description>はじめに Spring Boot で JPA Validator にインジェクションしようとしたけどできなかった、という話を何度か聞いてその度に調べていたので、次回に備えてまとめておきます</description>
+      </item>
       
       <item>
         <title>Spring MVC で Java17 record を試してみる</title>
