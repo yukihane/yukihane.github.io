@@ -15,6 +15,15 @@
     
       
       <item>
+        <title>Spring Boot でサンプルコードを作成するときのプロパティなど</title>
+        <link>https://yukihane.github.io/blog/202110/31/spring-boot-template/</link>
+        <pubDate>Sun, 31 Oct 2021 10:01:45 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202110/31/spring-boot-template/</guid>
+        <description>Stack Overflow で Spring Boot の質問に回答するときのサンプルプロジェクトを作成するとき、 Spirng Initializr を利用しているのですが、よく必要な dependencies を追加し忘れたり、設定しておいた</description>
+      </item>
+      
+      <item>
         <title>VSCode でエラー/警告アンダーラインの区別がつかない</title>
         <link>https://yukihane.github.io/blog/202110/25/vscode-underline-coloring/</link>
         <pubDate>Mon, 25 Oct 2021 17:31:42 +0900</pubDate>
