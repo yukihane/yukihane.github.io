@@ -231,15 +231,6 @@
       </item>
       
       <item>
-        <title>Spring Bootは、セキュリティフィルタBeanを作っている分だけ、無料で認証できちまうんだ</title>
-        <link>https://yukihane.github.io/blog/201907/18/spring-boot-filter-bean/</link>
-        <pubDate>Thu, 18 Jul 2019 20:34:56 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201907/18/spring-boot-filter-bean/</guid>
-        <description>要約 78.10 Add a Servlet, Filter, or Listener to an Application曰く。 any Servlet or Filter beans are registered with the servlet container automatically. Spring Security 使った自前の認証フィルタを @Component 付けて作ったりなんかした際に意図し</description>
-      </item>
-      
-      <item>
         <title>ファイル出力先にServletContext#getRealPathを使うな</title>
         <link>https://yukihane.github.io/blog/201906/20/dont-use-getrealpath/</link>
         <pubDate>Thu, 20 Jun 2019 20:26:49 +0000</pubDate>
