@@ -149,6 +149,15 @@
         <description>WebSecurityConfigurerAdapter#configure(HttpSecurity) で form 認証を有効化しているのでこれをディスる。 WebSecurityConfigurerAdapterを継承した Spring コンポーネントをスキャン対</description>
       </item>
       
+      <item>
+        <title>ちょっと待って！そのUserDetails、本当に必要ですか？</title>
+        <link>https://yukihane.github.io/blog/201907/03/you-dont-need-userdetails/</link>
+        <pubDate>Wed, 03 Jul 2019 21:55:20 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/201907/03/you-dont-need-userdetails/</guid>
+        <description>概要 Spring Boot の認証を実装してみた系のサンプルでよく UserDetails や UserDetailsService が用いられているが、必然性が不明なものがほとんどである。 (おそらく当の実装者も理解してい</description>
+      </item>
+      
     
   </channel>
 </rss>
