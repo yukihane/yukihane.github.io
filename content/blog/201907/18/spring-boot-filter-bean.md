@@ -6,7 +6,7 @@ date: 2019-07-18T20:34:56Z
 # authors: []
 # categories: []
 # series: []
-tags: [java]
+tags: [spring-security, spring-boot]
 # images: []
 # videos: []
 # audio: []
