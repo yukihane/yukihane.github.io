@@ -4,6 +4,11 @@ date: 2020-07-26T02:46:12Z
 draft: false
 ---
 
+== リソース
+
+* https://www.vogella.com/tutorials/eclipseplatform.html[vogella社のチュートリアル] のうちのいくつか
+* Packt社刊 https://www.packtpub.com/product/eclipse-plug-in-development-beginner-s-guide-second-edition/9781783980697[Eclipse Plug-in Development: Beginner's Guide - Second Edition]
+
 [[eclipse4_e4_rcp2.0]]
 == Eclipse4 e4 RCP2.0
 
