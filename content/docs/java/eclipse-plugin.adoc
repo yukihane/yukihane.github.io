@@ -16,6 +16,6 @@ draft: false
 
 * p.32: Plug-in Project 作成時の **Plug-in with a view** というテンプレートは無くなっている。
 ** おそらく **View contribution using 3.x API** が該当するものだと思う。
-* ↑のテンプレートでプロジェクト生成するとコンパイルエラーが発生している。
+* p.33: ↑のテンプレートでプロジェクト生成するとコンパイルエラーが発生している。
 ** `ViewPart` 継承クラスから `workbench` フィールドが漏れている模様。 https://github.com/yukihane/com.packtpub.e4/commit/6eb5819e71a96a911f5d2aaa55b85a0216947302[対応差分]
 *** ↑の対応策は、Extensions の追加から生成したときのファイルから類推した。
