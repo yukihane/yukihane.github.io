@@ -8,46 +8,9 @@ draft: false
 
 * https://www.vogella.com/tutorials/eclipseplatform.html[vogella社のチュートリアル] のうちのいくつか
 * Packt社刊 https://www.packtpub.com/product/eclipse-plug-in-development-beginner-s-guide-second-edition/9781783980697[Eclipse Plug-in Development: Beginner's Guide - Second Edition]
+* Eclipse Plug-in と Eclipse RCP は技術スタックが同じっぽいので、 RCP の記事も参考になる…のだと思う
 
-[[eclipse4_e4_rcp2.0]]
-== Eclipse4 e4 RCP2.0
+== https://www.packtpub.com/product/eclipse-plug-in-development-beginner-s-guide-second-edition/9781783980697[Eclipse Plug-in Development: Beginner's Guide - Second Edition] 写経時のハマりポイントメモ
 
-* http://qiita.com/wstone/items/e37e4986ee90bc3fd0e4[Eclipse 4 (e4)
-Tutorial Part 1 – The e4 Application Model - Qiita]
-* https://wiki.eclipse.org/Eclipse4/RCP[Eclipse4/RCP - Eclipsepedia]
-
-[[tycho_eclipse_plugin]]
-== Tycho Eclipse Plugin
-
-http://www.eclipse.org/tycho/documentation.php[Tycho]とTycho用archetypeを用いた開発手順。
-
-=== 参考
-
-* http://qiita.com/ko2ic/items/a3b8aceb1275dfee2943[Eclipse
-Pluginを簡単に作成する方法 - Qiita]
-* https://github.com/open-archetypes/tycho-eclipse-plugin-archetype
-
-ただしどちらも記述が陳腐化しており説明のとおりでは実行できないようにみえる。
-
-=== 実行
-
-https://github.com/yukihane/tycho-eclipse-plugin-archetype の
-`develop`ブランチをチェックアウトしarchetypeをインストールする。
-
-[source,bash]
-----
-git clone -b develop https://github.com/yukihane/tycho-eclipse-plugin-archetype.git
-cd tycho-eclipse-plugin-archetype
-mvn clean install
-mvn archetype:update-local-catalog
-----
-
-インストールが終われば、あとは通常通り`mvn archetype:generate`で選択できる。
-
-注意点は、バージョン指定を`0.0.1-SNAPSHOT`というような表記にする必要がある。_3つのピリオド区切り数字_
-に _-SNAPSHOT_
-のフォーマット、ということである。これはtychoの制約によるもの(のはず)。
-
-_-SNAPSHOT_
-は後から外すことが出来るが、そのためには他のファイルの更新も必要。
-
+* Plug-in Project 作成時の **Plug-in with a view** というテンプレートは無くなっている。
+** おそらく **View contribution using 3.x API** が該当するものだと思う。
