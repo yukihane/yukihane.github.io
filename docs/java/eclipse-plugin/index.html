@@ -1114,7 +1114,7 @@
     "datePublished": "2020-07-26T02:46:12Z",
     "dateModified": "2020-07-26T02:46:12Z",
     "url" : "https://yukihane.github.io/docs/java/eclipse-plugin/",
-    "description": "リソース vogella社のチュートリアル のうちのいくつか Packt社刊 Eclipse Plug-in Development: Beginner’s Guide - Second Edition Eclipse4 e4 RCP2.0 Eclipse 4 (e4) Tutorial Part 1 – The e4 …",
+    "description": "リソース vogella社のチュートリアル のうちのいくつか Packt社刊 Eclipse Plug-in Development: Beginner’s Guide - Second Edition Eclipse Plug-in と Eclipse RCP は技術スタックが同じっぽい",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://yukihane.github.io"
@@ -3558,75 +3558,29 @@ if (!doNotTrack) {
 <li>
 <p>Packt社刊 <a href="https://www.packtpub.com/product/eclipse-plug-in-development-beginner-s-guide-second-edition/9781783980697">Eclipse Plug-in Development: Beginner’s Guide - Second Edition</a></p>
 </li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="eclipse4_e4_rcp2.0">Eclipse4 e4 RCP2.0</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
 <li>
-<p><a href="http://qiita.com/wstone/items/e37e4986ee90bc3fd0e4">Eclipse 4 (e4)
-Tutorial Part 1 – The e4 Application Model - Qiita</a></p>
-</li>
-<li>
-<p><a href="https://wiki.eclipse.org/Eclipse4/RCP">Eclipse4/RCP - Eclipsepedia</a></p>
+<p>Eclipse Plug-in と Eclipse RCP は技術スタックが同じっぽいので、 RCP の記事も参考になる…のだと思う</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tycho_eclipse_plugin">Tycho Eclipse Plugin</h2>
+<h2 id="_eclipse_plug_in_development_beginners_guide_second_edition_写経時のハマりポイントメモ"><a href="https://www.packtpub.com/product/eclipse-plug-in-development-beginner-s-guide-second-edition/9781783980697">Eclipse Plug-in Development: Beginner’s Guide - Second Edition</a> 写経時のハマりポイントメモ</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p><a href="http://www.eclipse.org/tycho/documentation.php">Tycho</a>とTycho用archetypeを用いた開発手順。</p>
-</div>
-<div class="sect2">
-<h3 id="_参考">参考</h3>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="http://qiita.com/ko2ic/items/a3b8aceb1275dfee2943">Eclipse
-Pluginを簡単に作成する方法 - Qiita</a></p>
-</li>
+<p>Plug-in Project 作成時の <strong>Plug-in with a view</strong> というテンプレートは無くなっている。</p>
+<div class="ulist">
+<ul>
 <li>
-<p><a href="https://github.com/open-archetypes/tycho-eclipse-plugin-archetype" class="bare">https://github.com/open-archetypes/tycho-eclipse-plugin-archetype</a></p>
+<p>おそらく <strong>View contribution using 3.x API</strong> が該当するものだと思う。</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>ただしどちらも記述が陳腐化しており説明のとおりでは実行できないようにみえる。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_実行">実行</h3>
-<div class="paragraph">
-<p><a href="https://github.com/yukihane/tycho-eclipse-plugin-archetype" class="bare">https://github.com/yukihane/tycho-eclipse-plugin-archetype</a> の
-`develop`ブランチをチェックアウトしarchetypeをインストールする。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">git clone -b develop https://github.com/yukihane/tycho-eclipse-plugin-archetype.git
-cd tycho-eclipse-plugin-archetype
-mvn clean install
-mvn archetype:update-local-catalog</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>インストールが終われば、あとは通常通り`mvn archetype:generate`で選択できる。</p>
-</div>
-<div class="paragraph">
-<p>注意点は、バージョン指定を`0.0.1-SNAPSHOT`というような表記にする必要がある。<em>3つのピリオド区切り数字</em>
-に <em>-SNAPSHOT</em>
-のフォーマット、ということである。これはtychoの制約によるもの(のはず)。</p>
-</div>
-<div class="paragraph">
-<p><em>-SNAPSHOT</em>
-は後から外すことが出来るが、そのためには他のファイルの更新も必要。</p>
-</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
