@@ -12,5 +12,7 @@ draft: false
 
 == https://www.packtpub.com/product/eclipse-plug-in-development-beginner-s-guide-second-edition/9781783980697[Eclipse Plug-in Development: Beginner's Guide - Second Edition] 写経時のハマりポイントメモ
 
-* Plug-in Project 作成時の **Plug-in with a view** というテンプレートは無くなっている。
+=== Chapter 2
+
+* p.32: Plug-in Project 作成時の **Plug-in with a view** というテンプレートは無くなっている。
 ** おそらく **View contribution using 3.x API** が該当するものだと思う。
