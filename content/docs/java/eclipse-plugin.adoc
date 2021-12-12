@@ -19,4 +19,5 @@ draft: false
 * p.33: ↑のテンプレートでプロジェクト生成するとコンパイルエラーが発生している。
 ** `ViewPart` 継承クラスから `workbench` フィールドが漏れている模様。 https://github.com/yukihane/com.packtpub.e4/commit/6eb5819e71a96a911f5d2aaa55b85a0216947302[対応差分]
 *** ↑の対応策は、Extensions の追加から生成したときのファイルから類推した。
-* p.52: ここに書かれているようなリークは発生していない。理由は不明。
+* p.52: ここに書かれているようなリークは発生していない。
+** https://javadoc.scijava.org/Eclipse/org/eclipse/swt/graphics/Color.html[`Color#dispose()` の Javadoc] には次のようにある: "Colors do not need to be disposed, however to maintain compatibility with older code, disposing a Color is not an error."
