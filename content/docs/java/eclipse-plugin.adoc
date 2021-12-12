@@ -21,3 +21,4 @@ draft: false
 *** ↑の対応策は、Extensions の追加から生成したときのファイルから類推した。
 * p.52: ここに書かれているようなリークは発生していない。
 ** https://javadoc.scijava.org/Eclipse/org/eclipse/swt/graphics/Color.html[`Color#dispose()` の Javadoc] には次のようにある: "Colors do not need to be disposed, however to maintain compatibility with older code, disposing a Color is not an error."
+* p.58: Ubuntu 20.04 で実行しているが、システムトレイにアイコンが出ない。そもそもシステムトレイってどこのこと…？
