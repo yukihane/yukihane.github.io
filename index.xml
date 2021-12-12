@@ -15,6 +15,15 @@
     
       
       <item>
+        <title>Ubuntu で作業していると突然マウスホイールが効かなくなる</title>
+        <link>https://yukihane.github.io/blog/202112/13/mouse-wheel-stop-working-on-ubuntu/</link>
+        <pubDate>Sun, 12 Dec 2021 19:37:57 +0000</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202112/13/mouse-wheel-stop-working-on-ubuntu/</guid>
+        <description>表題のような事象がたまに発生していて、これまではOS再起動で直していました。 その症状が今しがた出たのですが、ふと imwheel をインストールしていたこと</description>
+      </item>
+      
+      <item>
         <title>Spring Boot でサンプルコードを作成するときのプロパティなど</title>
         <link>https://yukihane.github.io/blog/202110/31/spring-boot-template/</link>
         <pubDate>Sun, 31 Oct 2021 10:01:45 +0900</pubDate>
