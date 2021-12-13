@@ -24,3 +24,5 @@ draft: false
 * p.58: テンプレートに入っている画像ファイルは `gif` 形式でなく `png` 形式に変わっている。
 ** Java コードに書くファイルパスも変える必要あり。
 * p.58: Ubuntu 20.04 で実行しているが、システムトレイにアイコンが出ない。そもそもシステムトレイってどこのこと…？
+* p.73: `@PostConstruct` アノテーションは `javax.annotation` を Dependencies に追加する必要があるように変わっている模様。
+** https://stackoverflow.com/a/54592615
