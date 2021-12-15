@@ -29,3 +29,4 @@ draft: false
 
 * p.73: `@PostConstruct` アノテーションは `javax.annotation` を Dependencies に追加する必要があるように変わっている模様。
 ** https://stackoverflow.com/a/54592615
+* p.78: `@Focus` を付けたメソッド、実行はされているのだが、このメソッドが何をしているのかがわからない(コメントアウトしても挙動が変わっているようには見えない)。
