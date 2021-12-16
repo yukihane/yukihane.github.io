@@ -36,3 +36,4 @@ draft: false
 * p.108: typo が2つ含まれているのでコピペすると間違う。 packtub (packtpub が正解), HleloHandler (HelloHandler が正解)
 * p.109: メニュー作成のウィザード、説明が雑で抜けている。
 ** リポジトリのコードを見て補完する必要がある。
+* p.110: 11. の ID値、書籍では Hello だがリポジトリのコードは hello
