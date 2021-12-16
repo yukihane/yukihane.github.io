@@ -30,3 +30,9 @@ draft: false
 * p.73: `@PostConstruct` アノテーションは `javax.annotation` を Dependencies に追加する必要があるように変わっている模様。
 ** https://stackoverflow.com/a/54592615
 * p.78: `@Focus` を付けたメソッド、実行はされているのだが、このメソッドが何をしているのかがわからない(コメントアウトしても挙動が変わっているようには見えない)。
+
+=== Chapter 4
+
+* p.108: typo が2つ含まれているのでコピペすると間違う。 packtub (packtpub が正解), HleloHandler (HelloHandler が正解)
+* p.109: メニュー作成のウィザード、説明が雑で抜けている。
+** リポジトリのコードを見て保管する必要がある。
