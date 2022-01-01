@@ -44,7 +44,7 @@ gradle build cleanEclipse eclipse
 
 Gradleの設定を変更した場合は、 `gradle cleanEclipse eclipse` コマンドを実行し直し、インポートし直せばよいかと思います。
 
-なお、Gradleが種t力するディレクトリ(`/build`)と、Eclipseが出力するディレクトリ(`/bin`, `.apt_generated` など)が異なるのは敢えてそうなっているようです。 Maven を利用し続けてきた身からすると違和感がありますが、問題が起きたときの切り分けのしやすさ的にはこちらの方が良いですよね。
+なお、Gradleが出力するディレクトリ(`/build`)と、Eclipseが出力するディレクトリ(`/bin`, `.apt_generated` など)が異なるのは敢えてそうなっているようです。 Maven を利用し続けてきた身からすると違和感がありますが、問題が起きたときの切り分けのしやすさ的にはこちらの方が良いですよね。
 
 
 == サンプルコード
