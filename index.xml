@@ -15,6 +15,15 @@
     
       
       <item>
+        <title>Kotlin in Action (Kotlin イン・アクション) 読書メモ</title>
+        <link>https://yukihane.github.io/blog/202201/01/kotlin-in-action/</link>
+        <pubDate>Sat, 01 Jan 2022 14:17:30 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202201/01/kotlin-in-action/</guid>
+        <description>Kotlin 関連書籍について 書籍 Kotlinイン・アクション を読んでいます。 2022 年 1 月現在の Kotlin 最新バージョン が 1.6.10 であるのに対し、本書が解説しているのは 1.0</description>
+      </item>
+      
+      <item>
         <title>Ubuntu で作業していると突然マウスホイールが効かなくなる</title>
         <link>https://yukihane.github.io/blog/202112/13/mouse-wheel-stop-working-on-ubuntu/</link>
         <pubDate>Sun, 12 Dec 2021 19:37:57 +0000</pubDate>
