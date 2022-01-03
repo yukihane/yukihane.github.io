@@ -67,7 +67,27 @@ java {
 * https://blog1.mammb.com/entry/2021/12/06/090000[イマドキの Kotlin アプリケーション向け build.gradel.kts - A Memorandum]
 * https://blog.jetbrains.com/kotlin/2021/11/gradle-jvm-toolchain-support-in-the-kotlin-plugin/[Gradle JVM Toolchain Support in the Kotlin Plugin | The Kotlin Blog]
 
-== 読書メモ(随時追加)
+== 読書メモ
+
+本書を読んだり、 https://kotlinlang.org/docs/koans.html[Kotlin Koans] をやってみて引っかかった場所などをメモしています。
+
+=== `return` は必須
+
+最近の言語(Rust や Scala だったかな？)は関数から戻る際の `return` が必要ないイメージがあって、 Kotlin もそうなのかと思い込んで `return` 省略してコンパイラに怒られる、というのを何回か繰り返しました。
+
+すぐ慣れるとは思います。
+
+=== `object` キーワードの用途が多いので混乱する(p.122, 4.4 object キーワード: クラスの宣言とインスタンスの生成の組み合わせ)
+
+書籍では次の3つの状況で利用されるとあります:
+
+* オブジェクト宣言(object declaration)
+* コンパニオンオブジェクト(companion object)
+* オブジェクト式(object expression)
+
+このうち、最後の "オブジェクト式" だけはシングルトンでなく都度オブジェクトを生成します(p.133)。
+
+`object` はシングルトンの代替、というイメージが強くついていたので、 Koans で初めて出てきたとき混乱しました。
 
 === 6.1.11 null 許容性の区別と Java (p.198, リスト 6.16)
 
