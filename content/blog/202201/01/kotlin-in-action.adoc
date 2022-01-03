@@ -71,13 +71,13 @@ java {
 
 本書を読んだり、 https://kotlinlang.org/docs/koans.html[Kotlin Koans] をやってみて引っかかった場所などをメモしています。
 
-=== `return` は必須
+=== return は必須
 
 最近の言語(Rust や Scala だったかな？)は関数から戻る際の `return` が必要ないイメージがあって、 Kotlin もそうなのかと思い込んで `return` 省略してコンパイラに怒られる、というのを何回か繰り返しました。
 
 すぐ慣れるとは思います。
 
-=== `object` キーワードの用途が多いので混乱する(p.122, 4.4 object キーワード: クラスの宣言とインスタンスの生成の組み合わせ)
+=== object キーワードの用途が多いので混乱する(p.122, 4.4 object キーワード: クラスの宣言とインスタンスの生成の組み合わせ)
 
 書籍では次の3つの状況で利用されるとあります:
 
@@ -98,3 +98,9 @@ java {
 1.4.0 の次の変更が影響していそうです:
 
 * https://kotlinlang.org/docs/whatsnew14.html#unified-exception-type-for-null-checks[Unified exception type for null checks] - What's new in Kotlin 1.4
+
+=== 新機能は存在すらわからないのでリリースメモも読む必要がありそう
+
+前述のような機能の変更には気づけますが、完全新機能の場合、前述したように https://kotlinlang.org/docs/whatsnew11.html[リリースメモ] の新機能を確認しないと存在に気づけないですね。
+
+具体例としては、 https://kotlinlang.org/docs/whatsnew13.html#coroutines-release[`1.3` で導入された coroutine] とか。
