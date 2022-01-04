@@ -1,0 +1,25 @@
+---
+title: "IntelliJ 最新版(2021.3) で Kotlin と Lombok が共存できない"
+date: 2022-01-05T06:38:51+09:00
+draft: false
+tags:
+  - kotlin
+---
+
+* https://youtrack.jetbrains.com/issue/KT-50013[KT-50013 Mixed Java-Kotlin Project with Lombok annotations on Java classes fails to compile.]
+
+現状、 IntelliJ IDEA 2021.3.1 で Kotlin と Lombok 入り Java を共存させている場合、Kotlin コードから Lombok が生成する getter などのメソッドを参照できないようです。
+
+IntelliJ 上で実行すると次のようなエラーメッセージが出ます。
+
+[source]
+----
+Kotlin: Cannot access 'message': it is private in 'MyJavaClass'
+----
+
+回避策としては、ひとつ前のバージョンの IntelliJ を利用する、ということが挙げられていました。
+
+下のリンクから 2021.2 をダウンロードするか、 https://www.jetbrains.com/ja-jp/toolbox-app/[JetBrains Toolbox App] を利用すれば良さそうです。
+
+* https://www.jetbrains.com/ja-jp/idea/download/other.html
+
