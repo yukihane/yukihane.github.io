@@ -4,16 +4,21 @@
   
   <url>
     <loc>https://yukihane.github.io/blog/</loc>
-    <lastmod>2022-01-05T06:38:51+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yukihane.github.io/blog/202201/05/kotlin-lombok-intellij-problem/</loc>
-    <lastmod>2022-01-05T06:38:51+09:00</lastmod>
+    <lastmod>2022-01-09T14:41:04+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://yukihane.github.io/tags/kotlin/</loc>
+    <lastmod>2022-01-09T14:41:04+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yukihane.github.io/blog/202201/09/kotlin-maven-pom/</loc>
+    <lastmod>2022-01-09T14:41:04+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yukihane.github.io/blog/202201/05/kotlin-lombok-intellij-problem/</loc>
     <lastmod>2022-01-05T06:38:51+09:00</lastmod>
   </url>
   

@@ -15,6 +15,15 @@
     
       
       <item>
+        <title>Kotolin のプロジェクトを Maven で作成する</title>
+        <link>https://yukihane.github.io/blog/202201/09/kotlin-maven-pom/</link>
+        <pubDate>Sun, 09 Jan 2022 14:41:04 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202201/09/kotlin-maven-pom/</guid>
+        <description>入門書を一通り読み終えたのでサンプルプロジェクトを作成しようと思いました。 JetBrains がメンテナンスしている archetype が利用できそうです。 https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-archetype-jvm mvn archetype:generate -DarchetypeGroupId=org.jetbrains.kotlin -DarchetypeArtifactId=kotlin-archetype-jvm IntelliJ IDEA から作</description>
+      </item>
+      
+      <item>
         <title>IntelliJ 最新版(2021.3) で Kotlin と Lombok が共存できない</title>
         <link>https://yukihane.github.io/blog/202201/05/kotlin-lombok-intellij-problem/</link>
         <pubDate>Wed, 05 Jan 2022 06:38:51 +0900</pubDate>
