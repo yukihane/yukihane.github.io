@@ -5641,7 +5641,7 @@ Mockito で言うところの <code>@Mock</code> や <code>@InjectMocks</code> �
 <p>前回の記事 <a href="https://yukihane.github.io/blog/202201/10/kotlin-junit4/">Kotlin で JUnit4 のテストケースを書く</a> のテストコードと同じものを作成しています。</p>
 </div>
 <div class="paragraph">
-<p>前回のコードと見比べてみると分かる通り、結構似てます(<a href="https://github.com/yukihane/hello-kotlin/commit/ef0ef2611875b4e4ce7cc81ee6fb9634f7bcd976?diff=unified">差分</a>)。</p>
+<p>前回のコードと見比べてみると分かる通り、結構似てます(<a href="https://github.com/yukihane/hello-kotlin/commit/15d896d9b591291d4b26177443a2083f798b12a0">差分</a>)。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -5664,7 +5664,7 @@ import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
 import io.mockk.mockk
 
-class MyControllerKtTest: FunSpec() {
+class MyControllerKtTest : FunSpec() {
 
     @MockK
     private lateinit var service: MyService
@@ -5677,20 +5677,20 @@ class MyControllerKtTest: FunSpec() {
 
     data class Param(val input: MyParamDTO, val expected: MyParamDTO)
 
-private val params = listOf(
-                Param(
-                    MyParamDTO(&#34;alice&#34;, 16),
-                    MyParamDTO(&#34;alice&#34;, 17)
-                ),
-                Param(
-                    MyParamDTO(&#34;bob&#34;, 32),
-                    MyParamDTO(&#34;bob&#34;, 33)
-                )
-            )
+    private val params = listOf(
+        Param(
+            MyParamDTO(&#34;alice&#34;, 16),
+            MyParamDTO(&#34;alice&#34;, 17)
+        ),
+        Param(
+            MyParamDTO(&#34;bob&#34;, 32),
+            MyParamDTO(&#34;bob&#34;, 33)
+        )
+    )
 
     init {
 
-        beforeTest{
+        beforeTest {
             MockKAnnotations.init(this)
         }
 
