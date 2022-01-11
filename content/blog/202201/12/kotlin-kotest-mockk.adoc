@@ -1,7 +1,7 @@
 ---
 title: "JUnit + Mockito テストケースを Kotest + MockK に書き換える"
 date: 2022-01-12T05:14:56+09:00
-draft: false
+draft: true
 tags:
   - kotlin
 ---
