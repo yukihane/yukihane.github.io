@@ -7,21 +7,12 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Wed, 12 Jan 2022 05:14:56 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 10 Jan 2022 10:23:22 +0900</lastBuildDate>
     
         <atom:link href="https://yukihane.github.io/tags/kotlin/index.xml" rel="self" type="application/rss+xml" />
     
     
     
-      
-      <item>
-        <title>JUnit &#43; Mockito テストケースを Kotest &#43; MockK に書き換える</title>
-        <link>https://yukihane.github.io/blog/202201/12/kotlin-kotest-mockk/</link>
-        <pubDate>Wed, 12 Jan 2022 05:14:56 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202201/12/kotlin-kotest-mockk/</guid>
-        <description>Kotest + MockK の組み合わせは Kotlin ではメジャー…​かと思いきや検索してみても公式の Mocking and Kotest にあるような例しか見つかりませんでした。 Mockito で言うところの @Mock や @InjectMocks を</description>
-      </item>
       
       <item>
         <title>Kotlin で JUnit4 のテストケースを書く</title>
