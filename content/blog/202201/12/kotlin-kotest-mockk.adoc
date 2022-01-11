@@ -16,7 +16,7 @@ Mockito で言うところの `@Mock` や `@InjectMocks` を使ってモック�
 
 前回の記事 link:{{<ref "/blog/202201/10/kotlin-junit4">}}[Kotlin で JUnit4 のテストケースを書く] のテストコードと同じものを作成しています。
 
-前回のコードと見比べてみると分かる通り、結構似てます(https://github.com/yukihane/hello-kotlin/commit/ef0ef2611875b4e4ce7cc81ee6fb9634f7bcd976?diff=unified[差分])。
+前回のコードと見比べてみると分かる通り、結構似てます(https://github.com/yukihane/hello-kotlin/commit/15d896d9b591291d4b26177443a2083f798b12a0[差分])。
 
 * 成果物: https://github.com/yukihane/hello-kotlin/tree/main/kotest-mockk-example
 
@@ -35,7 +35,7 @@ import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
 import io.mockk.mockk
 
-class MyControllerKtTest: FunSpec() {
+class MyControllerKtTest : FunSpec() {
 
     @MockK
     private lateinit var service: MyService
@@ -48,20 +48,20 @@ class MyControllerKtTest: FunSpec() {
 
     data class Param(val input: MyParamDTO, val expected: MyParamDTO)
 
-private val params = listOf(
-                Param(
-                    MyParamDTO("alice", 16),
-                    MyParamDTO("alice", 17)
-                ),
-                Param(
-                    MyParamDTO("bob", 32),
-                    MyParamDTO("bob", 33)
-                )
-            )
+    private val params = listOf(
+        Param(
+            MyParamDTO("alice", 16),
+            MyParamDTO("alice", 17)
+        ),
+        Param(
+            MyParamDTO("bob", 32),
+            MyParamDTO("bob", 33)
+        )
+    )
 
     init {
 
-        beforeTest{
+        beforeTest {
             MockKAnnotations.init(this)
         }
 
