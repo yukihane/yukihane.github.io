@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>WindowsでGradleが扱うリソースのファイルエンコーディング設定 – 発火後忘失</title>
+    <title>JUnit &#43; Mockito テストケースを Kotest &#43; MockK に書き換える – 発火後忘失</title>
     
 
 
@@ -30,7 +30,7 @@
     
     var baseurl = JSON.parse("\"https://yukihane.github.io\"");
     
-    var permalink = JSON.parse("\"https://yukihane.github.io/blog/202009/12/gradle-resource-encoding/\"");
+    var permalink = JSON.parse("\"https://yukihane.github.io/blog/202201/12/kotlin-kotest-mockk/\"");
 
     
     var toggleSidebarElem = document.getElementById("toggle-sidebar");
@@ -1074,19 +1074,19 @@
 
     <meta name="description" content="" />
 <meta name="keywords" content="">
-<meta name="created" content="2020-09-12T12:26:22&#43;0000">
-<meta name="modified" content="2020-09-12T12:26:22&#43;0000">
+<meta name="created" content="2022-01-12T05:14:56&#43;0900">
+<meta name="modified" content="2022-01-12T05:14:56&#43;0900">
 
 
 <meta property="og:site_name" content="発火後忘失">
-<meta property="og:title" content="WindowsでGradleが扱うリソースのファイルエンコーディング設定">
-<meta property="og:url" content="https://yukihane.github.io/blog/202009/12/gradle-resource-encoding/">
+<meta property="og:title" content="JUnit &#43; Mockito テストケースを Kotest &#43; MockK に書き換える">
+<meta property="og:url" content="https://yukihane.github.io/blog/202201/12/kotlin-kotest-mockk/">
 <meta property="og:type" content="article">
 
 <meta name="generator" content="Hugo 0.88.1" />
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="theme-color" content="#ffffff">
-<link rel="canonical" href="https://yukihane.github.io/blog/202009/12/gradle-resource-encoding/">
+<link rel="canonical" href="https://yukihane.github.io/blog/202201/12/kotlin-kotest-mockk/">
 <link rel="manifest" href="/manifest.json">
 
   <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
@@ -1110,12 +1110,12 @@
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "WindowsでGradleが扱うリソースのファイルエンコーディング設定",
-    "datePublished": "2020-09-12T12:26:22Z",
-    "dateModified": "2020-09-12T12:26:22Z",
-    "url" : "https://yukihane.github.io/blog/202009/12/gradle-resource-encoding/",
-    "description": "問題 Spring Bootの自動テストで data.sql を作成しているのですが、 gradle check でテストを実行すると、失敗してしまう。 原因を調べたのですが、どうも日本語のカラムを",
-    "keywords": ["gradle"],
+    "headline": "JUnit + Mockito テストケースを Kotest + MockK に書き換える",
+    "datePublished": "2022-01-12T05:14:56+09:00",
+    "dateModified": "2022-01-12T05:14:56+09:00",
+    "url" : "https://yukihane.github.io/blog/202201/12/kotlin-kotest-mockk/",
+    "description": "Kotest + MockK の組み合わせは Kotlin ではメジャー…​かと思いきや検索してみても公式の Mocking and Kotest にあるような例しか見つかりませんでした。 Mockito で言うところの @Mock や @InjectMocks を",
+    "keywords": ["kotlin"],
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://yukihane.github.io"
@@ -1186,7 +1186,7 @@ if (!doNotTrack) {
     <div class="menu">
   <h6 class="menu__label">
     
-      WindowsでGradleが扱うリソースのファイルエンコーディング設定
+      JUnit &#43; Mockito テストケースを Kotest &#43; MockK に書き換える
     
   </h6>
   <ul>
@@ -1208,9 +1208,9 @@ if (!doNotTrack) {
   
   
   
-  <li class="">
+  <li class="active">
     <a href="https://yukihane.github.io/blog/202201/12/kotlin-kotest-mockk/"
-      class="menu__title ">JUnit &#43; Mockito テストケースを Kotest &#43; MockK に書き換える</a>
+      class="menu__title active">JUnit &#43; Mockito テストケースを Kotest &#43; MockK に書き換える</a>
   </li>
   
 
@@ -2312,9 +2312,9 @@ if (!doNotTrack) {
   
   
   
-  <li class="active">
+  <li class="">
     <a href="https://yukihane.github.io/blog/202009/12/gradle-resource-encoding/"
-      class="menu__title active">WindowsでGradleが扱うリソースのファイルエンコーディング設定</a>
+      class="menu__title ">WindowsでGradleが扱うリソースのファイルエンコーディング設定</a>
   </li>
   
 
@@ -5603,7 +5603,7 @@ if (!doNotTrack) {
   
   <li  class="is-active" >
     
-      <span>WindowsでGradleが扱うリソースのファイルエンコーディング設定</span>
+      <span>JUnit &#43; Mockito テストケースを Kotest &#43; MockK に書き換える</span>
     
   </li>
   
@@ -5614,84 +5614,108 @@ if (!doNotTrack) {
       <div class="single" data-display="block">
   
     <div class="single__title">
-      WindowsでGradleが扱うリソースのファイルエンコーディング設定
+      JUnit &#43; Mockito テストケースを Kotest &#43; MockK に書き換える
     </div>
     <div class="single__meta">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-09-12 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 2 min read</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2022-01-12 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
     </div>
   
 
   <article class="single__contents" data-dir="ltr">
-    <div class="sect1">
-<h2 id="_問題">問題</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Spring Bootの自動テストで <a href="https://docs.spring.io/spring-boot/docs/2.3.3.RELEASE/reference/htmlsingle/#howto-initialize-a-database-using-spring-jdbc"><code>data.sql</code></a> を作成しているのですが、 <code>gradle check</code> でテストを実行すると、失敗してしまう。</p>
-</div>
-<div class="paragraph">
-<p>原因を調べたのですが、どうも日本語のカラムを比較しているところで失敗しているようで、出力を見る感じ <code>data.sql</code> のファイルエンコーディングが <code>MS932</code> で扱われてしまっているようでした。</p>
-</div>
-<div class="paragraph">
-<p>この解決策としては、</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">gradle -Dfile.encoding=UTF-8 check</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>とすれば良いことに気づきました。</p>
-</div>
-<div class="paragraph">
-<p>ただ、毎回この <code>-Dfile.encoding=UTF-8</code> を打ちたくないので、デフォルトオプションに指定したく、色々と試行錯誤した結果、次の設定が等価のようです。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_解決手順">解決手順</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>自分はGradleをSDKMAN!でインストールしてGit Bashでのみ利用しています。解決の確認もこの環境で行っています。</p>
-</div>
-<div class="paragraph">
-<p>まず、環境変数 <code>GRADLE_USER_HOME</code> を設定します <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">echo &#39;export GRADLE_USER_HOME=$HOME/.gradle&#39; &gt;&gt; ~/.bashrc</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>続いて、 <code>gradle.properties</code> でファイルエンコーディングを設定します。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>mkdir -p ~/.gradle
-echo &#39;file.encoding=UTF-8&#39; &gt;&gt; ~/.gradle/gradle.properties</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>これでOKでした。</p>
-</div>
-<div class="paragraph">
-<p>他の方法、 <code>GRADLE_OPTS</code> 環境変数に設定するなど次のページに書かれている方法ではいずれも目的を達成できませんでした。</p>
+    <div class="paragraph">
+<p>Kotest + MockK の組み合わせは Kotlin ではメジャー…​かと思いきや検索してみても公式の</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://stackoverflow.com/q/21267234/4506703">Show UTF-8 text properly in Gradle - Stack Overflow</a></p>
+<p><a href="https://kotest.io/docs/framework/integrations/mocking.html">Mocking and Kotest</a></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>UTF-8として認識されないまま、あるいは、リソースファイルの読み取りだけでなくGradleコンソール出力もUTF-8になってしまう(結果、出力の日本語が化けてしまう)という結果となりました。</p>
+<p>にあるような例しか見つかりませんでした。
+Mockito で言うところの <code>@Mock</code> や <code>@InjectMocks</code> を使ってモックを差し込みたいんじゃい！
+ということでサンプルです。</p>
 </div>
+<div class="paragraph">
+<p>前回の記事 <a href="https://yukihane.github.io/blog/202201/10/kotlin-junit4/">Kotlin で JUnit4 のテストケースを書く</a> のテストコードと同じものを作成しています。</p>
 </div>
+<div class="paragraph">
+<p>前回のコードと見比べてみると分かる通り、結構似てます(<a href="https://github.com/yukihane/hello-kotlin/commit/ef0ef2611875b4e4ce7cc81ee6fb9634f7bcd976?diff=unified">差分</a>)。</p>
 </div>
-<div id="footnotes">
-<hr/>
-<div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. <a href="https://docs.gradle.org/current/userguide/build_environment.html#sec:gradle_environment_variables">リファレンス</a>によると未設定の場合は <code>$USER_HOME/.gradle</code> になる、とありましたが、今回この環境変数を明示的に設定しないと有効になりませんでした
+<div class="ulist">
+<ul>
+<li>
+<p>成果物: <a href="https://github.com/yukihane/hello-kotlin/tree/main/kotest-mockk-example" class="bare">https://github.com/yukihane/hello-kotlin/tree/main/kotest-mockk-example</a></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">package com.github.yukihane.example
+
+import io.kotest.core.spec.style.FunSpec
+import io.kotest.inspectors.forAll
+import io.kotest.matchers.shouldBe
+import io.kotest.matchers.types.shouldBeSameInstanceAs
+import io.mockk.MockKAnnotations
+import io.mockk.every
+import io.mockk.impl.annotations.InjectMockKs
+import io.mockk.impl.annotations.MockK
+import io.mockk.mockk
+
+class MyControllerKtTest: FunSpec() {
+
+    @MockK
+    private lateinit var service: MyService
+
+    @MockK
+    private lateinit var outputMapper: MyParamMapper
+
+    @InjectMockKs
+    private lateinit var sut: MyController
+
+    data class Param(val input: MyParamDTO, val expected: MyParamDTO)
+
+private val params = listOf(
+                Param(
+                    MyParamDTO(&#34;alice&#34;, 16),
+                    MyParamDTO(&#34;alice&#34;, 17)
+                ),
+                Param(
+                    MyParamDTO(&#34;bob&#34;, 32),
+                    MyParamDTO(&#34;bob&#34;, 33)
+                )
+            )
+
+    init {
+
+        beforeTest{
+            MockKAnnotations.init(this)
+        }
+
+        test(&#34;normal&#34;) {
+            params.forAll { param -&gt;
+                val service: MyService = MyServiceImpl()
+                val controller = MyController(service, MyParamMapper.INSTANCE)
+                val res = controller.index(param.input)
+                res shouldBe param.expected
+            }
+        }
+
+        test(&#34;mocking&#34;) {
+            params.forAll { param -&gt;
+                every { outputMapper.convert(any&lt;MyParamDTO&gt;()) } returns mockk()
+                every { service.execute(any()) } returns mockk()
+                val exp = mockk&lt;MyParamDTO&gt;()
+                every { outputMapper.convert(any&lt;MyParam&gt;()) } returns exp
+
+                val res = sut.index(param.input)
+                res shouldBeSameInstanceAs exp
+            }
+        }
+    }
+}</code></pre>
 </div>
 </div>
 
@@ -5702,17 +5726,10 @@ echo &#39;file.encoding=UTF-8&#39; &gt;&gt; ~/.gradle/gradle.properties</pre>
 <nav class="pagination-single">
   
     
-      <a href="https://yukihane.github.io/blog/202009/12/oidc-userinfo-not-fetched-for-custom-claims/" title="Spring SecurityのOAuth 2.0 Login でログインしても UserInfo Endpoint にアクセスしてくれない" class="pagination-single__left">
-        <div class="pagination-single__icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M19 11H7.83l4.88-4.88c.39-.39.39-1.03 0-1.42-.39-.39-1.02-.39-1.41 0l-6.59 6.59c-.39.39-.39 1.02 0 1.41l6.59 6.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L7.83 13H19c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg>
-        </div>
-        <div class="pagination-single__right-title">Spring SecurityのOAuth 2.0 Login でログインしても UserInfo Endpoint にアクセスしてくれない</div>
-      </a>
-    
     <div class="grow"></div>
     
-      <a href="https://yukihane.github.io/blog/202009/04/oidc-add-claim-and-scope/" title="claimとscopeを追加して取得してみる" class="pagination-single__right">
-        <div class="pagination-single__left-title">claimとscopeを追加して取得してみる</div>
+      <a href="https://yukihane.github.io/blog/202201/10/kotlin-junit4/" title="Kotlin で JUnit4 のテストケースを書く" class="pagination-single__right">
+        <div class="pagination-single__left-title">Kotlin で JUnit4 のテストケースを書く</div>
         <div class="pagination-single__icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/></svg>
         </div>
