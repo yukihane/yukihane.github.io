@@ -1,7 +1,7 @@
 ---
 title: "JUnit + Mockito テストケースを Kotest + MockK に書き換える"
 date: 2022-01-12T05:14:56+09:00
-draft: true
+draft: false
 tags:
   - kotlin
 ---
@@ -16,7 +16,7 @@ Mockito で言うところの `@Mock` や `@InjectMocks` を使ってモック�
 
 前回の記事 link:{{<ref "/blog/202201/10/kotlin-junit4">}}[Kotlin で JUnit4 のテストケースを書く] のテストコードと同じものを作成しています。
 
-前回のコードと見比べてみると分かる通り、結構似てます(https://github.com/yukihane/hello-kotlin/commit/15d896d9b591291d4b26177443a2083f798b12a0[差分])。
+前回のコードと見比べてみると分かる通り、結構似てます(https://github.com/yukihane/hello-kotlin/commit/6e14f6b02ee9838a76b1292a377ab2957cbf560a[差分])。
 
 * 成果物: https://github.com/yukihane/hello-kotlin/tree/main/kotest-mockk-example
 
@@ -26,7 +26,7 @@ Mockito で言うところの `@Mock` や `@InjectMocks` を使ってモック�
 package com.github.yukihane.example
 
 import io.kotest.core.spec.style.FunSpec
-import io.kotest.inspectors.forAll
+import io.kotest.datatest.withData
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeSameInstanceAs
 import io.mockk.MockKAnnotations
@@ -65,8 +65,8 @@ class MyControllerKtTest : FunSpec() {
             MockKAnnotations.init(this)
         }
 
-        test("normal") {
-            params.forAll { param ->
+        context("normal") {
+            withData<Param>(nameFn = { "${it.input.name} ${it.input.age}" }, params) { param ->
                 val service: MyService = MyServiceImpl()
                 val controller = MyController(service, MyParamMapper.INSTANCE)
                 val res = controller.index(param.input)
@@ -74,8 +74,8 @@ class MyControllerKtTest : FunSpec() {
             }
         }
 
-        test("mocking") {
-            params.forAll { param ->
+        context("mocking") {
+            withData(nameFn = { "${it.input.name} ${it.input.age}" }, params) { param ->
                 every { outputMapper.convert(any<MyParamDTO>()) } returns mockk()
                 every { service.execute(any()) } returns mockk()
                 val exp = mockk<MyParamDTO>()
