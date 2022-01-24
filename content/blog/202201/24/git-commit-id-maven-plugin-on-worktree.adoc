@@ -1,0 +1,15 @@
+---
+title: "git worktree を利用していると git-commit-id-maven-plugin でエラー"
+date: 2022-01-24T11:11:35+09:00
+draft: false
+tags:
+  - git
+---
+
+...になりました。
+
+* https://github.com/git-commit-id/git-commit-id-maven-plugin/issues/215[Support of git worktree option (for JGIT) · Issue #215 · git-commit-id/git-commit-id-maven-plugin · GitHub]
+
+コマンドライン引数からスキップ指定することも https://github.com/git-commit-id/git-commit-id-maven-plugin/blob/e7c6238e266faffbe64f38b9a5c408082cc4fb79/src/main/java/pl/project13/maven/git/GitCommitIdMojo.java#L233-L238[できなさそう] なので、おとなしく `pom.xml` の `configuration` に設定追加してスキップするしか無さそうです。
+
+誤ってコミットしてしまわないように注意が必要ですね。
