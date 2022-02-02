@@ -1114,7 +1114,7 @@
     "datePublished": "2022-01-24T11:11:35+09:00",
     "dateModified": "2022-01-24T11:11:35+09:00",
     "url" : "https://yukihane.github.io/blog/202201/24/git-commit-id-maven-plugin-on-worktree/",
-    "description": "…​になりました。 Support of git worktree option (for JGIT) · Issue #215 · git-commit-id/git-commit-id-maven-plugin · GitHub コマンドライン引数からスキップ指定することも できなさそう なので、おとなしく pom.xml …",
+    "description": "…​になりました。 Support of git worktree option (for JGIT) · Issue #215 · git-commit-id/git-commit-id-maven-plugin · GitHub コマンドライン引数でスキップさせるには、 #278 …",
     "keywords": ["git"],
     "mainEntityOfPage": {
       "@type": "WebPage",
@@ -5656,10 +5656,15 @@ if (!doNotTrack) {
 </ul>
 </div>
 <div class="paragraph">
-<p>コマンドライン引数からスキップ指定することも <a href="https://github.com/git-commit-id/git-commit-id-maven-plugin/blob/e7c6238e266faffbe64f38b9a5c408082cc4fb79/src/main/java/pl/project13/maven/git/GitCommitIdMojo.java#L233-L238">できなさそう</a> なので、おとなしく <code>pom.xml</code> の <code>configuration</code> に設定追加してスキップするしか無さそうです。</p>
+<p>コマンドライン引数でスキップさせるには、 <a href="https://github.com/git-commit-id/git-commit-id-maven-plugin/pull/278">#278</a> で導入された <code>maven.gitcommitid.skip</code> オプション(<a href="https://github.com/git-commit-id/git-commit-id-maven-plugin/blob/v5.0.0/src/main/java/pl/project13/maven/git/GitCommitIdMojo.java#L241-L251">現時点最新版の該当コードリンク</a>)を利用して、</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>mvn -Dmaven.gitcommitid.skip package</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>誤ってコミットしてしまわないように注意が必要ですね。</p>
+<p>などとすれば良さそうです。</p>
 </div>
 
   </article>

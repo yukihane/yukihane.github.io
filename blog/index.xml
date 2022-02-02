@@ -20,7 +20,7 @@
         <pubDate>Mon, 24 Jan 2022 11:11:35 +0900</pubDate>
         
         <guid>https://yukihane.github.io/blog/202201/24/git-commit-id-maven-plugin-on-worktree/</guid>
-        <description>…​になりました。 Support of git worktree option (for JGIT) · Issue #215 · git-commit-id/git-commit-id-maven-plugin · GitHub コマンドライン引数からスキップ指定することも できなさそう なので、おとなしく pom.xml の configuration に設定追加して</description>
+        <description>…​になりました。 Support of git worktree option (for JGIT) · Issue #215 · git-commit-id/git-commit-id-maven-plugin · GitHub コマンドライン引数でスキップさせるには、 #278 で導入された maven.gitcommitid.skip オプション(現時点最新版の該当コードリ</description>
       </item>
       
       <item>
