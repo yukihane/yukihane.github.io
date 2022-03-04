@@ -34,6 +34,6 @@ Java と併存する場合は、公式リファレンスの記述が参考にな
 * Kotlin クラスをデフォルトで 非 `final` にする (https://kotlinlang.org/docs/all-open-plugin.html[all-open compiler plugin])
 ** クラスのプロキシ化するのには継承可能でなければいけない。 AOP や mocking で必要。
 ** test のときだけ mocking 用に非 `final` にする、みたいな使い方はできなさそう…？
-* 特定のアノテーション(例えば JPA の `@Entity`)が付与されたクラスに引数なしコンストラクタを生成する(https://kotlinlang.org/docs/no-arg-plugin.html[no-arg compiler plugin))
+* 特定のアノテーション(例えば JPA の `@Entity`)が付与されたクラスに引数なしコンストラクタを生成する(https://kotlinlang.org/docs/no-arg-plugin.html[no-arg compiler plugin])
 * `-Xjsr305=strict` で null 可能性に関するアノテーション有効化 (https://kotlinlang.org/docs/java-interop.html#jsr-305-support[JSR-305 support])
 * Kotlin 用の Mockito ライクなライブラリ https://github.com/Ninja-Squad/springmockk/[SpringMockK] というものがあり、 Spring ではこれを推している(※ Spring 公式ライブラリではない)
