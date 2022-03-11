@@ -23,6 +23,25 @@ Java と併存する場合は、公式リファレンスの記述が参考にな
 
 * https://kotlinlang.org/docs/maven.html#compile-kotlin-and-java-sources[Maven > Compile Kotlin and Java sources]
 
+JDK17を利用して開発する場合、次の設定変更を `pom.xml` 対して行います:
+
+. https://maven.apache.org/plugins/maven-compiler-plugin/[`maven-compiler-plugin`] のバージョンを最新版に上げます。
+* この記事を書いた時点の最新バージョンは `3.10.1` でした
+* 自動生成された `pom.xml` で指定されているバージョンは `3.5.1` となぜかかなり古く、 Java17 に対応していません
+. `properties` セクションに次を追記します。
++
+[source]
+----
+<properties>
+    <java.version>17</java.version>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <kotlin.compiler.jvmTarget>${java.version}</kotlin.compiler.jvmTarget>
+</properties>
+----
+* 参考
+** https://stackoverflow.com/a/59607812/4506703[IntelliJ: Error:java: error: release version 5 not supported]
+** https://kotlinlang.org/docs/maven.html#attributes-specific-to-jvm[Attributes specific to JVM]
 
 また、 https://start.spring.io/[Spring Initializr] の Kotlin 用プロジェクト雛形も参考になります。
 次のリンク先に解説もあります:
