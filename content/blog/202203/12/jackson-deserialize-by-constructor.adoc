@@ -8,7 +8,7 @@ tags:
 
 * 今回のコード: https://github.com/yukihane/hello-java/tree/main/jackson/jackson-deserialize-by-constructor
 
-Jackson は引数なしコンストラクタが必要、という話は昔は正しかったのですが、今は必須ではありません。
+Jackson は引数なしコンストラクタが必要、というblogを目にしましたが、正しくありません。
 
 * `@JsonCreator` を付与することでそのコンストラクタを使ってデシリアライズするように指示できます。
 ** コンストラクタが1つしか無い場合は省略できます。
