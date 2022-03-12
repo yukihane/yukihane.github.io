@@ -7,12 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Mon, 24 Jan 2022 11:11:35 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 12 Mar 2022 14:12:33 +0900</lastBuildDate>
     
         <atom:link href="https://yukihane.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     
+      
+      <item>
+        <title>Jacksonでコンストラクタを利用してデシリアライズ</title>
+        <link>https://yukihane.github.io/blog/202203/12/jackson-deserialize-by-constructor/</link>
+        <pubDate>Sat, 12 Mar 2022 14:12:33 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202203/12/jackson-deserialize-by-constructor/</guid>
+        <description>(今回のコード: https://github.com/yukihane/hello-java/tree/main/jackson/jackson-deserialize-by-constructor ) Jackson は引数なしコンストラクタが必要、という話は昔は正しかったのですが、今は必須ではありません。 @JsonCreator を付与することでそのコンス</description>
+      </item>
       
       <item>
         <title>git worktree を利用していると git-commit-id-maven-plugin でエラー</title>
@@ -1023,7 +1032,7 @@
       </item>
       
       <item>
-        <title>Spring Bootでは `-parameters` オプションは有効化されている</title>
+        <title>Spring Bootでは -parameters オプションは有効化されている</title>
         <link>https://yukihane.github.io/blog/202002/20/spring-boot-compiler-parameters/</link>
         <pubDate>Thu, 20 Feb 2020 06:25:59 +0000</pubDate>
         
