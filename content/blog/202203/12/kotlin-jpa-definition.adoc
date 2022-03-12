@@ -39,3 +39,22 @@ Kotlin で JPA エンティティを実装しようと思って調べた結果�
 
 ちなみに、上記したリンク先に書かれいることに反しているとうまく動かないのかと言うと、必ずしもそうではありません。
 が、もしあなたが JPA に精通していないのであればそれらに従っておくのが無難かと考えます(問題が発生したとき、何が原因なのか突き止められない可能性があります)。
+
+例えば、次のエンティティは正常に永続化できますが、これは何故動作するのかを説明できるでしょうか(なぜ `id` は `val` なのに値が変わるのでしょうか)。
+
+[source,kotlin]
+----
+@Entity
+data class MyData(
+    @Id
+    @GeneratedValue
+    val id :Int? = null,
+    val name: String,
+)
+----
+
+* JPA 仕様上は許されていません
+** "No methods or persistent instance variables of the entity class may be final." (link:https://jakarta.ee/specifications/persistence/3.0/jakarta-persistence-spec-3.0.html#a18[2.1. The Entity Class])
+* `val` (`final`) の値が変更できるのは、 Hibernate 実装においてリフレクションで値を設定しているからです。
+** https://stackoverflow.com/a/3683453/4506703
+** ただし、 Hibernate プロジェクトは今や JPA にかなり寄り添っているので、 JPA の仕様から反してはいるが Hibernate では合法、とも言えないでしょう。たまたま上手く動いているだけ、とみなすのが正しい認識かと考えます。
