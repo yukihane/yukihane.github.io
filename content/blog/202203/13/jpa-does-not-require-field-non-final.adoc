@@ -1,0 +1,111 @@
+---
+title: "JPA はフィールドが non-final であることを要求していない"
+date: 2022-03-13T01:00:54+09:00
+draft: false
+tags:
+    - jpa
+    - kotlin
+    - java
+---
+
+* 今回のコード: https://github.com/yukihane/hello-java/tree/main/jpa/final-field
+
+ひとつ前のエントリ
+
+* link:{{< relref "/blog/202203/12/kotlin-jpa-definition" >}}[Kotlin で JPA エンティティクラスを定義する]
+
+を書いているときに気付いたのですが、 
+
+[source,kotlin]
+----
+@Entity
+data class(
+    @Id
+    @GeneratedValue
+    val id: Long? = null
+    // ...
+)
+----
+
+みたいなエンティティも正常に永続化できちゃうんですね。
+
+`persist` すると `val` で宣言している `id` が `null` からちゃんとした数値に変わるのは何故なんだ、と一瞬混乱したのですが、 Hibernate はリフレクションを利用して設定するので、 `final` かどうかなんか無視できる、ということです。
+
+これが実装依存の挙動なのか、あるいは仕様なのかを調べた結果がタイトルです。
+
+https://jakarta.ee/specifications/persistence/3.0/jakarta-persistence-spec-3.0.html[JPA の spec](2.2. Persistent Fields and Properties)ではフィールドが `final` であるかどうかには言及がありませんでした。
+
+なので、 Java でイミュータブルにしようと思うと次のようなエンティティクラスの実装も可能、ということになりそうです。
+(コード中のコメントにも書いていますが、双方向関連については(普通の実装では)イミュータブル性を確保することはできなさそうです)
+
+[source,java]
+----
+@Entity
+@Getter
+@Setter
+// デフォルト設定だと関連が循環するのでスタックオーバーフローする
+@ToString(onlyExplicitlyIncluded = true)
+// プログラムからは利用させないので private,
+// ユーザの設定必須なものもno-argコンストラクタで初期化したいので force
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+// ユーザが使うコンストラクタ
+@RequiredArgsConstructor
+public class Company {
+
+    // ユーザに設定させたくないので初期値 null 設定
+    // (RequiredArgsConstructor の対象外にする)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ToString.Include
+    private final Long id = null;
+
+    // ユーザが設定する必要があるので初期値なしの final
+    @Column(nullable = false)
+    @NonNull
+    @ToString.Include
+    private final String name;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
+    private final List<Branch> branches = new ArrayList<>();
+
+    public void addBranch(@NonNull final Branch branch) {
+        branches.add(branch);
+        branch.setCompany(this);
+    }
+}
+----
+
+[source,java]
+----
+@Entity
+@Getter
+@Setter
+@ToString(onlyExplicitlyIncluded = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@RequiredArgsConstructor
+public class Branch {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ToString.Include
+    private final Long id = null;
+
+    @Column(nullable = false)
+    @NonNull
+    @ToString.Include
+    private final String name;
+
+    // 変更できる想定のフィールドなので final ではない
+    @Column(nullable = false)
+    @ToString.Include
+    private int members;
+
+    // 本来不変だが、双方向の参照を final にする手立ては無さそう
+    // (リフレクションを利用しない限り)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(nullable = false, name = "companyId")
+    private Company company;
+}
+----
+
+ただし、 JPA spec のコード例など、オフィシャルのもので `final` を付けて `@Id` のフィールドを定義していることなんて見たことが無いので、積極的に利用していくのはどうなんだろうか、と尻込みしてしまいますね...
