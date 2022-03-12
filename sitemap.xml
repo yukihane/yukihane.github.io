@@ -4,17 +4,27 @@
   
   <url>
     <loc>https://yukihane.github.io/blog/</loc>
-    <lastmod>2022-03-12T20:39:32+09:00</lastmod>
+    <lastmod>2022-03-13T01:00:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yukihane.github.io/tags/java/</loc>
+    <lastmod>2022-03-13T01:00:54+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://yukihane.github.io/tags/jpa/</loc>
-    <lastmod>2022-03-12T20:39:32+09:00</lastmod>
+    <lastmod>2022-03-13T01:00:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yukihane.github.io/blog/202203/13/jpa-does-not-require-field-non-final/</loc>
+    <lastmod>2022-03-13T01:00:54+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://yukihane.github.io/tags/kotlin/</loc>
-    <lastmod>2022-03-12T20:39:32+09:00</lastmod>
+    <lastmod>2022-03-13T01:00:54+09:00</lastmod>
   </url>
   
   <url>
@@ -95,11 +105,6 @@
   <url>
     <loc>https://yukihane.github.io/blog/202110/18/spring-inject-in-validator/</loc>
     <lastmod>2021-10-18T12:59:08+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yukihane.github.io/tags/java/</loc>
-    <lastmod>2021-10-18T10:03:46+09:00</lastmod>
   </url>
   
   <url>

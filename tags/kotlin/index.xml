@@ -7,12 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Sat, 12 Mar 2022 20:39:32 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 13 Mar 2022 01:00:54 +0900</lastBuildDate>
     
         <atom:link href="https://yukihane.github.io/tags/kotlin/index.xml" rel="self" type="application/rss+xml" />
     
     
     
+      
+      <item>
+        <title>JPA はフィールドが non-final であることを要求していない</title>
+        <link>https://yukihane.github.io/blog/202203/13/jpa-does-not-require-field-non-final/</link>
+        <pubDate>Sun, 13 Mar 2022 01:00:54 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202203/13/jpa-does-not-require-field-non-final/</guid>
+        <description>今回のコード: https://github.com/yukihane/hello-java/tree/main/jpa/final-field ひとつ前のエントリ Kotlin で JPA エンティティクラスを定義する を書いているときに気付いたのですが、 @Entity data class( @Id @GeneratedValue val id: Long? = null // ... ) みたいなエ</description>
+      </item>
       
       <item>
         <title>Kotlin で JPA エンティティクラスを定義する</title>
