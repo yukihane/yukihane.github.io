@@ -6,7 +6,7 @@ tags:
     - jackson
 ---
 
-(今回のコード: https://github.com/yukihane/hello-java/tree/main/jackson/jackson-deserialize-by-constructor )
+* 今回のコード: https://github.com/yukihane/hello-java/tree/main/jackson/jackson-deserialize-by-constructor
 
 Jackson は引数なしコンストラクタが必要、という話は昔は正しかったのですが、今は必須ではありません。
 
@@ -87,5 +87,6 @@ record Person(String name, int age) {
 ----
 
 関連:
+
 * link:{{< relref "/blog/202002/20/spring-boot-compiler-parameters" >}}[Spring Bootでは -parameters オプションは有効化されている ]
 * link:{{< relref "/blog/202110/18/java17-record-on-spring-mvc" >}}[Spring MVC で Java17 record を試してみる ]
