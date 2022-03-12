@@ -4,7 +4,22 @@
   
   <url>
     <loc>https://yukihane.github.io/blog/</loc>
-    <lastmod>2022-03-12T14:12:33+09:00</lastmod>
+    <lastmod>2022-03-12T20:39:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yukihane.github.io/tags/jpa/</loc>
+    <lastmod>2022-03-12T20:39:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yukihane.github.io/tags/kotlin/</loc>
+    <lastmod>2022-03-12T20:39:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yukihane.github.io/blog/202203/12/kotlin-jpa-definition/</loc>
+    <lastmod>2022-03-12T20:39:32+09:00</lastmod>
   </url>
   
   <url>
@@ -29,11 +44,6 @@
   
   <url>
     <loc>https://yukihane.github.io/blog/202201/12/kotlin-kotest-mockk/</loc>
-    <lastmod>2022-01-12T05:14:56+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yukihane.github.io/tags/kotlin/</loc>
     <lastmod>2022-01-12T05:14:56+09:00</lastmod>
   </url>
   
@@ -180,11 +190,6 @@
   <url>
     <loc>https://yukihane.github.io/blog/202110/03/hello-tauri/</loc>
     <lastmod>2021-10-03T08:20:21+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yukihane.github.io/tags/jpa/</loc>
-    <lastmod>2021-07-30T17:57:08+00:00</lastmod>
   </url>
   
   <url>

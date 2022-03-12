@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Blogs – 発火後忘失</title>
+    <title>Kotlin で JPA エンティティクラスを定義する – 発火後忘失</title>
     
 
 
@@ -30,7 +30,7 @@
     
     var baseurl = JSON.parse("\"https://yukihane.github.io\"");
     
-    var permalink = JSON.parse("\"https://yukihane.github.io/blog/\"");
+    var permalink = JSON.parse("\"https://yukihane.github.io/blog/202203/12/kotlin-jpa-definition/\"");
 
     
     var toggleSidebarElem = document.getElementById("toggle-sidebar");
@@ -1072,22 +1072,21 @@
 <link rel="stylesheet" href="/css/main.min.css">
 
 
-    <link rel="alternate" type="application/rss&#43;xml" title="RSS" href="https://yukihane.github.io/blog/index.xml">
-<meta name="description" content="" />
+    <meta name="description" content="" />
 <meta name="keywords" content="">
 <meta name="created" content="2022-03-12T20:39:32&#43;0900">
 <meta name="modified" content="2022-03-12T20:39:32&#43;0900">
 
 
 <meta property="og:site_name" content="発火後忘失">
-<meta property="og:title" content="Blogs">
-<meta property="og:url" content="https://yukihane.github.io/blog/">
-<meta property="og:type" content="website">
+<meta property="og:title" content="Kotlin で JPA エンティティクラスを定義する">
+<meta property="og:url" content="https://yukihane.github.io/blog/202203/12/kotlin-jpa-definition/">
+<meta property="og:type" content="article">
 
 <meta name="generator" content="Hugo 0.88.1" />
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="theme-color" content="#ffffff">
-<link rel="canonical" href="https://yukihane.github.io/blog/">
+<link rel="canonical" href="https://yukihane.github.io/blog/202203/12/kotlin-jpa-definition/">
 <link rel="manifest" href="/manifest.json">
 
   <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
@@ -1110,10 +1109,13 @@
     <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "url" : "https://yukihane.github.io/blog/",
-    "name": "Blogs",
-    "description": "Yukihane official site",
+    "@type": "BlogPosting",
+    "headline": "Kotlin で JPA エンティティクラスを定義する",
+    "datePublished": "2022-03-12T20:39:32+09:00",
+    "dateModified": "2022-03-12T20:39:32+09:00",
+    "url" : "https://yukihane.github.io/blog/202203/12/kotlin-jpa-definition/",
+    "description": "Kotlin で JPA エンティティを実装しようと思って調べた結果をまとめた記事です。 まとめ: プロジェクト構成について kotlin-jpa compiler plugin を適用する all-open compiler plugin を適用し、 @Entity, @Embeddable, @MappedSuperclass を",
+    "keywords": ["jpa","kotlin"],
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://yukihane.github.io"
@@ -1184,7 +1186,7 @@ if (!doNotTrack) {
     <div class="menu">
   <h6 class="menu__label">
     
-      発火後忘失
+      Kotlin で JPA エンティティクラスを定義する
     
   </h6>
   <ul>
@@ -1206,9 +1208,9 @@ if (!doNotTrack) {
   
   
   
-  <li class="">
+  <li class="active">
     <a href="https://yukihane.github.io/blog/202203/12/kotlin-jpa-definition/"
-      class="menu__title ">Kotlin で JPA エンティティクラスを定義する</a>
+      class="menu__title active">Kotlin で JPA エンティティクラスを定義する</a>
   </li>
   
 
@@ -5634,1330 +5636,492 @@ if (!doNotTrack) {
 
         
         
-<div class="top">
-  <header class="header__wrapper bgcolor__header">
-    
-      <div class="divider">
-        <div class="lmr">
-          
-    
 
+<div class="mid">
+  <div class="divider">
+    
+    <nav id="single-menu" class="hide" data-dir="ltr">
+    </nav>
+
+    <article id="list-main" class="lm" data-dir="ltr">
+      
+        <nav class="breadcrumb" aria-label="breadcrumbs" data-is-blog="true">
+  
+    
+  
+  <ol>
+    
+  
+  
+  
+  
+  
+  <li >
+    
+      <a href="https://yukihane.github.io/" class="capitalize">発火後忘失</a>
+    
+  </li>
+  
+  
+  <li >
+    
+      <a href="https://yukihane.github.io/blog/" class="capitalize">Blogs</a>
+    
+  </li>
+  
+  
+  <li  class="is-active" >
+    
+      <span>Kotlin で JPA エンティティクラスを定義する</span>
+    
+  </li>
+  
+  </ol>
+  
+</nav>
+      
+      <div class="single" data-display="block">
+  
+    <div class="single__title">
+      Kotlin で JPA エンティティクラスを定義する
+    </div>
+    <div class="single__meta">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2022-03-12 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
+    </div>
+  
+
+  <article class="single__contents" data-dir="ltr">
+    <div class="paragraph">
+<p>Kotlin で JPA エンティティを実装しようと思って調べた結果をまとめた記事です。</p>
+</div>
+<div class="paragraph">
+<p>まとめ:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>プロジェクト構成について</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://kotlinlang.org/docs/no-arg-plugin.html#jpa-support"><code>kotlin-jpa</code></a> compiler plugin を適用する</p>
+</li>
+<li>
+<p><a href="https://kotlinlang.org/docs/all-open-plugin.html"><code>all-open</code></a> compiler plugin を適用し、 <code>@Entity</code>, <code>@Embeddable</code>, <code>@MappedSuperclass</code> を対象に設定する</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>エンティティ定義について</p>
+<div class="ulist">
+<ul>
+<li>
+<p>(原則として) <code>data</code> class や <code>val</code>  の利用は諦める</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Java で Lombok の <code>@Data</code> や <code>@Value</code> を付与したときと同じような問題がある(<a href="/blog/202107/31/dont-use-lombok-with-jpa/">参考</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>参考になるリンクとしては:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.jpa-buddy.com/blog/best-practices-and-common-pitfalls/">Best Practices and Common Pitfalls of Using JPA (Hibernate) with Kotlin</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p>IntelliJ <a href="https://plugins.jetbrains.com/plugin/15075-jpa-buddy">JPA Buddy プラグイン</a> の公式ブログ</p>
+</li>
+<li>
+<p>最後の &#34;Conclusion&#34; 節にまとまっています</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="https://spring.io/guides/tutorials/spring-boot-kotlin/">Building web applications with Spring Boot and Kotlin</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Spring Boot 公式チュートリアル</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>どちらもサンプルコードが付属しているので、具体的にどう実装すれば良いかはそちらを見れば明確です。</p>
+</div>
+<div class="paragraph">
+<p>一応、自分のサンプルコードもリンクしておきます:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/yukihane/hello-kotlin/tree/main/jpa-example" class="bare">https://github.com/yukihane/hello-kotlin/tree/main/jpa-example</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>上記以外の情報ソースとしては次のものがあるかと思います:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/spring-guides/tut-spring-boot-kotlin/issues">上記 Spring Boot チュートリアルの issues</a> を JPA 関連ワードで検索する</p>
+</li>
+<li>
+<p><a href="https://youtrack.jetbrains.com/issues/KT">JetBrains issue tracker</a> を JPA 関連ワードで検索する</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>ちなみに、上記したリンク先に書かれいることに反しているとうまく動かないのかと言うと、必ずしもそうではありません。
+が、もしあなたが JPA に精通していないのであればそれらに従っておくのが無難かと考えます(問題が発生したとき、何が原因なのか突き止められない可能性があります)。</p>
+</div>
+
+  </article>
+</div>
+      
+<div class="grow"></div>
+<nav class="pagination-single">
+  
+    
+    <div class="grow"></div>
+    
+      <a href="https://yukihane.github.io/blog/202203/12/jackson-deserialize-by-constructor/" title="Jacksonでコンストラクタを利用してデシリアライズ" class="pagination-single__right">
+        <div class="pagination-single__left-title">Jacksonでコンストラクタを利用してデシリアライズ</div>
+        <div class="pagination-single__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/></svg>
         </div>
-      </div>
+      </a>
     
-  </header>
-</div>
-
-<div class="mid blog__bg">
-  <main class="main blog__bg">
-    <div class="sv">
-      <div class="blog-post">
-        
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202007/15/research-gradle-plugins/'> Gradleプラグイン/アノテーションプロセッシング調査</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-07-14 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 3 min read</span>
-    </div>
-  </header>
   
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        元々JBoss/WildFlyの流れで開発してきたのでずっとMavenを利用してきたのですが、今度のプロジェクトではGradleを使うことに
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/java" class="summary-card__tag">
-        java
-      </a>
-    
-      <a href="/tags/gradle" class="summary-card__tag">
-        gradle
-      </a>
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202007/14/iso-8601-2400-is-invalid/'> ISO 8601では 24:00 は妥当だったが改訂によりNGになった</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-07-13 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        moment().isValid()での24時00分00秒の挙動について - スタック・オーバーフロー より。 ISO 8601 の以前のspecでは、 0:00 も 24:00 も両
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/programming" class="summary-card__tag">
-        programming
-      </a>
-    
-      <a href="/tags/datetime" class="summary-card__tag">
-        datetime
-      </a>
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202007/11/same-class-controller-and-repository/'> Spring Boot で Controller と Repositoryを同じクラスで併用する</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-07-11 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        …なんてことができたんですね。こんなコード: @RestController @Repository public interface VehicleInterface extends JpaRepository&lt;vehicle, Long&gt; { @Query(&#34;select u from vehicle u where u.year = :year&#34;) @RequestMapping(value = &#34;/vehicles&#34;, method = RequestMethod.GET) List&lt;vehicle&gt; findByYearEquals(@Param(&#34;year&#34;) Integer year); } http://localhost:8080/vehicles?year=2010 的なURLでアクセスします。 サンプル
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/spring-boot" class="summary-card__tag">
-        spring-boot
-      </a>
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202007/11/jsp-on-springboot/'> Spring-BootでJSPを使う</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-07-10 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        https://start.spring.io/ で depencencies に Spring Web を追加して生成します。 生成された pom.xml に次の依存関係を追加します: pom.xml &lt;dependency&gt; &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt; &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;!-- 必要に応じて --&gt; &lt;groupId&gt;javax.servlet&lt;/groupId&gt; &lt;artifactId&gt;jstl&lt;/artifactId&gt; &lt;/dependency&gt; appliction.properties にﾂｲ着を追加します: application.properties spring.mvc.view.prefix=/WEB-INF/view/ spring.mvc.view.suffix=.jsp src/main/webapp/WEB-INF/view/
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/spring-boot" class="summary-card__tag">
-        spring-boot
-      </a>
-    
-      <a href="/tags/jsp" class="summary-card__tag">
-        jsp
-      </a>
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202007/02/minimal-webmvc-with-springboot/'> Spring Boot でなるべく依存関係を小さくしてWebMVCを使ってみる</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-07-02 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        特に実用性とかは考えていない。何となくやってみたというだけ。 動かしたいやつ 1 2 3 4 5 6 7 8 9 @RestController @RequestMapping(&#34;/&#34;) public class MyController { @GetMapping(&#34;/&#34;) public String index() { return &#34;hello&#34;; } } 設定 1 2 3 4 5 6 7
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/spring-boot" class="summary-card__tag">
-        spring-boot
-      </a>
-    
-      <a href="/tags/spring-mvc" class="summary-card__tag">
-        spring-mvc
-      </a>
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202007/02/difference-between-doller-and-hash/'> ${...}と#{...}の違い</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-07-02 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        Spring Expression Language (SpEL) with @Value: dollar vs. hash ($ vs. #) より。 ${…​} は単なるプロパティのプレースホルダ。 #{…​} は Spring Expression Language(SpEL) の構文。 プレースホルダは置き換えるだけだけれど
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/spring-boot" class="summary-card__tag">
-        spring-boot
-      </a>
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202006/30/json-datetime-format-changed-on-springboot-2.3/'> Spring 2.3.0 で時刻オフセットの書式コロン付き&#43;09:00みたいに変わっとるやん</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-06-30 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        正確には jackson-databind 2.11.0 で。 jackson 2.11 リリースノート Change default textual serialization of java.util.Date/Calendar to include colon in timezone offset #2643 このへん見ると分かるけど、Spring Boot 2.2 系列は jackson-databind 2.10.x が採用されていて、 2.3.0 で 2.11.0 が採
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/jackson" class="summary-card__tag">
-        jackson
-      </a>
-    
-      <a href="/tags/spring-boot" class="summary-card__tag">
-        spring-boot
-      </a>
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202006/28/h2database-name-random-on-springboot-2.3/'> Spring Boot 2.3.0 から H2Database の名前 jdbc:h2:mem:testdb じゃなくなっとるやん(デフォルトでは)</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-06-28 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        前はここに書いた通り固定で jdbc:h2:mem:testdb という名前だったのにこれでアクセスできんようになってしもた。 起動ログに o.s.b.a.h2.H2ConsoleAutoConfiguration : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:30591993-9fe2-4068-a5e2-05b263e3495b' みたいに出るのでここ
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202006/20/spring-boot-thymeleaf-converts-id-to-entity/'> Spring MVCにはJPA EntityのIDからエンティティオブジェクトに変換する機能がある(が、2.3.1では機能しない)</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-06-20 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 2 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        追記: 2020-07-24にリリースされた2.3.2, 2.2.9 でこの問題は修正されました。ただし、2.1.16では未修正のままのようでした。 Spring Bo
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/spring-boot" class="summary-card__tag">
-        spring-boot
-      </a>
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202006/17/oauth2authorizedclientservice/'> Spring Security OAuth 2.0 Client(OAuth 2.0 Login)でトークンの管理をしているのはOAuth2AuthorizedClientService</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-06-17 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        私も今回の質問(本文末参照)を見たとき少しの間勘違いしてしまったのですが、OAuth2.0のクライアントがどこで各リソースオーナーのトークン
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/spring-boot" class="summary-card__tag">
-        spring-boot
-      </a>
-    
-      <a href="/tags/spring-security" class="summary-card__tag">
-        spring-security
-      </a>
-    
-      <a href="/tags/oauth" class="summary-card__tag">
-        oauth
-      </a>
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202006/15/spring-boot-debugging/'> Spring BootのGradleでのデバッグ実行方法</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-06-15 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        gradle bootRun --debug-jvm というように、--debug-jvm オプションを付与すれば良いようです。 これで、デバッガ接続の待受状態で起動します。 BootRun は JavaExec を継承してい
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/spring-boot" class="summary-card__tag">
-        spring-boot
-      </a>
-    
-      <a href="/tags/gradle" class="summary-card__tag">
-        gradle
-      </a>
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202006/13/userdetailsservice-samples-considered-harmful-for-biginners/'> So many UserDetailsService samples considered harmful for beginners</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-06-13 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 17 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        やっぱり一発目の Spring Security やってみたで UserDetailsService 使うのは止めようず。So many UserDetailsService samples considered harmful for beginners. はじめに ちょっと待って！その UserDetails、本当に必要ですか
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/spring-boot" class="summary-card__tag">
-        spring-boot
-      </a>
-    
-      <a href="/tags/spring-security" class="summary-card__tag">
-        spring-security
-      </a>
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202006/13/list-contains-null/'> List#contains(null)は使わないほうが良い</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-06-13 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        List(などのコレクション)が要素に null を含むかどうかの判定に、 contains(null) を利用すると NullPointerException が発生することがあります。 リファレンスには次のようにあります
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/java" class="summary-card__tag">
-        java
-      </a>
-    
-  </div>
-</article>
-        
-        
+</nav>
 
 
-  
-  
-  
-  
+    </article>
     
+    <section id="list-side" class="r" data-dir="ltr">
       
-    
-    
-    
-  
-  <ul class="pagination">
-    
-      
-      
-        <li
-        ><a href="/blog/">1</a></li>
-      
-    
-      
-      
-        <li class="disabled"><a name="">&hellip;</a></li>
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-        <li
-        ><a href="/blog/page/6/">6</a></li>
-      
-    
-      
-      
-        <li
-        class="active"><a href="/blog/page/7/">7</a></li>
-      
-    
-      
-      
-        <li
-        ><a href="/blog/page/8/">8</a></li>
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-        <li class="disabled"><a name="">&hellip;</a></li>
-      
-    
-      
-      
-        <li
-        ><a href="/blog/page/14/">14</a></li>
-      
-    
-  </ul>
+    </section>
 
-      </div>
-      <div class="blog-tags">
-        
-<h6 class="tag-cloud__label">
-  Blogs
-</h6>
-<div class="tag-cloud__tags">
-  
-    
-      <a href="/tags/android/" class="tag">
-        <span class="tag__text" style="font-size: 0.8266666666666667rem;">
-          android
-        </span>
-        <span class="tag__num" style="font-size: 0.8266666666666667rem;" dir="auto">
-          (2)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/aws/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          aws
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/azure/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          azure
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/bash/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          bash
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/book/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          book
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/centos/" class="tag">
-        <span class="tag__text" style="font-size: 0.8266666666666667rem;">
-          centos
-        </span>
-        <span class="tag__num" style="font-size: 0.8266666666666667rem;" dir="auto">
-          (2)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/chrome/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          chrome
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/datetime/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          datetime
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/diary/" class="tag">
-        <span class="tag__text" style="font-size: 0.88rem;">
-          diary
-        </span>
-        <span class="tag__num" style="font-size: 0.88rem;" dir="auto">
-          (6)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/eclipse/" class="tag">
-        <span class="tag__text" style="font-size: 0.88rem;">
-          eclipse
-        </span>
-        <span class="tag__num" style="font-size: 0.88rem;" dir="auto">
-          (6)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/electron/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          electron
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/firefox/" class="tag">
-        <span class="tag__text" style="font-size: 0.8266666666666667rem;">
-          firefox
-        </span>
-        <span class="tag__num" style="font-size: 0.8266666666666667rem;" dir="auto">
-          (2)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/fluentd/" class="tag">
-        <span class="tag__text" style="font-size: 0.8266666666666667rem;">
-          fluentd
-        </span>
-        <span class="tag__num" style="font-size: 0.8266666666666667rem;" dir="auto">
-          (2)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/frontend/" class="tag">
-        <span class="tag__text" style="font-size: 0.8266666666666667rem;">
-          frontend
-        </span>
-        <span class="tag__num" style="font-size: 0.8266666666666667rem;" dir="auto">
-          (2)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/git/" class="tag">
-        <span class="tag__text" style="font-size: 0.8933333333333334rem;">
-          git
-        </span>
-        <span class="tag__num" style="font-size: 0.8933333333333334rem;" dir="auto">
-          (7)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/github/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          github
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/graalvm/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          graalvm
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/gradle/" class="tag">
-        <span class="tag__text" style="font-size: 0.9066666666666667rem;">
-          gradle
-        </span>
-        <span class="tag__num" style="font-size: 0.9066666666666667rem;" dir="auto">
-          (8)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/heroku/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          heroku
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/hibernate/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          hibernate
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/html/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          html
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/http/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          http
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/jackson/" class="tag">
-        <span class="tag__text" style="font-size: 0.8400000000000001rem;">
-          jackson
-        </span>
-        <span class="tag__num" style="font-size: 0.8400000000000001rem;" dir="auto">
-          (3)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/java/" class="tag">
-        <span class="tag__text" style="font-size: 1.32rem;">
-          java
-        </span>
-        <span class="tag__num" style="font-size: 1.32rem;" dir="auto">
-          (39)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/javaee/" class="tag">
-        <span class="tag__text" style="font-size: 0.8400000000000001rem;">
-          javaee
-        </span>
-        <span class="tag__num" style="font-size: 0.8400000000000001rem;" dir="auto">
-          (3)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/javascript/" class="tag">
-        <span class="tag__text" style="font-size: 0.8533333333333334rem;">
-          javascript
-        </span>
-        <span class="tag__num" style="font-size: 0.8533333333333334rem;" dir="auto">
-          (4)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/jbake/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          jbake
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/jersey/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          jersey
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/jetty/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          jetty
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/jpa/" class="tag">
-        <span class="tag__text" style="font-size: 0.8266666666666667rem;">
-          jpa
-        </span>
-        <span class="tag__num" style="font-size: 0.8266666666666667rem;" dir="auto">
-          (2)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/jsf/" class="tag">
-        <span class="tag__text" style="font-size: 0.8266666666666667rem;">
-          jsf
-        </span>
-        <span class="tag__num" style="font-size: 0.8266666666666667rem;" dir="auto">
-          (2)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/jsp/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          jsp
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/kotlin/" class="tag">
-        <span class="tag__text" style="font-size: 0.88rem;">
-          kotlin
-        </span>
-        <span class="tag__num" style="font-size: 0.88rem;" dir="auto">
-          (6)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/kubernetes/" class="tag">
-        <span class="tag__text" style="font-size: 0.8666666666666667rem;">
-          kubernetes
-        </span>
-        <span class="tag__num" style="font-size: 0.8666666666666667rem;" dir="auto">
-          (5)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/line/" class="tag">
-        <span class="tag__text" style="font-size: 0.8533333333333334rem;">
-          line
-        </span>
-        <span class="tag__num" style="font-size: 0.8533333333333334rem;" dir="auto">
-          (4)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/linux/" class="tag">
-        <span class="tag__text" style="font-size: 0.8533333333333334rem;">
-          linux
-        </span>
-        <span class="tag__num" style="font-size: 0.8533333333333334rem;" dir="auto">
-          (4)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/lombok/" class="tag">
-        <span class="tag__text" style="font-size: 0.8533333333333334rem;">
-          lombok
-        </span>
-        <span class="tag__num" style="font-size: 0.8533333333333334rem;" dir="auto">
-          (4)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/mac/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          mac
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/mapstruct/" class="tag">
-        <span class="tag__text" style="font-size: 0.8533333333333334rem;">
-          mapstruct
-        </span>
-        <span class="tag__num" style="font-size: 0.8533333333333334rem;" dir="auto">
-          (4)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/maven/" class="tag">
-        <span class="tag__text" style="font-size: 0.8266666666666667rem;">
-          maven
-        </span>
-        <span class="tag__num" style="font-size: 0.8266666666666667rem;" dir="auto">
-          (2)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/mybatis/" class="tag">
-        <span class="tag__text" style="font-size: 0.8266666666666667rem;">
-          mybatis
-        </span>
-        <span class="tag__num" style="font-size: 0.8266666666666667rem;" dir="auto">
-          (2)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/mysql/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          mysql
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/neon/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          neon
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/oauth/" class="tag">
-        <span class="tag__text" style="font-size: 0.8666666666666667rem;">
-          oauth
-        </span>
-        <span class="tag__num" style="font-size: 0.8666666666666667rem;" dir="auto">
-          (5)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/oauth2/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          oauth2
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/oidc/" class="tag">
-        <span class="tag__text" style="font-size: 0.8933333333333334rem;">
-          oidc
-        </span>
-        <span class="tag__num" style="font-size: 0.8933333333333334rem;" dir="auto">
-          (7)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/openapi/" class="tag">
-        <span class="tag__text" style="font-size: 0.8266666666666667rem;">
-          openapi
-        </span>
-        <span class="tag__num" style="font-size: 0.8266666666666667rem;" dir="auto">
-          (2)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/polymer/" class="tag">
-        <span class="tag__text" style="font-size: 0.8266666666666667rem;">
-          polymer
-        </span>
-        <span class="tag__num" style="font-size: 0.8266666666666667rem;" dir="auto">
-          (2)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/programming/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          programming
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/pwsh/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          pwsh
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/rails/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          rails
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/react/" class="tag">
-        <span class="tag__text" style="font-size: 0.8533333333333334rem;">
-          react
-        </span>
-        <span class="tag__num" style="font-size: 0.8533333333333334rem;" dir="auto">
-          (4)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/redux/" class="tag">
-        <span class="tag__text" style="font-size: 0.8266666666666667rem;">
-          redux
-        </span>
-        <span class="tag__num" style="font-size: 0.8266666666666667rem;" dir="auto">
-          (2)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/rest/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          rest
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/rpg-maker/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          rpg-maker
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/ruby/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          ruby
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/rust/" class="tag">
-        <span class="tag__text" style="font-size: 1rem;">
-          rust
-        </span>
-        <span class="tag__num" style="font-size: 1rem;" dir="auto">
-          (15)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/scoop/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          scoop
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/security/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          security
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/servlet/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          servlet
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/spring/" class="tag">
-        <span class="tag__text" style="font-size: 0.8266666666666667rem;">
-          spring
-        </span>
-        <span class="tag__num" style="font-size: 0.8266666666666667rem;" dir="auto">
-          (2)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/spring-boot/" class="tag">
-        <span class="tag__text" style="font-size: 1.5733333333333333rem;">
-          spring-boot
-        </span>
-        <span class="tag__num" style="font-size: 1.5733333333333333rem;" dir="auto">
-          (58)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/spring-mvc/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          spring-mvc
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/spring-security/" class="tag">
-        <span class="tag__text" style="font-size: 1.0266666666666666rem;">
-          spring-security
-        </span>
-        <span class="tag__num" style="font-size: 1.0266666666666666rem;" dir="auto">
-          (17)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/spring-session/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          spring-session
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/testing/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          testing
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/tmux/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          tmux
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/tomcat/" class="tag">
-        <span class="tag__text" style="font-size: 0.8266666666666667rem;">
-          tomcat
-        </span>
-        <span class="tag__num" style="font-size: 0.8266666666666667rem;" dir="auto">
-          (2)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/ubuntu/" class="tag">
-        <span class="tag__text" style="font-size: 0.88rem;">
-          ubuntu
-        </span>
-        <span class="tag__num" style="font-size: 0.88rem;" dir="auto">
-          (6)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/vim/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          vim
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/wasm/" class="tag">
-        <span class="tag__text" style="font-size: 0.8266666666666667rem;">
-          wasm
-        </span>
-        <span class="tag__num" style="font-size: 0.8266666666666667rem;" dir="auto">
-          (2)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/web/" class="tag">
-        <span class="tag__text" style="font-size: 0.8400000000000001rem;">
-          web
-        </span>
-        <span class="tag__num" style="font-size: 0.8400000000000001rem;" dir="auto">
-          (3)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/webextensions/" class="tag">
-        <span class="tag__text" style="font-size: 0.8266666666666667rem;">
-          webextensions
-        </span>
-        <span class="tag__num" style="font-size: 0.8266666666666667rem;" dir="auto">
-          (2)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/windows/" class="tag">
-        <span class="tag__text" style="font-size: 0.88rem;">
-          windows
-        </span>
-        <span class="tag__num" style="font-size: 0.88rem;" dir="auto">
-          (6)
-        </span>
-      </a>
-    
-  
-    
-      <a href="/tags/yaml/" class="tag">
-        <span class="tag__text" style="font-size: 0.8133333333333334rem;">
-          yaml
-        </span>
-        <span class="tag__num" style="font-size: 0.8133333333333334rem;" dir="auto">
-          (1)
-        </span>
-      </a>
-    
-  
-</div>
-      </div>
-    </div>
-  </main>
+  </div>
 </div>
 
 <script>
-  var singleViewElem = document.querySelectorAll('.sv');
-  var postElem = document.querySelector('.blog-post');
-  var tagsElem = document.querySelector('.blog-tags');
+  'use strict';
+  
+  function wrap(el, wrapper) {
+    el.parentNode.insertBefore(wrapper, el);
+    wrapper.appendChild(el);
+  }
+
+  (function () {
+    var singleContentsElem = document.querySelector('.single__contents');
+    singleContentsElem ? 
+    singleContentsElem.querySelectorAll('pre > code').forEach(function(elem) {
+      var dataLang = elem.getAttribute('data-lang');
+      var dataLangWrapper = document.createElement('div');
+      var code = null;
+      var codeTitle = null;
+
+      if (dataLang && dataLang.includes(':')) {
+        code = dataLang.split(':')[0];
+        codeTitle = dataLang.split(':')[1];
+
+        dataLangWrapper.className = 'language-' + code;
+        dataLangWrapper.setAttribute('data-lang', codeTitle);
+
+        elem.className = 'language-' + code;
+        elem.setAttribute('data-lang', codeTitle);
+        elem.setAttribute('id', codeTitle);
+      }
+
+      if (!dataLang || codeTitle) {
+        wrap(elem.parentNode, dataLangWrapper);
+      }
+
+    }) : null;
+  })();
+  
+
+
+  
+  
+  var dollarCodeElem = document.querySelectorAll('div.language-\\$');
+  var gtCodeElem = document.querySelectorAll('div.language-\\>');
+  
+  dollarCodeElem ?
+  dollarCodeElem.forEach(function(elem) {
+    var lnts = elem.parentNode.parentNode ? elem.parentNode.parentNode.querySelectorAll('.lnt') : null;
+    lnts ? 
+    lnts.forEach(function(lnt) {
+      lnt.innerHTML = '$<br/>';
+    }) : null;
+  }) : null;
+
+  gtCodeElem ?
+  gtCodeElem.forEach(function(elem) {
+    var lnts = elem.parentNode.parentNode ? elem.parentNode.parentNode.querySelectorAll('.lnt') : null;
+    lnts ? 
+    lnts.forEach(function(lnt) {
+      lnt.innerHTML = '><br/>';
+    }) : null;
+  }) : null;
+  
+</script>
+
+
+
+
+<script defer src="/js/helper/getParents.min.js"></script>
+
+<script defer src="/js/helper/closest.min.js"></script>
+
+<script defer src="/js/helper/prev.min.js"></script>
+
+<script defer src="/js/helper/prop.min.js"></script>
+
+<script defer src="/js/helper/fadeinout.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    'use strict';
+    
+    
+    var tables = document.querySelectorAll('.single__contents > table');
+    for (let i = 0; i < tables.length; i++) {
+      var table = tables[i];
+      var wrapper = document.createElement('div');
+      wrapper.className = 'table-wrapper';
+      table.parentElement.replaceChild(wrapper, table);
+      wrapper.appendChild(table);
+    }
+    
+
+
+    
+    
+    
+    var lib = JSON.parse("null");
+
+    if (lib && lib.includes('mermaid')) {
+      var themeVariant = localStorage.getItem('theme') || 'light';
+
+      if (themeVariant === "dark") {
+        mermaid.initialize({ theme: 'dark' });
+      } else {
+        mermaid.initialize({ theme: 'default' });
+      }
+      
+      var mermaids = [];
+      [].push.apply(mermaids, document.getElementsByClassName('language-mermaid'));
+      mermaids.forEach(function(elem) {
+        var elemParentNode = elem.parentNode;
+
+        if (elemParentNode !== document.body) {
+          elemParentNode.parentNode.insertBefore(elem, elemParentNode);
+          elemParentNode.parentNode.removeChild(elemParentNode);
+        }
+
+        var newElemWrapper = document.createElement('div');
+        newElemWrapper.classList.add('mermaid');
+        newElemWrapper.innerHTML = elem.innerHTML;
+        elem.replaceWith(newElemWrapper);
+      });
+    }
+    
+    
+
+    
+    if (lib && lib.includes('katex')) {
+      var mathElements = document.getElementsByClassName('math');
+      var options = {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "\\[", right: "\\]", display: true },
+          { left: "$", right: "$", display: false },
+          { left: "\\(", right: "\\)", display: false }
+        ],
+      };
+
+      renderMathInElement(document.querySelector('.single__contents'), options);
+    }
+    
+
+
+    
+    if (lib && lib.includes('flowchartjs')) {
+      
+      var options = JSON.parse("{\"arrow-end\":\"block\",\"element-color\":\"black\",\"fill\":\"white\",\"flowstate\":{\"approved\":{\"fill\":\"#58C4A3\",\"font-size\":12,\"no-text\":\"n/a\",\"yes-text\":\"APPROVED\"},\"current\":{\"fill\":\"yellow\",\"font-color\":\"red\",\"font-weight\":\"bold\"},\"future\":{\"fill\":\"#FFFF99\"},\"invalid\":{\"fill\":\"#444444\"},\"past\":{\"fill\":\"#CCCCCC\",\"font-size\":12},\"rejected\":{\"fill\":\"#C45879\",\"font-size\":12,\"no-text\":\"REJECTED\",\"yes-text\":\"n/a\"},\"request\":{\"fill\":\"blue\"}},\"font-color\":\"black\",\"font-size\":14,\"line-color\":\"black\",\"line-length\":50,\"line-width\":3,\"no-text\":\"no\",\"scale\":1,\"symbols\":{\"end\":{\"class\":\"end-element\"},\"start\":{\"element-color\":\"green\",\"fill\":\"yellow\",\"font-color\":\"red\"}},\"text-margin\":10,\"x\":0,\"y\":0,\"yes-text\":\"yes\"}");
+      var jsonContent = null;
+
+      var flowchartPrefix = "language-flowchart";
+      var index = 0;
+      Array.prototype.forEach.call(document.querySelectorAll("[class^=" + flowchartPrefix + "]"), function(x){
+          x.style.display = 'none'
+          x.parentNode.style.backgroundColor = "transparent"
+          jsonContent = x.innerText;
+
+          var node0 = document.createElement('div');
+          node0.id = 'flowchart' + index;
+          x.parentNode.insertBefore(node0, x);
+
+          var diagram = flowchart.parse(jsonContent);
+          diagram.drawSVG("flowchart"+index, options);
+
+          index +=1;
+      });      
+    }
+    
+
+
+    
+    if (lib && lib.includes('chart')) {
+      var borderColor = "#666";
+      var bgColor = "#ddd";
+      var borderWidth = 2;
+
+      Chart.defaults.global.elements.rectangle.borderWidth = borderWidth;
+      Chart.defaults.global.elements.rectangle.borderColor = borderColor;
+      Chart.defaults.global.elements.rectangle.backgroundColor = bgColor;
+
+      Chart.defaults.global.elements.line.borderWidth = borderWidth;
+      Chart.defaults.global.elements.line.borderColor = borderColor;
+      Chart.defaults.global.elements.line.backgroundColor = bgColor;
+
+      Chart.defaults.global.elements.point.borderWidth = borderWidth;
+      Chart.defaults.global.elements.point.borderColor = borderColor;
+      Chart.defaults.global.elements.point.backgroundColor = bgColor;
+
+      var chartPrefix = "language-chart";
+      var index = 0;
+      var jsonContent = null;
+
+      Array.prototype.forEach.call(document.querySelectorAll("[class^=" + chartPrefix + "]"), function (x) {
+        x.style.display = 'none'
+        x.parentNode.style.backgroundColor = "transparent"
+        jsonContent = x.innerText;
+        var node0 = document.createElement('canvas');
+        var source = null;
+        node0.height = 200;
+        node0.style.height = 200;
+        node0.id = 'myChart' + index;
+        source = JSON.parse(jsonContent);
+        x.parentNode.insertBefore(node0, x);
+        var ctx = document.getElementById('myChart' + index).getContext('2d');
+        var myChart = new Chart(ctx, source);
+        index += 1;
+      });            
+    }
+    
+
+
+    
+    if (lib && lib.includes('viz')) {
+      var vizPrefix = "language-viz-";
+      Array.prototype.forEach.call(document.querySelectorAll("[class^=" + vizPrefix + "]"), function (x) {
+        x.style.display = 'none'
+        x.parentNode.style.backgroundColor = "transparent"
+        var engine;
+        x.getAttribute("class").split(" ").forEach(function (cls) {
+          if (cls.startsWith(vizPrefix)) {
+            engine = cls.substr(vizPrefix.length);
+          }
+        });
+        var viz = new Viz();
+        viz.renderSVGElement(x.innerText, { engine: engine })
+          .then(function (element) {
+            element.style.width = "100%";
+            x.parentNode.insertBefore(element, x);
+          })
+      });
+    }
+    
+    
+  });
+</script>
+
+<script>
+  var singleMenu = document.getElementById('single-menu');
+  var listMain = document.getElementById('list-main');
+  var listSide = document.getElementById('list-side');
+  var wideViewAsDefault = JSON.parse("true");
 
   enquire.register("screen and (max-width:1280px)", {
     match: function () {
-      singleViewElem.forEach(function(elem) {
-        postElem.className = "blog-post";
-        tagsElem.className = "blog-tags";
-      });
+      if (wideViewAsDefault) {
+        singleMenu.className = 'hide';
+        listMain.className = 'lm';
+        listSide.className = 'r';
+      } else {
+        singleMenu.className = 'l';
+        listMain.className = 'm';
+        listSide.className = 'r';
+      }
     },
     unmatch: function () {
-      singleViewElem.forEach(function (elem) {
-        postElem.className = "blog-post";
-        tagsElem.className = "blog-tags";
-      });
+      if (wideViewAsDefault) {
+        singleMenu.className = 'hide';
+        listMain.className = 'lm';
+        listSide.className = 'r';
+      } else {
+        singleMenu.className = 'l';
+        listMain.className = 'm';
+        listSide.className = 'r';
+      }
     },
-  }).register("screen and (max-width:769px)", {
+  }).register("screen and (max-width:960px)", {
     match: function () {
-      singleViewElem.forEach(function (elem) {
-        postElem.className = "blog-total";
-        tagsElem.className = "hide";
-      });
+      listSide.className = 'r';
+      listMain.className = 'lm';
+      singleMenu.className = 'hide';
     },
     unmatch: function () {
-      singleViewElem.forEach(function (elem) {
-        postElem.className = "blog-post";
-        tagsElem.className = "blog-tags";
-      });
+      if (wideViewAsDefault) {
+        singleMenu.className = 'hide';
+        listMain.className = 'lm';
+        listSide.className = 'r';
+      } else {
+        singleMenu.className = 'l';
+        listMain.className = 'm';
+        listSide.className = 'r';
+      }
+    },
+  }).register("screen and (max-width:600px)", {
+    match: function () {
+      listSide.className = 'hide';
+      listMain.className = 'lmr';
+      singleMenu.className = 'hide';
+    },
+    unmatch: function () {
+      listSide.className = 'r';
+      listMain.className = 'lm';
+      singleMenu.className = 'hide';
     },
   });
 </script>
