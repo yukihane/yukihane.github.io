@@ -60,4 +60,5 @@ data class MyData(
 ** ただし、 Hibernate プロジェクトは今や JPA にかなり寄り添っているので、 JPA の仕様から反してはいるが Hibernate では合法、とも言えないでしょう。たまたま上手く動いているだけ、とみなすのが正しい認識かと考えます。
 
 こちらの動画でも似たような話題が挙がっていました:
+
 * https://youtu.be/a_6V8xwiv04?t=1031[Getting the Most from JPA with Kotlin]
