@@ -27,7 +27,7 @@ JDK17を利用して開発する場合、次の設定変更を `pom.xml` 対し�
 
 . https://maven.apache.org/plugins/maven-compiler-plugin/[`maven-compiler-plugin`] のバージョンを最新版に上げます。
 * この記事を書いた時点の最新バージョンは `3.10.1` でした
-* 自動生成された `pom.xml` で指定されているバージョンは `3.5.1` となぜかかなり古く、 Java17 に対応していません
+* 前述Kotlin公式サイトに書かれているサンプルは `3.5.1` とかなり古く、 Java17 に対応していません
 . `properties` セクションに次を追記します。
 +
 [source]
