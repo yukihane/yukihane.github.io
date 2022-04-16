@@ -5,6 +5,7 @@ draft: false
 tags:
   - docker
   - windows
+  - wsl
 ---
 
 現在、 Windows で Docker を利用するには大きく2つ方策があるのかなと思います。
