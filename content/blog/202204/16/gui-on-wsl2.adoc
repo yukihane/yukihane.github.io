@@ -5,6 +5,7 @@ draft: false
 tags:
   - windows
   - wsl
+  - tauri
 ---
 
 link:{{< relref "/blog/202110/03/hello-tauri" >}}[Tauri] の開発環境を Windows10 の WSL2 に移行するために、 WSL2 上の GUI アプリを Windows で表示するようにセットアップしました。
