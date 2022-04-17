@@ -7,12 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Mon, 28 Mar 2022 08:24:45 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 16 Apr 2022 17:56:11 +0900</lastBuildDate>
     
         <atom:link href="https://yukihane.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     
+      
+      <item>
+        <title>WSL2上のGUIアプリケーションを動かす</title>
+        <link>https://yukihane.github.io/blog/202204/16/gui-on-wsl2/</link>
+        <pubDate>Sat, 16 Apr 2022 17:56:11 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202204/16/gui-on-wsl2/</guid>
+        <description>Tauri の開発環境を Windows10 の WSL2 に移行するために、 WSL2 上の GUI アプリを Windows で表示するようにセットアップしました。 とは言いつつ、既に次の手順でセットアップしたこ</description>
+      </item>
       
       <item>
         <title>WSL2上にDockerをインストールする</title>

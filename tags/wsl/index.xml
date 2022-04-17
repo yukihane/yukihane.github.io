@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>wsl on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/wsl/</link>
+    <description>Recent content in wsl on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Sat, 16 Apr 2022 17:56:11 +0900</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/wsl/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>WSL2上のGUIアプリケーションを動かす</title>
+        <link>https://yukihane.github.io/blog/202204/16/gui-on-wsl2/</link>
+        <pubDate>Sat, 16 Apr 2022 17:56:11 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202204/16/gui-on-wsl2/</guid>
+        <description>Tauri の開発環境を Windows10 の WSL2 に移行するために、 WSL2 上の GUI アプリを Windows で表示するようにセットアップしました。 とは言いつつ、既に次の手順でセットアップしたこ</description>
+      </item>
+      
+      <item>
+        <title>WSL2上にDockerをインストールする</title>
+        <link>https://yukihane.github.io/blog/202203/28/docker-on-wsl2/</link>
+        <pubDate>Mon, 28 Mar 2022 08:24:45 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202203/28/docker-on-wsl2/</guid>
+        <description>現在、 Windows で Docker を利用するには大きく2つ方策があるのかなと思います。 Docker Desktop for Windows を利用する WSL2 上に Docker Engine をインストールする 自分は元々 Ubuntu 上で Docker を利用してき</description>
+      </item>
+      
+    
+  </channel>
+</rss>
