@@ -22,24 +22,24 @@ link:{{< relref "/blog/202110/03/hello-tauri" >}}[Tauri] の開発環境を Wind
 
 Windows側の初期設定:
 
-1. https://sourceforge.net/projects/vcxsrv/[VcXsrv] をインストールします (補足: 私は https://github.com/ScoopInstaller/Extras/blob/master/bucket/vcxsrv.json[`scoop`] でインストールしました )
-1. `XLauncher`(`xlaunch.exe`) を起動し、次の設定を行います:
-    1. "Multiple windows" をチェック
-    1. "Start no client" をチェック
-    1. "Native opengl" のチェックを外す、**"Disable access control" をチェック**(重要)
-    1. "Save configuration" で設定を保存
-1. "完了" を押すと上記の設定で起動します
-1. (`xlaunch.exe` のショートカットを作成して引数に `-ac -run <設定ファイル>` を設定しておくと、次回起動はこのショートカットから行えます(https://sourceforge.net/p/vcxsrv/wiki/Using%20VcXsrv%20Windows%20X%20Server/[参考]))
+. https://sourceforge.net/projects/vcxsrv/[VcXsrv] をインストールします (補足: 私は https://github.com/ScoopInstaller/Extras/blob/master/bucket/vcxsrv.json[`scoop`] でインストールしました )
+. `XLauncher`(`xlaunch.exe`) を起動し、次の設定を行います:
+    . "Multiple windows" をチェック
+    . "Start no client" をチェック
+    . "Native opengl" のチェックを外す、**"Disable access control" をチェック**(重要)
+    . "Save configuration" で設定を保存
+. "完了" を押すと上記の設定で起動します
+. (`xlaunch.exe` のショートカットを作成して引数に `-ac -run <設定ファイル>` を設定しておくと、次回起動はこのショートカットから行えます(https://sourceforge.net/p/vcxsrv/wiki/Using%20VcXsrv%20Windows%20X%20Server/[参考]))
 
 Ubuntu側の初期設定:
 
-1. `~/.bashrc` に次を追記:
+. `~/.bashrc` に次を追記:
 +
 [source]
 ----
 export DISPLAY=$(route.exe print | grep 0.0.0.0 | head -1 | awk '{print $4}'):0.0
 ----
-1. `source ~/.bashrc` で上の設定を読み込み
+. `source ~/.bashrc` で上の設定を読み込み
 
 参考:
 
