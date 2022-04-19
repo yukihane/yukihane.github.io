@@ -4,7 +4,17 @@
   
   <url>
     <loc>https://yukihane.github.io/blog/</loc>
-    <lastmod>2022-04-16T17:56:11+09:00</lastmod>
+    <lastmod>2022-04-19T12:55:29+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yukihane.github.io/tags/git/</loc>
+    <lastmod>2022-04-19T12:55:29+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yukihane.github.io/blog/202204/19/listing-my-git-branch/</loc>
+    <lastmod>2022-04-19T12:55:29+09:00</lastmod>
   </url>
   
   <url>
@@ -60,11 +70,6 @@
   <url>
     <loc>https://yukihane.github.io/blog/202203/12/jackson-deserialize-by-constructor/</loc>
     <lastmod>2022-03-12T14:12:33+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yukihane.github.io/tags/git/</loc>
-    <lastmod>2022-01-24T11:11:35+09:00</lastmod>
   </url>
   
   <url>

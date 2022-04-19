@@ -15,6 +15,15 @@
     
       
       <item>
+        <title>自分の作成したGitブランチを表示する</title>
+        <link>https://yukihane.github.io/blog/202204/19/listing-my-git-branch/</link>
+        <pubDate>Tue, 19 Apr 2022 12:55:29 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202204/19/listing-my-git-branch/</guid>
+        <description>リモートブランチに一時的なブランチ、テスト的に作ったブランチなどをpushしていたのを掃除したくなりました。 複数人で共同作業するために利用し</description>
+      </item>
+      
+      <item>
         <title>WSL2上のGUIアプリケーションを動かす</title>
         <link>https://yukihane.github.io/blog/202204/16/gui-on-wsl2/</link>
         <pubDate>Sat, 16 Apr 2022 17:56:11 +0900</pubDate>
