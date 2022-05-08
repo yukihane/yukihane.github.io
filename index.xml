@@ -15,6 +15,15 @@
     
       
       <item>
+        <title>Elixir 開発環境をセットアップする</title>
+        <link>https://yukihane.github.io/blog/202205/01/setup-elixir/</link>
+        <pubDate>Sun, 01 May 2022 12:47:31 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202205/01/setup-elixir/</guid>
+        <description>はじめに 改訂新版 Elixir/Phoenix 初級①: はじめの一歩 という書籍で Phoenix というウェブフレームワークの勉強をはじめました。 Elixir という言語で実装していくことになります</description>
+      </item>
+      
+      <item>
         <title>自分の作成したGitブランチを表示する</title>
         <link>https://yukihane.github.io/blog/202204/19/listing-my-git-branch/</link>
         <pubDate>Tue, 19 Apr 2022 12:55:29 +0900</pubDate>
