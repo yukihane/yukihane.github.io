@@ -15,6 +15,15 @@
     
       
       <item>
+        <title>GitHub の通知をちゃんと使えるように設定する</title>
+        <link>https://yukihane.github.io/blog/202205/15/github-unwatch/</link>
+        <pubDate>Sun, 15 May 2022 19:54:13 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202205/15/github-unwatch/</guid>
+        <description>はじめに 今回初めて仕事で GitHub (GitHub Enterpsise Cloude) を使うことになりました。 始める前は少しアコガレなんかも有ったりしたのですが、いざやってみると、思ったほど素敵</description>
+      </item>
+      
+      <item>
         <title>Elixir 開発環境をセットアップする</title>
         <link>https://yukihane.github.io/blog/202205/01/setup-elixir/</link>
         <pubDate>Sun, 01 May 2022 12:47:31 +0900</pubDate>
