@@ -7,12 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Sat, 11 Jun 2022 04:01:31 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 11 Jun 2022 10:36:51 +0900</lastBuildDate>
     
         <atom:link href="https://yukihane.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     
+      
+      <item>
+        <title>Maven Wrapper が Maven3 に正式導入された</title>
+        <link>https://yukihane.github.io/blog/202206/11/maven-wrapper/</link>
+        <pubDate>Sat, 11 Jun 2022 10:36:51 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202206/11/maven-wrapper/</guid>
+        <description>Gradle には Gradle Wrapper といって、 ビルドするためのツールである Gradle の該当バージョンがローカルにインストールされていない場合でも、自動で取得してビルド環境をセ</description>
+      </item>
       
       <item>
         <title>Value Object(値オブジェクト)についての覚え書き</title>
