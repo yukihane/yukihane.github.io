@@ -15,6 +15,15 @@
     
       
       <item>
+        <title>Value Object(値オブジェクト)についての覚え書き</title>
+        <link>https://yukihane.github.io/blog/202206/11/value-object/</link>
+        <pubDate>Sat, 11 Jun 2022 04:01:31 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202206/11/value-object/</guid>
+        <description>2022年5月中旬から下旬にかけて Value Object(値オブジェクト) についての議論がさかんに行われていました。 そのときに書き起こされた文章への</description>
+      </item>
+      
+      <item>
         <title>GitHub の通知をちゃんと使えるように設定する</title>
         <link>https://yukihane.github.io/blog/202205/15/github-unwatch/</link>
         <pubDate>Sun, 15 May 2022 19:54:13 +0900</pubDate>

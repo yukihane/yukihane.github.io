@@ -4,7 +4,17 @@
   
   <url>
     <loc>https://yukihane.github.io/blog/</loc>
-    <lastmod>2022-05-15T19:54:13+09:00</lastmod>
+    <lastmod>2022-06-11T04:01:31+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yukihane.github.io/tags/diary/</loc>
+    <lastmod>2022-06-11T04:01:31+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yukihane.github.io/blog/202206/11/value-object/</loc>
+    <lastmod>2022-06-11T04:01:31+09:00</lastmod>
   </url>
   
   <url>
@@ -289,11 +299,6 @@
   
   <url>
     <loc>https://yukihane.github.io/blog/202106/21/aws-squid-proxy/</loc>
-    <lastmod>2021-06-20T23:39:04+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yukihane.github.io/tags/diary/</loc>
     <lastmod>2021-06-20T23:39:04+00:00</lastmod>
   </url>
   
