@@ -17,6 +17,6 @@ Java 標準 API のドキュメントには、 "値ベース・クラス" とい
 * インスタンスフィールドは `final`
 * `==`, `!=` を用いて比較してはいけない。 インスタンスフィールドの値で比較する(`equals()` をそのように実装して、それを用いる)。
 
-link:{{< relref "/blog/content/blog/202206/11/value-object.adoc" >}}[前回]触れた、 https://ja.wikipedia.org/wiki/Value_object#Java[Wikipedia] の Java の項に書かれていることですね。
+link:{{< relref "/blog/202206/11/value-object" >}}[前回]触れた、 https://ja.wikipedia.org/wiki/Value_object#Java[Wikipedia] の Java の項に書かれていることですね。
 
 ちなみに、 Java16 以降では、JDK の中の値ベース・クラスに相当するクラスには https://github.com/openjdk/jdk/blob/jdk-17+35/src/java.base/share/classes/jdk/internal/ValueBased.java[`jdk.internal.ValueBased` アノテーション]が付与されているようです(このアノテーションの目的は https://openjdk.java.net/jeps/390[JEP390] にあります。 Project Valhalla の準備として、不適切に利用されている箇所でコンパイル時に警告するためのようです)。
