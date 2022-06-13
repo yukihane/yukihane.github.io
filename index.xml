@@ -15,6 +15,15 @@
     
       
       <item>
+        <title>Java における value objects</title>
+        <link>https://yukihane.github.io/blog/202206/12/java-value-based-class/</link>
+        <pubDate>Sun, 12 Jun 2022 05:56:40 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202206/12/java-value-based-class/</guid>
+        <description>Java 標準 API のドキュメントには、 &amp;#34;値ベース・クラス&amp;#34; というページがあります: https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/ValueBased.html 機械翻訳っぽくて分かりづらい箇所もあるので、併せて</description>
+      </item>
+      
+      <item>
         <title>Maven Wrapper が Maven3 に正式導入された</title>
         <link>https://yukihane.github.io/blog/202206/11/maven-wrapper/</link>
         <pubDate>Sat, 11 Jun 2022 10:36:51 +0900</pubDate>
