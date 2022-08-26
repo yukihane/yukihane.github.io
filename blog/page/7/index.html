@@ -1075,8 +1075,8 @@
     <link rel="alternate" type="application/rss&#43;xml" title="RSS" href="https://yukihane.github.io/blog/index.xml">
 <meta name="description" content="" />
 <meta name="keywords" content="">
-<meta name="created" content="2022-06-12T05:56:40&#43;0900">
-<meta name="modified" content="2022-06-12T05:56:40&#43;0900">
+<meta name="created" content="2022-08-26T23:43:08&#43;0900">
+<meta name="modified" content="2022-08-26T23:43:08&#43;0900">
 
 
 <meta property="og:site_name" content="発火後忘失">
@@ -1189,6 +1189,29 @@ if (!doNotTrack) {
   </h6>
   <ul>
     
+    
+      
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  <li class="">
+    <a href="https://yukihane.github.io/blog/202208/26/hello-jooq/"
+      class="menu__title ">jOOQ で Hello, world</a>
+  </li>
+  
+
     
       
   
@@ -5840,6 +5863,43 @@ if (!doNotTrack) {
         
           <article class="summary-card">
   <header>
+    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/'> KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる</a></h5>
+    <div class="subtitle caption">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-07-20 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 5 min read</span>
+    </div>
+  </header>
+  
+  <div class="summary-card__content">
+    <div class="summary-card__text p2">
+      
+        はじめに Spring Boot で Spring Security OAuth 2.0 Login / Client を利用する手順をまとめます。 また、認可サーバ(IdP)にはローカルで立てたKeycloakを用いますのでそちらの
+      
+    </div>
+    
+  </div>
+  <div class="summary-card__links">
+    
+      <a href="/tags/spring-boot" class="summary-card__tag">
+        spring-boot
+      </a>
+    
+      <a href="/tags/spring-security" class="summary-card__tag">
+        spring-security
+      </a>
+    
+      <a href="/tags/oauth" class="summary-card__tag">
+        oauth
+      </a>
+    
+      <a href="/tags/oidc" class="summary-card__tag">
+        oidc
+      </a>
+    
+  </div>
+</article>
+        
+          <article class="summary-card">
+  <header>
     <h5 class="title h5"><a href='https://yukihane.github.io/blog/202007/21/why-git-branching-is-difficult/'> いつもGitブランチ運用でこまること、考慮すべきポイントのまとめ</a></h5>
     <div class="subtitle caption">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-07-20 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 3 min read</span>
@@ -6170,35 +6230,6 @@ if (!doNotTrack) {
   </div>
 </article>
         
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202007/02/minimal-webmvc-with-springboot/'> Spring Boot でなるべく依存関係を小さくしてWebMVCを使ってみる</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-07-02 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        特に実用性とかは考えていない。何となくやってみたというだけ。 動かしたいやつ 1 2 3 4 5 6 7 8 9 @RestController @RequestMapping(&#34;/&#34;) public class MyController { @GetMapping(&#34;/&#34;) public String index() { return &#34;hello&#34;; } } 設定 1 2 3 4 5 6 7
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/spring-boot" class="summary-card__tag">
-        spring-boot
-      </a>
-    
-      <a href="/tags/spring-mvc" class="summary-card__tag">
-        spring-mvc
-      </a>
-    
-  </div>
-</article>
-        
         
 
 
@@ -6290,10 +6321,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/android/" class="tag">
-        <span class="tag__text" style="font-size: 0.8253164556962026rem;">
+        <span class="tag__text" style="font-size: 0.8246913580246914rem;">
           android
         </span>
-        <span class="tag__num" style="font-size: 0.8253164556962026rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8246913580246914rem;" dir="auto">
           (2)
         </span>
       </a>
@@ -6301,10 +6332,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/aws/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           aws
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6312,10 +6343,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/azure/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           azure
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6323,10 +6354,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/bash/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           bash
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6334,10 +6365,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/book/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           book
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6345,10 +6376,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/centos/" class="tag">
-        <span class="tag__text" style="font-size: 0.8253164556962026rem;">
+        <span class="tag__text" style="font-size: 0.8246913580246914rem;">
           centos
         </span>
-        <span class="tag__num" style="font-size: 0.8253164556962026rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8246913580246914rem;" dir="auto">
           (2)
         </span>
       </a>
@@ -6356,10 +6387,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/chrome/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           chrome
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6367,10 +6398,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/datetime/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           datetime
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6378,10 +6409,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/diary/" class="tag">
-        <span class="tag__text" style="font-size: 0.8886075949367089rem;">
+        <span class="tag__text" style="font-size: 0.8864197530864197rem;">
           diary
         </span>
-        <span class="tag__num" style="font-size: 0.8886075949367089rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8864197530864197rem;" dir="auto">
           (7)
         </span>
       </a>
@@ -6389,10 +6420,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/docker/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           docker
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6400,10 +6431,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/eclipse/" class="tag">
-        <span class="tag__text" style="font-size: 0.8759493670886076rem;">
+        <span class="tag__text" style="font-size: 0.8740740740740741rem;">
           eclipse
         </span>
-        <span class="tag__num" style="font-size: 0.8759493670886076rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8740740740740741rem;" dir="auto">
           (6)
         </span>
       </a>
@@ -6411,10 +6442,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/electron/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           electron
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6422,10 +6453,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/elixir/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           elixir
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6433,10 +6464,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/firefox/" class="tag">
-        <span class="tag__text" style="font-size: 0.8253164556962026rem;">
+        <span class="tag__text" style="font-size: 0.8246913580246914rem;">
           firefox
         </span>
-        <span class="tag__num" style="font-size: 0.8253164556962026rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8246913580246914rem;" dir="auto">
           (2)
         </span>
       </a>
@@ -6444,10 +6475,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/fluentd/" class="tag">
-        <span class="tag__text" style="font-size: 0.8253164556962026rem;">
+        <span class="tag__text" style="font-size: 0.8246913580246914rem;">
           fluentd
         </span>
-        <span class="tag__num" style="font-size: 0.8253164556962026rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8246913580246914rem;" dir="auto">
           (2)
         </span>
       </a>
@@ -6455,10 +6486,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/frontend/" class="tag">
-        <span class="tag__text" style="font-size: 0.8253164556962026rem;">
+        <span class="tag__text" style="font-size: 0.8246913580246914rem;">
           frontend
         </span>
-        <span class="tag__num" style="font-size: 0.8253164556962026rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8246913580246914rem;" dir="auto">
           (2)
         </span>
       </a>
@@ -6466,10 +6497,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/git/" class="tag">
-        <span class="tag__text" style="font-size: 0.9012658227848102rem;">
+        <span class="tag__text" style="font-size: 0.8987654320987655rem;">
           git
         </span>
-        <span class="tag__num" style="font-size: 0.9012658227848102rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8987654320987655rem;" dir="auto">
           (8)
         </span>
       </a>
@@ -6477,10 +6508,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/github/" class="tag">
-        <span class="tag__text" style="font-size: 0.8253164556962026rem;">
+        <span class="tag__text" style="font-size: 0.8246913580246914rem;">
           github
         </span>
-        <span class="tag__num" style="font-size: 0.8253164556962026rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8246913580246914rem;" dir="auto">
           (2)
         </span>
       </a>
@@ -6488,10 +6519,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/graalvm/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           graalvm
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6499,21 +6530,32 @@ if (!doNotTrack) {
   
     
       <a href="/tags/gradle/" class="tag">
-        <span class="tag__text" style="font-size: 0.9012658227848102rem;">
+        <span class="tag__text" style="font-size: 0.8987654320987655rem;">
           gradle
         </span>
-        <span class="tag__num" style="font-size: 0.9012658227848102rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8987654320987655rem;" dir="auto">
           (8)
         </span>
       </a>
     
   
     
+      <a href="/tags/hello-world/" class="tag">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
+          hello-world
+        </span>
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
+          (1)
+        </span>
+      </a>
+    
+  
+    
       <a href="/tags/heroku/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           heroku
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6521,10 +6563,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/hibernate/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           hibernate
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6532,10 +6574,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/html/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           html
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6543,10 +6585,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/http/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           http
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6554,10 +6596,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/jackson/" class="tag">
-        <span class="tag__text" style="font-size: 0.8379746835443038rem;">
+        <span class="tag__text" style="font-size: 0.837037037037037rem;">
           jackson
         </span>
-        <span class="tag__num" style="font-size: 0.8379746835443038rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.837037037037037rem;" dir="auto">
           (3)
         </span>
       </a>
@@ -6565,10 +6607,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/java/" class="tag">
-        <span class="tag__text" style="font-size: 1.3063291139240507rem;">
+        <span class="tag__text" style="font-size: 1.2938271604938272rem;">
           java
         </span>
-        <span class="tag__num" style="font-size: 1.3063291139240507rem;" dir="auto">
+        <span class="tag__num" style="font-size: 1.2938271604938272rem;" dir="auto">
           (40)
         </span>
       </a>
@@ -6576,10 +6618,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/javaee/" class="tag">
-        <span class="tag__text" style="font-size: 0.8379746835443038rem;">
+        <span class="tag__text" style="font-size: 0.837037037037037rem;">
           javaee
         </span>
-        <span class="tag__num" style="font-size: 0.8379746835443038rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.837037037037037rem;" dir="auto">
           (3)
         </span>
       </a>
@@ -6587,10 +6629,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/javascript/" class="tag">
-        <span class="tag__text" style="font-size: 0.8506329113924052rem;">
+        <span class="tag__text" style="font-size: 0.8493827160493828rem;">
           javascript
         </span>
-        <span class="tag__num" style="font-size: 0.8506329113924052rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8493827160493828rem;" dir="auto">
           (4)
         </span>
       </a>
@@ -6598,10 +6640,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/jbake/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           jbake
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6609,10 +6651,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/jersey/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           jersey
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6620,10 +6662,21 @@ if (!doNotTrack) {
   
     
       <a href="/tags/jetty/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           jetty
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
+          (1)
+        </span>
+      </a>
+    
+  
+    
+      <a href="/tags/jooq/" class="tag">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
+          jooq
+        </span>
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6631,10 +6684,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/jpa/" class="tag">
-        <span class="tag__text" style="font-size: 0.8253164556962026rem;">
+        <span class="tag__text" style="font-size: 0.8246913580246914rem;">
           jpa
         </span>
-        <span class="tag__num" style="font-size: 0.8253164556962026rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8246913580246914rem;" dir="auto">
           (2)
         </span>
       </a>
@@ -6642,10 +6695,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/jsf/" class="tag">
-        <span class="tag__text" style="font-size: 0.8253164556962026rem;">
+        <span class="tag__text" style="font-size: 0.8246913580246914rem;">
           jsf
         </span>
-        <span class="tag__num" style="font-size: 0.8253164556962026rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8246913580246914rem;" dir="auto">
           (2)
         </span>
       </a>
@@ -6653,10 +6706,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/jsp/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           jsp
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6664,10 +6717,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/kotlin/" class="tag">
-        <span class="tag__text" style="font-size: 0.8759493670886076rem;">
+        <span class="tag__text" style="font-size: 0.8740740740740741rem;">
           kotlin
         </span>
-        <span class="tag__num" style="font-size: 0.8759493670886076rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8740740740740741rem;" dir="auto">
           (6)
         </span>
       </a>
@@ -6675,10 +6728,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/kubernetes/" class="tag">
-        <span class="tag__text" style="font-size: 0.8632911392405064rem;">
+        <span class="tag__text" style="font-size: 0.8617283950617285rem;">
           kubernetes
         </span>
-        <span class="tag__num" style="font-size: 0.8632911392405064rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8617283950617285rem;" dir="auto">
           (5)
         </span>
       </a>
@@ -6686,10 +6739,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/line/" class="tag">
-        <span class="tag__text" style="font-size: 0.8506329113924052rem;">
+        <span class="tag__text" style="font-size: 0.8493827160493828rem;">
           line
         </span>
-        <span class="tag__num" style="font-size: 0.8506329113924052rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8493827160493828rem;" dir="auto">
           (4)
         </span>
       </a>
@@ -6697,10 +6750,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/linux/" class="tag">
-        <span class="tag__text" style="font-size: 0.8506329113924052rem;">
+        <span class="tag__text" style="font-size: 0.8493827160493828rem;">
           linux
         </span>
-        <span class="tag__num" style="font-size: 0.8506329113924052rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8493827160493828rem;" dir="auto">
           (4)
         </span>
       </a>
@@ -6708,10 +6761,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/lombok/" class="tag">
-        <span class="tag__text" style="font-size: 0.8506329113924052rem;">
+        <span class="tag__text" style="font-size: 0.8493827160493828rem;">
           lombok
         </span>
-        <span class="tag__num" style="font-size: 0.8506329113924052rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8493827160493828rem;" dir="auto">
           (4)
         </span>
       </a>
@@ -6719,10 +6772,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/mac/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           mac
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6730,10 +6783,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/mapstruct/" class="tag">
-        <span class="tag__text" style="font-size: 0.8506329113924052rem;">
+        <span class="tag__text" style="font-size: 0.8493827160493828rem;">
           mapstruct
         </span>
-        <span class="tag__num" style="font-size: 0.8506329113924052rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8493827160493828rem;" dir="auto">
           (4)
         </span>
       </a>
@@ -6741,10 +6794,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/maven/" class="tag">
-        <span class="tag__text" style="font-size: 0.8379746835443038rem;">
+        <span class="tag__text" style="font-size: 0.837037037037037rem;">
           maven
         </span>
-        <span class="tag__num" style="font-size: 0.8379746835443038rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.837037037037037rem;" dir="auto">
           (3)
         </span>
       </a>
@@ -6752,10 +6805,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/mybatis/" class="tag">
-        <span class="tag__text" style="font-size: 0.8253164556962026rem;">
+        <span class="tag__text" style="font-size: 0.8246913580246914rem;">
           mybatis
         </span>
-        <span class="tag__num" style="font-size: 0.8253164556962026rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8246913580246914rem;" dir="auto">
           (2)
         </span>
       </a>
@@ -6763,10 +6816,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/mysql/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           mysql
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6774,10 +6827,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/neon/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           neon
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6785,10 +6838,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/oauth/" class="tag">
-        <span class="tag__text" style="font-size: 0.8632911392405064rem;">
+        <span class="tag__text" style="font-size: 0.8617283950617285rem;">
           oauth
         </span>
-        <span class="tag__num" style="font-size: 0.8632911392405064rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8617283950617285rem;" dir="auto">
           (5)
         </span>
       </a>
@@ -6796,10 +6849,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/oauth2/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           oauth2
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6807,10 +6860,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/oidc/" class="tag">
-        <span class="tag__text" style="font-size: 0.8886075949367089rem;">
+        <span class="tag__text" style="font-size: 0.8864197530864197rem;">
           oidc
         </span>
-        <span class="tag__num" style="font-size: 0.8886075949367089rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8864197530864197rem;" dir="auto">
           (7)
         </span>
       </a>
@@ -6818,10 +6871,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/openapi/" class="tag">
-        <span class="tag__text" style="font-size: 0.8253164556962026rem;">
+        <span class="tag__text" style="font-size: 0.8246913580246914rem;">
           openapi
         </span>
-        <span class="tag__num" style="font-size: 0.8253164556962026rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8246913580246914rem;" dir="auto">
           (2)
         </span>
       </a>
@@ -6829,10 +6882,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/polymer/" class="tag">
-        <span class="tag__text" style="font-size: 0.8253164556962026rem;">
+        <span class="tag__text" style="font-size: 0.8246913580246914rem;">
           polymer
         </span>
-        <span class="tag__num" style="font-size: 0.8253164556962026rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8246913580246914rem;" dir="auto">
           (2)
         </span>
       </a>
@@ -6840,10 +6893,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/programming/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           programming
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6851,10 +6904,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/pwsh/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           pwsh
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6862,10 +6915,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/rails/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           rails
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6873,10 +6926,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/react/" class="tag">
-        <span class="tag__text" style="font-size: 0.8506329113924052rem;">
+        <span class="tag__text" style="font-size: 0.8493827160493828rem;">
           react
         </span>
-        <span class="tag__num" style="font-size: 0.8506329113924052rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8493827160493828rem;" dir="auto">
           (4)
         </span>
       </a>
@@ -6884,10 +6937,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/redux/" class="tag">
-        <span class="tag__text" style="font-size: 0.8253164556962026rem;">
+        <span class="tag__text" style="font-size: 0.8246913580246914rem;">
           redux
         </span>
-        <span class="tag__num" style="font-size: 0.8253164556962026rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8246913580246914rem;" dir="auto">
           (2)
         </span>
       </a>
@@ -6895,10 +6948,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/rest/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           rest
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6906,10 +6959,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/rpg-maker/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           rpg-maker
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6917,10 +6970,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/ruby/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           ruby
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6928,10 +6981,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/rust/" class="tag">
-        <span class="tag__text" style="font-size: 0.989873417721519rem;">
+        <span class="tag__text" style="font-size: 0.9851851851851852rem;">
           rust
         </span>
-        <span class="tag__num" style="font-size: 0.989873417721519rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.9851851851851852rem;" dir="auto">
           (15)
         </span>
       </a>
@@ -6939,10 +6992,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/scoop/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           scoop
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6950,10 +7003,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/security/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           security
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6961,10 +7014,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/servlet/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           servlet
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -6972,10 +7025,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/spring/" class="tag">
-        <span class="tag__text" style="font-size: 0.8253164556962026rem;">
+        <span class="tag__text" style="font-size: 0.8246913580246914rem;">
           spring
         </span>
-        <span class="tag__num" style="font-size: 0.8253164556962026rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8246913580246914rem;" dir="auto">
           (2)
         </span>
       </a>
@@ -6983,10 +7036,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/spring-boot/" class="tag">
-        <span class="tag__text" style="font-size: 1.5341772151898736rem;">
+        <span class="tag__text" style="font-size: 1.5160493827160493rem;">
           spring-boot
         </span>
-        <span class="tag__num" style="font-size: 1.5341772151898736rem;" dir="auto">
+        <span class="tag__num" style="font-size: 1.5160493827160493rem;" dir="auto">
           (58)
         </span>
       </a>
@@ -6994,10 +7047,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/spring-mvc/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           spring-mvc
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -7005,10 +7058,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/spring-security/" class="tag">
-        <span class="tag__text" style="font-size: 1.0151898734177216rem;">
+        <span class="tag__text" style="font-size: 1.0098765432098766rem;">
           spring-security
         </span>
-        <span class="tag__num" style="font-size: 1.0151898734177216rem;" dir="auto">
+        <span class="tag__num" style="font-size: 1.0098765432098766rem;" dir="auto">
           (17)
         </span>
       </a>
@@ -7016,10 +7069,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/spring-session/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           spring-session
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -7027,10 +7080,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/tauri/" class="tag">
-        <span class="tag__text" style="font-size: 0.8253164556962026rem;">
+        <span class="tag__text" style="font-size: 0.8246913580246914rem;">
           tauri
         </span>
-        <span class="tag__num" style="font-size: 0.8253164556962026rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8246913580246914rem;" dir="auto">
           (2)
         </span>
       </a>
@@ -7038,10 +7091,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/testing/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           testing
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -7049,10 +7102,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/tmux/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           tmux
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -7060,10 +7113,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/tomcat/" class="tag">
-        <span class="tag__text" style="font-size: 0.8253164556962026rem;">
+        <span class="tag__text" style="font-size: 0.8246913580246914rem;">
           tomcat
         </span>
-        <span class="tag__num" style="font-size: 0.8253164556962026rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8246913580246914rem;" dir="auto">
           (2)
         </span>
       </a>
@@ -7071,10 +7124,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/ubuntu/" class="tag">
-        <span class="tag__text" style="font-size: 0.8759493670886076rem;">
+        <span class="tag__text" style="font-size: 0.8740740740740741rem;">
           ubuntu
         </span>
-        <span class="tag__num" style="font-size: 0.8759493670886076rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8740740740740741rem;" dir="auto">
           (6)
         </span>
       </a>
@@ -7082,10 +7135,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/vim/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           vim
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
@@ -7093,10 +7146,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/wasm/" class="tag">
-        <span class="tag__text" style="font-size: 0.8253164556962026rem;">
+        <span class="tag__text" style="font-size: 0.8246913580246914rem;">
           wasm
         </span>
-        <span class="tag__num" style="font-size: 0.8253164556962026rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8246913580246914rem;" dir="auto">
           (2)
         </span>
       </a>
@@ -7104,10 +7157,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/web/" class="tag">
-        <span class="tag__text" style="font-size: 0.8379746835443038rem;">
+        <span class="tag__text" style="font-size: 0.837037037037037rem;">
           web
         </span>
-        <span class="tag__num" style="font-size: 0.8379746835443038rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.837037037037037rem;" dir="auto">
           (3)
         </span>
       </a>
@@ -7115,10 +7168,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/webextensions/" class="tag">
-        <span class="tag__text" style="font-size: 0.8253164556962026rem;">
+        <span class="tag__text" style="font-size: 0.8246913580246914rem;">
           webextensions
         </span>
-        <span class="tag__num" style="font-size: 0.8253164556962026rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8246913580246914rem;" dir="auto">
           (2)
         </span>
       </a>
@@ -7126,10 +7179,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/windows/" class="tag">
-        <span class="tag__text" style="font-size: 0.9012658227848102rem;">
+        <span class="tag__text" style="font-size: 0.8987654320987655rem;">
           windows
         </span>
-        <span class="tag__num" style="font-size: 0.9012658227848102rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8987654320987655rem;" dir="auto">
           (8)
         </span>
       </a>
@@ -7137,10 +7190,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/wsl/" class="tag">
-        <span class="tag__text" style="font-size: 0.8253164556962026rem;">
+        <span class="tag__text" style="font-size: 0.8246913580246914rem;">
           wsl
         </span>
-        <span class="tag__num" style="font-size: 0.8253164556962026rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8246913580246914rem;" dir="auto">
           (2)
         </span>
       </a>
@@ -7148,10 +7201,10 @@ if (!doNotTrack) {
   
     
       <a href="/tags/yaml/" class="tag">
-        <span class="tag__text" style="font-size: 0.8126582278481013rem;">
+        <span class="tag__text" style="font-size: 0.8123456790123458rem;">
           yaml
         </span>
-        <span class="tag__num" style="font-size: 0.8126582278481013rem;" dir="auto">
+        <span class="tag__num" style="font-size: 0.8123456790123458rem;" dir="auto">
           (1)
         </span>
       </a>
