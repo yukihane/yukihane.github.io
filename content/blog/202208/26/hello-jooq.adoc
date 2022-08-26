@@ -13,4 +13,5 @@ jOOQ の挙動を確認する必要が出たので、実行環境を作りまし
 
 使い方はリンク先の README を参照してください。
 
-jOO公式リポジトリに https://github.com/jOOQ/jOOQ/tree/main/jOOQ-examples[`jOOQ-examples`] というディレクトリがあって参考になりそうだったのですが、解説がどこにあるかわからず断念しました...
+
+余談: jOO公式リポジトリに https://github.com/jOOQ/jOOQ/tree/main/jOOQ-examples[`jOOQ-examples`] というディレクトリがあって参考になりそうだったのですが、解説がどこにあるかわからず断念しました...
