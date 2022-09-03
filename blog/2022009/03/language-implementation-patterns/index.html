@@ -5931,7 +5931,7 @@ if (!doNotTrack) {
 <p>この書籍のゴールを、誤解を恐れずワンフレーズで表現すると、 &#34;ANTLR3 の気持ちを理解する&#34; です。
 最終的に読者は ANTLR3 を利用することを前提として説明が進んでいきます。
 コードサンプルも、 ANTLR が自動生成するコードに倣ったもので、可読性は低いです。
-本書の前半は ANTLR を利用しない lexer や parser が提示されますが、エッジケースには対応していなかったりします。
+本書の前半は ANTLR を利用しない lexer や parser が提示されますが、エッジケースには対応していなかったりします <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>。
 この辺りについては、「最終的には ANTLR に任せれば良いわけで、ニュアンスが掴めれば良い」というスタンスなんだと思います。</p>
 </div>
 <div class="paragraph">
@@ -5958,7 +5958,13 @@ if (!doNotTrack) {
 (ただし、現在の最新バージョンは ANTLR4 なので、そのような人は少ないと思います)。
 あとは、 ANTLR4 を使おうとしているけれど、英語に苦手意識があって公式ドキュメントの前に何か日本語の参考資料を探しているような人でしょうか。
 上記のような人以外にとっては、今や他に効率的な学習方法があるような気がしています…​
-例えば ANTLR について学びたいのであれば <a href="https://pragprog.com/titles/tpantlr2/the-definitive-antlr-4-reference/">The Definitive ANTLR 4 Reference</a> が良さそうですし、インタプリタを自前で実装してみたい、というのであればググった感じ <a href="https://www.oreilly.co.jp/books/9784873118222/">Go言語でつくるインタプリタ</a> が向いていそうです。</p>
+例えば ANTLR について学びたいのであれば <a href="https://pragprog.com/titles/tpantlr2/the-definitive-antlr-4-reference/">The Definitive ANTLR 4 Reference</a> が良さそうですし、インタプリタを写経しながら実装してみたい、というのであればググった感じ <a href="https://www.oreilly.co.jp/books/9784873118222/">Go言語でつくるインタプリタ</a> が向いていそうです。</p>
+</div>
+<div id="footnotes">
+<hr/>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. p.40 で説明されている実行で、入力に &#39;[a,b c,[d,e]]&#39; を与えても通ってしまいました(<code>bc</code> というtokenが生成されてしまいました)。
+</div>
 </div>
 
   </article>
