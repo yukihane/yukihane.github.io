@@ -1114,7 +1114,7 @@
     "datePublished": "2019-05-31T20:14:41Z",
     "dateModified": "2019-05-31T20:14:41Z",
     "url" : "https://yukihane.github.io/blog/201905/31/spring-boot-bean-on-testing/",
-    "description": "動機 ユニットテスト実行時に時間を固定して再現性のあるテスト(現在の時刻に依存しないテスト)を作成したかった。 考え方/方針 @Configuration で @Bean を定義して Clock を",
+    "description": "動機 ユニットテスト実行時に java.time.Clock を特定の時間に固定して再現性のあるテスト(現在の時刻に依存しないテスト)を作成したかった。 考え方/方針 @Configuration で @Bean を定",
     "keywords": ["spring-boot"],
     "mainEntityOfPage": {
       "@type": "WebPage",
@@ -5922,7 +5922,7 @@ if (!doNotTrack) {
 
   <article class="single__contents" data-dir="ltr">
     <h1 id="動機">動機</h1>
-<p>ユニットテスト実行時に時間を固定して再現性のあるテスト(現在の時刻に依存しないテスト)を作成したかった。</p>
+<p>ユニットテスト実行時に <a href="https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/time/Clock.html" target="_blank">java.time.Clock</a> を特定の時間に固定して再現性のあるテスト(現在の時刻に依存しないテスト)を作成したかった。</p>
 <h1 id="考え方方針">考え方/方針</h1>
 <p><code>@Configuration</code> で <code>@Bean</code> を定義して <code>Clock</code> をインジェクションできるようにし、実装ではそれを用いる。</p>
 <p>テストコードでは <a href="https://docs.spring.io/spring-boot/docs/2.1.5.RELEASE/reference/html/boot-features-testing.html#boot-features-testing-spring-boot-applications-detecting-config" target="_blank">@TestConfiguration</a> で上で定義した <code>@Bean</code> をオーバライドしてテスト用<code>Clock</code>を供給する。</p>
