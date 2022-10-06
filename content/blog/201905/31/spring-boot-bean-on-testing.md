@@ -15,13 +15,13 @@ draft: false
 
 # 動機
 
-ユニットテスト実行時に [java.time.Clock](https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/time/Clock.html) を挿げ替えてストップ・ザ・ワールド([GC](https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%99%E3%83%BC%E3%82%B8%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3)的な意味でなく[ジョジョ](https://dic.nicovideo.jp/a/%E3%82%B6%E3%83%BB%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89)的な意味で)したかった。
+ユニットテスト実行時に [java.time.Clock](https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/time/Clock.html) を特定の時間に固定して再現性のあるテスト(現在の時刻に依存しないテスト)を作成したかった。
 
 # 考え方/方針
 
 `@Configuration` で `@Bean` を定義して `Clock` をインジェクションできるようにし、実装ではそれを用いる。
 
-テストコードでは [@TestConfiguration](https://docs.spring.io/spring-boot/docs/2.1.5.RELEASE/reference/html/boot-features-testing.html#boot-features-testing-spring-boot-applications-detecting-config) で上で定義した `@Bean` をオーバライドしてストップ・ザ・ワールド用`Clock`を供給する。
+テストコードでは [@TestConfiguration](https://docs.spring.io/spring-boot/docs/2.1.5.RELEASE/reference/html/boot-features-testing.html#boot-features-testing-spring-boot-applications-detecting-config) で上で定義した `@Bean` をオーバライドしてテスト用`Clock`を供給する。
 
 少し迷う点としては、現時点(バージョン 2.1.5)のリファレンスには `@TestConfiguration` をテストクラスの static inner クラスとして作っておけば優先的に有効化されるように書かれているが、実際はエラーになる。
 
