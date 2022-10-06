@@ -1114,7 +1114,7 @@
     "datePublished": "2019-05-31T20:14:41Z",
     "dateModified": "2019-05-31T20:14:41Z",
     "url" : "https://yukihane.github.io/blog/201905/31/spring-boot-bean-on-testing/",
-    "description": "動機 ユニットテスト実行時に java.time.Clock を挿げ替えてストップ・ザ・ワールド(GC的な意味でなくジョジョ的な意味で)したかった。 考え方/方針 @Configuration で @Bean を定義し",
+    "description": "動機 ユニットテスト実行時に時間を固定して再現性のあるテスト(現在の時刻に依存しないテスト)を作成したかった。 考え方/方針 @Configuration で @Bean を定義して Clock を",
     "keywords": ["spring-boot"],
     "mainEntityOfPage": {
       "@type": "WebPage",
@@ -5922,10 +5922,10 @@ if (!doNotTrack) {
 
   <article class="single__contents" data-dir="ltr">
     <h1 id="動機">動機</h1>
-<p>ユニットテスト実行時に <a href="https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/time/Clock.html" target="_blank">java.time.Clock</a> を挿げ替えてストップ・ザ・ワールド(<a href="https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%99%E3%83%BC%E3%82%B8%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3" target="_blank">GC</a>的な意味でなく<a href="https://dic.nicovideo.jp/a/%E3%82%B6%E3%83%BB%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89" target="_blank">ジョジョ</a>的な意味で)したかった。</p>
+<p>ユニットテスト実行時に時間を固定して再現性のあるテスト(現在の時刻に依存しないテスト)を作成したかった。</p>
 <h1 id="考え方方針">考え方/方針</h1>
 <p><code>@Configuration</code> で <code>@Bean</code> を定義して <code>Clock</code> をインジェクションできるようにし、実装ではそれを用いる。</p>
-<p>テストコードでは <a href="https://docs.spring.io/spring-boot/docs/2.1.5.RELEASE/reference/html/boot-features-testing.html#boot-features-testing-spring-boot-applications-detecting-config" target="_blank">@TestConfiguration</a> で上で定義した <code>@Bean</code> をオーバライドしてストップ・ザ・ワールド用<code>Clock</code>を供給する。</p>
+<p>テストコードでは <a href="https://docs.spring.io/spring-boot/docs/2.1.5.RELEASE/reference/html/boot-features-testing.html#boot-features-testing-spring-boot-applications-detecting-config" target="_blank">@TestConfiguration</a> で上で定義した <code>@Bean</code> をオーバライドしてテスト用<code>Clock</code>を供給する。</p>
 <p>少し迷う点としては、現時点(バージョン 2.1.5)のリファレンスには <code>@TestConfiguration</code> をテストクラスの static inner クラスとして作っておけば優先的に有効化されるように書かれているが、実際はエラーになる。</p>
 <p><a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.1-Release-Notes#bean-overriding" target="_blank"><code>2.1.0</code> よりデフォルトでは bean オーバーライドが許可されなくなった</a>ためだろう。</p>
 <p>対応としては、</p>
