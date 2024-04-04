@@ -1,9 +1,6 @@
 [submodule "themes/slick"]
 	path = themes/slick
 	url = https://github.com/spookey/slick.git
-[submodule "themes/okayish"]
-	path = themes/okayish
-	url = https://github.com/kongdivin/hugo-theme-okayish-blog.git
 [submodule "output"]
 	path = public
 	url = https://github.com/yukihane/yukihane.github.io.git
