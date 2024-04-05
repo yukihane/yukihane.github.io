@@ -6093,24 +6093,20 @@ cargo add reqwest</code></pre>
 <p>この関数に対してテストコードを書いていきましょう。
 自動生成されていたテンプレートを書き換えてみます。</p>
 </div>
-<div class="paragraph">
-<p>#[cfg(test)]
-mod tests {</p>
-</div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>use super::*;</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>    #[test]
+<pre class="highlight"><code class="language-rust" data-lang="rust">#[cfg(test)]
+mod tests {
+
+    use super::*;
+
+    #[test]
     fn it_works() {
         // my_func() は Result&lt;String, reqwest::Error&gt; を返しているので unwrap() する
         let result = my_func().unwrap();
         assert_eq!(result, &#34;OK&#34;);
     }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
