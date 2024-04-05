@@ -15,6 +15,15 @@
     
       
       <item>
+        <title>asyncなライブラリー関数のテストを書く</title>
+        <link>https://yukihane.github.io/blog/202404/05/rust-test-async/</link>
+        <pubDate>Fri, 05 Apr 2024 05:45:28 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202404/05/rust-test-async/</guid>
+        <description>今回解決したい問題 reqwestのドキュメント の最初のサンプルをテスト実行することを考えます。 let body = reqwest::get(&amp;#34;https://www.rust-lang.org&amp;#34;) .await? .text() .await?; println!(&amp;#34;body = {body:?}&amp;#34;); まず Cargo.toml に依存関係を追加して</description>
+      </item>
+      
+      <item>
         <title>言語実装パターン レビュー</title>
         <link>https://yukihane.github.io/blog/2022009/03/language-implementation-patterns/</link>
         <pubDate>Sat, 03 Sep 2022 12:16:33 +0900</pubDate>
