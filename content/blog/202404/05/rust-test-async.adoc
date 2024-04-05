@@ -138,6 +138,8 @@ async fn my_func() -> Result<String, reqwest::Error> {
 この関数に対してテストコードを書いていきましょう。
 自動生成されていたテンプレートを書き換えてみます。
 
+[source, rust]
+----
 #[cfg(test)]
 mod tests {
 
@@ -150,6 +152,7 @@ mod tests {
         assert_eq!(result, "OK");
     }
 }
+----
 
 `cargo test` を実行すると次のエラーメッセージ。
 
