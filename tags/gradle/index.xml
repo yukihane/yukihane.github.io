@@ -7,12 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Sat, 12 Sep 2020 12:26:22 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 20 Oct 2024 14:51:14 +0900</lastBuildDate>
     
         <atom:link href="https://yukihane.github.io/tags/gradle/index.xml" rel="self" type="application/rss+xml" />
     
     
     
+      
+      <item>
+        <title>Gradleプロジェクトではリソースファイルを編集してもAutomatic Restartしてしまう</title>
+        <link>https://yukihane.github.io/blog/202410/20/spring-boot-devtools-auto-restart/</link>
+        <pubDate>Sun, 20 Oct 2024 14:51:14 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202410/20/spring-boot-devtools-auto-restart/</guid>
+        <description>Devtools always triggers restart if build with gradle - spring-projects/spring-boot #20136 Delegated build process always triggers Spring-Boot devtools restart - gradle/gradle #12220 にある通りですが。 spring-boot-devtools の説明では、クラスのリロードが必要になった場合それを検知して自動的に再起動す</description>
+      </item>
       
       <item>
         <title>WindowsでGradleが扱うリソースのファイルエンコーディング設定</title>

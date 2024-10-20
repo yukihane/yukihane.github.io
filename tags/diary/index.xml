@@ -7,12 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Sat, 06 Apr 2024 17:28:51 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 20 Oct 2024 14:59:16 +0900</lastBuildDate>
     
         <atom:link href="https://yukihane.github.io/tags/diary/index.xml" rel="self" type="application/rss+xml" />
     
     
     
+      
+      <item>
+        <title>Markdownでblogを書くようにしました</title>
+        <link>https://yukihane.github.io/blog/202410/20/blog-with-markdown/</link>
+        <pubDate>Sun, 20 Oct 2024 14:59:16 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202410/20/blog-with-markdown/</guid>
+        <description>これまでは Asciidoc を利用してきましたが、もはや Markdown の覇権は揺るぎそうにないので宗旨変えをすることにしました。 blog 用の SSG も、Asciidoc のサポートが</description>
+      </item>
       
       <item>
         <title>Buffaloのルーターはもう買わないことにした</title>

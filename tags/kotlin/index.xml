@@ -7,12 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Sat, 12 Mar 2022 20:39:32 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 11 Jun 2022 11:55:44 +0900</lastBuildDate>
     
         <atom:link href="https://yukihane.github.io/tags/kotlin/index.xml" rel="self" type="application/rss+xml" />
     
     
     
+      
+      <item>
+        <title>Kotlin の似たようなクラス</title>
+        <link>https://yukihane.github.io/blog/202206/11/kotlin-data-class-and-so-on/</link>
+        <pubDate>Sat, 11 Jun 2022 11:55:44 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202206/11/kotlin-data-class-and-so-on/</guid>
+        <description>(昔書きかけて完成していないっぽいですが、置いておいても忘れるだけなのでcommitしてしまいます) value object のことを調べていたら、 Kotlin にぱっと見似</description>
+      </item>
       
       <item>
         <title>Kotlin で JPA エンティティクラスを定義する</title>

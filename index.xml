@@ -15,6 +15,24 @@
     
       
       <item>
+        <title>Markdownでblogを書くようにしました</title>
+        <link>https://yukihane.github.io/blog/202410/20/blog-with-markdown/</link>
+        <pubDate>Sun, 20 Oct 2024 14:59:16 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202410/20/blog-with-markdown/</guid>
+        <description>これまでは Asciidoc を利用してきましたが、もはや Markdown の覇権は揺るぎそうにないので宗旨変えをすることにしました。 blog 用の SSG も、Asciidoc のサポートが</description>
+      </item>
+      
+      <item>
+        <title>Gradleプロジェクトではリソースファイルを編集してもAutomatic Restartしてしまう</title>
+        <link>https://yukihane.github.io/blog/202410/20/spring-boot-devtools-auto-restart/</link>
+        <pubDate>Sun, 20 Oct 2024 14:51:14 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202410/20/spring-boot-devtools-auto-restart/</guid>
+        <description>Devtools always triggers restart if build with gradle - spring-projects/spring-boot #20136 Delegated build process always triggers Spring-Boot devtools restart - gradle/gradle #12220 にある通りですが。 spring-boot-devtools の説明では、クラスのリロードが必要になった場合それを検知して自動的に再起動す</description>
+      </item>
+      
+      <item>
         <title>Buffaloのルーターはもう買わないことにした</title>
         <link>https://yukihane.github.io/blog/202404/06/buffalo-router/</link>
         <pubDate>Sat, 06 Apr 2024 17:28:51 +0900</pubDate>
@@ -75,6 +93,15 @@
         
         <guid>https://yukihane.github.io/blog/202206/12/java-value-based-class/</guid>
         <description>Java 標準 API のドキュメントには、 &amp;#34;値ベース・クラス&amp;#34; というページがあります: https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/ValueBased.html 機械翻訳っぽくて分かりづらい箇所もあるので、併せて</description>
+      </item>
+      
+      <item>
+        <title>Kotlin の似たようなクラス</title>
+        <link>https://yukihane.github.io/blog/202206/11/kotlin-data-class-and-so-on/</link>
+        <pubDate>Sat, 11 Jun 2022 11:55:44 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202206/11/kotlin-data-class-and-so-on/</guid>
+        <description>(昔書きかけて完成していないっぽいですが、置いておいても忘れるだけなのでcommitしてしまいます) value object のことを調べていたら、 Kotlin にぱっと見似</description>
       </item>
       
       <item>
