@@ -15,6 +15,42 @@
     
       
       <item>
+        <title>Buffaloのルーターはもう買わないことにした</title>
+        <link>https://yukihane.github.io/blog/202404/06/buffalo-router/</link>
+        <pubDate>Sat, 06 Apr 2024 17:28:51 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202404/06/buffalo-router/</guid>
+        <description>2023年2月上旬に WSR-6000AX8(Amazon) というルーターを購入したのですが、高頻度で受信エラーが発生しました。 リモートワークを行っていますのでこのままだと仕事に</description>
+      </item>
+      
+      <item>
+        <title>確定申告(2023年分)振り返り</title>
+        <link>https://yukihane.github.io/blog/202404/06/final-tax-return/</link>
+        <pubDate>Sat, 06 Apr 2024 07:05:50 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202404/06/final-tax-return/</guid>
+        <description>次回に向けて重要だと考える順に書いていきます。 消費税簡易課税制度選択届出書を出しておく必要がありそう。現在は２割特例が効いている。 No.6505 簡易課税</description>
+      </item>
+      
+      <item>
+        <title>Wayland では gimp でスクリーンショットを撮れなくなったり xeyes が追従しなくなったり</title>
+        <link>https://yukihane.github.io/blog/202404/06/losts-on-wayland/</link>
+        <pubDate>Sat, 06 Apr 2024 06:00:24 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202404/06/losts-on-wayland/</guid>
+        <description>セキュリティ上の理由っぽいのですが、最近 Ubuntu でやろうとしてできないことが重なり、あれ？ってなりました。 Screenshot not capturing &amp;#39;snapped&amp;#39; window; Screenshot window pops up behind main GIMP window ここで &amp;#34;Screenshot portal&amp;#34; を使</description>
+      </item>
+      
+      <item>
+        <title>asyncなライブラリー関数のテストを書く</title>
+        <link>https://yukihane.github.io/blog/202404/05/rust-test-async/</link>
+        <pubDate>Fri, 05 Apr 2024 05:45:28 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202404/05/rust-test-async/</guid>
+        <description>今回解決したい問題 reqwestのドキュメント の最初のサンプルをテスト実行することを考えます。 let body = reqwest::get(&amp;#34;https://www.rust-lang.org&amp;#34;) .await? .text() .await?; println!(&amp;#34;body = {body:?}&amp;#34;); まず Cargo.toml に依存関係を追加して</description>
+      </item>
+      
+      <item>
         <title>言語実装パターン レビュー</title>
         <link>https://yukihane.github.io/blog/202209/03/language-implementation-patterns/</link>
         <pubDate>Sat, 03 Sep 2022 12:16:33 +0900</pubDate>
