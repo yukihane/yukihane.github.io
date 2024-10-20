@@ -7,21 +7,12 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Sat, 06 Apr 2024 06:00:24 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 30 Aug 2020 21:32:44 +0000</lastBuildDate>
     
         <atom:link href="https://yukihane.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     
-      
-      <item>
-        <title>Wayland では gimp でスクリーンショットを撮れなくなったり xeyes が追従しなくなったり</title>
-        <link>https://yukihane.github.io/blog/202404/06/losts-on-wayland/</link>
-        <pubDate>Sat, 06 Apr 2024 06:00:24 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202404/06/losts-on-wayland/</guid>
-        <description>セキュリティ上の理由っぽいのですが、最近 Ubuntu でやろうとしてできないことが重なり、あれ？ってなりました。 Screenshot not capturing &amp;#39;snapped&amp;#39; window; Screenshot window pops up behind main GIMP window ここで &amp;#34;Screenshot portal&amp;#34; を使</description>
-      </item>
       
       <item>
         <title>CentOS6にGCC10.2.0をインストールしたときのメモ</title>
