@@ -6094,8 +6094,10 @@ if (!doNotTrack) {
 <p>しかし Gradle プロジェクトの場合、templates や static ディレクトリ以下のファイル変更でも再起動されてしまいます。</p>
 <p>Eclipse や IntelliJ IDEA といった IDE を利用している場合、IDE の機能でデバッグ実行時クラスの hot swapping もできますので再起動機能は余計なお世話です。機能を無効化してしまいましょう。<br />
 起動時、JVM options に次の引数を追加します:</p>
-<pre tabindex="0"><code>-Dspring.devtools.restart.enabled=false
-</code></pre><p>参考:</p>
+<pre tabindex="0"><code>-Dspring.devtools.restart.enabled=false -Dspring.thymeleaf.cache=false
+</code></pre><p>(devtools を組み込めばテンプレートのキャッシュはされなくなるように読めましたが、やってみるとキャッシュされてしまっているようなのでキャッシュ無効化オプションも付けています)</p>
+<p>開発用にプロファイルを作っているのであれば、 <code>application-*.yml</code> に設定してしまっても良いかもしれません。</p>
+<p>参考:</p>
 <ul>
 <li><a href="https://docs.spring.io/spring-boot/how-to/hotswapping.html" target="_blank">Hot Swapping :: Spring Boot</a></li>
 <li><a href="https://docs.spring.io/spring-boot/reference/using/devtools.html" target="_blank">Developer Tools :: Spring Boot</a></li>
