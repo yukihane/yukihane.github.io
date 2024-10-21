@@ -22,8 +22,11 @@ Eclipse や IntelliJ IDEA といった IDE を利用している場合、IDE の
 起動時、JVM options に次の引数を追加します:
 
 ```
--Dspring.devtools.restart.enabled=false
+-Dspring.devtools.restart.enabled=false -Dspring.thymeleaf.cache=false
 ```
+(devtools を組み込めばテンプレートのキャッシュはされなくなるように読めましたが、やってみるとキャッシュされてしまっているようなのでキャッシュ無効化オプションも付けています)
+
+開発用にプロファイルを作っているのであれば、 `application-*.yml` に設定してしまっても良いかもしれません。
 
 参考:
 
