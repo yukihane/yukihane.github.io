@@ -28,6 +28,10 @@ Spring Boot で Thymeleaf(などのテンプレートエンジン) を用いる�
 
 Vite の標準処理フローでは、整合性を保ったままこのように 2 つのディレクトリーに assets を配備することはできなさそうなので、 plugins 機構を使ってマニュアルでファイルを移動させることにしました。
 
+## 実証コード
+
+- https://github.com/yukihane/hello-java/tree/main/spring/with-vite
+
 ## 手順
 
 ### Spring Boot プロジェクト作成
@@ -118,7 +122,7 @@ export default {
         );
 
         try {
-          await fs.rm(destTemplates, { recursive: true });
+          await fs.rm(destTemplates, { recursive: true, force: true });
           await fs.mkdir(destTemplates, { recursive: true });
           await fs.cp(srcTemplates, destTemplates, {
             recursive: true,
@@ -128,7 +132,7 @@ export default {
             `Moved templates from ${srcTemplates} to ${destTemplates}`
           );
 
-          await fs.rm(destVite, { recursive: true });
+          await fs.rm(destVite, { recursive: true, force: true });
           await fs.mkdir(destVite, { recursive: true });
           await fs.cp(srcVite, destVite, {
             recursive: true,
