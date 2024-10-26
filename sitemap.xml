@@ -4,7 +4,27 @@
   
   <url>
     <loc>https://yukihane.github.io/blog/</loc>
-    <lastmod>2024-10-20T14:59:16+09:00</lastmod>
+    <lastmod>2024-10-26T01:49:44+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yukihane.github.io/tags/frontend/</loc>
+    <lastmod>2024-10-26T01:49:44+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yukihane.github.io/blog/202410/26/spring-boot-with-vite/</loc>
+    <lastmod>2024-10-26T01:49:44+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yukihane.github.io/tags/spring-boot/</loc>
+    <lastmod>2024-10-26T01:49:44+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yukihane.github.io/tags/vite/</loc>
+    <lastmod>2024-10-26T01:49:44+09:00</lastmod>
   </url>
   
   <url>
@@ -24,11 +44,6 @@
   
   <url>
     <loc>https://yukihane.github.io/blog/202410/20/spring-boot-devtools-auto-restart/</loc>
-    <lastmod>2024-10-20T14:51:14+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yukihane.github.io/tags/spring-boot/</loc>
     <lastmod>2024-10-20T14:51:14+09:00</lastmod>
   </url>
   
@@ -1775,11 +1790,6 @@
   <url>
     <loc>https://yukihane.github.io/tags/jetty/</loc>
     <lastmod>2018-01-28T19:16:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yukihane.github.io/tags/frontend/</loc>
-    <lastmod>2018-01-21T19:12:25+00:00</lastmod>
   </url>
   
   <url>
