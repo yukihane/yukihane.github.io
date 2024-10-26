@@ -6108,15 +6108,19 @@ if (!doNotTrack) {
     <h2 id="はじめに">はじめに</h2>
 <p>次のエントリーで、Spring Boot &amp; Thymeleaf な開発時に TypeScript を利用する設定を書きました。</p>
 <ul>
-<li><a href="/https://yukihane.github.io/blog/202107/10/spring-boot-with-typescript/">Spring Boot と TypeScript で開発するためのプロジェクト設定(Gradle)</a></li>
-<li><a href="/https://yukihane.github.io/blog/202107/11/spring-boot-with-babel/">Spring Boot と TypeScript で開発するためのプロジェクト設定(Gradle) - Polyfill も必要とする場合</a></li>
+<li><a href="//blog/202107/10/spring-boot-with-typescript/">Spring Boot と TypeScript で開発するためのプロジェクト設定(Gradle)</a></li>
+<li><a href="//blog/202107/11/spring-boot-with-babel/">Spring Boot と TypeScript で開発するためのプロジェクト設定(Gradle) - Polyfill も必要とする場合</a></li>
 </ul>
 <p>今回は Spring Boot &amp; Thymeleaf な開発で、もうちょっとちゃんとモダンなフロントエンド開発環境を統合する手順です。</p>
 <p>表題の通り Vite を利用します。</p>
-<p>また、<a href="/https://yukihane.github.io/blog/202410/20/spring-boot-devtools-auto-restart/">こちら</a>に書いた問題があるので spring-boot-devtools には依存しないようにします(代わりに IDE(ここでは IntelliJ IDEA Ultimate を利用しますが、Eclipse など他の IDE でも同じはず)の hot swapping 機能を前提にします)。</p>
+<p>また、<a href="//blog/202410/20/spring-boot-devtools-auto-restart/">こちら</a>に書いた問題があるので spring-boot-devtools には依存しないようにします(代わりに IDE(ここでは IntelliJ IDEA Ultimate を利用しますが、Eclipse など他の IDE でも同じはず)の hot swapping 機能を前提にします)。</p>
 <h2 id="本文の要点">本文の要点</h2>
 <p>Spring Boot で Thymeleaf(などのテンプレートエンジン) を用いる場合、リソースファイルを <code>templates</code> と <code>static</code> のディレクトリーに分類して配置する必要があります。</p>
 <p>Vite の標準処理フローでは、整合性を保ったままこのように 2 つのディレクトリーに assets を配備することはできなさそうなので、 plugins 機構を使ってマニュアルでファイルを移動させることにしました。</p>
+<h2 id="実証コード">実証コード</h2>
+<ul>
+<li><a href="https://github.com/yukihane/hello-java/tree/main/spring/with-vite" target="_blank">https://github.com/yukihane/hello-java/tree/main/spring/with-vite</a></li>
+</ul>
 <h2 id="手順">手順</h2>
 <h3 id="spring-boot-プロジェクト作成">Spring Boot プロジェクト作成</h3>
 <p>まず、Spring Boot の環境を整えます。 <a href="https://start.spring.io/" target="_blank">https://start.spring.io/</a> で &ldquo;Spring Web&rdquo;, &ldquo;Thymeleaf&rdquo; を含むプロジェクトを作成し、ローカルに展開します。</p>
@@ -6254,7 +6258,7 @@ Spring Boot プロジェクトディレクトリのルート(<code>gradlew</code
         <span class="p">);</span>
 
         <span class="k">try</span> <span class="p">{</span>
-          <span class="k">await</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">rm</span><span class="p">(</span><span class="nx">destTemplates</span><span class="p">,</span> <span class="p">{</span> <span class="nx">recursive</span>: <span class="kt">true</span> <span class="p">});</span>
+          <span class="k">await</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">rm</span><span class="p">(</span><span class="nx">destTemplates</span><span class="p">,</span> <span class="p">{</span> <span class="nx">recursive</span>: <span class="kt">true</span><span class="p">,</span> <span class="nx">force</span>: <span class="kt">true</span> <span class="p">});</span>
           <span class="k">await</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">mkdir</span><span class="p">(</span><span class="nx">destTemplates</span><span class="p">,</span> <span class="p">{</span> <span class="nx">recursive</span>: <span class="kt">true</span> <span class="p">});</span>
           <span class="k">await</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">cp</span><span class="p">(</span><span class="nx">srcTemplates</span><span class="p">,</span> <span class="nx">destTemplates</span><span class="p">,</span> <span class="p">{</span>
             <span class="nx">recursive</span>: <span class="kt">true</span><span class="p">,</span>
@@ -6264,7 +6268,7 @@ Spring Boot プロジェクトディレクトリのルート(<code>gradlew</code
             <span class="sb">`Moved templates from </span><span class="si">${</span><span class="nx">srcTemplates</span><span class="si">}</span><span class="sb"> to </span><span class="si">${</span><span class="nx">destTemplates</span><span class="si">}</span><span class="sb">`</span>
           <span class="p">);</span>
 
-          <span class="k">await</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">rm</span><span class="p">(</span><span class="nx">destVite</span><span class="p">,</span> <span class="p">{</span> <span class="nx">recursive</span>: <span class="kt">true</span> <span class="p">});</span>
+          <span class="k">await</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">rm</span><span class="p">(</span><span class="nx">destVite</span><span class="p">,</span> <span class="p">{</span> <span class="nx">recursive</span>: <span class="kt">true</span><span class="p">,</span> <span class="nx">force</span>: <span class="kt">true</span> <span class="p">});</span>
           <span class="k">await</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">mkdir</span><span class="p">(</span><span class="nx">destVite</span><span class="p">,</span> <span class="p">{</span> <span class="nx">recursive</span>: <span class="kt">true</span> <span class="p">});</span>
           <span class="k">await</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">cp</span><span class="p">(</span><span class="nx">srcVite</span><span class="p">,</span> <span class="nx">destVite</span><span class="p">,</span> <span class="p">{</span>
             <span class="nx">recursive</span>: <span class="kt">true</span><span class="p">,</span>
@@ -6479,6 +6483,7 @@ convert -size 300x100 xc:lightblue -gravity center -pointsize 20 -draw &quot;tex
   <ul>
     <li><a href="#はじめに">はじめに</a></li>
     <li><a href="#本文の要点">本文の要点</a></li>
+    <li><a href="#実証コード">実証コード</a></li>
     <li><a href="#手順">手順</a>
       <ul>
         <li><a href="#spring-boot-プロジェクト作成">Spring Boot プロジェクト作成</a></li>
