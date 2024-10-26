@@ -6108,12 +6108,12 @@ if (!doNotTrack) {
     <h2 id="はじめに">はじめに</h2>
 <p>次のエントリーで、Spring Boot &amp; Thymeleaf な開発時に TypeScript を利用する設定を書きました。</p>
 <ul>
-<li><a href="/https://yukihane.github.io/blog/202107/10/spring-boot-with-typescript/">Spring Boot と TypeScript で開発するためのプロジェクト設定(Gradle)</a></li>
-<li><a href="/https://yukihane.github.io/blog/202107/11/spring-boot-with-babel/">Spring Boot と TypeScript で開発するためのプロジェクト設定(Gradle) - Polyfill も必要とする場合</a></li>
+<li><a href="/blog/202107/10/spring-boot-with-typescript">Spring Boot と TypeScript で開発するためのプロジェクト設定(Gradle)</a></li>
+<li><a href="/blog/202107/11/spring-boot-with-babel">Spring Boot と TypeScript で開発するためのプロジェクト設定(Gradle) - Polyfill も必要とする場合</a></li>
 </ul>
 <p>今回は Spring Boot &amp; Thymeleaf な開発で、もうちょっとちゃんとモダンなフロントエンド開発環境を統合する手順です。</p>
 <p>表題の通り Vite を利用します。</p>
-<p>また、<a href="/https://yukihane.github.io/blog/202410/20/spring-boot-devtools-auto-restart/">こちら</a>に書いた問題があるので spring-boot-devtools には依存しないようにします(代わりに IDE(ここでは IntelliJ IDEA Ultimate を利用しますが、Eclipse など他の IDE でも同じはず)の hot swapping 機能を前提にします)。</p>
+<p>また、<a href="/blog/202410/20/spring-boot-devtools-auto-restart">こちら</a>に書いた問題があるので spring-boot-devtools には依存しないようにします(代わりに IDE(ここでは IntelliJ IDEA Ultimate を利用しますが、Eclipse など他の IDE でも同じはず)の hot swapping 機能を前提にします)。</p>
 <h2 id="本文の要点">本文の要点</h2>
 <p>Spring Boot で Thymeleaf(などのテンプレートエンジン) を用いる場合、リソースファイルを <code>templates</code> と <code>static</code> のディレクトリーに分類して配置する必要があります。</p>
 <p>Vite の標準処理フローでは、整合性を保ったままこのように 2 つのディレクトリーに assets を配備することはできなさそうなので、 plugins 機構を使ってマニュアルでファイルを移動させることにしました。</p>
