@@ -13,14 +13,14 @@ tags: ["spring-boot", "vite", "frontend"]
 
 次のエントリーで、Spring Boot & Thymeleaf な開発時に TypeScript を利用する設定を書きました。
 
-- [Spring Boot と TypeScript で開発するためのプロジェクト設定(Gradle)]({{< ref "/blog/202107/10/spring-boot-with-typescript" >}})
-- [Spring Boot と TypeScript で開発するためのプロジェクト設定(Gradle) - Polyfill も必要とする場合]({{< ref "/blog/202107/11/spring-boot-with-babel" >}})
+- [Spring Boot と TypeScript で開発するためのプロジェクト設定(Gradle)](/blog/202107/10/spring-boot-with-typescript)
+- [Spring Boot と TypeScript で開発するためのプロジェクト設定(Gradle) - Polyfill も必要とする場合](/blog/202107/11/spring-boot-with-babel)
 
 今回は Spring Boot & Thymeleaf な開発で、もうちょっとちゃんとモダンなフロントエンド開発環境を統合する手順です。
 
 表題の通り Vite を利用します。
 
-また、[こちら]({{< ref "/blog/202410/20/spring-boot-devtools-auto-restart" >}})に書いた問題があるので spring-boot-devtools には依存しないようにします(代わりに IDE(ここでは IntelliJ IDEA Ultimate を利用しますが、Eclipse など他の IDE でも同じはず)の hot swapping 機能を前提にします)。
+また、[こちら](/blog/202410/20/spring-boot-devtools-auto-restart)に書いた問題があるので spring-boot-devtools には依存しないようにします(代わりに IDE(ここでは IntelliJ IDEA Ultimate を利用しますが、Eclipse など他の IDE でも同じはず)の hot swapping 機能を前提にします)。
 
 ## 本文の要点
 
