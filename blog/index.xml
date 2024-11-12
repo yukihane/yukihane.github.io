@@ -7,12 +7,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Sat, 26 Oct 2024 01:49:44 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 12 Nov 2024 21:16:11 +0900</lastBuildDate>
     
         <atom:link href="https://yukihane.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     
+      
+      <item>
+        <title>Stable Diffusion Installation on Windows11</title>
+        <link>https://yukihane.github.io/blog/202411/12/stable-diffusion-installation/</link>
+        <pubDate>Tue, 12 Nov 2024 21:16:11 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202411/12/stable-diffusion-installation/</guid>
+        <description>Windows11へStable Diffusionをインストールしたときの作業ログです。 簡単に 現時点では AUTOMATIC1111/stable-diffusion-webui というパッケージが最もメジャーな様</description>
+      </item>
+      
+      <item>
+        <title>Windows Terminal を起動するとフォントが無いというエラーが出た</title>
+        <link>https://yukihane.github.io/blog/202411/12/windows-terminal-font-not-found/</link>
+        <pubDate>Tue, 12 Nov 2024 20:59:43 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202411/12/windows-terminal-font-not-found/</guid>
+        <description>久しぶりにWSL2で作業をしようとWindows Terminalを起動するとフォントが存在しない旨のエラーが出ました。 Cicaフォントを指定</description>
+      </item>
       
       <item>
         <title>Spring Boot 開発で SASS や TypeScript を利用するための設定(Vite)</title>

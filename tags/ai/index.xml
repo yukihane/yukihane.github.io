@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ai on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/ai/</link>
+    <description>Recent content in ai on 発火後忘失</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Tue, 12 Nov 2024 21:16:11 +0900</lastBuildDate>
+    
+        <atom:link href="https://yukihane.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Stable Diffusion Installation on Windows11</title>
+        <link>https://yukihane.github.io/blog/202411/12/stable-diffusion-installation/</link>
+        <pubDate>Tue, 12 Nov 2024 21:16:11 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202411/12/stable-diffusion-installation/</guid>
+        <description>Windows11へStable Diffusionをインストールしたときの作業ログです。 簡単に 現時点では AUTOMATIC1111/stable-diffusion-webui というパッケージが最もメジャーな様</description>
+      </item>
+      
+    
+  </channel>
+</rss>
