@@ -5,6 +5,8 @@ draft: false
 tags: ["ai", "windows"]
 ---
 
+(追記: 後で知りましたが、Stability Matrix というパッケージがここに書いた手順よりインストールが簡単そうでした)
+
 Windows11へStable Diffusionをインストールしたときの作業ログです。
 
 ## 簡単に
