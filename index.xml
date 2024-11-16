@@ -15,6 +15,15 @@
     
       
       <item>
+        <title>Centos7 に Homebrew を導入して Puppeteer を実行する</title>
+        <link>https://yukihane.github.io/blog/202411/17/centos7-homebrew/</link>
+        <pubDate>Sat, 16 Nov 2024 12:09:03 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202411/17/centos7-homebrew/</guid>
+        <description>次の回答の検証になります: CentOS7 環境で glibc を 2.27 にアップデートすると、どんな影響がありますか？ - スタック・オーバーフロー 環境は前回のエントリーで用意</description>
+      </item>
+      
+      <item>
         <title>CentOS7実行環境を整える</title>
         <link>https://yukihane.github.io/blog/202411/16/centos7-environment/</link>
         <pubDate>Sat, 16 Nov 2024 05:30:06 +0900</pubDate>
