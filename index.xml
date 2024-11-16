@@ -15,6 +15,15 @@
     
       
       <item>
+        <title>CentOS7実行環境を整える</title>
+        <link>https://yukihane.github.io/blog/202411/16/centos7-environment/</link>
+        <pubDate>Sat, 16 Nov 2024 05:30:06 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202411/16/centos7-environment/</guid>
+        <description>今さらCentOS7環境で検証する必要が出たので環境を整えました。 その時のメモです。 ホストOSはWindows11です。 インストール Vagrant scoop でイ</description>
+      </item>
+      
+      <item>
         <title>Stable Diffusion Installation on Windows11</title>
         <link>https://yukihane.github.io/blog/202411/12/stable-diffusion-installation/</link>
         <pubDate>Tue, 12 Nov 2024 21:16:11 +0900</pubDate>

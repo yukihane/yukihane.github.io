@@ -3,12 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://yukihane.github.io/tags/ai/</loc>
-    <lastmod>2024-11-12T21:16:11+09:00</lastmod>
+    <loc>https://yukihane.github.io/blog/</loc>
+    <lastmod>2024-11-16T05:30:06+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://yukihane.github.io/blog/</loc>
+    <loc>https://yukihane.github.io/blog/202411/16/centos7-environment/</loc>
+    <lastmod>2024-11-16T05:30:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yukihane.github.io/tags/linux/</loc>
+    <lastmod>2024-11-16T05:30:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yukihane.github.io/tags/ai/</loc>
     <lastmod>2024-11-12T21:16:11+09:00</lastmod>
   </url>
   
@@ -85,11 +95,6 @@
   <url>
     <loc>https://yukihane.github.io/blog/202404/06/final-tax-return/</loc>
     <lastmod>2024-04-06T07:05:50+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yukihane.github.io/tags/linux/</loc>
-    <lastmod>2024-04-06T06:00:24+09:00</lastmod>
   </url>
   
   <url>

@@ -7,12 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Sat, 06 Apr 2024 06:00:24 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 16 Nov 2024 05:30:06 +0900</lastBuildDate>
     
         <atom:link href="https://yukihane.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     
+      
+      <item>
+        <title>CentOS7実行環境を整える</title>
+        <link>https://yukihane.github.io/blog/202411/16/centos7-environment/</link>
+        <pubDate>Sat, 16 Nov 2024 05:30:06 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202411/16/centos7-environment/</guid>
+        <description>今さらCentOS7環境で検証する必要が出たので環境を整えました。 その時のメモです。 ホストOSはWindows11です。 インストール Vagrant scoop でイ</description>
+      </item>
       
       <item>
         <title>Wayland では gimp でスクリーンショットを撮れなくなったり xeyes が追従しなくなったり</title>
