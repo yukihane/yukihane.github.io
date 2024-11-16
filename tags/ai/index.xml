@@ -20,7 +20,7 @@
         <pubDate>Tue, 12 Nov 2024 21:16:11 +0900</pubDate>
         
         <guid>https://yukihane.github.io/blog/202411/12/stable-diffusion-installation/</guid>
-        <description>Windows11へStable Diffusionをインストールしたときの作業ログです。 簡単に 現時点では AUTOMATIC1111/stable-diffusion-webui というパッケージが最もメジャーな様</description>
+        <description>(追記: 後で知りましたが、Stability Matrix というパッケージがここに書いた手順よりインストールが簡単そうでした) Windows11へSta</description>
       </item>
       
     
