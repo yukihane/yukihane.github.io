@@ -15,6 +15,15 @@
     
       
       <item>
+        <title>Minecraft Bedrock で Add-on 開発環境を利用して Hello, world!</title>
+        <link>https://yukihane.github.io/blog/202411/23/minecraft-bedrock-programming/</link>
+        <pubDate>Sat, 23 Nov 2024 19:19:20 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202411/23/minecraft-bedrock-programming/</guid>
+        <description>はじめに Minecraft Bedrock Edition(いわゆる統合版)には、Java EditionでいうところのMODに相当するAdd-onを開発する環境があります。</description>
+      </item>
+      
+      <item>
         <title>Centos7 に Homebrew を導入して Puppeteer を実行する</title>
         <link>https://yukihane.github.io/blog/202411/17/centos7-homebrew/</link>
         <pubDate>Sat, 16 Nov 2024 12:09:03 +0900</pubDate>
