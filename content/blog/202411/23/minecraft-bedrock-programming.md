@@ -24,7 +24,7 @@ Minecraft Bedrock Edition(いわゆる統合版)には、Java Editionでいう�
 
 - Minecraft Bedrock の preview release 実行環境
     - 今回はbeta版のAPIも利用したいのでpreviewを用います
-    - beta版のAPIはstable releaseでも動く、という説明も見かけましたが、少なくとも私が試した限り動作しませんでした
+    - beta版のAPIはstable releaseでも動く、という説明も見かけましたが、少なくとも私が試した限り動作しませんでした(ただstableにもbeta APIを使用する設定はあるので、もしかすると一時的な不具合なのかも？)
 - Node.js開発環境
     - Node.js, VSCodeあたり。VSCodeの代わりに [bridge.](https://wiki.bedrock.dev/guide/software-preparation#bridge) というIDEが推奨されているのも見かけましたが私はまだ触れていません
 
