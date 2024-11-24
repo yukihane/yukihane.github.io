@@ -6538,7 +6538,8 @@ code .
 <span class="p">});</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>上記コードを保存するとdeployが自動で行われますので、ゲーム内コマンドでリロードします:</p>
+</div><p>上記で利用している <a href="https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/worldbeforeevents?view=minecraft-bedrock-experimental#chatsend" target="_blank"><code>world.beforeEvents.chatSend</code></a> がexperimentalなもので、現時点ではbeta版APIにしか存在しないものです。</p>
+<p>さて、上記コードを保存するとdeployが自動で行われますので、ゲーム内コマンドでリロードします:</p>
 <pre tabindex="0"><code>/reload
 </code></pre><p>(スラッシュを入力するとメッセージ入力欄が現れますので続けて入力します)</p>
 <p>リロード後もちゃんと &ldquo;Hello starter! Tick: XXX&rdquo; が継続的に出力されていれば、正常に読み込まれています。</p>
