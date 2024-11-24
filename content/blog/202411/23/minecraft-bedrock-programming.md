@@ -216,7 +216,9 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
 });
 ```
 
-上記コードを保存するとdeployが自動で行われますので、ゲーム内コマンドでリロードします:
+上記で利用している [`world.beforeEvents.chatSend`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/worldbeforeevents?view=minecraft-bedrock-experimental#chatsend) がexperimentalなもので、現時点ではbeta版APIにしか存在しないものです。
+
+さて、上記コードを保存するとdeployが自動で行われますので、ゲーム内コマンドでリロードします:
 ```
 /reload
 ```
