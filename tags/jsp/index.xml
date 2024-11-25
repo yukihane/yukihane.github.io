@@ -20,7 +20,7 @@
         <pubDate>Fri, 10 Jul 2020 21:54:33 +0000</pubDate>
         
         <guid>https://yukihane.github.io/blog/202007/11/jsp-on-springboot/</guid>
-        <description>https://start.spring.io/ で depencencies に Spring Web を追加して生成します。 生成された pom.xml に次の依存関係を追加します: pom.xml &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.tomcat.embed&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;tomcat-embed-jasper&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;!-- 必要に応じて --&amp;gt; &amp;lt;groupId&amp;gt;javax.servlet&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;jstl&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; appliction.properties にﾂｲ着を追加します: application.properties spring.mvc.view.prefix=/WEB-INF/view/ spring.mvc.view.suffix=.jsp src/main/webapp/WEB-INF/view/</description>
+        <description>https://start.spring.io/ で depencencies に Spring Web を追加して生成します。 生成された pom.xml に次の依存関係を追加します: pom.xml &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.tomcat.embed&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;tomcat-embed-jasper&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;!-- 必要に応じて --&amp;gt; &amp;lt;groupId&amp;gt;javax.servlet&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;jstl&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; appliction.properties に次を追加します: application.properties spring.mvc.view.prefix=/WEB-INF/view/ spring.mvc.view.suffix=.jsp src/main/webapp/WEB-INF/view/ の下</description>
       </item>
       
     
