@@ -234,3 +234,12 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
 
 と発言してみます。
 "ゲームモードがサバイバルに変更されました" と出れば成功です。
+
+## デバッグ
+### デバッガを接続してステップ実行
+
+デバッガを接続する設定方法については次を参照してください:
+
+- https://github.com/Mojang/minecraft-debugger/blob/main/README.md
+
+本ページの手順で作成した場合、 `.vscode/launch.json` も設定込みで生成されていると思います。
