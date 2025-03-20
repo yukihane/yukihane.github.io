@@ -1075,8 +1075,8 @@
     <link rel="alternate" type="application/rss&#43;xml" title="RSS" href="https://yukihane.github.io/blog/index.xml">
 <meta name="description" content="" />
 <meta name="keywords" content="">
-<meta name="created" content="2024-12-15T02:36:06&#43;0900">
-<meta name="modified" content="2024-12-15T02:36:06&#43;0900">
+<meta name="created" content="2025-03-20T12:58:42&#43;0900">
+<meta name="modified" content="2025-03-20T12:58:42&#43;0900">
 
 
 <meta property="og:site_name" content="発火後忘失">
@@ -1189,6 +1189,52 @@ if (!doNotTrack) {
   </h6>
   <ul>
     
+    
+      
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  <li class="">
+    <a href="https://yukihane.github.io/blog/202503/20/tax/"
+      class="menu__title ">確定申告(2024年分)振り返り</a>
+  </li>
+  
+
+    
+      
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  <li class="">
+    <a href="https://yukihane.github.io/blog/202502/07/etc-environment-wsl/"
+      class="menu__title ">WSLは /etc/environment を読まない</a>
+  </li>
+  
+
     
       
   
@@ -6231,129 +6277,25 @@ if (!doNotTrack) {
         
           <article class="summary-card">
   <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202106/30/spring-boot-remoteuser-is-changed/'> Spring Boot 2.5.0(Spring Security 5.5.0-M2)でremoteUserの値が変わった</a></h5>
+    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202110/18/mapstruct-spring-extensions/'> Mapstruct Spring Extensions を試してみる</a></h5>
     <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-06-29 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-10-18 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 3 min read</span>
     </div>
   </header>
   
   <div class="summary-card__content">
     <div class="summary-card__text p2">
       
-        HttpServletRequest#getRemoteUser() をログ出力(Tomcatの %u)しているのですが、Spring Boot 2.5.0 から返ってくる値が変わったようです。 どの変更が影響しているのか調べたとこ
+        はじめに MapStruct の公式サイトを見ていると、 Mapstruct Spring Extensions なるサブプロジェクトが発足していたので、何者か調べようと試してみました。 結果、これは Spring の ConversionService の Converter と MapStruct
       
     </div>
     
   </div>
   <div class="summary-card__links">
     
-      <a href="/tags/spring-boot" class="summary-card__tag">
-        spring-boot
+      <a href="/tags/mapstruct" class="summary-card__tag">
+        mapstruct
       </a>
-    
-      <a href="/tags/spring-security" class="summary-card__tag">
-        spring-security
-      </a>
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202106/21/aws-squid-proxy/'> AWS EC2 で squid プロキシサーバを立てる</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-06-20 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 2 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        はじめに SteamのDLC等をダウンロードしようとしたとき、IPアドレスによるアクセス制限が課されている場合があり、それを回避する必要が出る
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/diary" class="summary-card__tag">
-        diary
-      </a>
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202106/12/spring-boot-tomcat-metrics/'> Spring Boot で Tomcat のメトリクスを出力する</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-06-12 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        Spring Boot アプリケーションの性能評価を行っているのですが、実装したアプリケーション部分ではなく、webサーバかどこかがパフォーマンスボトルネックに
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/spring-boot" class="summary-card__tag">
-        spring-boot
-      </a>
-    
-      <a href="/tags/tomcat" class="summary-card__tag">
-        tomcat
-      </a>
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202106/06/hello-github-actions/'> GitHub Actions を使って GitHub Pages を定期更新する</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-06-06 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 3 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        これまで GitHub Actions を使ったことがなかったのですが、 GitHub Pagesの更新を自動化したい - スタック・オーバーフロー という質問を見かけ、丁度よいお題だと思
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/github" class="summary-card__tag">
-        github
-      </a>
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202105/21/spring-boot-avoid-tomcat-error-page/'> Spring BootでTomcatのデフォルトエラーページが出るのを抑止する</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-05-20 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 2 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        Spring Boot を実行していると、Tomcatのデフォルトエラーページが表示されるような事象に遭遇することがあります。 Tomcat invokes ErrorReportValve directly for malformed URLs · Issue #21257 · spring-projects/spring-boot このページ
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
     
       <a href="/tags/spring-boot" class="summary-card__tag">
         spring-boot
@@ -6364,153 +6306,16 @@ if (!doNotTrack) {
         
           <article class="summary-card">
   <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202105/19/git-merge-risk/'> Git の merge も思いの外危険</a></h5>
+    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202110/16/sts-import-getting-started-content-is-stuck/'> STS(Eclipse) で Import Getting Started Content が進まない</a></h5>
     <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-05-18 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-10-16 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
     </div>
   </header>
   
   <div class="summary-card__content">
     <div class="summary-card__text p2">
       
-        次のblogエントリがバズっていました: Gitのワークフローについての私のスタンス | おそらくはそれさえも平凡な日々 大局としては同意なのですが
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/git" class="summary-card__tag">
-        git
-      </a>
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202105/19/url-amp/'> script src に設定する URL の &amp; はどう書けば良い？</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-05-18 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        &lt;script&gt; タグの src に URL 書く場合、クエリパラメータ連結の &amp; ってどう書くべきなんだろう、という話です。 結論としては、以下のように、 &amp;amp; とするのが無難、とい
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/html" class="summary-card__tag">
-        html
-      </a>
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202105/16/aws-mac/'> AWS EC2 の Mac インスタンスを試してみた</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-05-16 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 2 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        最初に注意点: 初めての場合、使えるようになるまで17時間強かかる。 最低割り当て時間は24時間。つまり1回利用すると最低 3,000円弱はかかる
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/aws" class="summary-card__tag">
-        aws
-      </a>
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202105/15/authorization-authentication/'> Authorization(認可)リクエストヘッダに設定するのは認証(authentication)情報</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-05-15 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        今日もOAuthは認証じゃなくて認可の仕組みだ云々という話題でソーシャルネットがもちきりですが、そんなことより表題の方がよっぽど気になりませ
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/http" class="summary-card__tag">
-        http
-      </a>
-    
-      <a href="/tags/diary" class="summary-card__tag">
-        diary
-      </a>
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202105/06/ling-login-202105/'> LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6)</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-05-06 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 3 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        はじめに LINEログイン機能を試してみる – 発火後忘失 で、 Spring Boot 2.1.7 (Spring Security 5.1.6) を利用してLINEログインを行ってみました。 本ドキュメントは、このコード
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/line" class="summary-card__tag">
-        line
-      </a>
-    
-      <a href="/tags/spring-security" class="summary-card__tag">
-        spring-security
-      </a>
-    
-      <a href="/tags/oidc" class="summary-card__tag">
-        oidc
-      </a>
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202104/29/mysql-connector-j-8.0.23/'> MySQL Connector/J 8.0.23 でタイムゾーン変換メカニズムが変更になった</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-04-28 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        MySQL Connector/J 8.0.23 でタイムゾーン変換のメカニズムが変わりました(Spring Boot では 2.3.9以降, 2.4.3以降でこれを採用しています)。 Important Change: A new mechanism has been
+        Spring Tools 4 for Eclipse を利用していると、バージョンによって？ プロジェクト新規作成時などで &#34;Import Getting Started Content&#34; というタスクが走るのですがこれが全く終わらないことがあり
       
     </div>
     
@@ -6521,8 +6326,12 @@ if (!doNotTrack) {
         spring-boot
       </a>
     
-      <a href="/tags/mysql" class="summary-card__tag">
-        mysql
+      <a href="/tags/eclipse" class="summary-card__tag">
+        eclipse
+      </a>
+    
+      <a href="/tags/java" class="summary-card__tag">
+        java
       </a>
     
   </div>
@@ -6530,24 +6339,24 @@ if (!doNotTrack) {
         
           <article class="summary-card">
   <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202103/21/implicit-submission/'> formで(送信ボタンを押さずに)エンターキーで送信する</a></h5>
+    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202110/15/rust-map-with-result/'> map で Result を引き回すときに Err を意識したくない その2</a></h5>
     <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-03-21 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-10-15 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
     </div>
   </header>
   
   <div class="summary-card__content">
     <div class="summary-card__text p2">
       
-        入力フォームに値を入力して、(送信ボタンを押すのではなく)入力フィールド内でエンターキーを押すと送信される機能、&#34;Implicit S
+        その1はこちらです: map で Result を引き回すときに Err を意識したくない - スタック・オーバーフロー その1では戻り値が i * 2 の i32 型になる話でしたが、その次
       
     </div>
     
   </div>
   <div class="summary-card__links">
     
-      <a href="/tags/javascript" class="summary-card__tag">
-        javascript
+      <a href="/tags/rust" class="summary-card__tag">
+        rust
       </a>
     
   </div>
@@ -6555,24 +6364,202 @@ if (!doNotTrack) {
         
           <article class="summary-card">
   <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202103/07/testing-perspective/'> メモ: テスト観点</a></h5>
+    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202110/15/servlet-with-cookies-samesite/'> Servlet 5.1 で Samesite 属性を設定できるようになる</a></h5>
     <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-03-07 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-10-15 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
     </div>
   </header>
   
   <div class="summary-card__content">
     <div class="summary-card__text p2">
       
-        書籍「ソフトウェアテストの教科書 - 品質を決定づけるテスト構成の基本と実践」第4章 ブラックボックステスト 表4-4 分類の基準として利用できる指標
+        現在の Servlet API では Cookie に SameSite 属性を設定するメソッドがありません。 そのため、仕様外の、フレームワーク固有の方法だったり、低レイヤーの仕組みを使って設定
       
     </div>
     
   </div>
   <div class="summary-card__links">
     
-      <a href="/tags/testing" class="summary-card__tag">
-        testing
+      <a href="/tags/java" class="summary-card__tag">
+        java
+      </a>
+    
+  </div>
+</article>
+        
+          <article class="summary-card">
+  <header>
+    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202110/15/develop-android-firefox-addons/'> Android Firefox Webextensions 開発/デバッグ覚え書き</a></h5>
+    <div class="subtitle caption">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-10-15 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
+    </div>
+  </header>
+  
+  <div class="summary-card__content">
+    <div class="summary-card__text p2">
+      
+        HAXM を有効化するためには 今でも Hyper-V を無効化しておく必要があるらしいです。つまり Android 開発と WSL2 は両立できないということに。 私は最初 Hyper-V 有効か状態で開発環
+      
+    </div>
+    
+  </div>
+  <div class="summary-card__links">
+    
+      <a href="/tags/android" class="summary-card__tag">
+        android
+      </a>
+    
+      <a href="/tags/webextensions" class="summary-card__tag">
+        webextensions
+      </a>
+    
+      <a href="/tags/firefox" class="summary-card__tag">
+        firefox
+      </a>
+    
+  </div>
+</article>
+        
+          <article class="summary-card">
+  <header>
+    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202110/15/install-addon-to-android-firefox/'> Android Firefox に addons をインストールする方法</a></h5>
+    <div class="subtitle caption">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-10-15 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
+    </div>
+  </header>
+  
+  <div class="summary-card__content">
+    <div class="summary-card__text p2">
+      
+        Firefox 69 以降かな？ Fenix というコードネームになってから Android Firefox にインストールできる Webextensions(addons) に制約ができ、公式がお薦めとしているものだけしか通常の手順ではインス
+      
+    </div>
+    
+  </div>
+  <div class="summary-card__links">
+    
+      <a href="/tags/android" class="summary-card__tag">
+        android
+      </a>
+    
+      <a href="/tags/webextensions" class="summary-card__tag">
+        webextensions
+      </a>
+    
+      <a href="/tags/firefox" class="summary-card__tag">
+        firefox
+      </a>
+    
+  </div>
+</article>
+        
+          <article class="summary-card">
+  <header>
+    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202110/09/rust-reduce/'> Rust に reduce は、あります</a></h5>
+    <div class="subtitle caption">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-10-09 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
+    </div>
+  </header>
+  
+  <div class="summary-card__content">
+    <div class="summary-card__text p2">
+      
+        ググっていると、ちょくちょく 「Rust に reduce は無い、代わりに fold を使え」という話が出てくるのが疑問だったのですが、 reduce が導入されたのって 1.51.
+      
+    </div>
+    
+  </div>
+  <div class="summary-card__links">
+    
+      <a href="/tags/rust" class="summary-card__tag">
+        rust
+      </a>
+    
+  </div>
+</article>
+        
+          <article class="summary-card">
+  <header>
+    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202110/09/rust-result/'> Rust の Result を良い感じにまとめるには</a></h5>
+    <div class="subtitle caption">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-10-08 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
+    </div>
+  </header>
+  
+  <div class="summary-card__content">
+    <div class="summary-card__text p2">
+      
+        …というのを検索する用語が &#34;エラーハンドリング(error handling)&#34; だということに気付くまでにも時間がかかるくらいの初級者です。 Rust でのエラー
+      
+    </div>
+    
+  </div>
+  <div class="summary-card__links">
+    
+      <a href="/tags/rust" class="summary-card__tag">
+        rust
+      </a>
+    
+  </div>
+</article>
+        
+          <article class="summary-card">
+  <header>
+    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202110/08/hello-project-panama-on-java17/'> Hello Project Panama, on Java17</a></h5>
+    <div class="subtitle caption">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-10-08 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 4 min read</span>
+    </div>
+  </header>
+  
+  <div class="summary-card__content">
+    <div class="summary-card__text p2">
+      
+        はじめに Hello Project Panama – 発火後忘失 で、 Project Panama (リンク1, リンク2) の機能を利用して、 Java から Rust を呼び出してみました。 当時(Java14)は Project Panama 用にビルド
+      
+    </div>
+    
+  </div>
+  <div class="summary-card__links">
+    
+      <a href="/tags/java" class="summary-card__tag">
+        java
+      </a>
+    
+      <a href="/tags/rust" class="summary-card__tag">
+        rust
+      </a>
+    
+  </div>
+</article>
+        
+          <article class="summary-card">
+  <header>
+    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202110/03/hello-tauri/'> Tauri を GUI にして Rust と React に入門する</a></h5>
+    <div class="subtitle caption">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-10-03 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 4 min read</span>
+    </div>
+  </header>
+  
+  <div class="summary-card__content">
+    <div class="summary-card__text p2">
+      
+        はじめに Tauri という、 WebView を利用して GUI を実現する Rust 製フレームワークを試してみました。 Rust も React も入門書から陸続きで書き始められるので、余計なことに気を
+      
+    </div>
+    
+  </div>
+  <div class="summary-card__links">
+    
+      <a href="/tags/rust" class="summary-card__tag">
+        rust
+      </a>
+    
+      <a href="/tags/react" class="summary-card__tag">
+        react
+      </a>
+    
+      <a href="/tags/tauri" class="summary-card__tag">
+        tauri
       </a>
     
   </div>
@@ -6651,13 +6638,28 @@ if (!doNotTrack) {
     
       
       
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
         <li class="disabled"><a name="">&hellip;</a></li>
       
     
       
       
         <li
-        ><a href="/blog/page/16/">16</a></li>
+        ><a href="/blog/page/21/">21</a></li>
       
     
   </ul>
@@ -6694,11 +6696,11 @@ if (!doNotTrack) {
   
     
       <a href="/tags/asset/" class="tag">
-        <span class="tag__text" style="font-size: 0.8113636363636364rem;">
+        <span class="tag__text" style="font-size: 0.8227272727272728rem;">
           asset
         </span>
-        <span class="tag__num" style="font-size: 0.8113636363636364rem;" dir="auto">
-          (1)
+        <span class="tag__num" style="font-size: 0.8227272727272728rem;" dir="auto">
+          (2)
         </span>
       </a>
     
@@ -6782,11 +6784,11 @@ if (!doNotTrack) {
   
     
       <a href="/tags/diary/" class="tag">
-        <span class="tag__text" style="font-size: 0.9022727272727273rem;">
+        <span class="tag__text" style="font-size: 0.9136363636363637rem;">
           diary
         </span>
-        <span class="tag__num" style="font-size: 0.9022727272727273rem;" dir="auto">
-          (9)
+        <span class="tag__num" style="font-size: 0.9136363636363637rem;" dir="auto">
+          (10)
         </span>
       </a>
     
@@ -7497,11 +7499,11 @@ if (!doNotTrack) {
   
     
       <a href="/tags/tax/" class="tag">
-        <span class="tag__text" style="font-size: 0.8113636363636364rem;">
+        <span class="tag__text" style="font-size: 0.8227272727272728rem;">
           tax
         </span>
-        <span class="tag__num" style="font-size: 0.8113636363636364rem;" dir="auto">
-          (1)
+        <span class="tag__num" style="font-size: 0.8227272727272728rem;" dir="auto">
+          (2)
         </span>
       </a>
     
@@ -7541,11 +7543,11 @@ if (!doNotTrack) {
   
     
       <a href="/tags/ubuntu/" class="tag">
-        <span class="tag__text" style="font-size: 0.8681818181818182rem;">
+        <span class="tag__text" style="font-size: 0.8795454545454546rem;">
           ubuntu
         </span>
-        <span class="tag__num" style="font-size: 0.8681818181818182rem;" dir="auto">
-          (6)
+        <span class="tag__num" style="font-size: 0.8795454545454546rem;" dir="auto">
+          (7)
         </span>
       </a>
     
@@ -7607,22 +7609,22 @@ if (!doNotTrack) {
   
     
       <a href="/tags/windows/" class="tag">
-        <span class="tag__text" style="font-size: 0.925rem;">
+        <span class="tag__text" style="font-size: 0.9363636363636364rem;">
           windows
         </span>
-        <span class="tag__num" style="font-size: 0.925rem;" dir="auto">
-          (11)
+        <span class="tag__num" style="font-size: 0.9363636363636364rem;" dir="auto">
+          (12)
         </span>
       </a>
     
   
     
       <a href="/tags/wsl/" class="tag">
-        <span class="tag__text" style="font-size: 0.8227272727272728rem;">
+        <span class="tag__text" style="font-size: 0.8340909090909091rem;">
           wsl
         </span>
-        <span class="tag__num" style="font-size: 0.8227272727272728rem;" dir="auto">
-          (2)
+        <span class="tag__num" style="font-size: 0.8340909090909091rem;" dir="auto">
+          (3)
         </span>
       </a>
     
@@ -7685,7 +7687,7 @@ if (!doNotTrack) {
       <div class="lmr">
         
           <p class="caption">
-            ©2024, All Rights Reserved
+            ©2025, All Rights Reserved
           </p>
           
               <p class="caption">Powered by <a href="https://gohugo.io/" rel="noreferrer">Hugo</a> and the <a href="https://github.com/zzossig/hugo-theme-zdoc" rel="noreferrer">zDoc theme</a></p>

@@ -7,12 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Sun, 15 Dec 2024 02:36:06 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 07 Feb 2025 05:47:10 +0900</lastBuildDate>
     
         <atom:link href="https://yukihane.github.io/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     
     
     
+      
+      <item>
+        <title>WSLは /etc/environment を読まない</title>
+        <link>https://yukihane.github.io/blog/202502/07/etc-environment-wsl/</link>
+        <pubDate>Fri, 07 Feb 2025 05:47:10 +0900</pubDate>
+        
+        <guid>https://yukihane.github.io/blog/202502/07/etc-environment-wsl/</guid>
+        <description>このエントリーを書くためにWSL2にHugoをsnapでインストールしました。 そして hugo コマンドを実行すると&amp;hellip;そんなものはないと</description>
+      </item>
       
       <item>
         <title>Scoopでpwshのupdateに失敗する</title>

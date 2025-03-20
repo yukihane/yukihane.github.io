@@ -1075,8 +1075,8 @@
     <link rel="alternate" type="application/rss&#43;xml" title="RSS" href="https://yukihane.github.io/blog/index.xml">
 <meta name="description" content="" />
 <meta name="keywords" content="">
-<meta name="created" content="2024-12-15T02:36:06&#43;0900">
-<meta name="modified" content="2024-12-15T02:36:06&#43;0900">
+<meta name="created" content="2025-03-20T12:58:42&#43;0900">
+<meta name="modified" content="2025-03-20T12:58:42&#43;0900">
 
 
 <meta property="og:site_name" content="発火後忘失">
@@ -1189,6 +1189,52 @@ if (!doNotTrack) {
   </h6>
   <ul>
     
+    
+      
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  <li class="">
+    <a href="https://yukihane.github.io/blog/202503/20/tax/"
+      class="menu__title ">確定申告(2024年分)振り返り</a>
+  </li>
+  
+
+    
+      
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  <li class="">
+    <a href="https://yukihane.github.io/blog/202502/07/etc-environment-wsl/"
+      class="menu__title ">WSLは /etc/environment を読まない</a>
+  </li>
+  
+
     
       
   
@@ -6231,148 +6277,28 @@ if (!doNotTrack) {
         
           <article class="summary-card">
   <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202007/28/lombok-and-mapstruct-problem-is-fixed/'> LombokとMapStructをEclipseで併用しようとした際の不具合がMapStruct1.4.0で解消されていた</a></h5>
+    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202101/30/gava-oidc-idp/'> ガバガバOIDCモックサーバを作る</a></h5>
     <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-07-28 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-01-30 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
     </div>
   </header>
   
   <div class="summary-card__content">
     <div class="summary-card__text p2">
       
-        これまで、LombokとMapStructを併用しようとした場合、そのままだと不具合(MapStructのアノテーションプロセッシングが動作
+        OIDCフローの調査などで本物でないOIDC IdP Mock Serverが欲しくなったので検索してみました。 世に数多あるように見えたのですが、結構真面目
       
     </div>
     
   </div>
   <div class="summary-card__links">
-    
-      <a href="/tags/java" class="summary-card__tag">
-        java
-      </a>
-    
-      <a href="/tags/eclipse" class="summary-card__tag">
-        eclipse
-      </a>
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202007/26/swt-findwindowi-is-deprecated/'> SWTのFindWindowはもはや存在しない</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-07-25 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        元ネタ: 古い Eclipse の起動時に UnsatisfiedLinkError が発生する - スタック・オーバーフロー いにしえのJava世界では、Win32APIにアクセスするためにSWTを利用し
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/java" class="summary-card__tag">
-        java
-      </a>
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202007/26/spring-boot-gradle-eclipse/'> GradleでSpring Bootプロジェクトを作成してSTS(Eclipse)でインポートする手順</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-07-25 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 2 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        はじめに Spring Initializrを使ってGradle形式でプロジェクトを作成した場合、どうやってSTS(Eclipse)へインポートするのか逡
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/spring-boot" class="summary-card__tag">
-        spring-boot
-      </a>
-    
-      <a href="/tags/eclipse" class="summary-card__tag">
-        eclipse
-      </a>
-    
-      <a href="/tags/gradle" class="summary-card__tag">
-        gradle
-      </a>
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/'> KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-07-20 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 5 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        はじめに Spring Boot で Spring Security OAuth 2.0 Login / Client を利用する手順をまとめます。 また、認可サーバ(IdP)にはローカルで立てたKeycloakを用いますのでそちらの
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/spring-boot" class="summary-card__tag">
-        spring-boot
-      </a>
-    
-      <a href="/tags/spring-security" class="summary-card__tag">
-        spring-security
-      </a>
-    
-      <a href="/tags/oauth" class="summary-card__tag">
-        oauth
-      </a>
     
       <a href="/tags/oidc" class="summary-card__tag">
         oidc
       </a>
     
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202007/21/why-git-branching-is-difficult/'> いつもGitブランチ運用でこまること、考慮すべきポイントのまとめ</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-07-20 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 3 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        現在、新しいプロジェクトに参画してGitのブランチ戦略を考えています。 何回かブランチ戦略を考え、そして運用してきたのですが、思うところを書い
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/git" class="summary-card__tag">
-        git
+      <a href="/tags/spring-boot" class="summary-card__tag">
+        spring-boot
       </a>
     
   </div>
@@ -6380,16 +6306,70 @@ if (!doNotTrack) {
         
           <article class="summary-card">
   <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202007/20/spring-security-oauth-2.0-client/'> Spring Security OAuth 2.0 Client の auto-configuration</a></h5>
+    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202101/24/spring-boot-cors-permit-all/'> Spring Boot の CORS 設定を全許可する</a></h5>
     <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-07-20 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-01-24 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
     </div>
   </header>
   
   <div class="summary-card__content">
     <div class="summary-card__text p2">
       
-        OAuth2ClientAutoConfiguration 上記のクラスが Import しているもの(など): OAuth2ClientRegistrationRepositoryConfiguration ClientRegistrationRepository bean 定義。 OAuth2ClientProperties(spring.security.oauth
+        How to configure CORS in a Spring Boot + Spring Security application? - Stack Overflow Spring Boot のリファレンス 4.7.1. The “Spring Web MVC Framework” &gt; CORS Support を見ると、次のように設定すれば良いように見え
+      
+    </div>
+    
+  </div>
+  <div class="summary-card__links">
+    
+      <a href="/tags/spring-boot" class="summary-card__tag">
+        spring-boot
+      </a>
+    
+  </div>
+</article>
+        
+          <article class="summary-card">
+  <header>
+    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202101/24/spring-session-in-memory/'> Spring Sessionをインメモリで利用する</a></h5>
+    <div class="subtitle caption">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-01-24 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
+    </div>
+  </header>
+  
+  <div class="summary-card__content">
+    <div class="summary-card__text p2">
+      
+        What should be a replacement for StoreType.HASH_MAP in spring-boot 2 昔は spring.session.store-type の選択肢に hash_map というものがあったようですが、現在は存在しません。(ちなみに none は Spring Session を利用しない、という意味になるよう
+      
+    </div>
+    
+  </div>
+  <div class="summary-card__links">
+    
+      <a href="/tags/spring-boot" class="summary-card__tag">
+        spring-boot
+      </a>
+    
+      <a href="/tags/spring-session" class="summary-card__tag">
+        spring-session
+      </a>
+    
+  </div>
+</article>
+        
+          <article class="summary-card">
+  <header>
+    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202101/23/throw-unauthorizedexception-in-controller/'> ControllerでUnauthorizedExceptionを投げると401でなく403になる</a></h5>
+    <div class="subtitle caption">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-01-23 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
+    </div>
+  </header>
+  
+  <div class="summary-card__content">
+    <div class="summary-card__text p2">
+      
+        Authentication handling in Spring boot 2.x with WebSecurityConfigurerAdapter - Stack Overflow Http403ForbiddenEntryPoint がデフォルトで設定されているため、 ExceptionTranslationFilter において AuthenticationException のサブクラスは全て 403 になっている模様。 認証通った上でunauthori
       
     </div>
     
@@ -6404,25 +6384,21 @@ if (!doNotTrack) {
         spring-security
       </a>
     
-      <a href="/tags/oauth2" class="summary-card__tag">
-        oauth2
-      </a>
-    
   </div>
 </article>
         
           <article class="summary-card">
   <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202007/20/webclientbuilder/'> `WebClient` の 覚書</a></h5>
+    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202101/21/ploblem-in-springboot2.4.2/'> Spring Boot 2.4.1-&gt;2.4.2アップグレードで発生した問題メモ</a></h5>
     <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-07-19 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-01-21 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
     </div>
   </header>
   
   <div class="summary-card__content">
     <div class="summary-card__text p2">
       
-        RestTemplateBuilder の Bean がsingleton-socpeかつちょっと変態的なインスタンス生成を行っていたので驚いた、というエントリを昔書きました: RestTe
+        Spring Framework 5.3.3 で対応された Update OncePerRequestFilter.isAsyncDispatch to use HttpServletRequest.getDispatcherType() #26282 コード差分 の影響で、 HttpServletRequest#getDispatcherType() メソッドが呼ばれるようになっています。 これにより、 HttpServletRequest をモック化して実行していたテストケー
       
     </div>
     
@@ -6438,45 +6414,24 @@ if (!doNotTrack) {
         
           <article class="summary-card">
   <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202007/19/cookies-and-same-origin-policy/'> クッキーの挙動は Same Origin Policy に従う…わけではない</a></h5>
+    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202101/21/upgrade-to-ubuntu20.04/'> Ubuntu 20.04 LTS にアップグレードして問題が発生した</a></h5>
     <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-07-19 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2021-01-21 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
     </div>
   </header>
   
   <div class="summary-card__content">
     <div class="summary-card__text p2">
       
-        次のQiitaのコメントを見て、そうなんだ、となりました: Auth TokenをlocalStorageに入れようが、cookieに入れようがどっち
+        さて2021年にもなったし、そろそろUbuntuアップグレードしても解消できない地雷は無くなっているだろう、と思い18.04からアップグレー
       
     </div>
     
   </div>
   <div class="summary-card__links">
     
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202007/19/use-git-pull-ff-only/'> `git config pull.ff only` を設定しておこう</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-07-19 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        私は普段全く git pull は使わず、 git fetch で賄ってきたのですが、今日たまたま git pull を行ったところ、いつの頃からか次のようなメッセージが出るようになっている
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/git" class="summary-card__tag">
-        git
+      <a href="/tags/ubuntu" class="summary-card__tag">
+        ubuntu
       </a>
     
   </div>
@@ -6484,119 +6439,119 @@ if (!doNotTrack) {
         
           <article class="summary-card">
   <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202007/19/spring-security-authentication-server/'> Spring Security から認可サーバサポートが無くなる、というのは取り敢えず見直されています</a></h5>
+    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202011/14/mapstruct-with-spring-boot-2.3.5/'> Spring Boot 2.3.5 で MapStruct を利用しているプロジェクトのビルドが失敗した</a></h5>
     <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-07-19 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-11-14 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
     </div>
   </header>
   
   <div class="summary-card__content">
     <div class="summary-card__text p2">
       
-        世の中に認可サーバー製品がたくさんあるので、Spring Securityではサポートしないことを決定しました — Spring Security OAuth2はあと数年でサ
+        調査したところSpring Bootの問題と言うよりは、Lombokのバージョンが 1.18.12 から 1.18.16 に上がったことによる非互換性の問題でした。 Lombo
       
     </div>
     
   </div>
   <div class="summary-card__links">
+    
+      <a href="/tags/mapstruct" class="summary-card__tag">
+        mapstruct
+      </a>
+    
+      <a href="/tags/lombok" class="summary-card__tag">
+        lombok
+      </a>
+    
+      <a href="/tags/spring-boot" class="summary-card__tag">
+        spring-boot
+      </a>
+    
+  </div>
+</article>
+        
+          <article class="summary-card">
+  <header>
+    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202009/12/oidc-userinfo-not-fetched-for-custom-claims/'> Spring SecurityのOAuth 2.0 Login でログインしても UserInfo Endpoint にアクセスしてくれない</a></h5>
+    <div class="subtitle caption">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-09-12 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
+    </div>
+  </header>
+  
+  <div class="summary-card__content">
+    <div class="summary-card__text p2">
+      
+        Spring Security OAuth 2.0 Login を利用してログインしたのですが、通常ログイン後 UserInfo Endpoint へアクセスしてくれるはずなのにこの処理がスキップされてしまうような事象に出会いま
+      
+    </div>
+    
+  </div>
+  <div class="summary-card__links">
+    
+      <a href="/tags/oidc" class="summary-card__tag">
+        oidc
+      </a>
     
       <a href="/tags/spring-security" class="summary-card__tag">
         spring-security
       </a>
     
-      <a href="/tags/oauth" class="summary-card__tag">
-        oauth
-      </a>
-    
   </div>
 </article>
         
           <article class="summary-card">
   <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202007/15/spring-boot-books-review/'> Spring Bootブックレビュー Spring Boot 2 入門: 基礎から実演まで</a></h5>
+    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202009/12/gradle-resource-encoding/'> WindowsでGradleが扱うリソースのファイルエンコーディング設定</a></h5>
     <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-07-15 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 4 min read</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-09-12 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 2 min read</span>
     </div>
   </header>
   
   <div class="summary-card__content">
     <div class="summary-card__text p2">
       
-        Kindle Unlimited でいくつかのSpring Framework/Spring Boot 本が読めることに気づきました。 もし入門本として有用なものがあれば初心者の方に薦めていきたいなと考え、今回それ
+        問題 Spring Bootの自動テストで data.sql を作成しているのですが、 gradle check でテストを実行すると、失敗してしまう。 原因を調べたのですが、どうも日本語のカラムを
       
     </div>
     
   </div>
   <div class="summary-card__links">
-    
-      <a href="/tags/book" class="summary-card__tag">
-        book
-      </a>
-    
-      <a href="/tags/spring-boot" class="summary-card__tag">
-        spring-boot
-      </a>
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202007/15/history-of-spring-oauth2-libraries/'> Spring SecurityのOAuth2.0関連の歴史を調査し実装してみた</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-07-14 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 4 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        Qiita に昔(2019年中頃)書いていた資料を転記し忘れていたので構成を見直してアップロードし直します。 2020年現在の状況はまた更新されています
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/spring-security" class="summary-card__tag">
-        spring-security
-      </a>
-    
-      <a href="/tags/oauth" class="summary-card__tag">
-        oauth
-      </a>
-    
-      <a href="/tags/spring-boot" class="summary-card__tag">
-        spring-boot
-      </a>
-    
-  </div>
-</article>
-        
-          <article class="summary-card">
-  <header>
-    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202007/15/research-gradle-plugins/'> Gradleプラグイン/アノテーションプロセッシング調査</a></h5>
-    <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-07-14 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 3 min read</span>
-    </div>
-  </header>
-  
-  <div class="summary-card__content">
-    <div class="summary-card__text p2">
-      
-        元々JBoss/WildFlyの流れで開発してきたのでずっとMavenを利用してきたのですが、今度のプロジェクトではGradleを使うことに
-      
-    </div>
-    
-  </div>
-  <div class="summary-card__links">
-    
-      <a href="/tags/java" class="summary-card__tag">
-        java
-      </a>
     
       <a href="/tags/gradle" class="summary-card__tag">
         gradle
+      </a>
+    
+  </div>
+</article>
+        
+          <article class="summary-card">
+  <header>
+    <h5 class="title h5"><a href='https://yukihane.github.io/blog/202009/04/oidc-add-claim-and-scope/'> claimとscopeを追加して取得してみる</a></h5>
+    <div class="subtitle caption">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">2020-09-03 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 2 min read</span>
+    </div>
+  </header>
+  
+  <div class="summary-card__content">
+    <div class="summary-card__text p2">
+      
+        はじめに Keycloak上で新しいclaimと、それを取得できる新しいscopeを定義し、Spring Securityを使って参照してみます
+      
+    </div>
+    
+  </div>
+  <div class="summary-card__links">
+    
+      <a href="/tags/oidc" class="summary-card__tag">
+        oidc
+      </a>
+    
+      <a href="/tags/spring-boot" class="summary-card__tag">
+        spring-boot
+      </a>
+    
+      <a href="/tags/spring-security" class="summary-card__tag">
+        spring-security
       </a>
     
   </div>
@@ -6675,13 +6630,28 @@ if (!doNotTrack) {
     
       
       
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
         <li class="disabled"><a name="">&hellip;</a></li>
       
     
       
       
         <li
-        ><a href="/blog/page/16/">16</a></li>
+        ><a href="/blog/page/21/">21</a></li>
       
     
   </ul>
@@ -6718,11 +6688,11 @@ if (!doNotTrack) {
   
     
       <a href="/tags/asset/" class="tag">
-        <span class="tag__text" style="font-size: 0.8113636363636364rem;">
+        <span class="tag__text" style="font-size: 0.8227272727272728rem;">
           asset
         </span>
-        <span class="tag__num" style="font-size: 0.8113636363636364rem;" dir="auto">
-          (1)
+        <span class="tag__num" style="font-size: 0.8227272727272728rem;" dir="auto">
+          (2)
         </span>
       </a>
     
@@ -6806,11 +6776,11 @@ if (!doNotTrack) {
   
     
       <a href="/tags/diary/" class="tag">
-        <span class="tag__text" style="font-size: 0.9022727272727273rem;">
+        <span class="tag__text" style="font-size: 0.9136363636363637rem;">
           diary
         </span>
-        <span class="tag__num" style="font-size: 0.9022727272727273rem;" dir="auto">
-          (9)
+        <span class="tag__num" style="font-size: 0.9136363636363637rem;" dir="auto">
+          (10)
         </span>
       </a>
     
@@ -7521,11 +7491,11 @@ if (!doNotTrack) {
   
     
       <a href="/tags/tax/" class="tag">
-        <span class="tag__text" style="font-size: 0.8113636363636364rem;">
+        <span class="tag__text" style="font-size: 0.8227272727272728rem;">
           tax
         </span>
-        <span class="tag__num" style="font-size: 0.8113636363636364rem;" dir="auto">
-          (1)
+        <span class="tag__num" style="font-size: 0.8227272727272728rem;" dir="auto">
+          (2)
         </span>
       </a>
     
@@ -7565,11 +7535,11 @@ if (!doNotTrack) {
   
     
       <a href="/tags/ubuntu/" class="tag">
-        <span class="tag__text" style="font-size: 0.8681818181818182rem;">
+        <span class="tag__text" style="font-size: 0.8795454545454546rem;">
           ubuntu
         </span>
-        <span class="tag__num" style="font-size: 0.8681818181818182rem;" dir="auto">
-          (6)
+        <span class="tag__num" style="font-size: 0.8795454545454546rem;" dir="auto">
+          (7)
         </span>
       </a>
     
@@ -7631,22 +7601,22 @@ if (!doNotTrack) {
   
     
       <a href="/tags/windows/" class="tag">
-        <span class="tag__text" style="font-size: 0.925rem;">
+        <span class="tag__text" style="font-size: 0.9363636363636364rem;">
           windows
         </span>
-        <span class="tag__num" style="font-size: 0.925rem;" dir="auto">
-          (11)
+        <span class="tag__num" style="font-size: 0.9363636363636364rem;" dir="auto">
+          (12)
         </span>
       </a>
     
   
     
       <a href="/tags/wsl/" class="tag">
-        <span class="tag__text" style="font-size: 0.8227272727272728rem;">
+        <span class="tag__text" style="font-size: 0.8340909090909091rem;">
           wsl
         </span>
-        <span class="tag__num" style="font-size: 0.8227272727272728rem;" dir="auto">
-          (2)
+        <span class="tag__num" style="font-size: 0.8340909090909091rem;" dir="auto">
+          (3)
         </span>
       </a>
     
@@ -7709,7 +7679,7 @@ if (!doNotTrack) {
       <div class="lmr">
         
           <p class="caption">
-            ©2024, All Rights Reserved
+            ©2025, All Rights Reserved
           </p>
           
               <p class="caption">Powered by <a href="https://gohugo.io/" rel="noreferrer">Hugo</a> and the <a href="https://github.com/zzossig/hugo-theme-zdoc" rel="noreferrer">zDoc theme</a></p>
