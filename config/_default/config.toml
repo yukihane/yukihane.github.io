@@ -11,7 +11,6 @@ enableEmoji = true
 pagination.pagerSize = 13
 rssLimit = 100
 googleAnalytics = "G-E9J8FN5B4Q"
-disableKinds = ["taxonomy"]
 
 [markup]
 
