@@ -51,4 +51,9 @@ tag = "tags"
     allow = ['asciidoctor']
 
 [params]
-	mode="auto" # color-mode → light,dark,toggle or auto
+	mode="toggle" # color-mode → light,dark,toggle or auto
+
+[[params.social]]
+name = "GitHub"
+icon = "github"
+url = "https://github.com/yukihane"
