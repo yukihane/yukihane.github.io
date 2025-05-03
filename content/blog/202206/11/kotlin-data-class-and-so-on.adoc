@@ -8,7 +8,7 @@ tags:
 
 (昔書きかけて完成していないっぽいですが、置いておいても忘れるだけなのでcommitしてしまいます)
 
-link:{{< relref "/content/blog/202206/11/value-object.adoc" >}}[value object] のことを調べていたら、 Kotlin にぱっと見似たような異なるクラス定義方法があることに気付いたので、それらについてまとめておきます。
+link:{{< relref "/blog/202206/11/value-object.adoc" >}}[value object] のことを調べていたら、 Kotlin にぱっと見似たような異なるクラス定義方法があることに気付いたので、それらについてまとめておきます。
 
 == data classes
 
@@ -43,4 +43,3 @@ value class Password(val s: String)
 == value classes (value-based classes)
 
 * https://github.com/Kotlin/KEEP/blob/master/notes/value-classes.md
-
