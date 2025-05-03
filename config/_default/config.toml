@@ -49,3 +49,6 @@ tag = "tags"
 [security]
   [security.exec]
     allow = ['asciidoctor']
+
+[params]
+	mode="auto" # color-mode → light,dark,toggle or auto
