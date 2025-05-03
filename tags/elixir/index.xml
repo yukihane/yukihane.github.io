@@ -1,28 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>elixir on 発火後忘失</title>
+    <title>Elixir on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/elixir/</link>
-    <description>Recent content in elixir on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Elixir on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Sun, 01 May 2022 12:47:31 +0900</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/elixir/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>Elixir 開発環境をセットアップする</title>
-        <link>https://yukihane.github.io/blog/202205/01/setup-elixir/</link>
-        <pubDate>Sun, 01 May 2022 12:47:31 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202205/01/setup-elixir/</guid>
-        <description>はじめに 改訂新版 Elixir/Phoenix 初級①: はじめの一歩 という書籍で Phoenix というウェブフレームワークの勉強をはじめました。 Elixir という言語で実装していくことになります</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/elixir/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elixir 開発環境をセットアップする</title>
+      <link>https://yukihane.github.io/blog/202205/01/setup-elixir/</link>
+      <pubDate>Sun, 01 May 2022 12:47:31 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202205/01/setup-elixir/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4908829306/&#34;&gt;改訂新版 Elixir/Phoenix 初級①: はじめの一歩&lt;/a&gt; という書籍で Phoenix というウェブフレームワークの勉強をはじめました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Elixir という言語で実装していくことになりますが、本書籍は Elixir 言語入門としても優れているので、少なくとも本書を読み進めていくに当たって、言語仕様のことで困ることは無さそうです。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
   </channel>
 </rss>

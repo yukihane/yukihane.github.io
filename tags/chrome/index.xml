@@ -1,28 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>chrome on 発火後忘失</title>
+    <title>Chrome on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/chrome/</link>
-    <description>Recent content in chrome on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Chrome on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Tue, 03 Dec 2019 20:39:39 +0000</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/chrome/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>https://hatena.ne.jp/ にアクセスできてるとお思いで？</title>
-        <link>https://yukihane.github.io/blog/201912/03/auto-redirecting-chrome/</link>
-        <pubDate>Tue, 03 Dec 2019 20:39:39 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201912/03/auto-redirecting-chrome/</guid>
-        <description>はじめに: 試した環境 Windows10 の現時点での最新安定版 Google Chrome および Firefox を用いました。 Google Chrome 78.0.3904.108 Firefox 70.0.1 また実行に際しては、キャッシュ等の影響を避けるため、Chro</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/chrome/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>https://hatena.ne.jp/ にアクセスできてるとお思いで？</title>
+      <link>https://yukihane.github.io/blog/201912/03/auto-redirecting-chrome/</link>
+      <pubDate>Tue, 03 Dec 2019 20:39:39 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201912/03/auto-redirecting-chrome/</guid>
+      <description>&lt;h1 id=&#34;はじめに-試した環境&#34;&gt;はじめに: 試した環境&lt;/h1&gt;&#xA;&lt;p&gt;Windows10 の現時点での最新安定版 Google Chrome および Firefox を用いました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Google Chrome 78.0.3904.108&lt;/li&gt;&#xA;&lt;li&gt;Firefox 70.0.1&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;また実行に際しては、キャッシュ等の影響を避けるため、Chrome では&lt;a href=&#34;https://support.google.com/chrome/answer/6130773?co=GENIE.Platform%3DDesktop&amp;amp;hl=ja&#34;&gt;ゲストモード&lt;/a&gt;、Firefox では今回&lt;a href=&#34;https://support.mozilla.org/ja/kb/profile-manager-create-and-remove-firefox-profiles#w_cucgciaaacceagluna&#34;&gt;新規作成したプロファイル&lt;/a&gt;で確認しました。&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

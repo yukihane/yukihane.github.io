@@ -1,64 +1,48 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rust on 発火後忘失</title>
     <link>https://yukihane.github.io/docs/rust/</link>
     <description>Recent content in Rust on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Fri, 24 Jul 2020 00:42:44 +0000</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/docs/rust/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>Rust 勝手に FAQ</title>
-        <link>https://yukihane.github.io/docs/rust/rust-faq/</link>
-        <pubDate>Fri, 24 Jul 2020 01:08:11 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/rust/rust-faq/</guid>
-        <description>自身の勉強中にまとめているページなので誤っている可能性も大きいです。 簡単に実行できる環境が欲しい Webブラウザ上で実行結果が確認できます: https://play.rust-lang.org/</description>
-      </item>
-      
-      <item>
-        <title>Rust学習メモ</title>
-        <link>https://yukihane.github.io/docs/rust/rust-memo/</link>
-        <pubDate>Fri, 24 Jul 2020 01:06:39 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/rust/rust-memo/</guid>
-        <description>リンク Rust Playground https://imoz.jp/note/rust-functions.html[Rustは何が新しいのか（基本的な言語機能の紹介</description>
-      </item>
-      
-      <item>
-        <title>QML-rust</title>
-        <link>https://yukihane.github.io/docs/rust/qml-rust/</link>
-        <pubDate>Fri, 24 Jul 2020 00:48:19 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/rust/qml-rust/</guid>
-        <description>https://github.com/White-Oak/qml-rust インストール リポジトリをcloneし、そのディレクトリに移動します。 git clone `https://github.com/White-Oak/qml-rust.git[`https://github.com/White-Oak/qml-rust.git] cd qml-rust サブモジュールを取得します。 git submodule init git submodule update build.rs をMinGW向けに</description>
-      </item>
-      
-      <item>
-        <title>MSYS2インストール</title>
-        <link>https://yukihane.github.io/docs/rust/msys2/</link>
-        <pubDate>Fri, 24 Jul 2020 00:46:39 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/rust/msys2/</guid>
-        <description>RustでデバッグするためのGDBと、Qtコンパイル用環境をMSYS2上でセットアップします。 インストール オフィシャルページ http://www.msys2.org/ から64bit</description>
-      </item>
-      
-      <item>
-        <title>Rust環境セットアップ</title>
-        <link>https://yukihane.github.io/docs/rust/rust-setup/</link>
-        <pubDate>Fri, 24 Jul 2020 00:41:54 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/rust/rust-setup/</guid>
-        <description>Windows インストール WinodowsにRustとEclipseベースIDEをインストールする手順。 資料 Rustのインストール およびここからたどれる</description>
-      </item>
-      
-    
+    <lastBuildDate>Fri, 24 Jul 2020 01:08:11 +0000</lastBuildDate>
+    <atom:link href="https://yukihane.github.io/docs/rust/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust 勝手に FAQ</title>
+      <link>https://yukihane.github.io/docs/rust/rust-faq/</link>
+      <pubDate>Fri, 24 Jul 2020 01:08:11 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/rust/rust-faq/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;自身の勉強中にまとめているページなので誤っている可能性も大きいです。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_簡単に実行できる環境が欲しい&#34;&gt;簡単に実行できる環境が欲しい&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Webブラウザ上で実行結果が確認できます:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://play.rust-lang.org/&#34; class=&#34;bare&#34;&gt;https://play.rust-lang.org/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_変数束縛の方が知りたい&#34;&gt;変数束縛の方が知りたい&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;その変数の存在しないフィールドアクセスなどを行ってコンパイルエラーを起こさせるのが簡単そう。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Rust学習メモ</title>
+      <link>https://yukihane.github.io/docs/rust/rust-memo/</link>
+      <pubDate>Fri, 24 Jul 2020 01:06:39 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/rust/rust-memo/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_リンク&#34;&gt;リンク&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://play.rust-lang.org/&#34;&gt;Rust Playground&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://imoz.jp/note/rust-functions.html&#34; class=&#34;bare&#34;&gt;https://imoz.jp/note/rust-functions.html&lt;/a&gt;[Rustは何が新しいのか（基本的な言語機能の紹介）&lt;/p&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;いもす研 (imos laboratory)]&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/&#34;&gt;プログラミング言語Rust&lt;/a&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://doc.rust-lang.org/book/&#34;&gt;原版&lt;/a&gt;にはhttps://doc.rust-lang.org/book/first-edition/[1st&#xA;Edition], &lt;a href=&#34;https://doc.rust-lang.org/book/second-edition/&#34;&gt;2nd&#xA;Edition&lt;/a&gt;があるが、そのどちらとも違う模様(和訳されているのは1stの古いバージョンか？)&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://rust-lang-ja.org/rust-by-example/&#34;&gt;Rust by Example&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_学習順序&#34;&gt;学習順序&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;olist arabic&#34;&gt;&#xA;&lt;ol class=&#34;arabic&#34;&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/&#34;&gt;プログラミング言語Rust&lt;/a&gt;&#xA;&lt;a href=&#34;http://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/guessing-game.html&#34;&gt;3.1数当てゲーム&lt;/a&gt;までを実行。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://rust-lang-ja.org/rust-by-example/&#34;&gt;Rust by&#xA;Example&lt;/a&gt;のhttp://rust-lang-ja.org/rust-by-example/hello.html[1Hello&#xA;World]を少し読むも、先にテスト方法を見ておいた方がよいかと考える。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/&#34;&gt;プログラミング言語Rust&lt;/a&gt;&#xA;&lt;a href=&#34;https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/testing.html&#34;&gt;5.2&#xA;テスト&lt;/a&gt;を実行。&lt;/p&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;新用語: &lt;strong&gt;アトリビュート&lt;/strong&gt;(&lt;code&gt;&lt;mark&gt;[test]&lt;/mark&gt;&lt;/code&gt;, &lt;code&gt;[cfg(test)]&lt;/code&gt;), &lt;strong&gt;モジュール&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>QML-rust</title>
+      <link>https://yukihane.github.io/docs/rust/qml-rust/</link>
+      <pubDate>Fri, 24 Jul 2020 00:48:19 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/rust/qml-rust/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/White-Oak/qml-rust&#34; class=&#34;bare&#34;&gt;https://github.com/White-Oak/qml-rust&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_インストール&#34;&gt;インストール&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;リポジトリをcloneし、そのディレクトリに移動します。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;git clone  `https://github.com/White-Oak/qml-rust.git[`https://github.com/White-Oak/qml-rust.git&lt;/code&gt;]&lt;br/&gt;&#xA;&lt;code&gt;cd qml-rust&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;サブモジュールを取得します。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;git submodule init&lt;/code&gt;&lt;br/&gt;&#xA;&lt;code&gt;git submodule update&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;build.rs&lt;/code&gt; をMinGW向けに編集します。&#xA;&lt;code&gt;cfg!(windows)&lt;/code&gt; という箇所(2箇所)を &lt;code&gt;false&lt;/code&gt; に置換します。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>MSYS2インストール</title>
+      <link>https://yukihane.github.io/docs/rust/msys2/</link>
+      <pubDate>Fri, 24 Jul 2020 00:46:39 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/rust/msys2/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;Rust&#34;&gt;RustでデバッグするためのGDBと&lt;/a&gt;、Qtコンパイル用環境をMSYS2上でセットアップします。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_インストール&#34;&gt;インストール&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;オフィシャルページ &lt;a href=&#34;http://www.msys2.org/&#34; class=&#34;bare&#34;&gt;http://www.msys2.org/&lt;/a&gt;&#xA;から64bit用インストーラをダウンロードし、書かれている手順に沿って進めるだけです。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;path_設定&#34;&gt;PATH 設定&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;`C:\msys64\mingw64\bin`を`PATH`に追加しておきます。&#xA;(Eclipseからgdbが実行できるようにするためにはこの設定が必要です。)&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Rust環境セットアップ</title>
+      <link>https://yukihane.github.io/docs/rust/rust-setup/</link>
+      <pubDate>Fri, 24 Jul 2020 00:41:54 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/rust/rust-setup/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;windows_インストール&#34;&gt;Windows インストール&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;WinodowsにRustとEclipseベースIDEをインストールする手順。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect2&#34;&gt;&#xA;&lt;h3 id=&#34;_資料&#34;&gt;資料&lt;/h3&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.rust-lang.org/ja-JP/install.html&#34;&gt;Rustのインストール&lt;/a&gt;&#xA;およびここからたどれる&#xA;&lt;a href=&#34;https://github.com/rust-lang-nursery/rustup.rs/blob/master/README.md#working-with-rust-on-windows&#34; class=&#34;bare&#34;&gt;https://github.com/rust-lang-nursery/rustup.rs/blob/master/README.md#working-with-rust-on-windows&lt;/a&gt;[rustup&lt;/p&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Working with Rust on Windows]&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;IDE(Eclipseベース):&#xA;&lt;a href=&#34;https://github.com/RustDT/RustDT/blob/latest/documentation/Installation.md&#34;&gt;RustDT&#xA;Installation&lt;/a&gt;およびここからたどれる&#xA;&lt;a href=&#34;https://github.com/RustDT/RustDT/blob/latest/documentation/UserGuide.md#configuration&#34;&gt;User&#xA;Guide - Configuration&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;</description>
+    </item>
   </channel>
 </rss>

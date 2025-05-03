@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+	<head lang="ja">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>発火後忘失 | Home </title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Fire and Forget blog" />
+	<meta property="og:image" content=""/>
+	<link rel="alternate" type="application/rss+xml" href="https://yukihane.github.io/index.xml" title="発火後忘失" />
+	<meta property="og:url" content="https://yukihane.github.io/">
+  <meta property="og:site_name" content="発火後忘失">
+  <meta property="og:title" content="発火後忘失">
+  <meta property="og:description" content="Fire and Forget blog">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="発火後忘失">
+  <meta name="twitter:description" content="Fire and Forget blog">
+
+        <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
+</head>
+
+	<body>
+		<div class="content">
+			<header>
+	<div class="main">
+		<a href="https://yukihane.github.io/">発火後忘失</a>
+	</div>
+	<nav>
+		
+		<a href="blog">Blog</a>
+		
+		<a href="docs">Docs</a>
+		
+		
+	</nav>
+</header>
+
+			
+			<main class="list">
+				<div class="site-description"></div>
+				
+				
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202107/25/resttemplate-impl-order/">RestTemplateが採用するHTTPクライアント実装の順序</a></h1>
+					<time>2021/07/24</time>
+					<br><div class="description">
+	
+	<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>By default the built RestTemplate will attempt to use the most suitable ClientHttpRequestFactory</p>
+</div>
+</blockquote>
+<div class="attribution">
+— <a href="https://docs.spring.io/spring-boot/docs/2.5.3/api/org/springframework/boot/web/client/RestTemplateBuilder.html">RestTemplateBuilder JavaDoc</a>
+</div>
+</div>
+<div class="paragraph">
+<p>とありますが、具体的にどうやって決めているの？という話です。</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/spring-projects/spring-boot/blob/v2.5.3/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/web/client/ClientHttpRequestFactorySupplier.java"><code>ClientHttpRequestFactorySupplier</code></a>をみると一目瞭然ですが、</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Apache HttpClient (<code>org.apache.http.client.HttpClient</code>) がクラスパスに存在すればそれを採用する</p>
+</li>
+<li>
+<p>OkHttp (<code>okhttp3.OkHttpClient</code>) がクラスパスに存在すればそれを採用する</p>
+</li>
+<li>
+<p>上記のものがいずれも無ければ <code>java.net.HttpURLConnection</code> を採用する</p>
+</li>
+</ol>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202107/25/resttemplate-impl-order/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202107/11/spring-boot-with-babel/">Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle) - Polyfillも必要とする場合</a></h1>
+					<time>2021/07/10</time>
+					<br><div class="description">
+	
+	<div class="sect1">
+<h2 id="_はじめに">はじめに</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="/blog/202107/10/spring-boot-with-typescript/">前回</a> は <code>ts-loader</code> を用いて TypeScript をビルドしました。</p>
+</div>
+<div class="paragraph">
+<p>簡潔にセットアップできたのは良いのですが、実際にはPolyfillを行いたいので <code>babel-loader</code> をベースに再構築することにします。また、自動テスト( <code>jest</code> )も導入します。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202107/11/spring-boot-with-babel/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202107/10/spring-boot-with-typescript/">Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle)</a></h1>
+					<time>2021/07/09</time>
+					<br><div class="description">
+	
+	<div class="sect1">
+<h2 id="_はじめに">はじめに</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Spring Boot で JavaScript を扱うときは素のJSをhtml(Thymeleafテンプレート)に <code>&lt;script&gt;</code> タグで埋め込む、というのが多分一般的で手っ取り早い方法かと思います。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202107/10/spring-boot-with-typescript/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202106/30/spring-boot-remoteuser-is-changed/">Spring Boot 2.5.0(Spring Security 5.5.0-M2)でremoteUserの値が変わった</a></h1>
+					<time>2021/06/29</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p><code>HttpServletRequest#getRemoteUser()</code> をログ出力(Tomcatの <a href="https://tomcat.apache.org/tomcat-9.0-doc/config/valve.html#Access_Log_Valve/Attributes"><code>%u</code></a>)しているのですが、Spring Boot 2.5.0 から返ってくる値が変わったようです。</p>
+</div>
+<div class="paragraph">
+<p>どの変更が影響しているのか調べたところ、次のものが該当するようです。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202106/30/spring-boot-remoteuser-is-changed/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202106/21/aws-squid-proxy/">AWS EC2 で squid プロキシサーバを立てる</a></h1>
+					<time>2021/06/20</time>
+					<br><div class="description">
+	
+	<div class="sect1">
+<h2 id="_はじめに">はじめに</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>SteamのDLC等をダウンロードしようとしたとき、IPアドレスによるアクセス制限が課されている場合があり、それを回避する必要が出る状況がたまにあります。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202106/21/aws-squid-proxy/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202106/12/spring-boot-tomcat-metrics/">Spring Boot で Tomcat のメトリクスを出力する</a></h1>
+					<time>2021/06/12</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>Spring Boot アプリケーションの性能評価を行っているのですが、実装したアプリケーション部分ではなく、webサーバかどこかがパフォーマンスボトルネックになっているように思われる事象に直面し、その原因を調べたいと思っています。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202106/12/spring-boot-tomcat-metrics/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202106/06/hello-github-actions/">GitHub Actions を使って GitHub Pages を定期更新する</a></h1>
+					<time>2021/06/06</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>これまで GitHub Actions を使ったことがなかったのですが、</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://ja.stackoverflow.com/q/76279/2808">GitHub Pagesの更新を自動化したい - スタック・オーバーフロー</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>という質問を見かけ、丁度よいお題だと思ったのでこれを実現してみることにしました。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202106/06/hello-github-actions/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202105/21/spring-boot-avoid-tomcat-error-page/">Spring BootでTomcatのデフォルトエラーページが出るのを抑止する</a></h1>
+					<time>2021/05/20</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>Spring Boot を実行していると、Tomcatのデフォルトエラーページが表示されるような事象に遭遇することがあります。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/spring-projects/spring-boot/issues/21257">Tomcat invokes ErrorReportValve directly for malformed URLs · Issue #21257 · spring-projects/spring-boot</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>このページのカスタマイズ方法は、上記issueにありますが、現状Spring Boot フレームワークでは提供されておらず少しトリッキーです。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202105/21/spring-boot-avoid-tomcat-error-page/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202105/19/git-merge-risk/">Git の merge も思いの外危険</a></h1>
+					<time>2021/05/18</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>次のblogエントリがバズっていました:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://songmu.jp/riji/entry/2021-05-19-my-git-workflow.html">Gitのワークフローについての私のスタンス | おそらくはそれさえも平凡な日々</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>大局としては同意なのですが、ミクロな点では、 <code>rebase</code> 恐怖症というか、 <code>merge</code> を信頼し過ぎているというか、少し私とは意見が異なると感じました。
+そして、上記のblogのような意見が多数派ではないかと思いますので、改めて <code>merge</code> の怖いところを具体例で示したいと思います。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202105/19/git-merge-risk/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202105/19/url-amp/">script src に設定する URL の &amp; はどう書けば良い？</a></h1>
+					<time>2021/05/18</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p><code>&lt;script&gt;</code> タグの <code>src</code> に <code>URL</code> 書く場合、クエリパラメータ連結の <code>&amp;</code> ってどう書くべきなんだろう、という話です。</p>
+</div>
+<div class="paragraph">
+<p>結論としては、以下のように、 <code>&amp;amp;</code> とするのが無難、ということのようです。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202105/19/url-amp/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202105/16/aws-mac/">AWS EC2 の Mac インスタンスを試してみた</a></h1>
+					<time>2021/05/16</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>最初に注意点:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>初めての場合、使えるようになるまで17時間強かかる。</p>
+</li>
+<li>
+<p>最低割り当て時間は24時間。つまり1回利用すると最低 3,000円弱はかかる。</p>
+</li>
+<li>
+<p>インスタンスを終了すると、次のインスタンスを起動できるようになるまで1時間半程度かかる。</p>
+</li>
+</ul>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202105/16/aws-mac/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202105/15/authorization-authentication/">Authorization(認可)リクエストヘッダに設定するのは認証(authentication)情報</a></h1>
+					<time>2021/05/15</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>今日もOAuthは認証じゃなくて認可の仕組みだ云々という話題でソーシャルネットがもちきりですが、そんなことより表題の方がよっぽど気になりませんか…？</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202105/15/authorization-authentication/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202105/06/ling-login-202105/">LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6)</a></h1>
+					<time>2021/05/06</time>
+					<br><div class="description">
+	
+	<div class="sect1">
+<h2 id="_はじめに">はじめに</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="/blog/201908/line-login-sample/">LINEログイン機能を試してみる</a> – 発火後忘失</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>で、 Spring Boot 2.1.7 (Spring Security 5.1.6) を利用してLINEログインを行ってみました。</p>
+</div>
+<div class="paragraph">
+<p>本ドキュメントは、このコードをそのまま Spring Boot 2.4.5 へアップグレードしたところ上手く動かなかったので修正を行った記録です。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202105/06/ling-login-202105/">Read more ⟶</a>
+				</section>
+				
+				
+
+<ul class="pagination">
+	<span class="page-item page-prev">
+	
+    <a href="/page/4/" class="page-link" aria-label="Previous"><span aria-hidden="true">← Prev</span></a>
+	
+	</span>
+	<span class="page-item page-next">
+	
+    <a href="/page/6/" class="page-link" aria-label="Next"><span aria-hidden="true">Next →</span></a>
+	
+	</span>
+</ul>
+
+
+			</main>
+			<footer>
+  <div style="display:flex"></div>
+  <div class="footer-info">
+    2025  &amp;copy;{year}, All Rights Reserved |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E9J8FN5B4Q');
+        }
+      </script>
+
+
+		</div>
+		
+	</body>
+</html>

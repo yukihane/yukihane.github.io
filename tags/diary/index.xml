@@ -1,109 +1,83 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>diary on 発火後忘失</title>
+    <title>Diary on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/diary/</link>
-    <description>Recent content in diary on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Diary on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Thu, 20 Mar 2025 12:58:42 +0900</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/diary/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>確定申告(2024年分)振り返り</title>
-        <link>https://yukihane.github.io/blog/202503/20/tax/</link>
-        <pubDate>Thu, 20 Mar 2025 12:58:42 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202503/20/tax/</guid>
-        <description>昨年のものはこちら: 確定申告(2023年分)振り返り 昨年同様、次回に向けて重要だと考える順に書いていきます: 次回確定申告までにマイナンバーカ</description>
-      </item>
-      
-      <item>
-        <title>Markdownでblogを書くようにしました</title>
-        <link>https://yukihane.github.io/blog/202410/20/blog-with-markdown/</link>
-        <pubDate>Sun, 20 Oct 2024 14:59:16 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202410/20/blog-with-markdown/</guid>
-        <description>これまでは Asciidoc を利用してきましたが、もはや Markdown の覇権は揺るぎそうにないので宗旨変えをすることにしました。 blog 用の SSG も、Asciidoc のサポートが</description>
-      </item>
-      
-      <item>
-        <title>Buffaloのルーターはもう買わないことにした</title>
-        <link>https://yukihane.github.io/blog/202404/06/buffalo-router/</link>
-        <pubDate>Sat, 06 Apr 2024 17:28:51 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202404/06/buffalo-router/</guid>
-        <description>2023年2月上旬に WSR-6000AX8(Amazon) というルーターを購入したのですが、高頻度で受信エラーが発生しました。 リモートワークを行っていますのでこのままだと仕事に</description>
-      </item>
-      
-      <item>
-        <title>Value Object(値オブジェクト)についての覚え書き</title>
-        <link>https://yukihane.github.io/blog/202206/11/value-object/</link>
-        <pubDate>Sat, 11 Jun 2022 04:01:31 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202206/11/value-object/</guid>
-        <description>2022年5月中旬から下旬にかけて Value Object(値オブジェクト) についての議論がさかんに行われていました。 そのときに書き起こされた文章への</description>
-      </item>
-      
-      <item>
-        <title>AWS EC2 で squid プロキシサーバを立てる</title>
-        <link>https://yukihane.github.io/blog/202106/21/aws-squid-proxy/</link>
-        <pubDate>Sun, 20 Jun 2021 23:39:04 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202106/21/aws-squid-proxy/</guid>
-        <description>はじめに SteamのDLC等をダウンロードしようとしたとき、IPアドレスによるアクセス制限が課されている場合があり、それを回避する必要が出る</description>
-      </item>
-      
-      <item>
-        <title>Authorization(認可)リクエストヘッダに設定するのは認証(authentication)情報</title>
-        <link>https://yukihane.github.io/blog/202105/15/authorization-authentication/</link>
-        <pubDate>Sat, 15 May 2021 09:40:22 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202105/15/authorization-authentication/</guid>
-        <description>今日もOAuthは認証じゃなくて認可の仕組みだ云々という話題でソーシャルネットがもちきりですが、そんなことより表題の方がよっぽど気になりませ</description>
-      </item>
-      
-      <item>
-        <title>gccをビルドするのにどれくらい時間がかかるの？(10分かからなかった) </title>
-        <link>https://yukihane.github.io/blog/202008/30/gcc-compilation-time/</link>
-        <pubDate>Sun, 30 Aug 2020 06:57:01 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202008/30/gcc-compilation-time/</guid>
-        <description>gccをビルドしようと思ったのですが、結構時間がかかるイメージがあって、先にどれくらいかかるのか調べたかったのだけれど検索しても見つかりませ</description>
-      </item>
-      
-      <item>
-        <title>電子キーボードを買いました</title>
-        <link>https://yukihane.github.io/blog/201908/begin-piano/</link>
-        <pubDate>Sat, 31 Aug 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201908/begin-piano/</guid>
-        <description>経緯 プログラミングとかビデオゲームとか、かなり目を酷使することばかりやっているので、そうではない趣味を持とうと考えた末、何か楽器を入門するこ</description>
-      </item>
-      
-      <item>
-        <title>JBakeのタグページが想定通り動いていない</title>
-        <link>https://yukihane.github.io/blog/201908/jbake-tags/</link>
-        <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201908/jbake-tags/</guid>
-        <description>タグのindexページは正しくタグを収集しているようですが、それぞれのタグ個別ページがちゃんと生成されていないですね… テンプレートは 標準のも</description>
-      </item>
-      
-      <item>
-        <title>JBakeはじめました</title>
-        <link>https://yukihane.github.io/blog/201908/hello/</link>
-        <pubDate>Sat, 03 Aug 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201908/hello/</guid>
-        <description>個人的にMarkDownはあまり好きではなく(標準だと表現力が弱いし方言が多い！)、ずっとblogをAsciiDocで書く方法を模索していま</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/diary/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>確定申告(2024年分)振り返り</title>
+      <link>https://yukihane.github.io/blog/202503/20/tax/</link>
+      <pubDate>Thu, 20 Mar 2025 12:58:42 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202503/20/tax/</guid>
+      <description>&lt;p&gt;昨年のものはこちら:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202404/06/final-tax-return/&#34;&gt;確定申告(2023年分)振り返り&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;昨年同様、次回に向けて重要だと考える順に書いていきます:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;次回確定申告までにマイナンバーカードの電子証明書期限が切れるので更新が必要&#xA;&lt;ul&gt;&#xA;&lt;li&gt;有効期限は5回目の誕生日。3ヵ月前から更新可能で、そのあたりで『地方公共団体情報システム機構から送付される「マイナンバーカード・電子証明書　有効期限通知書」』なるものが届くらしい。それが必要&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;下にも書いているがfreeeで口座連携ができていないことはしばしば発生する。確定申告直前に確認するのでなく、日ごろからたまにfreeeにログインして確認すべき&lt;/li&gt;&#xA;&lt;li&gt;freee にみずほ銀行の入出金が去年5月から一切連携できておらず焦ったが、&lt;a href=&#34;https://www.mizuhobank.co.jp/direct/about/service/directpassbook/index.html&#34;&gt;みずほダイレクト通帳&lt;/a&gt;で出力したCSVを、freeeの機能「みずほ銀行ダイレクト（API）でダウンロードしたCSV」インポート機能で取り込めた。&#xA;&lt;ul&gt;&#xA;&lt;li&gt;リンク先にある通り、事前の申請などが必要なので注意。自分はかなり昔に契約していたので助かった&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;国民健康保険料はマイナポータル連携できない(国じゃなくて市の管轄だから推進力が無いのだと思う)。これだけまだ郵送されてくる書類を保管しておく必要がある&#xA;&lt;ul&gt;&#xA;&lt;li&gt;去年も書いた&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;2割特例や簡易課税制度を選択しているのならe-taxで簡単に消費税申請できる。freeeでやろうと思うと上位プランで値段が上がってしまうが、別にfreeeでやる必要はない&lt;/li&gt;&#xA;&lt;li&gt;昨年、「消費税簡易課税制度選択届出書を出しておく必要がありそう」と書いていたがすっかり忘れていた。昨年内に届け出が必要だったが、ギリギリ間に合った&lt;/li&gt;&#xA;&lt;li&gt;楽天のふるさと納税の証明書は、今年から即時に発行できるようになっていた&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;例年なかなかやる気が出なくて、今年も結局最終週まで手を付けられなかった。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Markdownでblogを書くようにしました</title>
+      <link>https://yukihane.github.io/blog/202410/20/blog-with-markdown/</link>
+      <pubDate>Sun, 20 Oct 2024 14:59:16 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202410/20/blog-with-markdown/</guid>
+      <description>&lt;p&gt;これまでは Asciidoc を利用してきましたが、もはや Markdown の覇権は揺るぎそうにないので宗旨変えをすることにしました。&lt;/p&gt;&#xA;&lt;p&gt;blog 用の SSG も、Asciidoc のサポートが良いものを選んできて、今の Hugo も、当時人気だった Gatsby と比較して Asciidoc のサポートが厚いという理由で選択しました。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Buffaloのルーターはもう買わないことにした</title>
+      <link>https://yukihane.github.io/blog/202404/06/buffalo-router/</link>
+      <pubDate>Sat, 06 Apr 2024 17:28:51 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202404/06/buffalo-router/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;2023年2月上旬に WSR-6000AX8(&lt;a href=&#34;https://amzn.to/3PQLASI&#34;&gt;Amazon&lt;/a&gt;) というルーターを購入したのですが、高頻度で受信エラーが発生しました。&#xA;リモートワークを行っていますのでこのままだと仕事にならない、とサポートに連絡するも特に有効な情報は得られず。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Value Object(値オブジェクト)についての覚え書き</title>
+      <link>https://yukihane.github.io/blog/202206/11/value-object/</link>
+      <pubDate>Sat, 11 Jun 2022 04:01:31 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202206/11/value-object/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;2022年5月中旬から下旬にかけて Value Object(値オブジェクト) についての議論がさかんに行われていました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;そのときに書き起こされた文章へのリンクを、(分かる範囲で)時系列順に残しておきます。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>AWS EC2 で squid プロキシサーバを立てる</title>
+      <link>https://yukihane.github.io/blog/202106/21/aws-squid-proxy/</link>
+      <pubDate>Sun, 20 Jun 2021 23:39:04 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202106/21/aws-squid-proxy/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;SteamのDLC等をダウンロードしようとしたとき、IPアドレスによるアクセス制限が課されている場合があり、それを回避する必要が出る状況がたまにあります。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Authorization(認可)リクエストヘッダに設定するのは認証(authentication)情報</title>
+      <link>https://yukihane.github.io/blog/202105/15/authorization-authentication/</link>
+      <pubDate>Sat, 15 May 2021 09:40:22 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202105/15/authorization-authentication/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;今日もOAuthは認証じゃなくて認可の仕組みだ云々という話題でソーシャルネットがもちきりですが、そんなことより表題の方がよっぽど気になりませんか…？&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>gccをビルドするのにどれくらい時間がかかるの？(10分かからなかった) </title>
+      <link>https://yukihane.github.io/blog/202008/30/gcc-compilation-time/</link>
+      <pubDate>Sun, 30 Aug 2020 06:57:01 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202008/30/gcc-compilation-time/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;gccをビルドしようと思ったのですが、結構時間がかかるイメージがあって、先にどれくらいかかるのか調べたかったのだけれど検索しても見つかりませんでした。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>電子キーボードを買いました</title>
+      <link>https://yukihane.github.io/blog/201908/begin-piano/</link>
+      <pubDate>Sat, 31 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201908/begin-piano/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_経緯&#34;&gt;経緯&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;プログラミングとかビデオゲームとか、かなり目を酷使することばかりやっているので、そうではない趣味を持とうと考えた末、何か楽器を入門することにしました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>JBakeのタグページが想定通り動いていない</title>
+      <link>https://yukihane.github.io/blog/201908/jbake-tags/</link>
+      <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201908/jbake-tags/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://himeji-cs.jp/blog2/tags/index.html&#34;&gt;タグのindexページ&lt;/a&gt;は正しくタグを収集しているようですが、それぞれのタグ個別ページがちゃんと生成されていないですね…&#xA;テンプレートは &lt;a href=&#34;https://github.com/jbake-org/jbake-example-project-thymeleaf/blob/master/templates/tags.thyme&#34;&gt;標準のもの&lt;/a&gt;そのまま使っているはずなのだけれど。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>JBakeはじめました</title>
+      <link>https://yukihane.github.io/blog/201908/hello/</link>
+      <pubDate>Sat, 03 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201908/hello/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;個人的にMarkDownはあまり好きではなく(標準だと表現力が弱いし方言が多い！)、ずっとblogをAsciiDocで書く方法を模索していました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
   </channel>
 </rss>

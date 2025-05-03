@@ -1,28 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>heroku on 発火後忘失</title>
+    <title>Heroku on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/heroku/</link>
-    <description>Recent content in heroku on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Heroku on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Thu, 22 Aug 2019 00:00:00 +0000</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/heroku/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>HerokuでSpringBootアプリを動かしてみる</title>
-        <link>https://yukihane.github.io/blog/201908/hello-heroku-with-springboot/</link>
-        <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201908/hello-heroku-with-springboot/</guid>
-        <description>背景 最終的にはLINE platformのAPIを理解したいのですが、 リファレンスを読んでいるとサンプルプログラム(サンプルbot)をHero</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/heroku/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HerokuでSpringBootアプリを動かしてみる</title>
+      <link>https://yukihane.github.io/blog/201908/hello-heroku-with-springboot/</link>
+      <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201908/hello-heroku-with-springboot/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_背景&#34;&gt;背景&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;最終的にはLINE platformのAPIを理解したいのですが、 &lt;a href=&#34;https://developers.line.biz/ja/docs/&#34;&gt;リファレンス&lt;/a&gt;を読んでいるとサンプルプログラム(サンプルbot)をHerokuにデプロイして試してみる、というような説明が多数あったので、Herokuについて理解しておこう、と考えました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;そういった考えで、今回、単純なSpringBoot hello-worldアプリをHerokuにデプロイして接続確認してみることにしました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
   </channel>
 </rss>

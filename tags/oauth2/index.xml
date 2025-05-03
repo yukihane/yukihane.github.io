@@ -1,28 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>oauth2 on 発火後忘失</title>
+    <title>Oauth2 on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/oauth2/</link>
-    <description>Recent content in oauth2 on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Oauth2 on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Mon, 20 Jul 2020 06:36:51 +0000</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/oauth2/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>Spring Security OAuth 2.0 Client の auto-configuration</title>
-        <link>https://yukihane.github.io/blog/202007/20/spring-security-oauth-2.0-client/</link>
-        <pubDate>Mon, 20 Jul 2020 06:36:51 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202007/20/spring-security-oauth-2.0-client/</guid>
-        <description>OAuth2ClientAutoConfiguration 上記のクラスが Import しているもの(など): OAuth2ClientRegistrationRepositoryConfiguration ClientRegistrationRepository bean 定義。 OAuth2ClientProperties(spring.security.oauth</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/oauth2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring Security OAuth 2.0 Client の auto-configuration</title>
+      <link>https://yukihane.github.io/blog/202007/20/spring-security-oauth-2.0-client/</link>
+      <pubDate>Mon, 20 Jul 2020 06:36:51 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202007/20/spring-security-oauth-2.0-client/</guid>
+      <description>&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2ClientAutoConfiguration.java&#34;&gt;&lt;code&gt;OAuth2ClientAutoConfiguration&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;上記のクラスが &lt;code&gt;Import&lt;/code&gt; しているもの(など):&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2ClientRegistrationRepositoryConfiguration.java&#34;&gt;&lt;code&gt;OAuth2ClientRegistrationRepositoryConfiguration&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;code&gt;ClientRegistrationRepository&lt;/code&gt; bean 定義。&lt;/p&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/OAuth2ClientProperties.java&#34;&gt;&lt;code&gt;OAuth2ClientProperties&lt;/code&gt;&lt;/a&gt;(&lt;code&gt;spring.security.oauth2.client&lt;/code&gt;)プロパティから定義を取得して生成するインメモリレジストリを生成。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2WebSecurityConfiguration.java&#34;&gt;&lt;code&gt;OAuth2WebSecurityConfiguration&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/spring-projects/spring-security/blob/5.3.3.RELEASE/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/OAuth2AuthorizedClientService.java&#34;&gt;&lt;code&gt;OAuth2AuthorizedClientService&lt;/code&gt;&lt;/a&gt; bean 定義。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/spring-projects/spring-security/blob/5.3.3.RELEASE/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/web/OAuth2AuthorizedClientRepository.java&#34;&gt;&lt;code&gt;OAuth2AuthorizedClientRepository&lt;/code&gt;&lt;/a&gt; bean 定義。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;code&gt;WebSecurityConfigurerAdapter&lt;/code&gt; デフォルト実装。&lt;/p&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;全てのリクエストに authenticated を要求する。 oauth2Login, oauth2Client 有効化。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;</description>
+    </item>
   </channel>
 </rss>

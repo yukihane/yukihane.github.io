@@ -1,379 +1,293 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>java on 発火後忘失</title>
+    <title>Java on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/java/</link>
-    <description>Recent content in java on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Java on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Sun, 12 Jun 2022 05:56:40 +0900</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>Java における value objects</title>
-        <link>https://yukihane.github.io/blog/202206/12/java-value-based-class/</link>
-        <pubDate>Sun, 12 Jun 2022 05:56:40 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202206/12/java-value-based-class/</guid>
-        <description>Java 標準 API のドキュメントには、 &amp;#34;値ベース・クラス&amp;#34; というページがあります: https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/ValueBased.html 機械翻訳っぽくて分かりづらい箇所もあるので、併せて</description>
-      </item>
-      
-      <item>
-        <title>Spring MVC で Java17 record を試してみる</title>
-        <link>https://yukihane.github.io/blog/202110/18/java17-record-on-spring-mvc/</link>
-        <pubDate>Mon, 18 Oct 2021 10:03:46 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202110/18/java17-record-on-spring-mvc/</guid>
-        <description>(※ record は Java14 でプレビュー版が導入、 Java16 で正式版が導入されたので Java17 というのは不正確なようですが…) Java17 の record を今まで利用してきた POJO から置き換えられるの</description>
-      </item>
-      
-      <item>
-        <title>STS(Eclipse) で Import Getting Started Content が進まない</title>
-        <link>https://yukihane.github.io/blog/202110/16/sts-import-getting-started-content-is-stuck/</link>
-        <pubDate>Sat, 16 Oct 2021 08:16:59 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202110/16/sts-import-getting-started-content-is-stuck/</guid>
-        <description>Spring Tools 4 for Eclipse を利用していると、バージョンによって？ プロジェクト新規作成時などで &amp;#34;Import Getting Started Content&amp;#34; というタスクが走るのですがこれが全く終わらないことがあり</description>
-      </item>
-      
-      <item>
-        <title>Servlet 5.1 で Samesite 属性を設定できるようになる</title>
-        <link>https://yukihane.github.io/blog/202110/15/servlet-with-cookies-samesite/</link>
-        <pubDate>Fri, 15 Oct 2021 20:31:37 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202110/15/servlet-with-cookies-samesite/</guid>
-        <description>現在の Servlet API では Cookie に SameSite 属性を設定するメソッドがありません。 そのため、仕様外の、フレームワーク固有の方法だったり、低レイヤーの仕組みを使って設定</description>
-      </item>
-      
-      <item>
-        <title>Hello Project Panama, on Java17</title>
-        <link>https://yukihane.github.io/blog/202110/08/hello-project-panama-on-java17/</link>
-        <pubDate>Fri, 08 Oct 2021 04:49:30 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202110/08/hello-project-panama-on-java17/</guid>
-        <description>はじめに Hello Project Panama – 発火後忘失 で、 Project Panama (リンク1, リンク2) の機能を利用して、 Java から Rust を呼び出してみました。 当時(Java14)は Project Panama 用にビルド</description>
-      </item>
-      
-      <item>
-        <title>SLF4Jでplaceholderも使いつつstacktraceも出力したい</title>
-        <link>https://yukihane.github.io/blog/202102/02/slf4j-placeholder-throwable/</link>
-        <pubDate>Mon, 01 Feb 2021 16:38:42 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202102/02/slf4j-placeholder-throwable/</guid>
-        <description>SLF4J の Logger のメソッドを眺めていると、 Throwable を引数にとれるのは 他に Marker と String メッセージだけを持つものばかりで、プレースホルダを利用したい場合にはどうしたら</description>
-      </item>
-      
-      <item>
-        <title>LombokとMapStructをEclipseで併用しようとした際の不具合がMapStruct1.4.0で解消されていた</title>
-        <link>https://yukihane.github.io/blog/202007/28/lombok-and-mapstruct-problem-is-fixed/</link>
-        <pubDate>Tue, 28 Jul 2020 12:06:03 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202007/28/lombok-and-mapstruct-problem-is-fixed/</guid>
-        <description>これまで、LombokとMapStructを併用しようとした場合、そのままだと不具合(MapStructのアノテーションプロセッシングが動作</description>
-      </item>
-      
-      <item>
-        <title>SWTのFindWindowはもはや存在しない</title>
-        <link>https://yukihane.github.io/blog/202007/26/swt-findwindowi-is-deprecated/</link>
-        <pubDate>Sat, 25 Jul 2020 23:42:57 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202007/26/swt-findwindowi-is-deprecated/</guid>
-        <description>元ネタ: 古い Eclipse の起動時に UnsatisfiedLinkError が発生する - スタック・オーバーフロー いにしえのJava世界では、Win32APIにアクセスするためにSWTを利用し</description>
-      </item>
-      
-      <item>
-        <title>Gradleプラグイン/アノテーションプロセッシング調査</title>
-        <link>https://yukihane.github.io/blog/202007/15/research-gradle-plugins/</link>
-        <pubDate>Tue, 14 Jul 2020 15:58:57 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202007/15/research-gradle-plugins/</guid>
-        <description>元々JBoss/WildFlyの流れで開発してきたのでずっとMavenを利用してきたのですが、今度のプロジェクトではGradleを使うことに</description>
-      </item>
-      
-      <item>
-        <title>List#contains(null)は使わないほうが良い</title>
-        <link>https://yukihane.github.io/blog/202006/13/list-contains-null/</link>
-        <pubDate>Sat, 13 Jun 2020 10:34:19 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202006/13/list-contains-null/</guid>
-        <description>List(などのコレクション)が要素に null を含むかどうかの判定に、 contains(null) を利用すると NullPointerException が発生することがあります。 リファレンスには次のようにあります</description>
-      </item>
-      
-      <item>
-        <title>CompletableFuture覚え書き</title>
-        <link>https://yukihane.github.io/blog/202006/02/note-of-completablefuture/</link>
-        <pubDate>Tue, 02 Jun 2020 07:54:25 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202006/02/note-of-completablefuture/</guid>
-        <description>CompletableFuture の一連の非同期処理 ほげAsync は、デフォルトでは ForkJoinPool.commonPool() という ExecutorService で実行されます。 そしてこの ExecutorService のワーカスレッドはデーモンスレッドであるため、非デ</description>
-      </item>
-      
-      <item>
-        <title>Javaのソースファイルはpackageに対応したディレクトリ階層に置かなくても良い？</title>
-        <link>https://yukihane.github.io/blog/202005/29/java-source-location/</link>
-        <pubDate>Fri, 29 May 2020 08:28:07 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202005/29/java-source-location/</guid>
-        <description>https://twitter.com/hishidama/status/1266176675768745984 packageの宣言と実際のディレクトリが一致していなくてもmvn compile（やjavac）が成功するんですが、そういうもんでしたっけ</description>
-      </item>
-      
-      <item>
-        <title>Hello, JSF</title>
-        <link>https://yukihane.github.io/blog/202004/06/hello-jsf/</link>
-        <pubDate>Mon, 06 Apr 2020 01:52:30 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202004/06/hello-jsf/</guid>
-        <description>はじめに JSFを少し触ってみようと思ったのですが、もはやロストテクノロジーでどう始めるのかすらドキュメントを探すのが大変… 今回はかろうじてこ</description>
-      </item>
-      
-      <item>
-        <title>いきなりJavaアプリケーションサーバの保守を任されることになった人のためのチートシート(2)</title>
-        <link>https://yukihane.github.io/blog/202004/03/java-application-frameworks-cheat-sheet2/</link>
-        <pubDate>Fri, 03 Apr 2020 02:44:22 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202004/03/java-application-frameworks-cheat-sheet2/</guid>
-        <description>はじめに 前回はアプリケーションサーバにデバッガをアタッチする方法までを説明しました。 今回は、ソースコードを眺めているだけでは通ることを見つけ</description>
-      </item>
-      
-      <item>
-        <title>いきなりJavaアプリケーションサーバの保守を任されることになった人のためのチートシート(1)</title>
-        <link>https://yukihane.github.io/blog/202004/02/java-application-frameworks-cheat-sheet/</link>
-        <pubDate>Thu, 02 Apr 2020 06:15:28 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202004/02/java-application-frameworks-cheat-sheet/</guid>
-        <description>目的 Javaを用いた開発にある程度慣れている場合でも、初めてアプリケーションフレームワーク上で開発するとなると戸惑うことがあります。 ここでは</description>
-      </item>
-      
-      <item>
-        <title>Maven Enforcer Pluginの実行をスキップする</title>
-        <link>https://yukihane.github.io/blog/202003/30/skip-maven-enforcer-plugin/</link>
-        <pubDate>Mon, 30 Mar 2020 05:37:45 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202003/30/skip-maven-enforcer-plugin/</guid>
-        <description>とあるMavenプロジェクトを mvn clean install しようとしたところ、次のエラーになり正常終了しませんでした。 [WARNING] Rule 0: org.apache.maven.plugins.enforcer.BannedRepositories failed with message: Current maven session contains banned repository urls, please double check your pom or settings.xml: central</description>
-      </item>
-      
-      <item>
-        <title>finalと実質finalの違い</title>
-        <link>https://yukihane.github.io/blog/202002/21/effectively-final-difference/</link>
-        <pubDate>Fri, 21 Feb 2020 06:53:19 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202002/21/effectively-final-difference/</guid>
-        <description>https://ja.stackoverflow.com/a/63099/2808 を見ていて気づいたのですが、 実質final というのは脳内(コンパイラ)で final を補完してくれる、というような処理が行われるわけではないのですね</description>
-      </item>
-      
-      <item>
-        <title>Hello Project Panama</title>
-        <link>https://yukihane.github.io/blog/202002/11/hello-project-panama/</link>
-        <pubDate>Tue, 11 Feb 2020 20:43:43 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202002/11/hello-project-panama/</guid>
-        <description>追記: Hello Project Panama, on Java17 に Java17 版を記載しました。 はじめに 今個人的にすごく知りたいのはこちらです。ご回答よろしくお願いします！！！！ 動的確保したメモリー</description>
-      </item>
-      
-      <item>
-        <title>native-imageコマンドを実行するために行ったWindows10 への GraalVM インストールがエキサイティングな件</title>
-        <link>https://yukihane.github.io/blog/201911/09/graalvm-install-to-windows10/</link>
-        <pubDate>Sat, 09 Nov 2019 21:57:08 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201911/09/graalvm-install-to-windows10/</guid>
-        <description>悪い意味で。 なお試した時点での GraalVM 最新リリースバージョンは 19.2.1でした。 GraalVM インストール &amp;amp; 実行 GraalVM のインストール方法はいくつかあるのでお好み</description>
-      </item>
-      
-      <item>
-        <title>LINE Messaging API を試してみる</title>
-        <link>https://yukihane.github.io/blog/201908/line-bot-sample/</link>
-        <pubDate>Sun, 25 Aug 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201908/line-bot-sample/</guid>
-        <description>準備 Spring Boot セットアップ https://start.spring.io/ でテンプレートを作成して次の依存関係を追加します。 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.linecorp.bot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;line-bot-spring-boot&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.7.0&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; リポジトリ: https://github.com/line/line-bot-sdk-java/tree/master/line-bot-spring-boot Heroku セットアップ 今回は linebotbeta というアプリケーション</description>
-      </item>
-      
-      <item>
-        <title>LINE リッチメニューを試してみる</title>
-        <link>https://yukihane.github.io/blog/201908/line-richmenu-sample/</link>
-        <pubDate>Sun, 25 Aug 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201908/line-richmenu-sample/</guid>
-        <description>https://github.com/yukihane/hello-java/tree/master/line/richmenu-sample 公式リファレンス に書いてある通りですが、リッチメニューを試してみました。 メニューをタップするとPostBackEventを送信します。 bo</description>
-      </item>
-      
-      <item>
-        <title>LINEログイン機能を試してみる(Spring Boot 2.1.7/Spring Security 5.1.6)</title>
-        <link>https://yukihane.github.io/blog/201908/line-login-sample/</link>
-        <pubDate>Sun, 25 Aug 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201908/line-login-sample/</guid>
-        <description>Important 本ページは Spring Boot 2.1.7 の頃のものですが、後続として 2.4.5 対応版があります: LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6) – 発火後忘失 Spring Secur</description>
-      </item>
-      
-      <item>
-        <title>Gradleプロジェクトで生成した実行スクリプトがGitBash(MSYS環境)でうまく動かない</title>
-        <link>https://yukihane.github.io/blog/201908/gradle-msys/</link>
-        <pubDate>Fri, 23 Aug 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201908/gradle-msys/</guid>
-        <description>GitBash環境でSDKMAN!を使ってJBakeをインストールしたのですが、 jbake コマンドを実行すると次のようなエラーが出てうまく動きません</description>
-      </item>
-      
-      <item>
-        <title>HerokuでSpringBootアプリを動かしてみる</title>
-        <link>https://yukihane.github.io/blog/201908/hello-heroku-with-springboot/</link>
-        <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201908/hello-heroku-with-springboot/</guid>
-        <description>背景 最終的にはLINE platformのAPIを理解したいのですが、 リファレンスを読んでいるとサンプルプログラム(サンプルbot)をHero</description>
-      </item>
-      
-      <item>
-        <title>Lombokプラグインを入れているEclipseでMapStruct自動生成が機能しない</title>
-        <link>https://yukihane.github.io/blog/201908/eclipse-lombok-mapstruct/</link>
-        <pubDate>Sun, 18 Aug 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201908/eclipse-lombok-mapstruct/</guid>
-        <description>サンプルコード: https://github.com/yukihane/hello-java/tree/master/mapstruct/hello-mapstruct 上記のコードのようにLombokとMapStructを併用しているプロジェクトを、 Lombokプラグインを適用したEcli</description>
-      </item>
-      
-      <item>
-        <title>ファイル出力先にServletContext#getRealPathを使うな</title>
-        <link>https://yukihane.github.io/blog/201906/20/dont-use-getrealpath/</link>
-        <pubDate>Thu, 20 Jun 2019 20:26:49 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201906/20/dont-use-getrealpath/</guid>
-        <description>タイトルに書いたような、ファイル出力先として ServletContext#getRealPath を利用しているサンプルコードが見つかる、と聞いて検索してみたところ、日本語、非日本語にかかわら</description>
-      </item>
-      
-      <item>
-        <title>元号が令和に変わったことを知らない人のための日付処理方法</title>
-        <link>https://yukihane.github.io/blog/201906/12/java-datetime/</link>
-        <pubDate>Wed, 12 Jun 2019 20:24:45 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201906/12/java-datetime/</guid>
-        <description>問題 JapaneseDate.of(や LocalDate.of)を使うと厳密(strict)に検証されてしまう。 結果、例外が出る。 // 平成31</description>
-      </item>
-      
-      <item>
-        <title>SimpleDateFormat もこれもうわかんねぇな</title>
-        <link>https://yukihane.github.io/blog/201906/11/simpledateformat/</link>
-        <pubDate>Tue, 11 Jun 2019 20:23:06 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201906/11/simpledateformat/</guid>
-        <description>結果 1.8 H 11 平成 環境 1.8 java version &amp;quot;1.8.0_201&amp;quot; Java(TM) SE Runtime Environment (build 1.8.0_201-b09) Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode) 11 openjdk version &amp;quot;11.0.2&amp;quot; 2019-01-15 OpenJDK Runtime Environment 18.9 (build 11.0.2+9) OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode) コード import java.text.SimpleDateFormat; import java.time.LocalDate; import java.util.Date; import java.util.Locale; public class Main { public static void main(final String[] args) {</description>
-      </item>
-      
-      <item>
-        <title>%s に null を渡したらどうなるんだっけ</title>
-        <link>https://yukihane.github.io/blog/201906/11/format-pass-to-null/</link>
-        <pubDate>Tue, 11 Jun 2019 20:19:09 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201906/11/format-pass-to-null/</guid>
-        <description>こたえ 文字列 null が出力される。 コード final String text = null; System.out.printf(&amp;quot;%s&amp;quot;, text); 参考 java.util.Formatter For category General, Character, Numberic, Integral and Date/Time conversion, unless otherwise specified, if the argument arg is null, then the result is &amp;ldquo;null&amp;rdquo;. リンク先の表にある通り、 s はカテゴリ&amp;q</description>
-      </item>
-      
-      <item>
-        <title>DateTimeFormatter とかこれもうわかんねぇな</title>
-        <link>https://yukihane.github.io/blog/201906/04/datetimeformatter/</link>
-        <pubDate>Tue, 04 Jun 2019 20:16:49 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201906/04/datetimeformatter/</guid>
-        <description>コード import java.time.LocalDate; import java.time.format.DateTimeFormatter; import java.util.Locale; public class App { private static String format(final LocalDate date, final String pattern) { return date.format(DateTimeFormatter.ofPattern(pattern, Locale.JAPAN)); } public static void main(final String[] args) { final LocalDate today = LocalDate.of(2019, 6, 4); System.out.println(format(today, &amp;quot;M&amp;quot;)); System.out.println(format(today, &amp;quot;MM&amp;quot;)); System.out.println(format(today, &amp;quot;MMM&amp;quot;)); System.out.println(format(today, &amp;quot;MMMM&amp;quot;)); System.out.println(format(today, &amp;quot;MMMMM&amp;quot;)); System.out.println(format(today, &amp;quot;MMMMMM&amp;quot;)); } } 結果 パターン 結果 M 6 MM 06 MMM 6 月</description>
-      </item>
-      
-      <item>
-        <title>Java9以降.propertiesファイルをUTF-8で書けるようになった、は正しい？</title>
-        <link>https://yukihane.github.io/blog/201904/27/java-properties-is-not-utf8/</link>
-        <pubDate>Sat, 27 Apr 2019 20:08:10 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201904/27/java-properties-is-not-utf8/</guid>
-        <description>解答 正しくない。 Java9(JEP226)で変わったのはリソースバンドルの取り扱い(PropertyResourceBundle) であって プ</description>
-      </item>
-      
-      <item>
-        <title>Hibernate で CHAR を String にマップする</title>
-        <link>https://yukihane.github.io/blog/201902/04/hibernate-map-char-to-string/</link>
-        <pubDate>Mon, 04 Feb 2019 20:01:19 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201902/04/hibernate-map-char-to-string/</guid>
-        <description>例えば、生 JDBC でchar型カラムのクエリを書くとString型にマップされます final Connection connection = DriverManager.getConnection(...); final Statement statement = connection.createStatement(); final ResultSet resultSet = statement.executeQuery(&amp;quot;select char_column from foo_table&amp;quot;); // java.lang.String resultSet.getMetaData().getColumnClassName(1); が、Hibernate</description>
-      </item>
-      
-      <item>
-        <title>Eclipseの起動に使用するJDKを指定する（Mac）</title>
-        <link>https://yukihane.github.io/blog/201901/16/set-jvm-to-eclipse-on-mac/</link>
-        <pubDate>Wed, 16 Jan 2019 19:58:26 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201901/16/set-jvm-to-eclipse-on-mac/</guid>
-        <description>最新の JDK をインストールしたが、古いバージョンの Eclipse も利用したい(が最新のバージョンでは起動できない)ような場合に必要となる設定です。 設定するフ</description>
-      </item>
-      
-      <item>
-        <title>OpenJDK11をWindowsで自前ビルドする</title>
-        <link>https://yukihane.github.io/blog/201809/30/selfbuild-openjdk/</link>
-        <pubDate>Sun, 30 Sep 2018 19:53:56 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201809/30/selfbuild-openjdk/</guid>
-        <description>Java の有償化ってより身近なところでは GPL 化と言った方が現状に即してるな、と思っています。 それはともかく、何となく OpenJDK をデバッグ情報付きでビルドした</description>
-      </item>
-      
-      <item>
-        <title>M2_HOMEは不要</title>
-        <link>https://yukihane.github.io/blog/201807/25/not-required-m2_home/</link>
-        <pubDate>Wed, 25 Jul 2018 19:38:38 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201807/25/not-required-m2_home/</guid>
-        <description>M2_HOME は削除されました。 MNGSITE-283 Remove M2_HOME from documentation MNG-5607 Don&amp;rsquo;t use M2_HOME in mvn shell/command scripts anymore 3.5.0 リリースノート &amp;ldquo;Based on problems in using M2_HOME related to different Maven versions installed and to simplify things, the usage of M2_HOME has been removed and is not supported any more MNG-5823, MNG-5836, MNG-5607.&amp;rdquo; (変更 commit) 敢え</description>
-      </item>
-      
-      <item>
-        <title>Undertow上でJSF実現</title>
-        <link>https://yukihane.github.io/blog/201807/08/jsf-on-undertow/</link>
-        <pubDate>Sun, 08 Jul 2018 19:33:26 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201807/08/jsf-on-undertow/</guid>
-        <description>手順 FacesInitializer#onStartupでやっていることを自力で書く 標準パス(WEB-INF/classes)に無いので、M</description>
-      </item>
-      
-      <item>
-        <title>エラーメッセージでググろうと思ったんだけど日本語だからかヒットしない</title>
-        <link>https://yukihane.github.io/blog/201807/08/java-compiler-error-in-japanese/</link>
-        <pubDate>Sun, 08 Jul 2018 19:30:29 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201807/08/java-compiler-error-in-japanese/</guid>
-        <description>Java でメッセージを英語にする 環境変数 JAVA_TOOL_OPTIONS に設定しよう。 export JAVA_TOOL_OPTIONS=&amp;quot;-Duser.language=en -Duser.country=US&amp;quot;</description>
-      </item>
-      
-      <item>
-        <title>Tomcat上でJSF実現</title>
-        <link>https://yukihane.github.io/blog/201807/07/jsf-on-tomcat/</link>
-        <pubDate>Sat, 07 Jul 2018 21:47:59 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201807/07/jsf-on-tomcat/</guid>
-        <description>非 JavaEE なサーブレットコンテナ上で JSF を実行するように変更する手順。 TL;DR Mojarra を依存関係に含める JSF リソースを javax.faces.webapp.FacesServlet にマップするよう web.xml で設定する 実装例 https://github.com/yukihane/hello-jsf/tree/feature/server/tomcat feature/server/tomcat ブラ</description>
-      </item>
-      
-      <item>
-        <title>Building Java Project</title>
-        <link>https://yukihane.github.io/blog/201805/19/building-java-project/</link>
-        <pubDate>Sat, 19 May 2018 19:28:37 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201805/19/building-java-project/</guid>
-        <description>はじめに 他者が作成したプログラムにちょっと変更を加えて使いたい その言語は未経験だけれど、コードの変更自体は検索したり周辺コードのコピペで何と</description>
-      </item>
-      
-      <item>
-        <title>Java9でJettyでJerseyのMaven</title>
-        <link>https://yukihane.github.io/blog/201801/28/java9-jetty-jersey/</link>
-        <pubDate>Sun, 28 Jan 2018 19:16:07 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201801/28/java9-jetty-jersey/</guid>
-        <description>dependency について、2.3.2. Servlet based server-side applicationをみると最小構成はjersey-container-servletだけでいいように見える</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java における value objects</title>
+      <link>https://yukihane.github.io/blog/202206/12/java-value-based-class/</link>
+      <pubDate>Sun, 12 Jun 2022 05:56:40 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202206/12/java-value-based-class/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Java 標準 API のドキュメントには、 &amp;#34;値ベース・クラス&amp;#34; というページがあります:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/ValueBased.html&#34; class=&#34;bare&#34;&gt;https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/ValueBased.html&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;機械翻訳っぽくて分かりづらい箇所もあるので、併せて &lt;a href=&#34;https://docs.oracle.com/javase/jp/8/docs/api/java/lang/doc-files/ValueBased.html&#34;&gt;Java8 版&lt;/a&gt; や &lt;a href=&#34;https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/doc-files/ValueBased.html&#34;&gt;英語版&lt;/a&gt; も見てみると良いかもです。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Spring MVC で Java17 record を試してみる</title>
+      <link>https://yukihane.github.io/blog/202110/18/java17-record-on-spring-mvc/</link>
+      <pubDate>Mon, 18 Oct 2021 10:03:46 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202110/18/java17-record-on-spring-mvc/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;(※ &lt;code&gt;record&lt;/code&gt; は Java14 でプレビュー版が導入、 Java16 で正式版が導入されたので Java17 というのは不正確なようですが…)&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Java17 の &lt;code&gt;record&lt;/code&gt; を今まで利用してきた POJO から置き換えられるのかを簡単に見てみました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>STS(Eclipse) で Import Getting Started Content が進まない</title>
+      <link>https://yukihane.github.io/blog/202110/16/sts-import-getting-started-content-is-stuck/</link>
+      <pubDate>Sat, 16 Oct 2021 08:16:59 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202110/16/sts-import-getting-started-content-is-stuck/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://spring.io/tools&#34;&gt;Spring Tools 4 for Eclipse&lt;/a&gt; を利用していると、バージョンによって？ プロジェクト新規作成時などで &amp;#34;Import Getting Started Content&amp;#34; というタスクが走るのですがこれが全く終わらないことがあります。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Servlet 5.1 で Samesite 属性を設定できるようになる</title>
+      <link>https://yukihane.github.io/blog/202110/15/servlet-with-cookies-samesite/</link>
+      <pubDate>Fri, 15 Oct 2021 20:31:37 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202110/15/servlet-with-cookies-samesite/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;現在の Servlet API では &lt;a href=&#34;https://jakarta.ee/specifications/platform/8/apidocs/javax/servlet/http/cookie&#34;&gt;&lt;code&gt;Cookie&lt;/code&gt;&lt;/a&gt; に &lt;a href=&#34;https://developer.mozilla.org/ja/docs/Web/HTTP/Cookies#samesite_attribute&#34;&gt;&lt;code&gt;SameSite&lt;/code&gt; 属性&lt;/a&gt;を設定するメソッドがありません。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;そのため、仕様外の、フレームワーク固有の方法だったり、低レイヤーの仕組みを使って設定する必要があります。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Hello Project Panama, on Java17</title>
+      <link>https://yukihane.github.io/blog/202110/08/hello-project-panama-on-java17/</link>
+      <pubDate>Fri, 08 Oct 2021 04:49:30 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202110/08/hello-project-panama-on-java17/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202002/11/hello-project-panama/&#34;&gt;Hello Project Panama – 発火後忘失&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;で、 Project Panama (&lt;a href=&#34;https://openjdk.java.net/projects/panama/&#34;&gt;リンク1&lt;/a&gt;, &lt;a href=&#34;https://jdk.java.net/panama/&#34;&gt;リンク2&lt;/a&gt;) の機能を利用して、 Java から Rust を呼び出してみました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;当時(Java14)は Project Panama 用にビルドされた JDK を利用する必要がありましたが、 Java17 では incubator ではあるものの &lt;a href=&#34;https://openjdk.java.net/jeps/412&#34;&gt;JEP 412: Foreign Function &amp;amp; Memory API&lt;/a&gt; が標準 JDK に導入された&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>SLF4Jでplaceholderも使いつつstacktraceも出力したい</title>
+      <link>https://yukihane.github.io/blog/202102/02/slf4j-placeholder-throwable/</link>
+      <pubDate>Mon, 01 Feb 2021 16:38:42 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202102/02/slf4j-placeholder-throwable/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;SLF4J の &lt;code&gt;Logger&lt;/code&gt; のメソッドを眺めていると、 &lt;code&gt;Throwable&lt;/code&gt; を引数にとれるのは 他に &lt;code&gt;Marker&lt;/code&gt; と &lt;code&gt;String&lt;/code&gt; メッセージだけを持つものばかりで、プレースホルダを利用したい場合にはどうしたら良いのだろう…と思っていたら、普通にプレースホルダと併用できるようです。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>LombokとMapStructをEclipseで併用しようとした際の不具合がMapStruct1.4.0で解消されていた</title>
+      <link>https://yukihane.github.io/blog/202007/28/lombok-and-mapstruct-problem-is-fixed/</link>
+      <pubDate>Tue, 28 Jul 2020 12:06:03 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202007/28/lombok-and-mapstruct-problem-is-fixed/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;これまで、LombokとMapStructを併用しようとした場合、そのままだと不具合(MapStructのアノテーションプロセッシングが動作しない)があり、ちょっとひと手間かけてその不具合を回避する必要がありました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>SWTのFindWindowはもはや存在しない</title>
+      <link>https://yukihane.github.io/blog/202007/26/swt-findwindowi-is-deprecated/</link>
+      <pubDate>Sat, 25 Jul 2020 23:42:57 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202007/26/swt-findwindowi-is-deprecated/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;元ネタ:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://ja.stackoverflow.com/q/68951/2808&#34;&gt;古い Eclipse の起動時に UnsatisfiedLinkError が発生する - スタック・オーバーフロー&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;いにしえのJava世界では、Win32APIにアクセスするためにSWTを利用していたそうです(リンク先のエントリは2005年のもの。私がJava始めるまえの話だ…)。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Gradleプラグイン/アノテーションプロセッシング調査</title>
+      <link>https://yukihane.github.io/blog/202007/15/research-gradle-plugins/</link>
+      <pubDate>Tue, 14 Jul 2020 15:58:57 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202007/15/research-gradle-plugins/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;元々JBoss/WildFlyの流れで開発してきたのでずっとMavenを利用してきたのですが、今度のプロジェクトではGradleを使うことに決まったようで、新しい知識が必要となりました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>List#contains(null)は使わないほうが良い</title>
+      <link>https://yukihane.github.io/blog/202006/13/list-contains-null/</link>
+      <pubDate>Sat, 13 Jun 2020 10:34:19 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202006/13/list-contains-null/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;List&lt;/code&gt;(などのコレクション)が要素に &lt;code&gt;null&lt;/code&gt; を含むかどうかの判定に、 &lt;code&gt;contains(null)&lt;/code&gt; を利用すると &lt;code&gt;NullPointerException&lt;/code&gt; が発生することがあります。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;リファレンスには次のようにあります:&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>CompletableFuture覚え書き</title>
+      <link>https://yukihane.github.io/blog/202006/02/note-of-completablefuture/</link>
+      <pubDate>Tue, 02 Jun 2020 07:54:25 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202006/02/note-of-completablefuture/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;CompletableFuture&lt;/code&gt; の一連の非同期処理 &lt;code&gt;ほげAsync&lt;/code&gt; は、デフォルトでは &lt;a href=&#34;https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/util/concurrent/ForkJoinPool.html#commonPool()&#34;&gt;&lt;code&gt;ForkJoinPool.commonPool()&lt;/code&gt;&lt;/a&gt; という &lt;code&gt;ExecutorService&lt;/code&gt; で実行されます。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;そしてこの &lt;code&gt;ExecutorService&lt;/code&gt; のワーカスレッドはデーモンスレッドであるため、非デーモンスレッドが無くなると(≒ メインスレッドが終了すると)プール内の処理を完了させること無くプロセスが終了します。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Javaのソースファイルはpackageに対応したディレクトリ階層に置かなくても良い？</title>
+      <link>https://yukihane.github.io/blog/202005/29/java-source-location/</link>
+      <pubDate>Fri, 29 May 2020 08:28:07 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202005/29/java-source-location/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://twitter.com/hishidama/status/1266176675768745984&#34; class=&#34;bare&#34;&gt;https://twitter.com/hishidama/status/1266176675768745984&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;quoteblock&#34;&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;packageの宣言と実際のディレクトリが一致していなくてもmvn compile（やjavac）が成功するんですが、そういうもんでしたっけ？&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Hello, JSF</title>
+      <link>https://yukihane.github.io/blog/202004/06/hello-jsf/</link>
+      <pubDate>Mon, 06 Apr 2020 01:52:30 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202004/06/hello-jsf/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;JSFを少し触ってみようと思ったのですが、もはやロストテクノロジーでどう始めるのかすらドキュメントを探すのが大変…&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;今回はかろうじてこちらを探し当てられました:&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>いきなりJavaアプリケーションサーバの保守を任されることになった人のためのチートシート(2)</title>
+      <link>https://yukihane.github.io/blog/202004/03/java-application-frameworks-cheat-sheet2/</link>
+      <pubDate>Fri, 03 Apr 2020 02:44:22 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202004/03/java-application-frameworks-cheat-sheet2/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/posts/202004/02/java-application-frameworks-cheat-sheet/&#34;&gt;前回&lt;/a&gt;はアプリケーションサーバにデバッガをアタッチする方法までを説明しました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;今回は、ソースコードを眺めているだけでは通ることを見つけにくい(のでbreakポイントを仕掛け忘れがちな)クラス/メソッドについてリストにしていきます。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>いきなりJavaアプリケーションサーバの保守を任されることになった人のためのチートシート(1)</title>
+      <link>https://yukihane.github.io/blog/202004/02/java-application-frameworks-cheat-sheet/</link>
+      <pubDate>Thu, 02 Apr 2020 06:15:28 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202004/02/java-application-frameworks-cheat-sheet/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_目的&#34;&gt;目的&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Javaを用いた開発にある程度慣れている場合でも、初めてアプリケーションフレームワーク上で開発するとなると戸惑うことがあります。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;ここでは、ある程度Javaに対する知識が、Java EE/Spring Bootアプリケーションの保守を担当になって、ローカルで実行する、そしてデバッグを行おうとした際に引っかかりそうなポイントをまとめていきたいと考えています。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Maven Enforcer Pluginの実行をスキップする</title>
+      <link>https://yukihane.github.io/blog/202003/30/skip-maven-enforcer-plugin/</link>
+      <pubDate>Mon, 30 Mar 2020 05:37:45 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202003/30/skip-maven-enforcer-plugin/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;とあるMavenプロジェクトを &lt;code&gt;mvn clean install&lt;/code&gt; しようとしたところ、次のエラーになり正常終了しませんでした。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;literalblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre&gt;[WARNING] Rule 0: org.apache.maven.plugins.enforcer.BannedRepositories failed with message:&#xA;Current maven session contains banned repository urls, please double check your pom or settings.xml:&#xA;central - http://my.internal.repo/xxx&#xA;snapshots - http://my.internal.repo/yyy&lt;/pre&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>finalと実質finalの違い</title>
+      <link>https://yukihane.github.io/blog/202002/21/effectively-final-difference/</link>
+      <pubDate>Fri, 21 Feb 2020 06:53:19 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202002/21/effectively-final-difference/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://ja.stackoverflow.com/a/63099/2808&#34; class=&#34;bare&#34;&gt;https://ja.stackoverflow.com/a/63099/2808&lt;/a&gt; を見ていて気づいたのですが、 &lt;code&gt;実質final&lt;/code&gt; というのは脳内(コンパイラ)で &lt;code&gt;final&lt;/code&gt; を補完してくれる、というような処理が行われるわけではないのですね。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Hello Project Panama</title>
+      <link>https://yukihane.github.io/blog/202002/11/hello-project-panama/</link>
+      <pubDate>Tue, 11 Feb 2020 20:43:43 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202002/11/hello-project-panama/</guid>
+      <description>&lt;p&gt;追記: &lt;a href=&#34;https://yukihane.github.io/blog/202110/08/hello-project-panama-on-java17/&#34;&gt;Hello Project Panama, on Java17&lt;/a&gt; に Java17 版を記載しました。&lt;/p&gt;&#xA;&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;今個人的にすごく知りたいのはこちらです。ご回答よろしくお願いします！！！！&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://ja.stackoverflow.com/q/62868/2808&#34;&gt;動的確保したメモリー領域の解放戦略&lt;/a&gt; - スタック・オーバーフロー&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;(質問読んでもらえれば(というかタイトル見てもらえれば)わかると思うんですけど、別に Java がわからん、とか Rust がわからん、という質問では無いです。念の為。もちろん Java も Rust もわからない(多分コード正しくない)ですけどそれは別の話。)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>native-imageコマンドを実行するために行ったWindows10 への GraalVM インストールがエキサイティングな件</title>
+      <link>https://yukihane.github.io/blog/201911/09/graalvm-install-to-windows10/</link>
+      <pubDate>Sat, 09 Nov 2019 21:57:08 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201911/09/graalvm-install-to-windows10/</guid>
+      <description>&lt;p&gt;悪い意味で。&lt;br /&gt;&#xA;なお試した時点での GraalVM 最新リリースバージョンは &lt;a href=&#34;https://github.com/oracle/graal/releases/tag/vm-19.2.1&#34;&gt;19.2.1&lt;/a&gt;でした。&lt;/p&gt;&#xA;&lt;h1 id=&#34;graalvm-インストール--実行&#34;&gt;GraalVM インストール &amp;amp; 実行&lt;/h1&gt;&#xA;&lt;p&gt;GraalVM のインストール方法はいくつかあるのでお好みで。例えば:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/oracle/graal/releases&#34;&gt;GitHub&lt;/a&gt;から実行バイナリをダウンロード&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://sdkman.io/&#34;&gt;SDKMAN!&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://scoop.sh/&#34;&gt;Scoop&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;(なお、SDKMAN!は今回試していないのでちゃんと動くかは知らない)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LINE Messaging API を試してみる</title>
+      <link>https://yukihane.github.io/blog/201908/line-bot-sample/</link>
+      <pubDate>Sun, 25 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201908/line-bot-sample/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_準備&#34;&gt;準備&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;sect2&#34;&gt;&#xA;&lt;h3 id=&#34;_spring_boot_セットアップ&#34;&gt;Spring Boot セットアップ&lt;/h3&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://start.spring.io/&#34; class=&#34;bare&#34;&gt;https://start.spring.io/&lt;/a&gt; でテンプレートを作成して次の依存関係を追加します。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;listingblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre&gt;&amp;lt;dependency&amp;gt;&#xA;    &amp;lt;groupId&amp;gt;com.linecorp.bot&amp;lt;/groupId&amp;gt;&#xA;    &amp;lt;artifactId&amp;gt;line-bot-spring-boot&amp;lt;/artifactId&amp;gt;&#xA;    &amp;lt;version&amp;gt;2.7.0&amp;lt;/version&amp;gt;&#xA;&amp;lt;/dependency&amp;gt;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;リポジトリ: &lt;a href=&#34;https://github.com/line/line-bot-sdk-java/tree/master/line-bot-spring-boot&#34; class=&#34;bare&#34;&gt;https://github.com/line/line-bot-sdk-java/tree/master/line-bot-spring-boot&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect2&#34;&gt;&#xA;&lt;h3 id=&#34;_heroku_セットアップ&#34;&gt;Heroku セットアップ&lt;/h3&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;今回は &lt;code&gt;linebotbeta&lt;/code&gt; というアプリケーション名にしました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>LINE リッチメニューを試してみる</title>
+      <link>https://yukihane.github.io/blog/201908/line-richmenu-sample/</link>
+      <pubDate>Sun, 25 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201908/line-richmenu-sample/</guid>
+      <description>&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/yukihane/hello-java/tree/master/line/richmenu-sample&#34; class=&#34;bare&#34;&gt;https://github.com/yukihane/hello-java/tree/master/line/richmenu-sample&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://developers.line.biz/ja/docs/messaging-api/using-rich-menus/&#34;&gt;公式リファレンス&lt;/a&gt; に書いてある通りですが、リッチメニューを試してみました。&#xA;メニューをタップするとPostBackEventを送信します。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;botでハンドリングするために、 &lt;a href=&#34;https://himeji-cs.jp/blog2/blog/2019/08/line-bot-sample.html&#34;&gt;前回&lt;/a&gt; 作成した &lt;a href=&#34;https://github.com/yukihane/hello-java/tree/master/line/line-bot-sample&#34;&gt;bot&lt;/a&gt; に、PostBackEvent のハンドラを追加しています。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>LINEログイン機能を試してみる(Spring Boot 2.1.7/Spring Security 5.1.6)</title>
+      <link>https://yukihane.github.io/blog/201908/line-login-sample/</link>
+      <pubDate>Sun, 25 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201908/line-login-sample/</guid>
+      <description>&lt;div class=&#34;admonitionblock important&#34;&gt;&#xA;&lt;table&gt;&#xA;&lt;tbody&gt;&lt;tr&gt;&#xA;&lt;td class=&#34;icon&#34;&gt;&#xA;&lt;div class=&#34;title&#34;&gt;Important&lt;/div&gt;&#xA;&lt;/td&gt;&#xA;&lt;td class=&#34;content&#34;&gt;&#xA;本ページは Spring Boot 2.1.7 の頃のものですが、後続として 2.4.5 対応版があります: &lt;a href=&#34;https://yukihane.github.io/blog/202105/06/ling-login-202105/&#34;&gt;LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6)&lt;/a&gt; – 発火後忘失&#xA;&lt;/td&gt;&#xA;&lt;/tr&gt;&#xA;&lt;/tbody&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;hr/&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Spring SecurityのOAuth実装は &lt;a href=&#34;https://qiita.com/yukihane/items/fc97f888ecb6a6850ea7&#34;&gt;こちらに書いたとおり&lt;/a&gt; 歴史的経緯により複数存在しますが、 &lt;a href=&#34;https://start.spring.io/&#34; class=&#34;bare&#34;&gt;https://start.spring.io/&lt;/a&gt; の&#xA; Dependencies で &amp;#34;OAuth2 Client&amp;#34; を選択した場合に追加されるものは一番新しいSpring Securityの &lt;a href=&#34;https://docs.spring.io/spring-security/site/docs/5.1.6.RELEASE/reference/html/modules.html#spring-security-oauth2-client&#34;&gt;&lt;code&gt;spring-security-oauth2-client&lt;/code&gt;&lt;/a&gt; (及び &lt;code&gt;spring-security-oauth2-jose&lt;/code&gt;)でした。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Gradleプロジェクトで生成した実行スクリプトがGitBash(MSYS環境)でうまく動かない</title>
+      <link>https://yukihane.github.io/blog/201908/gradle-msys/</link>
+      <pubDate>Fri, 23 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201908/gradle-msys/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;GitBash環境でSDKMAN!を使ってJBakeをインストールしたのですが、 &lt;code&gt;jbake&lt;/code&gt; コマンドを実行すると次のようなエラーが出てうまく動きませんでした。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>HerokuでSpringBootアプリを動かしてみる</title>
+      <link>https://yukihane.github.io/blog/201908/hello-heroku-with-springboot/</link>
+      <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201908/hello-heroku-with-springboot/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_背景&#34;&gt;背景&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;最終的にはLINE platformのAPIを理解したいのですが、 &lt;a href=&#34;https://developers.line.biz/ja/docs/&#34;&gt;リファレンス&lt;/a&gt;を読んでいるとサンプルプログラム(サンプルbot)をHerokuにデプロイして試してみる、というような説明が多数あったので、Herokuについて理解しておこう、と考えました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;そういった考えで、今回、単純なSpringBoot hello-worldアプリをHerokuにデプロイして接続確認してみることにしました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Lombokプラグインを入れているEclipseでMapStruct自動生成が機能しない</title>
+      <link>https://yukihane.github.io/blog/201908/eclipse-lombok-mapstruct/</link>
+      <pubDate>Sun, 18 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201908/eclipse-lombok-mapstruct/</guid>
+      <description>&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;サンプルコード: &lt;a href=&#34;https://github.com/yukihane/hello-java/tree/master/mapstruct/hello-mapstruct&#34; class=&#34;bare&#34;&gt;https://github.com/yukihane/hello-java/tree/master/mapstruct/hello-mapstruct&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;上記のコードのようにLombokとMapStructを併用しているプロジェクトを、 &lt;a href=&#34;https://projectlombok.org/setup/eclipse&#34;&gt;Lombokプラグインを適用したEclipse&lt;/a&gt;で読み込ませるとMapStructのコードが自動生成されません。&#xA;そのため、Eclipse上でJUnitテストを実行すると次のように &lt;code&gt;java.lang.ClassNotFoundException: Cannot find implementation&lt;/code&gt; というエラーになります。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>ファイル出力先にServletContext#getRealPathを使うな</title>
+      <link>https://yukihane.github.io/blog/201906/20/dont-use-getrealpath/</link>
+      <pubDate>Thu, 20 Jun 2019 20:26:49 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201906/20/dont-use-getrealpath/</guid>
+      <description>&lt;p&gt;タイトルに書いたような、ファイル出力先として &lt;code&gt;ServletContext#getRealPath&lt;/code&gt; を利用しているサンプルコードが見つかる、と聞いて検索してみたところ、日本語、非日本語にかかわらず確かにそのようなサンプルコードは散見されました。&lt;br /&gt;&#xA;例えば Qiita では(順不同):&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>元号が令和に変わったことを知らない人のための日付処理方法</title>
+      <link>https://yukihane.github.io/blog/201906/12/java-datetime/</link>
+      <pubDate>Wed, 12 Jun 2019 20:24:45 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201906/12/java-datetime/</guid>
+      <description>&lt;h1 id=&#34;問題&#34;&gt;問題&lt;/h1&gt;&#xA;&lt;p&gt;&lt;code&gt;JapaneseDate.of&lt;/code&gt;(や &lt;code&gt;LocalDate.of&lt;/code&gt;)を使うと厳密(strict)に検証されてしまう。&lt;br /&gt;&#xA;結果、例外が出る。&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;// 平成31年6月12日&#xA;final JapaneseDate today = JapaneseDate.of(JapaneseEra.HEISEI, 31, 6, 12);&#xA;System.out.println(today);&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Exception in thread &amp;#34;main&amp;#34; java.time.DateTimeException: year, month, and day not valid for Era&#xA;&#x9;at java.base/java.time.chrono.JapaneseDate.of(JapaneseDate.java:231)&#xA;&#x9;at com.github.yukihane.datetime.App.main(App.java:21)&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;解決策&#34;&gt;解決策&lt;/h1&gt;&#xA;&lt;p&gt;&lt;code&gt;JapaneseChronology#resolveDate&lt;/code&gt;(や &lt;code&gt;IsoChronology#resolveDate&lt;/code&gt;)を使えばゆるふわ(lenient)な検証でゆるしてくれたりも。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SimpleDateFormat もこれもうわかんねぇな</title>
+      <link>https://yukihane.github.io/blog/201906/11/simpledateformat/</link>
+      <pubDate>Tue, 11 Jun 2019 20:23:06 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201906/11/simpledateformat/</guid>
+      <description>&lt;h1 id=&#34;結果&#34;&gt;結果&lt;/h1&gt;&#xA;&lt;h2 id=&#34;18&#34;&gt;1.8&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;H&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;11&#34;&gt;11&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;平成&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;環境&#34;&gt;環境&lt;/h1&gt;&#xA;&lt;h2 id=&#34;18-1&#34;&gt;1.8&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;java version &amp;#34;1.8.0_201&amp;#34;&#xA;Java(TM) SE Runtime Environment (build 1.8.0_201-b09)&#xA;Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;11-1&#34;&gt;11&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;openjdk version &amp;#34;11.0.2&amp;#34; 2019-01-15&#xA;OpenJDK Runtime Environment 18.9 (build 11.0.2+9)&#xA;OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;コード&#34;&gt;コード&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;import java.text.SimpleDateFormat;&#xA;import java.time.LocalDate;&#xA;import java.util.Date;&#xA;import java.util.Locale;&#xA;&#xA;public class Main {&#xA;&#xA;    public static void main(final String[] args) {&#xA;        final Date date = date(2010, 3, 4);&#xA;        final SimpleDateFormat format = new SimpleDateFormat(&amp;#34;G&amp;#34;, new Locale(&amp;#34;ja&amp;#34;, &amp;#34;JP&amp;#34;, &amp;#34;JP&amp;#34;));&#xA;        System.out.println(format.format(date));&#xA;    }&#xA;&#xA;    private static Date date(final int year, final int month, final int dayOfMonth) {&#xA;        final long time = LocalDate.of(year, month, dayOfMonth)&#xA;            .atStartOfDay(ZoneOffset.ofHours(9)).toEpochSecond() * 1000;&#xA;        return new Date(time);&#xA;    }&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;関連しない&#34;&gt;関連(しない)&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://qiita.com/yukihane/items/9001b15a44d56b1dda23&#34;&gt;DateTimeFormatter とかこれもうわかんねぇな&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;関連する&#34;&gt;関連(する)&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://bugs.openjdk.java.net/browse/JDK-8216204&#34;&gt;JDK-8216204 Wrong SimpleDateFormat behavior with Japanese Imperial Calendar&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;From JDK 9 onwards, the default locale data is the data derived from the Unicode Consortium&amp;rsquo;s Common Locale Data Repository (CLDR). Please refer &lt;a href=&#34;https://www.unicode.org/cldr/charts/33/by_type/date_&amp;amp;_time.japanese.html&#34;&gt;https://www.unicode.org/cldr/charts/33/by_type/date_&amp;_time.japanese.html&lt;/a&gt;&lt;br /&gt;&#xA;The short display format for Heisei is 平成 in the ja locale in CLDR data. Hence the difference in the result.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>%s に null を渡したらどうなるんだっけ</title>
+      <link>https://yukihane.github.io/blog/201906/11/format-pass-to-null/</link>
+      <pubDate>Tue, 11 Jun 2019 20:19:09 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201906/11/format-pass-to-null/</guid>
+      <description>&lt;h1 id=&#34;こたえ&#34;&gt;こたえ&lt;/h1&gt;&#xA;&lt;p&gt;文字列 &lt;code&gt;null&lt;/code&gt; が出力される。&lt;/p&gt;&#xA;&lt;h1 id=&#34;コード&#34;&gt;コード&lt;/h1&gt;&#xA;&lt;pre&gt;&lt;code&gt;    final String text = null;&#xA;    System.out.printf(&amp;quot;%s&amp;quot;, text);&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h1 id=&#34;参考&#34;&gt;参考&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Formatter.html&#34;&gt;java.util.Formatter&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;For category General, Character, Numberic, Integral and Date/Time conversion, unless otherwise specified, if the argument arg is null, then the result is &amp;ldquo;null&amp;rdquo;.&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;リンク先の表にある通り、 &lt;code&gt;s&lt;/code&gt; はカテゴリ&amp;quot;general&amp;quot;に属す。ちなみに&lt;a href=&#34;https://docs.oracle.com/javase/jp/12/docs/api/java.base/java/util/Formatter.html#syntax&#34;&gt;日本語&lt;/a&gt;ではこうなっている(わかりにくい):&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>DateTimeFormatter とかこれもうわかんねぇな</title>
+      <link>https://yukihane.github.io/blog/201906/04/datetimeformatter/</link>
+      <pubDate>Tue, 04 Jun 2019 20:16:49 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201906/04/datetimeformatter/</guid>
+      <description>&lt;h1 id=&#34;コード&#34;&gt;コード&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;import java.time.LocalDate;&#xA;import java.time.format.DateTimeFormatter;&#xA;import java.util.Locale;&#xA;&#xA;public class App {&#xA;&#xA;    private static String format(final LocalDate date, final String pattern) {&#xA;        return date.format(DateTimeFormatter.ofPattern(pattern, Locale.JAPAN));&#xA;    }&#xA;&#xA;    public static void main(final String[] args) {&#xA;        final LocalDate today = LocalDate.of(2019, 6, 4);&#xA;&#xA;        System.out.println(format(today, &amp;#34;M&amp;#34;));&#xA;        System.out.println(format(today, &amp;#34;MM&amp;#34;));&#xA;        System.out.println(format(today, &amp;#34;MMM&amp;#34;));&#xA;        System.out.println(format(today, &amp;#34;MMMM&amp;#34;));&#xA;        System.out.println(format(today, &amp;#34;MMMMM&amp;#34;));&#xA;        System.out.println(format(today, &amp;#34;MMMMMM&amp;#34;));&#xA;    }&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;結果&#34;&gt;結果&lt;/h1&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;パターン&lt;/th&gt;&#xA;          &lt;th&gt;結果&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;M&lt;/td&gt;&#xA;          &lt;td&gt;6&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;MM&lt;/td&gt;&#xA;          &lt;td&gt;06&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;MMM&lt;/td&gt;&#xA;          &lt;td&gt;6 月&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;MMMM&lt;/td&gt;&#xA;          &lt;td&gt;6 月&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;MMMMM&lt;/td&gt;&#xA;          &lt;td&gt;6&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;MMMMMM&lt;/td&gt;&#xA;          &lt;td&gt;IllegalArgumentException: Too many pattern letters: M&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ java -version&#xA;openjdk version &amp;#34;11.0.2&amp;#34; 2019-01-15&#xA;OpenJDK Runtime Environment 18.9 (build 11.0.2+9)&#xA;OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;参考にならなかったリンク&#34;&gt;参考(にならなかった)リンク&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://docs.oracle.com/javase/jp/12/docs/api/java.base/java/time/format/DateTimeFormatter.html&#34;&gt;java.time.format.DateTimeFormatter&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;参考にややなったリンク&#34;&gt;参考(にややなった)リンク&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://docs.oracle.com/javase/jp/12/docs/api/java.base/java/time/format/DateTimeFormatterBuilder.html#appendPattern%28java.lang.String%29&#34;&gt;java.time.format.DateTimeFormatterBuilder#appendPattern&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;関連しない&#34;&gt;関連(しない)&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://qiita.com/yukihane/items/0d97e5b8666254719186&#34;&gt;SimpleDateFormat もこれもうわかんねぇな&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Java9以降.propertiesファイルをUTF-8で書けるようになった、は正しい？</title>
+      <link>https://yukihane.github.io/blog/201904/27/java-properties-is-not-utf8/</link>
+      <pubDate>Sat, 27 Apr 2019 20:08:10 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201904/27/java-properties-is-not-utf8/</guid>
+      <description>&lt;h1 id=&#34;解答&#34;&gt;解答&lt;/h1&gt;&#xA;&lt;p&gt;正しくない。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Java9(&lt;a href=&#34;https://bugs.java.com/bugdatabase/view_bug.do?bug_id=8043553&#34;&gt;JEP226&lt;/a&gt;)で変わったのはリソースバンドルの取り扱い(&lt;a href=&#34;https://docs.oracle.com/javase/jp/9/docs/api/java/util/PropertyResourceBundle.html&#34;&gt;PropertyResourceBundle&lt;/a&gt;) であって プロパティファイル &lt;code&gt;.properties&lt;/code&gt; 全般の話ではない。&lt;/li&gt;&#xA;&lt;li&gt;プロパティファイル&lt;code&gt;.properties&lt;/code&gt;の文字エンコーディングについての取り決めはない。それを取り扱うプログラム次第であり&lt;code&gt;UTF-8&lt;/code&gt;を正しく認識してくれるとは限らない。&#xA;&lt;ul&gt;&#xA;&lt;li&gt;標準 API で &lt;code&gt;UTF-8&lt;/code&gt;として(読もうと思えば)読めるようになったのは &lt;strong&gt;1.6&lt;/strong&gt; からであって &lt;strong&gt;9&lt;/strong&gt; からではない。ちなみに 1.5 以前は &lt;code&gt;ISO 8859-1&lt;/code&gt; 前提。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;背景&#34;&gt;背景&lt;/h1&gt;&#xA;&lt;p&gt;私はうろ覚えで何となく、現在の Java では &lt;code&gt;.properties&lt;/code&gt; ファイルを &lt;code&gt;UTF-8&lt;/code&gt; で書ける、&lt;code&gt;ascii2native&lt;/code&gt;は過去の遺物になった、のだと思いこんでいました。&lt;br /&gt;&#xA;ところが Spring Boot の &lt;code&gt;application.properties&lt;/code&gt; に &lt;code&gt;UTF-8&lt;/code&gt; で日本語を書いたところ文字化けしてしまい、あれ、もしかして自分の理解が間違っているのかと思い調べ直したのがこの記事です。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hibernate で CHAR を String にマップする</title>
+      <link>https://yukihane.github.io/blog/201902/04/hibernate-map-char-to-string/</link>
+      <pubDate>Mon, 04 Feb 2019 20:01:19 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201902/04/hibernate-map-char-to-string/</guid>
+      <description>&lt;p&gt;例えば、生 JDBC で&lt;code&gt;char&lt;/code&gt;型カラムのクエリを書くと&lt;code&gt;String&lt;/code&gt;型にマップされます&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;    final Connection connection = DriverManager.getConnection(...);&#xA;    final Statement statement = connection.createStatement();&#xA;    final ResultSet resultSet = statement.executeQuery(&amp;quot;select char_column from foo_table&amp;quot;);&#xA;&#xA;    // java.lang.String&#xA;    resultSet.getMetaData().getColumnClassName(1);&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;が、Hibernate の Native query を用いて同じように実行すると&lt;code&gt;Character&lt;/code&gt;型にマップされます:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Eclipseの起動に使用するJDKを指定する（Mac）</title>
+      <link>https://yukihane.github.io/blog/201901/16/set-jvm-to-eclipse-on-mac/</link>
+      <pubDate>Wed, 16 Jan 2019 19:58:26 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201901/16/set-jvm-to-eclipse-on-mac/</guid>
+      <description>&lt;p&gt;最新の JDK をインストールしたが、古いバージョンの Eclipse も利用したい(が最新のバージョンでは起動できない)ような場合に必要となる設定です。&lt;/p&gt;&#xA;&lt;h1 id=&#34;設定するファイルと設定方法&#34;&gt;設定するファイルと設定方法&lt;/h1&gt;&#xA;&lt;p&gt;&lt;code&gt;Eclipse.app/Contents/Eclipse&lt;/code&gt;　にある &lt;code&gt;eclipse.ini&lt;/code&gt; に、所望のバージョンの &lt;code&gt;java&lt;/code&gt; コマンドが入っているディレクトリを指定します。&lt;br /&gt;&#xA;&lt;code&gt;/usr/libexec/java_home -V&lt;/code&gt; で &lt;code&gt;JAVA_HOME&lt;/code&gt; 候補一覧が参照できますので、このディレクトリ + &lt;code&gt;/bin&lt;/code&gt; を指定することになります。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenJDK11をWindowsで自前ビルドする</title>
+      <link>https://yukihane.github.io/blog/201809/30/selfbuild-openjdk/</link>
+      <pubDate>Sun, 30 Sep 2018 19:53:56 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201809/30/selfbuild-openjdk/</guid>
+      <description>&lt;p&gt;Java の有償化ってより身近なところでは GPL 化と言った方が現状に即してるな、と思っています。&lt;/p&gt;&#xA;&lt;p&gt;それはともかく、何となく OpenJDK をデバッグ情報付きでビルドしたくなったのでメモ。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>M2_HOMEは不要</title>
+      <link>https://yukihane.github.io/blog/201807/25/not-required-m2_home/</link>
+      <pubDate>Wed, 25 Jul 2018 19:38:38 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201807/25/not-required-m2_home/</guid>
+      <description>&lt;p&gt;&lt;code&gt;M2_HOME&lt;/code&gt; は削除されました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://issues.apache.org/jira/browse/MNGSITE-283&#34;&gt;MNGSITE-283 Remove M2_HOME from documentation&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://issues.apache.org/jira/browse/MNG-5607&#34;&gt;MNG-5607 Don&amp;rsquo;t use M2_HOME in mvn shell/command scripts anymore&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://maven.apache.org/docs/3.5.0/release-notes.html&#34;&gt;3.5.0 リリースノート&lt;/a&gt; &amp;ldquo;Based on problems in using M2_HOME related to different Maven versions installed and to simplify things, the usage of M2_HOME has been removed and is not supported any more &lt;a href=&#34;https://issues.apache.org/jira/browse/MNG-5823&#34;&gt;MNG-5823&lt;/a&gt;, &lt;a href=&#34;https://issues.apache.org/jira/browse/MNG-5836&#34;&gt;MNG-5836&lt;/a&gt;, &lt;a href=&#34;https://issues.apache.org/jira/browse/MNG-5607&#34;&gt;MNG-5607&lt;/a&gt;.&amp;rdquo;&lt;/li&gt;&#xA;&lt;li&gt;(&lt;a href=&#34;https://github.com/apache/maven/commit/065281c43d7435be204aa963e1f94d1128bb5351&#34;&gt;変更 commit&lt;/a&gt;)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;敢えて設定するのであれば、 上の変更 commit リンク先にある通り、&lt;code&gt;M2_HOME&lt;/code&gt;でなく&lt;code&gt;MAVEN_HOME&lt;/code&gt;にしましょう。&lt;br /&gt;&#xA;ただし、敢えて設定すべき状況は通常発生しないと思います。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Undertow上でJSF実現</title>
+      <link>https://yukihane.github.io/blog/201807/08/jsf-on-undertow/</link>
+      <pubDate>Sun, 08 Jul 2018 19:33:26 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201807/08/jsf-on-undertow/</guid>
+      <description>&lt;h1 id=&#34;手順&#34;&gt;手順&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/javaserverfaces/mojarra/blob/2.2.8-28/jsf-ri/src/main/java/com/sun/faces/config/FacesInitializer.java#L120&#34;&gt;FacesInitializer#onStartup&lt;/a&gt;でやっていることを自力で書く&lt;/li&gt;&#xA;&lt;li&gt;標準パス(&lt;code&gt;WEB-INF/classes&lt;/code&gt;)に無いので、&lt;code&gt;ManagedBean&lt;/code&gt;アノテーションを付与したクラスを自前で収集する&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;ソースは: &lt;a href=&#34;https://github.com/yukihane/hello-undertow-mojarra&#34;&gt;https://github.com/yukihane/hello-undertow-mojarra&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;関連&#34;&gt;関連&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://qiita.com/yukihane/items/45c562809360cfa27be9&#34;&gt;Tomcat 上で JSF 実現 - Qiita&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/51223600/&#34;&gt;Does Undertow work with JSF? - Stack Overflow&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>エラーメッセージでググろうと思ったんだけど日本語だからかヒットしない</title>
+      <link>https://yukihane.github.io/blog/201807/08/java-compiler-error-in-japanese/</link>
+      <pubDate>Sun, 08 Jul 2018 19:30:29 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201807/08/java-compiler-error-in-japanese/</guid>
+      <description>&lt;h1 id=&#34;java-でメッセージを英語にする&#34;&gt;Java でメッセージを英語にする&lt;/h1&gt;&#xA;&lt;p&gt;環境変数 &lt;a href=&#34;https://docs.oracle.com/javase/jp/8/docs/technotes/guides/troubleshoot/envvars002.html&#34;&gt;&lt;code&gt;JAVA_TOOL_OPTIONS&lt;/code&gt;&lt;/a&gt; に設定しよう。&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;export JAVA_TOOL_OPTIONS=&amp;quot;-Duser.language=en -Duser.country=US&amp;quot;&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>Tomcat上でJSF実現</title>
+      <link>https://yukihane.github.io/blog/201807/07/jsf-on-tomcat/</link>
+      <pubDate>Sat, 07 Jul 2018 21:47:59 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201807/07/jsf-on-tomcat/</guid>
+      <description>&lt;p&gt;非 JavaEE なサーブレットコンテナ上で JSF を実行するように変更する手順。&lt;/p&gt;&#xA;&lt;h1 id=&#34;tldr&#34;&gt;TL;DR&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Mojarra を依存関係に含める&lt;/li&gt;&#xA;&lt;li&gt;JSF リソースを &lt;code&gt;javax.faces.webapp.FacesServlet&lt;/code&gt; にマップするよう &lt;code&gt;web.xml&lt;/code&gt; で設定する&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;実装例&#34;&gt;実装例&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/yukihane/hello-jsf/tree/feature/server/tomcat&#34;&gt;https://github.com/yukihane/hello-jsf/tree/feature/server/tomcat&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;feature/server/tomcat&lt;/code&gt; ブランチと &lt;code&gt;feature/server/javaee&lt;/code&gt; ブランチで diff を取れば、 JavaEE アプリケーションサーバ向け設定との差異がわかります。&lt;br /&gt;&#xA;(ちなみに &lt;code&gt;master&lt;/code&gt;ブランチや &lt;code&gt;README.md&lt;/code&gt; の説明は別の内容向けなので気にしないで下さい)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building Java Project</title>
+      <link>https://yukihane.github.io/blog/201805/19/building-java-project/</link>
+      <pubDate>Sat, 19 May 2018 19:28:37 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201805/19/building-java-project/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;他者が作成したプログラムにちょっと変更を加えて使いたい&lt;/li&gt;&#xA;&lt;li&gt;その言語は未経験だけれど、コードの変更自体は検索したり周辺コードのコピペで何とかなりそう&lt;/li&gt;&#xA;&lt;li&gt;しかし、変更したコードをどうやってビルドすれば良いんだ…？&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;なんてことがたまにあります。&lt;br /&gt;&#xA;そんな時に参考になるようなドキュメントを目指して記述しました。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Java9でJettyでJerseyのMaven</title>
+      <link>https://yukihane.github.io/blog/201801/28/java9-jetty-jersey/</link>
+      <pubDate>Sun, 28 Jan 2018 19:16:07 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201801/28/java9-jetty-jersey/</guid>
+      <description>&lt;p&gt;dependency について、&lt;a href=&#34;https://jersey.github.io/documentation/latest/modules-and-dependencies.html#servlet-app-general&#34;&gt;2.3.2. Servlet based server-side application&lt;/a&gt;をみると最小構成は&lt;code&gt;jersey-container-servlet&lt;/code&gt;だけでいいように見える(Servlet3.0 以降の場合)が、実際には&lt;code&gt;jersey-hk2&lt;/code&gt;も必要。含めない場合次の例外が発生する。&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

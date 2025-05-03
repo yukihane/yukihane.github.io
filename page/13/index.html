@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+	<head lang="ja">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>発火後忘失 | Home </title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Fire and Forget blog" />
+	<meta property="og:image" content=""/>
+	<link rel="alternate" type="application/rss+xml" href="https://yukihane.github.io/index.xml" title="発火後忘失" />
+	<meta property="og:url" content="https://yukihane.github.io/">
+  <meta property="og:site_name" content="発火後忘失">
+  <meta property="og:title" content="発火後忘失">
+  <meta property="og:description" content="Fire and Forget blog">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="発火後忘失">
+  <meta name="twitter:description" content="Fire and Forget blog">
+
+        <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
+</head>
+
+	<body>
+		<div class="content">
+			<header>
+	<div class="main">
+		<a href="https://yukihane.github.io/">発火後忘失</a>
+	</div>
+	<nav>
+		
+		<a href="blog">Blog</a>
+		
+		<a href="docs">Docs</a>
+		
+		
+	</nav>
+</header>
+
+			
+			<main class="list">
+				<div class="site-description"></div>
+				
+				
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201908/begin-piano/">電子キーボードを買いました</a></h1>
+					<time>2019/08/31</time>
+					<br><div class="description">
+	
+	<div class="sect1">
+<h2 id="_経緯">経緯</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>プログラミングとかビデオゲームとか、かなり目を酷使することばかりやっているので、そうではない趣味を持とうと考えた末、何か楽器を入門することにしました。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201908/begin-piano/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201908/line-bot-sample/">LINE Messaging API を試してみる</a></h1>
+					<time>2019/08/25</time>
+					<br><div class="description">
+	
+	<div class="sect1">
+<h2 id="_準備">準備</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_spring_boot_セットアップ">Spring Boot セットアップ</h3>
+<div class="paragraph">
+<p><a href="https://start.spring.io/" class="bare">https://start.spring.io/</a> でテンプレートを作成して次の依存関係を追加します。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;dependency&gt;
+    &lt;groupId&gt;com.linecorp.bot&lt;/groupId&gt;
+    &lt;artifactId&gt;line-bot-spring-boot&lt;/artifactId&gt;
+    &lt;version&gt;2.7.0&lt;/version&gt;
+&lt;/dependency&gt;</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>リポジトリ: <a href="https://github.com/line/line-bot-sdk-java/tree/master/line-bot-spring-boot" class="bare">https://github.com/line/line-bot-sdk-java/tree/master/line-bot-spring-boot</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_heroku_セットアップ">Heroku セットアップ</h3>
+<div class="paragraph">
+<p>今回は <code>linebotbeta</code> というアプリケーション名にしました。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201908/line-bot-sample/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201908/line-richmenu-sample/">LINE リッチメニューを試してみる</a></h1>
+					<time>2019/08/25</time>
+					<br><div class="description">
+	
+	<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/yukihane/hello-java/tree/master/line/richmenu-sample" class="bare">https://github.com/yukihane/hello-java/tree/master/line/richmenu-sample</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="https://developers.line.biz/ja/docs/messaging-api/using-rich-menus/">公式リファレンス</a> に書いてある通りですが、リッチメニューを試してみました。
+メニューをタップするとPostBackEventを送信します。</p>
+</div>
+<div class="paragraph">
+<p>botでハンドリングするために、 <a href="https://himeji-cs.jp/blog2/blog/2019/08/line-bot-sample.html">前回</a> 作成した <a href="https://github.com/yukihane/hello-java/tree/master/line/line-bot-sample">bot</a> に、PostBackEvent のハンドラを追加しています。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201908/line-richmenu-sample/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201908/line-login-sample/">LINEログイン機能を試してみる(Spring Boot 2.1.7/Spring Security 5.1.6)</a></h1>
+					<time>2019/08/25</time>
+					<br><div class="description">
+	
+	<div class="admonitionblock important">
+<table>
+<tbody><tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+本ページは Spring Boot 2.1.7 の頃のものですが、後続として 2.4.5 対応版があります: <a href="/blog/202105/06/ling-login-202105/">LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6)</a> – 発火後忘失
+</td>
+</tr>
+</tbody></table>
+</div>
+<hr/>
+<div class="paragraph">
+<p>Spring SecurityのOAuth実装は <a href="https://qiita.com/yukihane/items/fc97f888ecb6a6850ea7">こちらに書いたとおり</a> 歴史的経緯により複数存在しますが、 <a href="https://start.spring.io/" class="bare">https://start.spring.io/</a> の
+ Dependencies で &#34;OAuth2 Client&#34; を選択した場合に追加されるものは一番新しいSpring Securityの <a href="https://docs.spring.io/spring-security/site/docs/5.1.6.RELEASE/reference/html/modules.html#spring-security-oauth2-client"><code>spring-security-oauth2-client</code></a> (及び <code>spring-security-oauth2-jose</code>)でした。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201908/line-login-sample/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201908/gradle-msys/">Gradleプロジェクトで生成した実行スクリプトがGitBash(MSYS環境)でうまく動かない</a></h1>
+					<time>2019/08/23</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>GitBash環境でSDKMAN!を使ってJBakeをインストールしたのですが、 <code>jbake</code> コマンドを実行すると次のようなエラーが出てうまく動きませんでした。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201908/gradle-msys/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201908/setup-windows-devenv/">Windows10上に開発環境を整える</a></h1>
+					<time>2019/08/23</time>
+					<br><div class="description">
+	
+	<div class="sect1">
+<h2 id="_前提">前提</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>主にJava開発を行う人(要は私自身)向け記述多し</p>
+</li>
+<li>
+<p>パッケージ管理はscoopを使いますが、Java関係はなるべくSDKMAN!を使います</p>
+</li>
+</ul>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201908/setup-windows-devenv/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201908/hello-heroku-with-springboot/">HerokuでSpringBootアプリを動かしてみる</a></h1>
+					<time>2019/08/22</time>
+					<br><div class="description">
+	
+	<div class="sect1">
+<h2 id="_背景">背景</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>最終的にはLINE platformのAPIを理解したいのですが、 <a href="https://developers.line.biz/ja/docs/">リファレンス</a>を読んでいるとサンプルプログラム(サンプルbot)をHerokuにデプロイして試してみる、というような説明が多数あったので、Herokuについて理解しておこう、と考えました。</p>
+</div>
+<div class="paragraph">
+<p>そういった考えで、今回、単純なSpringBoot hello-worldアプリをHerokuにデプロイして接続確認してみることにしました。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201908/hello-heroku-with-springboot/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201908/jbake-tags/">JBakeのタグページが想定通り動いていない</a></h1>
+					<time>2019/08/22</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p><a href="https://himeji-cs.jp/blog2/tags/index.html">タグのindexページ</a>は正しくタグを収集しているようですが、それぞれのタグ個別ページがちゃんと生成されていないですね…
+テンプレートは <a href="https://github.com/jbake-org/jbake-example-project-thymeleaf/blob/master/templates/tags.thyme">標準のもの</a>そのまま使っているはずなのだけれど。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201908/jbake-tags/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201908/bash-redirect-earch-other/">bashで標準出力をファイルに、標準エラー出力を画面とファイルに出力したい</a></h1>
+					<time>2019/08/19</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>Git の pre-push でテスト実行を行おうとした際、通常テスト実行ではデバッグログを出しているところを、エラーを表すものだけに絞って出すようにしようと考えました。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201908/bash-redirect-earch-other/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201908/eclipse-lombok-mapstruct/">Lombokプラグインを入れているEclipseでMapStruct自動生成が機能しない</a></h1>
+					<time>2019/08/18</time>
+					<br><div class="description">
+	
+	<div class="ulist">
+<ul>
+<li>
+<p>サンプルコード: <a href="https://github.com/yukihane/hello-java/tree/master/mapstruct/hello-mapstruct" class="bare">https://github.com/yukihane/hello-java/tree/master/mapstruct/hello-mapstruct</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>上記のコードのようにLombokとMapStructを併用しているプロジェクトを、 <a href="https://projectlombok.org/setup/eclipse">Lombokプラグインを適用したEclipse</a>で読み込ませるとMapStructのコードが自動生成されません。
+そのため、Eclipse上でJUnitテストを実行すると次のように <code>java.lang.ClassNotFoundException: Cannot find implementation</code> というエラーになります。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201908/eclipse-lombok-mapstruct/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201908/rust-format-on-vscode/">VSCodeでRustの整形ができない？</a></h1>
+					<time>2019/08/18</time>
+					<br><div class="description">
+	
+	<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/rust-lang/rls-vscode/issues/534">Format not work #534</a> - rust-lang/rls-vscode</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>VSCodeでRustの勉強をしているのですが、現在、どうもコード整形機能が上手く働いていない…？</p>
+</div>
+<div class="paragraph">
+<p>代替策としては、 <a href="https://github.com/rust-lang/rustfmt"><code>rustfmt</code></a> を使って、 <code>cargo fmt</code> コマンドで整形すれば良さそう。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201908/rust-format-on-vscode/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201908/use-specific-rustc-version/">cargo build で特定のバージョンの rustc を利用する</a></h1>
+					<time>2019/08/03</time>
+					<br><div class="description">
+	
+	<div class="listingblock">
+<div class="content">
+<pre>rustup run 1.15.1 cargo build</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>もちろん事前に使用するバージョンをインストールしておく必要がある:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>rustup install 1.15.1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>参考:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://doc.rust-lang.org/edition-guide/rust-2018/rustup-for-managing-rust-versions.html">Rustup for managing Rust versions</a></p>
+</li>
+</ul>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201908/use-specific-rustc-version/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201908/hello/">JBakeはじめました</a></h1>
+					<time>2019/08/03</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>個人的にMarkDownはあまり好きではなく(標準だと表現力が弱いし方言が多い！)、ずっとblogをAsciiDocで書く方法を模索していました。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201908/hello/">Read more ⟶</a>
+				</section>
+				
+				
+
+<ul class="pagination">
+	<span class="page-item page-prev">
+	
+    <a href="/page/12/" class="page-link" aria-label="Previous"><span aria-hidden="true">← Prev</span></a>
+	
+	</span>
+	<span class="page-item page-next">
+	
+    <a href="/page/14/" class="page-link" aria-label="Next"><span aria-hidden="true">Next →</span></a>
+	
+	</span>
+</ul>
+
+
+			</main>
+			<footer>
+  <div style="display:flex"></div>
+  <div class="footer-info">
+    2025  &amp;copy;{year}, All Rights Reserved |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E9J8FN5B4Q');
+        }
+      </script>
+
+
+		</div>
+		
+	</body>
+</html>

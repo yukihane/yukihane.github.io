@@ -1,28 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>html on 発火後忘失</title>
+    <title>Html on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/html/</link>
-    <description>Recent content in html on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Html on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Tue, 18 May 2021 22:38:11 +0000</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/html/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>script src に設定する URL の &amp; はどう書けば良い？</title>
-        <link>https://yukihane.github.io/blog/202105/19/url-amp/</link>
-        <pubDate>Tue, 18 May 2021 22:38:11 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202105/19/url-amp/</guid>
-        <description>&amp;lt;script&amp;gt; タグの src に URL 書く場合、クエリパラメータ連結の &amp;amp; ってどう書くべきなんだろう、という話です。 結論としては、以下のように、 &amp;amp;amp; とするのが無難、とい</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/html/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>script src に設定する URL の &amp; はどう書けば良い？</title>
+      <link>https://yukihane.github.io/blog/202105/19/url-amp/</link>
+      <pubDate>Tue, 18 May 2021 22:38:11 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202105/19/url-amp/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; タグの &lt;code&gt;src&lt;/code&gt; に &lt;code&gt;URL&lt;/code&gt; 書く場合、クエリパラメータ連結の &lt;code&gt;&amp;amp;&lt;/code&gt; ってどう書くべきなんだろう、という話です。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;結論としては、以下のように、 &lt;code&gt;&amp;amp;amp;&lt;/code&gt; とするのが無難、ということのようです。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
   </channel>
 </rss>

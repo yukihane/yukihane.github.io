@@ -1,46 +1,34 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>web on 発火後忘失</title>
+    <title>Web on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/web/</link>
-    <description>Recent content in web on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Web on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Sun, 23 Aug 2020 17:24:37 +0000</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/web/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>Restful API, path を使うか query を使うか</title>
-        <link>https://yukihane.github.io/blog/202008/24/rest-path-or-query/</link>
-        <pubDate>Sun, 23 Aug 2020 17:24:37 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202008/24/rest-path-or-query/</guid>
-        <description>特に結論はなく、情報収集です。 Google の検索 URI「http://www.google.com/search?q=jellyfish」について考え</description>
-      </item>
-      
-      <item>
-        <title>ランダム文字列URL生成に関するメモ</title>
-        <link>https://yukihane.github.io/blog/202008/15/capability-url/</link>
-        <pubDate>Sat, 15 Aug 2020 10:26:40 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202008/15/capability-url/</guid>
-        <description>推測されないような文字列を動的に生成しURLに利用できるような仕組みを調べていますが、その調査メモです。 ちょうど私が調べている時期と重なって</description>
-      </item>
-      
-      <item>
-        <title>https://hatena.ne.jp/ にアクセスできてるとお思いで？</title>
-        <link>https://yukihane.github.io/blog/201912/03/auto-redirecting-chrome/</link>
-        <pubDate>Tue, 03 Dec 2019 20:39:39 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201912/03/auto-redirecting-chrome/</guid>
-        <description>はじめに: 試した環境 Windows10 の現時点での最新安定版 Google Chrome および Firefox を用いました。 Google Chrome 78.0.3904.108 Firefox 70.0.1 また実行に際しては、キャッシュ等の影響を避けるため、Chro</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Restful API, path を使うか query を使うか</title>
+      <link>https://yukihane.github.io/blog/202008/24/rest-path-or-query/</link>
+      <pubDate>Sun, 23 Aug 2020 17:24:37 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202008/24/rest-path-or-query/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;特に結論はなく、情報収集です。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;quoteblock&#34;&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Google の検索 URI「http://www.google.com/search?q=jellyfish」について考えてみよう。Google Web アプリケーションがパス変数を使用していたならば、この URI はアルゴリズムの実行結果というよりも、ディレクトリのようになっていただろう（http://www.google.com/search/jellyfish）。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>ランダム文字列URL生成に関するメモ</title>
+      <link>https://yukihane.github.io/blog/202008/15/capability-url/</link>
+      <pubDate>Sat, 15 Aug 2020 10:26:40 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202008/15/capability-url/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;推測されないような文字列を動的に生成しURLに利用できるような仕組みを調べていますが、その調査メモです。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;ちょうど私が調べている時期と重なって、関心対象が同じ資料がアップロードされていました:&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>https://hatena.ne.jp/ にアクセスできてるとお思いで？</title>
+      <link>https://yukihane.github.io/blog/201912/03/auto-redirecting-chrome/</link>
+      <pubDate>Tue, 03 Dec 2019 20:39:39 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201912/03/auto-redirecting-chrome/</guid>
+      <description>&lt;h1 id=&#34;はじめに-試した環境&#34;&gt;はじめに: 試した環境&lt;/h1&gt;&#xA;&lt;p&gt;Windows10 の現時点での最新安定版 Google Chrome および Firefox を用いました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Google Chrome 78.0.3904.108&lt;/li&gt;&#xA;&lt;li&gt;Firefox 70.0.1&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;また実行に際しては、キャッシュ等の影響を避けるため、Chrome では&lt;a href=&#34;https://support.google.com/chrome/answer/6130773?co=GENIE.Platform%3DDesktop&amp;amp;hl=ja&#34;&gt;ゲストモード&lt;/a&gt;、Firefox では今回&lt;a href=&#34;https://support.mozilla.org/ja/kb/profile-manager-create-and-remove-firefox-profiles#w_cucgciaaacceagluna&#34;&gt;新規作成したプロファイル&lt;/a&gt;で確認しました。&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

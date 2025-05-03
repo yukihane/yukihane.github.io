@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+	<head lang="ja">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>発火後忘失 | Home </title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Fire and Forget blog" />
+	<meta property="og:image" content=""/>
+	<link rel="alternate" type="application/rss+xml" href="https://yukihane.github.io/index.xml" title="発火後忘失" />
+	<meta property="og:url" content="https://yukihane.github.io/">
+  <meta property="og:site_name" content="発火後忘失">
+  <meta property="og:title" content="発火後忘失">
+  <meta property="og:description" content="Fire and Forget blog">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="発火後忘失">
+  <meta name="twitter:description" content="Fire and Forget blog">
+
+        <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
+</head>
+
+	<body>
+		<div class="content">
+			<header>
+	<div class="main">
+		<a href="https://yukihane.github.io/">発火後忘失</a>
+	</div>
+	<nav>
+		
+		<a href="blog">Blog</a>
+		
+		<a href="docs">Docs</a>
+		
+		
+	</nav>
+</header>
+
+			
+			<main class="list">
+				<div class="site-description"></div>
+				
+				
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202002/11/hello-project-panama/">Hello Project Panama</a></h1>
+					<time>2020/02/11</time>
+					<br><div class="description">
+	
+	<p>追記: <a href="/blog/202110/08/hello-project-panama-on-java17/">Hello Project Panama, on Java17</a> に Java17 版を記載しました。</p>
+<h2 id="はじめに">はじめに</h2>
+<p>今個人的にすごく知りたいのはこちらです。ご回答よろしくお願いします！！！！</p>
+<ul>
+<li><a href="https://ja.stackoverflow.com/q/62868/2808">動的確保したメモリー領域の解放戦略</a> - スタック・オーバーフロー</li>
+</ul>
+<p>(質問読んでもらえれば(というかタイトル見てもらえれば)わかると思うんですけど、別に Java がわからん、とか Rust がわからん、という質問では無いです。念の為。もちろん Java も Rust もわからない(多分コード正しくない)ですけどそれは別の話。)</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202002/11/hello-project-panama/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202002/01/hello-rust-neon/">Nodeのnative moduleをRustで書いてみる(Neon)</a></h1>
+					<time>2020/02/01</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>RustプログラムのGUIにElectronを使うことを考えています。</p>
+</div>
+<div class="paragraph">
+<p>その前調査としてNodeのネイティブモジュールとしてRustプログラムを利用できるようにする <a href="https://neon-bindings.com/">Neon</a> というツールを使ってHello, worldしてみることにしました。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202002/01/hello-rust-neon/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202001/30/fluentd-request_timeout_sec-default/">`fluent-plugin-bigquery` のパラメータ `request_timeout_sec` 、未設定の場合はどうなるの？</a></h1>
+					<time>2020/01/30</time>
+					<br><div class="description">
+	
+	<div class="sect1">
+<h2 id="_要旨">要旨</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>fluent-plugin-bigquery</code> の <a href="https://github.com/fluent-plugins-nursery/fluent-plugin-bigquery/blob/v2.2.0/README.md">README</a> を読んでいると、 <code>request_timeout_sec</code> のデフォルト値が <code>nil</code> になっている(その下の <code>request_open_timeout_sec</code> には <code>60</code> が設定されているのに)のが気になりました。</p>
+</div>
+<div class="paragraph">
+<p>結論としては、 <code>request_timeout_sec</code> は最終的に <code>httpclient</code> の <code>send_timeout</code> 及び <code>receive_timeout</code> パラメータとして利用され、未設定の場合は <a href="https://github.com/nahi/httpclient/blob/v3.2.8/lib/httpclient/session.rb#L134-L135">そこで指定されているデフォルト値</a>である <code>send_timeout = 120</code>, <code>receive_timeout = 60</code> が採用されるようです。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202001/30/fluentd-request_timeout_sec-default/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202001/26/resttemplate-with-illformed-json/">Spring BootのRestTemplateで text/plain;Windows-31J なRESTレスポンスを処理する</a></h1>
+					<time>2020/01/26</time>
+					<br><div class="description">
+	
+	<div class="sect1">
+<h2 id="_要旨">要旨</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>JSONを返してくるのだけれどMIME typeが <code>text/plain;charset=Windows-31J</code> なレスポンスを、RestTemplateで扱いたい。</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>@GetMapping(produces = &#34;text/plain;charset=Windows-31J&#34;)
+public String response() {
+    return &#34;{\&#34;text\&#34;: \&#34;こんにちは世界\&#34; }&#34;;
+}</pre>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202001/26/resttemplate-with-illformed-json/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202001/01/rust-reqwest/">reqwest使おうとしたけどよくわからん</a></h1>
+					<time>2020/01/01</time>
+					<br><div class="description">
+	
+	<h1 id="はじめに">はじめに</h1>
+<p>年の瀬にスクレイピングしたくなって Rust 勉強し始めたけれど、直前に reqwest ライブラリに更新が入ったみたいでコピペコーディングが阻まれた。</p>
+<h1 id="知っとかないといけなかったこと">知っとかないといけなかったこと</h1>
+<ul>
+<li>今回の更新 <a href="https://seanmonstar.com/post/189960517042/reqwest-v010">reqwest 0.10.0</a> で async/await がデフォルトになった(ので従来のサンプルコードは動かなくなった)。</li>
+<li>Cargo には <a href="https://doc.rust-lang.org/stable/cargo/reference/manifest.html#the-features-section">feature flag(feature toggle)</a> 機能があって、reqwest やら(オフィシャルサンプルで利用している)tokio やらもこれを利用している。
+<ul>
+<li>(async/await を使わない、従来の)blocking 版をどうやって使うのか全然わからなかったけれど、features で明示的に指定する必要があった。</li>
+<li><a href="https://github.com/seanmonstar/reqwest/issues/755">オフィシャルサンプルを動かすにしてもこれを知っておかないといけなかった</a>。</li>
+</ul>
+</li>
+<li><a href="https://crates.io/crates/tokio">tokio</a>を用いる必要があった。
+<ul>
+<li>自分が見ていた(古い)サンプルでは<a href="https://crates.io/crates/futures">futures</a>の<code>futures::executor::block_on</code>を利用していたので当初それをコピペったのだが次のエラーが出た: &rsquo;not currently running on the Tokio runtime.',</li>
+<li>async/await 構文が標準に取り込まれた、ということは非同期ランタイムを別のものにすげ替えることが可能、みたいなイメージを持っていたのだが、そうではなさそう。</li>
+<li>おそらく<a href="https://github.com/ghmagazine/rustbook/pull/2">自転車本の補遺</a>が言うところの「非同期エコシステム」が関係する話題。</li>
+</ul>
+</li>
+</ul>
+<h1 id="サンプルを動かすには">サンプルを動かすには</h1>
+<p><a href="https://github.com/seanmonstar/reqwest">https://github.com/seanmonstar/reqwest</a></p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202001/01/rust-reqwest/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202001/rust-create-library/">Rustでライブラリを作成する</a></h1>
+					<time>2019/12/31</time>
+					<br><div class="description">
+	
+	<div class="sect1">
+<h2 id="_はじめに">はじめに</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>他の言語で言うところの&#34;ライブラリ&#34;は、Rustでは &#34;ライブラリクレート&#34;(library crate) と呼ぶようです。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202001/rust-create-library/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201912/10/resttemplatebuilder/">RestTemplateBuilderに関する覚書</a></h1>
+					<time>2019/12/10</time>
+					<br><div class="description">
+	
+	<h1 id="resttemplatebuilder"><a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/web/client/RestTemplateBuilder.html">RestTemplateBuilder</a></h1>
+<ul>
+<li><a href="https://github.com/spring-projects/spring-framework/blob/v5.2.2.RELEASE/spring-web/src/main/java/org/springframework/web/client/RestTemplate.java">RestTemplate</a> は Spring Framework(spring-web)だけれども <a href="https://github.com/spring-projects/spring-boot/blob/v2.2.2.RELEASE/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/web/client/RestTemplateBuilder.java">RestTemplateBuilder</a> は Spring Boot。</li>
+<li>Java の世界の <code>なんちゃらBuilder</code> (<a href="https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/lang/StringBuilder.html">StringBuilder</a>とか Lombok の<a href="https://projectlombok.org/features/Builder"><code>Builder</code>アノテーション</a>とか、ざっくり総称で Effective Java 版 Builder とでも呼ぶべきか)の使い方は、「まず <code>builder</code> のインスタンスを生成します」から始まるので <code>RestTempalteBuilder</code> もそれだと思っていた。
+<ul>
+<li>つまり、このクラスインスタンスは Spring Boot のデフォルト状態でインジェクション可能だけれども、このインジェクションされた<code>RestTempalteBuilder</code>インスタンスのスコープは(Spring のデフォルトであるところの)singleton-scope <strong>ではない</strong> と思っていた。
+<ul>
+<li>だって<code>builder</code>インスタンスが singleton-scope なら、ある<code>bean</code>で <code>builder</code>に設定したものが他所の<code>bean</code>にも波及しちゃうじゃない。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>けど<a href="https://github.com/spring-projects/spring-boot/blob/v2.2.2.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/web/client/RestTemplateAutoConfiguration.java#L56-L69"><code>ResttemplateAutoConfiguration</code>の Bean 定義部分</a>どう見ても singleton-scope にしか見えない。何か自分の知らない記法(あるいは暗黙的解釈)がなにかまだあるのか？ <strong>また</strong> 何か Spring マジックが発動しているのか…？</li>
+</ul>
+<p>と思ってたけど、<code>RestTemplateBuilder</code>の状態設定メソッド(<a href="https://github.com/spring-projects/spring-boot/blob/v2.2.2.RELEASE/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/web/client/RestTemplateBuilder.java#L141-L668">このへん</a>)見て気づいた、 <strong>設定メソッドの中で <code>new RestTemplateBuilder()</code> やっとるんかーい！</strong></p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201912/10/resttemplatebuilder/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201912/03/auto-redirecting-chrome/">https://hatena.ne.jp/ にアクセスできてるとお思いで？</a></h1>
+					<time>2019/12/03</time>
+					<br><div class="description">
+	
+	<h1 id="はじめに-試した環境">はじめに: 試した環境</h1>
+<p>Windows10 の現時点での最新安定版 Google Chrome および Firefox を用いました。</p>
+<ul>
+<li>Google Chrome 78.0.3904.108</li>
+<li>Firefox 70.0.1</li>
+</ul>
+<p>また実行に際しては、キャッシュ等の影響を避けるため、Chrome では<a href="https://support.google.com/chrome/answer/6130773?co=GENIE.Platform%3DDesktop&amp;hl=ja">ゲストモード</a>、Firefox では今回<a href="https://support.mozilla.org/ja/kb/profile-manager-create-and-remove-firefox-profiles#w_cucgciaaacceagluna">新規作成したプロファイル</a>で確認しました。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201912/03/auto-redirecting-chrome/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201911/28/kebab-format-recommended-on-spring-boot-properties/">Spring Boot のプロパティではkebab-formatが推奨されている</a></h1>
+					<time>2019/11/28</time>
+					<br><div class="description">
+	
+	<p><strong>Relaxed Binding 2.0</strong> という仕組みにより</p>
+<pre tabindex="0"><code>spring.jpa.database-platform=mysql
+spring.jpa.databasePlatform=mysql
+spring.JPA.database_platform=mysql
+</code></pre><p>いずれの形式でも正しくバインドできる。<br />
+が、公式ドキュメントからは一番上の <code>database-platform</code> が推奨されているように読み取れる。</p>
+<hr />
+<p><a href="https://github.com/spring-projects/spring-booT/wiki/Spring-Boot-Configuration-Binding#relaxed-binding">Relaxed binding</a> - Spring Boot Configuration Binding:</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201911/28/kebab-format-recommended-on-spring-boot-properties/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201911/09/graalvm-install-to-windows10/">native-imageコマンドを実行するために行ったWindows10 への GraalVM インストールがエキサイティングな件</a></h1>
+					<time>2019/11/09</time>
+					<br><div class="description">
+	
+	<p>悪い意味で。<br />
+なお試した時点での GraalVM 最新リリースバージョンは <a href="https://github.com/oracle/graal/releases/tag/vm-19.2.1">19.2.1</a>でした。</p>
+<h1 id="graalvm-インストール--実行">GraalVM インストール &amp; 実行</h1>
+<p>GraalVM のインストール方法はいくつかあるのでお好みで。例えば:</p>
+<ul>
+<li><a href="https://github.com/oracle/graal/releases">GitHub</a>から実行バイナリをダウンロード</li>
+<li><a href="https://sdkman.io/">SDKMAN!</a></li>
+<li><a href="https://scoop.sh/">Scoop</a></li>
+</ul>
+<p>(なお、SDKMAN!は今回試していないのでちゃんと動くかは知らない)</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201911/09/graalvm-install-to-windows10/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201910/29/encoded-url-passing-to-mockmvc/">MockMvc でURLエンコード済みのpathを渡したいときは new URI(...) を引数にする</a></h1>
+					<time>2019/10/29</time>
+					<br><div class="description">
+	
+	<p>OAuth2.0 の <code>redirect_uri</code> をゴニョった実装をテストしたいときにハマった。</p>
+<pre><code>mockMvc.perform(get(new URI(&quot;/line/oauth/authorize?redirece_uri=https%3A%2F%2Fexample.com&quot;)
+</code></pre>
+<p>ってやらないと二重にエンコードされてしまう。</p>
+<h1 id="参考">参考</h1>
+<ul>
+<li><a href="https://github.com/spring-projects/spring-framework/issues/16067">MockMvc needs to accept prepared URI with encoded URI path variables [SPR-11441] #16067</a></li>
+<li><a href="https://github.com/spring-projects/spring-framework/blob/master/spring-test/src/test/java/org/springframework/test/web/servlet/samples/spr/EncodedUriTests.java">EncodedUriTests.java</a></li>
+</ul>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201910/29/encoded-url-passing-to-mockmvc/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201910/setup-amethyst/">Intel iGPU環境でのAmethyst 開発環境セットアップ</a></h1>
+					<time>2019/10/08</time>
+					<br><div class="description">
+	
+	<div class="sect1">
+<h2 id="_tldr">TL;DR</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ubuntu18.04, Coffee Lake iGPU で vulkan での実行を可能にするには</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>mesa-vulkan-drivers</code> パッケージインストール</p>
+</li>
+<li>
+<p><code>/etc/X11/xorg.conf.d/20-intel.conf</code> で DRI3 有効化</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>の2点が必要。</p>
+</div>
+<div class="paragraph">
+<p>(おそらく実際には、実行に <code>libvulkan1</code> 、及び開発には加えて <code>libvulkan-dev</code> も必要と思われるが、最初からインストールされていた)</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201910/setup-amethyst/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201909/rust-cago.lock/">Cargo.lock をバージョン管理するや否や</a></h1>
+					<time>2019/09/01</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p><code>cargo new --bin</code> したパッケージに対して、たまたまデフォルで生成される <code>.gitignore</code> を用いずに <a href="https://gitignore.io/" class="bare">https://gitignore.io/</a> で生成してものを用いていたのですが、 <code>Cargo.lock</code> ファイルの扱いが異なるように思われ、あれ？と思って見直してみました。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201909/rust-cago.lock/">Read more ⟶</a>
+				</section>
+				
+				
+
+<ul class="pagination">
+	<span class="page-item page-prev">
+	
+    <a href="/page/11/" class="page-link" aria-label="Previous"><span aria-hidden="true">← Prev</span></a>
+	
+	</span>
+	<span class="page-item page-next">
+	
+    <a href="/page/13/" class="page-link" aria-label="Next"><span aria-hidden="true">Next →</span></a>
+	
+	</span>
+</ul>
+
+
+			</main>
+			<footer>
+  <div style="display:flex"></div>
+  <div class="footer-info">
+    2025  &amp;copy;{year}, All Rights Reserved |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E9J8FN5B4Q');
+        }
+      </script>
+
+
+		</div>
+		
+	</body>
+</html>

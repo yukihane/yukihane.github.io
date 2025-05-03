@@ -1,28 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>security on 発火後忘失</title>
+    <title>Security on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/security/</link>
-    <description>Recent content in security on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Security on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Tue, 07 Apr 2020 20:15:38 +0000</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/security/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>TwitterをFirefoxで利用した際のセキュリティ問題</title>
-        <link>https://yukihane.github.io/blog/202004/08/twitter-on-firefox-security-issue/</link>
-        <pubDate>Tue, 07 Apr 2020 20:15:38 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202004/08/twitter-on-firefox-security-issue/</guid>
-        <description>&amp;gt;Mozilla Firefoxに保存されているTwitterデータのキャッシュについて というリリースが先日出されましたが、具体的にどういう問題なのかが書か</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TwitterをFirefoxで利用した際のセキュリティ問題</title>
+      <link>https://yukihane.github.io/blog/202004/08/twitter-on-firefox-security-issue/</link>
+      <pubDate>Tue, 07 Apr 2020 20:15:38 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202004/08/twitter-on-firefox-security-issue/</guid>
+      <description>&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://privacy.twitter.com/ja/blog/2020/data-cache-firefox&#34;&gt;&amp;gt;Mozilla Firefoxに保存されているTwitterデータのキャッシュについて&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;というリリースが先日出されましたが、具体的にどういう問題なのかが書かれていないので調べてみました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
   </channel>
 </rss>

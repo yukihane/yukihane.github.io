@@ -1,82 +1,62 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>oidc on 発火後忘失</title>
+    <title>Oidc on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/oidc/</link>
-    <description>Recent content in oidc on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Oidc on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Thu, 06 May 2021 10:43:04 +0000</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/oidc/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6)</title>
-        <link>https://yukihane.github.io/blog/202105/06/ling-login-202105/</link>
-        <pubDate>Thu, 06 May 2021 10:43:04 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202105/06/ling-login-202105/</guid>
-        <description>はじめに LINEログイン機能を試してみる – 発火後忘失 で、 Spring Boot 2.1.7 (Spring Security 5.1.6) を利用してLINEログインを行ってみました。 本ドキュメントは、このコード</description>
-      </item>
-      
-      <item>
-        <title>ガバガバOIDCモックサーバを作る</title>
-        <link>https://yukihane.github.io/blog/202101/30/gava-oidc-idp/</link>
-        <pubDate>Sat, 30 Jan 2021 06:29:06 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202101/30/gava-oidc-idp/</guid>
-        <description>OIDCフローの調査などで本物でないOIDC IdP Mock Serverが欲しくなったので検索してみました。 世に数多あるように見えたのですが、結構真面目</description>
-      </item>
-      
-      <item>
-        <title>Spring SecurityのOAuth 2.0 Login でログインしても UserInfo Endpoint にアクセスしてくれない</title>
-        <link>https://yukihane.github.io/blog/202009/12/oidc-userinfo-not-fetched-for-custom-claims/</link>
-        <pubDate>Sat, 12 Sep 2020 12:56:30 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202009/12/oidc-userinfo-not-fetched-for-custom-claims/</guid>
-        <description>Spring Security OAuth 2.0 Login を利用してログインしたのですが、通常ログイン後 UserInfo Endpoint へアクセスしてくれるはずなのにこの処理がスキップされてしまうような事象に出会いま</description>
-      </item>
-      
-      <item>
-        <title>claimとscopeを追加して取得してみる</title>
-        <link>https://yukihane.github.io/blog/202009/04/oidc-add-claim-and-scope/</link>
-        <pubDate>Thu, 03 Sep 2020 23:24:39 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202009/04/oidc-add-claim-and-scope/</guid>
-        <description>はじめに Keycloak上で新しいclaimと、それを取得できる新しいscopeを定義し、Spring Securityを使って参照してみます</description>
-      </item>
-      
-      <item>
-        <title>Spring Security: OIDC の redirect_uri を変更する</title>
-        <link>https://yukihane.github.io/blog/202009/04/oidc-change-redirect-uri/</link>
-        <pubDate>Thu, 03 Sep 2020 22:50:21 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202009/04/oidc-change-redirect-uri/</guid>
-        <description>はじめに KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる で作成したコードに対して、 カスタム redirect_uri の設定を行ってみます。 今回のコード</description>
-      </item>
-      
-      <item>
-        <title>Spring Security OAuth 2.0 Login を自動テストする</title>
-        <link>https://yukihane.github.io/blog/202008/05/spring-boot-oidc-testing/</link>
-        <pubDate>Tue, 04 Aug 2020 21:39:37 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202008/05/spring-boot-oidc-testing/</guid>
-        <description>KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる で作成したプログラムの自動テスト方法です。 今回のコードも前回と同じく次のディレ</description>
-      </item>
-      
-      <item>
-        <title>KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる</title>
-        <link>https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/</link>
-        <pubDate>Mon, 20 Jul 2020 18:54:23 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/</guid>
-        <description>はじめに Spring Boot で Spring Security OAuth 2.0 Login / Client を利用する手順をまとめます。 また、認可サーバ(IdP)にはローカルで立てたKeycloakを用いますのでそちらの</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/oidc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6)</title>
+      <link>https://yukihane.github.io/blog/202105/06/ling-login-202105/</link>
+      <pubDate>Thu, 06 May 2021 10:43:04 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202105/06/ling-login-202105/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/201908/line-login-sample/&#34;&gt;LINEログイン機能を試してみる&lt;/a&gt; – 発火後忘失&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;で、 Spring Boot 2.1.7 (Spring Security 5.1.6) を利用してLINEログインを行ってみました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;本ドキュメントは、このコードをそのまま Spring Boot 2.4.5 へアップグレードしたところ上手く動かなかったので修正を行った記録です。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>ガバガバOIDCモックサーバを作る</title>
+      <link>https://yukihane.github.io/blog/202101/30/gava-oidc-idp/</link>
+      <pubDate>Sat, 30 Jan 2021 06:29:06 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202101/30/gava-oidc-idp/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;OIDCフローの調査などで本物でないOIDC IdP Mock Serverが欲しくなったので検索してみました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.google.com/search?q=oidc+mock+server&#34;&gt;世に数多あるよう&lt;/a&gt;に見えたのですが、結構真面目に認証処理してたりして、ちょっとオーバースペックだと感じたので自作することにしました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/yukihane/gava-idp&#34;&gt;gava-idp&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Spring SecurityのOAuth 2.0 Login でログインしても UserInfo Endpoint にアクセスしてくれない</title>
+      <link>https://yukihane.github.io/blog/202009/12/oidc-userinfo-not-fetched-for-custom-claims/</link>
+      <pubDate>Sat, 12 Sep 2020 12:56:30 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202009/12/oidc-userinfo-not-fetched-for-custom-claims/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Spring Security &lt;a href=&#34;https://docs.spring.io/spring-security/site/docs/current/reference/html5/#oauth2login&#34;&gt;OAuth 2.0 Login&lt;/a&gt; を利用してログインしたのですが、通常ログイン後 UserInfo Endpoint へアクセスしてくれるはずなのにこの処理がスキップされてしまうような事象に出会いました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>claimとscopeを追加して取得してみる</title>
+      <link>https://yukihane.github.io/blog/202009/04/oidc-add-claim-and-scope/</link>
+      <pubDate>Thu, 03 Sep 2020 23:24:39 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202009/04/oidc-add-claim-and-scope/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Keycloak上で新しいclaimと、それを取得できる新しいscopeを定義し、Spring Securityを使って参照してみます。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/&#34;&gt;KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる&lt;/a&gt; で作成したコードをベースにしています。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Spring Security: OIDC の redirect_uri を変更する</title>
+      <link>https://yukihane.github.io/blog/202009/04/oidc-change-redirect-uri/</link>
+      <pubDate>Thu, 03 Sep 2020 22:50:21 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202009/04/oidc-change-redirect-uri/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/&#34;&gt;KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる&lt;/a&gt; で作成したコードに対して、 カスタム &lt;code&gt;redirect_uri&lt;/code&gt; の設定を行ってみます。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;今回のコードはこちら:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redirect-uri&#34; class=&#34;bare&#34;&gt;https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redirect-uri&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_変更手順&#34;&gt;変更手順&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;sect2&#34;&gt;&#xA;&lt;h3 id=&#34;_keycloak_登録情報の変更&#34;&gt;KeyCloak 登録情報の変更&lt;/h3&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/&#34;&gt;前回のページ&lt;/a&gt; を参考に、 &amp;#34;Valid Redirect URIs&amp;#34; の値を今回変更するURL &lt;strong&gt;http://localhost:8080/my_redirect_uri&lt;/strong&gt; に更新します。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Spring Security OAuth 2.0 Login を自動テストする</title>
+      <link>https://yukihane.github.io/blog/202008/05/spring-boot-oidc-testing/</link>
+      <pubDate>Tue, 04 Aug 2020 21:39:37 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202008/05/spring-boot-oidc-testing/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/&#34;&gt;KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる&lt;/a&gt; で作成したプログラムの自動テスト方法です。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;今回のコードも前回と同じく次のディレクトリにあります:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/yukihane/hello-java/tree/master/spring/oidc-example&#34; class=&#34;bare&#34;&gt;https://github.com/yukihane/hello-java/tree/master/spring/oidc-example&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;まず結論なのですが、リファレンスに説明がありますのでここを参照しましょう、ということになります:&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる</title>
+      <link>https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/</link>
+      <pubDate>Mon, 20 Jul 2020 18:54:23 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Spring Boot で Spring Security OAuth 2.0 &lt;a href=&#34;https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#oauth2login&#34;&gt;Login&lt;/a&gt; / &lt;a href=&#34;https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#oauth2client&#34;&gt;Client&lt;/a&gt; を利用する手順をまとめます。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;また、認可サーバ(IdP)にはローカルで立てたKeycloakを用いますのでそちらのセットアップ手順も記載します。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
   </channel>
 </rss>

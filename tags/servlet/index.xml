@@ -1,28 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>servlet on 発火後忘失</title>
+    <title>Servlet on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/servlet/</link>
-    <description>Recent content in servlet on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Servlet on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Thu, 20 Jun 2019 20:26:49 +0000</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/servlet/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>ファイル出力先にServletContext#getRealPathを使うな</title>
-        <link>https://yukihane.github.io/blog/201906/20/dont-use-getrealpath/</link>
-        <pubDate>Thu, 20 Jun 2019 20:26:49 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201906/20/dont-use-getrealpath/</guid>
-        <description>タイトルに書いたような、ファイル出力先として ServletContext#getRealPath を利用しているサンプルコードが見つかる、と聞いて検索してみたところ、日本語、非日本語にかかわら</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/servlet/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ファイル出力先にServletContext#getRealPathを使うな</title>
+      <link>https://yukihane.github.io/blog/201906/20/dont-use-getrealpath/</link>
+      <pubDate>Thu, 20 Jun 2019 20:26:49 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201906/20/dont-use-getrealpath/</guid>
+      <description>&lt;p&gt;タイトルに書いたような、ファイル出力先として &lt;code&gt;ServletContext#getRealPath&lt;/code&gt; を利用しているサンプルコードが見つかる、と聞いて検索してみたところ、日本語、非日本語にかかわらず確かにそのようなサンプルコードは散見されました。&lt;br /&gt;&#xA;例えば Qiita では(順不同):&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

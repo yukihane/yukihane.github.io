@@ -1,28 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>graalvm on 発火後忘失</title>
+    <title>Graalvm on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/graalvm/</link>
-    <description>Recent content in graalvm on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Graalvm on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Sat, 09 Nov 2019 21:57:08 +0000</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/graalvm/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>native-imageコマンドを実行するために行ったWindows10 への GraalVM インストールがエキサイティングな件</title>
-        <link>https://yukihane.github.io/blog/201911/09/graalvm-install-to-windows10/</link>
-        <pubDate>Sat, 09 Nov 2019 21:57:08 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201911/09/graalvm-install-to-windows10/</guid>
-        <description>悪い意味で。 なお試した時点での GraalVM 最新リリースバージョンは 19.2.1でした。 GraalVM インストール &amp;amp; 実行 GraalVM のインストール方法はいくつかあるのでお好み</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/graalvm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>native-imageコマンドを実行するために行ったWindows10 への GraalVM インストールがエキサイティングな件</title>
+      <link>https://yukihane.github.io/blog/201911/09/graalvm-install-to-windows10/</link>
+      <pubDate>Sat, 09 Nov 2019 21:57:08 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201911/09/graalvm-install-to-windows10/</guid>
+      <description>&lt;p&gt;悪い意味で。&lt;br /&gt;&#xA;なお試した時点での GraalVM 最新リリースバージョンは &lt;a href=&#34;https://github.com/oracle/graal/releases/tag/vm-19.2.1&#34;&gt;19.2.1&lt;/a&gt;でした。&lt;/p&gt;&#xA;&lt;h1 id=&#34;graalvm-インストール--実行&#34;&gt;GraalVM インストール &amp;amp; 実行&lt;/h1&gt;&#xA;&lt;p&gt;GraalVM のインストール方法はいくつかあるのでお好みで。例えば:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/oracle/graal/releases&#34;&gt;GitHub&lt;/a&gt;から実行バイナリをダウンロード&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://sdkman.io/&#34;&gt;SDKMAN!&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://scoop.sh/&#34;&gt;Scoop&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;(なお、SDKMAN!は今回試していないのでちゃんと動くかは知らない)&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

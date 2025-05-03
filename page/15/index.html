@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+	<head lang="ja">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>発火後忘失 | Home </title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Fire and Forget blog" />
+	<meta property="og:image" content=""/>
+	<link rel="alternate" type="application/rss+xml" href="https://yukihane.github.io/index.xml" title="発火後忘失" />
+	<meta property="og:url" content="https://yukihane.github.io/">
+  <meta property="og:site_name" content="発火後忘失">
+  <meta property="og:title" content="発火後忘失">
+  <meta property="og:description" content="Fire and Forget blog">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="発火後忘失">
+  <meta name="twitter:description" content="Fire and Forget blog">
+
+        <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
+</head>
+
+	<body>
+		<div class="content">
+			<header>
+	<div class="main">
+		<a href="https://yukihane.github.io/">発火後忘失</a>
+	</div>
+	<nav>
+		
+		<a href="blog">Blog</a>
+		
+		<a href="docs">Docs</a>
+		
+		
+	</nav>
+</header>
+
+			
+			<main class="list">
+				<div class="site-description"></div>
+				
+				
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201904/16/migration-to-junit5/">Testing the Web Layer のコードを JUnit Jupiter にマイグレーションしてみる</a></h1>
+					<time>2019/04/16</time>
+					<br><div class="description">
+	
+	<h1 id="概要">概要</h1>
+<p>(追記: ここで試したのは<code>2.1.4.RELEASE</code>時点のもの。<code>2.2.0.M3</code>以降では <a href="https://github.com/spring-projects/spring-boot/issues/14736">#14736</a>の通り JUnit5 がデフォルトになっている模様。)</p>
+<p>spring-boot-starter-test の JUnit5 対応はこちらの issue:</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201904/16/migration-to-junit5/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201903/26/change-spring-validator-message/">Spring Validator(でラップされたBean Validation)のメッセージをi18nしたときの覚え書き</a></h1>
+					<time>2019/03/26</time>
+					<br><div class="description">
+	
+	<h1 id="やりたかったこと">やりたかったこと</h1>
+<ul>
+<li>BeanValidation のプロパティファイル <a href="https://docs.jboss.org/hibernate/validator/6.1/reference/en-US/html_single/#validator-customconstraints-errormessage"><code>ValidationMessages.properties</code></a> でなく、 Spring のメッセージプロパティに統合したい。
+<ul>
+<li>Spring のメッセージプロパティとは？</li>
+</ul>
+</li>
+<li><code>Accept-Language</code>ベースでメッセージを国際化したい。</li>
+</ul>
+<h1 id="調べた">調べた</h1>
+<h2 id="spring-のメッセージプロパティファイルはどこ">Spring のメッセージプロパティファイルはどこ？</h2>
+<p>これはキーワード &ldquo;site:spring.io i18n message&rdquo; でググるとすぐ見つかった。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201903/26/change-spring-validator-message/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201903/24/versioning-rpg-maker/">RPGツクールMVをバージョン管理するための初期設定</a></h1>
+					<time>2019/03/24</time>
+					<br><div class="description">
+	
+	<p>他の方が同じ話題で次のエントリを書かれていましたが、gulp 何それ状態なので理解できませんでした。理解できる方はそちらの方が良いのかもしれません。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201903/24/versioning-rpg-maker/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201902/04/hibernate-map-char-to-string/">Hibernate で CHAR を String にマップする</a></h1>
+					<time>2019/02/04</time>
+					<br><div class="description">
+	
+	<p>例えば、生 JDBC で<code>char</code>型カラムのクエリを書くと<code>String</code>型にマップされます</p>
+<pre><code>    final Connection connection = DriverManager.getConnection(...);
+    final Statement statement = connection.createStatement();
+    final ResultSet resultSet = statement.executeQuery(&quot;select char_column from foo_table&quot;);
+
+    // java.lang.String
+    resultSet.getMetaData().getColumnClassName(1);
+</code></pre>
+<p>が、Hibernate の Native query を用いて同じように実行すると<code>Character</code>型にマップされます:</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201902/04/hibernate-map-char-to-string/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201901/16/set-jvm-to-eclipse-on-mac/">Eclipseの起動に使用するJDKを指定する（Mac）</a></h1>
+					<time>2019/01/16</time>
+					<br><div class="description">
+	
+	<p>最新の JDK をインストールしたが、古いバージョンの Eclipse も利用したい(が最新のバージョンでは起動できない)ような場合に必要となる設定です。</p>
+<h1 id="設定するファイルと設定方法">設定するファイルと設定方法</h1>
+<p><code>Eclipse.app/Contents/Eclipse</code>　にある <code>eclipse.ini</code> に、所望のバージョンの <code>java</code> コマンドが入っているディレクトリを指定します。<br />
+<code>/usr/libexec/java_home -V</code> で <code>JAVA_HOME</code> 候補一覧が参照できますので、このディレクトリ + <code>/bin</code> を指定することになります。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201901/16/set-jvm-to-eclipse-on-mac/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201811/10/ubuntu-mute-tab-sound/">Ubuntu18.04 端末の不快なエラー音 消す方法</a></h1>
+					<time>2018/11/10</time>
+					<br><div class="description">
+	
+	<p>Ubuntu を 18.04 にアップグレードしたら端末の補完処理で tab キーを押す度にヴヴッという不快なビープ音が鳴るようになってしまった。</p>
+<p>端末のメニューから <strong>設定</strong> を選択し設定ダイアログを開く。<br />
+ダイアログで自分の使用しているプロファイル(ここでは<strong>デフォルト</strong>)を選択し、<strong>文字</strong>タブの<strong>Sound</strong>オプションで<strong>端末ベルを鳴らす</strong>のチェックを外せば OK。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201811/10/ubuntu-mute-tab-sound/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201809/30/selfbuild-openjdk/">OpenJDK11をWindowsで自前ビルドする</a></h1>
+					<time>2018/09/30</time>
+					<br><div class="description">
+	
+	<p>Java の有償化ってより身近なところでは GPL 化と言った方が現状に即してるな、と思っています。</p>
+<p>それはともかく、何となく OpenJDK をデバッグ情報付きでビルドしたくなったのでメモ。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201809/30/selfbuild-openjdk/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201809/29/pwsh-on-azure-function/">Azure FunctionsでPowerShell使えなくなっとる</a></h1>
+					<time>2018/09/29</time>
+					<br><div class="description">
+	
+	<p>v1 で実験的サポートだった PowerShell が、実行環境のバージョンが上がったとかで v2 になり、選べなくなっているみたい？一時的な話？</p>
+<h1 id="実行環境を作る">実行環境を作る</h1>
+<p><a href="https://portal.azure.com/">https://portal.azure.com/</a> から 「リソースの作成」「Serverless Function App」と選択していきます。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201809/29/pwsh-on-azure-function/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201809/08/pwsh-progress-silent/">Invoke-WebRequestやCompress-Archiveを使っていると画面上部に一瞬表示される何かの表示を非表示に</a></h1>
+					<time>2018/09/08</time>
+					<br><div class="description">
+	
+	<p>進捗状況(progress)が表示されているそうです。少量のデータを扱っている場合には画面の一部がフラッシュしているように見えており、何のための画面効果かさっぱりわかりませんでした(ので検索キーワードすら思い浮かびませんでした)。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201809/08/pwsh-progress-silent/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201808/22/windows-rsync-unavailable/">Windows向けrsyncがなくなったみたい？</a></h1>
+					<time>2018/08/22</time>
+					<br><div class="description">
+	
+	<p><code>vagrant</code>で<code>rsync</code>が使いたくなった。<br />
+そこで<code>scoop</code>で<code>rsync</code>をインストールしようとしたが、見つからない。<br />
+おや？と思い検索してみると次の issue が。<br />
+<a href="https://github.com/lukesampson/scoop/issues/2506">rsync free version is no more #2506</a></p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201808/22/windows-rsync-unavailable/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201808/08/gvim-unknown-function/">vim で E117 未知の関数です</a></h1>
+					<time>2018/08/08</time>
+					<br><div class="description">
+	
+	<p>vim は <code>~/.vim</code> ディレクトリを読むのに対し gvim は<code>~/vimfiles</code>ディレクトリを読むためだそうです。Windows ならジャンクションを作りましょう。</p>
+<pre><code>cd /d %homepath%
+mklink /j vimfiles .vim
+</code></pre>
+<p>参考:</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201808/08/gvim-unknown-function/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201807/27/set-git-commit-editor/">gitで利用するエディタを設定したかった</a></h1>
+					<time>2018/07/27</time>
+					<br><div class="description">
+	
+	<p>あるいは vim-plug をセットアップしたら git commit したときに E492: Not an editor command って怒られるようになっちゃった。</p>
+<p>Vagrant で CentOS の Box を作るたびにひっかかる。</p>
+<p>Git が使う editor を(vi でなく)vim に設定すればよい。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201807/27/set-git-commit-editor/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201807/25/not-required-m2_home/">M2_HOMEは不要</a></h1>
+					<time>2018/07/25</time>
+					<br><div class="description">
+	
+	<p><code>M2_HOME</code> は削除されました。</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MNGSITE-283">MNGSITE-283 Remove M2_HOME from documentation</a></li>
+<li><a href="https://issues.apache.org/jira/browse/MNG-5607">MNG-5607 Don&rsquo;t use M2_HOME in mvn shell/command scripts anymore</a></li>
+<li><a href="https://maven.apache.org/docs/3.5.0/release-notes.html">3.5.0 リリースノート</a> &ldquo;Based on problems in using M2_HOME related to different Maven versions installed and to simplify things, the usage of M2_HOME has been removed and is not supported any more <a href="https://issues.apache.org/jira/browse/MNG-5823">MNG-5823</a>, <a href="https://issues.apache.org/jira/browse/MNG-5836">MNG-5836</a>, <a href="https://issues.apache.org/jira/browse/MNG-5607">MNG-5607</a>.&rdquo;</li>
+<li>(<a href="https://github.com/apache/maven/commit/065281c43d7435be204aa963e1f94d1128bb5351">変更 commit</a>)</li>
+</ul>
+<p>敢えて設定するのであれば、 上の変更 commit リンク先にある通り、<code>M2_HOME</code>でなく<code>MAVEN_HOME</code>にしましょう。<br />
+ただし、敢えて設定すべき状況は通常発生しないと思います。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201807/25/not-required-m2_home/">Read more ⟶</a>
+				</section>
+				
+				
+
+<ul class="pagination">
+	<span class="page-item page-prev">
+	
+    <a href="/page/14/" class="page-link" aria-label="Previous"><span aria-hidden="true">← Prev</span></a>
+	
+	</span>
+	<span class="page-item page-next">
+	
+    <a href="/page/16/" class="page-link" aria-label="Next"><span aria-hidden="true">Next →</span></a>
+	
+	</span>
+</ul>
+
+
+			</main>
+			<footer>
+  <div style="display:flex"></div>
+  <div class="footer-info">
+    2025  &amp;copy;{year}, All Rights Reserved |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E9J8FN5B4Q');
+        }
+      </script>
+
+
+		</div>
+		
+	</body>
+</html>

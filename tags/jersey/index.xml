@@ -1,28 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>jersey on 発火後忘失</title>
+    <title>Jersey on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/jersey/</link>
-    <description>Recent content in jersey on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Jersey on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Sun, 28 Jan 2018 19:16:07 +0000</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/jersey/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>Java9でJettyでJerseyのMaven</title>
-        <link>https://yukihane.github.io/blog/201801/28/java9-jetty-jersey/</link>
-        <pubDate>Sun, 28 Jan 2018 19:16:07 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201801/28/java9-jetty-jersey/</guid>
-        <description>dependency について、2.3.2. Servlet based server-side applicationをみると最小構成はjersey-container-servletだけでいいように見える</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/jersey/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java9でJettyでJerseyのMaven</title>
+      <link>https://yukihane.github.io/blog/201801/28/java9-jetty-jersey/</link>
+      <pubDate>Sun, 28 Jan 2018 19:16:07 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201801/28/java9-jetty-jersey/</guid>
+      <description>&lt;p&gt;dependency について、&lt;a href=&#34;https://jersey.github.io/documentation/latest/modules-and-dependencies.html#servlet-app-general&#34;&gt;2.3.2. Servlet based server-side application&lt;/a&gt;をみると最小構成は&lt;code&gt;jersey-container-servlet&lt;/code&gt;だけでいいように見える(Servlet3.0 以降の場合)が、実際には&lt;code&gt;jersey-hk2&lt;/code&gt;も必要。含めない場合次の例外が発生する。&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

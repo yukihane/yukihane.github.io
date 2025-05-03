@@ -1,28 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>docker on 発火後忘失</title>
+    <title>Docker on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/docker/</link>
-    <description>Recent content in docker on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Docker on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Mon, 28 Mar 2022 08:24:45 +0900</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>WSL2上にDockerをインストールする</title>
-        <link>https://yukihane.github.io/blog/202203/28/docker-on-wsl2/</link>
-        <pubDate>Mon, 28 Mar 2022 08:24:45 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202203/28/docker-on-wsl2/</guid>
-        <description>現在、 Windows で Docker を利用するには大きく2つ方策があるのかなと思います。 Docker Desktop for Windows を利用する WSL2 上に Docker Engine をインストールする 自分は元々 Ubuntu 上で Docker を利用してき</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WSL2上にDockerをインストールする</title>
+      <link>https://yukihane.github.io/blog/202203/28/docker-on-wsl2/</link>
+      <pubDate>Mon, 28 Mar 2022 08:24:45 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202203/28/docker-on-wsl2/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;現在、 Windows で Docker を利用するには大きく2つ方策があるのかなと思います。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://docs.docker.com/desktop/windows/install/&#34;&gt;Docker Desktop for Windows&lt;/a&gt; を利用する&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;WSL2 上に &lt;a href=&#34;https://docs.docker.com/engine/install/ubuntu/&#34;&gt;Docker Engine&lt;/a&gt; をインストールする&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;自分は元々 Ubuntu 上で Docker を利用してきたので、馴染みのある後者を選択することにしました。&#xA;(ちなみにこだわりが無いのなら前者の方が良いと思います)&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
   </channel>
 </rss>

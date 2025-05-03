@@ -1,37 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>jsf on 発火後忘失</title>
+    <title>Jsf on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/jsf/</link>
-    <description>Recent content in jsf on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Jsf on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Mon, 06 Apr 2020 01:52:30 +0000</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/jsf/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>Hello, JSF</title>
-        <link>https://yukihane.github.io/blog/202004/06/hello-jsf/</link>
-        <pubDate>Mon, 06 Apr 2020 01:52:30 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202004/06/hello-jsf/</guid>
-        <description>はじめに JSFを少し触ってみようと思ったのですが、もはやロストテクノロジーでどう始めるのかすらドキュメントを探すのが大変… 今回はかろうじてこ</description>
-      </item>
-      
-      <item>
-        <title>Tomcat上でJSF実現</title>
-        <link>https://yukihane.github.io/blog/201807/07/jsf-on-tomcat/</link>
-        <pubDate>Sat, 07 Jul 2018 21:47:59 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201807/07/jsf-on-tomcat/</guid>
-        <description>非 JavaEE なサーブレットコンテナ上で JSF を実行するように変更する手順。 TL;DR Mojarra を依存関係に含める JSF リソースを javax.faces.webapp.FacesServlet にマップするよう web.xml で設定する 実装例 https://github.com/yukihane/hello-jsf/tree/feature/server/tomcat feature/server/tomcat ブラ</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/jsf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello, JSF</title>
+      <link>https://yukihane.github.io/blog/202004/06/hello-jsf/</link>
+      <pubDate>Mon, 06 Apr 2020 01:52:30 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202004/06/hello-jsf/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;JSFを少し触ってみようと思ったのですが、もはやロストテクノロジーでどう始めるのかすらドキュメントを探すのが大変…&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;今回はかろうじてこちらを探し当てられました:&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Tomcat上でJSF実現</title>
+      <link>https://yukihane.github.io/blog/201807/07/jsf-on-tomcat/</link>
+      <pubDate>Sat, 07 Jul 2018 21:47:59 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201807/07/jsf-on-tomcat/</guid>
+      <description>&lt;p&gt;非 JavaEE なサーブレットコンテナ上で JSF を実行するように変更する手順。&lt;/p&gt;&#xA;&lt;h1 id=&#34;tldr&#34;&gt;TL;DR&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Mojarra を依存関係に含める&lt;/li&gt;&#xA;&lt;li&gt;JSF リソースを &lt;code&gt;javax.faces.webapp.FacesServlet&lt;/code&gt; にマップするよう &lt;code&gt;web.xml&lt;/code&gt; で設定する&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;実装例&#34;&gt;実装例&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/yukihane/hello-jsf/tree/feature/server/tomcat&#34;&gt;https://github.com/yukihane/hello-jsf/tree/feature/server/tomcat&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;feature/server/tomcat&lt;/code&gt; ブランチと &lt;code&gt;feature/server/javaee&lt;/code&gt; ブランチで diff を取れば、 JavaEE アプリケーションサーバ向け設定との差異がわかります。&lt;br /&gt;&#xA;(ちなみに &lt;code&gt;master&lt;/code&gt;ブランチや &lt;code&gt;README.md&lt;/code&gt; の説明は別の内容向けなので気にしないで下さい)&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

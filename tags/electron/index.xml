@@ -1,28 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>electron on 発火後忘失</title>
+    <title>Electron on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/electron/</link>
-    <description>Recent content in electron on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Electron on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Wed, 22 Apr 2020 20:59:12 +0000</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/electron/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>Electronでfs(File IO)</title>
-        <link>https://yukihane.github.io/blog/202004/22/electron-fileio/</link>
-        <pubDate>Wed, 22 Apr 2020 20:59:12 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202004/22/electron-fileio/</guid>
-        <description>Electron で File の Open と Save - Qiita を写経させてもらっていますが、、、動かない。 リンク先では Electron v4.x を利用していますが現在の最新版は v8.2.3。このバージョン差</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/electron/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Electronでfs(File IO)</title>
+      <link>https://yukihane.github.io/blog/202004/22/electron-fileio/</link>
+      <pubDate>Wed, 22 Apr 2020 20:59:12 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202004/22/electron-fileio/</guid>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://qiita.com/zaburo/items/eb525138b88890c5357c&#34;&gt;Electron で File の Open と Save - Qiita&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;を写経させてもらっていますが、、、動かない。&lt;br /&gt;&#xA;リンク先では Electron v4.x を利用していますが現在の最新版は &lt;a href=&#34;https://www.electronjs.org/releases/stable#release-notes-for-v823&#34;&gt;v8.2.3&lt;/a&gt;。このバージョン差異が原因のようでした。&lt;/p&gt;&#xA;&lt;h1 id=&#34;問題&#34;&gt;問題&lt;/h1&gt;&#xA;&lt;h2 id=&#34;1-uncaught-referenceerror-require-is-not-defined&#34;&gt;1. Uncaught ReferenceError: require is not defined&lt;/h2&gt;&#xA;&lt;p&gt;v8.2.3 でそのまま実行すると、表題のエラーが出ています。&lt;br /&gt;&#xA;&lt;a href=&#34;https://www.electronjs.org/releases/stable?version=5&amp;amp;page=3#release-notes-for-v500&#34;&gt;v5.0.0&lt;/a&gt;(&lt;a href=&#34;https://github.com/electron/electron/pull/16235&#34;&gt;#16235&lt;/a&gt;)より &lt;code&gt;nodeIntegration&lt;/code&gt; 設定のデフォルト値が &lt;code&gt;false&lt;/code&gt; に変わったためのようです。&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

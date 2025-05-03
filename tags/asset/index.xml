@@ -1,37 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>asset on 発火後忘失</title>
+    <title>Asset on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/asset/</link>
-    <description>Recent content in asset on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Asset on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Thu, 20 Mar 2025 12:58:42 +0900</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/asset/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>確定申告(2024年分)振り返り</title>
-        <link>https://yukihane.github.io/blog/202503/20/tax/</link>
-        <pubDate>Thu, 20 Mar 2025 12:58:42 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202503/20/tax/</guid>
-        <description>昨年のものはこちら: 確定申告(2023年分)振り返り 昨年同様、次回に向けて重要だと考える順に書いていきます: 次回確定申告までにマイナンバーカ</description>
-      </item>
-      
-      <item>
-        <title>確定申告(2023年分)振り返り</title>
-        <link>https://yukihane.github.io/blog/202404/06/final-tax-return/</link>
-        <pubDate>Sat, 06 Apr 2024 07:05:50 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202404/06/final-tax-return/</guid>
-        <description>次回に向けて重要だと考える順に書いていきます。 消費税簡易課税制度選択届出書を出しておく必要がありそう。現在は２割特例が効いている。 No.6505 簡易課税</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/asset/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>確定申告(2024年分)振り返り</title>
+      <link>https://yukihane.github.io/blog/202503/20/tax/</link>
+      <pubDate>Thu, 20 Mar 2025 12:58:42 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202503/20/tax/</guid>
+      <description>&lt;p&gt;昨年のものはこちら:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202404/06/final-tax-return/&#34;&gt;確定申告(2023年分)振り返り&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;昨年同様、次回に向けて重要だと考える順に書いていきます:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;次回確定申告までにマイナンバーカードの電子証明書期限が切れるので更新が必要&#xA;&lt;ul&gt;&#xA;&lt;li&gt;有効期限は5回目の誕生日。3ヵ月前から更新可能で、そのあたりで『地方公共団体情報システム機構から送付される「マイナンバーカード・電子証明書　有効期限通知書」』なるものが届くらしい。それが必要&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;下にも書いているがfreeeで口座連携ができていないことはしばしば発生する。確定申告直前に確認するのでなく、日ごろからたまにfreeeにログインして確認すべき&lt;/li&gt;&#xA;&lt;li&gt;freee にみずほ銀行の入出金が去年5月から一切連携できておらず焦ったが、&lt;a href=&#34;https://www.mizuhobank.co.jp/direct/about/service/directpassbook/index.html&#34;&gt;みずほダイレクト通帳&lt;/a&gt;で出力したCSVを、freeeの機能「みずほ銀行ダイレクト（API）でダウンロードしたCSV」インポート機能で取り込めた。&#xA;&lt;ul&gt;&#xA;&lt;li&gt;リンク先にある通り、事前の申請などが必要なので注意。自分はかなり昔に契約していたので助かった&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;国民健康保険料はマイナポータル連携できない(国じゃなくて市の管轄だから推進力が無いのだと思う)。これだけまだ郵送されてくる書類を保管しておく必要がある&#xA;&lt;ul&gt;&#xA;&lt;li&gt;去年も書いた&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;2割特例や簡易課税制度を選択しているのならe-taxで簡単に消費税申請できる。freeeでやろうと思うと上位プランで値段が上がってしまうが、別にfreeeでやる必要はない&lt;/li&gt;&#xA;&lt;li&gt;昨年、「消費税簡易課税制度選択届出書を出しておく必要がありそう」と書いていたがすっかり忘れていた。昨年内に届け出が必要だったが、ギリギリ間に合った&lt;/li&gt;&#xA;&lt;li&gt;楽天のふるさと納税の証明書は、今年から即時に発行できるようになっていた&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;例年なかなかやる気が出なくて、今年も結局最終週まで手を付けられなかった。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>確定申告(2023年分)振り返り</title>
+      <link>https://yukihane.github.io/blog/202404/06/final-tax-return/</link>
+      <pubDate>Sat, 06 Apr 2024 07:05:50 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202404/06/final-tax-return/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;次回に向けて重要だと考える順に書いていきます。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;消費税簡易課税制度選択届出書を出しておく必要がありそう。現在は２割特例が効いている。&lt;/p&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6505.htm&#34;&gt;No.6505 簡易課税制度&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.nta.go.jp/taxes/shiraberu/zeimokubetsu/shohi/keigenzeiritsu/invoice_2tokurei.htm&#34;&gt;２割特例 特設ページ （個人事業者向け）&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;</description>
+    </item>
   </channel>
 </rss>

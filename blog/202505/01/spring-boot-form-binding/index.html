@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html><head lang="ja">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Spring Boot(Spring MVC)のform送信の仕組みを少しずつ理解する - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="はじめに
+Spring Boot &#43; Thymeleaf でのform送信について、公式ドキュメントとしては
+
+Handling Form Submission
+Validating Form Input
+
+があります。
+しかし、これらのドキュメントは初歩的な説明にとどまり、この知識だけで実践に挑むとかなり苦労します。
+また、最近は静的webページでformをpostするみたいなことをやる機会が少なくなっており、検索しても実例が出てこなかったりロストテクノロジー化しつつあるように思われました。
+(「ロストテクノロジー化」については、AIに聞けば良い時代になったので今後は問題にはならないかも？)" />
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content="https://yukihane.github.io/blog/202505/01/spring-boot-form-binding/">
+  <meta property="og:site_name" content="発火後忘失">
+  <meta property="og:title" content="Spring Boot(Spring MVC)のform送信の仕組みを少しずつ理解する">
+  <meta property="og:description" content="はじめに Spring Boot &#43; Thymeleaf でのform送信について、公式ドキュメントとしては
+Handling Form Submission Validating Form Input があります。
+しかし、これらのドキュメントは初歩的な説明にとどまり、この知識だけで実践に挑むとかなり苦労します。
+また、最近は静的webページでformをpostするみたいなことをやる機会が少なくなっており、検索しても実例が出てこなかったりロストテクノロジー化しつつあるように思われました。
+(「ロストテクノロジー化」については、AIに聞けば良い時代になったので今後は問題にはならないかも？)">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-05-01T21:19:38+09:00">
+    <meta property="article:modified_time" content="2025-05-01T21:19:38+09:00">
+    <meta property="article:tag" content="Spring-Boot">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Spring Boot(Spring MVC)のform送信の仕組みを少しずつ理解する">
+  <meta name="twitter:description" content="はじめに Spring Boot &#43; Thymeleaf でのform送信について、公式ドキュメントとしては
+Handling Form Submission Validating Form Input があります。
+しかし、これらのドキュメントは初歩的な説明にとどまり、この知識だけで実践に挑むとかなり苦労します。
+また、最近は静的webページでformをpostするみたいなことをやる機会が少なくなっており、検索しても実例が出てこなかったりロストテクノロジー化しつつあるように思われました。
+(「ロストテクノロジー化」については、AIに聞けば良い時代になったので今後は問題にはならないかも？)">
+
+        <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://yukihane.github.io/">発火後忘失</a>
+	</div>
+	<nav>
+		
+		<a href="blog">Blog</a>
+		
+		<a href="docs">Docs</a>
+		
+		
+	</nav>
+</header>
+
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        <div class="title">
+          <h1 class="title">Spring Boot(Spring MVC)のform送信の仕組みを少しずつ理解する</h1>
+          <div class="meta">Posted on 2025/05/01</div>
+        </div>
+        
+        <section class="body">
+          <h2 id="はじめに">はじめに</h2>
+<p>Spring Boot + Thymeleaf でのform送信について、公式ドキュメントとしては</p>
+<ul>
+<li><a href="https://spring.io/guides/gs/handling-form-submission">Handling Form Submission</a></li>
+<li><a href="https://spring.io/guides/gs/validating-form-input">Validating Form Input</a></li>
+</ul>
+<p>があります。</p>
+<p>しかし、これらのドキュメントは初歩的な説明にとどまり、この知識だけで実践に挑むとかなり苦労します。<br />
+また、最近は静的webページでformをpostするみたいなことをやる機会が少なくなっており、検索しても実例が出てこなかったりロストテクノロジー化しつつあるように思われました。<br />
+(「ロストテクノロジー化」については、AIに聞けば良い時代になったので今後は問題にはならないかも？)</p>
+<p>今回、form post実装で色々とつまづいたことがあったので、そうったことを含めて、上記公式ドキュメントのnext step的な内容をまとめたいと思います。</p>
+<p>本記事のコードはKotlinで実装する予定でしたが、Spring Boot(Spring MVC)の事情とKotlin特有の話があるので、Spring MVCの話をするのにJavaで実装し直した箇所が混在しています。</p>
+<h2 id="postデータがcontollerに渡るまでの処理の前提知識">postデータがcontollerに渡るまでの処理の前提知識</h2>
+<p>(本節の情報はドキュメントや実装で詳細を確認したわけでなく、経験に拠るものです。ので正確ではないかもしれません)</p>
+<p>ユーザーが作成したformデータが、コントローラーのハンドラーの引数として渡ってくるまでには、大きく次の2つの手順を踏みます。</p>
+<ol>
+<li>formデータの各項目が(今回の場合は)文字列として受け付けられるので、それをそれぞれJavaのオブジェクトに変換する
+<ul>
+<li>データバインディングと呼ばれる処理</li>
+<li>ドキュメント: <a href="https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-initbinder.html">@InitBinder</a></li>
+</ul>
+</li>
+<li><code>@Valid</code>(あるいは <code>@Validated</code>) が付与されていれば、バインドしたオブジェクトを検証する
+<ul>
+<li>いわゆるバリデーション。典型的には Bean Validator を用いて行う</li>
+<li>ドキュメント: <a href="https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-validation.html">Validation</a></li>
+</ul>
+</li>
+</ol>
+<p>私は長い間1.と2.を区別できていませんでした。<br />
+Bean Validator は名前の通りBean(Javaオブジェクト)を検証するものであり、そもそもJavaオブジェクトが構築できていないのならvalidationできない、というに気付けばそれはそう、という話ではあるのですが&hellip;</p>
+<p>どちらも <code>BindingResult#hasErrors()</code> で error として扱えたり、大抵の場合は同一視できるのですが微妙な違いもあるので2種類ある、というのは覚えておいた方が良いです。</p>
+<h2 id="実装挙動確認">実装、挙動確認</h2>
+<p>ここからは、実際の挙動を確認していきます。<br />
+実行するにはJava21(以降)がインストールされている必要があります。</p>
+<h3 id="ソースコード">ソースコード</h3>
+<p>まず簡単なフォームを実装して挙動を確認してみます。(以降、bootstrap利用&amp;prettierの整形の都合上、行数が多いですが大したことはしていません)</p>
+<ul>
+<li><a href="https://github.com/yukihane/hello-java/tree/a52f84feeea8b92e8526eee6f1913fae964d21b6/spring/validation/kotlin-form-binding">ソースコード</a>
+<ul>
+<li>hash: a52f84feeea8b92e8526eee6f1913fae964d21b6</li>
+<li>path: spring/validation/kotlin-form-binding</li>
+</ul>
+</li>
+</ul>
+<p>簡単に解説します。</p>
+<p>まず、ユーザー入力とそのデータ送信を行う<a href="https://github.com/yukihane/hello-java/blob/a52f84feeea8b92e8526eee6f1913fae964d21b6/spring/validation/kotlin-form-binding/src/main/resources/templates/form.html#L20-L66">form</a>とそのformのデータをバインドするクラス <a href="https://github.com/yukihane/hello-java/blob/a52f84feeea8b92e8526eee6f1913fae964d21b6/spring/validation/kotlin-form-binding/src/main/java/com/example/kotlin_form_binding/JavaForm.java"><code>JavaForm</code></a> を実装します。<br />
+<code>JavaForm</code>のプロパティにはBean Validationアノテーションを付与します。</p>
+<p>postをハンドルするコントローラのメソッドでは、 <a href="https://github.com/yukihane/hello-java/blob/a52f84feeea8b92e8526eee6f1913fae964d21b6/spring/validation/kotlin-form-binding/src/main/kotlin/com/example/kotlin_form_binding/MyController.kt#L29-L30"><code>JavaForm</code> 引数に <code>@Valid</code></a> (または<code>@Validated</code>) アノテーションを付与します。<br />
+そしてその引数の直後に <code>BindingResult</code> 引数を設定します。</p>
+<p>formについてはもう少し説明が必要かもしれません。<br />
+<code>th:</code>で始まるタグはThymeleafのものですが、2種類のドキュメントを参照する必要があります。</p>
+<ul>
+<li><a href="https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html">Tutorial: Using Thymeleaf</a>
+<ul>
+<li>(1つ前のバージョンのようですが)<a href="https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html">日本語版</a>もあるようです</li>
+</ul>
+</li>
+<li><a href="https://www.thymeleaf.org/doc/tutorials/3.1/thymeleafspring.html">Tutorial: Thymeleaf + Spring</a></li>
+</ul>
+<p>そして、今回のようにformを実装する上で必須になるのは後者のドキュメントの <a href="https://www.thymeleaf.org/doc/tutorials/3.1/thymeleafspring.html#creating-a-form">6 Creating a Form</a> と <a href="https://www.thymeleaf.org/doc/tutorials/3.1/thymeleafspring.html#validation-and-error-messages">7 Validation and Error Messages</a> です。<br />
+(<code>th:field</code>とか、実際にform作るのには必須だと思うのですが冒頭で紹介したSpring Boot側のチュートリアルでは一切出てこないですからね…)</p>
+<h3 id="実行方法">実行方法</h3>
+<p>次のコマンド</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">./gradlew bootRun
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>で実行し、 http://localhost:8080/java へアクセスします。</p>
+<p>次の項目が入力、送信できます:</p>
+<ul>
+<li>name(<code>String</code>): <code>@NotNull</code>, <code>@NotEmpty</code>, <code>@Size(min = 1, max = 10)</code></li>
+<li>birthDate(<code>LocalDate</code>): <code>@NotNull</code>, <code>@DateTimeFormat(iso = DATE)</code></li>
+<li>age(<code>Short</code>): 任意項目</li>
+</ul>
+<p>まず、そのまま何も入力せずに「送信」ボタンを押します。</p>
+<p><img src="/202505/01/spring-boot-form-binding/01empty.png" alt="何も入力せず送信"></p>
+<p>空入力のとき、<code>String</code> は <code>null</code> でなく空文字列に変換されているのがわかります。</p>
+<h3 id="日付フォーマット不正">日付フォーマット不正</h3>
+<p>続いて、生年月日入力欄に、適当な文字列(&ldquo;aaaa&rdquo; とか)を入力してみます。</p>
+<p><img src="/202505/01/spring-boot-form-binding/02invalid_date.png" alt="不正な日付"></p>
+<p>何やら様相の異なるエラーメッセージが出力されています:</p>
+<blockquote>
+<p>Failed to convert property value of type java.lang.String to required type java.time.LocalDate for property birthDate; Failed to convert from type [java.lang.String] to type [@jakarta.validation.constraints.NotNull @org.springframework.format.annotation.DateTimeFormat java.time.LocalDate] for value [aaaa]</p></blockquote>
+<p>これが、前述の説明した「データバインディング」失敗時の挙動です。</p>
+<p>formデータを <code>JavaForm</code> オブジェクトにバインドするためには、文字列 &ldquo;aaaa&rdquo; を <code>LocalDate</code> 型に変換する必要がありますが、この変換処理が成功しなかったのが理由です。</p>
+<p>メッセージの趣が異なる理由も、空入力のときの「null は許可されていません」はBean Validator(の実装であるHibernate Validator)が出力しているのに対し、上記のシステマチックなメッセージはSpring MVCが出力しているから、という違いから来ています。</p>
+<p>メッセージのカスタマイズ方法については後述します</p>
+<h3 id="数値オーバーフロー">数値オーバーフロー</h3>
+<p>年齢は <code>Short</code> で定義しているので <code>32767</code> を超過するとオーバーフローします。</p>
+<p><code>32768</code> 以上を入力して送信してみます。<br />
+そうすると、メッセージ形式から、データバインディングでエラーになっていることがわかります。<br />
+つまり、オーバーフローしないよう検証しようと <code>@Max(Short.MAX_VALUE)</code> といったアノテーションを付与したとしても、このBean Validationが動作することはないわけです。</p>
+<h3 id="リストの要素が動的に増減する場合のpost">リストの要素が動的に増減する場合のpost</h3>
+<p>公式チュートリアル<a href="https://www.thymeleaf.org/doc/tutorials/3.1/thymeleafspring.html#the-concept">4.1節</a>の図中 &ldquo;Rows&rdquo; 箇所のようなものです。</p>
+<p>入力する要素数(行数)が動的に変わる箇所の実装です。</p>
+<p>公式チュートリアルの実装は <a href="https://www.thymeleaf.org/doc/tutorials/3.1/thymeleafspring.html#dynamic-fields">6.6 Dynamic fields</a> で説明されている通りで、行追加や行削除を行う際にはサーバーにpostし、サーバー側でバインドオブジェクトの行を増減して送り返すことで、対応するテーブルの行数を増減させています。</p>
+<p>確かにこのやりかたはThymeleafとしてはまっとうです。が、今どき行の追加・削除でページ更新が発生するやり方が許容されれるでしょうか…？ということで、私の実装ではjsで行の増減を行い、サーバーリクエストが発生しないような実装を行ってみました。</p>
+<ul>
+<li><a href="https://github.com/yukihane/hello-java/tree/d91c46453493e332a8e1c3c1c055d28194d8d654/spring/validation/kotlin-form-binding">ソースコード</a>
+<ul>
+<li>hash: d91c46453493e332a8e1c3c1c055d28194d8d654</li>
+<li>path: spring/validation/kotlin-form-binding</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://github.com/yukihane/hello-java/blob/d91c46453493e332a8e1c3c1c055d28194d8d654/spring/validation/kotlin-form-binding/src/main/resources/templates/form.html#L78-L96">行のtemplate</a>を作っておき、<a href="https://github.com/yukihane/hello-java/blob/d91c46453493e332a8e1c3c1c055d28194d8d654/spring/validation/kotlin-form-binding/src/main/resources/static/js/index.js#L1-L10">jsでcloneして行追加</a>、<a href="https://github.com/yukihane/hello-java/blob/d91c46453493e332a8e1c3c1c055d28194d8d654/spring/validation/kotlin-form-binding/src/main/resources/static/js/index.js#L28-L52">行のindexを再計算</a>しています。</p>
+<p>…ただこれ、サンプルの小さい実装だからまだ気にならないかもしれませんが、めちゃめちゃ保守したくないコードです。<br />
+個人的には、こういうフロントで動的なことをやらないといけない要件が出たなら、今の時代はThymeleafを捨ててVueやReactなんかで実装すべきなのではと考えています。</p>
+<p>閑話休題。<br />
+Thymeleafとしては、コレクション要素の <code>name</code> は <code>families[0].familyName</code> というような形式になります。<br />
+これを自動で設定するには</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">th:field=&#34;*{families[__${iterStat.index}__].familyName}&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>のような書き方をすることになります。</p>
+<h3 id="メッセージのカスタマイズ">メッセージのカスタマイズ</h3>
+<h4 id="bean-validator">Bean Validator</h4>
+<p>Bean Validationのメッセージのカスタマイズ方法は、<a href="https://jakarta.ee/specifications/bean-validation/3.0/jakarta-bean-validation-spec-3.0.html#validationapi-message">Bean Validation 仕様書</a>に記述があります。<br />
+メッセージバンドル <code>ValidationMessages.properties</code> を見るので、クラスパスにこの形式のファイルを置いて(優先度を上げて)やればデフォルト設定のメッセージを上書きできます。</p>
+<p>具体的には、 <a href="https://github.com/yukihane/hello-java/blob/912a460c01739e0e7b6accdf6f57107476281d43/spring/validation/kotlin-form-binding/src/main/resources/ValidationMessages.properties"><code>src/main/resources/ValidationMessages.properties</code> ファイル</a>を作成し、次のように編集します(実際のエンコーディングは ISO-8859-1(Latin-1) です):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="na">jakarta.validation.constraints.NotNull.message</span><span class="o">=</span><span class="s">必須項目です</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>そうして、アプリケーションを再起動した後前回と同じように空のまま送信すると、メッセージが今回設定した「必須項目です」に変わっているはずです。</p>
+<p>key値 <code>jakarta.validation.constraints.NotNull.message</code> の部分はどうやって調べるの？という点については、標準のものであれば仕様書の <a href="https://jakarta.ee/specifications/bean-validation/3.0/jakarta-bean-validation-spec-3.0.html#standard-resolver-messages">Appendix B: Standard ResourceBundle messages</a> に載っています。<br />
+が、IDEのクラスファイル(やコンパイル前ソースコード)を覗く機能で実装を見た方が早いでしょう。<br />
+例えば <code>@NotNull</code> のクラスを見ると次のように実装されています:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="nd">@interface</span><span class="w"> </span><span class="n">NotNull</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="nf">message</span><span class="p">()</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="s">&#34;{jakarta.validation.constraints.NotNull.message}&#34;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="データバインディング">データバインディング</h4>
+<p>ではデータバインディング失敗時のエラーメッセージはどうやってカスタマイズするのでしょう？<br />
+検索してみたのですが、どうも公式のドキュメントに明示的には書かれていないようです。</p>
+<p>前回試したように、生年月日に不正な文字列を入力して送信します。<br />
+そしてハンドラーの中で <code>BindingResult</code> をデバッガーで見てみましょう。<br />
+<code>erros[n].codes</code> (<code>n</code> は数値)に文字列が並んでいると思います。</p>
+<ul>
+<li><code>typeMismatch.profile.birthDate</code></li>
+<li><code>typeMismatch.birthDate</code></li>
+<li><code>typeMismatch.java.time.LocalDate</code></li>
+<li><code>typeMismatch</code></li>
+</ul>
+<p>どうやらこれがメッセージのkey値になるようです。この並び順の優先度になっていて、下に行くほど汎用的(なので優先度が低い)ですね。</p>
+<p>そして、設定するファイルは、Spring MVCの機能なので、上記の <code>ValidationMessages.properties</code> <strong>ではなく</strong> 、 <code>messages.properties</code> になります。</p>
+<p>(こちらも実際のエンコーディングは ISO-8859-1)</p>
+<pre tabindex="0"><code>typeMismatch=有効な形式ではありません
+</code></pre><p>を設定して実行し、生年月日に不正な文字列、年齢にオーバーフローする値を入力して送信してみましょう。<br />
+エラーメッセージが「有効な形式ではありません」に変わったことが確認できます。</p>
+
+        </section>
+        <div class="post-tags">
+          
+          
+          <nav class="nav tags">
+            <ul class="tags">
+              
+              <li><a href="/tags/spring-boot">spring-boot</a></li>
+              
+            </ul>
+          </nav>
+          
+          
+        </div>
+      </div>
+
+      
+      
+    </div>
+
+    </article>
+</main>
+<footer>
+  <div style="display:flex"></div>
+  <div class="footer-info">
+    2025  &amp;copy;{year}, All Rights Reserved |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E9J8FN5B4Q');
+        }
+      </script>
+
+</div>
+    </body>
+</html>

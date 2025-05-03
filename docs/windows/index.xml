@@ -1,46 +1,34 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Windows on 発火後忘失</title>
     <link>https://yukihane.github.io/docs/windows/</link>
     <description>Recent content in Windows on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Sun, 26 Jul 2020 02:51:24 +0000</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/docs/windows/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>バッチファイル</title>
-        <link>https://yukihane.github.io/docs/windows/batch/</link>
-        <pubDate>Sun, 26 Jul 2020 02:56:23 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/windows/batch/</guid>
-        <description>エスケープ ^ でエスケープ。改行をエスケープする場合は文末に置けばよい。</description>
-      </item>
-      
-      <item>
-        <title>Chocolatey</title>
-        <link>https://yukihane.github.io/docs/windows/chocolatey/</link>
-        <pubDate>Sun, 26 Jul 2020 02:52:35 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/windows/chocolatey/</guid>
-        <description>https://chocolatey.org/ インストール PowerShell プロファイル作成 プロファイルが存在しない状態でChocolateyインストールを行うと警告が出て気持ち悪いので、プロファイル</description>
-      </item>
-      
-      <item>
-        <title>Windows</title>
-        <link>https://yukihane.github.io/docs/windows/windows/</link>
-        <pubDate>Sun, 26 Jul 2020 02:50:26 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/windows/windows/</guid>
-        <description>システムイメージ作成(Windows7) https://121ware.com/qasearch/1007/app/servlet/relatedqa?QID=012941 https://121ware.com/qasearch/1007/app/servlet/qadoc?QID=013667 コントロールパネル &amp;gt; バックアップの作成 &amp;gt; システムイメージの作成 ハードディスクに作成する場合は起動</description>
-      </item>
-      
-    
+    <lastBuildDate>Sun, 26 Jul 2020 02:56:23 +0000</lastBuildDate>
+    <atom:link href="https://yukihane.github.io/docs/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>バッチファイル</title>
+      <link>https://yukihane.github.io/docs/windows/batch/</link>
+      <pubDate>Sun, 26 Jul 2020 02:56:23 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/windows/batch/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_エスケープ&#34;&gt;エスケープ&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;^&lt;/code&gt; でエスケープ。改行をエスケープする場合は文末に置けばよい。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Chocolatey</title>
+      <link>https://yukihane.github.io/docs/windows/chocolatey/</link>
+      <pubDate>Sun, 26 Jul 2020 02:52:35 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/windows/chocolatey/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://chocolatey.org/&#34; class=&#34;bare&#34;&gt;https://chocolatey.org/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_インストール&#34;&gt;インストール&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;sect2&#34;&gt;&#xA;&lt;h3 id=&#34;powershell_プロファイル作成&#34;&gt;PowerShell プロファイル作成&lt;/h3&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;プロファイルが存在しない状態でChocolateyインストールを行うと警告が出て気持ち悪いので、プロファイルがなければ先に作成しておく。ただ、PowerShell2では挙動は変わらないようなので無視しても良さそう。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Windows</title>
+      <link>https://yukihane.github.io/docs/windows/windows/</link>
+      <pubDate>Sun, 26 Jul 2020 02:50:26 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/windows/windows/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_システムイメージ作成windows7&#34;&gt;システムイメージ作成(Windows7)&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://121ware.com/qasearch/1007/app/servlet/relatedqa?QID=012941&#34; class=&#34;bare&#34;&gt;https://121ware.com/qasearch/1007/app/servlet/relatedqa?QID=012941&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://121ware.com/qasearch/1007/app/servlet/qadoc?QID=013667&#34; class=&#34;bare&#34;&gt;https://121ware.com/qasearch/1007/app/servlet/qadoc?QID=013667&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;strong&gt;コントロールパネル &amp;gt; バックアップの作成 &amp;gt; システムイメージの作成&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;ハードディスクに作成する場合は起動ディスク(Cドライブ)以外のパーティションが必要。無ければ新しいパーティションを作成する。これはOS標準機能で可能。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
   </channel>
 </rss>

@@ -1,28 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>minecraft on 発火後忘失</title>
+    <title>Minecraft on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/minecraft/</link>
-    <description>Recent content in minecraft on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Minecraft on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Sat, 23 Nov 2024 19:19:20 +0900</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/minecraft/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>Minecraft Bedrock で Add-on 開発環境を利用して Hello, world!</title>
-        <link>https://yukihane.github.io/blog/202411/23/minecraft-bedrock-programming/</link>
-        <pubDate>Sat, 23 Nov 2024 19:19:20 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202411/23/minecraft-bedrock-programming/</guid>
-        <description>はじめに Minecraft Bedrock Edition(いわゆる統合版)には、Java EditionでいうところのMODに相当するAdd-onを開発する環境があります。</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/minecraft/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Minecraft Bedrock で Add-on 開発環境を利用して Hello, world!</title>
+      <link>https://yukihane.github.io/blog/202411/23/minecraft-bedrock-programming/</link>
+      <pubDate>Sat, 23 Nov 2024 19:19:20 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202411/23/minecraft-bedrock-programming/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;Minecraft Bedrock Edition(いわゆる統合版)には、Java EditionでいうところのMODに相当するAdd-onを開発する環境があります。&lt;br /&gt;&#xA;これを利用して、自作プログラミングをMinecraft上で実行する環境をセットアップします。&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

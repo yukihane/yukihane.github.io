@@ -1,28 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>neon on 発火後忘失</title>
+    <title>Neon on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/neon/</link>
-    <description>Recent content in neon on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Neon on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Sat, 01 Feb 2020 05:09:38 +0000</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/neon/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>Nodeのnative moduleをRustで書いてみる(Neon)</title>
-        <link>https://yukihane.github.io/blog/202002/01/hello-rust-neon/</link>
-        <pubDate>Sat, 01 Feb 2020 05:09:38 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202002/01/hello-rust-neon/</guid>
-        <description>RustプログラムのGUIにElectronを使うことを考えています。 その前調査としてNodeのネイティブモジュールとしてRustプログラム</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/neon/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nodeのnative moduleをRustで書いてみる(Neon)</title>
+      <link>https://yukihane.github.io/blog/202002/01/hello-rust-neon/</link>
+      <pubDate>Sat, 01 Feb 2020 05:09:38 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202002/01/hello-rust-neon/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;RustプログラムのGUIにElectronを使うことを考えています。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;その前調査としてNodeのネイティブモジュールとしてRustプログラムを利用できるようにする &lt;a href=&#34;https://neon-bindings.com/&#34;&gt;Neon&lt;/a&gt; というツールを使ってHello, worldしてみることにしました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
   </channel>
 </rss>

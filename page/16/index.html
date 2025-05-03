@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+	<head lang="ja">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>発火後忘失 | Home </title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Fire and Forget blog" />
+	<meta property="og:image" content=""/>
+	<link rel="alternate" type="application/rss+xml" href="https://yukihane.github.io/index.xml" title="発火後忘失" />
+	<meta property="og:url" content="https://yukihane.github.io/">
+  <meta property="og:site_name" content="発火後忘失">
+  <meta property="og:title" content="発火後忘失">
+  <meta property="og:description" content="Fire and Forget blog">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="発火後忘失">
+  <meta name="twitter:description" content="Fire and Forget blog">
+
+        <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
+</head>
+
+	<body>
+		<div class="content">
+			<header>
+	<div class="main">
+		<a href="https://yukihane.github.io/">発火後忘失</a>
+	</div>
+	<nav>
+		
+		<a href="blog">Blog</a>
+		
+		<a href="docs">Docs</a>
+		
+		
+	</nav>
+</header>
+
+			
+			<main class="list">
+				<div class="site-description"></div>
+				
+				
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201807/13/zip-on-git-for-windows/">Git for Windowsでzipコマンドを再現する</a></h1>
+					<time>2018/07/13</time>
+					<br><div class="description">
+	
+	<p><a href="#ZgotmplZ"><code>git-archive</code></a>使えば何とかなることに気付きました。<br />
+ちなみに<code>unzip</code>コマンドは標準で使えます。</p>
+<pre><code>mkdir workrepo
+cd workrepo
+git init
+cp -r [target_file_or_dir] .
+git add .
+git commit -m commit
+git archive -o ../myarchive.zip @
+cd ..
+rm -rf workrepo
+</code></pre>
+<p>あんまり自信ないんですけどスクリプトファイルに落とすとこんな感じ？</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201807/13/zip-on-git-for-windows/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201807/08/jsf-on-undertow/">Undertow上でJSF実現</a></h1>
+					<time>2018/07/08</time>
+					<br><div class="description">
+	
+	<h1 id="手順">手順</h1>
+<ul>
+<li><a href="https://github.com/javaserverfaces/mojarra/blob/2.2.8-28/jsf-ri/src/main/java/com/sun/faces/config/FacesInitializer.java#L120">FacesInitializer#onStartup</a>でやっていることを自力で書く</li>
+<li>標準パス(<code>WEB-INF/classes</code>)に無いので、<code>ManagedBean</code>アノテーションを付与したクラスを自前で収集する</li>
+</ul>
+<p>ソースは: <a href="https://github.com/yukihane/hello-undertow-mojarra">https://github.com/yukihane/hello-undertow-mojarra</a></p>
+<h2 id="関連">関連</h2>
+<ul>
+<li><a href="https://qiita.com/yukihane/items/45c562809360cfa27be9">Tomcat 上で JSF 実現 - Qiita</a></li>
+<li><a href="https://stackoverflow.com/questions/51223600/">Does Undertow work with JSF? - Stack Overflow</a></li>
+</ul>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201807/08/jsf-on-undertow/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201807/08/java-compiler-error-in-japanese/">エラーメッセージでググろうと思ったんだけど日本語だからかヒットしない</a></h1>
+					<time>2018/07/08</time>
+					<br><div class="description">
+	
+	<h1 id="java-でメッセージを英語にする">Java でメッセージを英語にする</h1>
+<p>環境変数 <a href="https://docs.oracle.com/javase/jp/8/docs/technotes/guides/troubleshoot/envvars002.html"><code>JAVA_TOOL_OPTIONS</code></a> に設定しよう。</p>
+<pre><code>export JAVA_TOOL_OPTIONS=&quot;-Duser.language=en -Duser.country=US&quot;
+</code></pre>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201807/08/java-compiler-error-in-japanese/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201807/07/jsf-on-tomcat/">Tomcat上でJSF実現</a></h1>
+					<time>2018/07/07</time>
+					<br><div class="description">
+	
+	<p>非 JavaEE なサーブレットコンテナ上で JSF を実行するように変更する手順。</p>
+<h1 id="tldr">TL;DR</h1>
+<ul>
+<li>Mojarra を依存関係に含める</li>
+<li>JSF リソースを <code>javax.faces.webapp.FacesServlet</code> にマップするよう <code>web.xml</code> で設定する</li>
+</ul>
+<h1 id="実装例">実装例</h1>
+<p><a href="https://github.com/yukihane/hello-jsf/tree/feature/server/tomcat">https://github.com/yukihane/hello-jsf/tree/feature/server/tomcat</a></p>
+<p><code>feature/server/tomcat</code> ブランチと <code>feature/server/javaee</code> ブランチで diff を取れば、 JavaEE アプリケーションサーバ向け設定との差異がわかります。<br />
+(ちなみに <code>master</code>ブランチや <code>README.md</code> の説明は別の内容向けなので気にしないで下さい)</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201807/07/jsf-on-tomcat/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201805/19/building-java-project/">Building Java Project</a></h1>
+					<time>2018/05/19</time>
+					<br><div class="description">
+	
+	<h2 id="はじめに">はじめに</h2>
+<ul>
+<li>他者が作成したプログラムにちょっと変更を加えて使いたい</li>
+<li>その言語は未経験だけれど、コードの変更自体は検索したり周辺コードのコピペで何とかなりそう</li>
+<li>しかし、変更したコードをどうやってビルドすれば良いんだ…？</li>
+</ul>
+<p>なんてことがたまにあります。<br />
+そんな時に参考になるようなドキュメントを目指して記述しました。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201805/19/building-java-project/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201805/09/yaml/">yamlの継承っぽいのは継承というよりハッシュのマージ</a></h1>
+					<time>2018/05/09</time>
+					<br><div class="description">
+	
+	<p>なので配列(Array)には使えない。</p>
+<pre tabindex="0"><code>database: &amp;default
+  ip: 192.168.1.5
+  port: 2000
+  db_name: test
+foo_database:
+  &lt;&lt;: *default
+  port: 2001
+  db_name: foo
+</code></pre><p>上は実現できても下のようにはできない。</p>
+<pre tabindex="0"><code>database_attr: &amp;default
+  - ip
+  - port
+www_attr:
+  &lt;&lt;: *default
+  - name
+</code></pre><p>関連: <a href="https://github.com/yaml/yaml/issues/35">https://github.com/yaml/yaml/issues/35</a></p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201805/09/yaml/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201805/09/edit-sudoers-oneliner/">ワンライナー sudoers 編集</a></h1>
+					<time>2018/05/09</time>
+					<br><div class="description">
+	
+	<p><code>Dockerfile</code> 内で <code>sudoers</code> を編集しユーザ情報を追加したかった。</p>
+<pre><code>RUN echo 'myuser ALL=(ALL) NOPASSWD: ALL' | EDITOR='tee -a' visudo
+</code></pre>
+<p>参考: <a href="https://stackoverflow.com/a/28382838/4506703">linux - How do I edit /etc/sudoers from a script? - Stack Overflow</a></p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201805/09/edit-sudoers-oneliner/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201803/20/building-rpm/">手っ取り早くRPMパッケージを作成したかった</a></h1>
+					<time>2018/03/20</time>
+					<br><div class="description">
+	
+	<h2 id="前提">前提</h2>
+<p>既にビルド方法は確立しており、パッケージシステムに配布方法だけ任せたい、という場合に最小限の手間で RPM パッケージを作ることを考えます</p>
+<ul>
+<li>ビルドは RPM パッケージングのフロー中では行いません。既存のビルド方法でまかないます。</li>
+<li>依存関係の設定は今回無視します。</li>
+</ul>
+<h2 id="参考リンク">参考リンク</h2>
+<ul>
+<li><a href="https://rpm-packaging-guide.github.io/">RPM Packaging Guide</a></li>
+</ul>
+<h2 id="インストール">インストール</h2>
+<p>RPM パッケージ作成のために必要なパッケージをインストールします。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201803/20/building-rpm/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201802/25/maven-archetype-catalog/">maven-archetype-plugin と archetype-catalog.xml 生成場所/読み取り場所</a></h1>
+					<time>2018/02/25</time>
+					<br><div class="description">
+	
+	<p>(注: 文中に記載の <code>localRepository</code> 設定有無、というのは間違った条件かも知れません(検証中))</p>
+<h1 id="問題">問題</h1>
+<p><code>mvn archetype:generate -DarchetypeCatalog=local</code> コマンドを実行したところ、次のようなメッセージが出力され、 <code>archetype-catalog.xml</code> を認識できていないような感じでしたので原因を調べてみました。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201802/25/maven-archetype-catalog/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201801/28/java9-jetty-jersey/">Java9でJettyでJerseyのMaven</a></h1>
+					<time>2018/01/28</time>
+					<br><div class="description">
+	
+	<p>dependency について、<a href="https://jersey.github.io/documentation/latest/modules-and-dependencies.html#servlet-app-general">2.3.2. Servlet based server-side application</a>をみると最小構成は<code>jersey-container-servlet</code>だけでいいように見える(Servlet3.0 以降の場合)が、実際には<code>jersey-hk2</code>も必要。含めない場合次の例外が発生する。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201801/28/java9-jetty-jersey/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201801/21/polymer2-input-bind-to-parent/">Polymer2 で &amp;lt;input&amp;gt; の値を「親エレメントの値と」バインドする</a></h1>
+					<time>2018/01/21</time>
+					<br><div class="description">
+	
+	<p><a href="https://qiita.com/yukihane/items/2cf963901a6c49b390dc">Polymer2 で <input>の値をバインドする</a> で <code>my-input</code> なるカスタムエレメントを作成しました。<code>&lt;input&gt;</code>の入力値をそのまま表示するだけのエレメントです。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">dom-module</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;my-input&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;{{text::input}}&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">    [[text]]
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">dom-module</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>さて、この入力値を受け取れるよう、親エレメントを次のように作成しました。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201801/21/polymer2-input-bind-to-parent/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201801/21/polymer2-input-bind/">Polymer2 で &amp;lt;input&amp;gt; の値をバインドする</a></h1>
+					<time>2018/01/21</time>
+					<br><div class="description">
+	
+	<p>ドキュメントの<a href="https://www.polymer-project.org/2.0/start/">start</a>を読み終えて、さあなにか作ってみるか、そうだよく 2-way binding の例で出てくる<code>input</code>タグ入力値を画面に反映させるのをやってみよう、と思って</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;{{text}}&#34;</span> <span class="p">/&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>[[text]]<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>とかやってみたものの上手く行かなかった。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201801/21/polymer2-input-bind/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201908/spring-postconstruct-deadlock/"></a></h1>
+					<time>1/01/01</time>
+					<br><div class="description">
+	
+	&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201908/spring-postconstruct-deadlock/">Read more ⟶</a>
+				</section>
+				
+				
+
+<ul class="pagination">
+	<span class="page-item page-prev">
+	
+    <a href="/page/15/" class="page-link" aria-label="Previous"><span aria-hidden="true">← Prev</span></a>
+	
+	</span>
+	<span class="page-item page-next">
+	
+    <a href="/page/17/" class="page-link" aria-label="Next"><span aria-hidden="true">Next →</span></a>
+	
+	</span>
+</ul>
+
+
+			</main>
+			<footer>
+  <div style="display:flex"></div>
+  <div class="footer-info">
+    2025  &amp;copy;{year}, All Rights Reserved |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E9J8FN5B4Q');
+        }
+      </script>
+
+
+		</div>
+		
+	</body>
+</html>

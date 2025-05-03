@@ -1,28 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>tmux on 発火後忘失</title>
+    <title>Tmux on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/tmux/</link>
-    <description>Recent content in tmux on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Tmux on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Sat, 25 Apr 2020 02:43:13 +0000</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/tmux/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>Kubernetes the hard wayを試すためのtmux基礎知識</title>
-        <link>https://yukihane.github.io/blog/202004/25/tmux/</link>
-        <pubDate>Sat, 25 Apr 2020 02:43:13 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202004/25/tmux/</guid>
-        <description>Kubernetes the hard wayをやるのに`tmux`の操作を覚えておくのが良さそうだったので使いそうなものを記載しておくことにしました。 Ctrl キーと b キーの同時押</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/tmux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubernetes the hard wayを試すためのtmux基礎知識</title>
+      <link>https://yukihane.github.io/blog/202004/25/tmux/</link>
+      <pubDate>Sat, 25 Apr 2020 02:43:13 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202004/25/tmux/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/yukihane/kubernetes-the-hard-way&#34;&gt;Kubernetes the hard wayをやる&lt;/a&gt;のに`tmux`の操作を覚えておくのが良さそうだったので使いそうなものを記載しておくことにしました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;Ctrl&lt;/code&gt; キーと &lt;code&gt;b&lt;/code&gt; キーの同時押しを &lt;code&gt;^b&lt;/code&gt; と表記しています。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
   </channel>
 </rss>

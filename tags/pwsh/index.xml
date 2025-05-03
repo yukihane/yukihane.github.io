@@ -1,28 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>pwsh on 発火後忘失</title>
+    <title>Pwsh on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/pwsh/</link>
-    <description>Recent content in pwsh on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Pwsh on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Sat, 08 Sep 2018 19:50:04 +0000</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/pwsh/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>Invoke-WebRequestやCompress-Archiveを使っていると画面上部に一瞬表示される何かの表示を非表示に</title>
-        <link>https://yukihane.github.io/blog/201809/08/pwsh-progress-silent/</link>
-        <pubDate>Sat, 08 Sep 2018 19:50:04 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201809/08/pwsh-progress-silent/</guid>
-        <description>進捗状況(progress)が表示されているそうです。少量のデータを扱っている場合には画面の一部がフラッシュしているように見えており、何のた</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/pwsh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Invoke-WebRequestやCompress-Archiveを使っていると画面上部に一瞬表示される何かの表示を非表示に</title>
+      <link>https://yukihane.github.io/blog/201809/08/pwsh-progress-silent/</link>
+      <pubDate>Sat, 08 Sep 2018 19:50:04 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201809/08/pwsh-progress-silent/</guid>
+      <description>&lt;p&gt;進捗状況(progress)が表示されているそうです。少量のデータを扱っている場合には画面の一部がフラッシュしているように見えており、何のための画面効果かさっぱりわかりませんでした(ので検索キーワードすら思い浮かびませんでした)。&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

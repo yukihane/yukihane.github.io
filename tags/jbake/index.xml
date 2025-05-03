@@ -1,28 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>jbake on 発火後忘失</title>
+    <title>Jbake on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/jbake/</link>
-    <description>Recent content in jbake on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Jbake on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Fri, 23 Aug 2019 00:00:00 +0000</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/jbake/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>Gradleプロジェクトで生成した実行スクリプトがGitBash(MSYS環境)でうまく動かない</title>
-        <link>https://yukihane.github.io/blog/201908/gradle-msys/</link>
-        <pubDate>Fri, 23 Aug 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201908/gradle-msys/</guid>
-        <description>GitBash環境でSDKMAN!を使ってJBakeをインストールしたのですが、 jbake コマンドを実行すると次のようなエラーが出てうまく動きません</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/jbake/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gradleプロジェクトで生成した実行スクリプトがGitBash(MSYS環境)でうまく動かない</title>
+      <link>https://yukihane.github.io/blog/201908/gradle-msys/</link>
+      <pubDate>Fri, 23 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201908/gradle-msys/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;GitBash環境でSDKMAN!を使ってJBakeをインストールしたのですが、 &lt;code&gt;jbake&lt;/code&gt; コマンドを実行すると次のようなエラーが出てうまく動きませんでした。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
   </channel>
 </rss>

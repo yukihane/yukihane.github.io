@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+	<head lang="ja">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>発火後忘失 | Home </title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Fire and Forget blog" />
+	<meta property="og:image" content=""/>
+	<link rel="alternate" type="application/rss+xml" href="https://yukihane.github.io/index.xml" title="発火後忘失" />
+	<meta property="og:url" content="https://yukihane.github.io/">
+  <meta property="og:site_name" content="発火後忘失">
+  <meta property="og:title" content="発火後忘失">
+  <meta property="og:description" content="Fire and Forget blog">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="発火後忘失">
+  <meta name="twitter:description" content="Fire and Forget blog">
+
+        <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
+</head>
+
+	<body>
+		<div class="content">
+			<header>
+	<div class="main">
+		<a href="https://yukihane.github.io/">発火後忘失</a>
+	</div>
+	<nav>
+		
+		<a href="blog">Blog</a>
+		
+		<a href="docs">Docs</a>
+		
+		
+	</nav>
+</header>
+
+			
+			<main class="list">
+				<div class="site-description"></div>
+				
+				
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201907/18/spring-boot-filter-bean/">Spring Bootは、セキュリティフィルタBeanを作っている分だけ、無料で認証できちまうんだ</a></h1>
+					<time>2019/07/18</time>
+					<br><div class="description">
+	
+	<h1 id="要約">要約</h1>
+<p><a href="https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/html/howto-embedded-web-servers.html#howto-add-a-servlet-filter-or-listener">78.10 Add a Servlet, Filter, or Listener to an Application</a>曰く。</p>
+<blockquote>
+<p>any <code>Servlet</code> or <code>Filter</code> beans are registered with the servlet container automatically.</p></blockquote>
+<p>Spring Security 使った自前の認証フィルタを <code>@Component</code> 付けて作ったりなんかした際に意図しない URL path にも認証がかかってしまう。<br />
+んゴ。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201907/18/spring-boot-filter-bean/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201907/12/h2-console-on-spring-boot/">h2-consoleとspring-boot-starter-securityと私</a></h1>
+					<time>2019/07/12</time>
+					<br><div class="description">
+	
+	<h1 id="概要">概要</h1>
+<p><code>spring-boot-starter-security</code> を導入しても http://localhost:8080/h2-console にアクセスしたかった。</p>
+<p>作業結果: <a href="https://github.com/yukihane/hello-java/tree/master/spring/h2-console-spring-security-example">https://github.com/yukihane/hello-java/tree/master/spring/h2-console-spring-security-example</a></p>
+<h1 id="手順">手順</h1>
+<h2 id="h2-console-が使える依存関係を追加してプロジェクトセットアップ-8113d7">h2-console が使える依存関係を追加してプロジェクトセットアップ <a href="https://github.com/yukihane/hello-java/commit/8113d7bc552c11f3e1cf3d6e64fe97be922d2596">8113d7</a></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-pom.xml" data-lang="pom.xml"><span class="line"><span class="cl">    <span class="nt">&lt;dependencies&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-jdbc<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>com.h2database<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>h2<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;scope&gt;</span>runtime<span class="nt">&lt;/scope&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="h2-console-を表示してみる-1b16dc">h2-console を表示してみる <a href="https://github.com/yukihane/hello-java/commit/1b16dcc49ca9a83dd0a80b947800a63be0d39422">1b16dc</a></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-application.properties" data-lang="application.properties"><span class="line"><span class="cl"><span class="na">spring.h2.console.enabled</span><span class="o">=</span><span class="s">true</span>
+</span></span><span class="line"><span class="cl"><span class="na">spring.datasource.generate-unique-name</span><span class="o">=</span><span class="s">false</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-schema.sql" data-lang="schema.sql"><span class="line"><span class="cl"><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="nf">greeting_table</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">message</span><span class="w"> </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="no">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>(注: <code>spring.datasource.generate-unique-name</code> 設定は Spring Boot 2.3.0 からデフォルト値が変わったため必要になったもので、リンク先 Git リポジトリには含まれていません(<a href="https://qiita.com/yukihane/items/2be37518f42525c8327d">参考</a>))</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201907/12/h2-console-on-spring-boot/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201907/04/spring-boot-and-spring-security/">spring-boot-starter-security を入れたら認証画面が！</a></h1>
+					<time>2019/07/04</time>
+					<br><div class="description">
+	
+	<p><code>WebSecurityConfigurerAdapter#configure(HttpSecurity)</code> で form 認証を有効化しているのでこれをディスる。<br />
+<code>WebSecurityConfigurerAdapter</code>を継承した Spring コンポーネントをスキャン対象に含めれば良い。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201907/04/spring-boot-and-spring-security/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201907/03/you-dont-need-userdetails/">ちょっと待って！そのUserDetails、本当に必要ですか？</a></h1>
+					<time>2019/07/03</time>
+					<br><div class="description">
+	
+	<h1 id="概要">概要</h1>
+<p>Spring Boot の認証を実装してみた系のサンプルでよく <code>UserDetails</code> や <code>UserDetailsService</code> が用いられているが、必然性が不明なものがほとんどである。<br />
+(おそらく当の実装者も理解していない<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。)</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201907/03/you-dont-need-userdetails/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201906/20/dont-use-getrealpath/">ファイル出力先にServletContext#getRealPathを使うな</a></h1>
+					<time>2019/06/20</time>
+					<br><div class="description">
+	
+	<p>タイトルに書いたような、ファイル出力先として <code>ServletContext#getRealPath</code> を利用しているサンプルコードが見つかる、と聞いて検索してみたところ、日本語、非日本語にかかわらず確かにそのようなサンプルコードは散見されました。<br />
+例えば Qiita では(順不同):</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201906/20/dont-use-getrealpath/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201906/12/java-datetime/">元号が令和に変わったことを知らない人のための日付処理方法</a></h1>
+					<time>2019/06/12</time>
+					<br><div class="description">
+	
+	<h1 id="問題">問題</h1>
+<p><code>JapaneseDate.of</code>(や <code>LocalDate.of</code>)を使うと厳密(strict)に検証されてしまう。<br />
+結果、例外が出る。</p>
+<pre tabindex="0"><code>// 平成31年6月12日
+final JapaneseDate today = JapaneseDate.of(JapaneseEra.HEISEI, 31, 6, 12);
+System.out.println(today);
+</code></pre><pre tabindex="0"><code>Exception in thread &#34;main&#34; java.time.DateTimeException: year, month, and day not valid for Era
+	at java.base/java.time.chrono.JapaneseDate.of(JapaneseDate.java:231)
+	at com.github.yukihane.datetime.App.main(App.java:21)
+</code></pre><h1 id="解決策">解決策</h1>
+<p><code>JapaneseChronology#resolveDate</code>(や <code>IsoChronology#resolveDate</code>)を使えばゆるふわ(lenient)な検証でゆるしてくれたりも。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201906/12/java-datetime/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201906/11/simpledateformat/">SimpleDateFormat もこれもうわかんねぇな</a></h1>
+					<time>2019/06/11</time>
+					<br><div class="description">
+	
+	<h1 id="結果">結果</h1>
+<h2 id="18">1.8</h2>
+<pre tabindex="0"><code>H
+</code></pre><h2 id="11">11</h2>
+<pre tabindex="0"><code>平成
+</code></pre><h1 id="環境">環境</h1>
+<h2 id="18-1">1.8</h2>
+<pre tabindex="0"><code>java version &#34;1.8.0_201&#34;
+Java(TM) SE Runtime Environment (build 1.8.0_201-b09)
+Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
+</code></pre><h2 id="11-1">11</h2>
+<pre tabindex="0"><code>openjdk version &#34;11.0.2&#34; 2019-01-15
+OpenJDK Runtime Environment 18.9 (build 11.0.2+9)
+OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)
+</code></pre><h1 id="コード">コード</h1>
+<pre tabindex="0"><code>import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.Locale;
+
+public class Main {
+
+    public static void main(final String[] args) {
+        final Date date = date(2010, 3, 4);
+        final SimpleDateFormat format = new SimpleDateFormat(&#34;G&#34;, new Locale(&#34;ja&#34;, &#34;JP&#34;, &#34;JP&#34;));
+        System.out.println(format.format(date));
+    }
+
+    private static Date date(final int year, final int month, final int dayOfMonth) {
+        final long time = LocalDate.of(year, month, dayOfMonth)
+            .atStartOfDay(ZoneOffset.ofHours(9)).toEpochSecond() * 1000;
+        return new Date(time);
+    }
+}
+</code></pre><h1 id="関連しない">関連(しない)</h1>
+<ul>
+<li><a href="https://qiita.com/yukihane/items/9001b15a44d56b1dda23">DateTimeFormatter とかこれもうわかんねぇな</a></li>
+</ul>
+<h1 id="関連する">関連(する)</h1>
+<ul>
+<li><a href="https://bugs.openjdk.java.net/browse/JDK-8216204">JDK-8216204 Wrong SimpleDateFormat behavior with Japanese Imperial Calendar</a></li>
+</ul>
+<blockquote>
+<p>From JDK 9 onwards, the default locale data is the data derived from the Unicode Consortium&rsquo;s Common Locale Data Repository (CLDR). Please refer <a href="https://www.unicode.org/cldr/charts/33/by_type/date_&amp;_time.japanese.html">https://www.unicode.org/cldr/charts/33/by_type/date_&_time.japanese.html</a><br />
+The short display format for Heisei is 平成 in the ja locale in CLDR data. Hence the difference in the result.</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201906/11/simpledateformat/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201906/11/format-pass-to-null/">%s に null を渡したらどうなるんだっけ</a></h1>
+					<time>2019/06/11</time>
+					<br><div class="description">
+	
+	<h1 id="こたえ">こたえ</h1>
+<p>文字列 <code>null</code> が出力される。</p>
+<h1 id="コード">コード</h1>
+<pre><code>    final String text = null;
+    System.out.printf(&quot;%s&quot;, text);
+</code></pre>
+<h1 id="参考">参考</h1>
+<ul>
+<li><a href="https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Formatter.html">java.util.Formatter</a></li>
+</ul>
+<blockquote>
+<p>For category General, Character, Numberic, Integral and Date/Time conversion, unless otherwise specified, if the argument arg is null, then the result is &ldquo;null&rdquo;.</p></blockquote>
+<p>リンク先の表にある通り、 <code>s</code> はカテゴリ&quot;general&quot;に属す。ちなみに<a href="https://docs.oracle.com/javase/jp/12/docs/api/java.base/java/util/Formatter.html#syntax">日本語</a>ではこうなっている(わかりにくい):</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201906/11/format-pass-to-null/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201906/04/datetimeformatter/">DateTimeFormatter とかこれもうわかんねぇな</a></h1>
+					<time>2019/06/04</time>
+					<br><div class="description">
+	
+	<h1 id="コード">コード</h1>
+<pre tabindex="0"><code>import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+
+public class App {
+
+    private static String format(final LocalDate date, final String pattern) {
+        return date.format(DateTimeFormatter.ofPattern(pattern, Locale.JAPAN));
+    }
+
+    public static void main(final String[] args) {
+        final LocalDate today = LocalDate.of(2019, 6, 4);
+
+        System.out.println(format(today, &#34;M&#34;));
+        System.out.println(format(today, &#34;MM&#34;));
+        System.out.println(format(today, &#34;MMM&#34;));
+        System.out.println(format(today, &#34;MMMM&#34;));
+        System.out.println(format(today, &#34;MMMMM&#34;));
+        System.out.println(format(today, &#34;MMMMMM&#34;));
+    }
+}
+</code></pre><h1 id="結果">結果</h1>
+<table>
+  <thead>
+      <tr>
+          <th>パターン</th>
+          <th>結果</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>M</td>
+          <td>6</td>
+      </tr>
+      <tr>
+          <td>MM</td>
+          <td>06</td>
+      </tr>
+      <tr>
+          <td>MMM</td>
+          <td>6 月</td>
+      </tr>
+      <tr>
+          <td>MMMM</td>
+          <td>6 月</td>
+      </tr>
+      <tr>
+          <td>MMMMM</td>
+          <td>6</td>
+      </tr>
+      <tr>
+          <td>MMMMMM</td>
+          <td>IllegalArgumentException: Too many pattern letters: M</td>
+      </tr>
+  </tbody>
+</table>
+<pre tabindex="0"><code>$ java -version
+openjdk version &#34;11.0.2&#34; 2019-01-15
+OpenJDK Runtime Environment 18.9 (build 11.0.2+9)
+OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)
+</code></pre><h1 id="参考にならなかったリンク">参考(にならなかった)リンク</h1>
+<ul>
+<li><a href="https://docs.oracle.com/javase/jp/12/docs/api/java.base/java/time/format/DateTimeFormatter.html">java.time.format.DateTimeFormatter</a></li>
+</ul>
+<h1 id="参考にややなったリンク">参考(にややなった)リンク</h1>
+<ul>
+<li><a href="https://docs.oracle.com/javase/jp/12/docs/api/java.base/java/time/format/DateTimeFormatterBuilder.html#appendPattern%28java.lang.String%29">java.time.format.DateTimeFormatterBuilder#appendPattern</a></li>
+</ul>
+<h1 id="関連しない">関連(しない)</h1>
+<ul>
+<li><a href="https://qiita.com/yukihane/items/0d97e5b8666254719186">SimpleDateFormat もこれもうわかんねぇな</a></li>
+</ul>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201906/04/datetimeformatter/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201906/01/spring-boot-component-out-of-container/">Spring Bootで コンポーネント外からコンポーネントを取得したかった</a></h1>
+					<time>2019/06/01</time>
+					<br><div class="description">
+	
+	<h1 id="動機">動機</h1>
+<p>CDI で言うところの <code>CDI.current().getBeans(...)</code> とか <code>CDI.current().select(...)</code>とかそんな感じのことをやりたかった。</p>
+<h1 id="参考リファレンス">参考リファレンス</h1>
+<p>ドキュメントでは、やりたいことが書いてあるように見えたのはこのセクション</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201906/01/spring-boot-component-out-of-container/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201905/31/spring-boot-bean-on-testing/">Spring Boot 2.1 でテスト時 @Bean を挿げ替えたかった</a></h1>
+					<time>2019/05/31</time>
+					<br><div class="description">
+	
+	<h1 id="動機">動機</h1>
+<p>ユニットテスト実行時に <a href="https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/time/Clock.html">java.time.Clock</a> を特定の時間に固定して再現性のあるテスト(現在の時刻に依存しないテスト)を作成したかった。</p>
+<h1 id="考え方方針">考え方/方針</h1>
+<p><code>@Configuration</code> で <code>@Bean</code> を定義して <code>Clock</code> をインジェクションできるようにし、実装ではそれを用いる。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201905/31/spring-boot-bean-on-testing/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201905/21/spring-boog-json-convert/">text/plain で JSON を投げつけてくるヤツに対処する</a></h1>
+					<time>2019/05/21</time>
+					<br><div class="description">
+	
+	<ul>
+<li><a href="https://qiita.com/masato_ka/items/aa5f158a94eca1fcc42d">RestTemplate でレスポンスの Content-Type を変更する。</a></li>
+</ul>
+<p>の別解。</p>
+<pre><code>@Autowired
+private RestTemplateBuilder builder;
+
+...
+    final MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
+    converter.setSupportedMediaTypes(Arrays.asList(MediaType.TEXT_PLAIN));
+    final RestTemplate restTemplate = builder.additionalMessageConverters(converter).build();
+</code></pre>
+<p>ちなみに上記のようにコンバータを明示的に設定しない場合だと次のような例外になる :</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201905/21/spring-boog-json-convert/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201904/27/java-properties-is-not-utf8/">Java9以降.propertiesファイルをUTF-8で書けるようになった、は正しい？</a></h1>
+					<time>2019/04/27</time>
+					<br><div class="description">
+	
+	<h1 id="解答">解答</h1>
+<p>正しくない。</p>
+<ul>
+<li>Java9(<a href="https://bugs.java.com/bugdatabase/view_bug.do?bug_id=8043553">JEP226</a>)で変わったのはリソースバンドルの取り扱い(<a href="https://docs.oracle.com/javase/jp/9/docs/api/java/util/PropertyResourceBundle.html">PropertyResourceBundle</a>) であって プロパティファイル <code>.properties</code> 全般の話ではない。</li>
+<li>プロパティファイル<code>.properties</code>の文字エンコーディングについての取り決めはない。それを取り扱うプログラム次第であり<code>UTF-8</code>を正しく認識してくれるとは限らない。
+<ul>
+<li>標準 API で <code>UTF-8</code>として(読もうと思えば)読めるようになったのは <strong>1.6</strong> からであって <strong>9</strong> からではない。ちなみに 1.5 以前は <code>ISO 8859-1</code> 前提。</li>
+</ul>
+</li>
+</ul>
+<h1 id="背景">背景</h1>
+<p>私はうろ覚えで何となく、現在の Java では <code>.properties</code> ファイルを <code>UTF-8</code> で書ける、<code>ascii2native</code>は過去の遺物になった、のだと思いこんでいました。<br />
+ところが Spring Boot の <code>application.properties</code> に <code>UTF-8</code> で日本語を書いたところ文字化けしてしまい、あれ、もしかして自分の理解が間違っているのかと思い調べ直したのがこの記事です。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201904/27/java-properties-is-not-utf8/">Read more ⟶</a>
+				</section>
+				
+				
+
+<ul class="pagination">
+	<span class="page-item page-prev">
+	
+    <a href="/page/13/" class="page-link" aria-label="Previous"><span aria-hidden="true">← Prev</span></a>
+	
+	</span>
+	<span class="page-item page-next">
+	
+    <a href="/page/15/" class="page-link" aria-label="Next"><span aria-hidden="true">Next →</span></a>
+	
+	</span>
+</ul>
+
+
+			</main>
+			<footer>
+  <div style="display:flex"></div>
+  <div class="footer-info">
+    2025  &amp;copy;{year}, All Rights Reserved |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E9J8FN5B4Q');
+        }
+      </script>
+
+
+		</div>
+		
+	</body>
+</html>

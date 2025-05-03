@@ -1,127 +1,97 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>windows on 発火後忘失</title>
+    <title>Windows on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/windows/</link>
-    <description>Recent content in windows on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Windows on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Fri, 07 Feb 2025 05:47:10 +0900</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/windows/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>WSLは /etc/environment を読まない</title>
-        <link>https://yukihane.github.io/blog/202502/07/etc-environment-wsl/</link>
-        <pubDate>Fri, 07 Feb 2025 05:47:10 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202502/07/etc-environment-wsl/</guid>
-        <description>このエントリーを書くためにWSL2にHugoをsnapでインストールしました。 そして hugo コマンドを実行すると&amp;hellip;そんなものはないと</description>
-      </item>
-      
-      <item>
-        <title>Scoopでpwshのupdateに失敗する</title>
-        <link>https://yukihane.github.io/blog/202412/15/failed-scoop-update-pwsh/</link>
-        <pubDate>Sun, 15 Dec 2024 02:36:06 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202412/15/failed-scoop-update-pwsh/</guid>
-        <description>Scoop で 1 scoop update pwsh を実行してもプロセスが起動しているからスキップする ERROR The following instances of &amp;quot;pwsh&amp;quot; are still running. Close them and try again. NPM(K) PM(M) WS(M) CPU(s) Id SI ProcessName ------ ----- ----- ------ -- -- ----------- 71 42.12 104.00 0.52 26500 1 pwsh というメ</description>
-      </item>
-      
-      <item>
-        <title>Stable Diffusion Installation on Windows11</title>
-        <link>https://yukihane.github.io/blog/202411/12/stable-diffusion-installation/</link>
-        <pubDate>Tue, 12 Nov 2024 21:16:11 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202411/12/stable-diffusion-installation/</guid>
-        <description>(追記: 後で知りましたが、Stability Matrix というパッケージがここに書いた手順よりインストールが簡単そうでした) Windows11へSta</description>
-      </item>
-      
-      <item>
-        <title>Windows Terminal を起動するとフォントが無いというエラーが出た</title>
-        <link>https://yukihane.github.io/blog/202411/12/windows-terminal-font-not-found/</link>
-        <pubDate>Tue, 12 Nov 2024 20:59:43 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202411/12/windows-terminal-font-not-found/</guid>
-        <description>久しぶりにWSL2で作業をしようとWindows Terminalを起動するとフォントが存在しない旨のエラーが出ました。 Cicaフォントを指定</description>
-      </item>
-      
-      <item>
-        <title>WSL2上のGUIアプリケーションを動かす</title>
-        <link>https://yukihane.github.io/blog/202204/16/gui-on-wsl2/</link>
-        <pubDate>Sat, 16 Apr 2022 17:56:11 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202204/16/gui-on-wsl2/</guid>
-        <description>Tauri の開発環境を Windows10 の WSL2 に移行するために、 WSL2 上の GUI アプリを Windows で表示するようにセットアップしました。 とは言いつつ、既に次の手順でセットアップしたこ</description>
-      </item>
-      
-      <item>
-        <title>WSL2上にDockerをインストールする</title>
-        <link>https://yukihane.github.io/blog/202203/28/docker-on-wsl2/</link>
-        <pubDate>Mon, 28 Mar 2022 08:24:45 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202203/28/docker-on-wsl2/</guid>
-        <description>現在、 Windows で Docker を利用するには大きく2つ方策があるのかなと思います。 Docker Desktop for Windows を利用する WSL2 上に Docker Engine をインストールする 自分は元々 Ubuntu 上で Docker を利用してき</description>
-      </item>
-      
-      <item>
-        <title>Windows10上に開発環境を整える</title>
-        <link>https://yukihane.github.io/blog/201908/setup-windows-devenv/</link>
-        <pubDate>Fri, 23 Aug 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201908/setup-windows-devenv/</guid>
-        <description>前提 主にJava開発を行う人(要は私自身)向け記述多し パッケージ管理はscoopを使いますが、Java関係はなるべくSDKMAN!を使います</description>
-      </item>
-      
-      <item>
-        <title>OpenJDK11をWindowsで自前ビルドする</title>
-        <link>https://yukihane.github.io/blog/201809/30/selfbuild-openjdk/</link>
-        <pubDate>Sun, 30 Sep 2018 19:53:56 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201809/30/selfbuild-openjdk/</guid>
-        <description>Java の有償化ってより身近なところでは GPL 化と言った方が現状に即してるな、と思っています。 それはともかく、何となく OpenJDK をデバッグ情報付きでビルドした</description>
-      </item>
-      
-      <item>
-        <title>Invoke-WebRequestやCompress-Archiveを使っていると画面上部に一瞬表示される何かの表示を非表示に</title>
-        <link>https://yukihane.github.io/blog/201809/08/pwsh-progress-silent/</link>
-        <pubDate>Sat, 08 Sep 2018 19:50:04 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201809/08/pwsh-progress-silent/</guid>
-        <description>進捗状況(progress)が表示されているそうです。少量のデータを扱っている場合には画面の一部がフラッシュしているように見えており、何のた</description>
-      </item>
-      
-      <item>
-        <title>Windows向けrsyncがなくなったみたい？</title>
-        <link>https://yukihane.github.io/blog/201808/22/windows-rsync-unavailable/</link>
-        <pubDate>Wed, 22 Aug 2018 19:48:21 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201808/22/windows-rsync-unavailable/</guid>
-        <description>vagrantでrsyncが使いたくなった。 そこでscoopでrsyncをインストールしようとしたが、見つからない。 おや？と思い検索してみる</description>
-      </item>
-      
-      <item>
-        <title>vim で E117 未知の関数です</title>
-        <link>https://yukihane.github.io/blog/201808/08/gvim-unknown-function/</link>
-        <pubDate>Wed, 08 Aug 2018 19:43:44 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201808/08/gvim-unknown-function/</guid>
-        <description>vim は ~/.vim ディレクトリを読むのに対し gvim は~/vimfilesディレクトリを読むためだそうです。Windows ならジャンクションを作りましょう。 cd</description>
-      </item>
-      
-      <item>
-        <title>Git for Windowsでzipコマンドを再現する</title>
-        <link>https://yukihane.github.io/blog/201807/13/zip-on-git-for-windows/</link>
-        <pubDate>Fri, 13 Jul 2018 19:36:48 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201807/13/zip-on-git-for-windows/</guid>
-        <description>git-archive使えば何とかなることに気付きました。 ちなみにunzipコマンドは標準で使えます。 mkdir workrepo cd workrepo git init cp -r [target_file_or_dir] . git add . git commit -m commit git archive</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WSLは /etc/environment を読まない</title>
+      <link>https://yukihane.github.io/blog/202502/07/etc-environment-wsl/</link>
+      <pubDate>Fri, 07 Feb 2025 05:47:10 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202502/07/etc-environment-wsl/</guid>
+      <description>&lt;p&gt;このエントリーを書くためにWSL2に&lt;a href=&#34;https://gohugo.io/installation/linux/#snap&#34;&gt;Hugoをsnapで&lt;/a&gt;インストールしました。&lt;/p&gt;&#xA;&lt;p&gt;そして &lt;code&gt;hugo&lt;/code&gt; コマンドを実行すると&amp;hellip;そんなものはないと言われてしまいました。&lt;br /&gt;&#xA;PATHが通っていないからかな？と思い &lt;code&gt;/etc/environment&lt;/code&gt; ファイルを見て見たのですが &lt;code&gt;/snap/bin&lt;/code&gt; は初めから設定されている。むむむと思いググったところ次のような記事がヒットしました:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Scoopでpwshのupdateに失敗する</title>
+      <link>https://yukihane.github.io/blog/202412/15/failed-scoop-update-pwsh/</link>
+      <pubDate>Sun, 15 Dec 2024 02:36:06 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202412/15/failed-scoop-update-pwsh/</guid>
+      <description>&lt;p&gt;Scoop で&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&#xA;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;scoop update pwsh&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;p&gt;を実行してもプロセスが起動しているからスキップする&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ERROR The following instances of &amp;#34;pwsh&amp;#34; are still running. Close them and try again.&#xA;&#xA; NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName&#xA; ------    -----      -----     ------      --  -- -----------&#xA;     71    42.12     104.00       0.52   26500   1 pwsh&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;というメッセージが出てアップデートできない事象がずっと続いていました。&lt;br /&gt;&#xA;(ちゃんと読んでいないのですが)公式のGitHubでissueがいくつか建っているようです。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Stable Diffusion Installation on Windows11</title>
+      <link>https://yukihane.github.io/blog/202411/12/stable-diffusion-installation/</link>
+      <pubDate>Tue, 12 Nov 2024 21:16:11 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202411/12/stable-diffusion-installation/</guid>
+      <description>&lt;p&gt;(追記: 後で知りましたが、Stability Matrix というパッケージがここに書いた手順よりインストールが簡単そうでした)&lt;/p&gt;&#xA;&lt;p&gt;Windows11へStable Diffusionをインストールしたときの作業ログです。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Windows Terminal を起動するとフォントが無いというエラーが出た</title>
+      <link>https://yukihane.github.io/blog/202411/12/windows-terminal-font-not-found/</link>
+      <pubDate>Tue, 12 Nov 2024 20:59:43 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202411/12/windows-terminal-font-not-found/</guid>
+      <description>&lt;p&gt;久しぶりにWSL2で作業をしようとWindows Terminalを起動するとフォントが存在しない旨のエラーが出ました。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/miiton/Cica/releases&#34;&gt;Cicaフォント&lt;/a&gt;を指定しているのですが、以前はこの設定で起動していたし、フォントをアンインストールした記憶もないし&amp;hellip;と思ったものの検索してみたところ同じような症状の記事が見つかりました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://note.com/reindex/n/n066a0adffe54&#34;&gt;Windows Terminalのフォントがありません問題の回避｜Re*Index. (ot_inc)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://tech.ateruimashin.com/blog/2021/03/windows-terminal-font/&#34;&gt;Windows Terminalで選択されたフォントが見つからない | がぶろぐ&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;取り敢えず対処としては「すべてのユーザーに対してインストール」を実行すれば良さそうなのでフォントファイルを右クリックしたところ、該当メニューが現れませんでした。ちなみにWindows11です。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>WSL2上のGUIアプリケーションを動かす</title>
+      <link>https://yukihane.github.io/blog/202204/16/gui-on-wsl2/</link>
+      <pubDate>Sat, 16 Apr 2022 17:56:11 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202204/16/gui-on-wsl2/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202110/03/hello-tauri/&#34;&gt;Tauri&lt;/a&gt; の開発環境を Windows10 の WSL2 に移行するために、 WSL2 上の GUI アプリを Windows で表示するようにセットアップしました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;とは言いつつ、既に次の手順でセットアップしたことがあるので、今回はこれが動くかどうかを確認しただけですが。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>WSL2上にDockerをインストールする</title>
+      <link>https://yukihane.github.io/blog/202203/28/docker-on-wsl2/</link>
+      <pubDate>Mon, 28 Mar 2022 08:24:45 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202203/28/docker-on-wsl2/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;現在、 Windows で Docker を利用するには大きく2つ方策があるのかなと思います。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://docs.docker.com/desktop/windows/install/&#34;&gt;Docker Desktop for Windows&lt;/a&gt; を利用する&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;WSL2 上に &lt;a href=&#34;https://docs.docker.com/engine/install/ubuntu/&#34;&gt;Docker Engine&lt;/a&gt; をインストールする&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;自分は元々 Ubuntu 上で Docker を利用してきたので、馴染みのある後者を選択することにしました。&#xA;(ちなみにこだわりが無いのなら前者の方が良いと思います)&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Windows10上に開発環境を整える</title>
+      <link>https://yukihane.github.io/blog/201908/setup-windows-devenv/</link>
+      <pubDate>Fri, 23 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201908/setup-windows-devenv/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_前提&#34;&gt;前提&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;主にJava開発を行う人(要は私自身)向け記述多し&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;パッケージ管理はscoopを使いますが、Java関係はなるべくSDKMAN!を使います&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>OpenJDK11をWindowsで自前ビルドする</title>
+      <link>https://yukihane.github.io/blog/201809/30/selfbuild-openjdk/</link>
+      <pubDate>Sun, 30 Sep 2018 19:53:56 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201809/30/selfbuild-openjdk/</guid>
+      <description>&lt;p&gt;Java の有償化ってより身近なところでは GPL 化と言った方が現状に即してるな、と思っています。&lt;/p&gt;&#xA;&lt;p&gt;それはともかく、何となく OpenJDK をデバッグ情報付きでビルドしたくなったのでメモ。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Invoke-WebRequestやCompress-Archiveを使っていると画面上部に一瞬表示される何かの表示を非表示に</title>
+      <link>https://yukihane.github.io/blog/201809/08/pwsh-progress-silent/</link>
+      <pubDate>Sat, 08 Sep 2018 19:50:04 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201809/08/pwsh-progress-silent/</guid>
+      <description>&lt;p&gt;進捗状況(progress)が表示されているそうです。少量のデータを扱っている場合には画面の一部がフラッシュしているように見えており、何のための画面効果かさっぱりわかりませんでした(ので検索キーワードすら思い浮かびませんでした)。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Windows向けrsyncがなくなったみたい？</title>
+      <link>https://yukihane.github.io/blog/201808/22/windows-rsync-unavailable/</link>
+      <pubDate>Wed, 22 Aug 2018 19:48:21 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201808/22/windows-rsync-unavailable/</guid>
+      <description>&lt;p&gt;&lt;code&gt;vagrant&lt;/code&gt;で&lt;code&gt;rsync&lt;/code&gt;が使いたくなった。&lt;br /&gt;&#xA;そこで&lt;code&gt;scoop&lt;/code&gt;で&lt;code&gt;rsync&lt;/code&gt;をインストールしようとしたが、見つからない。&lt;br /&gt;&#xA;おや？と思い検索してみると次の issue が。&lt;br /&gt;&#xA;&lt;a href=&#34;https://github.com/lukesampson/scoop/issues/2506&#34;&gt;rsync free version is no more #2506&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>vim で E117 未知の関数です</title>
+      <link>https://yukihane.github.io/blog/201808/08/gvim-unknown-function/</link>
+      <pubDate>Wed, 08 Aug 2018 19:43:44 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201808/08/gvim-unknown-function/</guid>
+      <description>&lt;p&gt;vim は &lt;code&gt;~/.vim&lt;/code&gt; ディレクトリを読むのに対し gvim は&lt;code&gt;~/vimfiles&lt;/code&gt;ディレクトリを読むためだそうです。Windows ならジャンクションを作りましょう。&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;cd /d %homepath%&#xA;mklink /j vimfiles .vim&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;参考:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git for Windowsでzipコマンドを再現する</title>
+      <link>https://yukihane.github.io/blog/201807/13/zip-on-git-for-windows/</link>
+      <pubDate>Fri, 13 Jul 2018 19:36:48 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201807/13/zip-on-git-for-windows/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;#ZgotmplZ&#34;&gt;&lt;code&gt;git-archive&lt;/code&gt;&lt;/a&gt;使えば何とかなることに気付きました。&lt;br /&gt;&#xA;ちなみに&lt;code&gt;unzip&lt;/code&gt;コマンドは標準で使えます。&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;mkdir workrepo&#xA;cd workrepo&#xA;git init&#xA;cp -r [target_file_or_dir] .&#xA;git add .&#xA;git commit -m commit&#xA;git archive -o ../myarchive.zip @&#xA;cd ..&#xA;rm -rf workrepo&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;あんまり自信ないんですけどスクリプトファイルに落とすとこんな感じ？&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

@@ -1,37 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on 発火後忘失</title>
     <link>https://yukihane.github.io/docs/python/</link>
     <description>Recent content in Python on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Sun, 26 Jul 2020 02:59:08 +0000</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/docs/python/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>Windows Python</title>
-        <link>https://yukihane.github.io/docs/python/windows-python/</link>
-        <pubDate>Sun, 26 Jul 2020 03:02:03 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/python/windows-python/</guid>
-        <description>ChocolateyでインストールしたPython3の運用について。 proxy pip コマンドは環境変数 http_proxy , https_proxy を見ているので、プロキシ環境下ではこれらの設</description>
-      </item>
-      
-      <item>
-        <title>Python</title>
-        <link>https://yukihane.github.io/docs/python/python/</link>
-        <pubDate>Sun, 26 Jul 2020 02:59:15 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/python/python/</guid>
-        <description>セットアップ pip pip を使い、非rootでインストールするには --user オプションを付ける。 このオプションをつけると ~/.local 以下にインストールされる。 ただ、 pip の</description>
-      </item>
-      
-    
+    <lastBuildDate>Sun, 26 Jul 2020 03:02:03 +0000</lastBuildDate>
+    <atom:link href="https://yukihane.github.io/docs/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows Python</title>
+      <link>https://yukihane.github.io/docs/python/windows-python/</link>
+      <pubDate>Sun, 26 Jul 2020 03:02:03 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/python/windows-python/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;Chocolatey&#34;&gt;ChocolateyでインストールしたPython&lt;/a&gt;3の運用について。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_proxy&#34;&gt;proxy&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;pip&lt;/code&gt; コマンドは環境変数 &lt;code&gt;http_proxy&lt;/code&gt; , &lt;code&gt;https_proxy&lt;/code&gt; を見ているので、プロキシ環境下ではこれらの設定を行っておく。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;ansible_インストール&#34;&gt;Ansible インストール&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;結論としては色々障害があり諦めた。ただし必要があれば問題を解消してインストールすることは可能と思われる。&#xA;おそらく次のリンク先の事象と同じ。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://yukihane.github.io/docs/python/python/</link>
+      <pubDate>Sun, 26 Jul 2020 02:59:15 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/python/python/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_セットアップ&#34;&gt;セットアップ&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;sect2&#34;&gt;&#xA;&lt;h3 id=&#34;_pip&#34;&gt;pip&lt;/h3&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;pip&lt;/code&gt; を使い、非rootでインストールするには &lt;code&gt;--user&lt;/code&gt; オプションを付ける。&#xA;このオプションをつけると &lt;code&gt;~/.local&lt;/code&gt; 以下にインストールされる。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;ただ、 &lt;code&gt;pip&lt;/code&gt; のアップグレードは&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
   </channel>
 </rss>

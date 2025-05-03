@@ -1,199 +1,69 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docs on 発火後忘失</title>
     <link>https://yukihane.github.io/docs/</link>
     <description>Recent content in Docs on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Sun, 07 Mar 2021 01:57:49 +0000</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>Git</title>
-        <link>https://yukihane.github.io/docs/git/</link>
-        <pubDate>Sun, 26 Jul 2020 03:10:06 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/git/</guid>
-        <description>オンラインマニュアル https://git-scm.com/docs password記憶 git config --global credential.helper &amp;#39;cache --timeout=21600&amp;#39; 21600秒(6時間)デーモンがパスワードを保持する。 単語単位diff git config --global alias.diffw &amp;#34;diff --word-diff-regex=.&amp;#34; 上記</description>
-      </item>
-      
-      <item>
-        <title>Ansible</title>
-        <link>https://yukihane.github.io/docs/ansible/</link>
-        <pubDate>Sun, 26 Jul 2020 03:08:10 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/ansible/</guid>
-        <description>チュートリアル http://docs.ansible.com/ansible/intro_getting_started.html の通り実行しようとすると以下のエラーとなった。 ubuntu:~$ ansible all -m ping mama | UNREACHABLE! =&amp;gt; { &amp;#34;changed&amp;#34;: false, &amp;#34;msg&amp;#34;: &amp;#34;Failed to connect to the host via ssh: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).\r\n&amp;#34;, &amp;#34;unreachable&amp;#34;: true } ubuntu:~$ ansible all -m ping --ask-pass SSH password: mama | FAILED! =&amp;gt;</description>
-      </item>
-      
-      <item>
-        <title>VirtualBox</title>
-        <link>https://yukihane.github.io/docs/virtualbox/</link>
-        <pubDate>Sun, 26 Jul 2020 03:07:00 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/virtualbox/</guid>
-        <description>tips 仮想ハードディスクのUUID変更 仮想ハードディスクはVirtualBox上ではUUIDによって識別されています。 このため、仮想ハードディス</description>
-      </item>
-      
-      <item>
-        <title>Python</title>
-        <link>https://yukihane.github.io/docs/python/</link>
-        <pubDate>Sun, 26 Jul 2020 02:59:08 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/python/</guid>
-        <description></description>
-      </item>
-      
-      <item>
-        <title>Windows</title>
-        <link>https://yukihane.github.io/docs/windows/</link>
-        <pubDate>Sun, 26 Jul 2020 02:51:24 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/windows/</guid>
-        <description></description>
-      </item>
-      
-      <item>
-        <title>ドキュメンテーションツールメモ</title>
-        <link>https://yukihane.github.io/docs/documentation-tool/</link>
-        <pubDate>Sun, 26 Jul 2020 02:48:10 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/documentation-tool/</guid>
-        <description>Sphinx Swagger Pandoc AsciiDoc入門 - Qiita https://azu.github.io/slide/individual/ 文書作成環境の比較 - TeX Wiki ドキュメントシステムはこれを使え2015年版 asciidoctor asciidocをPDFに変換してみた</description>
-      </item>
-      
-      <item>
-        <title>GWT</title>
-        <link>https://yukihane.github.io/docs/gwt/</link>
-        <pubDate>Sun, 26 Jul 2020 02:07:02 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/gwt/</guid>
-        <description></description>
-      </item>
-      
-      <item>
-        <title>シェルプログラミング</title>
-        <link>https://yukihane.github.io/docs/shell-programming/</link>
-        <pubDate>Sun, 26 Jul 2020 02:05:07 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/shell-programming/</guid>
-        <description>安全な一時ファイルの作成と削除の方法 - 拡張 POSIX シェルスクリプト Advent Calendar 2013 - ダメ出し Blog</description>
-      </item>
-      
-      <item>
-        <title>Ubuntu</title>
-        <link>https://yukihane.github.io/docs/ubuntu/</link>
-        <pubDate>Fri, 24 Jul 2020 02:14:29 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/ubuntu/</guid>
-        <description></description>
-      </item>
-      
-      <item>
-        <title>Linux</title>
-        <link>https://yukihane.github.io/docs/linux/</link>
-        <pubDate>Fri, 24 Jul 2020 01:51:30 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/linux/</guid>
-        <description></description>
-      </item>
-      
-      <item>
-        <title>WildFly</title>
-        <link>https://yukihane.github.io/docs/wildfly/</link>
-        <pubDate>Fri, 24 Jul 2020 01:09:21 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/wildfly/</guid>
-        <description></description>
-      </item>
-      
-      <item>
-        <title>Rust</title>
-        <link>https://yukihane.github.io/docs/rust/</link>
-        <pubDate>Fri, 24 Jul 2020 00:42:44 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/rust/</guid>
-        <description></description>
-      </item>
-      
-      <item>
-        <title>Mistel Barocco</title>
-        <link>https://yukihane.github.io/docs/mistel-barocco/</link>
-        <pubDate>Fri, 24 Jul 2020 00:37:41 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/mistel-barocco/</guid>
-        <description>Windows(Windows10) Windows10でUSキーボード設定を行う Windowsメニュー &amp;gt; 設定(ギアのアイコン) &amp;gt; 時刻と言語 &amp;gt; 地域と言語 &amp;gt; 日本語 &amp;gt; オプション &amp;gt; レ</description>
-      </item>
-      
-      <item>
-        <title>Java</title>
-        <link>https://yukihane.github.io/docs/java/</link>
-        <pubDate>Thu, 23 Jul 2020 17:18:09 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/java/</guid>
-        <description></description>
-      </item>
-      
-      <item>
-        <title>仕事</title>
-        <link>https://yukihane.github.io/docs/biz/</link>
-        <pubDate>Thu, 23 Jul 2020 17:06:52 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/biz/</guid>
-        <description></description>
-      </item>
-      
-      <item>
-        <title>DevOps</title>
-        <link>https://yukihane.github.io/docs/devops/</link>
-        <pubDate>Thu, 23 Jul 2020 17:03:06 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/devops/</guid>
-        <description></description>
-      </item>
-      
-      <item>
-        <title>Apps</title>
-        <link>https://yukihane.github.io/docs/apps/</link>
-        <pubDate>Thu, 23 Jul 2020 15:31:22 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/apps/</guid>
-        <description></description>
-      </item>
-      
-      <item>
-        <title>JavaプログラマのためのC#</title>
-        <link>https://yukihane.github.io/docs/csharp/</link>
-        <pubDate>Thu, 23 Jul 2020 15:27:19 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/csharp/</guid>
-        <description>1文字目にJavaとは異なり大文字を使う場所 実は書く際にはIDEが補完してくれるのでさほど違和感は無く始められました。 問題はコード・リーディ</description>
-      </item>
-      
-      <item>
-        <title>Frontend</title>
-        <link>https://yukihane.github.io/docs/frontend/</link>
-        <pubDate>Thu, 23 Jul 2020 14:46:07 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/frontend/</guid>
-        <description></description>
-      </item>
-      
-      <item>
-        <title>IntellJ IDEA</title>
-        <link>https://yukihane.github.io/docs/intellij-idea/</link>
-        <pubDate>Thu, 23 Jul 2020 06:40:03 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/intellij-idea/</guid>
-        <description>プラグインインストール Lombok MapStruct annotation processor 有効化 https://www.jetbrains.com/help/idea/annotation-processors-support.html</description>
-      </item>
-      
-    
+    <lastBuildDate>Sun, 26 Jul 2020 03:10:06 +0000</lastBuildDate>
+    <atom:link href="https://yukihane.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git</title>
+      <link>https://yukihane.github.io/docs/git/</link>
+      <pubDate>Sun, 26 Jul 2020 03:10:06 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/git/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_オンラインマニュアル&#34;&gt;オンラインマニュアル&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://git-scm.com/docs&#34; class=&#34;bare&#34;&gt;https://git-scm.com/docs&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_password記憶&#34;&gt;password記憶&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;literalblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre&gt;git config --global credential.helper &amp;#39;cache --timeout=21600&amp;#39;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;21600秒(6時間)デーモンがパスワードを保持する。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_単語単位diff&#34;&gt;単語単位diff&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;literalblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre&gt;git config --global alias.diffw &amp;#34;diff --word-diff-regex=.&amp;#34;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;上記で日本語が文字化けする場合は、代わりに以下の設定でいける、はず。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Ansible</title>
+      <link>https://yukihane.github.io/docs/ansible/</link>
+      <pubDate>Sun, 26 Jul 2020 03:08:10 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/ansible/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_チュートリアル&#34;&gt;チュートリアル&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://docs.ansible.com/ansible/intro_getting_started.html&#34; class=&#34;bare&#34;&gt;http://docs.ansible.com/ansible/intro_getting_started.html&lt;/a&gt;&#xA;の通り実行しようとすると以下のエラーとなった。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;listingblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ubuntu:~$ ansible all -m ping&#xA;mama | UNREACHABLE! =&amp;gt; {&#xA;    &amp;#34;changed&amp;#34;: false,&#xA;    &amp;#34;msg&amp;#34;: &amp;#34;Failed to connect to the host via ssh: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).\r\n&amp;#34;,&#xA;    &amp;#34;unreachable&amp;#34;: true&#xA;}&#xA;ubuntu:~$ ansible all -m ping --ask-pass&#xA;SSH password:&#xA;mama | FAILED! =&amp;gt; {&#xA;    &amp;#34;failed&amp;#34;: true,&#xA;    &amp;#34;msg&amp;#34;: &amp;#34;to use the &amp;#39;ssh&amp;#39; connection type with passwords, you must install the sshpass program&amp;#34;&#xA;}&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>VirtualBox</title>
+      <link>https://yukihane.github.io/docs/virtualbox/</link>
+      <pubDate>Sun, 26 Jul 2020 03:07:00 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/virtualbox/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_tips&#34;&gt;tips&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;sect2&#34;&gt;&#xA;&lt;h3 id=&#34;_仮想ハードディスクのuuid変更&#34;&gt;仮想ハードディスクのUUID変更&lt;/h3&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;仮想ハードディスクはVirtualBox上ではUUIDによって識別されています。&#xA;このため、仮想ハードディスクファイルをコピーして別の仮想マシンに接続しようとした場合など、同一UUIDのものが存在する旨のエラーになります。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>ドキュメンテーションツールメモ</title>
+      <link>https://yukihane.github.io/docs/documentation-tool/</link>
+      <pubDate>Sun, 26 Jul 2020 02:48:10 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/documentation-tool/</guid>
+      <description>&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Sphinx&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Swagger&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Pandoc&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://qiita.com/xmeta/items/de667a8b8a0f982e123a&#34;&gt;AsciiDoc入門 - Qiita&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://azu.github.io/slide/individual/&#34; class=&#34;bare&#34;&gt;https://azu.github.io/slide/individual/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://texwiki.texjp.org/?%E6%96%87%E6%9B%B8%E4%BD%9C%E6%88%90%E7%92%B0%E5%A2%83%E3%81%AE%E6%AF%94%E8%BC%83&#34;&gt;文書作成環境の比較 - TeX Wiki&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://www.slideshare.net/k16shikano/2015-55455604&#34;&gt;ドキュメントシステムはこれを使え2015年版&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://asciidoctor.org/&#34;&gt;asciidoctor&lt;/a&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://aimless.jp/blog/archives/2641/&#34;&gt;asciidocをPDFに変換してみた（asciidoctor-pdf） | Aimless&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;asciidoc fx&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Vagrant&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>シェルプログラミング</title>
+      <link>https://yukihane.github.io/docs/shell-programming/</link>
+      <pubDate>Sun, 26 Jul 2020 02:05:07 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/shell-programming/</guid>
+      <description>&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://fumiyas.github.io/2013/12/06/tempfile.sh-advent-calendar.html&#34;&gt;安全な一時ファイルの作成と削除の方法 - 拡張 POSIX シェルスクリプト Advent Calendar 2013 - ダメ出し Blog&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Mistel Barocco</title>
+      <link>https://yukihane.github.io/docs/mistel-barocco/</link>
+      <pubDate>Fri, 24 Jul 2020 00:37:41 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/mistel-barocco/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_windowswindows10&#34;&gt;Windows(Windows10)&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;sect2&#34;&gt;&#xA;&lt;h3 id=&#34;_windows10でusキーボード設定を行う&#34;&gt;Windows10でUSキーボード設定を行う&lt;/h3&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;Windowsメニュー &amp;gt; 設定(ギアのアイコン) &amp;gt; 時刻と言語 &amp;gt; 地域と言語 &amp;gt; 日本語 &amp;gt; オプション &amp;gt; レイアウトを変更する&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;でキーボードレイアウトを変更できる。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>JavaプログラマのためのC#</title>
+      <link>https://yukihane.github.io/docs/csharp/</link>
+      <pubDate>Thu, 23 Jul 2020 15:27:19 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/csharp/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_1文字目にjavaとは異なり大文字を使う場所&#34;&gt;1文字目にJavaとは異なり大文字を使う場所&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;実は書く際にはIDEが補完してくれるのでさほど違和感は無く始められました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;問題はコード・リーディング時。予想以上に「戦闘大文字だからクラス名か…(実際はメソッド名)」などと判断してしまっていることに気づかされます。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>IntellJ IDEA</title>
+      <link>https://yukihane.github.io/docs/intellij-idea/</link>
+      <pubDate>Thu, 23 Jul 2020 06:40:03 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/intellij-idea/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_プラグインインストール&#34;&gt;プラグインインストール&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Lombok&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;MapStruct&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_annotation_processor_有効化&#34;&gt;annotation processor 有効化&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.jetbrains.com/help/idea/annotation-processors-support.html&#34; class=&#34;bare&#34;&gt;https://www.jetbrains.com/help/idea/annotation-processors-support.html&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;</description>
+    </item>
   </channel>
 </rss>

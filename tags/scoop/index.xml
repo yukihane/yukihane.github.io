@@ -1,37 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>scoop on 発火後忘失</title>
+    <title>Scoop on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/scoop/</link>
-    <description>Recent content in scoop on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Scoop on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Sun, 15 Dec 2024 02:36:06 +0900</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/scoop/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>Scoopでpwshのupdateに失敗する</title>
-        <link>https://yukihane.github.io/blog/202412/15/failed-scoop-update-pwsh/</link>
-        <pubDate>Sun, 15 Dec 2024 02:36:06 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202412/15/failed-scoop-update-pwsh/</guid>
-        <description>Scoop で 1 scoop update pwsh を実行してもプロセスが起動しているからスキップする ERROR The following instances of &amp;quot;pwsh&amp;quot; are still running. Close them and try again. NPM(K) PM(M) WS(M) CPU(s) Id SI ProcessName ------ ----- ----- ------ -- -- ----------- 71 42.12 104.00 0.52 26500 1 pwsh というメ</description>
-      </item>
-      
-      <item>
-        <title>Windows向けrsyncがなくなったみたい？</title>
-        <link>https://yukihane.github.io/blog/201808/22/windows-rsync-unavailable/</link>
-        <pubDate>Wed, 22 Aug 2018 19:48:21 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201808/22/windows-rsync-unavailable/</guid>
-        <description>vagrantでrsyncが使いたくなった。 そこでscoopでrsyncをインストールしようとしたが、見つからない。 おや？と思い検索してみる</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/scoop/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Scoopでpwshのupdateに失敗する</title>
+      <link>https://yukihane.github.io/blog/202412/15/failed-scoop-update-pwsh/</link>
+      <pubDate>Sun, 15 Dec 2024 02:36:06 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202412/15/failed-scoop-update-pwsh/</guid>
+      <description>&lt;p&gt;Scoop で&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&#xA;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;scoop update pwsh&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;p&gt;を実行してもプロセスが起動しているからスキップする&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ERROR The following instances of &amp;#34;pwsh&amp;#34; are still running. Close them and try again.&#xA;&#xA; NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName&#xA; ------    -----      -----     ------      --  -- -----------&#xA;     71    42.12     104.00       0.52   26500   1 pwsh&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;というメッセージが出てアップデートできない事象がずっと続いていました。&lt;br /&gt;&#xA;(ちゃんと読んでいないのですが)公式のGitHubでissueがいくつか建っているようです。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Windows向けrsyncがなくなったみたい？</title>
+      <link>https://yukihane.github.io/blog/201808/22/windows-rsync-unavailable/</link>
+      <pubDate>Wed, 22 Aug 2018 19:48:21 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201808/22/windows-rsync-unavailable/</guid>
+      <description>&lt;p&gt;&lt;code&gt;vagrant&lt;/code&gt;で&lt;code&gt;rsync&lt;/code&gt;が使いたくなった。&lt;br /&gt;&#xA;そこで&lt;code&gt;scoop&lt;/code&gt;で&lt;code&gt;rsync&lt;/code&gt;をインストールしようとしたが、見つからない。&lt;br /&gt;&#xA;おや？と思い検索してみると次の issue が。&lt;br /&gt;&#xA;&lt;a href=&#34;https://github.com/lukesampson/scoop/issues/2506&#34;&gt;rsync free version is no more #2506&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

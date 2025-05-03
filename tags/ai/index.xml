@@ -1,28 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ai on 発火後忘失</title>
+    <title>Ai on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/ai/</link>
-    <description>Recent content in ai on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Ai on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Tue, 12 Nov 2024 21:16:11 +0900</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>Stable Diffusion Installation on Windows11</title>
-        <link>https://yukihane.github.io/blog/202411/12/stable-diffusion-installation/</link>
-        <pubDate>Tue, 12 Nov 2024 21:16:11 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202411/12/stable-diffusion-installation/</guid>
-        <description>(追記: 後で知りましたが、Stability Matrix というパッケージがここに書いた手順よりインストールが簡単そうでした) Windows11へSta</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stable Diffusion Installation on Windows11</title>
+      <link>https://yukihane.github.io/blog/202411/12/stable-diffusion-installation/</link>
+      <pubDate>Tue, 12 Nov 2024 21:16:11 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202411/12/stable-diffusion-installation/</guid>
+      <description>&lt;p&gt;(追記: 後で知りましたが、Stability Matrix というパッケージがここに書いた手順よりインストールが簡単そうでした)&lt;/p&gt;&#xA;&lt;p&gt;Windows11へStable Diffusionをインストールしたときの作業ログです。&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

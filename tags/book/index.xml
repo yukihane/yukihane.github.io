@@ -1,37 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>book on 発火後忘失</title>
+    <title>Book on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/book/</link>
-    <description>Recent content in book on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Book on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Sat, 03 Sep 2022 12:16:33 +0900</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/book/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>言語実装パターン レビュー</title>
-        <link>https://yukihane.github.io/blog/202209/03/language-implementation-patterns/</link>
-        <pubDate>Sat, 03 Sep 2022 12:16:33 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202209/03/language-implementation-patterns/</guid>
-        <description>(レビュー、という大層な物言いはあまりしたくないのですが、自分が書籍の感想を検索するときには &amp;#34;&amp;lt;書籍名&amp;gt; レビュー&amp;#34</description>
-      </item>
-      
-      <item>
-        <title>Spring Bootブックレビュー Spring Boot 2 入門: 基礎から実演まで</title>
-        <link>https://yukihane.github.io/blog/202007/15/spring-boot-books-review/</link>
-        <pubDate>Wed, 15 Jul 2020 14:28:39 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202007/15/spring-boot-books-review/</guid>
-        <description>Kindle Unlimited でいくつかのSpring Framework/Spring Boot 本が読めることに気づきました。 もし入門本として有用なものがあれば初心者の方に薦めていきたいなと考え、今回それ</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/book/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>言語実装パターン レビュー</title>
+      <link>https://yukihane.github.io/blog/202209/03/language-implementation-patterns/</link>
+      <pubDate>Sat, 03 Sep 2022 12:16:33 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202209/03/language-implementation-patterns/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;(レビュー、という大層な物言いはあまりしたくないのですが、自分が書籍の感想を検索するときには &amp;#34;&amp;lt;書籍名&amp;gt; レビュー&amp;#34; で検索することが多いので…​)&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Spring Bootブックレビュー Spring Boot 2 入門: 基礎から実演まで</title>
+      <link>https://yukihane.github.io/blog/202007/15/spring-boot-books-review/</link>
+      <pubDate>Wed, 15 Jul 2020 14:28:39 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202007/15/spring-boot-books-review/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Kindle Unlimited でいくつかのSpring Framework/Spring Boot 本が読めることに気づきました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;もし入門本として有用なものがあれば初心者の方に薦めていきたいなと考え、今回それらを呼んでみましたので感想を記録します。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
   </channel>
 </rss>

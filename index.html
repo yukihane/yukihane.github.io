@@ -1,1547 +1,312 @@
 <!DOCTYPE html>
-<html lang="ja" dir="ltr">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>発火後忘失</title>
-    
-
-
-  
-  <script defer src="/js/fuse.min.94c78ad70b02749822921660cf4e9f0b3701bc0680c421afb784a78228de0275.js"></script>
-
-
-
-<script src="/js/enquire.min.dfb99dee1e029d51d6cfb672d847929890b1585402de17f5ed092edd72a688b4.js"></script>
-
-<script defer src="/js/lazysizes.min.31dd6a2d3a1ec0f78a8df007535cf23f03aeb5c70f026e6d6a19dac3b3acc340.js"></script>
-
-<script defer src="/js/helper/getParents.min.ccd45f158c1b17849307ba913a72beac239c410f2b6e648496a79842da84e55b.js"></script>
-
-<script defer src="/js/helper/fadeinout.min.9fb19682560d5fa5596fffec85da605067c4acc86aad05add4d8fff9d362a446.js"></script>
-
-<script>
-  "use strict";
-
-  window.onload = function() {
-    
-    var languagedir = JSON.parse("\"ltr\"");
-    
-    var baseurl = JSON.parse("\"https://yukihane.github.io\"");
-    
-    var permalink = JSON.parse("\"https://yukihane.github.io/\"");
-
-    
-    var toggleSidebarElem = document.getElementById("toggle-sidebar");
-    var toggleMenuElem = document.getElementById("toggle-menu");
-    var tocBodyElem = document.querySelector('.toc__body');
-    var tocLabelElem = document.querySelector('.toc__label');
-    var listMainElem = document.getElementById('list-main');
-    var listSideElem = document.getElementById('list-side');
-    var singleMenuElem = document.getElementById('single-menu');
-    var sliderIcons = document.querySelectorAll('.slider__icon');
-
-    toggleSidebarElem ?
-      toggleSidebarElem.addEventListener('change', function (e) {
-        if (e.target.checked) {
-          if (tocBodyElem) {
-            fadeIn(tocBodyElem, 200);
-          }
-          if (tocLabelElem) {
-            fadeIn(tocLabelElem, 200);
-          }
-          if (listMainElem && listSideElem) {
-            listMainElem.className = 'm';
-            listSideElem.className = 'r';
-          }
-
-          sliderIcons && sliderIcons.forEach(function (elem) {
-            if (elem.classList.contains('hide')) {
-              elem.classList.remove('hide');
-            } else {
-              elem.classList.add('hide');
-            }
-          });
-
-        } else {
-          if (tocBodyElem) {
-            fadeOut(tocBodyElem, 200);
-          }
-          if (tocLabelElem) {
-            fadeOut(tocLabelElem, 200);
-          }
-          if (listMainElem && listSideElem) {
-            listMainElem.className = 'mr';
-            listSideElem.className = 'hide';
-          }
-
-          sliderIcons && sliderIcons.forEach(function (elem) {
-            if (elem.classList.contains('hide')) {
-              elem.classList.remove('hide');
-            } else {
-              elem.classList.add('hide');
-            }
-          });
-        }
-      }) : null;
-
-    toggleMenuElem ?
-      toggleMenuElem.addEventListener('change', function (e) {
-        if (e.target.checked) {
-          if (listMainElem && singleMenuElem) {
-            listMainElem.className = 'm';
-            singleMenuElem.className = 'l';
-          }
-
-          sliderIcons && sliderIcons.forEach(function (elem) {
-            if (elem.classList.contains('hide')) {
-              elem.classList.remove('hide');
-            } else {
-              elem.classList.add('hide');
-            }
-          });
-
-        } else {
-          if (listMainElem && singleMenuElem) {
-            listMainElem.className = 'lm';
-            singleMenuElem.className = 'hide';
-          }
-
-          sliderIcons && sliderIcons.forEach(function (elem) {
-            if (elem.classList.contains('hide')) {
-              elem.classList.remove('hide');
-            } else {
-              elem.classList.add('hide');
-            }
-          });
-        }
-      }) : null;
-    
-
-
-    
-    var navCollapseBtn = document.getElementById('navCollapseBtn');
-    navCollapseBtn ? navCollapseBtn.addEventListener('click', function(e) {
-      var navCollapse = document.querySelector('.navbar__collapse');
-      
-      if (navCollapse) {
-        var dataOpen = navCollapse.getAttribute('data-open');
-
-        if (dataOpen === 'true') {
-          navCollapse.setAttribute('data-open', 'false');
-          navCollapse.style.maxHeight = 0;
-        } else {
-          navCollapse.setAttribute('data-open', 'true');
-          navCollapse.style.maxHeight = navCollapse.scrollHeight + "px";
-        }
-      }
-    }) : null;
-    
-
-
-    
-    var expandBtn = document.querySelectorAll('.expand__button');
-
-    for (let i = 0; i < expandBtn.length; i++) {
-      expandBtn[i].addEventListener("click", function () {
-        var content = this.nextElementSibling;
-        if (content.style.maxHeight) {
-          content.style.maxHeight = null;
-          this.querySelector('svg').classList.add('expand-icon__right');
-          this.querySelector('svg').classList.remove('expand-icon__down');
-        } else {
-          content.style.maxHeight = content.scrollHeight + "px";
-          this.querySelector('svg').classList.remove('expand-icon__right');
-          this.querySelector('svg').classList.add('expand-icon__down');
-        }
-      });
-    }
-    
-
-
-
-    
-    document.querySelectorAll('.tab') ? 
-    document.querySelectorAll('.tab').forEach(function(elem, idx) {
-      var containerId = elem.getAttribute('id');
-      var containerElem = elem;
-      var tabLinks = elem.querySelectorAll('.tab__link');
-      var tabContents = elem.querySelectorAll('.tab__content');
-      var ids = [];
-
-      tabLinks && tabLinks.length > 0 ?
-      tabLinks.forEach(function(link, index, self) {
-        link.onclick = function(e) {
-          for (var i = 0; i < self.length; i++) {
-            if (index === parseInt(i, 10)) {
-              if (!self[i].classList.contains('active')) {
-                self[i].classList.add('active');
-                tabContents[i].style.display = 'block';
-              }
-            } else {
-              self[i].classList.remove('active');
-              tabContents[i].style.display = 'none';
-            }
-          }
-        }
-      }) : null;
-    }) : null;
-    
-
-
-    
-    document.querySelectorAll('.codetab') ? 
-    document.querySelectorAll('.codetab').forEach(function(elem, idx) {
-      var containerId = elem.getAttribute('id');
-      var containerElem = elem;
-      var codetabLinks = elem.querySelectorAll('.codetab__link');
-      var codetabContents = elem.querySelectorAll('.codetab__content');
-      var ids = [];
-
-      codetabLinks && codetabLinks.length > 0 ?
-      codetabLinks.forEach(function(link, index, self) {
-        link.onclick = function(e) {
-          for (var i = 0; i < self.length; i++) {
-            if (index === parseInt(i, 10)) {
-              if (!self[i].classList.contains('active')) {
-                self[i].classList.add('active');
-                codetabContents[i].style.display = 'block';
-              }
-            } else {
-              self[i].classList.remove('active');
-              codetabContents[i].style.display = 'none';
-            }
-          }
-        }
-      }) : null;
-    }) : null;
-    
-
-    
-    
-    
-    var enableDarkMode = JSON.parse("true");
-    var root = document.getElementById('root');
-    var toggleToLightBtn = document.getElementById('toggleToLight');
-    var toggleToDarkBtn = document.getElementById('toggleToDark');
-
-    if (!enableDarkMode) {
-      root.className = 'theme__light';
-      localStorage.setItem('theme', 'light');
-    }
-    
-    if (toggleToDarkBtn) {
-      toggleToDarkBtn.onclick = function (e) {
-        root.className = 'theme__dark';
-        localStorage.setItem('theme', 'dark');
-        toggleToLightBtn.className = 'navbar__icons--icon';
-        toggleToDarkBtn.className = 'hide';
-      }
-    }
-
-    if (toggleToLightBtn) {
-      toggleToLightBtn.onclick = function (e) {
-        root.className = 'theme__light';
-        localStorage.setItem('theme', 'light');
-        toggleToLightBtn.className = 'hide';
-        toggleToDarkBtn.className = 'navbar__icons--icon';
-      }
-    }
-
-    
-    document.querySelectorAll('.menu__list').forEach(function(elem) {
-      if (elem.classList.contains('active')) {
-        elem.style.maxHeight = elem.scrollHeight + "px"; 
-      }
-    });
-    
-    document.querySelectorAll('.menu__title--collapse').forEach(function(elem) {
-      elem.addEventListener('click', function (e) {
-        var content = this.nextElementSibling;
-        var menuTitleIcon = this.querySelector('.menu__title--icon');
-        if (!content) {
-          return null;
-        }
-
-        var parent = elem.parentNode;
-        while (parent.classList.contains('menu__list') && parent.classList.contains('active')) {
-          parent.style.maxHeight = 100 * parent.children.length + "px";
-          parent = parent.parentNode;
-        }
-
-        if (content.style.maxHeight) {
-          content.style.maxHeight = null;
-          content.classList.remove('active');
-          menuTitleIcon.classList.add('right');
-          
-          if (languagedir === 'rtl') {
-            menuTitleIcon.classList.remove('downrtl');
-          } else {
-            menuTitleIcon.classList.remove('down');
-          }
-        } else {
-          content.style.maxHeight = content.scrollHeight + "px";
-          content.classList.add('active');
-          menuTitleIcon.classList.remove('right');
-          
-          if (languagedir === 'rtl') {
-            menuTitleIcon.classList.add('downrtl');
-          } else {
-            menuTitleIcon.classList.add('down');
-          }
-        }
-      });
-    });
-    
-
-
-    
-    var mobileLogo = document.getElementById('mobileLogo');
-    var modal = document.getElementById("myModal");
-    var drawer = document.getElementById('myDrawer');
-    var drawerCloseBtn = document.querySelector('.drawer__close');
-
-    var openDrawer = function() {
-      modal.style.opacity = 1;
-
-      if (languagedir === 'rtl') {
-        modal.style.right = 0;
-        drawer.style.right = 0;
-      } else {
-        modal.style.left = 0;
-        drawer.style.left = 0;
-      }
-    }
-
-    var closeDrawer = function() {
-      modal.style.opacity = 0;
-
-      if (languagedir === 'rtl') {
-        drawer.style.right = '-100%';
-      } else {
-        drawer.style.left = '-100%';
-      }
-
-      
-      setTimeout(function () {
-        if (languagedir === 'rtl') {
-          modal.style.right = '-100%';
-        } else {
-          modal.style.left = '-100%';
-        }
-      }, 250);
-    }
-
-    mobileLogo.onclick = function () {
-      openDrawer();
-      localStorage.setItem('isDrawerOpen', 'true');
-    }
-
-    modal.onclick = function () {
-      closeDrawer();
-      localStorage.setItem('isDrawerOpen', 'false');
-    }
-
-    drawerCloseBtn.onclick = function () {
-      closeDrawer();
-      localStorage.setItem('isDrawerOpen', 'false');
-    }
-  
-
-
-  
-    var lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    var tocElem = document.querySelector('.toc');
-    var tableOfContentsElem = tocElem ? tocElem.querySelector('#TableOfContents') : null;
-    var singleContentsElem = document.querySelector('.single__contents');
-    var dataBGImgs = document.querySelectorAll('div[data-bgimg]');
-
-    
-    var tocLevels = JSON.parse("[\"h2\",\"h3\",\"h4\"]");
-
-    if (tocLevels) {
-      tocLevels = tocLevels.toString();
-    } else {
-      tocLevels = "h1, h2, h3, h4, h5, h6";
-    }
-
-    
-    var isLandingBgImg = JSON.parse("null");
-    
-    var isHome = JSON.parse("true");
-
-    function setNavbarBG(scrollTop) {
-      if (isHome && isLandingBgImg && Object.keys(isLandingBgImg).length) {
-        if (isLandingBgImg.height <= scrollTop) {
-          dataBGImgs.forEach(function(elem) {
-            elem.setAttribute('data-bgimg', 'false');
-          });
-        } else {
-          dataBGImgs.forEach(function (elem) {
-            elem.setAttribute('data-bgimg', 'true');
-          });
-        }
-      }
-    }
-    setNavbarBG(lastScrollTop);
-
-    window.onscroll = function () {
-      var st = window.pageYOffset || document.documentElement.scrollTop;
-      if (st > lastScrollTop) { 
-        singleContentsElem ? 
-        singleContentsElem.querySelectorAll(tocLevels.toString()).forEach(function(elem) {
-          if (document.documentElement.scrollTop >= elem.offsetTop) {
-            if (tableOfContentsElem) {
-              var id = elem.getAttribute('id');
-              tocElem.querySelectorAll('a').forEach(function (elem) {
-                elem.classList.remove('active');
-              });
-              tocElem.querySelector('a[href="#' + id + '"]') ? 
-              tocElem.querySelector('a[href="#' + id + '"]').classList.add('active') : null;
-            }
-          }
-        }) : null;
-        setNavbarBG(st);
-      } else { 
-        singleContentsElem ? 
-        singleContentsElem.querySelectorAll(tocLevels.toString()).forEach(function(elem) {
-          if (document.documentElement.scrollTop >= elem.offsetTop) {
-            if (tableOfContentsElem) {
-              var id = elem.getAttribute('id');
-              tocElem.querySelectorAll('a').forEach(function (elem) {
-                elem.classList.remove('active');
-              });
-              tocElem.querySelector('a[href="#' + id + '"]') ? 
-              tocElem.querySelector('a[href="#' + id + '"]').classList.add('active') : null;
-            }
-          }
-        }) : null;
-        setNavbarBG(st);
-      }
-      lastScrollTop = st <= 0 ? 0 : st;
-    };
-    
-
-
-
-    
-    var mobileSearchInputElem = document.querySelector('#search-mobile');
-    var mobileSearchClassElem = document.querySelector('.mobile-search');
-    var mobileSearchBtnElem = document.querySelector('#mobileSearchBtn');
-    var mobileSearchCloseBtnElem = document.querySelector('#search-mobile-close');
-    var mobileSearchContainer = document.querySelector('#search-mobile-container');
-    var mobileSearchResultsElem = document.querySelector('#search-mobile-results');
-    var htmlElem = document.querySelector('html');
-
-    if (mobileSearchClassElem) {
-      mobileSearchClassElem.style.display = 'none';
-    }
-
-    mobileSearchBtnElem ? 
-    mobileSearchBtnElem.addEventListener('click', function () {
-      if (mobileSearchContainer) {
-        mobileSearchContainer.style.display = 'block';
-      }
-
-      if (mobileSearchInputElem) {
-        mobileSearchInputElem.focus();
-      }
-
-      if (htmlElem) {
-        htmlElem.style.overflowY = 'hidden';
-      }
-    }) : null;
-
-    mobileSearchCloseBtnElem ? 
-    mobileSearchCloseBtnElem.addEventListener('click', function() {
-      if (mobileSearchContainer) {
-        mobileSearchContainer.style.display = 'none';
-      }
-
-      if (mobileSearchInputElem) {
-        mobileSearchInputElem.value = '';
-      }
-      
-      if (mobileSearchResultsElem) {
-        while (mobileSearchResultsElem.firstChild) {
-          mobileSearchResultsElem.removeChild(mobileSearchResultsElem.firstChild);
-        }
-      }
-
-      if (htmlElem) {
-        htmlElem.style.overflowY = 'visible';
-      }
-    }) : null;
-
-    mobileSearchInputElem ? 
-    mobileSearchInputElem.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        if (mobileSearchContainer) {
-          mobileSearchContainer.style.display = 'none';
-        }
-        
-        if (mobileSearchInputElem) {
-          mobileSearchInputElem.value = '';
-        }
-
-        if (mobileSearchResultsElem) {
-          while (mobileSearchResultsElem.firstChild) {
-            mobileSearchResultsElem.removeChild(mobileSearchResultsElem.firstChild);
-          }
-        }
-        if (htmlElem) {
-          htmlElem.style.overflowY = 'visible';
-        }
-      }
-    }) : null;
-  
-
-
-  
-    var localTheme = localStorage.getItem('theme');
-    var rootEleme = document.getElementById('root');
-    var selectThemeElem = document.querySelectorAll('.select-theme');
-    var selectThemeItemElem = document.querySelectorAll('.select-theme__item');
-    
-    if (localTheme) {
-      selectThemeItemElem ? 
-      selectThemeItemElem.forEach(function (elem) {
-        if (elem.text.trim() === localTheme) {
-          elem.classList.add('is-active');
-        } else {
-          elem.classList.remove('is-active');
-        }
-      }) : null;
-    }
-
-    selectThemeItemElem ? 
-    selectThemeItemElem.forEach(function (v, i) {
-      v.addEventListener('click', function (e) {
-        var selectedThemeVariant = e.target.text.trim();
-        localStorage.setItem('theme', selectedThemeVariant);
-
-        rootEleme.removeAttribute('class');
-        rootEleme.classList.add(`theme__${selectedThemeVariant}`);
-        selectThemeElem.forEach(function(rootElem) {
-          rootElem.querySelectorAll('a').forEach(function (elem) {
-            if (elem.classList) {
-              if (elem.text.trim() === selectedThemeVariant) {
-                if (!elem.classList.contains('is-active')) {
-                  elem.classList.add('is-active');
-                }
-              } else {
-                if (elem.classList.contains('is-active')) {
-                  elem.classList.remove('is-active');
-                }
-              }
-            }
-          });
-        });
-
-        if (window.mermaid) {
-          if (selectedThemeVariant === "dark" || selectedThemeVariant === "hacker") {
-            mermaid.initialize({ theme: 'dark' });
-            location.reload();
-          } else {
-            mermaid.initialize({ theme: 'default' });
-            location.reload();
-          }
-        }
-
-        var utterances = document.querySelector('iframe');
-        if (utterances) {
-          utterances.contentWindow.postMessage({
-            type: 'set-theme',
-            theme: selectedThemeVariant === "dark" || selectedThemeVariant === "hacker" ? 'photon-dark' : selectedThemeVariant === 'kimbie' ? 'github-dark-orange' : 'github-light',
-          }, 'https://utteranc.es');
-        }
-      });
-    }) : null;
-  
-
-
-  
-    
-    var langprefix = JSON.parse("\"\"");
-    var searchResults = null;
-    var searchMenu = null;
-    var searchText = null;
-    
-    
-    var enableSearchHighlight = JSON.parse("true");
-    
-    var enableSearch = JSON.parse("true");
-
-    var fuse = null;
-
-    if (enableSearch) {
-      (function initFuse() {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', baseurl + langprefix + "/index.json");
-        xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
-        xhr.onload = function () {
-          if (xhr.status === 200) {
-            fuse = new Fuse(JSON.parse(xhr.response.toString('utf-8')), {
-              keys: ['title', 'description', 'content'],
-              includeMatches: enableSearchHighlight,
-              shouldSort: true,
-              threshold: 0.4,
-              location: 0,
-              distance: 100,
-              maxPatternLength: 32,
-              minMatchCharLength: 1,
-            });
-          }
-          else {
-            console.error(`[${xhr.status}]Error:`, xhr.statusText);
-          }
-        };
-        xhr.send();
-      })();
-    }
-    
-    function makeLi(ulElem, obj) {
-      var li = document.createElement('li');
-      li.className = 'search-result__item';
-      
-      var a = document.createElement('a');
-      a.innerHTML = obj.title;
-      a.setAttribute('class', 'search-result__item--title');
-      a.setAttribute('href', obj.permalink);
-
-      var descDiv = document.createElement('div');
-      descDiv.setAttribute('class', 'search-result__item--desc');
-      if (obj.description) {
-        descDiv.innerHTML = obj.description;
-      } else if (obj.content) {
-        descDiv.innerHTML = obj.content.substring(0, 80);
-      }
-      
-      li.appendChild(a);
-      li.appendChild(descDiv);
-      ulElem.appendChild(li);
-    }
-
-    function makeHighlightLi(ulElem, obj) {
-      var li = document.createElement('li');
-      li.className = 'search-result__item';
-      var descDiv = null;
-
-      var a = document.createElement('a');
-      a.innerHTML = obj.item.title;
-      a.setAttribute('class', 'search-result__item--title');
-      a.setAttribute('href', obj.item.uri);
-
-      if (obj.matches && obj.matches.length) {
-        for (var i = 0; i < obj.matches.length; i++) {
-          if ('title' === obj.matches[i].key) {
-            a = document.createElement('a');
-            a.innerHTML = generateHighlightedText(obj.matches[i].value, obj.matches[i].indices);
-            a.setAttribute('class', 'search-result__item--title');
-            a.setAttribute('href', obj.item.uri);
-          }
-          
-          if ('description' === obj.matches[i].key) {
-            descDiv = document.createElement('div');
-            descDiv.setAttribute('class', 'search-result__item--desc');
-            descDiv.innerHTML = generateHighlightedText(obj.item.description, obj.matches[i].indices);
-          } else if ('content' === obj.matches[i].key) {
-            if (!descDiv) {
-              descDiv = document.createElement('div');
-              descDiv.setAttribute('class', 'search-result__item--desc');
-              descDiv.innerHTML = generateHighlightedText(obj.item.content.substring(0, 80), obj.matches[i].indices);
-            }
-          } else {
-            if (obj.item.description) {
-              descDiv = document.createElement('div');
-              descDiv.setAttribute('class', 'search-result__item--desc');
-              descDiv.innerHTML = obj.item.description;
-            } else {
-              descDiv = document.createElement('div');
-              descDiv.setAttribute('class', 'search-result__item--desc');
-              descDiv.innerHTML = obj.item.content.substring(0, 80);
-            }
-          }
-        }
-
-        li.appendChild(a);
-        if (descDiv) {
-          li.appendChild(descDiv);
-        }
-        if (li) {
-          ulElem.appendChild(li);
-        }
-      }
-    }
-
-    function renderSearchResults(searchText, results) {
-      searchResults = document.getElementById('search-results');
-      searchMenu = document.getElementById('search-menu');
-      searchResults.setAttribute('class', 'dd is-active');
-      
-      var ul = document.createElement('ul');
-      ul.setAttribute('class', 'dd-content search-content');
-
-      if (results.length) {
-        results.forEach(function (result) {
-          var li = document.createElement('li');
-          var a = document.createElement('a');
-          a.setAttribute('href', result.uri);
-          a.setAttribute('class', 'dd-item');
-          a.appendChild(li);
-
-          var titleDiv = document.createElement('div');
-          titleDiv.innerHTML = result.title;
-          titleDiv.setAttribute('class', 'search-result__item--title');
-
-          var descDiv = document.createElement('div');
-          descDiv.setAttribute('class', 'search-result__item--desc');
-          if (result.description) {
-            descDiv.innerHTML = result.description;
-          } else if (result.content) {
-            descDiv.innerHTML = result.content.substring(0, 80);
-          }
-
-          li.appendChild(titleDiv);
-          li.appendChild(descDiv);
-          ul.appendChild(a);
-        });
-      } else {
-        var li = document.createElement('li');
-        li.setAttribute('class', 'dd-item');
-        li.innerText = 'No results found';
-        ul.appendChild(li);
-      }
-
-      while (searchMenu.hasChildNodes()) {
-        searchMenu.removeChild(
-          searchMenu.lastChild
-        );
-      }
-      
-      searchMenu.appendChild(ul);
-    }
-
-    function renderSearchHighlightResults(searchText, results) {
-      searchResults = document.getElementById('search-results');
-      searchMenu = document.getElementById('search-menu');
-      searchResults.setAttribute('class', 'dd is-active');
-
-      var ul = document.createElement('ul');
-      ul.setAttribute('class', 'dd-content search-content');
-
-      if (results.length) {
-        results.forEach(function (result) {
-          var li = document.createElement('li');
-          var a = document.createElement('a');
-          var descDiv = null;
-
-          a.setAttribute('href', result.item.uri);
-          a.setAttribute('class', 'dd-item');
-          a.appendChild(li);
-
-          var titleDiv = document.createElement('div');
-          titleDiv.innerHTML = result.item.title;
-          titleDiv.setAttribute('class', 'search-result__item--title');
-          
-          if (result.matches && result.matches.length) {
-            for (var i = 0; i < result.matches.length; i++) {
-              if ('title' === result.matches[i].key) {
-                titleDiv.innerHTML = generateHighlightedText(result.matches[i].value, result.matches[i].indices);
-              }
-
-              if ('description' === result.matches[i].key) {
-                descDiv = document.createElement('div');
-                descDiv.setAttribute('class', 'search-result__item--desc');
-                descDiv.innerHTML = generateHighlightedText(result.item.description, result.matches[i].indices);
-              } else if ('content' === result.matches[i].key) {
-                if (!descDiv) {
-                  descDiv = document.createElement('div');
-                  descDiv.setAttribute('class', 'search-result__item--desc');
-                  descDiv.innerHTML = generateHighlightedText(result.item.content.substring(0, 80), result.matches[i].indices);
-                }
-              } else {
-                if (result.item.description) {
-                  descDiv = document.createElement('div');
-                  descDiv.setAttribute('class', 'search-result__item--desc');
-                  descDiv.innerHTML = result.item.description;
-                } else {
-                  descDiv = document.createElement('div');
-                  descDiv.setAttribute('class', 'search-result__item--desc');
-                  descDiv.innerHTML = result.item.content.substring(0, 80);
-                }
-              }
-            }
-            
-            li.appendChild(titleDiv);
-            if (descDiv) {
-              li.appendChild(descDiv);
-            }
-            ul.appendChild(a);
-          }
-        });
-      } else {
-        var li = document.createElement('li');
-        li.setAttribute('class', 'dd-item');
-        li.innerText = 'No results found';
-        ul.appendChild(li);
-      }
-
-      while (searchMenu.hasChildNodes()) {
-        searchMenu.removeChild(
-          searchMenu.lastChild
-        );
-      }
-      searchMenu.appendChild(ul);
-    }
-
-    function renderSearchResultsMobile(searchText, results) {
-      searchResults = document.getElementById('search-mobile-results');
-
-      var content = document.createElement('div');
-      content.setAttribute('class', 'mobile-search__content');
-
-      if (results.length > 0) {
-        results.forEach(function (result) {
-          var item = document.createElement('a');
-          item.setAttribute('href', result.uri);
-          item.innerHTML = '<div class="mobile-search__item"><div class="mobile-search__item--title">📄 ' + result.title + '</div><div class="mobile-search__item--desc">' + (result.description ? result.description : result.content) + '</div></div>';
-          content.appendChild(item);
-        });
-      } else {
-        var item = document.createElement('span');
-        content.appendChild(item);
-      }
-
-      let wrap = document.getElementById('search-mobile-results');
-      while (wrap.firstChild) {
-        wrap.removeChild(wrap.firstChild)
-      }
-      searchResults.appendChild(content);      
-    }
-
-    function renderSearchHighlightResultsMobile(searchText, results) {
-      searchResults = document.getElementById('search-mobile-results');
-
-      var ul = document.createElement('div');
-      ul.setAttribute('class', 'mobile-search__content');
-
-      if (results.length) {
-        results.forEach(function (result) {
-          var li = document.createElement('li');
-          var a = document.createElement('a');
-          var descDiv = null;
-
-          a.setAttribute('href', result.item.uri);
-          a.appendChild(li);
-          li.setAttribute('class', 'mobile-search__item');
-
-          var titleDiv = document.createElement('div');
-          titleDiv.innerHTML = result.item.title;
-          titleDiv.setAttribute('class', 'mobile-search__item--title');
-          
-          if (result.matches && result.matches.length) {
-            for (var i = 0; i < result.matches.length; i++) {
-              if ('title' === result.matches[i].key) {
-                titleDiv.innerHTML = generateHighlightedText(result.matches[i].value, result.matches[i].indices);
-              }
-
-              if ('description' === result.matches[i].key) {
-                descDiv = document.createElement('div');
-                descDiv.setAttribute('class', 'mobile-search__item--desc');
-                descDiv.innerHTML = generateHighlightedText(result.item.description, result.matches[i].indices);
-              } else if ('content' === result.matches[i].key) {
-                if (!descDiv) {
-                  descDiv = document.createElement('div');
-                  descDiv.setAttribute('class', 'mobile-search__item--desc');
-                  descDiv.innerHTML = generateHighlightedText(result.item.content.substring(0, 150), result.matches[i].indices);
-                }
-              } else {
-                if (result.item.description) {
-                  descDiv = document.createElement('div');
-                  descDiv.setAttribute('class', 'mobile-search__item--desc');
-                  descDiv.innerHTML = result.item.description;
-                } else {
-                  descDiv = document.createElement('div');
-                  descDiv.setAttribute('class', 'mobile-search__item--desc');
-                  descDiv.innerHTML = result.item.content.substring(0, 150);
-                }
-              }
-            }
-            
-            li.appendChild(titleDiv);
-            if (descDiv) {
-              li.appendChild(descDiv);
-            }
-            ul.appendChild(a);
-          }
-        });
-      } else {
-        var item = document.createElement('span');
-        ul.appendChild(item);
-      }
-
-      let wrap = document.getElementById('search-mobile-results');
-      while (wrap.firstChild) {
-        wrap.removeChild(wrap.firstChild)
-      }
-      searchResults.appendChild(ul);
-    }
-
-    function generateHighlightedText(text, regions) {
-      if (!regions) {
-        return text;
-      }
-
-      var content = '', nextUnhighlightedRegionStartingIndex = 0;
-
-      regions.forEach(function(region) {
-        if (region[0] === region[1]) {
-          return null;
-        }
-        
-        content += '' +
-          text.substring(nextUnhighlightedRegionStartingIndex, region[0]) +
-          '<span class="search__highlight">' +
-            text.substring(region[0], region[1] + 1) +
-          '</span>' +
-        '';
-        nextUnhighlightedRegionStartingIndex = region[1] + 1;
-      });
-
-      content += text.substring(nextUnhighlightedRegionStartingIndex);
-
-      return content;
-    };
-
-    var searchElem = document.getElementById('search');
-    var searchMobile = document.getElementById('search-mobile');
-    var searchResultsContainer = document.getElementById('search-results');
-
-    searchElem ? 
-    searchElem.addEventListener('input', function(e) {
-      if (!e.target.value | window.innerWidth < 770) {
-        searchResultsContainer ? searchResultsContainer.setAttribute('class', 'dd') : null;
-        return null;
-      }
-
-      searchText = e.target.value;
-      var results = fuse.search(e.target.value);
-
-      if (enableSearchHighlight) {
-        renderSearchHighlightResults(searchText, results);
-      } else {
-        renderSearchResults(searchText, results);
-      }
-
-      var dropdownItems = searchResultsContainer.querySelectorAll('.dd-item');
-      dropdownItems ? dropdownItems.forEach(function (item) {
-        item.addEventListener('mousedown', function (e) {
-          e.target.click();
-        });
-      }) : null;
-    }) : null;
-
-    searchElem ? 
-    searchElem.addEventListener('blur', function() {
-      if (window.innerWidth < 770) {
-        return null;
-      }
-      searchResultsContainer ? searchResultsContainer.setAttribute('class', 'dd') : null;
-    }) : null;
-
-    searchElem ? 
-    searchElem.addEventListener('click', function(e) {
-      if (window.innerWidth < 770) {
-        return null;
-      }
-      if (!e.target.value) {
-        searchResultsContainer ? searchResultsContainer.setAttribute('class', 'dd') : null;
-        return null;
-      }
-
-      searchText = e.target.value;
-      var results = fuse.search(e.target.value);
-
-      if (enableSearchHighlight) {
-        renderSearchHighlightResults(searchText, results);
-      } else {
-        renderSearchResults(searchText, results);
-      }
-
-      var dropdownItems = searchResultsContainer.querySelectorAll('.dd-item');
-      dropdownItems ? dropdownItems.forEach(function (item) {
-        item.addEventListener('mousedown', function (e) {
-          e.target.click();
-        });
-      }) : null;
-    }) : null;
-
-    var searchMenuElem = document.getElementById("search-menu");
-    var activeItem = document.querySelector('#search-menu .dd-item.is-active');
-    var activeIndex = null;
-    var items = null;
-    var searchContainerMaxHeight = 350;
-
-    searchElem ? 
-    searchElem.addEventListener('keydown', function(e) {
-      if (window.innerWidth < 770) {
-        return null;
-      }
-
-      var items = document.querySelectorAll('#search-menu .dd-item');
-      
-      if (e.key === 'ArrowDown') {
-        if (activeIndex === null) {
-          activeIndex = 0;
-          items[activeIndex].classList.remove('is-active');
-        } else {
-          items[activeIndex].classList.remove('is-active');
-          activeIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
-        }
-        items[activeIndex].classList.add('is-active');
-
-        let overflowedPixel = items[activeIndex].offsetTop + items[activeIndex].clientHeight - searchContainerMaxHeight;
-        if (overflowedPixel > 0) {
-          document.querySelector(".search-content").scrollTop += items[activeIndex].getBoundingClientRect().height;
-        } else if (activeIndex === 0) {
-          document.querySelector(".search-content").scrollTop = 0;
-        }
-      } else if (e.key === 'ArrowUp') {
-        if (activeIndex === null) {
-          activeIndex = items.length - 1;
-          items[activeIndex].classList.remove('is-active');
-        } else {
-          items[activeIndex].classList.remove('is-active');
-          activeIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
-        }
-        items[activeIndex].classList.add('is-active');
-        
-        let overflowedPixel = items[activeIndex].offsetTop + items[activeIndex].clientHeight - searchContainerMaxHeight;
-        if (overflowedPixel < 0) {
-          document.querySelector(".search-content").scrollTop -= items[activeIndex].getBoundingClientRect().height;
-        } else {
-          document.querySelector(".search-content").scrollTop = overflowedPixel + items[activeIndex].getBoundingClientRect().height;
-        }
-      } else if (e.key === 'Enter') {
-        var currentItemLink = items[activeIndex].getAttribute('href');
-        if (currentItemLink) {
-          location.href = currentItemLink;
-        }
-      } else if (e.key === 'Escape') {
-        e.target.value = null;
-        if (searchResults) {
-          searchResults.classList.remove('is-active');
-        }
-      }
-    }) : null;
-
-    searchMobile ? 
-    searchMobile.addEventListener('input', function(e) {
-      if (!e.target.value) {
-        let wrap = document.getElementById('search-mobile-results');
-        while (wrap.firstChild) {
-          wrap.removeChild(wrap.firstChild);
-        }
-        return null;
-      }
-
-      searchText = e.target.value;
-      var results = fuse.search(e.target.value);
-      
-      if (enableSearchHighlight) {
-        renderSearchHighlightResultsMobile(searchText, results);
-      } else {
-        renderSearchResultsMobile(searchText, results);
-      }
-
-      var dropdownItems = searchResultsContainer.querySelectorAll('.dd-item');
-      dropdownItems ? dropdownItems.forEach(function (item) {
-        item.addEventListener('mousedown', function (e) {
-          e.target.click();
-        });
-      }) : null;
-    }) : null;
-  
-  }
-</script>
-    
-
-
-<link rel="stylesheet" href="/css/main.min.css">
-
-
-    <link rel="alternate" type="application/rss&#43;xml" title="RSS" href="https://yukihane.github.io/index.xml">
-<meta name="description" content="Yukihane official site" />
-<meta name="keywords" content="">
-<meta name="created" content="2020-01-26T04:15:05&#43;0900">
-<meta name="modified" content="2020-01-26T04:15:05&#43;0900">
-
-
-<meta property="og:site_name" content="発火後忘失">
-<meta property="og:title" content="発火後忘失">
-<meta property="og:url" content="https://yukihane.github.io/">
-<meta property="og:type" content="website">
-
-<meta name="generator" content="Hugo 0.88.1" />
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="theme-color" content="#ffffff">
-<link rel="canonical" href="https://yukihane.github.io/">
-<link rel="manifest" href="/manifest.json">
-
-  <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-512x512.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-
-    <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "url" : "https://yukihane.github.io/",
-    "name": "発火後忘失",
-    "description": "Fire and Forget blog",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://yukihane.github.io"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "発火後忘失",
-      "url": "https://yukihane.github.io"
-    }
-  }
-</script>
-
-    
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-E9J8FN5B4Q', { 'anonymize_ip': false });
-}
-</script>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'G-E9J8FN5B4Q', 'auto');
+<html>
+	<head lang="ja">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>発火後忘失 | Home </title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Fire and Forget blog" />
+	<meta property="og:image" content=""/>
+	<link rel="alternate" type="application/rss+xml" href="https://yukihane.github.io/index.xml" title="発火後忘失" />
+	<meta property="og:url" content="https://yukihane.github.io/">
+  <meta property="og:site_name" content="発火後忘失">
+  <meta property="og:title" content="発火後忘失">
+  <meta property="og:description" content="Fire and Forget blog">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="発火後忘失">
+  <meta name="twitter:description" content="Fire and Forget blog">
+
+        <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
 </head>
 
+	<body>
+		<div class="content">
+			<header>
+	<div class="main">
+		<a href="https://yukihane.github.io/">発火後忘失</a>
+	</div>
+	<nav>
+		
+		<a href="blog">Blog</a>
+		
+		<a href="docs">Docs</a>
+		
+		
+	</nav>
+</header>
 
-<body id="root" class="theme__light">
-    <script>
-        var rootElem = document.getElementById('root');
-        var themeOptions = JSON.parse("[\"light\",\"dark\"]");
-        var localTheme = localStorage.getItem('theme');
+			
+			<main class="list">
+				<div class="site-description"></div>
+				
+				
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202505/01/spring-boot-form-binding/">Spring Boot(Spring MVC)のform送信の仕組みを少しずつ理解する</a></h1>
+					<time>2025/05/01</time>
+					<br><div class="description">
+	
+	<h2 id="はじめに">はじめに</h2>
+<p>Spring Boot + Thymeleaf でのform送信について、公式ドキュメントとしては</p>
+<ul>
+<li><a href="https://spring.io/guides/gs/handling-form-submission">Handling Form Submission</a></li>
+<li><a href="https://spring.io/guides/gs/validating-form-input">Validating Form Input</a></li>
+</ul>
+<p>があります。</p>
+<p>しかし、これらのドキュメントは初歩的な説明にとどまり、この知識だけで実践に挑むとかなり苦労します。<br />
+また、最近は静的webページでformをpostするみたいなことをやる機会が少なくなっており、検索しても実例が出てこなかったりロストテクノロジー化しつつあるように思われました。<br />
+(「ロストテクノロジー化」については、AIに聞けば良い時代になったので今後は問題にはならないかも？)</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202505/01/spring-boot-form-binding/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202503/20/tax/">確定申告(2024年分)振り返り</a></h1>
+					<time>2025/03/20</time>
+					<br><div class="description">
+	
+	<p>昨年のものはこちら:</p>
+<ul>
+<li><a href="/blog/202404/06/final-tax-return/">確定申告(2023年分)振り返り</a></li>
+</ul>
+<p>昨年同様、次回に向けて重要だと考える順に書いていきます:</p>
+<ul>
+<li>次回確定申告までにマイナンバーカードの電子証明書期限が切れるので更新が必要
+<ul>
+<li>有効期限は5回目の誕生日。3ヵ月前から更新可能で、そのあたりで『地方公共団体情報システム機構から送付される「マイナンバーカード・電子証明書　有効期限通知書」』なるものが届くらしい。それが必要</li>
+</ul>
+</li>
+<li>下にも書いているがfreeeで口座連携ができていないことはしばしば発生する。確定申告直前に確認するのでなく、日ごろからたまにfreeeにログインして確認すべき</li>
+<li>freee にみずほ銀行の入出金が去年5月から一切連携できておらず焦ったが、<a href="https://www.mizuhobank.co.jp/direct/about/service/directpassbook/index.html">みずほダイレクト通帳</a>で出力したCSVを、freeeの機能「みずほ銀行ダイレクト（API）でダウンロードしたCSV」インポート機能で取り込めた。
+<ul>
+<li>リンク先にある通り、事前の申請などが必要なので注意。自分はかなり昔に契約していたので助かった</li>
+</ul>
+</li>
+<li>国民健康保険料はマイナポータル連携できない(国じゃなくて市の管轄だから推進力が無いのだと思う)。これだけまだ郵送されてくる書類を保管しておく必要がある
+<ul>
+<li>去年も書いた</li>
+</ul>
+</li>
+<li>2割特例や簡易課税制度を選択しているのならe-taxで簡単に消費税申請できる。freeeでやろうと思うと上位プランで値段が上がってしまうが、別にfreeeでやる必要はない</li>
+<li>昨年、「消費税簡易課税制度選択届出書を出しておく必要がありそう」と書いていたがすっかり忘れていた。昨年内に届け出が必要だったが、ギリギリ間に合った</li>
+<li>楽天のふるさと納税の証明書は、今年から即時に発行できるようになっていた</li>
+</ul>
+<p>例年なかなかやる気が出なくて、今年も結局最終週まで手を付けられなかった。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202503/20/tax/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202502/07/etc-environment-wsl/">WSLは /etc/environment を読まない</a></h1>
+					<time>2025/02/07</time>
+					<br><div class="description">
+	
+	<p>このエントリーを書くためにWSL2に<a href="https://gohugo.io/installation/linux/#snap">Hugoをsnapで</a>インストールしました。</p>
+<p>そして <code>hugo</code> コマンドを実行すると&hellip;そんなものはないと言われてしまいました。<br />
+PATHが通っていないからかな？と思い <code>/etc/environment</code> ファイルを見て見たのですが <code>/snap/bin</code> は初めから設定されている。むむむと思いググったところ次のような記事がヒットしました:</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202502/07/etc-environment-wsl/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202412/15/failed-scoop-update-pwsh/">Scoopでpwshのupdateに失敗する</a></h1>
+					<time>2024/12/15</time>
+					<br><div class="description">
+	
+	<p>Scoop で</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scoop update pwsh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>を実行してもプロセスが起動しているからスキップする</p>
+<pre tabindex="0"><code>ERROR The following instances of &#34;pwsh&#34; are still running. Close them and try again.
 
-        if (localTheme) {
-            if (themeOptions && themeOptions.length > 0) {
-                themeOptions.includes(localTheme) ? 
-                rootElem.className = `theme__${localTheme}` :
-                rootElem.className = `theme__${themeOptions[0]}`;
-            }
+ NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+ ------    -----      -----     ------      --  -- -----------
+     71    42.12     104.00       0.52   26500   1 pwsh
+</code></pre><p>というメッセージが出てアップデートできない事象がずっと続いていました。<br />
+(ちゃんと読んでいないのですが)公式のGitHubでissueがいくつか建っているようです。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202412/15/failed-scoop-update-pwsh/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202411/24/muscle-pain-on-running/">ランニングで筋肉痛になったと思ったら1ヶ月経っても治らない</a></h1>
+					<time>2024/11/24</time>
+					<br><div class="description">
+	
+	<h2 id="はじめに">はじめに</h2>
+<p>ランニングが原因で筋肉痛になっていたと考えていた痛みが1ヶ月以上治まらず整形外科で診察を受けたところランニング障害と診断されました。<br />
+この症状について、行った対策などを記録していこうと思います。<br />
+完治するまで更新予定です。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202411/24/muscle-pain-on-running/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202411/23/minecraft-bedrock-programming/">Minecraft Bedrock で Add-on 開発環境を利用して Hello, world!</a></h1>
+					<time>2024/11/23</time>
+					<br><div class="description">
+	
+	<h2 id="はじめに">はじめに</h2>
+<p>Minecraft Bedrock Edition(いわゆる統合版)には、Java EditionでいうところのMODに相当するAdd-onを開発する環境があります。<br />
+これを利用して、自作プログラミングをMinecraft上で実行する環境をセットアップします。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202411/23/minecraft-bedrock-programming/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202411/17/centos7-homebrew/">Centos7 に Homebrew を導入して Puppeteer を実行する</a></h1>
+					<time>2024/11/16</time>
+					<br><div class="description">
+	
+	<p>次の回答の検証になります:</p>
+<ul>
+<li><a href="https://ja.stackoverflow.com/a/100397/2808">CentOS7 環境で glibc を 2.27 にアップデートすると、どんな影響がありますか？ - スタック・オーバーフロー</a></li>
+</ul>
+<p>環境は<a href="/blog/202411/16/centos7-environment/">前回のエントリー</a>で用意したものです。</p>
+<h2 id="セットアップ">セットアップ</h2>
+<h3 id="development-tools-インストール">Development Tools インストール</h3>
+<p>あとでHomebrewに要求されるので先にインストールしておきます:</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202411/17/centos7-homebrew/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202411/16/centos7-environment/">CentOS7実行環境を整える</a></h1>
+					<time>2024/11/16</time>
+					<br><div class="description">
+	
+	<p>今さらCentOS7環境で検証する必要が出たので環境を整えました。<br />
+その時のメモです。<br />
+ホストOSはWindows11です。</p>
+<h2 id="インストール">インストール</h2>
+<h3 id="vagrant">Vagrant</h3>
+<p>scoop でインストールしました。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202411/16/centos7-environment/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202411/12/stable-diffusion-installation/">Stable Diffusion Installation on Windows11</a></h1>
+					<time>2024/11/12</time>
+					<br><div class="description">
+	
+	<p>(追記: 後で知りましたが、Stability Matrix というパッケージがここに書いた手順よりインストールが簡単そうでした)</p>
+<p>Windows11へStable Diffusionをインストールしたときの作業ログです。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202411/12/stable-diffusion-installation/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202411/12/windows-terminal-font-not-found/">Windows Terminal を起動するとフォントが無いというエラーが出た</a></h1>
+					<time>2024/11/12</time>
+					<br><div class="description">
+	
+	<p>久しぶりにWSL2で作業をしようとWindows Terminalを起動するとフォントが存在しない旨のエラーが出ました。</p>
+<p><a href="https://github.com/miiton/Cica/releases">Cicaフォント</a>を指定しているのですが、以前はこの設定で起動していたし、フォントをアンインストールした記憶もないし&hellip;と思ったものの検索してみたところ同じような症状の記事が見つかりました。</p>
+<ul>
+<li><a href="https://note.com/reindex/n/n066a0adffe54">Windows Terminalのフォントがありません問題の回避｜Re*Index. (ot_inc)</a></li>
+<li><a href="https://tech.ateruimashin.com/blog/2021/03/windows-terminal-font/">Windows Terminalで選択されたフォントが見つからない | がぶろぐ</a></li>
+</ul>
+<p>取り敢えず対処としては「すべてのユーザーに対してインストール」を実行すれば良さそうなのでフォントファイルを右クリックしたところ、該当メニューが現れませんでした。ちなみにWindows11です。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202411/12/windows-terminal-font-not-found/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202410/26/spring-boot-with-vite/">Spring Boot 開発で SASS や TypeScript を利用するための設定(Vite)</a></h1>
+					<time>2024/10/26</time>
+					<br><div class="description">
+	
+	
+	
+</div>
+					<a class="readmore" href="/blog/202410/26/spring-boot-with-vite/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202410/20/blog-with-markdown/">Markdownでblogを書くようにしました</a></h1>
+					<time>2024/10/20</time>
+					<br><div class="description">
+	
+	
+	
+</div>
+					<a class="readmore" href="/blog/202410/20/blog-with-markdown/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202410/20/spring-boot-devtools-auto-restart/">Gradleプロジェクトではリソースファイルを編集してもAutomatic Restartしてしまう</a></h1>
+					<time>2024/10/20</time>
+					<br><div class="description">
+	
+	
+	
+</div>
+					<a class="readmore" href="/blog/202410/20/spring-boot-devtools-auto-restart/">Read more ⟶</a>
+				</section>
+				
+				
+
+<ul class="pagination">
+	<span class="page-item page-prev">
+	
+	</span>
+	<span class="page-item page-next">
+	
+    <a href="/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">Next →</span></a>
+	
+	</span>
+</ul>
+
+
+			</main>
+			<footer>
+  <div style="display:flex"></div>
+  <div class="footer-info">
+    2025  &amp;copy;{year}, All Rights Reserved |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
         }
-    </script>
-    
-    <div id="container">
-        <div id="myDrawer" class="drawer" style="">
-  <div class="drawer__header">
-    <a href="/" class="drawer__header--text">
-      発火後忘失
-    </a>
-    <div class="grow"></div>
-    <div class="drawer__close">
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M18.3 5.71c-.39-.39-1.02-.39-1.41 0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"/></svg>
-    </div>
-  </div>
-
-  <div class="drawer__body">
-    <div class="menu">
-  <h6 class="menu__label">
-    
-      発火後忘失
-    
-  </h6>
-  <ul>
-    
-    
-  </ul>
-</div>
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E9J8FN5B4Q');
+        }
+      </script>
 
 
-
-<script>
-  var menuTitle = document.querySelectorAll('.menu__title');
-  var modal = document.getElementById("myModal");
-  var drawer = document.getElementById('myDrawer');
-
-  var closeDrawer = function () {
-    setTimeout(function () {
-      modal.style.opacity = 0;
-      drawer.style.left = '-100%';
-      modal.style.left = '-100%';
-    }, 250);
-  }
-
-  menuTitle ? 
-  menuTitle.forEach(function(elem) {
-    elem.onclick = function() {
-      closeDrawer();
-      localStorage.setItem('isDrawerOpen', 'false');
-    }
-  }) : null;
-</script>
-  </div>
-</div>
-<div id="myModal" class="modal" style=""></div>
-
-<script>
-  var isDrawerOpen = localStorage.getItem('isDrawerOpen');
-  var modal = document.getElementById("myModal");
-  var drawer = document.getElementById('myDrawer');
-  
-  
-  var languagedir = JSON.parse("\"ltr\"");
-
-  var openDrawer = function () {
-    modal.style.opacity = 1;
-    
-    if (languagedir === "rtl") {
-      modal.style.right = 0;
-      drawer.style.right = 0;
-    } else {
-      modal.style.left = 0;
-      drawer.style.left = 0;
-    }
-  }
-
-  if (isDrawerOpen && isDrawerOpen === 'true') {
-    openDrawer();
-  }
-</script>
-        
-<nav class="nav">
-  <div class="navbar__wrapper" data-bgimg="false">
-    <div class="divider">
-      <div class="navbar lmr">
-        <div id="siteLogo" class="navbar__logo--wrapper">
-  
-    <a href="/" title="" rel="home" class="navbar__logo--link">
-      <img src="/logo.png" alt="Home" class="navbar__logo">
-    </a>
-  
-  
-    <a href="/" title="" rel="home" class="navbar__logo--text-link">
-      <h6 class="navbar__logo--text" data-bgimg="false">発火後忘失</h6>
-    </a>
-  
-</div>
-        
-        <div class="navbar__menu--wrapper">
-          <div id="tabletLogo" class="hide">
-  
-  <a href="/" rel="home" class="navbar__logo--link">
-    <img src="/logo.png" alt="Home" class="navbar__logo">
-  </a>
-  
-</div>
-          <div id="mobileLogo" class="hide">
-  <a href="#" class="navbar__logo--link">
-    <div class="navbar__icons--icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M4 18h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zm0-5h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zM3 7c0 .55.45 1 1 1h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1z"/></svg>
-    </div>
-  </a>
-</div>
-          <span id="navMenuMobile" class="hide">
-  <button id="navCollapseBtn" class="navbar__dropdown--title" aria-label="Section Menu" data-dir="ltr">
-    
-      発火後忘失
-    
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M8.12 9.29L12 13.17l3.88-3.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-4.59 4.59c-.39.39-1.02.39-1.41 0L6.7 10.7c-.39-.39-.39-1.02 0-1.41.39-.38 1.03-.39 1.42 0z"/></svg>
-  </button>
-  <div class="navbar__collapse" data-open="false">
-  <ul>
-    
-
-  
-  
-  
-  
-  <li class="navbar__menu--mobile-item ">
-    <a href="/blog" class="">Blog</a>
-  </li>
-
-  
-  
-  
-  
-  <li class="navbar__menu--mobile-item ">
-    <a href="/docs" class="">Docs</a>
-  </li>
-
-  </ul>
-</div>
-</span>
-          <ul id="navMenu" class="navbar__menu">
-            
-
-  
-  
-  
-  
-  <li class="navbar__menu--item ">
-    <a href="/blog" data-bgimg="false">Blog</a>
-  </li>
-
-  
-  
-  
-  
-  <li class="navbar__menu--item ">
-    <a href="/docs" data-bgimg="false">Docs</a>
-  </li>
-
-          </ul>
-        </div>
-        <div class="grow"></div>
-        <div id="siteSearch">
-          
-
-<div class="search" data-bgimg="false">
-  <span class="icon">
-    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M15.5 14h-.79l-.28-.27c1.2-1.4 1.82-3.31 1.48-5.34-.47-2.78-2.79-5-5.59-5.34-4.23-.52-7.79 3.04-7.27 7.27.34 2.8 2.56 5.12 5.34 5.59 2.03.34 3.94-.28 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-  </span>
-  <input id="search" aria-label="Site Search" class="input" type="text" autocomplete="off" placeholder="Search">
-  <div id="search-results" class="dropdown">
-    <div id="search-menu" class="dropdown-menu">
-    </div>
-  </div>
-</div>
-
-
-        </div>
-        <div id="mobileSearch" class="hide">
-          
-<div id="mobileSearchBtn" class="mobile-search__btn">
-  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M15.5 14h-.79l-.28-.27c1.2-1.4 1.82-3.31 1.48-5.34-.47-2.78-2.79-5-5.59-5.34-4.23-.52-7.79 3.04-7.27 7.27.34 2.8 2.56 5.12 5.34 5.59 2.03.34 3.94-.28 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-</div>
-
-<div id="search-mobile-container" class="mobile-search hide">
-  <div class="mobile-search__top">
-    <input id="search-mobile" type="text" aria-label="Mobile Search" placeholder="Search..." class="mobile-search__top--input"/>
-    <div id="search-mobile-close" class="mobile-search__top--icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path opacity=".87" fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.59-13L12 10.59 8.41 7 7 8.41 10.59 12 7 15.59 8.41 17 12 13.41 15.59 17 17 15.59 13.41 12 17 8.41z"/></svg>
-    </div>
-  </div>
-  <div id="search-mobile-results" class="mobile-search__body">
-    
-  </div>
-</div>
-
-        </div>
-        <div class="navbar__icons">
-  
-  
-<button id="toggleToDark" class="navbar__icons--icon" aria-label="Toggle to dark mode">
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="currentColor" d="M20 15.31L23.31 12 20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
-</button>
-<button id="toggleToLight" class="navbar__icons--icon" aria-label="Toggle to light mode">
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path fill="currentColor" d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/></svg>
-</button>
-<script>
-  var theme = localStorage.getItem('theme');
-  var toggleToLightBtn = document.getElementById('toggleToLight');
-  var toggleToDarkBtn = document.getElementById('toggleToDark');
-
-  if (theme && theme === 'dark') {
-    toggleToLightBtn.className = 'navbar__icons--icon';
-    toggleToDarkBtn.className = 'hide';
-  } else {
-    toggleToLightBtn.className = 'hide';
-    toggleToDarkBtn.className = 'navbar__icons--icon';
-  }
-</script>
-
-  <div class="navbar__icons--icon">
-    <a href="https://github.com/yukihane/github-io-blog" title="Github repository" aria-label="Github repository" target="_blank" rel="noreferrer">
-    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"><path d="M10.9,2.1c-4.6,0.5-8.3,4.2-8.8,8.7c-0.5,4.7,2.2,8.9,6.3,10.5C8.7,21.4,9,21.2,9,20.8v-1.6c0,0-0.4,0.1-0.9,0.1 c-1.4,0-2-1.2-2.1-1.9c-0.1-0.4-0.3-0.7-0.6-1C5.1,16.3,5,16.3,5,16.2C5,16,5.3,16,5.4,16c0.6,0,1.1,0.7,1.3,1c0.5,0.8,1.1,1,1.4,1 c0.4,0,0.7-0.1,0.9-0.2c0.1-0.7,0.4-1.4,1-1.8c-2.3-0.5-4-1.8-4-4c0-1.1,0.5-2.2,1.2-3C7.1,8.8,7,8.3,7,7.6c0-0.4,0-0.9,0.2-1.3 C7.2,6.1,7.4,6,7.5,6c0,0,0.1,0,0.1,0C8.1,6.1,9.1,6.4,10,7.3C10.6,7.1,11.3,7,12,7s1.4,0.1,2,0.3c0.9-0.9,2-1.2,2.5-1.3 c0,0,0.1,0,0.1,0c0.2,0,0.3,0.1,0.4,0.3C17,6.7,17,7.2,17,7.6c0,0.8-0.1,1.2-0.2,1.4c0.7,0.8,1.2,1.8,1.2,3c0,2.2-1.7,3.5-4,4 c0.6,0.5,1,1.4,1,2.3v2.6c0,0.3,0.3,0.6,0.7,0.5c3.7-1.5,6.3-5.1,6.3-9.3C22,6.1,16.9,1.4,10.9,2.1z"/></svg>
-    </a>
-  </div>
-</div>
-
-
-      </div>
-    </div>
-  </div>
-</nav>
-
-<script>
-  var siteLogo = document.getElementById('siteLogo');
-  var tabletLogo = document.getElementById('tabletLogo');
-  var mobileLogo = document.getElementById('mobileLogo');
-  var navMenu = document.getElementById('navMenu');
-  var navMenuMobile = document.getElementById('navMenuMobile');
-  var siteSearch = document.getElementById('siteSearch');
-  var mobileSearch = document.getElementById('mobileSearch');
-  
-  enquire.register("screen and (max-width:1280px)", {
-    match: function () {
-      siteLogo.className = 'navbar__logo--wrapper';
-      tabletLogo.className = 'hide';
-      mobileLogo.className = 'hide';
-      navMenu.className = 'navbar__menu';
-      navMenuMobile.className = 'hide';
-      siteSearch.className = '';
-      mobileSearch.className = 'hide';
-    },
-    unmatch: function () {
-      siteLogo.className = 'navbar__logo--wrapper';
-      tabletLogo.className = 'hide';
-      mobileLogo.className = 'hide';
-      navMenu.className = 'navbar__menu';
-      navMenuMobile.className = 'hide';
-      siteSearch.className = '';
-      mobileSearch.className = 'hide';
-    },
-  }).register("screen and (max-width:960px)", {
-    match: function () {
-      siteLogo.className = 'hide';
-      tabletLogo.className = '';
-      mobileLogo.className = 'hide';
-      navMenu.className = 'navbar__menu';
-      navMenuMobile.className = 'hide';
-      siteSearch.className = 'hide';
-      mobileSearch.className = 'navbar__icons--icon';
-    },
-    unmatch: function () {
-      siteLogo.className = 'navbar__logo--wrapper';
-      tabletLogo.className = 'hide';
-      mobileLogo.className = 'hide';
-      navMenu.className = 'navbar__menu';
-      navMenuMobile.className = 'hide';
-      siteSearch.className = '';
-      mobileSearch.className = 'hide';
-    },
-  }).register("screen and (max-width:600px)", {
-    match: function () {
-      siteLogo.className = 'hide';
-      tabletLogo.className = 'hide';
-      mobileLogo.className = '';
-      navMenu.className = 'hide';
-      navMenuMobile.className = '';
-      siteSearch.className = 'hide';
-      mobileSearch.className = 'navbar__icons--icon';
-    },
-    unmatch: function () {
-      siteLogo.className = 'hide';
-      tabletLogo.className = '';
-      mobileLogo.className = 'hide';
-      navMenu.className = 'navbar__menu';
-      navMenuMobile.className = 'hide';
-      siteSearch.className = 'hide';
-      mobileSearch.className = 'navbar__icons--icon';
-    },
-  });
-</script>
-
-        
-  <div class="top">
-  <header class="header home__banner--wrapper">
-    <div class="divider">
-      <div class="lmr">
-        
-      </div>
-    </div>
-  </header>
-</div>
-
-        
-  <div class="mid">
-  <main class="main">
-    
-
-<div class="divider">
-  <div class="lmr">
-    
-    <div class="home__landing" style="height: px;">
-      
-        <div class="home__landing--txt">
-          
-            
-            <div class="title" style=";">
-              発火後忘失
-            </div>
-            
-          
-            
-              <div style="height: 25px"></div>
-            
-          
-            
-              <div class="text" style=";">
-                Fire and Forget
-              </div>
-            
-          
-        </div>
-        <div class="flexcolumn">
-          
-        </div>
-      
-    </div>
-  </div>
-</div>
-
-  </main>
-  
-</div>
-
-
-        
-<div class="bot">
-  <footer class="footer">
-    <div class="divider">
-      <div class="lmr">
-        
-          <p class="caption">
-            ©2025, All Rights Reserved
-          </p>
-          
-              <p class="caption">Powered by <a href="https://gohugo.io/" rel="noreferrer">Hugo</a> and the <a href="https://github.com/zzossig/hugo-theme-zdoc" rel="noreferrer">zDoc theme</a></p>
-          
-        
-      </div>
-    </div>
-  </footer>
-</div>
-
-    </div>
-
-</body>
-
+		</div>
+		
+	</body>
 </html>

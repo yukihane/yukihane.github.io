@@ -1,118 +1,90 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Java on 発火後忘失</title>
     <link>https://yukihane.github.io/docs/java/</link>
     <description>Recent content in Java on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Thu, 23 Jul 2020 17:18:09 +0000</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/docs/java/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>Eclipse Plugin</title>
-        <link>https://yukihane.github.io/docs/java/eclipse-plugin/</link>
-        <pubDate>Sun, 26 Jul 2020 02:46:12 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/java/eclipse-plugin/</guid>
-        <description>リソース vogella社のチュートリアル のうちのいくつか Packt社刊 Eclipse Plug-in Development: Beginner’s Guide - Second Edition Eclipse Plug-in と Eclipse RCP は技術スタックが同じっぽい</description>
-      </item>
-      
-      <item>
-        <title>Eclipse</title>
-        <link>https://yukihane.github.io/docs/java/eclipse/</link>
-        <pubDate>Sun, 26 Jul 2020 02:45:24 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/java/eclipse/</guid>
-        <description>dropins ディレクトリ構成パターン 参考: The dropins folder and supported file layouts eclipse/ dropins/ org.eclipse.core.tools_1.4.0.200710121455.jar org.eclipse.releng.tools_3.3.0.v20070412/ plugin.xml tools.jar ... etc ... ... eclipse/ dropins/ eclipse/ features/ plugins/ eclipse/ dropins/ emf/ eclipse/ features/ plugins/ gef/ eclipse/ features/ plugins/ ... etc ... テンプレート変数 オフィシャルマニュアル</description>
-      </item>
-      
-      <item>
-        <title>QuickJUnit</title>
-        <link>https://yukihane.github.io/docs/java/quick-junit/</link>
-        <pubDate>Sun, 26 Jul 2020 02:43:41 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/java/quick-junit/</guid>
-        <description>マニュアルなど https://github.com/yukihane/quick-junit/blob/develop/ja/README.textile (英版にのみ書かれている情報も) http://web.archive.org/web/20080422234145/www.morijp.com/masarl/homepage3.nifty.com/masarl/article/eclipse/quick-junit.html モジュール 以下の種類のfeatureが`repository/target/reposit</description>
-      </item>
-      
-      <item>
-        <title>Minor Framework</title>
-        <link>https://yukihane.github.io/docs/java/minor-framework/</link>
-        <pubDate>Fri, 24 Jul 2020 00:36:09 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/java/minor-framework/</guid>
-        <description>いわゆるオレオレフレームワークについて。 パターンについて (Java Servletコンテナを利用した)オレオレフレームワークパターン オレオレフレームワ</description>
-      </item>
-      
-      <item>
-        <title>Object to Object Mapper</title>
-        <link>https://yukihane.github.io/docs/java/object-to-object-mapper/</link>
-        <pubDate>Fri, 24 Jul 2020 00:34:25 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/java/object-to-object-mapper/</guid>
-        <description>一覧 GitHubのstarが多い順に並べている。 Dozer MapStruct Orika Selma 上記以外: https://www.javacodegeeks.com/2013/10/java-object-to-object-mapper.html Dozerが最もメジャーであると思われるものの、開発が停滞している(※ 2017/04</description>
-      </item>
-      
-      <item>
-        <title>Commons Daemon</title>
-        <link>https://yukihane.github.io/docs/java/commons-daemon/</link>
-        <pubDate>Fri, 24 Jul 2020 00:33:01 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/java/commons-daemon/</guid>
-        <description>http://commons.apache.org/proper/commons-daemon/procrun.html prunsrv, procrun とか、呼び方は色々？(厳密には指しているものが違うと思うが…)</description>
-      </item>
-      
-      <item>
-        <title>JPA Criteria Query</title>
-        <link>https://yukihane.github.io/docs/java/jpa-criteria-query/</link>
-        <pubDate>Thu, 23 Jul 2020 18:37:41 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/java/jpa-criteria-query/</guid>
-        <description>https://docs.oracle.com/javaee/6/tutorial/doc/gjivm.html // CriteriaBuilder を使用したクエリ構築 // ここでは メールアドレス hello@example.co.jp を持つ Member の検索を行います // CriteriaBuilder インスタンスを生成します. final CriteriaBuilder cb = em.getCriteriaBuilder(); // CriteriaQuery インスタンスを生成し</description>
-      </item>
-      
-      <item>
-        <title>Maven Repository</title>
-        <link>https://yukihane.github.io/docs/java/maven-repository/</link>
-        <pubDate>Thu, 23 Jul 2020 18:36:13 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/java/maven-repository/</guid>
-        <description>通常は リポジトリマネージャ(Sonatypeの Nexusなど)を使うのが便利で良いが、レンタルサーバではJavaを動作させられなかったりする</description>
-      </item>
-      
-      <item>
-        <title>Jigsaw</title>
-        <link>https://yukihane.github.io/docs/java/jigsaw/</link>
-        <pubDate>Thu, 23 Jul 2020 18:32:39 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/java/jigsaw/</guid>
-        <description>参考リンク Webサイト Project Jigsaw: Quick Start Guide - OpenJDKのページ Java 9のモジュール機能「Project Jigsaw」の基本を紹介 (1/2)：CodeZ</description>
-      </item>
-      
-      <item>
-        <title>Bazel</title>
-        <link>https://yukihane.github.io/docs/java/bazel/</link>
-        <pubDate>Thu, 23 Jul 2020 18:30:32 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/java/bazel/</guid>
-        <description>Bazelとは ビルドシステム。Ant, Mavenなどと同系統。 ビルド対象はJavaに限らない。 Google社内のJava/JavaScrip</description>
-      </item>
-      
-      <item>
-        <title>Java</title>
-        <link>https://yukihane.github.io/docs/java/java/</link>
-        <pubDate>Thu, 23 Jul 2020 17:19:26 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/java/java/</guid>
-        <description>Mavenで差分コンパイルできない 常に [INFO] Changes detected - recompiling the module! というメッセージが出て全コンパイルが行われる事象。 http://stackoverflow.com/a/19653164/4506703 http://stackoverflow.com/a/17948010/4506703 false を設定することで、本来この機能に</description>
-      </item>
-      
-    
+    <lastBuildDate>Sun, 26 Jul 2020 02:46:12 +0000</lastBuildDate>
+    <atom:link href="https://yukihane.github.io/docs/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Eclipse Plugin</title>
+      <link>https://yukihane.github.io/docs/java/eclipse-plugin/</link>
+      <pubDate>Sun, 26 Jul 2020 02:46:12 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/java/eclipse-plugin/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_リソース&#34;&gt;リソース&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.vogella.com/tutorials/eclipseplatform.html&#34;&gt;vogella社のチュートリアル&lt;/a&gt; のうちのいくつか&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Packt社刊 &lt;a href=&#34;https://www.packtpub.com/product/eclipse-plug-in-development-beginner-s-guide-second-edition/9781783980697&#34;&gt;Eclipse Plug-in Development: Beginner’s Guide - Second Edition&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Eclipse Plug-in と Eclipse RCP は技術スタックが同じっぽいので、 RCP の記事も参考になる…のだと思う&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Eclipse</title>
+      <link>https://yukihane.github.io/docs/java/eclipse/</link>
+      <pubDate>Sun, 26 Jul 2020 02:45:24 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/java/eclipse/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;dropins_ディレクトリ構成パターン&#34;&gt;dropins ディレクトリ構成パターン&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;参考:&#xA;&lt;a href=&#34;http://help.eclipse.org/neon/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Freference%2Fmisc%2Fp2_dropins_format.html&#34;&gt;The&#xA;dropins folder and supported file layouts&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;literalblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre&gt; eclipse/&#xA;   dropins/&#xA;     org.eclipse.core.tools_1.4.0.200710121455.jar&#xA;     org.eclipse.releng.tools_3.3.0.v20070412/&#xA;       plugin.xml&#xA;       tools.jar&#xA;       ... etc ...&#xA;   ...&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;literalblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre&gt; eclipse/&#xA;   dropins/&#xA;     eclipse/&#xA;       features/&#xA;       plugins/&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;literalblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre&gt; eclipse/&#xA;   dropins/&#xA;     emf/&#xA;       eclipse/&#xA;         features/&#xA;         plugins/&#xA;     gef/&#xA;       eclipse/&#xA;         features/&#xA;         plugins/&#xA;     ... etc ...&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_テンプレート変数&#34;&gt;テンプレート変数&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://help.eclipse.org/neon/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Fconcepts%2Fconcept-template-variables.htm&#34;&gt;オフィシャルマニュアル&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://www.ibm.com/support/knowledgecenter/ja/SSQ2R2_9.1.1/org.eclipse.jdt.doc.user/concepts/concept-template-variables.htm&#34;&gt;日本語での説明&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>QuickJUnit</title>
+      <link>https://yukihane.github.io/docs/java/quick-junit/</link>
+      <pubDate>Sun, 26 Jul 2020 02:43:41 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/java/quick-junit/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_マニュアルなど&#34;&gt;マニュアルなど&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/yukihane/quick-junit/blob/develop/ja/README.textile&#34; class=&#34;bare&#34;&gt;https://github.com/yukihane/quick-junit/blob/develop/ja/README.textile&lt;/a&gt;&#xA;(&lt;a href=&#34;https://github.com/yukihane/quick-junit/blob/develop/README.textile&#34;&gt;英版&lt;/a&gt;にのみ書かれている情報も)&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://web.archive.org/web/20080422234145/www.morijp.com/masarl/homepage3.nifty.com/masarl/article/eclipse/quick-junit.html&#34; class=&#34;bare&#34;&gt;http://web.archive.org/web/20080422234145/www.morijp.com/masarl/homepage3.nifty.com/masarl/article/eclipse/quick-junit.html&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_モジュール&#34;&gt;モジュール&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;以下の種類のfeatureが`repository/target/repository/`以下に生成される:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;junit.extensions.eclipse.quick.feature&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;junit.extensions.eclipse.quick.mock.feature&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;junit.extensions.eclipse.quick.notifications.feature&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;junit.extensions.eclipse.quick.pde.feature&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;junit.extensions.eclipse.quick.process.feature&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;junit.extensions.eclipse.quick.template.feature&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect2&#34;&gt;&#xA;&lt;h3 id=&#34;_junit_extensions_eclipse_quick_feature&#34;&gt;junit.extensions.eclipse.quick.feature&lt;/h3&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;code&gt;Ctrl+9&lt;/code&gt;: プロダクトコードとテストコード切り替え&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;code&gt;Ctrl+0&lt;/code&gt;: テスト実行&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;code&gt;Ctrl+Shift+0&lt;/code&gt;: テストデバッグ実行&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Minor Framework</title>
+      <link>https://yukihane.github.io/docs/java/minor-framework/</link>
+      <pubDate>Fri, 24 Jul 2020 00:36:09 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/java/minor-framework/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;いわゆるオレオレフレームワークについて。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_パターンについて&#34;&gt;パターンについて&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://himeji-cs.jp/blog/2018/02/03/self-made-framework-pattern/&#34;&gt;(Java&#xA;Servletコンテナを利用した)オレオレフレームワークパターン&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://himeji-cs.jp/blog/2018/02/04/front-controller-pattern/&#34;&gt;オレオレフレームワークパターンの正体:&#xA;Front Controller Pattern&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;上記のリンク先にまとめたが、Servletコンテナ上で動く、Front&#xA;Controllerパターンで実装されたものがほとんではないか。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Object to Object Mapper</title>
+      <link>https://yukihane.github.io/docs/java/object-to-object-mapper/</link>
+      <pubDate>Fri, 24 Jul 2020 00:34:25 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/java/object-to-object-mapper/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_一覧&#34;&gt;一覧&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;GitHubのstarが多い順に並べている。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;olist arabic&#34;&gt;&#xA;&lt;ol class=&#34;arabic&#34;&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/DozerMapper/dozer&#34;&gt;Dozer&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/mapstruct/mapstruct&#34;&gt;MapStruct&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/orika-mapper/orika&#34;&gt;Orika&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/xebia-france/selma&#34;&gt;Selma&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;上記以外:&#xA;&lt;a href=&#34;https://www.javacodegeeks.com/2013/10/java-object-to-object-mapper.html&#34; class=&#34;bare&#34;&gt;https://www.javacodegeeks.com/2013/10/java-object-to-object-mapper.html&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Dozerが最もメジャーであると思われるものの、開発が停滞している(※&#xA;2017/04 頃から再開されつつあるようにも見える)。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Dozerは他と比較しパフォーマンスが劣後している模様。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Commons Daemon</title>
+      <link>https://yukihane.github.io/docs/java/commons-daemon/</link>
+      <pubDate>Fri, 24 Jul 2020 00:33:01 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/java/commons-daemon/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://commons.apache.org/proper/commons-daemon/procrun.html&#34; class=&#34;bare&#34;&gt;http://commons.apache.org/proper/commons-daemon/procrun.html&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;prunsrv, procrun&#xA;とか、呼び方は色々？(厳密には指しているものが違うと思うが…)&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>JPA Criteria Query</title>
+      <link>https://yukihane.github.io/docs/java/jpa-criteria-query/</link>
+      <pubDate>Thu, 23 Jul 2020 18:37:41 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/java/jpa-criteria-query/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://docs.oracle.com/javaee/6/tutorial/doc/gjivm.html&#34; class=&#34;bare&#34;&gt;https://docs.oracle.com/javaee/6/tutorial/doc/gjivm.html&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;listingblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;            // CriteriaBuilder を使用したクエリ構築&#xA;            // ここでは メールアドレス hello@example.co.jp を持つ Member の検索を行います&#xA;&#xA;            // CriteriaBuilder インスタンスを生成します.&#xA;            final CriteriaBuilder cb = em.getCriteriaBuilder();&#xA;&#xA;            // CriteriaQuery インスタンスを生成します.&#xA;            // ここで引数に指定するのは, クエリ実行結果として期待する型です.&#xA;            final CriteriaQuery&amp;lt;Member&amp;gt; cq = cb.createQuery(Member.class);&#xA;&#xA;            // FROM句で指定する情報相当のものをセットします.&#xA;            // クエリルートインスタンスが生成されます.&#xA;            final Root&amp;lt;Member&amp;gt; member = cq.from(Member.class);&#xA;&#xA;            // where で条件を設定します.&#xA;            // フィールドの指定にはMetamodel(エンティティ名にアンダーバーを付与したもの)が使えます.&#xA;            // where member.mailaddress = &amp;#39;hello@example.co.jp&amp;#39;&#xA;            // と指定したようなイメージです&#xA;            cq.where(cb.equal(member.get(Member_.mailAddress), &amp;#34;hello@example.co.jp&amp;#34;));&#xA;&#xA;            // クライテリアクエリが完成したら, そのインスタンスからクエリを生成します.&#xA;            final TypedQuery&amp;lt;Member&amp;gt; q = em.createQuery(cq);&#xA;&#xA;            // ただ1つの結果となることを期待するクエリであれば&#xA;            // getSingleResult メソッドを実行し結果を取得します.&#xA;            final Member res = q.getSingleResult();&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Maven Repository</title>
+      <link>https://yukihane.github.io/docs/java/maven-repository/</link>
+      <pubDate>Thu, 23 Jul 2020 18:36:13 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/java/maven-repository/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;通常は &lt;a href=&#34;https://maven.apache.org/repository-management.html&#34;&gt;リポジトリマネージャ&lt;/a&gt;(Sonatypeの &lt;a href=&#34;https://www.sonatype.com/download-oss-sonatype&#34;&gt;Nexus&lt;/a&gt;など)を使うのが便利で良いが、レンタルサーバではJavaを動作させられなかったりするため、Apache&#xA;httpdとscpで実現する方式を記載。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;参考:&#xA;&lt;a href=&#34;http://maven.apache.org/plugins/maven-deploy-plugin/examples/deploy-ssh-external.html&#34; class=&#34;bare&#34;&gt;http://maven.apache.org/plugins/maven-deploy-plugin/examples/deploy-ssh-external.html&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;olist arabic&#34;&gt;&#xA;&lt;ol class=&#34;arabic&#34;&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://maven.apache.org/settings.html&#34;&gt;&lt;code&gt;$M2_HOME/conf/settings.xml&lt;/code&gt;&lt;/a&gt;を`~/.m2/`ディレクトリに無ければコピーする。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;#&#xA;`servers`タグの下に`server`タグを作成し、上記ページのようにサーバ情報を記述する。今回記述したのは`id`と`username`のみでよかった。(公開鍵認証)&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Jigsaw</title>
+      <link>https://yukihane.github.io/docs/java/jigsaw/</link>
+      <pubDate>Thu, 23 Jul 2020 18:32:39 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/java/jigsaw/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_参考リンク&#34;&gt;参考リンク&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;sect2&#34;&gt;&#xA;&lt;h3 id=&#34;_webサイト&#34;&gt;Webサイト&lt;/h3&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://openjdk.java.net/projects/jigsaw/quick-start&#34;&gt;Project Jigsaw:&#xA;Quick Start Guide&lt;/a&gt; - OpenJDKのページ&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://codezine.jp/article/detail/10524&#34;&gt;Java&#xA;9のモジュール機能「Project Jigsaw」の基本を紹介&#xA;(1/2)：CodeZine（コードジン）&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cwiki.apache.org/confluence/display/MAVEN/Java+9+-+Jigsaw&#34;&gt;Java&#xA;9 - Jigsaw - Apache Maven - Apache Software Foundation&lt;/a&gt; -&#xA;MavenプラグインのJava9対応状況&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Bazel</title>
+      <link>https://yukihane.github.io/docs/java/bazel/</link>
+      <pubDate>Thu, 23 Jul 2020 18:30:32 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/java/bazel/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_bazelとは&#34;&gt;Bazelとは&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;ビルドシステム。Ant, Mavenなどと同系統。 ビルド対象はJavaに限らない。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Google社内のJava/JavaScript境界辺りを開発している人たちが使っている形跡がある。&#xA;具体的には、GWT, J2CL, Closure Tools。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Java</title>
+      <link>https://yukihane.github.io/docs/java/java/</link>
+      <pubDate>Thu, 23 Jul 2020 17:19:26 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/java/java/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_mavenで差分コンパイルできない&#34;&gt;Mavenで差分コンパイルできない&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;常に&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;quoteblock&#34;&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;[INFO] Changes detected - recompiling the module!&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;というメッセージが出て全コンパイルが行われる事象。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/a/19653164/4506703&#34; class=&#34;bare&#34;&gt;http://stackoverflow.com/a/19653164/4506703&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/a/17948010/4506703&#34; class=&#34;bare&#34;&gt;http://stackoverflow.com/a/17948010/4506703&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;false&lt;/code&gt; を設定することで、本来この機能に期待されている &lt;strong&gt;賢い&lt;/strong&gt;&#xA;インクリメンタルコンパイルが行われなくなる。&#xA;(この賢いインクリメンタルコンパイル機能がバグっているため、全ファイル変更されたと見なされているのが現状。)&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
   </channel>
 </rss>

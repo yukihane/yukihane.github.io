@@ -1,73 +1,55 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Apps on 発火後忘失</title>
     <link>https://yukihane.github.io/docs/apps/</link>
     <description>Recent content in Apps on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Thu, 23 Jul 2020 15:31:22 +0000</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/docs/apps/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>hugo</title>
-        <link>https://yukihane.github.io/docs/apps/hugo/</link>
-        <pubDate>Thu, 23 Jul 2020 17:01:48 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/apps/hugo/</guid>
-        <description>AsciiDoc形式でblogを書くためにHugoをセットアップする。 Hugo自体はGo言語製、またAsciiDocの処理にはAsciido</description>
-      </item>
-      
-      <item>
-        <title>VS Code</title>
-        <link>https://yukihane.github.io/docs/apps/vscode/</link>
-        <pubDate>Thu, 23 Jul 2020 16:31:20 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/apps/vscode/</guid>
-        <description>設定 開いたタブをそのままにする { &amp;#34;workbench.editor.enablePreview&amp;#34;: false }</description>
-      </item>
-      
-      <item>
-        <title>ラノゲメーカーMV</title>
-        <link>https://yukihane.github.io/docs/apps/visual-novel-maker/</link>
-        <pubDate>Thu, 23 Jul 2020 16:28:57 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/apps/visual-novel-maker/</guid>
-        <description>リンク 基本情報 オフィシャルサイト オフィシャルのDL版 Steam メモ: ストア版(非Steam版)ではインストールできるのは1台(RPGツクールMVのみ</description>
-      </item>
-      
-      <item>
-        <title>Davinci Resolve</title>
-        <link>https://yukihane.github.io/docs/apps/davinci-resolve/</link>
-        <pubDate>Thu, 23 Jul 2020 16:26:52 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/apps/davinci-resolve/</guid>
-        <description>録画フォーマット OBS Studioでオーディオをマルチトラックで録画する場合にはmkvを使うのがよさそう。 ただしそのままではDavinci Res</description>
-      </item>
-      
-      <item>
-        <title>Google Chrome</title>
-        <link>https://yukihane.github.io/docs/apps/google-chrome/</link>
-        <pubDate>Thu, 23 Jul 2020 16:22:28 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/apps/google-chrome/</guid>
-        <description>インストールする機能拡張 octotree Quick Javascript Switcher uBlock Origin 検索エンジン設定 検索エンジン キーワード URL alc alc https://eow.alc.co.jp/search?q=%s Maven Central mvn https://search.maven.org/search?q=%s</description>
-      </item>
-      
-      <item>
-        <title>curl</title>
-        <link>https://yukihane.github.io/docs/apps/curl/</link>
-        <pubDate>Thu, 23 Jul 2020 15:32:22 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/docs/apps/curl/</guid>
-        <description>〜がしたい Basic認証 -u オプション。 curl -u user:password http://example.com HTTPステータスコード表示 -i オプションで出力にHTTPヘッダ情報を含められる。 curl -i http://example.com</description>
-      </item>
-      
-    
+    <lastBuildDate>Thu, 23 Jul 2020 17:01:48 +0000</lastBuildDate>
+    <atom:link href="https://yukihane.github.io/docs/apps/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>hugo</title>
+      <link>https://yukihane.github.io/docs/apps/hugo/</link>
+      <pubDate>Thu, 23 Jul 2020 17:01:48 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/apps/hugo/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;AsciiDoc形式でblogを書くためにHugoをセットアップする。&#xA;Hugo自体はGo言語製、またAsciiDocの処理にはAsciidoctorが必要で、こちらはRuby製。&#xA;これらの環境をローカルで行いたくないのでDockerコンテナ上で実行させることにする。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>VS Code</title>
+      <link>https://yukihane.github.io/docs/apps/vscode/</link>
+      <pubDate>Thu, 23 Jul 2020 16:31:20 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/apps/vscode/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_設定&#34;&gt;設定&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;開いたタブをそのままにする&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;literalblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre&gt;{&#xA;   &amp;#34;workbench.editor.enablePreview&amp;#34;: false&#xA;}&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>ラノゲメーカーMV</title>
+      <link>https://yukihane.github.io/docs/apps/visual-novel-maker/</link>
+      <pubDate>Thu, 23 Jul 2020 16:28:57 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/apps/visual-novel-maker/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_リンク&#34;&gt;リンク&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;sect2&#34;&gt;&#xA;&lt;h3 id=&#34;_基本情報&#34;&gt;基本情報&lt;/h3&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://tkool.jp/lngmv/&#34;&gt;オフィシャルサイト&lt;/a&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://tkool.jp/lngmv/download/index.html&#34;&gt;オフィシャルのDL版&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://store.steampowered.com/app/495480/Visual_Novel_Maker/&#34;&gt;Steam&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;メモ:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;ストア版(非Steam版)ではインストールできるのは1台(RPGツクールMVのみ2台)らしい(&lt;a href=&#34;https://tkool.jp/support/faq/activation&#34;&gt;オフィシャルFAQ&lt;/a&gt;)。だとすると、複数の環境で開発する場合にはSteam版の方が良いのかもしれない。&lt;/p&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;…と思いきや、 &lt;a href=&#34;https://forum.tkool.jp/index.php?threads/%E3%83%A9%E3%83%8E%E3%82%B2%E3%83%84%E3%82%AF%E3%83%BC%E3%83%ABmv%E3%81%AE%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%81%AE%E4%BD%9C%E6%88%90%E3%81%8C%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E7%97%87%E7%8A%B6.578/&#34;&gt;ストア版はSteamキーが付属している&lt;/a&gt;のでストアで買えばSteam版として使用できるらしい。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Steam版には Live2D が付属していないエディションがある。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://tkool.jp/lng/&#34;&gt;ラノゲツクール&lt;/a&gt;とラノゲツクールMVは別物。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Davinci Resolve</title>
+      <link>https://yukihane.github.io/docs/apps/davinci-resolve/</link>
+      <pubDate>Thu, 23 Jul 2020 16:26:52 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/apps/davinci-resolve/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_録画フォーマット&#34;&gt;録画フォーマット&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;OBS&#xA;Studioでオーディオをマルチトラックで録画する場合にはmkvを使うのがよさそう。&#xA;ただしそのままではDavinci Resolveが認識できないのでffmpegで変換を行う。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Google Chrome</title>
+      <link>https://yukihane.github.io/docs/apps/google-chrome/</link>
+      <pubDate>Thu, 23 Jul 2020 16:22:28 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/apps/google-chrome/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_インストールする機能拡張&#34;&gt;インストールする機能拡張&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc?hl=ja&#34;&gt;octotree&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://chrome.google.com/webstore/detail/quick-javascript-switcher/geddoclleiomckbhadiaipdggiiccfje?hl=ja&#34;&gt;Quick&#xA;Javascript Switcher&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=ja&#34;&gt;uBlock&#xA;Origin&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_検索エンジン設定&#34;&gt;検索エンジン設定&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;table class=&#34;tableblock frame-all grid-all stretch&#34;&gt;&#xA;&lt;colgroup&gt;&#xA;&lt;col style=&#34;width: 33.3333%;&#34;/&gt;&#xA;&lt;col style=&#34;width: 33.3333%;&#34;/&gt;&#xA;&lt;col style=&#34;width: 33.3334%;&#34;/&gt;&#xA;&lt;/colgroup&gt;&#xA;&lt;thead&gt;&#xA;&lt;tr&gt;&#xA;&lt;th class=&#34;tableblock halign-left valign-top&#34;&gt;検索エンジン&lt;/th&gt;&#xA;&lt;th class=&#34;tableblock halign-left valign-top&#34;&gt;キーワード&lt;/th&gt;&#xA;&lt;th class=&#34;tableblock halign-left valign-top&#34;&gt;URL&lt;/th&gt;&#xA;&lt;/tr&gt;&#xA;&lt;/thead&gt;&#xA;&lt;tbody&gt;&#xA;&lt;tr&gt;&#xA;&lt;td class=&#34;tableblock halign-left valign-top&#34;&gt;&lt;p class=&#34;tableblock&#34;&gt;alc&lt;/p&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;tableblock halign-left valign-top&#34;&gt;&lt;p class=&#34;tableblock&#34;&gt;alc&lt;/p&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;tableblock halign-left valign-top&#34;&gt;&lt;p class=&#34;tableblock&#34;&gt;https://eow.alc.co.jp/search?q=%s&lt;/p&gt;&lt;/td&gt;&#xA;&lt;/tr&gt;&#xA;&lt;tr&gt;&#xA;&lt;td class=&#34;tableblock halign-left valign-top&#34;&gt;&lt;p class=&#34;tableblock&#34;&gt;Maven Central&lt;/p&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;tableblock halign-left valign-top&#34;&gt;&lt;p class=&#34;tableblock&#34;&gt;mvn&lt;/p&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;tableblock halign-left valign-top&#34;&gt;&lt;p class=&#34;tableblock&#34;&gt;https://search.maven.org/search?q=%s&lt;/p&gt;&lt;/td&gt;&#xA;&lt;/tr&gt;&#xA;&lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>curl</title>
+      <link>https://yukihane.github.io/docs/apps/curl/</link>
+      <pubDate>Thu, 23 Jul 2020 15:32:22 +0000</pubDate>
+      <guid>https://yukihane.github.io/docs/apps/curl/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_がしたい&#34;&gt;〜がしたい&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;sect2&#34;&gt;&#xA;&lt;h3 id=&#34;_basic認証&#34;&gt;Basic認証&lt;/h3&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;-u&lt;/code&gt; オプション。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;listingblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -u user:password http://example.com&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect2&#34;&gt;&#xA;&lt;h3 id=&#34;_httpステータスコード表示&#34;&gt;HTTPステータスコード表示&lt;/h3&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;-i&lt;/code&gt; オプションで出力にHTTPヘッダ情報を含められる。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;listingblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -i http://example.com&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;</description>
+    </item>
   </channel>
 </rss>

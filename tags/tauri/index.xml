@@ -1,37 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>tauri on 発火後忘失</title>
+    <title>Tauri on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/tauri/</link>
-    <description>Recent content in tauri on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Tauri on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Sat, 16 Apr 2022 17:56:11 +0900</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/tauri/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>WSL2上のGUIアプリケーションを動かす</title>
-        <link>https://yukihane.github.io/blog/202204/16/gui-on-wsl2/</link>
-        <pubDate>Sat, 16 Apr 2022 17:56:11 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202204/16/gui-on-wsl2/</guid>
-        <description>Tauri の開発環境を Windows10 の WSL2 に移行するために、 WSL2 上の GUI アプリを Windows で表示するようにセットアップしました。 とは言いつつ、既に次の手順でセットアップしたこ</description>
-      </item>
-      
-      <item>
-        <title>Tauri を GUI にして Rust と React に入門する</title>
-        <link>https://yukihane.github.io/blog/202110/03/hello-tauri/</link>
-        <pubDate>Sun, 03 Oct 2021 08:20:21 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202110/03/hello-tauri/</guid>
-        <description>はじめに Tauri という、 WebView を利用して GUI を実現する Rust 製フレームワークを試してみました。 Rust も React も入門書から陸続きで書き始められるので、余計なことに気を</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/tauri/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WSL2上のGUIアプリケーションを動かす</title>
+      <link>https://yukihane.github.io/blog/202204/16/gui-on-wsl2/</link>
+      <pubDate>Sat, 16 Apr 2022 17:56:11 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202204/16/gui-on-wsl2/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202110/03/hello-tauri/&#34;&gt;Tauri&lt;/a&gt; の開発環境を Windows10 の WSL2 に移行するために、 WSL2 上の GUI アプリを Windows で表示するようにセットアップしました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;とは言いつつ、既に次の手順でセットアップしたことがあるので、今回はこれが動くかどうかを確認しただけですが。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Tauri を GUI にして Rust と React に入門する</title>
+      <link>https://yukihane.github.io/blog/202110/03/hello-tauri/</link>
+      <pubDate>Sun, 03 Oct 2021 08:20:21 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202110/03/hello-tauri/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://tauri.studio/&#34;&gt;Tauri&lt;/a&gt; という、 WebView を利用して GUI を実現する Rust 製フレームワークを試してみました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Rust も React も入門書から陸続きで書き始められるので、余計なことに気を取られずに済みそうです(ただし、 JS - Rust 間のデータ受け渡しに利用する JSON オブジェクトのシリアライズ/デシリアライズに利用する &lt;a href=&#34;https://serde.rs/&#34;&gt;Serde&lt;/a&gt; についての知識は少し必要になりそうでした)。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
   </channel>
 </rss>

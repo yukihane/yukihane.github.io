@@ -1,82 +1,62 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>linux on 発火後忘失</title>
+    <title>Linux on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/linux/</link>
-    <description>Recent content in linux on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Linux on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Sat, 16 Nov 2024 12:09:03 +0900</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>Centos7 に Homebrew を導入して Puppeteer を実行する</title>
-        <link>https://yukihane.github.io/blog/202411/17/centos7-homebrew/</link>
-        <pubDate>Sat, 16 Nov 2024 12:09:03 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202411/17/centos7-homebrew/</guid>
-        <description>次の回答の検証になります: CentOS7 環境で glibc を 2.27 にアップデートすると、どんな影響がありますか？ - スタック・オーバーフロー 環境は前回のエントリーで用意</description>
-      </item>
-      
-      <item>
-        <title>CentOS7実行環境を整える</title>
-        <link>https://yukihane.github.io/blog/202411/16/centos7-environment/</link>
-        <pubDate>Sat, 16 Nov 2024 05:30:06 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202411/16/centos7-environment/</guid>
-        <description>今さらCentOS7環境で検証する必要が出たので環境を整えました。 その時のメモです。 ホストOSはWindows11です。 インストール Vagrant scoop でイ</description>
-      </item>
-      
-      <item>
-        <title>Wayland では gimp でスクリーンショットを撮れなくなったり xeyes が追従しなくなったり</title>
-        <link>https://yukihane.github.io/blog/202404/06/losts-on-wayland/</link>
-        <pubDate>Sat, 06 Apr 2024 06:00:24 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202404/06/losts-on-wayland/</guid>
-        <description>セキュリティ上の理由っぽいのですが、最近 Ubuntu でやろうとしてできないことが重なり、あれ？ってなりました。 Screenshot not capturing &amp;#39;snapped&amp;#39; window; Screenshot window pops up behind main GIMP window ここで &amp;#34;Screenshot portal&amp;#34; を使</description>
-      </item>
-      
-      <item>
-        <title>CentOS6にGCC10.2.0をインストールしたときのメモ</title>
-        <link>https://yukihane.github.io/blog/202008/31/gcc-installation/</link>
-        <pubDate>Sun, 30 Aug 2020 21:32:44 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202008/31/gcc-installation/</guid>
-        <description>ビルド作業は次のページを参考にしました: gcc-10.1.0をCentOS7にソースインストール | 株式会社オルタ 環境は こちら に記載したもので</description>
-      </item>
-      
-      <item>
-        <title>Alpine Linuxでglibcじゃないことに起因する問題ってちょくちょくあるよね</title>
-        <link>https://yukihane.github.io/blog/202006/10/alpine-and-glibc-problems/</link>
-        <pubDate>Wed, 10 Jun 2020 10:17:55 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202006/10/alpine-and-glibc-problems/</guid>
-        <description>…と少し思い返していました。といっても思い出せたのは次の2つなのですが。 alpine Linuxへのawscliインストール alpineでgitがcol</description>
-      </item>
-      
-      <item>
-        <title>ワンライナー sudoers 編集</title>
-        <link>https://yukihane.github.io/blog/201805/09/edit-sudoers-oneliner/</link>
-        <pubDate>Wed, 09 May 2018 19:24:15 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201805/09/edit-sudoers-oneliner/</guid>
-        <description>Dockerfile 内で sudoers を編集しユーザ情報を追加したかった。 RUN echo &#39;myuser ALL=(ALL) NOPASSWD: ALL&#39; | EDITOR=&#39;tee -a&#39; visudo 参考: linux - How do I edit /etc/sudoers from a script? - Stack Overflow</description>
-      </item>
-      
-      <item>
-        <title>手っ取り早くRPMパッケージを作成したかった</title>
-        <link>https://yukihane.github.io/blog/201803/20/building-rpm/</link>
-        <pubDate>Tue, 20 Mar 2018 19:21:51 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201803/20/building-rpm/</guid>
-        <description>前提 既にビルド方法は確立しており、パッケージシステムに配布方法だけ任せたい、という場合に最小限の手間で RPM パッケージを作ることを考えます ビルド</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Centos7 に Homebrew を導入して Puppeteer を実行する</title>
+      <link>https://yukihane.github.io/blog/202411/17/centos7-homebrew/</link>
+      <pubDate>Sat, 16 Nov 2024 12:09:03 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202411/17/centos7-homebrew/</guid>
+      <description>&lt;p&gt;次の回答の検証になります:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://ja.stackoverflow.com/a/100397/2808&#34;&gt;CentOS7 環境で glibc を 2.27 にアップデートすると、どんな影響がありますか？ - スタック・オーバーフロー&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;環境は&lt;a href=&#34;https://yukihane.github.io/blog/202411/16/centos7-environment/&#34;&gt;前回のエントリー&lt;/a&gt;で用意したものです。&lt;/p&gt;&#xA;&lt;h2 id=&#34;セットアップ&#34;&gt;セットアップ&lt;/h2&gt;&#xA;&lt;h3 id=&#34;development-tools-インストール&#34;&gt;Development Tools インストール&lt;/h3&gt;&#xA;&lt;p&gt;あとでHomebrewに要求されるので先にインストールしておきます:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>CentOS7実行環境を整える</title>
+      <link>https://yukihane.github.io/blog/202411/16/centos7-environment/</link>
+      <pubDate>Sat, 16 Nov 2024 05:30:06 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202411/16/centos7-environment/</guid>
+      <description>&lt;p&gt;今さらCentOS7環境で検証する必要が出たので環境を整えました。&lt;br /&gt;&#xA;その時のメモです。&lt;br /&gt;&#xA;ホストOSはWindows11です。&lt;/p&gt;&#xA;&lt;h2 id=&#34;インストール&#34;&gt;インストール&lt;/h2&gt;&#xA;&lt;h3 id=&#34;vagrant&#34;&gt;Vagrant&lt;/h3&gt;&#xA;&lt;p&gt;scoop でインストールしました。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Wayland では gimp でスクリーンショットを撮れなくなったり xeyes が追従しなくなったり</title>
+      <link>https://yukihane.github.io/blog/202404/06/losts-on-wayland/</link>
+      <pubDate>Sat, 06 Apr 2024 06:00:24 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202404/06/losts-on-wayland/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;セキュリティ上の理由っぽいのですが、最近 Ubuntu でやろうとしてできないことが重なり、あれ？ってなりました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://gitlab.gnome.org/GNOME/gimp/-/issues/8510#note_2014569&#34;&gt;Screenshot not capturing &amp;#39;snapped&amp;#39; window; Screenshot window pops up behind main GIMP window&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;ここで &amp;#34;Screenshot portal&amp;#34; を使えと言われてますが、一般名詞過ぎて検索してもなんのこっちゃでしたが、おそらく以下で説明されている &lt;code&gt;xdg-desktop-portal&lt;/code&gt; のことですかね…？&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>CentOS6にGCC10.2.0をインストールしたときのメモ</title>
+      <link>https://yukihane.github.io/blog/202008/31/gcc-installation/</link>
+      <pubDate>Sun, 30 Aug 2020 21:32:44 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202008/31/gcc-installation/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;ビルド作業は次のページを参考にしました:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://aulta.co.jp/archives/7554&#34;&gt;gcc-10.1.0をCentOS7にソースインストール | 株式会社オルタ&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;環境は &lt;a href=&#34;https://yukihane.github.io/blog/202008/30/gcc-compilation-time/&#34;&gt;こちら&lt;/a&gt; に記載したものです。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;listingblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre class=&#34;highlight&#34;&gt;&lt;code&gt;curl -L -O http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/gcc-10.2.0/gcc-10.2.0.tar.xz&#xA;tar xf gcc-10.2.0.tar.xz&#xA;cd gcc-10.2.0&#xA;./contrib/download_prerequisites&#xA;./configure --enable-languages=c,c++ --prefix=/opt/gcc-10.2.0 --disable-bootstrap --disable-multilib&#xA;make -j 5&#xA;sudo make install&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;つづいて &lt;code&gt;ldoconfig&lt;/code&gt; での登録ですが、そのまま行うとエラーが出たので &lt;a href=&#34;https://qiita.com/knutpb1205/items/4a9b39bf69f1788ef69c#%E3%82%A8%E3%83%A9%E3%83%BC%E5%AF%BE%E7%AD%96&#34;&gt;こちら&lt;/a&gt; を参照にして事前に1つのファイルをリネームしておきました:&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Alpine Linuxでglibcじゃないことに起因する問題ってちょくちょくあるよね</title>
+      <link>https://yukihane.github.io/blog/202006/10/alpine-and-glibc-problems/</link>
+      <pubDate>Wed, 10 Jun 2020 10:17:55 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202006/10/alpine-and-glibc-problems/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;…と少し思い返していました。といっても思い出せたのは次の2つなのですが。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://ja.stackoverflow.com/q/66812/2808&#34;&gt;alpine Linuxへのawscliインストール&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://ja.stackoverflow.com/q/67494/2808&#34;&gt;alpineでgitがcolorにならない&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Alpine特有の問題については、「取り敢えずglibc/GNU版コマンドをインストールしてみろ」ってのが最初に採ってみる方策としてアリなのかも。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>ワンライナー sudoers 編集</title>
+      <link>https://yukihane.github.io/blog/201805/09/edit-sudoers-oneliner/</link>
+      <pubDate>Wed, 09 May 2018 19:24:15 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201805/09/edit-sudoers-oneliner/</guid>
+      <description>&lt;p&gt;&lt;code&gt;Dockerfile&lt;/code&gt; 内で &lt;code&gt;sudoers&lt;/code&gt; を編集しユーザ情報を追加したかった。&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;RUN echo &#39;myuser ALL=(ALL) NOPASSWD: ALL&#39; | EDITOR=&#39;tee -a&#39; visudo&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;参考: &lt;a href=&#34;https://stackoverflow.com/a/28382838/4506703&#34;&gt;linux - How do I edit /etc/sudoers from a script? - Stack Overflow&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>手っ取り早くRPMパッケージを作成したかった</title>
+      <link>https://yukihane.github.io/blog/201803/20/building-rpm/</link>
+      <pubDate>Tue, 20 Mar 2018 19:21:51 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201803/20/building-rpm/</guid>
+      <description>&lt;h2 id=&#34;前提&#34;&gt;前提&lt;/h2&gt;&#xA;&lt;p&gt;既にビルド方法は確立しており、パッケージシステムに配布方法だけ任せたい、という場合に最小限の手間で RPM パッケージを作ることを考えます&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;ビルドは RPM パッケージングのフロー中では行いません。既存のビルド方法でまかないます。&lt;/li&gt;&#xA;&lt;li&gt;依存関係の設定は今回無視します。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;参考リンク&#34;&gt;参考リンク&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://rpm-packaging-guide.github.io/&#34;&gt;RPM Packaging Guide&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;インストール&#34;&gt;インストール&lt;/h2&gt;&#xA;&lt;p&gt;RPM パッケージ作成のために必要なパッケージをインストールします。&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

@@ -1,28 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>vite on 発火後忘失</title>
+    <title>Vite on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/vite/</link>
-    <description>Recent content in vite on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Vite on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Sat, 26 Oct 2024 01:49:44 +0900</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/vite/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>Spring Boot 開発で SASS や TypeScript を利用するための設定(Vite)</title>
-        <link>https://yukihane.github.io/blog/202410/26/spring-boot-with-vite/</link>
-        <pubDate>Sat, 26 Oct 2024 01:49:44 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202410/26/spring-boot-with-vite/</guid>
-        <description>はじめに 次のエントリーで、Spring Boot &amp;amp; Thymeleaf な開発時に TypeScript を利用する設定を書きました。 Spring Boot と TypeScript で開発するためのプロジェクト設定(Gradle)</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/vite/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring Boot 開発で SASS や TypeScript を利用するための設定(Vite)</title>
+      <link>https://yukihane.github.io/blog/202410/26/spring-boot-with-vite/</link>
+      <pubDate>Sat, 26 Oct 2024 01:49:44 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202410/26/spring-boot-with-vite/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;次のエントリーで、Spring Boot &amp;amp; Thymeleaf な開発時に TypeScript を利用する設定を書きました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202107/10/spring-boot-with-typescript/&#34;&gt;Spring Boot と TypeScript で開発するためのプロジェクト設定(Gradle)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202107/11/spring-boot-with-babel/&#34;&gt;Spring Boot と TypeScript で開発するためのプロジェクト設定(Gradle) - Polyfill も必要とする場合&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;今回は Spring Boot &amp;amp; Thymeleaf な開発で、もうちょっとちゃんとモダンなフロントエンド開発環境を統合する手順です。&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

@@ -1,91 +1,69 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>git on 発火後忘失</title>
+    <title>Git on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/git/</link>
-    <description>Recent content in git on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Git on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Tue, 19 Apr 2022 12:55:29 +0900</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>自分の作成したGitブランチを表示する</title>
-        <link>https://yukihane.github.io/blog/202204/19/listing-my-git-branch/</link>
-        <pubDate>Tue, 19 Apr 2022 12:55:29 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202204/19/listing-my-git-branch/</guid>
-        <description>リモートブランチに一時的なブランチ、テスト的に作ったブランチなどをpushしていたのを掃除したくなりました。 複数人で共同作業するために利用し</description>
-      </item>
-      
-      <item>
-        <title>git worktree を利用していると git-commit-id-maven-plugin でエラー</title>
-        <link>https://yukihane.github.io/blog/202201/24/git-commit-id-maven-plugin-on-worktree/</link>
-        <pubDate>Mon, 24 Jan 2022 11:11:35 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202201/24/git-commit-id-maven-plugin-on-worktree/</guid>
-        <description>…​になりました。 Support of git worktree option (for JGIT) · Issue #215 · git-commit-id/git-commit-id-maven-plugin · GitHub コマンドライン引数でスキップさせるには、 #278 で導入された maven.gitcommitid.skip オプション(現時点最新版の該当コードリ</description>
-      </item>
-      
-      <item>
-        <title>Git の merge も思いの外危険</title>
-        <link>https://yukihane.github.io/blog/202105/19/git-merge-risk/</link>
-        <pubDate>Tue, 18 May 2021 23:01:49 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202105/19/git-merge-risk/</guid>
-        <description>次のblogエントリがバズっていました: Gitのワークフローについての私のスタンス | おそらくはそれさえも平凡な日々 大局としては同意なのですが</description>
-      </item>
-      
-      <item>
-        <title>いつもGitブランチ運用でこまること、考慮すべきポイントのまとめ</title>
-        <link>https://yukihane.github.io/blog/202007/21/why-git-branching-is-difficult/</link>
-        <pubDate>Mon, 20 Jul 2020 17:59:29 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202007/21/why-git-branching-is-difficult/</guid>
-        <description>現在、新しいプロジェクトに参画してGitのブランチ戦略を考えています。 何回かブランチ戦略を考え、そして運用してきたのですが、思うところを書い</description>
-      </item>
-      
-      <item>
-        <title>`git config pull.ff only` を設定しておこう</title>
-        <link>https://yukihane.github.io/blog/202007/19/use-git-pull-ff-only/</link>
-        <pubDate>Sun, 19 Jul 2020 06:47:48 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202007/19/use-git-pull-ff-only/</guid>
-        <description>私は普段全く git pull は使わず、 git fetch で賄ってきたのですが、今日たまたま git pull を行ったところ、いつの頃からか次のようなメッセージが出るようになっている</description>
-      </item>
-      
-      <item>
-        <title>bashで標準出力をファイルに、標準エラー出力を画面とファイルに出力したい</title>
-        <link>https://yukihane.github.io/blog/201908/bash-redirect-earch-other/</link>
-        <pubDate>Mon, 19 Aug 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201908/bash-redirect-earch-other/</guid>
-        <description>Git の pre-push でテスト実行を行おうとした際、通常テスト実行ではデバッグログを出しているところを、エラーを表すものだけに絞って出すようにしようと考えま</description>
-      </item>
-      
-      <item>
-        <title>gitで利用するエディタを設定したかった</title>
-        <link>https://yukihane.github.io/blog/201807/27/set-git-commit-editor/</link>
-        <pubDate>Fri, 27 Jul 2018 19:40:03 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201807/27/set-git-commit-editor/</guid>
-        <description>あるいは vim-plug をセットアップしたら git commit したときに E492: Not an editor command って怒られるようになっちゃった。 Vagrant で CentOS の Box を作るたびにひっかかる。 Git が使う editor を(vi で</description>
-      </item>
-      
-      <item>
-        <title>Git for Windowsでzipコマンドを再現する</title>
-        <link>https://yukihane.github.io/blog/201807/13/zip-on-git-for-windows/</link>
-        <pubDate>Fri, 13 Jul 2018 19:36:48 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201807/13/zip-on-git-for-windows/</guid>
-        <description>git-archive使えば何とかなることに気付きました。 ちなみにunzipコマンドは標準で使えます。 mkdir workrepo cd workrepo git init cp -r [target_file_or_dir] . git add . git commit -m commit git archive</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>自分の作成したGitブランチを表示する</title>
+      <link>https://yukihane.github.io/blog/202204/19/listing-my-git-branch/</link>
+      <pubDate>Tue, 19 Apr 2022 12:55:29 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202204/19/listing-my-git-branch/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;リモートブランチに一時的なブランチ、テスト的に作ったブランチなどをpushしていたのを掃除したくなりました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;複数人で共同作業するために利用しているので、どれが自分のブランチなのかをまずリスト化したかったので、どうすれば出力できるか調べました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>git worktree を利用していると git-commit-id-maven-plugin でエラー</title>
+      <link>https://yukihane.github.io/blog/202201/24/git-commit-id-maven-plugin-on-worktree/</link>
+      <pubDate>Mon, 24 Jan 2022 11:11:35 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202201/24/git-commit-id-maven-plugin-on-worktree/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;…​になりました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/git-commit-id/git-commit-id-maven-plugin/issues/215&#34;&gt;Support of git worktree option (for JGIT) · Issue #215 · git-commit-id/git-commit-id-maven-plugin · GitHub&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;コマンドライン引数でスキップさせるには、 &lt;a href=&#34;https://github.com/git-commit-id/git-commit-id-maven-plugin/pull/278&#34;&gt;#278&lt;/a&gt; で導入された &lt;code&gt;maven.gitcommitid.skip&lt;/code&gt; オプション(&lt;a href=&#34;https://github.com/git-commit-id/git-commit-id-maven-plugin/blob/v5.0.0/src/main/java/pl/project13/maven/git/GitCommitIdMojo.java#L241-L251&#34;&gt;現時点最新版の該当コードリンク&lt;/a&gt;)を利用して、&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;listingblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre class=&#34;highlight&#34;&gt;&lt;code&gt;mvn -Dmaven.gitcommitid.skip package&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;などとすれば良さそうです。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Git の merge も思いの外危険</title>
+      <link>https://yukihane.github.io/blog/202105/19/git-merge-risk/</link>
+      <pubDate>Tue, 18 May 2021 23:01:49 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202105/19/git-merge-risk/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;次のblogエントリがバズっていました:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://songmu.jp/riji/entry/2021-05-19-my-git-workflow.html&#34;&gt;Gitのワークフローについての私のスタンス | おそらくはそれさえも平凡な日々&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;大局としては同意なのですが、ミクロな点では、 &lt;code&gt;rebase&lt;/code&gt; 恐怖症というか、 &lt;code&gt;merge&lt;/code&gt; を信頼し過ぎているというか、少し私とは意見が異なると感じました。&#xA;そして、上記のblogのような意見が多数派ではないかと思いますので、改めて &lt;code&gt;merge&lt;/code&gt; の怖いところを具体例で示したいと思います。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>いつもGitブランチ運用でこまること、考慮すべきポイントのまとめ</title>
+      <link>https://yukihane.github.io/blog/202007/21/why-git-branching-is-difficult/</link>
+      <pubDate>Mon, 20 Jul 2020 17:59:29 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202007/21/why-git-branching-is-difficult/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;現在、新しいプロジェクトに参画してGitのブランチ戦略を考えています。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;何回かブランチ戦略を考え、そして運用してきたのですが、思うところを書いてみます。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>`git config pull.ff only` を設定しておこう</title>
+      <link>https://yukihane.github.io/blog/202007/19/use-git-pull-ff-only/</link>
+      <pubDate>Sun, 19 Jul 2020 06:47:48 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202007/19/use-git-pull-ff-only/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;私は普段全く &lt;code&gt;git pull&lt;/code&gt; は使わず、 &lt;code&gt;git fetch&lt;/code&gt; で賄ってきたのですが、今日たまたま &lt;code&gt;git pull&lt;/code&gt; を行ったところ、いつの頃からか次のようなメッセージが出るようになっていることに気づきました:&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>bashで標準出力をファイルに、標準エラー出力を画面とファイルに出力したい</title>
+      <link>https://yukihane.github.io/blog/201908/bash-redirect-earch-other/</link>
+      <pubDate>Mon, 19 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201908/bash-redirect-earch-other/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Git の pre-push でテスト実行を行おうとした際、通常テスト実行ではデバッグログを出しているところを、エラーを表すものだけに絞って出すようにしようと考えました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>gitで利用するエディタを設定したかった</title>
+      <link>https://yukihane.github.io/blog/201807/27/set-git-commit-editor/</link>
+      <pubDate>Fri, 27 Jul 2018 19:40:03 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201807/27/set-git-commit-editor/</guid>
+      <description>&lt;p&gt;あるいは vim-plug をセットアップしたら git commit したときに E492: Not an editor command って怒られるようになっちゃった。&lt;/p&gt;&#xA;&lt;p&gt;Vagrant で CentOS の Box を作るたびにひっかかる。&lt;/p&gt;&#xA;&lt;p&gt;Git が使う editor を(vi でなく)vim に設定すればよい。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git for Windowsでzipコマンドを再現する</title>
+      <link>https://yukihane.github.io/blog/201807/13/zip-on-git-for-windows/</link>
+      <pubDate>Fri, 13 Jul 2018 19:36:48 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201807/13/zip-on-git-for-windows/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;#ZgotmplZ&#34;&gt;&lt;code&gt;git-archive&lt;/code&gt;&lt;/a&gt;使えば何とかなることに気付きました。&lt;br /&gt;&#xA;ちなみに&lt;code&gt;unzip&lt;/code&gt;コマンドは標準で使えます。&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;mkdir workrepo&#xA;cd workrepo&#xA;git init&#xA;cp -r [target_file_or_dir] .&#xA;git add .&#xA;git commit -m commit&#xA;git archive -o ../myarchive.zip @&#xA;cd ..&#xA;rm -rf workrepo&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;あんまり自信ないんですけどスクリプトファイルに落とすとこんな感じ？&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

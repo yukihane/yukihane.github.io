@@ -1,82 +1,62 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>kotlin on 発火後忘失</title>
+    <title>Kotlin on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/kotlin/</link>
-    <description>Recent content in kotlin on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Kotlin on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Sat, 11 Jun 2022 11:55:44 +0900</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/kotlin/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>Kotlin の似たようなクラス</title>
-        <link>https://yukihane.github.io/blog/202206/11/kotlin-data-class-and-so-on/</link>
-        <pubDate>Sat, 11 Jun 2022 11:55:44 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202206/11/kotlin-data-class-and-so-on/</guid>
-        <description>(昔書きかけて完成していないっぽいですが、置いておいても忘れるだけなのでcommitしてしまいます) value object のことを調べていたら、 Kotlin にぱっと見似</description>
-      </item>
-      
-      <item>
-        <title>Kotlin で JPA エンティティクラスを定義する</title>
-        <link>https://yukihane.github.io/blog/202203/12/kotlin-jpa-definition/</link>
-        <pubDate>Sat, 12 Mar 2022 20:39:32 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202203/12/kotlin-jpa-definition/</guid>
-        <description>Kotlin で JPA エンティティを実装しようと思って調べた結果をまとめた記事です。 まとめ: プロジェクト構成について kotlin-jpa compiler plugin を適用する all-open compiler plugin を適用し、 @Entity, @Embeddable, @MappedSuperclass を</description>
-      </item>
-      
-      <item>
-        <title>JUnit &#43; Mockito テストケースを Kotest &#43; MockK に書き換える</title>
-        <link>https://yukihane.github.io/blog/202201/12/kotlin-kotest-mockk/</link>
-        <pubDate>Wed, 12 Jan 2022 05:14:56 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202201/12/kotlin-kotest-mockk/</guid>
-        <description>Kotest + MockK の組み合わせは Kotlin ではメジャー…​かと思いきや検索してみても公式の Mocking and Kotest にあるような例しか見つかりませんでした。 Mockito で言うところの @Mock や @InjectMocks を</description>
-      </item>
-      
-      <item>
-        <title>Kotlin で JUnit4 のテストケースを書く</title>
-        <link>https://yukihane.github.io/blog/202201/10/kotlin-junit4/</link>
-        <pubDate>Mon, 10 Jan 2022 10:23:22 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202201/10/kotlin-junit4/</guid>
-        <description>JUnit4 / Parameterized Mockito 利用 テスト対象が Lombok, MapStruct 使用 な状況で Kotlin でテストコードを書きます。 成果物: https://github.com/yukihane/hello-kotlin/tree/main/junit4-mockito-example 先にまとめを書いておきます。 (IntelliJ で Java のコードを .kt にペーストすると</description>
-      </item>
-      
-      <item>
-        <title>Kotolin のプロジェクトを Maven で作成する</title>
-        <link>https://yukihane.github.io/blog/202201/09/kotlin-maven-pom/</link>
-        <pubDate>Sun, 09 Jan 2022 14:41:04 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202201/09/kotlin-maven-pom/</guid>
-        <description>入門書を一通り読み終えたのでサンプルプロジェクトを作成しようと思いました。 JetBrains がメンテナンスしている archetype が利用できそうです。 https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-archetype-jvm mvn archetype:generate -DarchetypeGroupId=org.jetbrains.kotlin -DarchetypeArtifactId=kotlin-archetype-jvm IntelliJ IDEA から作</description>
-      </item>
-      
-      <item>
-        <title>IntelliJ 最新版(2021.3) で Kotlin と Lombok が共存できない</title>
-        <link>https://yukihane.github.io/blog/202201/05/kotlin-lombok-intellij-problem/</link>
-        <pubDate>Wed, 05 Jan 2022 06:38:51 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202201/05/kotlin-lombok-intellij-problem/</guid>
-        <description>[追記 2022-01-17] 今回リリースされた 213-1.6.10-release-944-IJ6461.79 で修正されたようです(ただし .idea ディレクトリを削除してからインポートし直す必要がありました)。 Kotlin 1.5.20 から Lombok compiler plugin という</description>
-      </item>
-      
-      <item>
-        <title>Kotlin in Action (Kotlin イン・アクション) 読書メモ</title>
-        <link>https://yukihane.github.io/blog/202201/01/kotlin-in-action/</link>
-        <pubDate>Sat, 01 Jan 2022 14:17:30 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202201/01/kotlin-in-action/</guid>
-        <description>Kotlin 関連書籍について 書籍 Kotlinイン・アクション を読んでいます。 2022 年 1 月現在の Kotlin 最新バージョン が 1.6.10 であるのに対し、本書が解説しているのは 1.0</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/kotlin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kotlin の似たようなクラス</title>
+      <link>https://yukihane.github.io/blog/202206/11/kotlin-data-class-and-so-on/</link>
+      <pubDate>Sat, 11 Jun 2022 11:55:44 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202206/11/kotlin-data-class-and-so-on/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;(昔書きかけて完成していないっぽいですが、置いておいても忘れるだけなのでcommitしてしまいます)&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202206/11/value-object/&#34;&gt;value object&lt;/a&gt; のことを調べていたら、 Kotlin にぱっと見似たような異なるクラス定義方法があることに気付いたので、それらについてまとめておきます。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Kotlin で JPA エンティティクラスを定義する</title>
+      <link>https://yukihane.github.io/blog/202203/12/kotlin-jpa-definition/</link>
+      <pubDate>Sat, 12 Mar 2022 20:39:32 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202203/12/kotlin-jpa-definition/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Kotlin で JPA エンティティを実装しようと思って調べた結果をまとめた記事です。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;まとめ:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;プロジェクト構成について&lt;/p&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://kotlinlang.org/docs/no-arg-plugin.html#jpa-support&#34;&gt;&lt;code&gt;kotlin-jpa&lt;/code&gt;&lt;/a&gt; compiler plugin を適用する&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://kotlinlang.org/docs/all-open-plugin.html&#34;&gt;&lt;code&gt;all-open&lt;/code&gt;&lt;/a&gt; compiler plugin を適用し、 &lt;code&gt;@Entity&lt;/code&gt;, &lt;code&gt;@Embeddable&lt;/code&gt;, &lt;code&gt;@MappedSuperclass&lt;/code&gt; を対象に設定する&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>JUnit &#43; Mockito テストケースを Kotest &#43; MockK に書き換える</title>
+      <link>https://yukihane.github.io/blog/202201/12/kotlin-kotest-mockk/</link>
+      <pubDate>Wed, 12 Jan 2022 05:14:56 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202201/12/kotlin-kotest-mockk/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Kotest + MockK の組み合わせは Kotlin ではメジャー…​かと思いきや検索してみても公式の&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://kotest.io/docs/framework/integrations/mocking.html&#34;&gt;Mocking and Kotest&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;にあるような例しか見つかりませんでした。&#xA;Mockito で言うところの &lt;code&gt;@Mock&lt;/code&gt; や &lt;code&gt;@InjectMocks&lt;/code&gt; を使ってモックを差し込みたいんじゃい！&#xA;ということでサンプルです。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Kotlin で JUnit4 のテストケースを書く</title>
+      <link>https://yukihane.github.io/blog/202201/10/kotlin-junit4/</link>
+      <pubDate>Mon, 10 Jan 2022 10:23:22 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202201/10/kotlin-junit4/</guid>
+      <description>&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;JUnit4 / Parameterized&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Mockito 利用&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;テスト対象が Lombok, MapStruct 使用&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;な状況で Kotlin でテストコードを書きます。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;成果物: &lt;a href=&#34;https://github.com/yukihane/hello-kotlin/tree/main/junit4-mockito-example&#34; class=&#34;bare&#34;&gt;https://github.com/yukihane/hello-kotlin/tree/main/junit4-mockito-example&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;先にまとめを書いておきます。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;(IntelliJ で Java のコードを &lt;code&gt;.kt&lt;/code&gt; にペーストすると Kotlin コードに変換してくれるが、コレジャナイ感溢れるコードになったのであまり自動変換コードを信用するのは危険かも)&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;code&gt;@Mock&lt;/code&gt; や &lt;code&gt;@InjectMocks&lt;/code&gt; を付与したフィールドは &lt;code&gt;lateinit var&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;code&gt;static&lt;/code&gt; メソッドを書きたい場合は &lt;code&gt;companion object&lt;/code&gt; で囲って &lt;code&gt;@JvmStatic&lt;/code&gt; アノテーションを付与する&lt;/p&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;今回の場合は JUnit4 のパラメータ供給メソッド(&lt;code&gt;@Parameters&lt;/code&gt;)が該当&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Kotolin のプロジェクトを Maven で作成する</title>
+      <link>https://yukihane.github.io/blog/202201/09/kotlin-maven-pom/</link>
+      <pubDate>Sun, 09 Jan 2022 14:41:04 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202201/09/kotlin-maven-pom/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;入門書を一通り読み終えたのでサンプルプロジェクトを作成しようと思いました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;JetBrains がメンテナンスしている archetype が利用できそうです。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-archetype-jvm&#34; class=&#34;bare&#34;&gt;https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-archetype-jvm&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;listingblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre class=&#34;highlight&#34;&gt;&lt;code&gt;mvn archetype:generate -DarchetypeGroupId=org.jetbrains.kotlin -DarchetypeArtifactId=kotlin-archetype-jvm&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;IntelliJ IDEA から作成した場合も似た感じの &lt;code&gt;pom.xml&lt;/code&gt; が作成されるかなと思います。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>IntelliJ 最新版(2021.3) で Kotlin と Lombok が共存できない</title>
+      <link>https://yukihane.github.io/blog/202201/05/kotlin-lombok-intellij-problem/</link>
+      <pubDate>Wed, 05 Jan 2022 06:38:51 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202201/05/kotlin-lombok-intellij-problem/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;[追記 2022-01-17] 今回リリースされた &lt;code&gt;213-1.6.10-release-944-IJ6461.79&lt;/code&gt; で修正されたようです(ただし &lt;code&gt;.idea&lt;/code&gt; ディレクトリを削除してからインポートし直す必要がありました)。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://kotlinlang.org/docs/whatsnew1520.html&#34;&gt;Kotlin 1.5.20&lt;/a&gt; から &lt;a href=&#34;https://kotlinlang.org/docs/lombok.html&#34;&gt;Lombok compiler plugin&lt;/a&gt; というものが提供されるようになり、 Kotlin から自動生成される getter などにアクセスできるようになりました(※実験的機能なようですが)。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Kotlin in Action (Kotlin イン・アクション) 読書メモ</title>
+      <link>https://yukihane.github.io/blog/202201/01/kotlin-in-action/</link>
+      <pubDate>Sat, 01 Jan 2022 14:17:30 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202201/01/kotlin-in-action/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_kotlin_関連書籍について&#34;&gt;Kotlin 関連書籍について&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;書籍 &lt;a href=&#34;https://book.mynavi.jp/ec/products/detail/id=78137&#34;&gt;Kotlinイン・アクション&lt;/a&gt; を読んでいます。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;2022 年 1 月現在の &lt;a href=&#34;https://kotlinlang.org/docs/releases.html#release-details&#34;&gt;Kotlin 最新バージョン&lt;/a&gt; が &lt;code&gt;1.6.10&lt;/code&gt; であるのに対し、本書が解説しているのは &lt;code&gt;1.0&lt;/code&gt; のようなので、役に立つのかな…と当初は考えていましたが、今のところ、これは駄目だ、というところは無さそうです。&#xA;(気になる人はドキュメントの &amp;#34;Earlier versions&amp;#34; (&lt;a href=&#34;https://kotlinlang.org/docs/whatsnew11.html&#34;&gt;このあたり&lt;/a&gt;) で新機能について説明があります)&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
   </channel>
 </rss>

@@ -1,82 +1,62 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ubuntu on 発火後忘失</title>
+    <title>Ubuntu on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/ubuntu/</link>
-    <description>Recent content in ubuntu on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Ubuntu on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Fri, 07 Feb 2025 05:47:10 +0900</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>WSLは /etc/environment を読まない</title>
-        <link>https://yukihane.github.io/blog/202502/07/etc-environment-wsl/</link>
-        <pubDate>Fri, 07 Feb 2025 05:47:10 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202502/07/etc-environment-wsl/</guid>
-        <description>このエントリーを書くためにWSL2にHugoをsnapでインストールしました。 そして hugo コマンドを実行すると&amp;hellip;そんなものはないと</description>
-      </item>
-      
-      <item>
-        <title>Ubuntu で作業していると突然マウスホイールが効かなくなる</title>
-        <link>https://yukihane.github.io/blog/202112/13/mouse-wheel-stop-working-on-ubuntu/</link>
-        <pubDate>Sun, 12 Dec 2021 19:37:57 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202112/13/mouse-wheel-stop-working-on-ubuntu/</guid>
-        <description>表題のような事象がたまに発生していて、これまではOS再起動で直していました。 その症状が今しがた出たのですが、ふと imwheel をインストールしていたこと</description>
-      </item>
-      
-      <item>
-        <title>Ubuntu20.04 で Kindle for PC</title>
-        <link>https://yukihane.github.io/blog/202103/07/kindle-for-pc-on-ubuntu20.04/</link>
-        <pubDate>Sun, 07 Mar 2021 05:21:25 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202103/07/kindle-for-pc-on-ubuntu20.04/</guid>
-        <description>以前記載していたUbuntu16.04(及び18.04)用の Kindle for PC セットアップ手順だと起動時にネットワーク接続できず利用できなくなってしまっ</description>
-      </item>
-      
-      <item>
-        <title>Ubuntuで使うKindle for PCのメニュー文字化け解消</title>
-        <link>https://yukihane.github.io/blog/202103/06/kindle-menu-tofu/</link>
-        <pubDate>Sat, 06 Mar 2021 05:21:25 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202103/06/kindle-menu-tofu/</guid>
-        <description>Ubuntuに初回セットアップしてから放置していたのですが、ずっとメニューが文字化け(豆腐表示)になっていたのが気になっていました。 この度、</description>
-      </item>
-      
-      <item>
-        <title>Ubuntu 20.04 LTS にアップグレードして問題が発生した</title>
-        <link>https://yukihane.github.io/blog/202101/21/upgrade-to-ubuntu20.04/</link>
-        <pubDate>Thu, 21 Jan 2021 14:55:11 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202101/21/upgrade-to-ubuntu20.04/</guid>
-        <description>さて2021年にもなったし、そろそろUbuntuアップグレードしても解消できない地雷は無くなっているだろう、と思い18.04からアップグレー</description>
-      </item>
-      
-      <item>
-        <title>Intel iGPU環境でのAmethyst 開発環境セットアップ</title>
-        <link>https://yukihane.github.io/blog/201910/setup-amethyst/</link>
-        <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201910/setup-amethyst/</guid>
-        <description>TL;DR Ubuntu18.04, Coffee Lake iGPU で vulkan での実行を可能にするには mesa-vulkan-drivers パッケージインストール /etc/X11/xorg.conf.d/20-intel.conf で DRI3 有効化 の2点が必要。 (おそらく実際には、実行に libvulkan1 、及び開発には加えて libvulkan-dev も</description>
-      </item>
-      
-      <item>
-        <title>Ubuntu18.04 端末の不快なエラー音 消す方法</title>
-        <link>https://yukihane.github.io/blog/201811/10/ubuntu-mute-tab-sound/</link>
-        <pubDate>Sat, 10 Nov 2018 19:56:46 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201811/10/ubuntu-mute-tab-sound/</guid>
-        <description>Ubuntu を 18.04 にアップグレードしたら端末の補完処理で tab キーを押す度にヴヴッという不快なビープ音が鳴るようになってしまった。 端末のメニューから 設定 を選</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WSLは /etc/environment を読まない</title>
+      <link>https://yukihane.github.io/blog/202502/07/etc-environment-wsl/</link>
+      <pubDate>Fri, 07 Feb 2025 05:47:10 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202502/07/etc-environment-wsl/</guid>
+      <description>&lt;p&gt;このエントリーを書くためにWSL2に&lt;a href=&#34;https://gohugo.io/installation/linux/#snap&#34;&gt;Hugoをsnapで&lt;/a&gt;インストールしました。&lt;/p&gt;&#xA;&lt;p&gt;そして &lt;code&gt;hugo&lt;/code&gt; コマンドを実行すると&amp;hellip;そんなものはないと言われてしまいました。&lt;br /&gt;&#xA;PATHが通っていないからかな？と思い &lt;code&gt;/etc/environment&lt;/code&gt; ファイルを見て見たのですが &lt;code&gt;/snap/bin&lt;/code&gt; は初めから設定されている。むむむと思いググったところ次のような記事がヒットしました:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ubuntu で作業していると突然マウスホイールが効かなくなる</title>
+      <link>https://yukihane.github.io/blog/202112/13/mouse-wheel-stop-working-on-ubuntu/</link>
+      <pubDate>Sun, 12 Dec 2021 19:37:57 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202112/13/mouse-wheel-stop-working-on-ubuntu/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;表題のような事象がたまに発生していて、これまではOS再起動で直していました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;その症状が今しがた出たのですが、ふと &lt;code&gt;imwheel&lt;/code&gt; をインストールしていたことを思い出してこれをアンインストールしてみたところ、再起動せずにスクロール機能が復活しました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Ubuntu20.04 で Kindle for PC</title>
+      <link>https://yukihane.github.io/blog/202103/07/kindle-for-pc-on-ubuntu20.04/</link>
+      <pubDate>Sun, 07 Mar 2021 05:21:25 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202103/07/kindle-for-pc-on-ubuntu20.04/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;以前記載していたUbuntu16.04(及び18.04)用の Kindle for PC セットアップ手順だと起動時にネットワーク接続できず利用できなくなってしまっていた&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Ubuntuで使うKindle for PCのメニュー文字化け解消</title>
+      <link>https://yukihane.github.io/blog/202103/06/kindle-menu-tofu/</link>
+      <pubDate>Sat, 06 Mar 2021 05:21:25 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202103/06/kindle-menu-tofu/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Ubuntuに初回セットアップしてから放置していたのですが、ずっとメニューが文字化け(豆腐表示)になっていたのが気になっていました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;この度、目次を使い倒す必要ができたので、改めて調べ直し、UbuntuでKindle for PC使う場合でも文字化けせずに利用できるようになる方法がわかりました。&#xA;次のリンクを参照してください。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Ubuntu 20.04 LTS にアップグレードして問題が発生した</title>
+      <link>https://yukihane.github.io/blog/202101/21/upgrade-to-ubuntu20.04/</link>
+      <pubDate>Thu, 21 Jan 2021 14:55:11 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202101/21/upgrade-to-ubuntu20.04/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;さて2021年にもなったし、そろそろUbuntuアップグレードしても解消できない地雷は無くなっているだろう、と思い18.04からアップグレードを敢行しました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Intel iGPU環境でのAmethyst 開発環境セットアップ</title>
+      <link>https://yukihane.github.io/blog/201910/setup-amethyst/</link>
+      <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201910/setup-amethyst/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Ubuntu18.04, Coffee Lake iGPU で vulkan での実行を可能にするには&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;code&gt;mesa-vulkan-drivers&lt;/code&gt; パッケージインストール&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;code&gt;/etc/X11/xorg.conf.d/20-intel.conf&lt;/code&gt; で DRI3 有効化&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;の2点が必要。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;(おそらく実際には、実行に &lt;code&gt;libvulkan1&lt;/code&gt; 、及び開発には加えて &lt;code&gt;libvulkan-dev&lt;/code&gt; も必要と思われるが、最初からインストールされていた)&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Ubuntu18.04 端末の不快なエラー音 消す方法</title>
+      <link>https://yukihane.github.io/blog/201811/10/ubuntu-mute-tab-sound/</link>
+      <pubDate>Sat, 10 Nov 2018 19:56:46 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201811/10/ubuntu-mute-tab-sound/</guid>
+      <description>&lt;p&gt;Ubuntu を 18.04 にアップグレードしたら端末の補完処理で tab キーを押す度にヴヴッという不快なビープ音が鳴るようになってしまった。&lt;/p&gt;&#xA;&lt;p&gt;端末のメニューから &lt;strong&gt;設定&lt;/strong&gt; を選択し設定ダイアログを開く。&lt;br /&gt;&#xA;ダイアログで自分の使用しているプロファイル(ここでは&lt;strong&gt;デフォルト&lt;/strong&gt;)を選択し、&lt;strong&gt;文字&lt;/strong&gt;タブの&lt;strong&gt;Sound&lt;/strong&gt;オプションで&lt;strong&gt;端末ベルを鳴らす&lt;/strong&gt;のチェックを外せば OK。&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

@@ -1,37 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>redux on 発火後忘失</title>
+    <title>Redux on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/redux/</link>
-    <description>Recent content in redux on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Redux on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Fri, 24 Apr 2020 21:00:56 +0000</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/redux/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>redux-devtools-extension をTypeScriptで使う</title>
-        <link>https://yukihane.github.io/blog/202004/24/redux-devtools-extension-with-typescript/</link>
-        <pubDate>Fri, 24 Apr 2020 21:00:56 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202004/24/redux-devtools-extension-with-typescript/</guid>
-        <description>https://github.com/zalmoxisus/redux-devtools-extension/blob/master/README.md#13-use-redux-devtools-extension-package-from-npm というわけで型付けされているので const store = createStore(rootReducer, undefined, devToolsEnhancer({})); で良い。 何か Qiia の記事とかを見てるとこっちの方法でばっかり書いてあるが。 Electron から使う場合はElec</description>
-      </item>
-      
-      <item>
-        <title>ReduxのBasic TutorialにTypeScriptで型を付けただけ</title>
-        <link>https://yukihane.github.io/blog/202004/15/redux-basic-tutorial/</link>
-        <pubDate>Wed, 15 Apr 2020 20:56:22 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202004/15/redux-basic-tutorial/</guid>
-        <description>Redux 多分使わないけど理解のため写経。 答え合わせに他の方が似たようなことやってないかググったけれども プラスアルファ要素(Redux Toolkit を使う、fe</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/redux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>redux-devtools-extension をTypeScriptで使う</title>
+      <link>https://yukihane.github.io/blog/202004/24/redux-devtools-extension-with-typescript/</link>
+      <pubDate>Fri, 24 Apr 2020 21:00:56 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202004/24/redux-devtools-extension-with-typescript/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/zalmoxisus/redux-devtools-extension/blob/master/README.md#13-use-redux-devtools-extension-package-from-npm&#34;&gt;https://github.com/zalmoxisus/redux-devtools-extension/blob/master/README.md#13-use-redux-devtools-extension-package-from-npm&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;というわけで型付けされているので&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;const store = createStore(rootReducer, undefined, devToolsEnhancer({}));&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;で良い。&lt;/p&gt;&#xA;&lt;p&gt;何か Qiia の記事とかを見てると&lt;a href=&#34;https://github.com/zalmoxisus/redux-devtools-extension/blob/master/docs/Recipes.md#using-in-a-typescript-project&#34;&gt;こっちの方法&lt;/a&gt;でばっかり書いてあるが。&lt;/p&gt;&#xA;&lt;hr /&gt;&#xA;&lt;p&gt;Electron から使う場合は&lt;a href=&#34;https://www.electronjs.org/docs/tutorial/devtools-extension#how-to-load-a-devtools-extension&#34;&gt;Electron 公式&lt;/a&gt;からも&lt;a href=&#34;https://github.com/zalmoxisus/redux-devtools-extension#3-for-electron&#34;&gt;redux-devtools-extension 公式&lt;/a&gt;からもリンクされている &lt;a href=&#34;https://github.com/MarshallOfSound/electron-devtools-installer&#34;&gt;electron-devtools-installer&lt;/a&gt; が利用できた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ReduxのBasic TutorialにTypeScriptで型を付けただけ</title>
+      <link>https://yukihane.github.io/blog/202004/15/redux-basic-tutorial/</link>
+      <pubDate>Wed, 15 Apr 2020 20:56:22 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202004/15/redux-basic-tutorial/</guid>
+      <description>&lt;p&gt;Redux 多分使わないけど理解のため写経。&lt;/p&gt;&#xA;&lt;p&gt;答え合わせに他の方が似たようなことやってないかググったけれども プラスアルファ要素(Redux Toolkit を使う、feature folders 流派でフォルダ分け、etc)が付いてたりして 1 対 1 で突き合わせて確認できるものが見つからなかった。ので自分が書いたものをリンクしておく:&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

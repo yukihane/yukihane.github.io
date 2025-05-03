@@ -1,73 +1,55 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>eclipse on 発火後忘失</title>
+    <title>Eclipse on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/eclipse/</link>
-    <description>Recent content in eclipse on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Eclipse on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Sat, 16 Oct 2021 08:16:59 +0900</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/eclipse/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>STS(Eclipse) で Import Getting Started Content が進まない</title>
-        <link>https://yukihane.github.io/blog/202110/16/sts-import-getting-started-content-is-stuck/</link>
-        <pubDate>Sat, 16 Oct 2021 08:16:59 +0900</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202110/16/sts-import-getting-started-content-is-stuck/</guid>
-        <description>Spring Tools 4 for Eclipse を利用していると、バージョンによって？ プロジェクト新規作成時などで &amp;#34;Import Getting Started Content&amp;#34; というタスクが走るのですがこれが全く終わらないことがあり</description>
-      </item>
-      
-      <item>
-        <title>Spring BootプロジェクトにLombokとMapStructを追加する(Eclipse &amp; Maven/Gradle)</title>
-        <link>https://yukihane.github.io/blog/202008/23/spring-lombok-mapstruct/</link>
-        <pubDate>Sun, 23 Aug 2020 03:23:31 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202008/23/spring-lombok-mapstruct/</guid>
-        <description>(2021-10-16 更新) Spring Boot プロジェクトにLombokとMapStructを追加し、かつ Eclipse で開発を行う場合の設定です。 同じようなことを何回か書いてきた気がす</description>
-      </item>
-      
-      <item>
-        <title>LombokとMapStructをEclipseで併用しようとした際の不具合がMapStruct1.4.0で解消されていた</title>
-        <link>https://yukihane.github.io/blog/202007/28/lombok-and-mapstruct-problem-is-fixed/</link>
-        <pubDate>Tue, 28 Jul 2020 12:06:03 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202007/28/lombok-and-mapstruct-problem-is-fixed/</guid>
-        <description>これまで、LombokとMapStructを併用しようとした場合、そのままだと不具合(MapStructのアノテーションプロセッシングが動作</description>
-      </item>
-      
-      <item>
-        <title>GradleでSpring Bootプロジェクトを作成してSTS(Eclipse)でインポートする手順</title>
-        <link>https://yukihane.github.io/blog/202007/26/spring-boot-gradle-eclipse/</link>
-        <pubDate>Sat, 25 Jul 2020 18:11:15 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202007/26/spring-boot-gradle-eclipse/</guid>
-        <description>はじめに Spring Initializrを使ってGradle形式でプロジェクトを作成した場合、どうやってSTS(Eclipse)へインポートするのか逡</description>
-      </item>
-      
-      <item>
-        <title>Lombokプラグインを入れているEclipseでMapStruct自動生成が機能しない</title>
-        <link>https://yukihane.github.io/blog/201908/eclipse-lombok-mapstruct/</link>
-        <pubDate>Sun, 18 Aug 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201908/eclipse-lombok-mapstruct/</guid>
-        <description>サンプルコード: https://github.com/yukihane/hello-java/tree/master/mapstruct/hello-mapstruct 上記のコードのようにLombokとMapStructを併用しているプロジェクトを、 Lombokプラグインを適用したEcli</description>
-      </item>
-      
-      <item>
-        <title>Eclipseの起動に使用するJDKを指定する（Mac）</title>
-        <link>https://yukihane.github.io/blog/201901/16/set-jvm-to-eclipse-on-mac/</link>
-        <pubDate>Wed, 16 Jan 2019 19:58:26 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/201901/16/set-jvm-to-eclipse-on-mac/</guid>
-        <description>最新の JDK をインストールしたが、古いバージョンの Eclipse も利用したい(が最新のバージョンでは起動できない)ような場合に必要となる設定です。 設定するフ</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/eclipse/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>STS(Eclipse) で Import Getting Started Content が進まない</title>
+      <link>https://yukihane.github.io/blog/202110/16/sts-import-getting-started-content-is-stuck/</link>
+      <pubDate>Sat, 16 Oct 2021 08:16:59 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202110/16/sts-import-getting-started-content-is-stuck/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://spring.io/tools&#34;&gt;Spring Tools 4 for Eclipse&lt;/a&gt; を利用していると、バージョンによって？ プロジェクト新規作成時などで &amp;#34;Import Getting Started Content&amp;#34; というタスクが走るのですがこれが全く終わらないことがあります。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Spring BootプロジェクトにLombokとMapStructを追加する(Eclipse &amp; Maven/Gradle)</title>
+      <link>https://yukihane.github.io/blog/202008/23/spring-lombok-mapstruct/</link>
+      <pubDate>Sun, 23 Aug 2020 03:23:31 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202008/23/spring-lombok-mapstruct/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;(2021-10-16 更新)&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Spring Boot プロジェクトにLombokとMapStructを追加し、かつ Eclipse で開発を行う場合の設定です。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;同じようなことを何回か書いてきた気がするのですが、結局どうすれば良いの？というのをまとめて書いたものが無いっぽいので改めて記事に起こしました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>LombokとMapStructをEclipseで併用しようとした際の不具合がMapStruct1.4.0で解消されていた</title>
+      <link>https://yukihane.github.io/blog/202007/28/lombok-and-mapstruct-problem-is-fixed/</link>
+      <pubDate>Tue, 28 Jul 2020 12:06:03 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202007/28/lombok-and-mapstruct-problem-is-fixed/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;これまで、LombokとMapStructを併用しようとした場合、そのままだと不具合(MapStructのアノテーションプロセッシングが動作しない)があり、ちょっとひと手間かけてその不具合を回避する必要がありました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>GradleでSpring Bootプロジェクトを作成してSTS(Eclipse)でインポートする手順</title>
+      <link>https://yukihane.github.io/blog/202007/26/spring-boot-gradle-eclipse/</link>
+      <pubDate>Sat, 25 Jul 2020 18:11:15 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202007/26/spring-boot-gradle-eclipse/</guid>
+      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://start.spring.io/&#34;&gt;Spring Initializr&lt;/a&gt;を使ってGradle形式でプロジェクトを作成した場合、どうやってSTS(Eclipse)へインポートするのか逡巡しました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Lombokプラグインを入れているEclipseでMapStruct自動生成が機能しない</title>
+      <link>https://yukihane.github.io/blog/201908/eclipse-lombok-mapstruct/</link>
+      <pubDate>Sun, 18 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201908/eclipse-lombok-mapstruct/</guid>
+      <description>&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;サンプルコード: &lt;a href=&#34;https://github.com/yukihane/hello-java/tree/master/mapstruct/hello-mapstruct&#34; class=&#34;bare&#34;&gt;https://github.com/yukihane/hello-java/tree/master/mapstruct/hello-mapstruct&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;上記のコードのようにLombokとMapStructを併用しているプロジェクトを、 &lt;a href=&#34;https://projectlombok.org/setup/eclipse&#34;&gt;Lombokプラグインを適用したEclipse&lt;/a&gt;で読み込ませるとMapStructのコードが自動生成されません。&#xA;そのため、Eclipse上でJUnitテストを実行すると次のように &lt;code&gt;java.lang.ClassNotFoundException: Cannot find implementation&lt;/code&gt; というエラーになります。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Eclipseの起動に使用するJDKを指定する（Mac）</title>
+      <link>https://yukihane.github.io/blog/201901/16/set-jvm-to-eclipse-on-mac/</link>
+      <pubDate>Wed, 16 Jan 2019 19:58:26 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/201901/16/set-jvm-to-eclipse-on-mac/</guid>
+      <description>&lt;p&gt;最新の JDK をインストールしたが、古いバージョンの Eclipse も利用したい(が最新のバージョンでは起動できない)ような場合に必要となる設定です。&lt;/p&gt;&#xA;&lt;h1 id=&#34;設定するファイルと設定方法&#34;&gt;設定するファイルと設定方法&lt;/h1&gt;&#xA;&lt;p&gt;&lt;code&gt;Eclipse.app/Contents/Eclipse&lt;/code&gt;　にある &lt;code&gt;eclipse.ini&lt;/code&gt; に、所望のバージョンの &lt;code&gt;java&lt;/code&gt; コマンドが入っているディレクトリを指定します。&lt;br /&gt;&#xA;&lt;code&gt;/usr/libexec/java_home -V&lt;/code&gt; で &lt;code&gt;JAVA_HOME&lt;/code&gt; 候補一覧が参照できますので、このディレクトリ + &lt;code&gt;/bin&lt;/code&gt; を指定することになります。&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

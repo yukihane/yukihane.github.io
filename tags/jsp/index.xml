@@ -1,28 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>jsp on 発火後忘失</title>
+    <title>Jsp on 発火後忘失</title>
     <link>https://yukihane.github.io/tags/jsp/</link>
-    <description>Recent content in jsp on 発火後忘失</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Jsp on 発火後忘失</description>
+    <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Fri, 10 Jul 2020 21:54:33 +0000</lastBuildDate>
-    
-        <atom:link href="https://yukihane.github.io/tags/jsp/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-      
-      <item>
-        <title>Spring-BootでJSPを使う</title>
-        <link>https://yukihane.github.io/blog/202007/11/jsp-on-springboot/</link>
-        <pubDate>Fri, 10 Jul 2020 21:54:33 +0000</pubDate>
-        
-        <guid>https://yukihane.github.io/blog/202007/11/jsp-on-springboot/</guid>
-        <description>https://start.spring.io/ で depencencies に Spring Web を追加して生成します。 生成された pom.xml に次の依存関係を追加します: pom.xml &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.tomcat.embed&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;tomcat-embed-jasper&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;!-- 必要に応じて --&amp;gt; &amp;lt;groupId&amp;gt;javax.servlet&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;jstl&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; appliction.properties に次を追加します: application.properties spring.mvc.view.prefix=/WEB-INF/view/ spring.mvc.view.suffix=.jsp src/main/webapp/WEB-INF/view/ の下</description>
-      </item>
-      
-    
+    <atom:link href="https://yukihane.github.io/tags/jsp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring-BootでJSPを使う</title>
+      <link>https://yukihane.github.io/blog/202007/11/jsp-on-springboot/</link>
+      <pubDate>Fri, 10 Jul 2020 21:54:33 +0000</pubDate>
+      <guid>https://yukihane.github.io/blog/202007/11/jsp-on-springboot/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://start.spring.io/&#34; class=&#34;bare&#34;&gt;https://start.spring.io/&lt;/a&gt; で depencencies に &lt;code&gt;Spring Web&lt;/code&gt; を追加して生成します。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;生成された &lt;code&gt;pom.xml&lt;/code&gt; に次の依存関係を追加します:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;listingblock&#34;&gt;&#xA;&lt;div class=&#34;title&#34;&gt;pom.xml&lt;/div&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&amp;lt;dependency&amp;gt;&#xA;    &amp;lt;groupId&amp;gt;org.apache.tomcat.embed&amp;lt;/groupId&amp;gt;&#xA;    &amp;lt;artifactId&amp;gt;tomcat-embed-jasper&amp;lt;/artifactId&amp;gt;&#xA;&amp;lt;/dependency&amp;gt;&#xA;&amp;lt;dependency&amp;gt;&#xA;    &amp;lt;!-- 必要に応じて --&amp;gt;&#xA;    &amp;lt;groupId&amp;gt;javax.servlet&amp;lt;/groupId&amp;gt;&#xA;    &amp;lt;artifactId&amp;gt;jstl&amp;lt;/artifactId&amp;gt;&#xA;&amp;lt;/dependency&amp;gt;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;appliction.properties&lt;/code&gt; に次を追加します:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;listingblock&#34;&gt;&#xA;&lt;div class=&#34;title&#34;&gt;application.properties&lt;/div&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;language-properties&#34; data-lang=&#34;properties&#34;&gt;spring.mvc.view.prefix=/WEB-INF/view/&#xA;spring.mvc.view.suffix=.jsp&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;src/main/webapp/WEB-INF/view/&lt;/code&gt; の下に JSP ファイルを作成します。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+    </item>
   </channel>
 </rss>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+	<head lang="ja">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>発火後忘失 | Home </title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Fire and Forget blog" />
+	<meta property="og:image" content=""/>
+	<link rel="alternate" type="application/rss+xml" href="https://yukihane.github.io/index.xml" title="発火後忘失" />
+	<meta property="og:url" content="https://yukihane.github.io/">
+  <meta property="og:site_name" content="発火後忘失">
+  <meta property="og:title" content="発火後忘失">
+  <meta property="og:description" content="Fire and Forget blog">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="発火後忘失">
+  <meta name="twitter:description" content="Fire and Forget blog">
+
+        <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
+</head>
+
+	<body>
+		<div class="content">
+			<header>
+	<div class="main">
+		<a href="https://yukihane.github.io/">発火後忘失</a>
+	</div>
+	<nav>
+		
+		<a href="blog">Blog</a>
+		
+		<a href="docs">Docs</a>
+		
+		
+	</nav>
+</header>
+
+			
+			<main class="list">
+				<div class="site-description"></div>
+				
+				
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202006/13/userdetailsservice-samples-considered-harmful-for-biginners/">So many UserDetailsService samples considered harmful for beginners</a></h1>
+					<time>2020/06/13</time>
+					<br><div class="description">
+	
+	<p>やっぱり一発目の Spring Security やってみたで UserDetailsService 使うのは止めようず。So many UserDetailsService samples considered harmful for beginners.</p>
+<h1 id="はじめに">はじめに</h1>
+<p><a href="https://qiita.com/yukihane/items/865db9e7279cf0e588a7">ちょっと待って！その UserDetails、本当に必要ですか？</a>で書いたことの繰り返しなんですけども。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202006/13/userdetailsservice-samples-considered-harmful-for-biginners/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202006/13/list-contains-null/">List#contains(null)は使わないほうが良い</a></h1>
+					<time>2020/06/13</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p><code>List</code>(などのコレクション)が要素に <code>null</code> を含むかどうかの判定に、 <code>contains(null)</code> を利用すると <code>NullPointerException</code> が発生することがあります。</p>
+</div>
+<div class="paragraph">
+<p>リファレンスには次のようにあります:</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202006/13/list-contains-null/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202006/12/userdetailsservice-conidered-harmful/">UserDetailsServiceは誤解されている</a></h1>
+					<time>2020/06/12</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>サンプルコード等だけを見ていると <code>UserDetailsService</code> を利用することがSpring Securityの唯一の認証処理実現方法だと誤解しがちですが、 <code>UserDetailsService</code> はむしろユーティリティライブラリくらいの立ち位置で、別に利用しなくても実現可能です。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202006/12/userdetailsservice-conidered-harmful/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202006/10/alpine-and-glibc-problems/">Alpine Linuxでglibcじゃないことに起因する問題ってちょくちょくあるよね</a></h1>
+					<time>2020/06/10</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>…と少し思い返していました。といっても思い出せたのは次の2つなのですが。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://ja.stackoverflow.com/q/66812/2808">alpine Linuxへのawscliインストール</a></p>
+</li>
+<li>
+<p><a href="https://ja.stackoverflow.com/q/67494/2808">alpineでgitがcolorにならない</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Alpine特有の問題については、「取り敢えずglibc/GNU版コマンドをインストールしてみろ」ってのが最初に採ってみる方策としてアリなのかも。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202006/10/alpine-and-glibc-problems/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202006/02/note-of-completablefuture/">CompletableFuture覚え書き</a></h1>
+					<time>2020/06/02</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p><code>CompletableFuture</code> の一連の非同期処理 <code>ほげAsync</code> は、デフォルトでは <a href="https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/util/concurrent/ForkJoinPool.html#commonPool()"><code>ForkJoinPool.commonPool()</code></a> という <code>ExecutorService</code> で実行されます。</p>
+</div>
+<div class="paragraph">
+<p>そしてこの <code>ExecutorService</code> のワーカスレッドはデーモンスレッドであるため、非デーモンスレッドが無くなると(≒ メインスレッドが終了すると)プール内の処理を完了させること無くプロセスが終了します。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202006/02/note-of-completablefuture/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202005/29/java-source-location/">Javaのソースファイルはpackageに対応したディレクトリ階層に置かなくても良い？</a></h1>
+					<time>2020/05/29</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p><a href="https://twitter.com/hishidama/status/1266176675768745984" class="bare">https://twitter.com/hishidama/status/1266176675768745984</a></p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>packageの宣言と実際のディレクトリが一致していなくてもmvn compile（やjavac）が成功するんですが、そういうもんでしたっけ？</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202005/29/java-source-location/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202005/27/minimal-vimrc/">ミニマル `.vimrc`</a></h1>
+					<time>2020/05/26</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>kubernetesの試験を受けるに当たって、最小限の <code>.vimrc</code> を覚えておくためのメモ:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>set autoindent
+set expandtab
+set tabstop=2
+set shiftwidth=2</code></pre>
+</div>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202005/27/minimal-vimrc/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202005/06/k8s-command-args/">DockerfileのENTRYPOINTに対応するのはcommand, CMDに対応するのがargs</a></h1>
+					<time>2020/05/06</time>
+					<br><div class="description">
+	
+	<p>CMD と command が対応しているわけではないのでまぎらわしい…</p>
+<p>Kubernetes リファレンス:</p>
+<ul>
+<li><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#container-v1-core">Container v1 core</a></li>
+</ul>
+<p>参考として Dockerfile リファレンス:</p>
+<ul>
+<li><a href="http://docs.docker.jp/engine/reference/builder.html#entrypoint">ENTRYPOINT</a></li>
+<li><a href="http://docs.docker.jp/engine/reference/builder.html#cmd">CMD</a></li>
+</ul>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202005/06/k8s-command-args/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202004/26/gke-getting-started/">GKE(Goole Kubernetes Engine)の始め方</a></h1>
+					<time>2020/04/26</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>Kubernetes入門の書籍やドキュメントの中には、Kubernetes環境が既に手元にある前提で書かれているものも多いです。</p>
+</div>
+<div class="paragraph">
+<p>そういう場合、どうやってKubernetes環境を調達して良いのかわからず、一つの手段として自前で環境を作る <a href="https://yukihane.github.io/posts/202004/26/kubernetes-the-hard-way-v1.18.2/">Kubernetes the hard way</a> をやってみたのですが、一旦環境を作ってしまうとインスタンスを起動させ続けねばならず(作り直すの面倒だし)、財布に優しくないので断念しました。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202004/26/gke-getting-started/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202004/26/kubernetes-the-hard-way-v1.18.2/">Kubernetes the hard way を最新版の1.18.2でやってみた</a></h1>
+					<time>2020/04/26</time>
+					<br><div class="description">
+	
+	<div class="sect1">
+<h2 id="_要約">要約</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>kube-apiserver</code> の起動引数を <code>--runtime-config=api/all=true</code> に修正すれば v1.18.2 でも記述どおりで動作する。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_本文">本文</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>現時点で本家 <a href="https://github.com/kelseyhightower/kubernetes-the-hard-way">Kubernetes The Hard Way</a> は1.15.3をターゲットにして構築を行っていますが、せっかくなので最新版である v1.18.2 でやってみることにしました。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202004/26/kubernetes-the-hard-way-v1.18.2/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202004/25/tmux/">Kubernetes the hard wayを試すためのtmux基礎知識</a></h1>
+					<time>2020/04/25</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p><a href="https://github.com/yukihane/kubernetes-the-hard-way">Kubernetes the hard wayをやる</a>のに`tmux`の操作を覚えておくのが良さそうだったので使いそうなものを記載しておくことにしました。</p>
+</div>
+<div class="paragraph">
+<p><code>Ctrl</code> キーと <code>b</code> キーの同時押しを <code>^b</code> と表記しています。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202004/25/tmux/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202004/24/redux-devtools-extension-with-typescript/">redux-devtools-extension をTypeScriptで使う</a></h1>
+					<time>2020/04/24</time>
+					<br><div class="description">
+	
+	<p><a href="https://github.com/zalmoxisus/redux-devtools-extension/blob/master/README.md#13-use-redux-devtools-extension-package-from-npm">https://github.com/zalmoxisus/redux-devtools-extension/blob/master/README.md#13-use-redux-devtools-extension-package-from-npm</a></p>
+<p>というわけで型付けされているので</p>
+<pre><code>const store = createStore(rootReducer, undefined, devToolsEnhancer({}));
+</code></pre>
+<p>で良い。</p>
+<p>何か Qiia の記事とかを見てると<a href="https://github.com/zalmoxisus/redux-devtools-extension/blob/master/docs/Recipes.md#using-in-a-typescript-project">こっちの方法</a>でばっかり書いてあるが。</p>
+<hr />
+<p>Electron から使う場合は<a href="https://www.electronjs.org/docs/tutorial/devtools-extension#how-to-load-a-devtools-extension">Electron 公式</a>からも<a href="https://github.com/zalmoxisus/redux-devtools-extension#3-for-electron">redux-devtools-extension 公式</a>からもリンクされている <a href="https://github.com/MarshallOfSound/electron-devtools-installer">electron-devtools-installer</a> が利用できた。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202004/24/redux-devtools-extension-with-typescript/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202004/22/electron-fileio/">Electronでfs(File IO)</a></h1>
+					<time>2020/04/22</time>
+					<br><div class="description">
+	
+	<ul>
+<li><a href="https://qiita.com/zaburo/items/eb525138b88890c5357c">Electron で File の Open と Save - Qiita</a></li>
+</ul>
+<p>を写経させてもらっていますが、、、動かない。<br />
+リンク先では Electron v4.x を利用していますが現在の最新版は <a href="https://www.electronjs.org/releases/stable#release-notes-for-v823">v8.2.3</a>。このバージョン差異が原因のようでした。</p>
+<h1 id="問題">問題</h1>
+<h2 id="1-uncaught-referenceerror-require-is-not-defined">1. Uncaught ReferenceError: require is not defined</h2>
+<p>v8.2.3 でそのまま実行すると、表題のエラーが出ています。<br />
+<a href="https://www.electronjs.org/releases/stable?version=5&amp;page=3#release-notes-for-v500">v5.0.0</a>(<a href="https://github.com/electron/electron/pull/16235">#16235</a>)より <code>nodeIntegration</code> 設定のデフォルト値が <code>false</code> に変わったためのようです。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202004/22/electron-fileio/">Read more ⟶</a>
+				</section>
+				
+				
+
+<ul class="pagination">
+	<span class="page-item page-prev">
+	
+    <a href="/page/9/" class="page-link" aria-label="Previous"><span aria-hidden="true">← Prev</span></a>
+	
+	</span>
+	<span class="page-item page-next">
+	
+    <a href="/page/11/" class="page-link" aria-label="Next"><span aria-hidden="true">Next →</span></a>
+	
+	</span>
+</ul>
+
+
+			</main>
+			<footer>
+  <div style="display:flex"></div>
+  <div class="footer-info">
+    2025  &amp;copy;{year}, All Rights Reserved |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E9J8FN5B4Q');
+        }
+      </script>
+
+
+		</div>
+		
+	</body>
+</html>
