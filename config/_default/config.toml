@@ -45,3 +45,7 @@ notAlternative = true
 
 [taxonomies]
 tag = "tags"
+
+[security]
+  [security.exec]
+    allow = ['asciidoctor']
