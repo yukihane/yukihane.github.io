@@ -7,3 +7,6 @@
 [submodule "themes/zdoc"]
 	path = themes/zdoc
 	url = https://github.com/zzossig/hugo-theme-zdoc.git
+[submodule "themes/archie"]
+	path = themes/archie
+	url = git@github.com:athul/archie.git
