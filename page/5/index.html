@@ -56,6 +56,38 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202107/31/dont-use-lombok-with-jpa/">JPA Entity には Lombok の @Data(@EqualsAndHashCode) を使用すべきでない</a></h1>
+					<time>2021/07/30</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>問題になりそうなキーワード:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>lazy loading</p>
+</li>
+<li>
+<p>collection</p>
+</li>
+<li>
+<p>循環参照</p>
+</li>
+<li>
+<p>mutability</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>@Data</code>(<code>@EqualsAndHashCode</code>) を付与すると <code>hashCode()</code> は自動で算出されるようになりますが、JPA <code>@Entity</code> では上記のような理由で、ハッシュ値が計算できなかったり要件を満たせなくなったりします。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202107/31/dont-use-lombok-with-jpa/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202107/25/resttemplate-impl-order/">RestTemplateが採用するHTTPクライアント実装の順序</a></h1>
 					<time>2021/07/24</time>
 					<br><div class="description">
@@ -297,32 +329,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/202105/15/authorization-authentication/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202105/06/ling-login-202105/">LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6)</a></h1>
-					<time>2021/05/06</time>
-					<br><div class="description">
-	
-	<div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="/blog/201908/line-login-sample/">LINEログイン機能を試してみる</a> – 発火後忘失</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>で、 Spring Boot 2.1.7 (Spring Security 5.1.6) を利用してLINEログインを行ってみました。</p>
-</div>
-<div class="paragraph">
-<p>本ドキュメントは、このコードをそのまま Spring Boot 2.4.5 へアップグレードしたところ上手く動かなかったので修正を行った記録です。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202105/06/ling-login-202105/">Read more ⟶</a>
 				</section>
 				
 				

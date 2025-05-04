@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Thu, 01 May 2025 21:19:38 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 04 May 2025 14:17:43 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>KotlinでformバインディングするときもやっぱりJava Beansにした方が良さそう</title>
+      <link>https://yukihane.github.io/blog/202505/04/kotlin-form-binding/</link>
+      <pubDate>Sun, 04 May 2025 14:17:43 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202505/04/kotlin-form-binding/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202505/01/spring-boot-form-binding/&#34;&gt;前回&lt;/a&gt; の続きになります。&lt;br /&gt;&#xA;前回はJavaでformバインディングしvalidationを行いました。&lt;/p&gt;&#xA;&lt;p&gt;今回は、Kotlinでformバインディングしてみて挙動を確認します。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Spring Boot(Spring MVC)のform送信の仕組みを少しずつ理解する</title>
       <link>https://yukihane.github.io/blog/202505/01/spring-boot-form-binding/</link>
@@ -701,13 +708,6 @@
       <pubDate>Sun, 26 Jul 2020 03:07:00 +0000</pubDate>
       <guid>https://yukihane.github.io/docs/virtualbox/</guid>
       <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_tips&#34;&gt;tips&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;sect2&#34;&gt;&#xA;&lt;h3 id=&#34;_仮想ハードディスクのuuid変更&#34;&gt;仮想ハードディスクのUUID変更&lt;/h3&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;仮想ハードディスクはVirtualBox上ではUUIDによって識別されています。&#xA;このため、仮想ハードディスクファイルをコピーして別の仮想マシンに接続しようとした場合など、同一UUIDのものが存在する旨のエラーになります。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
-    </item>
-    <item>
-      <title>Windows Python</title>
-      <link>https://yukihane.github.io/docs/python/windows-python/</link>
-      <pubDate>Sun, 26 Jul 2020 03:02:03 +0000</pubDate>
-      <guid>https://yukihane.github.io/docs/python/windows-python/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;Chocolatey&#34;&gt;ChocolateyでインストールしたPython&lt;/a&gt;3の運用について。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_proxy&#34;&gt;proxy&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;pip&lt;/code&gt; コマンドは環境変数 &lt;code&gt;http_proxy&lt;/code&gt; , &lt;code&gt;https_proxy&lt;/code&gt; を見ているので、プロキシ環境下ではこれらの設定を行っておく。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;ansible_インストール&#34;&gt;Ansible インストール&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;結論としては色々障害があり諦めた。ただし必要があれば問題を解消してインストールすることは可能と思われる。&#xA;おそらく次のリンク先の事象と同じ。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
     </item>
   </channel>
 </rss>

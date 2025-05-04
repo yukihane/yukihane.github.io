@@ -56,6 +56,28 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202006/15/spring-boot-debugging/">Spring BootのGradleでのデバッグ実行方法</a></h1>
+					<time>2020/06/15</time>
+					<br><div class="description">
+	
+	<div class="literalblock">
+<div class="content">
+<pre>gradle bootRun --debug-jvm</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>というように、<code>--debug-jvm</code> オプションを付与すれば良いようです。
+これで、デバッガ接続の待受状態で起動します。</p>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.spring.io/spring-boot/docs/current/gradle-plugin/api/org/springframework/boot/gradle/tasks/run/BootRun.html"><code>BootRun</code></a> は <a href="https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/JavaExec.html"><code>JavaExec</code></a> を継承していますが、この <code>--debug-jvm</code> は後者のリファレンスで言及されています。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202006/15/spring-boot-debugging/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202006/13/userdetailsservice-samples-considered-harmful-for-biginners/">So many UserDetailsService samples considered harmful for beginners</a></h1>
 					<time>2020/06/13</time>
 					<br><div class="description">
@@ -270,25 +292,6 @@ set shiftwidth=2</code></pre>
 	
 </div>
 					<a class="readmore" href="/blog/202004/24/redux-devtools-extension-with-typescript/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202004/22/electron-fileio/">Electronでfs(File IO)</a></h1>
-					<time>2020/04/22</time>
-					<br><div class="description">
-	
-	<ul>
-<li><a href="https://qiita.com/zaburo/items/eb525138b88890c5357c">Electron で File の Open と Save - Qiita</a></li>
-</ul>
-<p>を写経させてもらっていますが、、、動かない。<br />
-リンク先では Electron v4.x を利用していますが現在の最新版は <a href="https://www.electronjs.org/releases/stable#release-notes-for-v823">v8.2.3</a>。このバージョン差異が原因のようでした。</p>
-<h1 id="問題">問題</h1>
-<h2 id="1-uncaught-referenceerror-require-is-not-defined">1. Uncaught ReferenceError: require is not defined</h2>
-<p>v8.2.3 でそのまま実行すると、表題のエラーが出ています。<br />
-<a href="https://www.electronjs.org/releases/stable?version=5&amp;page=3#release-notes-for-v500">v5.0.0</a>(<a href="https://github.com/electron/electron/pull/16235">#16235</a>)より <code>nodeIntegration</code> 設定のデフォルト値が <code>false</code> に変わったためのようです。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202004/22/electron-fileio/">Read more ⟶</a>
 				</section>
 				
 				

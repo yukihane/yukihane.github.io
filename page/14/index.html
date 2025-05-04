@@ -56,6 +56,19 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/201908/hello/">JBakeはじめました</a></h1>
+					<time>2019/08/03</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>個人的にMarkDownはあまり好きではなく(標準だと表現力が弱いし方言が多い！)、ずっとblogをAsciiDocで書く方法を模索していました。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201908/hello/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/201907/18/spring-boot-filter-bean/">Spring Bootは、セキュリティフィルタBeanを作っている分だけ、無料で認証できちまうんだ</a></h1>
 					<time>2019/07/18</time>
 					<br><div class="description">
@@ -412,29 +425,6 @@ private RestTemplateBuilder builder;
 	
 </div>
 					<a class="readmore" href="/blog/201905/21/spring-boog-json-convert/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201904/27/java-properties-is-not-utf8/">Java9以降.propertiesファイルをUTF-8で書けるようになった、は正しい？</a></h1>
-					<time>2019/04/27</time>
-					<br><div class="description">
-	
-	<h1 id="解答">解答</h1>
-<p>正しくない。</p>
-<ul>
-<li>Java9(<a href="https://bugs.java.com/bugdatabase/view_bug.do?bug_id=8043553">JEP226</a>)で変わったのはリソースバンドルの取り扱い(<a href="https://docs.oracle.com/javase/jp/9/docs/api/java/util/PropertyResourceBundle.html">PropertyResourceBundle</a>) であって プロパティファイル <code>.properties</code> 全般の話ではない。</li>
-<li>プロパティファイル<code>.properties</code>の文字エンコーディングについての取り決めはない。それを取り扱うプログラム次第であり<code>UTF-8</code>を正しく認識してくれるとは限らない。
-<ul>
-<li>標準 API で <code>UTF-8</code>として(読もうと思えば)読めるようになったのは <strong>1.6</strong> からであって <strong>9</strong> からではない。ちなみに 1.5 以前は <code>ISO 8859-1</code> 前提。</li>
-</ul>
-</li>
-</ul>
-<h1 id="背景">背景</h1>
-<p>私はうろ覚えで何となく、現在の Java では <code>.properties</code> ファイルを <code>UTF-8</code> で書ける、<code>ascii2native</code>は過去の遺物になった、のだと思いこんでいました。<br />
-ところが Spring Boot の <code>application.properties</code> に <code>UTF-8</code> で日本語を書いたところ文字化けしてしまい、あれ、もしかして自分の理解が間違っているのかと思い調べ直したのがこの記事です。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201904/27/java-properties-is-not-utf8/">Read more ⟶</a>
 				</section>
 				
 				

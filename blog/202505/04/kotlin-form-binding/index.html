@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html><head lang="ja">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>KotlinでformバインディングするときもやっぱりJava Beansにした方が良さそう - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="はじめに
+前回 の続きになります。
+前回はJavaでformバインディングしvalidationを行いました。
+今回は、Kotlinでformバインディングしてみて挙動を確認します。" />
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content="https://yukihane.github.io/blog/202505/04/kotlin-form-binding/">
+  <meta property="og:site_name" content="発火後忘失">
+  <meta property="og:title" content="KotlinでformバインディングするときもやっぱりJava Beansにした方が良さそう">
+  <meta property="og:description" content="はじめに 前回 の続きになります。
+前回はJavaでformバインディングしvalidationを行いました。
+今回は、Kotlinでformバインディングしてみて挙動を確認します。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-05-04T14:17:43+09:00">
+    <meta property="article:modified_time" content="2025-05-04T14:17:43+09:00">
+    <meta property="article:tag" content="Spring-Boot">
+    <meta property="article:tag" content="Kotlin">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="KotlinでformバインディングするときもやっぱりJava Beansにした方が良さそう">
+  <meta name="twitter:description" content="はじめに 前回 の続きになります。
+前回はJavaでformバインディングしvalidationを行いました。
+今回は、Kotlinでformバインディングしてみて挙動を確認します。">
+
+        <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://yukihane.github.io/">発火後忘失</a>
+	</div>
+	<nav>
+		
+		<a href="/blog">Blog</a>
+		
+		<a href="/docs">Docs</a>
+		
+		<a href="/tags">Tags</a>
+		
+		<a href="https://github.com/yukihane/resume/blob/main/README.md">Profile</a>
+		
+		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
+</svg></span>
+		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
+		
+	</nav>
+</header>
+
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        <div class="title">
+          <h1 class="title">KotlinでformバインディングするときもやっぱりJava Beansにした方が良さそう</h1>
+          <div class="meta">Posted on 2025/05/04</div>
+        </div>
+        
+        <section class="body">
+          <h2 id="はじめに">はじめに</h2>
+<p><a href="/blog/202505/01/spring-boot-form-binding/">前回</a> の続きになります。<br />
+前回はJavaでformバインディングしvalidationを行いました。</p>
+<p>今回は、Kotlinでformバインディングしてみて挙動を確認します。</p>
+<h2 id="いろんなバリエーションの型でformバインディングしてみる">いろんなバリエーションの型でformバインディングしてみる</h2>
+<h3 id="primary-constructor-val-non-null">primary-constructor val non-null</h3>
+<ul>
+<li><a href="https://github.com/yukihane/hello-java/tree/e26aa159289f866fe64484ff04f885093cc31988/spring/validation/kotlin-form-binding">ソースコード</a>
+<ul>
+<li>hash: e26aa159289f866fe64484ff04f885093cc31988</li>
+<li>path: spring/validation/kotlin-form-binding</li>
+</ul>
+</li>
+</ul>
+<p>Javaプログラマー(私)がKotlinを始めてまずやろうとするのはこんなところではないでしょうか:</p>
+<ul>
+<li>formバインディングクラスは不変であるべき -&gt; <code>val</code> でプロパティ宣言する</li>
+<li>必須入力のものはnon-nullで定義する</li>
+</ul>
+<p>具体的には次のような実装です(<a href="https://github.com/yukihane/hello-java/blob/e26aa159289f866fe64484ff04f885093cc31988/spring/validation/kotlin-form-binding/src/main/kotlin/com/example/kotlin_form_binding/DataClassValForm.kt"><code>DataClassValForm.kt</code></a>):</p>
+<pre tabindex="0"><code>data class DataClassValForm(
+    /** 名前(必須) */
+    @field:NotNull
+    @field:NotEmpty
+    val name: String,
+
+    /** 生年月日(必須) */
+    @field:NotNull
+    @field:DateTimeFormat(iso = DATE)
+    val birthDate: LocalDate,
+
+    /** 年齢(任意) */
+    val age: Short?,
+
+    /** 家族 */
+    @field:Valid
+    @field:NotNull
+    val families: List&lt;DataClassFamily&gt; = emptyList(),
+)
+
+data class DataClassFamily(
+    /** 家族の名前(必須) */
+    @field:NotNull
+    @field:NotEmpty
+    val familyName: String,
+)
+</code></pre><p>ではこれを実行してみましょう。</p>
+<pre tabindex="0"><code>./gradlew bootRun
+</code></pre><p>で起動したらブラウザーで http://localhost:8080/dataClassVal にアクセスしてみます。</p>
+<p>…サーバーでエラーが発生しますね。</p>
+<blockquote>
+<p>Parameter specified as non-null is null: method com.example.kotlin_form_binding.DataClassValForm.<init>, parameter name</p></blockquote>
+<p>というこどで、 <code>DataClassValForm</code> のコンストラクション時に、 <code>String</code> 型である <code>name</code> に <code>null</code> が入ってしまっているようです。</p>
+<p>改めて実装を見てみると、<a href="https://github.com/yukihane/hello-java/blob/e26aa159289f866fe64484ff04f885093cc31988/spring/validation/kotlin-form-binding/src/main/kotlin/com/example/kotlin_form_binding/MyController.kt#L43">ハンドラー</a></p>
+<pre tabindex="0"><code>fun dataClassValForm(model: Model, @ModelAttribute(&#34;profile&#34;) form: DataClassValForm): String {
+</code></pre><p>の引数、 <code>form</code> オブジェクトがフレームワークによって生成されているはずです。<br />
+このオブジェクトの <code>name</code> プロパティのデフォルト値は…まあ普通に考えて <code>null</code> でしょうね。<br />
+なのでオブジェクト型はnullableでなければならないようです。</p>
+<p>ちなみにpostではどうなるかというと、</p>
+<pre tabindex="0"><code>curl -X POST http://localhost:8080/dataClassVal \
+  -H &#34;Content-Type: application/x-www-form-urlencoded&#34; \
+  -d &#34;name=鈴木一郎&#34; \
+  -d &#34;birthDate=x&#34; \
+  -d &#34;age=28&#34; \
+  -d &#34;families[0].familyName=鈴木さくら&#34;
+</code></pre><p><code>birthdate</code> に不正な値が入った時、データバインディングフェーズで <code>LocalDate</code> に <code>null</code> が設定されるのでやはりうまくいきません。</p>
+<h3 id="primary-constructor-val-nullable">primary-constructor val nullable</h3>
+<p>前節の通り、必須項目であってもnullableにしなければどうもうまく動かないようです。</p>
+<p>本節では全てのプロパティ(collectionを除く)をnullableにして試してみます。</p>
+<ul>
+<li><a href="https://github.com/yukihane/hello-java/tree/92bd707a15296e574794f15bbc7a14368e3c4fad/spring/validation/kotlin-form-binding">ソースコード</a>
+<ul>
+<li>hash: 92bd707a15296e574794f15bbc7a14368e3c4fad</li>
+<li>path: spring/validation/kotlin-form-binding</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://github.com/yukihane/hello-java/blob/92bd707a15296e574794f15bbc7a14368e3c4fad/spring/validation/kotlin-form-binding/src/main/kotlin/com/example/kotlin_form_binding/DataClassValNullableForm.kt"><code>DataClassValNullableForm.kt</code></a>:</p>
+<pre tabindex="0"><code>data class DataClassValNullableForm(
+    /** 名前(必須) */
+    @field:NotNull
+    @field:NotEmpty
+    val name: String?,
+
+    /** 生年月日(必須) */
+    @field:NotNull
+    @field:DateTimeFormat(iso = DATE)
+    val birthDate: LocalDate?,
+
+    /** 年齢(任意) */
+    val age: Short?,
+
+    /** 家族 */
+    @field:Valid
+    @field:NotNull
+    val families: List&lt;DataClassFamilyNullable&gt; = emptyList(),
+)
+
+data class DataClassFamilyNullable(
+    /** 家族の名前(必須) */
+    @field:NotNull
+    @field:NotEmpty
+    val familyName: String?,
+)
+</code></pre><p>前回との違いは、全てのプロパティの型に <code>?</code> が付いていることです。</p>
+<p>http://localhost:8080/dataClassValNullable にアクセスして試してみます。</p>
+<p>正常系ではうまく動いていそうに見えます。が、生年月日に &ldquo;aaaa&rdquo; を入力してみると、</p>
+<pre tabindex="0"><code>Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: &#34;name&#34; (template: &#34;form&#34; - line 29, col 18)
+...
+Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field &#39;name&#39; cannot be found on null
+</code></pre><p>という例外がスローされ Internal Server Error になってしまいます。</p>
+<p>メッセージからは、どうもThymeleafプロセッサーに渡るべき <code>DataClassValNullableForm</code> 型オブジェクトが <code>null</code> になっている(ので <code>null</code> に <code>name</code> プロパティなんて無いよ、と言っている)ようです。</p>
+<p>が、この「Thymeleafプロセッサーに渡るべき <code>DataClassValNullableForm</code> 型オブジェクト」ってハンドラーの <code>@ModelAttribute</code> が付いた引数 <code>form</code> だと思うのですが、これはちゃんと生成されているのですよね…なぜこのエラーが出るのかがわかっていないです。</p>
+<p>原因はわからないのですが、Javaでうまくいく以上、Kotlinでも書き方をどうにかすればこの問題は起こらなくなるはずです。その書き方を探っていきます。</p>
+<h3 id="primary-constructor-var-nullable">primary-constructor var nullable</h3>
+<p><code>val</code> を <code>var</code> に変え、デフォルト値も設定してみます。<br />
+これでJavaからは引数なしのデフォルトコンストラクター、setter/getterを備えているように見えているはずです。</p>
+<ul>
+<li><a href="https://github.com/yukihane/hello-java/tree/fe9cd643e486d814d7274b7bbcf76c000caeb8ba/spring/validation/kotlin-form-binding/src/main/kotlin/com/example/kotlin_form_binding">ソースコード</a>
+<ul>
+<li>hash: fe9cd643e486d814d7274b7bbcf76c000caeb8ba</li>
+<li>path: spring/validation/kotlin-form-binding</li>
+</ul>
+</li>
+</ul>
+<p>http://localhost:8080/dataClassValNullable にアクセスして前回と同じく生年月日に妥当でない文字列を入力してみます。<br />
+…同じエラーが出ます。</p>
+<h3 id="without-primary-constructor">without primary-constructor</h3>
+<p>primary constructor でのプロパティ宣言をやめ、bodyで宣言するように変更します。</p>
+<ul>
+<li><a href="https://github.com/yukihane/hello-java/tree/e75e84b047b464292e8f8070112f84811944e921/spring/validation/kotlin-form-binding/src/main/kotlin/com/example/kotlin_form_binding">ソースコード</a>
+<ul>
+<li>hash: e75e84b047b464292e8f8070112f84811944e921</li>
+<li>path: spring/validation/kotlin-form-binding</li>
+</ul>
+</li>
+</ul>
+<p>http://localhost:8080/kotlin へアクセス、同様に年月日として妥当でない文字列を入力。<br />
+…やっと想定通り動作しました！</p>
+<h2 id="まとめ">まとめ</h2>
+<p>これまで見てきた結果、KotlinでThymeleafのformバインディングクラスを実装する場合、プロパティは</p>
+<ul>
+<li>var で宣言する</li>
+<li>nullable で宣言する</li>
+<li>primary constructorでなくbodyで宣言する
+<ul>
+<li>したがってデフォルト値が必要になる</li>
+</ul>
+</li>
+</ul>
+<p>を守る必要があるようです。つまり、 Java Bean 的な実装が求められるようです。</p>
+<p>Spring MVCのドキュメントには <a href="https://docs.spring.io/spring-framework/reference/core/validation/beans-beans.html#beans-constructor-binding">constructor binding</a> ができるって書いてあるし、そもそもSpring自身Kotlin対応してるって言ってるのでなんでこんな挙動になるのだろう？と思っていたのですが、よくよく考えると今回エラーが出ているのはSpring部分ではなくてThymeleafエンジン部分ですね。</p>
+<p>そういえばThymeleafってKotlin向けに考慮している、みたいな話を聞いたことが無いし…と納得することにしました。</p>
+<p>したがって、 RestController (一般的にJSONとJavaオブジェクトの変換はJacksonを使うと思います)などではまた話が変わってくるかなと思います。<br />
+Jacksonは積極的にKotlin対応してたはずですしね。</p>
+
+        </section>
+        <div class="post-tags">
+          
+          
+          <nav class="nav tags">
+            <ul class="tags">
+              
+              <li><a href="/tags/spring-boot">spring-boot</a></li>
+              
+              <li><a href="/tags/kotlin">kotlin</a></li>
+              
+            </ul>
+          </nav>
+          
+          
+        </div>
+      </div>
+
+      
+      
+    </div>
+
+    </article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+</svg></a><a class="border"></a></div>
+  <div class="footer-info">
+    2025  &amp;copy;{year}, All Rights Reserved |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E9J8FN5B4Q');
+        }
+      </script>
+
+</div>
+    </body>
+</html>
