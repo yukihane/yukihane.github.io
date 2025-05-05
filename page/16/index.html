@@ -56,6 +56,21 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/201808/08/gvim-unknown-function/">vim で E117 未知の関数です</a></h1>
+					<time>2018/08/08</time>
+					<br><div class="description">
+	
+	<p>vim は <code>~/.vim</code> ディレクトリを読むのに対し gvim は<code>~/vimfiles</code>ディレクトリを読むためだそうです。Windows ならジャンクションを作りましょう。</p>
+<pre><code>cd /d %homepath%
+mklink /j vimfiles .vim
+</code></pre>
+<p>参考:</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201808/08/gvim-unknown-function/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/201807/27/set-git-commit-editor/">gitで利用するエディタを設定したかった</a></h1>
 					<time>2018/07/27</time>
 					<br><div class="description">
@@ -268,38 +283,6 @@ www_attr:
 	
 </div>
 					<a class="readmore" href="/blog/201801/28/java9-jetty-jersey/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201801/21/polymer2-input-bind-to-parent/">Polymer2 で &amp;lt;input&amp;gt; の値を「親エレメントの値と」バインドする</a></h1>
-					<time>2018/01/21</time>
-					<br><div class="description">
-	
-	<p><a href="https://qiita.com/yukihane/items/2cf963901a6c49b390dc">Polymer2 で <input>の値をバインドする</a> で <code>my-input</code> なるカスタムエレメントを作成しました。<code>&lt;input&gt;</code>の入力値をそのまま表示するだけのエレメントです。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">dom-module</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;my-input&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;{{text::input}}&#34;</span> <span class="p">/&gt;</span>
-</span></span><span class="line"><span class="cl">    [[text]]
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  ...
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">dom-module</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>さて、この入力値を受け取れるよう、親エレメントを次のように作成しました。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201801/21/polymer2-input-bind-to-parent/">Read more ⟶</a>
 				</section>
 				
 				

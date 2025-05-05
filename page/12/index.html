@@ -56,6 +56,30 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202003/09/td-agent-with-proxy/">td-agentにプロキシを設定する</a></h1>
+					<time>2020/03/09</time>
+					<br><div class="description">
+	
+	<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sh" data-lang="sh">sudo systemctl edit td-agent</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>で編集画面を開き、次を記述:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[Service]
+Environment=&#34;HTTP_PROXY=http://myproxy.example.com:8080&#34;</pre>
+</div>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202003/09/td-agent-with-proxy/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202002/21/effectively-final-difference/">finalと実質finalの違い</a></h1>
 					<time>2020/02/21</time>
 					<br><div class="description">
@@ -286,25 +310,6 @@ spring.JPA.database_platform=mysql
 	
 </div>
 					<a class="readmore" href="/blog/201911/09/graalvm-install-to-windows10/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201910/29/encoded-url-passing-to-mockmvc/">MockMvc でURLエンコード済みのpathを渡したいときは new URI(...) を引数にする</a></h1>
-					<time>2019/10/29</time>
-					<br><div class="description">
-	
-	<p>OAuth2.0 の <code>redirect_uri</code> をゴニョった実装をテストしたいときにハマった。</p>
-<pre><code>mockMvc.perform(get(new URI(&quot;/line/oauth/authorize?redirece_uri=https%3A%2F%2Fexample.com&quot;)
-</code></pre>
-<p>ってやらないと二重にエンコードされてしまう。</p>
-<h1 id="参考">参考</h1>
-<ul>
-<li><a href="https://github.com/spring-projects/spring-framework/issues/16067">MockMvc needs to accept prepared URI with encoded URI path variables [SPR-11441] #16067</a></li>
-<li><a href="https://github.com/spring-projects/spring-framework/blob/master/spring-test/src/test/java/org/springframework/test/web/servlet/samples/spr/EncodedUriTests.java">EncodedUriTests.java</a></li>
-</ul>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201910/29/encoded-url-passing-to-mockmvc/">Read more ⟶</a>
 				</section>
 				
 				

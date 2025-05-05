@@ -56,6 +56,25 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/201910/29/encoded-url-passing-to-mockmvc/">MockMvc でURLエンコード済みのpathを渡したいときは new URI(...) を引数にする</a></h1>
+					<time>2019/10/29</time>
+					<br><div class="description">
+	
+	<p>OAuth2.0 の <code>redirect_uri</code> をゴニョった実装をテストしたいときにハマった。</p>
+<pre><code>mockMvc.perform(get(new URI(&quot;/line/oauth/authorize?redirece_uri=https%3A%2F%2Fexample.com&quot;)
+</code></pre>
+<p>ってやらないと二重にエンコードされてしまう。</p>
+<h1 id="参考">参考</h1>
+<ul>
+<li><a href="https://github.com/spring-projects/spring-framework/issues/16067">MockMvc needs to accept prepared URI with encoded URI path variables [SPR-11441] #16067</a></li>
+<li><a href="https://github.com/spring-projects/spring-framework/blob/master/spring-test/src/test/java/org/springframework/test/web/servlet/samples/spr/EncodedUriTests.java">EncodedUriTests.java</a></li>
+</ul>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201910/29/encoded-url-passing-to-mockmvc/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/201910/setup-amethyst/">Intel iGPU環境でのAmethyst 開発環境セットアップ</a></h1>
 					<time>2019/10/08</time>
 					<br><div class="description">
@@ -308,29 +327,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/201908/eclipse-lombok-mapstruct/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201908/rust-format-on-vscode/">VSCodeでRustの整形ができない？</a></h1>
-					<time>2019/08/18</time>
-					<br><div class="description">
-	
-	<div class="ulist">
-<ul>
-<li>
-<p><a href="https://github.com/rust-lang/rls-vscode/issues/534">Format not work #534</a> - rust-lang/rls-vscode</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>VSCodeでRustの勉強をしているのですが、現在、どうもコード整形機能が上手く働いていない…？</p>
-</div>
-<div class="paragraph">
-<p>代替策としては、 <a href="https://github.com/rust-lang/rustfmt"><code>rustfmt</code></a> を使って、 <code>cargo fmt</code> コマンドで整形すれば良さそう。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201908/rust-format-on-vscode/">Read more ⟶</a>
 				</section>
 				
 				

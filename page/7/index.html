@@ -56,6 +56,39 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202101/21/ploblem-in-springboot2.4.2/">Spring Boot 2.4.1-&gt;2.4.2アップグレードで発生した問題メモ</a></h1>
+					<time>2021/01/21</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>Spring Framework 5.3.3 で対応された</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/spring-projects/spring-framework/issues/26282">Update OncePerRequestFilter.isAsyncDispatch to use HttpServletRequest.getDispatcherType() #26282</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/spring-projects/spring-framework/commit/499be70a717b8d20c544bc2eac4fe5dacedc7f28#diff-62abb34de9b72d1c359ee169fb30164f7cc9e8759e5f2a46dbae111ecfa29c9cR148">コード差分</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>の影響で、 <code>HttpServletRequest#getDispatcherType()</code> メソッドが呼ばれるようになっています。</p>
+</div>
+<div class="paragraph">
+<p>これにより、 <code>HttpServletRequest</code> をモック化して実行していたテストケースが(想定外のメソッド呼び出しで <code>null</code> を返すため)失敗するようになっていました。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202101/21/ploblem-in-springboot2.4.2/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202101/21/upgrade-to-ubuntu20.04/">Ubuntu 20.04 LTS にアップグレードして問題が発生した</a></h1>
 					<time>2021/01/21</time>
 					<br><div class="description">
@@ -301,24 +334,6 @@ sudo make install</code></pre>
 	
 </div>
 					<a class="readmore" href="/blog/202008/30/openapi-spring-mvc-handler-args/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202008/24/rest-path-or-query/">Restful API, path を使うか query を使うか</a></h1>
-					<time>2020/08/23</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p>特に結論はなく、情報収集です。</p>
-</div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p>Google の検索 URI「http://www.google.com/search?q=jellyfish」について考えてみよう。Google Web アプリケーションがパス変数を使用していたならば、この URI はアルゴリズムの実行結果というよりも、ディレクトリのようになっていただろう（http://www.google.com/search/jellyfish）。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202008/24/rest-path-or-query/">Read more ⟶</a>
 				</section>
 				
 				

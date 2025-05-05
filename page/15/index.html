@@ -56,6 +56,20 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/201905/31/spring-boot-bean-on-testing/">Spring Boot 2.1 でテスト時 @Bean を挿げ替えたかった</a></h1>
+					<time>2019/05/31</time>
+					<br><div class="description">
+	
+	<h1 id="動機">動機</h1>
+<p>ユニットテスト実行時に <a href="https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/time/Clock.html">java.time.Clock</a> を特定の時間に固定して再現性のあるテスト(現在の時刻に依存しないテスト)を作成したかった。</p>
+<h1 id="考え方方針">考え方/方針</h1>
+<p><code>@Configuration</code> で <code>@Bean</code> を定義して <code>Clock</code> をインジェクションできるようにし、実装ではそれを用いる。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201905/31/spring-boot-bean-on-testing/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/201905/21/spring-boog-json-convert/">text/plain で JSON を投げつけてくるヤツに対処する</a></h1>
 					<time>2019/05/21</time>
 					<br><div class="description">
@@ -241,21 +255,6 @@ private RestTemplateBuilder builder;
 	
 </div>
 					<a class="readmore" href="/blog/201808/22/windows-rsync-unavailable/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201808/08/gvim-unknown-function/">vim で E117 未知の関数です</a></h1>
-					<time>2018/08/08</time>
-					<br><div class="description">
-	
-	<p>vim は <code>~/.vim</code> ディレクトリを読むのに対し gvim は<code>~/vimfiles</code>ディレクトリを読むためだそうです。Windows ならジャンクションを作りましょう。</p>
-<pre><code>cd /d %homepath%
-mklink /j vimfiles .vim
-</code></pre>
-<p>参考:</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201808/08/gvim-unknown-function/">Read more ⟶</a>
 				</section>
 				
 				

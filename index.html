@@ -56,6 +56,26 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202505/05/not-recommend-using-jpa/">JPAを積極的に推奨することはやめようと思う</a></h1>
+					<time>2025/05/05</time>
+					<br><div class="description">
+	
+	<pre tabindex="0"><code>@Transactional
+public void updatePostTitle(Long postId, String postTitle) {
+⠀
+    Post post = postRepository.findById(postId).orElseThrow();
+⠀
+    post.setTitle(postTitle);
+⠀
+    postRepository.save(post);
+}
+</code></pre><p>これはHibernateのメインcontributorであるVlad Mihalceaさんのブログ記事 <a href="https://vladmihalcea.com/best-spring-data-jparepository/">The best Spring Data JpaRepository</a> で &ldquo;the save method anti-pattern&rdquo; という名前の <strong>アンチパターン</strong> として紹介されているコードですが、今まで携わってきたプロジェクトでこのコードが間違っていると指摘できるプロジェクトはひとつもありませんでした。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202505/05/not-recommend-using-jpa/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202505/05/form-cannot-bind-to-record/">Thymeleafのformのバインドにrecord classは使わない方が良さそう</a></h1>
 					<time>2025/05/05</time>
 					<br><div class="description">
@@ -266,17 +286,6 @@ PATHが通っていないからかな？と思い <code>/etc/environment</code> 
 	
 </div>
 					<a class="readmore" href="/blog/202411/12/windows-terminal-font-not-found/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202410/26/spring-boot-with-vite/">Spring Boot 開発で SASS や TypeScript を利用するための設定(Vite)</a></h1>
-					<time>2024/10/26</time>
-					<br><div class="description">
-	
-	
-	
-</div>
-					<a class="readmore" href="/blog/202410/26/spring-boot-with-vite/">Read more ⟶</a>
 				</section>
 				
 				

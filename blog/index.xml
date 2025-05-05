@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Mon, 05 May 2025 11:59:23 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 05 May 2025 13:35:57 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JPAを積極的に推奨することはやめようと思う</title>
+      <link>https://yukihane.github.io/blog/202505/05/not-recommend-using-jpa/</link>
+      <pubDate>Mon, 05 May 2025 13:35:57 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202505/05/not-recommend-using-jpa/</guid>
+      <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;@Transactional&#xA;public void updatePostTitle(Long postId, String postTitle) {&#xA;⠀&#xA;    Post post = postRepository.findById(postId).orElseThrow();&#xA;⠀&#xA;    post.setTitle(postTitle);&#xA;⠀&#xA;    postRepository.save(post);&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;これはHibernateのメインcontributorであるVlad Mihalceaさんのブログ記事 &lt;a href=&#34;https://vladmihalcea.com/best-spring-data-jparepository/&#34;&gt;The best Spring Data JpaRepository&lt;/a&gt; で &amp;ldquo;the save method anti-pattern&amp;rdquo; という名前の &lt;strong&gt;アンチパターン&lt;/strong&gt; として紹介されているコードですが、今まで携わってきたプロジェクトでこのコードが間違っていると指摘できるプロジェクトはひとつもありませんでした。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Thymeleafのformのバインドにrecord classは使わない方が良さそう</title>
       <link>https://yukihane.github.io/blog/202505/05/form-cannot-bind-to-record/</link>
@@ -701,13 +708,6 @@
       <pubDate>Sat, 25 Jul 2020 18:11:15 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202007/26/spring-boot-gradle-eclipse/</guid>
       <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://start.spring.io/&#34;&gt;Spring Initializr&lt;/a&gt;を使ってGradle形式でプロジェクトを作成した場合、どうやってSTS(Eclipse)へインポートするのか逡巡しました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
-    </item>
-    <item>
-      <title>KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる</title>
-      <link>https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/</link>
-      <pubDate>Mon, 20 Jul 2020 18:54:23 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Spring Boot で Spring Security OAuth 2.0 &lt;a href=&#34;https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#oauth2login&#34;&gt;Login&lt;/a&gt; / &lt;a href=&#34;https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#oauth2client&#34;&gt;Client&lt;/a&gt; を利用する手順をまとめます。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;また、認可サーバ(IdP)にはローカルで立てたKeycloakを用いますのでそちらのセットアップ手順も記載します。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
     </item>
   </channel>
 </rss>
