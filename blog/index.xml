@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Sun, 04 May 2025 14:17:43 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 05 May 2025 11:59:23 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Thymeleafのformのバインドにrecord classは使わない方が良さそう</title>
+      <link>https://yukihane.github.io/blog/202505/05/form-cannot-bind-to-record/</link>
+      <pubDate>Mon, 05 May 2025 11:59:23 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202505/05/form-cannot-bind-to-record/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202505/04/kotlin-form-binding/&#34;&gt;前回&lt;/a&gt; のつづき。&lt;/p&gt;&#xA;&lt;p&gt;あれ、そういえばJavaのrecord classも似たような性質だな、ということはrecord classもform bindingには使えないのかな？でもあまりそんな話聞いたこと無いな、どうなんだろう…と思い検索してみたのですが、ヒットしたのは自分の記事でしたｗ&lt;/p&gt;</description>
+    </item>
     <item>
       <title>KotlinでformバインディングするときもやっぱりJava Beansにした方が良さそう</title>
       <link>https://yukihane.github.io/blog/202505/04/kotlin-form-binding/</link>
@@ -701,13 +708,6 @@
       <pubDate>Mon, 20 Jul 2020 18:54:23 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/</guid>
       <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Spring Boot で Spring Security OAuth 2.0 &lt;a href=&#34;https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#oauth2login&#34;&gt;Login&lt;/a&gt; / &lt;a href=&#34;https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#oauth2client&#34;&gt;Client&lt;/a&gt; を利用する手順をまとめます。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;また、認可サーバ(IdP)にはローカルで立てたKeycloakを用いますのでそちらのセットアップ手順も記載します。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
-    </item>
-    <item>
-      <title>いつもGitブランチ運用でこまること、考慮すべきポイントのまとめ</title>
-      <link>https://yukihane.github.io/blog/202007/21/why-git-branching-is-difficult/</link>
-      <pubDate>Mon, 20 Jul 2020 17:59:29 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202007/21/why-git-branching-is-difficult/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;現在、新しいプロジェクトに参画してGitのブランチ戦略を考えています。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;何回かブランチ戦略を考え、そして運用してきたのですが、思うところを書いてみます。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
     </item>
   </channel>
 </rss>

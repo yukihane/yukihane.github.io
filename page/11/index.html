@@ -56,6 +56,24 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202004/24/redux-devtools-extension-with-typescript/">redux-devtools-extension をTypeScriptで使う</a></h1>
+					<time>2020/04/24</time>
+					<br><div class="description">
+	
+	<p><a href="https://github.com/zalmoxisus/redux-devtools-extension/blob/master/README.md#13-use-redux-devtools-extension-package-from-npm">https://github.com/zalmoxisus/redux-devtools-extension/blob/master/README.md#13-use-redux-devtools-extension-package-from-npm</a></p>
+<p>というわけで型付けされているので</p>
+<pre><code>const store = createStore(rootReducer, undefined, devToolsEnhancer({}));
+</code></pre>
+<p>で良い。</p>
+<p>何か Qiia の記事とかを見てると<a href="https://github.com/zalmoxisus/redux-devtools-extension/blob/master/docs/Recipes.md#using-in-a-typescript-project">こっちの方法</a>でばっかり書いてあるが。</p>
+<hr />
+<p>Electron から使う場合は<a href="https://www.electronjs.org/docs/tutorial/devtools-extension#how-to-load-a-devtools-extension">Electron 公式</a>からも<a href="https://github.com/zalmoxisus/redux-devtools-extension#3-for-electron">redux-devtools-extension 公式</a>からもリンクされている <a href="https://github.com/MarshallOfSound/electron-devtools-installer">electron-devtools-installer</a> が利用できた。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202004/24/redux-devtools-extension-with-typescript/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202004/22/electron-fileio/">Electronでfs(File IO)</a></h1>
 					<time>2020/04/22</time>
 					<br><div class="description">
@@ -272,19 +290,6 @@ Environment=&#34;HTTP_PROXY=http://myproxy.example.com:8080&#34;</pre>
 	
 </div>
 					<a class="readmore" href="/blog/202003/09/td-agent-with-proxy/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202002/21/effectively-final-difference/">finalと実質finalの違い</a></h1>
-					<time>2020/02/21</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p><a href="https://ja.stackoverflow.com/a/63099/2808" class="bare">https://ja.stackoverflow.com/a/63099/2808</a> を見ていて気づいたのですが、 <code>実質final</code> というのは脳内(コンパイラ)で <code>final</code> を補完してくれる、というような処理が行われるわけではないのですね。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202002/21/effectively-final-difference/">Read more ⟶</a>
 				</section>
 				
 				

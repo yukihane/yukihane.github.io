@@ -56,6 +56,29 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/201905/21/spring-boog-json-convert/">text/plain で JSON を投げつけてくるヤツに対処する</a></h1>
+					<time>2019/05/21</time>
+					<br><div class="description">
+	
+	<ul>
+<li><a href="https://qiita.com/masato_ka/items/aa5f158a94eca1fcc42d">RestTemplate でレスポンスの Content-Type を変更する。</a></li>
+</ul>
+<p>の別解。</p>
+<pre><code>@Autowired
+private RestTemplateBuilder builder;
+
+...
+    final MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
+    converter.setSupportedMediaTypes(Arrays.asList(MediaType.TEXT_PLAIN));
+    final RestTemplate restTemplate = builder.additionalMessageConverters(converter).build();
+</code></pre>
+<p>ちなみに上記のようにコンバータを明示的に設定しない場合だと次のような例外になる :</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201905/21/spring-boog-json-convert/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/201904/27/java-properties-is-not-utf8/">Java9以降.propertiesファイルをUTF-8で書けるようになった、は正しい？</a></h1>
 					<time>2019/04/27</time>
 					<br><div class="description">
@@ -233,19 +256,6 @@ mklink /j vimfiles .vim
 	
 </div>
 					<a class="readmore" href="/blog/201808/08/gvim-unknown-function/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201807/27/set-git-commit-editor/">gitで利用するエディタを設定したかった</a></h1>
-					<time>2018/07/27</time>
-					<br><div class="description">
-	
-	<p>あるいは vim-plug をセットアップしたら git commit したときに E492: Not an editor command って怒られるようになっちゃった。</p>
-<p>Vagrant で CentOS の Box を作るたびにひっかかる。</p>
-<p>Git が使う editor を(vi でなく)vim に設定すればよい。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201807/27/set-git-commit-editor/">Read more ⟶</a>
 				</section>
 				
 				

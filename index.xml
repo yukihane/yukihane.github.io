@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Sun, 04 May 2025 14:17:43 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 05 May 2025 11:59:23 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Thymeleafのformのバインドにrecord classは使わない方が良さそう</title>
+      <link>https://yukihane.github.io/blog/202505/05/form-cannot-bind-to-record/</link>
+      <pubDate>Mon, 05 May 2025 11:59:23 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202505/05/form-cannot-bind-to-record/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202505/04/kotlin-form-binding/&#34;&gt;前回&lt;/a&gt; のつづき。&lt;/p&gt;&#xA;&lt;p&gt;あれ、そういえばJavaのrecord classも似たような性質だな、ということはrecord classもform bindingには使えないのかな？でもあまりそんな話聞いたこと無いな、どうなんだろう…と思い検索してみたのですが、ヒットしたのは自分の記事でしたｗ&lt;/p&gt;</description>
+    </item>
     <item>
       <title>KotlinでformバインディングするときもやっぱりJava Beansにした方が良さそう</title>
       <link>https://yukihane.github.io/blog/202505/04/kotlin-form-binding/</link>
@@ -701,13 +708,6 @@
       <pubDate>Sun, 26 Jul 2020 03:08:10 +0000</pubDate>
       <guid>https://yukihane.github.io/docs/ansible/</guid>
       <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_チュートリアル&#34;&gt;チュートリアル&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://docs.ansible.com/ansible/intro_getting_started.html&#34; class=&#34;bare&#34;&gt;http://docs.ansible.com/ansible/intro_getting_started.html&lt;/a&gt;&#xA;の通り実行しようとすると以下のエラーとなった。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;listingblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ubuntu:~$ ansible all -m ping&#xA;mama | UNREACHABLE! =&amp;gt; {&#xA;    &amp;#34;changed&amp;#34;: false,&#xA;    &amp;#34;msg&amp;#34;: &amp;#34;Failed to connect to the host via ssh: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).\r\n&amp;#34;,&#xA;    &amp;#34;unreachable&amp;#34;: true&#xA;}&#xA;ubuntu:~$ ansible all -m ping --ask-pass&#xA;SSH password:&#xA;mama | FAILED! =&amp;gt; {&#xA;    &amp;#34;failed&amp;#34;: true,&#xA;    &amp;#34;msg&amp;#34;: &amp;#34;to use the &amp;#39;ssh&amp;#39; connection type with passwords, you must install the sshpass program&amp;#34;&#xA;}&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;</description>
-    </item>
-    <item>
-      <title>VirtualBox</title>
-      <link>https://yukihane.github.io/docs/virtualbox/</link>
-      <pubDate>Sun, 26 Jul 2020 03:07:00 +0000</pubDate>
-      <guid>https://yukihane.github.io/docs/virtualbox/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_tips&#34;&gt;tips&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;sect2&#34;&gt;&#xA;&lt;h3 id=&#34;_仮想ハードディスクのuuid変更&#34;&gt;仮想ハードディスクのUUID変更&lt;/h3&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;仮想ハードディスクはVirtualBox上ではUUIDによって識別されています。&#xA;このため、仮想ハードディスクファイルをコピーして別の仮想マシンに接続しようとした場合など、同一UUIDのものが存在する旨のエラーになります。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
     </item>
   </channel>
 </rss>
