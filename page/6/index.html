@@ -56,6 +56,22 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202105/19/url-amp/">script src に設定する URL の &amp; はどう書けば良い？</a></h1>
+					<time>2021/05/18</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p><code>&lt;script&gt;</code> タグの <code>src</code> に <code>URL</code> 書く場合、クエリパラメータ連結の <code>&amp;</code> ってどう書くべきなんだろう、という話です。</p>
+</div>
+<div class="paragraph">
+<p>結論としては、以下のように、 <code>&amp;amp;</code> とするのが無難、ということのようです。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202105/19/url-amp/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202105/16/aws-mac/">AWS EC2 の Mac インスタンスを試してみた</a></h1>
 					<time>2021/05/16</time>
 					<br><div class="description">
@@ -272,29 +288,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/202101/24/spring-session-in-memory/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202101/23/throw-unauthorizedexception-in-controller/">ControllerでUnauthorizedExceptionを投げると401でなく403になる</a></h1>
-					<time>2021/01/23</time>
-					<br><div class="description">
-	
-	<div class="ulist">
-<ul>
-<li>
-<p><a href="https://stackoverflow.com/q/65757377/4506703">Authentication handling in Spring boot 2.x with WebSecurityConfigurerAdapter</a> - Stack Overflow</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/spring-projects/spring-security/blob/5.3.3.RELEASE/web/src/main/java/org/springframework/security/web/authentication/Http403ForbiddenEntryPoint.java#L38-L39"><code>Http403ForbiddenEntryPoint</code></a> がデフォルトで設定されているため、 <a href="https://github.com/spring-projects/spring-security/blob/5.3.3.RELEASE/web/src/main/java/org/springframework/security/web/access/ExceptionTranslationFilter.java#L51-L52"><code>ExceptionTranslationFilter</code></a> において <a href="https://github.com/spring-projects/spring-security/blob/5.3.3.RELEASE/web/src/main/java/org/springframework/security/web/access/ExceptionTranslationFilter.java#L169"><code>AuthenticationException</code> のサブクラス</a>は全て <code>403</code> になっている模様。</p>
-</div>
-<div class="paragraph">
-<p>認証通った上でunauthorizedってことはforbiddenなんだよな？ということでしょうか。…この言い方だと全然ニュアンス伝わらないか。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202101/23/throw-unauthorizedexception-in-controller/">Read more ⟶</a>
 				</section>
 				
 				

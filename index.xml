@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Mon, 05 May 2025 13:35:57 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 20 May 2025 12:50:13 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WSL2環境にwslu(wslview)をインストールしよう</title>
+      <link>https://yukihane.github.io/blog/202505/20/install-wslu-on-wsl2/</link>
+      <pubDate>Tue, 20 May 2025 12:50:13 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202505/20/install-wslu-on-wsl2/</guid>
+      <description>&lt;p&gt;久しぶりに Rust の学習を行っています。&lt;/p&gt;&#xA;&lt;p&gt;URL をウェブブラウザーで開くのに &lt;a href=&#34;https://crates.io/crates/open&#34;&gt;open&lt;/a&gt; というクレートがあるのを見つけ、add してみました。&lt;/p&gt;&#xA;&lt;p&gt;依存関係で &lt;a href=&#34;https://crates.io/crates/is-wsl&#34;&gt;is-wsl&lt;/a&gt; というものも追加されているようだったので、おお、ちゃんと WSL2 環境にも対応しているんだな、と思い利用してみたところ…ブラウザーが開かない。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>JPAを積極的に推奨することはやめようと思う</title>
       <link>https://yukihane.github.io/blog/202505/05/not-recommend-using-jpa/</link>
@@ -701,13 +708,6 @@
       <pubDate>Tue, 28 Jul 2020 12:06:03 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202007/28/lombok-and-mapstruct-problem-is-fixed/</guid>
       <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;これまで、LombokとMapStructを併用しようとした場合、そのままだと不具合(MapStructのアノテーションプロセッシングが動作しない)があり、ちょっとひと手間かけてその不具合を回避する必要がありました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
-    </item>
-    <item>
-      <title>Git</title>
-      <link>https://yukihane.github.io/docs/git/</link>
-      <pubDate>Sun, 26 Jul 2020 03:10:06 +0000</pubDate>
-      <guid>https://yukihane.github.io/docs/git/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_オンラインマニュアル&#34;&gt;オンラインマニュアル&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://git-scm.com/docs&#34; class=&#34;bare&#34;&gt;https://git-scm.com/docs&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_password記憶&#34;&gt;password記憶&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;literalblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre&gt;git config --global credential.helper &amp;#39;cache --timeout=21600&amp;#39;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;21600秒(6時間)デーモンがパスワードを保持する。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_単語単位diff&#34;&gt;単語単位diff&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;literalblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre&gt;git config --global alias.diffw &amp;#34;diff --word-diff-regex=.&amp;#34;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;上記で日本語が文字化けする場合は、代わりに以下の設定でいける、はず。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
     </item>
   </channel>
 </rss>

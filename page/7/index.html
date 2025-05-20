@@ -56,6 +56,29 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202101/23/throw-unauthorizedexception-in-controller/">ControllerでUnauthorizedExceptionを投げると401でなく403になる</a></h1>
+					<time>2021/01/23</time>
+					<br><div class="description">
+	
+	<div class="ulist">
+<ul>
+<li>
+<p><a href="https://stackoverflow.com/q/65757377/4506703">Authentication handling in Spring boot 2.x with WebSecurityConfigurerAdapter</a> - Stack Overflow</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/spring-projects/spring-security/blob/5.3.3.RELEASE/web/src/main/java/org/springframework/security/web/authentication/Http403ForbiddenEntryPoint.java#L38-L39"><code>Http403ForbiddenEntryPoint</code></a> がデフォルトで設定されているため、 <a href="https://github.com/spring-projects/spring-security/blob/5.3.3.RELEASE/web/src/main/java/org/springframework/security/web/access/ExceptionTranslationFilter.java#L51-L52"><code>ExceptionTranslationFilter</code></a> において <a href="https://github.com/spring-projects/spring-security/blob/5.3.3.RELEASE/web/src/main/java/org/springframework/security/web/access/ExceptionTranslationFilter.java#L169"><code>AuthenticationException</code> のサブクラス</a>は全て <code>403</code> になっている模様。</p>
+</div>
+<div class="paragraph">
+<p>認証通った上でunauthorizedってことはforbiddenなんだよな？ということでしょうか。…この言い方だと全然ニュアンス伝わらないか。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202101/23/throw-unauthorizedexception-in-controller/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202101/21/ploblem-in-springboot2.4.2/">Spring Boot 2.4.1-&gt;2.4.2アップグレードで発生した問題メモ</a></h1>
 					<time>2021/01/21</time>
 					<br><div class="description">
@@ -315,25 +338,6 @@ sudo make install</code></pre>
 	
 </div>
 					<a class="readmore" href="/blog/202008/30/gradle-bootrun-parameter/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202008/30/openapi-spring-mvc-handler-args/">openapi-generaterで生成したcontrollerにカスタム引数を追加する</a></h1>
-					<time>2020/08/29</time>
-					<br><div class="description">
-	
-	<div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><a href="https://yukihane.github.io/blog/202008/23/openapi-generator/">openapi generator を Spring Boot で利用してみる</a> で openapi-generator を用いて Spring MVC のコントローラ(のインタフェース)を自動生成してみました。</p>
-</div>
-<div class="paragraph">
-<p>その後、これを実際に利用してみて気づいたのですが、ハンドラ(controllerのメソッド)に独自の引数を生やしたいことが多く、このままだと非常に不便です。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202008/30/openapi-spring-mvc-handler-args/">Read more ⟶</a>
 				</section>
 				
 				

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html><head lang="ja">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>WSL2環境にwslu(wslview)をインストールしよう - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="久しぶりに Rust の学習を行っています。
+URL をウェブブラウザーで開くのに open というクレートがあるのを見つけ、add してみました。
+依存関係で is-wsl というものも追加されているようだったので、おお、ちゃんと WSL2 環境にも対応しているんだな、と思い利用してみたところ…ブラウザーが開かない。" />
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content="https://yukihane.github.io/blog/202505/20/install-wslu-on-wsl2/">
+  <meta property="og:site_name" content="発火後忘失">
+  <meta property="og:title" content="WSL2環境にwslu(wslview)をインストールしよう">
+  <meta property="og:description" content="久しぶりに Rust の学習を行っています。
+URL をウェブブラウザーで開くのに open というクレートがあるのを見つけ、add してみました。
+依存関係で is-wsl というものも追加されているようだったので、おお、ちゃんと WSL2 環境にも対応しているんだな、と思い利用してみたところ…ブラウザーが開かない。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-05-20T12:50:13+09:00">
+    <meta property="article:modified_time" content="2025-05-20T12:50:13+09:00">
+    <meta property="article:tag" content="Wsl">
+    <meta property="article:tag" content="Rust">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="WSL2環境にwslu(wslview)をインストールしよう">
+  <meta name="twitter:description" content="久しぶりに Rust の学習を行っています。
+URL をウェブブラウザーで開くのに open というクレートがあるのを見つけ、add してみました。
+依存関係で is-wsl というものも追加されているようだったので、おお、ちゃんと WSL2 環境にも対応しているんだな、と思い利用してみたところ…ブラウザーが開かない。">
+
+        <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://yukihane.github.io/">発火後忘失</a>
+	</div>
+	<nav>
+		
+		<a href="/blog">Blog</a>
+		
+		<a href="/docs">Docs</a>
+		
+		<a href="/tags">Tags</a>
+		
+		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
+		
+		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
+</svg></span>
+		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
+		
+	</nav>
+</header>
+
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        <div class="title">
+          <h1 class="title">WSL2環境にwslu(wslview)をインストールしよう</h1>
+          <div class="meta">Posted on 2025/05/20</div>
+        </div>
+        
+        <section class="body">
+          <p>久しぶりに Rust の学習を行っています。</p>
+<p>URL をウェブブラウザーで開くのに <a href="https://crates.io/crates/open">open</a> というクレートがあるのを見つけ、add してみました。</p>
+<p>依存関係で <a href="https://crates.io/crates/is-wsl">is-wsl</a> というものも追加されているようだったので、おお、ちゃんと WSL2 環境にも対応しているんだな、と思い利用してみたところ…ブラウザーが開かない。</p>
+<p><a href="https://github.com/Byron/open-rs/blob/f196640a9c0def100401f6e97ebe5dd4b4f2bb0e/src/lib.rs#L80">検索してみると</a>、WSL 環境では <code>wslview</code> というコマンドを使うそう。</p>
+<p>それは何だろう、と検索してみたところ、 &ldquo;wslu - A collection of utilities for WSL&rdquo; というパッケージに含まれているコマンドのうちのひとつのようでした。</p>
+<pre tabindex="0"><code>sudo apt install wslu
+</code></pre><p>でインストールできます。</p>
+<p>ただ、メンテナンスはもうされてなさそうです&hellip;</p>
+<ul>
+<li><a href="https://github.com/wslutilities/wslu">https://github.com/wslutilities/wslu</a></li>
+</ul>
+
+        </section>
+        <div class="post-tags">
+          
+          
+          <nav class="nav tags">
+            <ul class="tags">
+              
+              <li><a href="/tags/wsl">wsl</a></li>
+              
+              <li><a href="/tags/rust">rust</a></li>
+              
+            </ul>
+          </nav>
+          
+          
+        </div>
+      </div>
+
+      
+      
+    </div>
+
+    </article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+</svg></a><a class="border"></a></div>
+  <div class="footer-info">
+    2025  &amp;copy;{year}, All Rights Reserved |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E9J8FN5B4Q');
+        }
+      </script>
+
+</div>
+    </body>
+</html>

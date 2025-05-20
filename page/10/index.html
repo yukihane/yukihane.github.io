@@ -56,6 +56,21 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202006/28/h2database-name-random-on-springboot-2.3/">Spring Boot 2.3.0 から H2Database の名前 jdbc:h2:mem:testdb じゃなくなっとるやん(デフォルトでは)</a></h1>
+					<time>2020/06/28</time>
+					<br><div class="description">
+	
+	<p>前は<a href="https://qiita.com/yukihane/items/3effe753ce01a2cadd84">ここ</a>に書いた通り固定で <code>jdbc:h2:mem:testdb</code> という名前だったのにこれでアクセスできんようになってしもた。</p>
+<p>起動ログに</p>
+<pre tabindex="0"><code>o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at &#39;/h2-console&#39;. Database available at &#39;jdbc:h2:mem:30591993-9fe2-4068-a5e2-05b263e3495b&#39;
+</code></pre><p>みたいに出るのでここで確認しよう。<br />
+というか、素直にプロパティで</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202006/28/h2database-name-random-on-springboot-2.3/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202006/20/spring-boot-thymeleaf-converts-id-to-entity/">Spring MVCにはJPA EntityのIDからエンティティオブジェクトに変換する機能がある(が、2.3.1では機能しない)</a></h1>
 					<time>2020/06/20</time>
 					<br><div class="description">
@@ -263,30 +278,6 @@ set shiftwidth=2</code></pre>
 	
 </div>
 					<a class="readmore" href="/blog/202004/26/gke-getting-started/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202004/26/kubernetes-the-hard-way-v1.18.2/">Kubernetes the hard way を最新版の1.18.2でやってみた</a></h1>
-					<time>2020/04/26</time>
-					<br><div class="description">
-	
-	<div class="sect1">
-<h2 id="_要約">要約</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><code>kube-apiserver</code> の起動引数を <code>--runtime-config=api/all=true</code> に修正すれば v1.18.2 でも記述どおりで動作する。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_本文">本文</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>現時点で本家 <a href="https://github.com/kelseyhightower/kubernetes-the-hard-way">Kubernetes The Hard Way</a> は1.15.3をターゲットにして構築を行っていますが、せっかくなので最新版である v1.18.2 でやってみることにしました。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202004/26/kubernetes-the-hard-way-v1.18.2/">Read more ⟶</a>
 				</section>
 				
 				

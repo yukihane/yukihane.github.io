@@ -56,6 +56,29 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202007/20/webclientbuilder/">`WebClient` の 覚書</a></h1>
+					<time>2020/07/19</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p><code>RestTemplateBuilder</code> の <code>Bean</code> がsingleton-socpeかつちょっと変態的なインスタンス生成を行っていたので驚いた、というエントリを昔書きました:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://yukihane.github.io/posts/201912/10/resttemplatebuilder/">RestTemplateBuilderに関する覚書</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>ところで、現時点で <a href="https://docs.spring.io/spring-framework/docs/5.2.7.RELEASE/javadoc-api/org/springframework/web/client/RestTemplate.html"><code>RestTemplate</code> は既に maintenance mode</a> なので、新規実装に用いるのは忍びないなあ、と思い、 <code>WebClient</code> を利用する前提で薦めることにしました。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202007/20/webclientbuilder/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202007/19/cookies-and-same-origin-policy/">クッキーの挙動は Same Origin Policy に従う…わけではない</a></h1>
 					<time>2020/07/19</time>
 					<br><div class="description">
@@ -429,21 +452,6 @@ spring.mvc.view.suffix=.jsp</code></pre>
 	
 </div>
 					<a class="readmore" href="/blog/202006/30/json-datetime-format-changed-on-springboot-2.3/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202006/28/h2database-name-random-on-springboot-2.3/">Spring Boot 2.3.0 から H2Database の名前 jdbc:h2:mem:testdb じゃなくなっとるやん(デフォルトでは)</a></h1>
-					<time>2020/06/28</time>
-					<br><div class="description">
-	
-	<p>前は<a href="https://qiita.com/yukihane/items/3effe753ce01a2cadd84">ここ</a>に書いた通り固定で <code>jdbc:h2:mem:testdb</code> という名前だったのにこれでアクセスできんようになってしもた。</p>
-<p>起動ログに</p>
-<pre tabindex="0"><code>o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at &#39;/h2-console&#39;. Database available at &#39;jdbc:h2:mem:30591993-9fe2-4068-a5e2-05b263e3495b&#39;
-</code></pre><p>みたいに出るのでここで確認しよう。<br />
-というか、素直にプロパティで</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202006/28/h2database-name-random-on-springboot-2.3/">Read more ⟶</a>
 				</section>
 				
 				

@@ -3,7 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://yukihane.github.io/blog/</loc>
-    <lastmod>2025-05-05T13:35:57+09:00</lastmod>
+    <lastmod>2025-05-20T12:50:13+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/rust/</loc>
+    <lastmod>2025-05-20T12:50:13+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/</loc>
+    <lastmod>2025-05-20T12:50:13+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/wsl/</loc>
+    <lastmod>2025-05-20T12:50:13+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/blog/202505/20/install-wslu-on-wsl2/</loc>
+    <lastmod>2025-05-20T12:50:13+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/tags/java/</loc>
     <lastmod>2025-05-05T13:35:57+09:00</lastmod>
@@ -12,9 +24,6 @@
     <lastmod>2025-05-05T13:35:57+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/blog/202505/05/not-recommend-using-jpa/</loc>
-    <lastmod>2025-05-05T13:35:57+09:00</lastmod>
-  </url><url>
-    <loc>https://yukihane.github.io/tags/</loc>
     <lastmod>2025-05-05T13:35:57+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/tags/spring-boot/</loc>
@@ -48,9 +57,6 @@
     <lastmod>2025-02-07T05:47:10+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/tags/windows/</loc>
-    <lastmod>2025-02-07T05:47:10+09:00</lastmod>
-  </url><url>
-    <loc>https://yukihane.github.io/tags/wsl/</loc>
     <lastmod>2025-02-07T05:47:10+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/blog/202502/07/etc-environment-wsl/</loc>
@@ -120,9 +126,6 @@
     <lastmod>2024-04-06T06:00:24+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/blog/202404/05/rust-test-async/</loc>
-    <lastmod>2024-04-05T05:45:28+09:00</lastmod>
-  </url><url>
-    <loc>https://yukihane.github.io/tags/rust/</loc>
     <lastmod>2024-04-05T05:45:28+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/tags/book/</loc>

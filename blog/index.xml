@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Mon, 05 May 2025 13:35:57 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 20 May 2025 12:50:13 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WSL2環境にwslu(wslview)をインストールしよう</title>
+      <link>https://yukihane.github.io/blog/202505/20/install-wslu-on-wsl2/</link>
+      <pubDate>Tue, 20 May 2025 12:50:13 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202505/20/install-wslu-on-wsl2/</guid>
+      <description>&lt;p&gt;久しぶりに Rust の学習を行っています。&lt;/p&gt;&#xA;&lt;p&gt;URL をウェブブラウザーで開くのに &lt;a href=&#34;https://crates.io/crates/open&#34;&gt;open&lt;/a&gt; というクレートがあるのを見つけ、add してみました。&lt;/p&gt;&#xA;&lt;p&gt;依存関係で &lt;a href=&#34;https://crates.io/crates/is-wsl&#34;&gt;is-wsl&lt;/a&gt; というものも追加されているようだったので、おお、ちゃんと WSL2 環境にも対応しているんだな、と思い利用してみたところ…ブラウザーが開かない。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>JPAを積極的に推奨することはやめようと思う</title>
       <link>https://yukihane.github.io/blog/202505/05/not-recommend-using-jpa/</link>
@@ -701,13 +708,6 @@
       <pubDate>Sat, 25 Jul 2020 23:42:57 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202007/26/swt-findwindowi-is-deprecated/</guid>
       <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;元ネタ:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://ja.stackoverflow.com/q/68951/2808&#34;&gt;古い Eclipse の起動時に UnsatisfiedLinkError が発生する - スタック・オーバーフロー&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;いにしえのJava世界では、Win32APIにアクセスするためにSWTを利用していたそうです(リンク先のエントリは2005年のもの。私がJava始めるまえの話だ…)。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
-    </item>
-    <item>
-      <title>GradleでSpring Bootプロジェクトを作成してSTS(Eclipse)でインポートする手順</title>
-      <link>https://yukihane.github.io/blog/202007/26/spring-boot-gradle-eclipse/</link>
-      <pubDate>Sat, 25 Jul 2020 18:11:15 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202007/26/spring-boot-gradle-eclipse/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://start.spring.io/&#34;&gt;Spring Initializr&lt;/a&gt;を使ってGradle形式でプロジェクトを作成した場合、どうやってSTS(Eclipse)へインポートするのか逡巡しました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
     </item>
   </channel>
 </rss>
