@@ -2,13 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://yukihane.github.io/blog/</loc>
-    <lastmod>2025-05-20T12:50:13+09:00</lastmod>
+    <loc>https://yukihane.github.io/blog/202506/01/anime-face-detection-on-docker/</loc>
+    <lastmod>2025-06-01T21:22:10+09:00</lastmod>
   </url><url>
-    <loc>https://yukihane.github.io/tags/rust/</loc>
-    <lastmod>2025-05-20T12:50:13+09:00</lastmod>
+    <loc>https://yukihane.github.io/tags/ai/</loc>
+    <lastmod>2025-06-01T21:22:10+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/blog/</loc>
+    <lastmod>2025-06-01T21:22:10+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/tags/</loc>
+    <lastmod>2025-06-01T21:22:10+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/rust/</loc>
     <lastmod>2025-05-20T12:50:13+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/tags/wsl/</loc>
@@ -88,9 +94,6 @@
   </url><url>
     <loc>https://yukihane.github.io/blog/202411/16/centos7-environment/</loc>
     <lastmod>2024-11-16T05:30:06+09:00</lastmod>
-  </url><url>
-    <loc>https://yukihane.github.io/tags/ai/</loc>
-    <lastmod>2024-11-12T21:16:11+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/blog/202411/12/stable-diffusion-installation/</loc>
     <lastmod>2024-11-12T21:16:11+09:00</lastmod>

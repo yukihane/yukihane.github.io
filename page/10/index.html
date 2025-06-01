@@ -56,6 +56,38 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202006/30/json-datetime-format-changed-on-springboot-2.3/">Spring 2.3.0 で時刻オフセットの書式コロン付き&#43;09:00みたいに変わっとるやん</a></h1>
+					<time>2020/06/30</time>
+					<br><div class="description">
+	
+	<p>正確には jackson-databind 2.11.0 で。</p>
+<ul>
+<li><a href="https://github.com/FasterXML/jackson/wiki/Jackson-Release-2.11#changes-behavior">jackson 2.11 リリースノート</a></li>
+<li><a href="https://github.com/FasterXML/jackson-databind/issues/2643">Change default textual serialization of <code>java.util.Date</code>/<code>Calendar</code> to include colon in timezone offset #2643</a></li>
+</ul>
+<p><a href="https://docs.spring.io/spring-boot/docs/2.2.8.RELEASE/reference/htmlsingle/#dependency-versions-coordinates">このへん</a>見ると分かるけど、Spring Boot 2.2 系列は jackson-databind 2.10.x が採用されていて、 <a href="https://docs.spring.io/spring-boot/docs/2.3.0.RELEASE/reference/htmlsingle/#dependency-versions-coordinates">2.3.0</a> で 2.11.0 が採用されている。</p>
+<p>コード:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Date</span><span class="w"> </span><span class="nf">date</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>結果(2.2.8):</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202006/30/json-datetime-format-changed-on-springboot-2.3/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202006/28/h2database-name-random-on-springboot-2.3/">Spring Boot 2.3.0 から H2Database の名前 jdbc:h2:mem:testdb じゃなくなっとるやん(デフォルトでは)</a></h1>
 					<time>2020/06/28</time>
 					<br><div class="description">
@@ -262,22 +294,6 @@ set shiftwidth=2</code></pre>
 	
 </div>
 					<a class="readmore" href="/blog/202005/06/k8s-command-args/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202004/26/gke-getting-started/">GKE(Goole Kubernetes Engine)の始め方</a></h1>
-					<time>2020/04/26</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p>Kubernetes入門の書籍やドキュメントの中には、Kubernetes環境が既に手元にある前提で書かれているものも多いです。</p>
-</div>
-<div class="paragraph">
-<p>そういう場合、どうやってKubernetes環境を調達して良いのかわからず、一つの手段として自前で環境を作る <a href="https://yukihane.github.io/posts/202004/26/kubernetes-the-hard-way-v1.18.2/">Kubernetes the hard way</a> をやってみたのですが、一旦環境を作ってしまうとインスタンスを起動させ続けねばならず(作り直すの面倒だし)、財布に優しくないので断念しました。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202004/26/gke-getting-started/">Read more ⟶</a>
 				</section>
 				
 				

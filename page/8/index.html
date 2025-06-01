@@ -56,6 +56,30 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202008/30/gradle-bootrun-parameter/">gradle bootRun でプロファイルを指定するには？</a></h1>
+					<time>2020/08/29</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p><code>gradle bootRun</code> を実行する際にアクティブ化するプロファイルの指定を行いたかったのですが、ぱっと思いつかなかったのでメモ。</p>
+</div>
+<div class="paragraph">
+<p>まず、</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>gradle bootRun -Dprofiles.active=myproile</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>はうまくいきません。`profiles.active`システムプロパティは (アプリケーションでなく) Gradle に渡されるためです。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202008/30/gradle-bootrun-parameter/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202008/30/openapi-spring-mvc-handler-args/">openapi-generaterで生成したcontrollerにカスタム引数を追加する</a></h1>
 					<time>2020/08/29</time>
 					<br><div class="description">
@@ -330,64 +354,6 @@ compileJava.dependsOn tasks.openApiGenerate</code></pre>
 	
 </div>
 					<a class="readmore" href="/blog/202007/21/why-git-branching-is-difficult/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202007/20/spring-security-oauth-2.0-client/">Spring Security OAuth 2.0 Client の auto-configuration</a></h1>
-					<time>2020/07/20</time>
-					<br><div class="description">
-	
-	<div class="ulist">
-<ul>
-<li>
-<p><a href="https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2ClientAutoConfiguration.java"><code>OAuth2ClientAutoConfiguration</code></a></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>上記のクラスが <code>Import</code> しているもの(など):</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2ClientRegistrationRepositoryConfiguration.java"><code>OAuth2ClientRegistrationRepositoryConfiguration</code></a></p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>ClientRegistrationRepository</code> bean 定義。</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/OAuth2ClientProperties.java"><code>OAuth2ClientProperties</code></a>(<code>spring.security.oauth2.client</code>)プロパティから定義を取得して生成するインメモリレジストリを生成。</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><a href="https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2WebSecurityConfiguration.java"><code>OAuth2WebSecurityConfiguration</code></a></p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://github.com/spring-projects/spring-security/blob/5.3.3.RELEASE/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/OAuth2AuthorizedClientService.java"><code>OAuth2AuthorizedClientService</code></a> bean 定義。</p>
-</li>
-<li>
-<p><a href="https://github.com/spring-projects/spring-security/blob/5.3.3.RELEASE/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/web/OAuth2AuthorizedClientRepository.java"><code>OAuth2AuthorizedClientRepository</code></a> bean 定義。</p>
-</li>
-<li>
-<p><code>WebSecurityConfigurerAdapter</code> デフォルト実装。</p>
-<div class="ulist">
-<ul>
-<li>
-<p>全てのリクエストに authenticated を要求する。 oauth2Login, oauth2Client 有効化。</p>
-</li>
-</ul>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202007/20/spring-security-oauth-2.0-client/">Read more ⟶</a>
 				</section>
 				
 				

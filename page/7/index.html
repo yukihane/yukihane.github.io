@@ -56,6 +56,26 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202101/24/spring-session-in-memory/">Spring Sessionをインメモリで利用する</a></h1>
+					<time>2021/01/24</time>
+					<br><div class="description">
+	
+	<div class="ulist">
+<ul>
+<li>
+<p><a href="https://stackoverflow.com/q/48906697/4506703">What should be a replacement for StoreType.HASH_MAP in spring-boot 2</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>昔は <code>spring.session.store-type</code> の選択肢に <code>hash_map</code> というものがあったようですが、現在は存在しません。(ちなみに <code>none</code> は Spring Session を利用しない、という意味になるようで、挙動が変わってしまいます( <code>JSESSIONID</code> と <code>SESSIONID</code> とか))</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202101/24/spring-session-in-memory/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202101/23/throw-unauthorizedexception-in-controller/">ControllerでUnauthorizedExceptionを投げると401でなく403になる</a></h1>
 					<time>2021/01/23</time>
 					<br><div class="description">
@@ -314,30 +334,6 @@ sudo make install</code></pre>
 	
 </div>
 					<a class="readmore" href="/blog/202008/30/gcc-compilation-time/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202008/30/gradle-bootrun-parameter/">gradle bootRun でプロファイルを指定するには？</a></h1>
-					<time>2020/08/29</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p><code>gradle bootRun</code> を実行する際にアクティブ化するプロファイルの指定を行いたかったのですが、ぱっと思いつかなかったのでメモ。</p>
-</div>
-<div class="paragraph">
-<p>まず、</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>gradle bootRun -Dprofiles.active=myproile</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>はうまくいきません。`profiles.active`システムプロパティは (アプリケーションでなく) Gradle に渡されるためです。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202008/30/gradle-bootrun-parameter/">Read more ⟶</a>
 				</section>
 				
 				

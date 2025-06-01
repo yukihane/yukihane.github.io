@@ -56,6 +56,26 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202003/30/skip-maven-enforcer-plugin/">Maven Enforcer Pluginの実行をスキップする</a></h1>
+					<time>2020/03/30</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>とあるMavenプロジェクトを <code>mvn clean install</code> しようとしたところ、次のエラーになり正常終了しませんでした。</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>[WARNING] Rule 0: org.apache.maven.plugins.enforcer.BannedRepositories failed with message:
+Current maven session contains banned repository urls, please double check your pom or settings.xml:
+central - http://my.internal.repo/xxx
+snapshots - http://my.internal.repo/yyy</pre>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202003/30/skip-maven-enforcer-plugin/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202003/10/stored-procesure-with-mybatis/">MyBatisでストアドプロシージャを実行する</a></h1>
 					<time>2020/03/10</time>
 					<br><div class="description">
@@ -288,24 +308,6 @@ public String response() {
 	
 </div>
 					<a class="readmore" href="/blog/201912/03/auto-redirecting-chrome/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201911/28/kebab-format-recommended-on-spring-boot-properties/">Spring Boot のプロパティではkebab-formatが推奨されている</a></h1>
-					<time>2019/11/28</time>
-					<br><div class="description">
-	
-	<p><strong>Relaxed Binding 2.0</strong> という仕組みにより</p>
-<pre tabindex="0"><code>spring.jpa.database-platform=mysql
-spring.jpa.databasePlatform=mysql
-spring.JPA.database_platform=mysql
-</code></pre><p>いずれの形式でも正しくバインドできる。<br />
-が、公式ドキュメントからは一番上の <code>database-platform</code> が推奨されているように読み取れる。</p>
-<hr />
-<p><a href="https://github.com/spring-projects/spring-booT/wiki/Spring-Boot-Configuration-Binding#relaxed-binding">Relaxed binding</a> - Spring Boot Configuration Binding:</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201911/28/kebab-format-recommended-on-spring-boot-properties/">Read more ⟶</a>
 				</section>
 				
 				

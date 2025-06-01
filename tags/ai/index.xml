@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Tue, 12 Nov 2024 21:16:11 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 01 Jun 2025 21:22:10 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>「簡単アニメキャラ抜き出しアプリ」をWSL2 Docker環境で動かす</title>
+      <link>https://yukihane.github.io/blog/202506/01/anime-face-detection-on-docker/</link>
+      <pubDate>Sun, 01 Jun 2025 21:22:10 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202506/01/anime-face-detection-on-docker/</guid>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://trap.jp/post/1362/&#34;&gt;【夏休み自由研究】実例で学ぶ画像処理【Python】 | 東京科学大学デジタル創作同好会tra&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;という記事をたまたま読み、「そういえばひと昔前、アニメ絵の顔検出流行ってたなあ。今どうなってるんだろう」というのが気になって少し調べてみました。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Stable Diffusion Installation on Windows11</title>
       <link>https://yukihane.github.io/blog/202411/12/stable-diffusion-installation/</link>

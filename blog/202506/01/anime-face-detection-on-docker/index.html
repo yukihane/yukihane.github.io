@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html><head lang="ja">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>「簡単アニメキャラ抜き出しアプリ」をWSL2 Docker環境で動かす - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="
+【夏休み自由研究】実例で学ぶ画像処理【Python】 | 東京科学大学デジタル創作同好会tra
+
+という記事をたまたま読み、「そういえばひと昔前、アニメ絵の顔検出流行ってたなあ。今どうなってるんだろう」というのが気になって少し調べてみました。" />
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content="https://yukihane.github.io/blog/202506/01/anime-face-detection-on-docker/">
+  <meta property="og:site_name" content="発火後忘失">
+  <meta property="og:title" content="「簡単アニメキャラ抜き出しアプリ」をWSL2 Docker環境で動かす">
+  <meta property="og:description" content="【夏休み自由研究】実例で学ぶ画像処理【Python】 | 東京科学大学デジタル創作同好会tra という記事をたまたま読み、「そういえばひと昔前、アニメ絵の顔検出流行ってたなあ。今どうなってるんだろう」というのが気になって少し調べてみました。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-06-01T21:22:10+09:00">
+    <meta property="article:modified_time" content="2025-06-01T21:22:10+09:00">
+    <meta property="article:tag" content="Ai">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="「簡単アニメキャラ抜き出しアプリ」をWSL2 Docker環境で動かす">
+  <meta name="twitter:description" content="【夏休み自由研究】実例で学ぶ画像処理【Python】 | 東京科学大学デジタル創作同好会tra という記事をたまたま読み、「そういえばひと昔前、アニメ絵の顔検出流行ってたなあ。今どうなってるんだろう」というのが気になって少し調べてみました。">
+
+        <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://yukihane.github.io/">発火後忘失</a>
+	</div>
+	<nav>
+		
+		<a href="/blog">Blog</a>
+		
+		<a href="/docs">Docs</a>
+		
+		<a href="/tags">Tags</a>
+		
+		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
+		
+		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
+</svg></span>
+		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
+		
+	</nav>
+</header>
+
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        <div class="title">
+          <h1 class="title">「簡単アニメキャラ抜き出しアプリ」をWSL2 Docker環境で動かす</h1>
+          <div class="meta">Posted on 2025/06/01</div>
+        </div>
+        
+        <section class="body">
+          <ul>
+<li><a href="https://trap.jp/post/1362/">【夏休み自由研究】実例で学ぶ画像処理【Python】 | 東京科学大学デジタル創作同好会tra</a></li>
+</ul>
+<p>という記事をたまたま読み、「そういえばひと昔前、アニメ絵の顔検出流行ってたなあ。今どうなってるんだろう」というのが気になって少し調べてみました。</p>
+<ul>
+<li><a href="https://note.com/ai_meg/n/n3cbc258dfa3e">レガシーAIシリーズ（１）　高精度アニメ顔検出｜めぐチャンネル</a></li>
+</ul>
+<p>という1年ほど前に作成された記事によると、冒頭の記事でも利用されている <a href="https://github.com/nagadomi/lbpcascade_animeface">nagadomi/lbpcascade_animeface</a> が長らく使われてきたらしく、私が記憶している当時からそんなに変化は無かったようです。</p>
+<p>そのような背景の中、この記事ではより精度の高いアニメ顔検出機構 <a href="https://github.com/animede/anime_face_detection">animede/anime_face_detection</a> を提案しています。</p>
+<p>また、後続の記事</p>
+<ul>
+<li><a href="https://note.com/ai_meg/n/n7e02b5ac878c">レガシーAIシリーズ（２）　簡単アニメキャラ抜き出しアプリ｜めぐチャンネル</a></li>
+</ul>
+<p>では、前出の顔検出を基にしたキャラ配置、背景削除、超解像画像拡大機能を組み合わせた <a href="https://github.com/animede/anime-crop">animede/anime-crop</a> が提案されています。</p>
+<p>お、これを使えば冒頭の記事にあるドーナドーナの自作ジンザイ作成処理についてもっと汎用化できるのでは、と考えましたので実際どんな感じなのか動かしてみることにしました。</p>
+<p>作った環境がこちらです:</p>
+<ul>
+<li><a href="https://github.com/yukihane/docker-anime-crop">https://github.com/yukihane/docker-anime-crop</a></li>
+</ul>
+<p>元記事では</p>
+<blockquote>
+<p>リアルタイム性を要求しないアプリなので<strong>GPU無しで動かすことが可能</strong>です。</p></blockquote>
+<p>とあるのですが、実際に動かしてみると、(おそらく)Real-ESRGANを用いたアップスケール処理が走る条件だと処理が終わらないので、GPUを利用する方式をmainブランチで実装しています。</p>
+<p>検証環境は次の通りです:</p>
+<ul>
+<li>WSL2 Ubutnu on Windows11</li>
+<li>NVIDIA GeForce RTX 3070</li>
+<li>NVIDIA-SMI 575.57.04, Driver Version: 576.52, CUDA Version: 12.9</li>
+</ul>
+<p>検証画像としてpixivにアップロードされている著作物を利用したのですが、改めて見渡してみると解像度が高い画像が多く、アップスケール機能が無くても問題ない状況が大半なのではと考え、アップスケール機能をomit(アップスケールが発生する状況では&quot;image is too small&quot;というログを出力しエラーにする)したGPU無しのモードも作ってみました。<br />
+詳細はREADMEを参照してみて下さい。</p>
+
+        </section>
+        <div class="post-tags">
+          
+          
+          <nav class="nav tags">
+            <ul class="tags">
+              
+              <li><a href="/tags/ai">ai</a></li>
+              
+            </ul>
+          </nav>
+          
+          
+        </div>
+      </div>
+
+      
+      
+    </div>
+
+    </article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+</svg></a><a class="border"></a></div>
+  <div class="footer-info">
+    2025  &amp;copy;{year}, All Rights Reserved |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E9J8FN5B4Q');
+        }
+      </script>
+
+</div>
+    </body>
+</html>
