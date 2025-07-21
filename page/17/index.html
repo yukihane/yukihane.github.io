@@ -56,6 +56,42 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/201805/09/edit-sudoers-oneliner/">ワンライナー sudoers 編集</a></h1>
+					<time>2018/05/09</time>
+					<br><div class="description">
+	
+	<p><code>Dockerfile</code> 内で <code>sudoers</code> を編集しユーザ情報を追加したかった。</p>
+<pre><code>RUN echo 'myuser ALL=(ALL) NOPASSWD: ALL' | EDITOR='tee -a' visudo
+</code></pre>
+<p>参考: <a href="https://stackoverflow.com/a/28382838/4506703">linux - How do I edit /etc/sudoers from a script? - Stack Overflow</a></p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201805/09/edit-sudoers-oneliner/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201803/20/building-rpm/">手っ取り早くRPMパッケージを作成したかった</a></h1>
+					<time>2018/03/20</time>
+					<br><div class="description">
+	
+	<h2 id="前提">前提</h2>
+<p>既にビルド方法は確立しており、パッケージシステムに配布方法だけ任せたい、という場合に最小限の手間で RPM パッケージを作ることを考えます</p>
+<ul>
+<li>ビルドは RPM パッケージングのフロー中では行いません。既存のビルド方法でまかないます。</li>
+<li>依存関係の設定は今回無視します。</li>
+</ul>
+<h2 id="参考リンク">参考リンク</h2>
+<ul>
+<li><a href="https://rpm-packaging-guide.github.io/">RPM Packaging Guide</a></li>
+</ul>
+<h2 id="インストール">インストール</h2>
+<p>RPM パッケージ作成のために必要なパッケージをインストールします。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201803/20/building-rpm/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/201802/25/maven-archetype-catalog/">maven-archetype-plugin と archetype-catalog.xml 生成場所/読み取り場所</a></h1>
 					<time>2018/02/25</time>
 					<br><div class="description">

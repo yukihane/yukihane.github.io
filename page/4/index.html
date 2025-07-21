@@ -56,6 +56,90 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202201/10/kotlin-junit4/">Kotlin で JUnit4 のテストケースを書く</a></h1>
+					<time>2022/01/10</time>
+					<br><div class="description">
+	
+	<div class="ulist">
+<ul>
+<li>
+<p>JUnit4 / Parameterized</p>
+</li>
+<li>
+<p>Mockito 利用</p>
+</li>
+<li>
+<p>テスト対象が Lombok, MapStruct 使用</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>な状況で Kotlin でテストコードを書きます。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>成果物: <a href="https://github.com/yukihane/hello-kotlin/tree/main/junit4-mockito-example" class="bare">https://github.com/yukihane/hello-kotlin/tree/main/junit4-mockito-example</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>先にまとめを書いておきます。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(IntelliJ で Java のコードを <code>.kt</code> にペーストすると Kotlin コードに変換してくれるが、コレジャナイ感溢れるコードになったのであまり自動変換コードを信用するのは危険かも)</p>
+</li>
+<li>
+<p><code>@Mock</code> や <code>@InjectMocks</code> を付与したフィールドは <code>lateinit var</code></p>
+</li>
+<li>
+<p><code>static</code> メソッドを書きたい場合は <code>companion object</code> で囲って <code>@JvmStatic</code> アノテーションを付与する</p>
+<div class="ulist">
+<ul>
+<li>
+<p>今回の場合は JUnit4 のパラメータ供給メソッド(<code>@Parameters</code>)が該当</p>
+</li>
+</ul>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202201/10/kotlin-junit4/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202201/09/kotlin-maven-pom/">Kotolin のプロジェクトを Maven で作成する</a></h1>
+					<time>2022/01/09</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>入門書を一通り読み終えたのでサンプルプロジェクトを作成しようと思いました。</p>
+</div>
+<div class="paragraph">
+<p>JetBrains がメンテナンスしている archetype が利用できそうです。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-archetype-jvm" class="bare">https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-archetype-jvm</a></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>mvn archetype:generate -DarchetypeGroupId=org.jetbrains.kotlin -DarchetypeArtifactId=kotlin-archetype-jvm</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>IntelliJ IDEA から作成した場合も似た感じの <code>pom.xml</code> が作成されるかなと思います。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202201/09/kotlin-maven-pom/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202201/05/kotlin-lombok-intellij-problem/">IntelliJ 最新版(2021.3) で Kotlin と Lombok が共存できない</a></h1>
 					<time>2022/01/05</time>
 					<br><div class="description">
@@ -239,40 +323,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/202110/15/servlet-with-cookies-samesite/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202110/15/develop-android-firefox-addons/">Android Firefox Webextensions 開発/デバッグ覚え書き</a></h1>
-					<time>2021/10/15</time>
-					<br><div class="description">
-	
-	<div class="ulist">
-<ul>
-<li>
-<p>HAXM を有効化するためには <a href="https://github.com/intel/haxm/wiki/Installation-Instructions-on-Windows?utm_source=pocket_mylist#tips-and-tricks">今でも Hyper-V を無効化しておく必要があるらしい</a>です。つまり Android 開発と WSL2 は両立できないということに。</p>
-<div class="ulist">
-<ul>
-<li>
-<p>私は最初 Hyper-V 有効か状態で開発環境インストールを進めたのですが、やはりインストール失敗しました。</p>
-</li>
-</ul>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202110/15/develop-android-firefox-addons/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202110/15/install-addon-to-android-firefox/">Android Firefox に addons をインストールする方法</a></h1>
-					<time>2021/10/15</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p>Firefox 69 以降かな？ Fenix というコードネームになってから Android Firefox にインストールできる Webextensions(addons) に制約ができ、公式がお薦めとしているものだけしか通常の手順ではインストールできなくなりました。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202110/15/install-addon-to-android-firefox/">Read more ⟶</a>
 				</section>
 				
 				

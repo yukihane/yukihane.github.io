@@ -56,6 +56,39 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/201908/hello-heroku-with-springboot/">HerokuでSpringBootアプリを動かしてみる</a></h1>
+					<time>2019/08/22</time>
+					<br><div class="description">
+	
+	<div class="sect1">
+<h2 id="_背景">背景</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>最終的にはLINE platformのAPIを理解したいのですが、 <a href="https://developers.line.biz/ja/docs/">リファレンス</a>を読んでいるとサンプルプログラム(サンプルbot)をHerokuにデプロイして試してみる、というような説明が多数あったので、Herokuについて理解しておこう、と考えました。</p>
+</div>
+<div class="paragraph">
+<p>そういった考えで、今回、単純なSpringBoot hello-worldアプリをHerokuにデプロイして接続確認してみることにしました。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201908/hello-heroku-with-springboot/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201908/jbake-tags/">JBakeのタグページが想定通り動いていない</a></h1>
+					<time>2019/08/22</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p><a href="https://himeji-cs.jp/blog2/tags/index.html">タグのindexページ</a>は正しくタグを収集しているようですが、それぞれのタグ個別ページがちゃんと生成されていないですね…
+テンプレートは <a href="https://github.com/jbake-org/jbake-example-project-thymeleaf/blob/master/templates/tags.thyme">標準のもの</a>そのまま使っているはずなのだけれど。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201908/jbake-tags/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/201908/bash-redirect-earch-other/">bashで標準出力をファイルに、標準エラー出力を画面とファイルに出力したい</a></h1>
 					<time>2019/08/19</time>
 					<br><div class="description">
@@ -303,84 +336,6 @@ System.out.println(today);
 	
 </div>
 					<a class="readmore" href="/blog/201906/12/java-datetime/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201906/11/simpledateformat/">SimpleDateFormat もこれもうわかんねぇな</a></h1>
-					<time>2019/06/11</time>
-					<br><div class="description">
-	
-	<h1 id="結果">結果</h1>
-<h2 id="18">1.8</h2>
-<pre tabindex="0"><code>H
-</code></pre><h2 id="11">11</h2>
-<pre tabindex="0"><code>平成
-</code></pre><h1 id="環境">環境</h1>
-<h2 id="18-1">1.8</h2>
-<pre tabindex="0"><code>java version &#34;1.8.0_201&#34;
-Java(TM) SE Runtime Environment (build 1.8.0_201-b09)
-Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
-</code></pre><h2 id="11-1">11</h2>
-<pre tabindex="0"><code>openjdk version &#34;11.0.2&#34; 2019-01-15
-OpenJDK Runtime Environment 18.9 (build 11.0.2+9)
-OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)
-</code></pre><h1 id="コード">コード</h1>
-<pre tabindex="0"><code>import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Date;
-import java.util.Locale;
-
-public class Main {
-
-    public static void main(final String[] args) {
-        final Date date = date(2010, 3, 4);
-        final SimpleDateFormat format = new SimpleDateFormat(&#34;G&#34;, new Locale(&#34;ja&#34;, &#34;JP&#34;, &#34;JP&#34;));
-        System.out.println(format.format(date));
-    }
-
-    private static Date date(final int year, final int month, final int dayOfMonth) {
-        final long time = LocalDate.of(year, month, dayOfMonth)
-            .atStartOfDay(ZoneOffset.ofHours(9)).toEpochSecond() * 1000;
-        return new Date(time);
-    }
-}
-</code></pre><h1 id="関連しない">関連(しない)</h1>
-<ul>
-<li><a href="https://qiita.com/yukihane/items/9001b15a44d56b1dda23">DateTimeFormatter とかこれもうわかんねぇな</a></li>
-</ul>
-<h1 id="関連する">関連(する)</h1>
-<ul>
-<li><a href="https://bugs.openjdk.java.net/browse/JDK-8216204">JDK-8216204 Wrong SimpleDateFormat behavior with Japanese Imperial Calendar</a></li>
-</ul>
-<blockquote>
-<p>From JDK 9 onwards, the default locale data is the data derived from the Unicode Consortium&rsquo;s Common Locale Data Repository (CLDR). Please refer <a href="https://www.unicode.org/cldr/charts/33/by_type/date_&amp;_time.japanese.html">https://www.unicode.org/cldr/charts/33/by_type/date_&_time.japanese.html</a><br />
-The short display format for Heisei is 平成 in the ja locale in CLDR data. Hence the difference in the result.</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201906/11/simpledateformat/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201906/11/format-pass-to-null/">%s に null を渡したらどうなるんだっけ</a></h1>
-					<time>2019/06/11</time>
-					<br><div class="description">
-	
-	<h1 id="こたえ">こたえ</h1>
-<p>文字列 <code>null</code> が出力される。</p>
-<h1 id="コード">コード</h1>
-<pre><code>    final String text = null;
-    System.out.printf(&quot;%s&quot;, text);
-</code></pre>
-<h1 id="参考">参考</h1>
-<ul>
-<li><a href="https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Formatter.html">java.util.Formatter</a></li>
-</ul>
-<blockquote>
-<p>For category General, Character, Numberic, Integral and Date/Time conversion, unless otherwise specified, if the argument arg is null, then the result is &ldquo;null&rdquo;.</p></blockquote>
-<p>リンク先の表にある通り、 <code>s</code> はカテゴリ&quot;general&quot;に属す。ちなみに<a href="https://docs.oracle.com/javase/jp/12/docs/api/java.base/java/util/Formatter.html#syntax">日本語</a>ではこうなっている(わかりにくい):</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201906/11/format-pass-to-null/">Read more ⟶</a>
 				</section>
 				
 				

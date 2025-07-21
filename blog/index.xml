@@ -7,8 +7,22 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Sun, 01 Jun 2025 21:22:10 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 21 Jul 2025 11:17:36 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>キーボードを買い替えた: Majestouch Xacro M10SP</title>
+      <link>https://yukihane.github.io/blog/202507/21/keyboard-majestouch-xacro-m10sp/</link>
+      <pubDate>Mon, 21 Jul 2025 11:17:36 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202507/21/keyboard-majestouch-xacro-m10sp/</guid>
+      <description>&lt;p&gt;これまで、 &lt;a href=&#34;https://archisite.co.jp/products/mistel/eol/barocco-md600-en/&#34;&gt;Mistel Barocco MD600&lt;/a&gt; という左右分離式キーボードを利用していたのですが、USBケーブル接続端子の調子が悪くなったのか、タイピングを認識しなくなることが頻繁に発生するようになり、買い換えることにしました。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>近況報告と求職(準委任契約)について</title>
+      <link>https://yukihane.github.io/blog/202507/21/status-report/</link>
+      <pubDate>Mon, 21 Jul 2025 10:46:54 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202507/21/status-report/</guid>
+      <description>&lt;h2 id=&#34;近況報告&#34;&gt;近況報告&lt;/h2&gt;&#xA;&lt;p&gt;4月末で前回の仕事の契約が終わり、時間ができたので歯医者に行ったり健康診断に行ったりしていたところ、健康診断で血糖値(正確にはHbA1c)が正常値よりかなり高くなっていることがわかり、1ヶ月入院していました。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>「簡単アニメキャラ抜き出しアプリ」をWSL2 Docker環境で動かす</title>
       <link>https://yukihane.github.io/blog/202506/01/anime-face-detection-on-docker/</link>
@@ -694,20 +708,6 @@
       <pubDate>Sat, 15 Aug 2020 10:26:40 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202008/15/capability-url/</guid>
       <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;推測されないような文字列を動的に生成しURLに利用できるような仕組みを調べていますが、その調査メモです。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;ちょうど私が調べている時期と重なって、関心対象が同じ資料がアップロードされていました:&lt;/p&gt;&#xA;&lt;/div&gt;</description>
-    </item>
-    <item>
-      <title>Spring Security OAuth 2.0 Login を自動テストする</title>
-      <link>https://yukihane.github.io/blog/202008/05/spring-boot-oidc-testing/</link>
-      <pubDate>Tue, 04 Aug 2020 21:39:37 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202008/05/spring-boot-oidc-testing/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/&#34;&gt;KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる&lt;/a&gt; で作成したプログラムの自動テスト方法です。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;今回のコードも前回と同じく次のディレクトリにあります:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/yukihane/hello-java/tree/master/spring/oidc-example&#34; class=&#34;bare&#34;&gt;https://github.com/yukihane/hello-java/tree/master/spring/oidc-example&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;まず結論なのですが、リファレンスに説明がありますのでここを参照しましょう、ということになります:&lt;/p&gt;&#xA;&lt;/div&gt;</description>
-    </item>
-    <item>
-      <title>LombokとMapStructをEclipseで併用しようとした際の不具合がMapStruct1.4.0で解消されていた</title>
-      <link>https://yukihane.github.io/blog/202007/28/lombok-and-mapstruct-problem-is-fixed/</link>
-      <pubDate>Tue, 28 Jul 2020 12:06:03 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202007/28/lombok-and-mapstruct-problem-is-fixed/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;これまで、LombokとMapStructを併用しようとした場合、そのままだと不具合(MapStructのアノテーションプロセッシングが動作しない)があり、ちょっとひと手間かけてその不具合を回避する必要がありました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
     </item>
   </channel>
 </rss>

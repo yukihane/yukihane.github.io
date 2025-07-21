@@ -56,6 +56,49 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202101/30/gava-oidc-idp/">ガバガバOIDCモックサーバを作る</a></h1>
+					<time>2021/01/30</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>OIDCフローの調査などで本物でないOIDC IdP Mock Serverが欲しくなったので検索してみました。</p>
+</div>
+<div class="paragraph">
+<p><a href="https://www.google.com/search?q=oidc+mock+server">世に数多あるよう</a>に見えたのですが、結構真面目に認証処理してたりして、ちょっとオーバースペックだと感じたので自作することにしました。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/yukihane/gava-idp">gava-idp</a></p>
+</li>
+</ul>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202101/30/gava-oidc-idp/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202101/24/spring-boot-cors-permit-all/">Spring Boot の CORS 設定を全許可する</a></h1>
+					<time>2021/01/24</time>
+					<br><div class="description">
+	
+	<div class="ulist">
+<ul>
+<li>
+<p><a href="https://stackoverflow.com/a/65867566/4506703">How to configure CORS in a Spring Boot + Spring Security application?</a> - Stack Overflow</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Spring Boot のリファレンス <a href="https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#boot-features-cors">4.7.1. The “Spring Web MVC Framework” &gt; CORS Support</a> を見ると、次のように設定すれば良いように見えます。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202101/24/spring-boot-cors-permit-all/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202101/24/spring-session-in-memory/">Spring Sessionをインメモリで利用する</a></h1>
 					<time>2021/01/24</time>
 					<br><div class="description">
@@ -284,56 +327,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/202009/02/ruby-on-rails-on-centos6-centos7/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202008/31/gcc-installation/">CentOS6にGCC10.2.0をインストールしたときのメモ</a></h1>
-					<time>2020/08/30</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p>ビルド作業は次のページを参考にしました:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://aulta.co.jp/archives/7554">gcc-10.1.0をCentOS7にソースインストール | 株式会社オルタ</a></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>環境は <a href="https://yukihane.github.io/blog/202008/30/gcc-compilation-time/">こちら</a> に記載したものです。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>curl -L -O http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/gcc-10.2.0/gcc-10.2.0.tar.xz
-tar xf gcc-10.2.0.tar.xz
-cd gcc-10.2.0
-./contrib/download_prerequisites
-./configure --enable-languages=c,c++ --prefix=/opt/gcc-10.2.0 --disable-bootstrap --disable-multilib
-make -j 5
-sudo make install</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>つづいて <code>ldoconfig</code> での登録ですが、そのまま行うとエラーが出たので <a href="https://qiita.com/knutpb1205/items/4a9b39bf69f1788ef69c#%E3%82%A8%E3%83%A9%E3%83%BC%E5%AF%BE%E7%AD%96">こちら</a> を参照にして事前に1つのファイルをリネームしておきました:</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202008/31/gcc-installation/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202008/30/gcc-compilation-time/">gccをビルドするのにどれくらい時間がかかるの？(10分かからなかった) </a></h1>
-					<time>2020/08/30</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p>gccをビルドしようと思ったのですが、結構時間がかかるイメージがあって、先にどれくらいかかるのか調べたかったのだけれど検索しても見つかりませんでした。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202008/30/gcc-compilation-time/">Read more ⟶</a>
 				</section>
 				
 				

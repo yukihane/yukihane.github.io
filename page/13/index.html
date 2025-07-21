@@ -56,6 +56,48 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/201912/10/resttemplatebuilder/">RestTemplateBuilderに関する覚書</a></h1>
+					<time>2019/12/10</time>
+					<br><div class="description">
+	
+	<h1 id="resttemplatebuilder"><a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/web/client/RestTemplateBuilder.html">RestTemplateBuilder</a></h1>
+<ul>
+<li><a href="https://github.com/spring-projects/spring-framework/blob/v5.2.2.RELEASE/spring-web/src/main/java/org/springframework/web/client/RestTemplate.java">RestTemplate</a> は Spring Framework(spring-web)だけれども <a href="https://github.com/spring-projects/spring-boot/blob/v2.2.2.RELEASE/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/web/client/RestTemplateBuilder.java">RestTemplateBuilder</a> は Spring Boot。</li>
+<li>Java の世界の <code>なんちゃらBuilder</code> (<a href="https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/lang/StringBuilder.html">StringBuilder</a>とか Lombok の<a href="https://projectlombok.org/features/Builder"><code>Builder</code>アノテーション</a>とか、ざっくり総称で Effective Java 版 Builder とでも呼ぶべきか)の使い方は、「まず <code>builder</code> のインスタンスを生成します」から始まるので <code>RestTempalteBuilder</code> もそれだと思っていた。
+<ul>
+<li>つまり、このクラスインスタンスは Spring Boot のデフォルト状態でインジェクション可能だけれども、このインジェクションされた<code>RestTempalteBuilder</code>インスタンスのスコープは(Spring のデフォルトであるところの)singleton-scope <strong>ではない</strong> と思っていた。
+<ul>
+<li>だって<code>builder</code>インスタンスが singleton-scope なら、ある<code>bean</code>で <code>builder</code>に設定したものが他所の<code>bean</code>にも波及しちゃうじゃない。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>けど<a href="https://github.com/spring-projects/spring-boot/blob/v2.2.2.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/web/client/RestTemplateAutoConfiguration.java#L56-L69"><code>ResttemplateAutoConfiguration</code>の Bean 定義部分</a>どう見ても singleton-scope にしか見えない。何か自分の知らない記法(あるいは暗黙的解釈)がなにかまだあるのか？ <strong>また</strong> 何か Spring マジックが発動しているのか…？</li>
+</ul>
+<p>と思ってたけど、<code>RestTemplateBuilder</code>の状態設定メソッド(<a href="https://github.com/spring-projects/spring-boot/blob/v2.2.2.RELEASE/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/web/client/RestTemplateBuilder.java#L141-L668">このへん</a>)見て気づいた、 <strong>設定メソッドの中で <code>new RestTemplateBuilder()</code> やっとるんかーい！</strong></p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201912/10/resttemplatebuilder/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201912/03/auto-redirecting-chrome/">https://hatena.ne.jp/ にアクセスできてるとお思いで？</a></h1>
+					<time>2019/12/03</time>
+					<br><div class="description">
+	
+	<h1 id="はじめに-試した環境">はじめに: 試した環境</h1>
+<p>Windows10 の現時点での最新安定版 Google Chrome および Firefox を用いました。</p>
+<ul>
+<li>Google Chrome 78.0.3904.108</li>
+<li>Firefox 70.0.1</li>
+</ul>
+<p>また実行に際しては、キャッシュ等の影響を避けるため、Chrome では<a href="https://support.google.com/chrome/answer/6130773?co=GENIE.Platform%3DDesktop&amp;hl=ja">ゲストモード</a>、Firefox では今回<a href="https://support.mozilla.org/ja/kb/profile-manager-create-and-remove-firefox-profiles#w_cucgciaaacceagluna">新規作成したプロファイル</a>で確認しました。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201912/03/auto-redirecting-chrome/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/201911/28/kebab-format-recommended-on-spring-boot-properties/">Spring Boot のプロパティではkebab-formatが推奨されている</a></h1>
 					<time>2019/11/28</time>
 					<br><div class="description">
@@ -298,39 +340,6 @@ spring.JPA.database_platform=mysql
 	
 </div>
 					<a class="readmore" href="/blog/201908/setup-windows-devenv/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201908/hello-heroku-with-springboot/">HerokuでSpringBootアプリを動かしてみる</a></h1>
-					<time>2019/08/22</time>
-					<br><div class="description">
-	
-	<div class="sect1">
-<h2 id="_背景">背景</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>最終的にはLINE platformのAPIを理解したいのですが、 <a href="https://developers.line.biz/ja/docs/">リファレンス</a>を読んでいるとサンプルプログラム(サンプルbot)をHerokuにデプロイして試してみる、というような説明が多数あったので、Herokuについて理解しておこう、と考えました。</p>
-</div>
-<div class="paragraph">
-<p>そういった考えで、今回、単純なSpringBoot hello-worldアプリをHerokuにデプロイして接続確認してみることにしました。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201908/hello-heroku-with-springboot/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201908/jbake-tags/">JBakeのタグページが想定通り動いていない</a></h1>
-					<time>2019/08/22</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p><a href="https://himeji-cs.jp/blog2/tags/index.html">タグのindexページ</a>は正しくタグを収集しているようですが、それぞれのタグ個別ページがちゃんと生成されていないですね…
-テンプレートは <a href="https://github.com/jbake-org/jbake-example-project-thymeleaf/blob/master/templates/tags.thyme">標準のもの</a>そのまま使っているはずなのだけれど。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201908/jbake-tags/">Read more ⟶</a>
 				</section>
 				
 				

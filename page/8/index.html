@@ -56,6 +56,56 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202008/31/gcc-installation/">CentOS6にGCC10.2.0をインストールしたときのメモ</a></h1>
+					<time>2020/08/30</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>ビルド作業は次のページを参考にしました:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://aulta.co.jp/archives/7554">gcc-10.1.0をCentOS7にソースインストール | 株式会社オルタ</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>環境は <a href="https://yukihane.github.io/blog/202008/30/gcc-compilation-time/">こちら</a> に記載したものです。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>curl -L -O http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/gcc-10.2.0/gcc-10.2.0.tar.xz
+tar xf gcc-10.2.0.tar.xz
+cd gcc-10.2.0
+./contrib/download_prerequisites
+./configure --enable-languages=c,c++ --prefix=/opt/gcc-10.2.0 --disable-bootstrap --disable-multilib
+make -j 5
+sudo make install</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>つづいて <code>ldoconfig</code> での登録ですが、そのまま行うとエラーが出たので <a href="https://qiita.com/knutpb1205/items/4a9b39bf69f1788ef69c#%E3%82%A8%E3%83%A9%E3%83%BC%E5%AF%BE%E7%AD%96">こちら</a> を参照にして事前に1つのファイルをリネームしておきました:</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202008/31/gcc-installation/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202008/30/gcc-compilation-time/">gccをビルドするのにどれくらい時間がかかるの？(10分かからなかった) </a></h1>
+					<time>2020/08/30</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>gccをビルドしようと思ったのですが、結構時間がかかるイメージがあって、先にどれくらいかかるのか調べたかったのだけれど検索しても見つかりませんでした。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202008/30/gcc-compilation-time/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202008/30/gradle-bootrun-parameter/">gradle bootRun でプロファイルを指定するには？</a></h1>
 					<time>2020/08/29</time>
 					<br><div class="description">
@@ -319,41 +369,6 @@ compileJava.dependsOn tasks.openApiGenerate</code></pre>
 	
 </div>
 					<a class="readmore" href="/blog/202007/26/spring-boot-gradle-eclipse/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202007/21/hello-oidc-with-keycloak/">KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる</a></h1>
-					<time>2020/07/20</time>
-					<br><div class="description">
-	
-	<div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Spring Boot で Spring Security OAuth 2.0 <a href="https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#oauth2login">Login</a> / <a href="https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#oauth2client">Client</a> を利用する手順をまとめます。</p>
-</div>
-<div class="paragraph">
-<p>また、認可サーバ(IdP)にはローカルで立てたKeycloakを用いますのでそちらのセットアップ手順も記載します。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202007/21/hello-oidc-with-keycloak/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202007/21/why-git-branching-is-difficult/">いつもGitブランチ運用でこまること、考慮すべきポイントのまとめ</a></h1>
-					<time>2020/07/20</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p>現在、新しいプロジェクトに参画してGitのブランチ戦略を考えています。</p>
-</div>
-<div class="paragraph">
-<p>何回かブランチ戦略を考え、そして運用してきたのですが、思うところを書いてみます。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202007/21/why-git-branching-is-difficult/">Read more ⟶</a>
 				</section>
 				
 				
