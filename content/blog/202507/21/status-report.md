@@ -25,7 +25,7 @@ draft: false
 これまでずっとエージェント企業を挟んで契約を受けていたのですが、直接契約の可能性も探ってみたいと考えています。
 得られる収入が大きくなるだろう、というのが目論見です。
 
-私の職務経歴書は [GitHub](https://github.com/yukihane/resume) で管理しているので興味がある場合はそちらを参照ください。
+私の職務経歴書は [GitHub](https://github.com/yukihane/resume/blob/main/README.md) で管理しているので興味がある場合はそちらを参照ください。
 
 Kotlin/Java のサーバーサイド、DB周りの設計・実装を主戦場としてきました。
 
