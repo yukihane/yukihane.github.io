@@ -56,6 +56,33 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/201805/09/yaml/">yamlの継承っぽいのは継承というよりハッシュのマージ</a></h1>
+					<time>2018/05/09</time>
+					<br><div class="description">
+	
+	<p>なので配列(Array)には使えない。</p>
+<pre tabindex="0"><code>database: &amp;default
+  ip: 192.168.1.5
+  port: 2000
+  db_name: test
+foo_database:
+  &lt;&lt;: *default
+  port: 2001
+  db_name: foo
+</code></pre><p>上は実現できても下のようにはできない。</p>
+<pre tabindex="0"><code>database_attr: &amp;default
+  - ip
+  - port
+www_attr:
+  &lt;&lt;: *default
+  - name
+</code></pre><p>関連: <a href="https://github.com/yaml/yaml/issues/35">https://github.com/yaml/yaml/issues/35</a></p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201805/09/yaml/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/201805/09/edit-sudoers-oneliner/">ワンライナー sudoers 編集</a></h1>
 					<time>2018/05/09</time>
 					<br><div class="description">

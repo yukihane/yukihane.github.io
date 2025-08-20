@@ -56,6 +56,29 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/201908/setup-windows-devenv/">Windows10上に開発環境を整える</a></h1>
+					<time>2019/08/23</time>
+					<br><div class="description">
+	
+	<div class="sect1">
+<h2 id="_前提">前提</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>主にJava開発を行う人(要は私自身)向け記述多し</p>
+</li>
+<li>
+<p>パッケージ管理はscoopを使いますが、Java関係はなるべくSDKMAN!を使います</p>
+</li>
+</ul>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201908/setup-windows-devenv/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/201908/hello-heroku-with-springboot/">HerokuでSpringBootアプリを動かしてみる</a></h1>
 					<time>2019/08/22</time>
 					<br><div class="description">
@@ -315,27 +338,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/201906/20/dont-use-getrealpath/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201906/12/java-datetime/">元号が令和に変わったことを知らない人のための日付処理方法</a></h1>
-					<time>2019/06/12</time>
-					<br><div class="description">
-	
-	<h1 id="問題">問題</h1>
-<p><code>JapaneseDate.of</code>(や <code>LocalDate.of</code>)を使うと厳密(strict)に検証されてしまう。<br />
-結果、例外が出る。</p>
-<pre tabindex="0"><code>// 平成31年6月12日
-final JapaneseDate today = JapaneseDate.of(JapaneseEra.HEISEI, 31, 6, 12);
-System.out.println(today);
-</code></pre><pre tabindex="0"><code>Exception in thread &#34;main&#34; java.time.DateTimeException: year, month, and day not valid for Era
-	at java.base/java.time.chrono.JapaneseDate.of(JapaneseDate.java:231)
-	at com.github.yukihane.datetime.App.main(App.java:21)
-</code></pre><h1 id="解決策">解決策</h1>
-<p><code>JapaneseChronology#resolveDate</code>(や <code>IsoChronology#resolveDate</code>)を使えばゆるふわ(lenient)な検証でゆるしてくれたりも。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201906/12/java-datetime/">Read more ⟶</a>
 				</section>
 				
 				

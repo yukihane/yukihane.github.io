@@ -56,6 +56,27 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/201906/12/java-datetime/">元号が令和に変わったことを知らない人のための日付処理方法</a></h1>
+					<time>2019/06/12</time>
+					<br><div class="description">
+	
+	<h1 id="問題">問題</h1>
+<p><code>JapaneseDate.of</code>(や <code>LocalDate.of</code>)を使うと厳密(strict)に検証されてしまう。<br />
+結果、例外が出る。</p>
+<pre tabindex="0"><code>// 平成31年6月12日
+final JapaneseDate today = JapaneseDate.of(JapaneseEra.HEISEI, 31, 6, 12);
+System.out.println(today);
+</code></pre><pre tabindex="0"><code>Exception in thread &#34;main&#34; java.time.DateTimeException: year, month, and day not valid for Era
+	at java.base/java.time.chrono.JapaneseDate.of(JapaneseDate.java:231)
+	at com.github.yukihane.datetime.App.main(App.java:21)
+</code></pre><h1 id="解決策">解決策</h1>
+<p><code>JapaneseChronology#resolveDate</code>(や <code>IsoChronology#resolveDate</code>)を使えばゆるふわ(lenient)な検証でゆるしてくれたりも。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201906/12/java-datetime/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/201906/11/simpledateformat/">SimpleDateFormat もこれもうわかんねぇな</a></h1>
 					<time>2019/06/11</time>
 					<br><div class="description">
@@ -367,19 +388,6 @@ private RestTemplateBuilder builder;
 	
 </div>
 					<a class="readmore" href="/blog/201901/16/set-jvm-to-eclipse-on-mac/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201811/10/ubuntu-mute-tab-sound/">Ubuntu18.04 端末の不快なエラー音 消す方法</a></h1>
-					<time>2018/11/10</time>
-					<br><div class="description">
-	
-	<p>Ubuntu を 18.04 にアップグレードしたら端末の補完処理で tab キーを押す度にヴヴッという不快なビープ音が鳴るようになってしまった。</p>
-<p>端末のメニューから <strong>設定</strong> を選択し設定ダイアログを開く。<br />
-ダイアログで自分の使用しているプロファイル(ここでは<strong>デフォルト</strong>)を選択し、<strong>文字</strong>タブの<strong>Sound</strong>オプションで<strong>端末ベルを鳴らす</strong>のチェックを外せば OK。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201811/10/ubuntu-mute-tab-sound/">Read more ⟶</a>
 				</section>
 				
 				

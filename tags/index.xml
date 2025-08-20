@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Mon, 21 Jul 2025 11:17:36 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 20 Aug 2025 19:48:29 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kotlin</title>
+      <link>https://yukihane.github.io/tags/kotlin/</link>
+      <pubDate>Wed, 20 Aug 2025 19:48:29 +0900</pubDate>
+      <guid>https://yukihane.github.io/tags/kotlin/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Diary</title>
       <link>https://yukihane.github.io/tags/diary/</link>
@@ -70,13 +77,6 @@
       <link>https://yukihane.github.io/tags/spring-boot/</link>
       <pubDate>Mon, 05 May 2025 11:59:23 +0900</pubDate>
       <guid>https://yukihane.github.io/tags/spring-boot/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Kotlin</title>
-      <link>https://yukihane.github.io/tags/kotlin/</link>
-      <pubDate>Sun, 04 May 2025 14:17:43 +0900</pubDate>
-      <guid>https://yukihane.github.io/tags/kotlin/</guid>
       <description></description>
     </item>
     <item>

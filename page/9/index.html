@@ -56,6 +56,22 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202007/26/spring-boot-gradle-eclipse/">GradleでSpring Bootプロジェクトを作成してSTS(Eclipse)でインポートする手順</a></h1>
+					<time>2020/07/25</time>
+					<br><div class="description">
+	
+	<div class="sect1">
+<h2 id="_はじめに">はじめに</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://start.spring.io/">Spring Initializr</a>を使ってGradle形式でプロジェクトを作成した場合、どうやってSTS(Eclipse)へインポートするのか逡巡しました。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202007/26/spring-boot-gradle-eclipse/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202007/21/hello-oidc-with-keycloak/">KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる</a></h1>
 					<time>2020/07/20</time>
 					<br><div class="description">
@@ -321,49 +337,6 @@ public interface VehicleInterface extends JpaRepository&lt;vehicle, Long&gt; {
 	
 </div>
 					<a class="readmore" href="/blog/202007/11/same-class-controller-and-repository/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202007/11/jsp-on-springboot/">Spring-BootでJSPを使う</a></h1>
-					<time>2020/07/10</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p><a href="https://start.spring.io/" class="bare">https://start.spring.io/</a> で depencencies に <code>Spring Web</code> を追加して生成します。</p>
-</div>
-<div class="paragraph">
-<p>生成された <code>pom.xml</code> に次の依存関係を追加します:</p>
-</div>
-<div class="listingblock">
-<div class="title">pom.xml</div>
-<div class="content">
-<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
-    &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
-    &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-    &lt;!-- 必要に応じて --&gt;
-    &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
-    &lt;artifactId&gt;jstl&lt;/artifactId&gt;
-&lt;/dependency&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><code>appliction.properties</code> に次を追加します:</p>
-</div>
-<div class="listingblock">
-<div class="title">application.properties</div>
-<div class="content">
-<pre class="highlight"><code class="language-properties" data-lang="properties">spring.mvc.view.prefix=/WEB-INF/view/
-spring.mvc.view.suffix=.jsp</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><code>src/main/webapp/WEB-INF/view/</code> の下に JSP ファイルを作成します。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202007/11/jsp-on-springboot/">Read more ⟶</a>
 				</section>
 				
 				

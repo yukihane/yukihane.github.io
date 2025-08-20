@@ -56,6 +56,19 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/201811/10/ubuntu-mute-tab-sound/">Ubuntu18.04 端末の不快なエラー音 消す方法</a></h1>
+					<time>2018/11/10</time>
+					<br><div class="description">
+	
+	<p>Ubuntu を 18.04 にアップグレードしたら端末の補完処理で tab キーを押す度にヴヴッという不快なビープ音が鳴るようになってしまった。</p>
+<p>端末のメニューから <strong>設定</strong> を選択し設定ダイアログを開く。<br />
+ダイアログで自分の使用しているプロファイル(ここでは<strong>デフォルト</strong>)を選択し、<strong>文字</strong>タブの<strong>Sound</strong>オプションで<strong>端末ベルを鳴らす</strong>のチェックを外せば OK。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201811/10/ubuntu-mute-tab-sound/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/201809/30/selfbuild-openjdk/">OpenJDK11をWindowsで自前ビルドする</a></h1>
 					<time>2018/09/30</time>
 					<br><div class="description">
@@ -246,33 +259,6 @@ rm -rf workrepo
 	
 </div>
 					<a class="readmore" href="/blog/201805/19/building-java-project/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201805/09/yaml/">yamlの継承っぽいのは継承というよりハッシュのマージ</a></h1>
-					<time>2018/05/09</time>
-					<br><div class="description">
-	
-	<p>なので配列(Array)には使えない。</p>
-<pre tabindex="0"><code>database: &amp;default
-  ip: 192.168.1.5
-  port: 2000
-  db_name: test
-foo_database:
-  &lt;&lt;: *default
-  port: 2001
-  db_name: foo
-</code></pre><p>上は実現できても下のようにはできない。</p>
-<pre tabindex="0"><code>database_attr: &amp;default
-  - ip
-  - port
-www_attr:
-  &lt;&lt;: *default
-  - name
-</code></pre><p>関連: <a href="https://github.com/yaml/yaml/issues/35">https://github.com/yaml/yaml/issues/35</a></p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201805/09/yaml/">Read more ⟶</a>
 				</section>
 				
 				
