@@ -5,7 +5,7 @@ tags: ["kotlin"]
 draft: false
 ---
 
-［前回のエントリー](/blog/202507/21/status-report)では休職について記載しましたが、現在、無事職に着くことができています。
+[前回のエントリー](/blog/202507/21/status-report) では休職について記載しましたが、現在、無事職に着くことができています。
 
 さて、そのプロジェクトでの話ですが、CIでKotlinコードに対して[ktlint](https://pinterest.github.io/ktlint/latest/)でソースコードのチェックを行っています。
 ルールは(ほぼ)デフォルト設定を用いているのですが、このデフォルト設定とIntelliJ IDEAのデフォルト設定が競合するルールがあります。
