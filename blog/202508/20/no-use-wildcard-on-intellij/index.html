@@ -2,12 +2,18 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>IntelliJの自動整形でimportのwildcardを使わないようにする - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="［前回のエントリー](/blog/202507/21/status-report)では休職について記載しましたが、現在、無事職に着くことができています。" />
+	<meta name="description" content="前回のエントリー では休職について記載しましたが、現在、無事職に着くことができています。
+さて、そのプロジェクトでの話ですが、CIでKotlinコードに対してktlintでソースコードのチェックを行っています。
+ルールは(ほぼ)デフォルト設定を用いているのですが、このデフォルト設定とIntelliJ IDEAのデフォルト設定が競合するルールがあります。
+つまり、IntelliJ IDEAの設定でフォーマットをかけると、CIが失敗してしまいます。" />
 	<meta property="og:image" content=""/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202508/20/no-use-wildcard-on-intellij/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="IntelliJの自動整形でimportのwildcardを使わないようにする">
-  <meta property="og:description" content="［前回のエントリー](/blog/202507/21/status-report)では休職について記載しましたが、現在、無事職に着くことができています。">
+  <meta property="og:description" content="前回のエントリー では休職について記載しましたが、現在、無事職に着くことができています。
+さて、そのプロジェクトでの話ですが、CIでKotlinコードに対してktlintでソースコードのチェックを行っています。
+ルールは(ほぼ)デフォルト設定を用いているのですが、このデフォルト設定とIntelliJ IDEAのデフォルト設定が競合するルールがあります。
+つまり、IntelliJ IDEAの設定でフォーマットをかけると、CIが失敗してしまいます。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -17,7 +23,10 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="IntelliJの自動整形でimportのwildcardを使わないようにする">
-  <meta name="twitter:description" content="［前回のエントリー](/blog/202507/21/status-report)では休職について記載しましたが、現在、無事職に着くことができています。">
+  <meta name="twitter:description" content="前回のエントリー では休職について記載しましたが、現在、無事職に着くことができています。
+さて、そのプロジェクトでの話ですが、CIでKotlinコードに対してktlintでソースコードのチェックを行っています。
+ルールは(ほぼ)デフォルト設定を用いているのですが、このデフォルト設定とIntelliJ IDEAのデフォルト設定が競合するルールがあります。
+つまり、IntelliJ IDEAの設定でフォーマットをかけると、CIが失敗してしまいます。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -60,7 +69,7 @@
         </div>
         
         <section class="body">
-          <p>［前回のエントリー](/blog/202507/21/status-report)では休職について記載しましたが、現在、無事職に着くことができています。</p>
+          <p><a href="/blog/202507/21/status-report/">前回のエントリー</a> では休職について記載しましたが、現在、無事職に着くことができています。</p>
 <p>さて、そのプロジェクトでの話ですが、CIでKotlinコードに対して<a href="https://pinterest.github.io/ktlint/latest/">ktlint</a>でソースコードのチェックを行っています。<br />
 ルールは(ほぼ)デフォルト設定を用いているのですが、このデフォルト設定とIntelliJ IDEAのデフォルト設定が競合するルールがあります。<br />
 つまり、IntelliJ IDEAの設定でフォーマットをかけると、CIが失敗してしまいます。</p>

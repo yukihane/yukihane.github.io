@@ -14,7 +14,7 @@
       <link>https://yukihane.github.io/blog/202508/20/no-use-wildcard-on-intellij/</link>
       <pubDate>Wed, 20 Aug 2025 19:48:29 +0900</pubDate>
       <guid>https://yukihane.github.io/blog/202508/20/no-use-wildcard-on-intellij/</guid>
-      <description>&lt;p&gt;［前回のエントリー](/blog/202507/21/status-report)では休職について記載しましたが、現在、無事職に着くことができています。&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202507/21/status-report/&#34;&gt;前回のエントリー&lt;/a&gt; では休職について記載しましたが、現在、無事職に着くことができています。&lt;/p&gt;&#xA;&lt;p&gt;さて、そのプロジェクトでの話ですが、CIでKotlinコードに対して&lt;a href=&#34;https://pinterest.github.io/ktlint/latest/&#34;&gt;ktlint&lt;/a&gt;でソースコードのチェックを行っています。&lt;br /&gt;&#xA;ルールは(ほぼ)デフォルト設定を用いているのですが、このデフォルト設定とIntelliJ IDEAのデフォルト設定が競合するルールがあります。&lt;br /&gt;&#xA;つまり、IntelliJ IDEAの設定でフォーマットをかけると、CIが失敗してしまいます。&lt;/p&gt;</description>
     </item>
     <item>
       <title>KotlinでformバインディングするときもやっぱりJava Beansにした方が良さそう</title>
