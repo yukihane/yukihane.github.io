@@ -223,6 +223,7 @@ Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1007E:
 <p>そういえばThymeleafってKotlin向けに考慮している、みたいな話を聞いたことが無いし…と納得することにしました。</p>
 <p>したがって、 RestController (一般的にJSONとJavaオブジェクトの変換はJacksonを使うと思います)などではまた話が変わってくるかなと思います。<br />
 Jacksonは積極的にKotlin対応してたはずですしね。</p>
+<p>追記: <a href="https://qiita.com/kazokmr/items/b4744e1318b097f601ef">Spring BootをKotlinで書いていてNon-Nullableなプロパティに対するJSONフィールドが無い場合の例外ハンドリング - Qiita</a> では、データバインディングエラー時に発生する例外 <code>HttpMessageNotReadableException</code> を自前でハンドルする方法が書かれていました。</p>
 
         </section>
         <div class="post-tags">
