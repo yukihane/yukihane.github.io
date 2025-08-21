@@ -194,3 +194,5 @@ Spring MVCのドキュメントには [constructor binding](https://docs.spring.
 
 したがって、 RestController (一般的にJSONとJavaオブジェクトの変換はJacksonを使うと思います)などではまた話が変わってくるかなと思います。
 Jacksonは積極的にKotlin対応してたはずですしね。
+
+追記: [Spring BootをKotlinで書いていてNon-Nullableなプロパティに対するJSONフィールドが無い場合の例外ハンドリング - Qiita](https://qiita.com/kazokmr/items/b4744e1318b097f601ef) では、データバインディングエラー時に発生する例外 `HttpMessageNotReadableException` を自前でハンドルする方法が書かれていました。
