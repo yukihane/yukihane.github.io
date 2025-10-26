@@ -1,7 +1,7 @@
 ---
 title: "キーボードを買い替えた: Majestouch Xacro M10SP"
 date: 2025-07-21T11:17:36+09:00
-tags: ["diary"]
+tags: ["diary", "gadget", "keyboard"]
 draft: false
 ---
 
