@@ -5,6 +5,8 @@ draft: false
 tags:
   - spring-boot
   - mysql
+  - timezone
+  - datetime
 ---
 
 MySQL Connector/J `8.0.23` でタイムゾーン変換のメカニズムが変わりました(Spring Boot では https://docs.spring.io/spring-boot/docs/2.3.9.RELEASE/reference/html/appendix-dependency-versions.html#dependency-versions[`2.3.9`]以降, https://docs.spring.io/spring-boot/docs/2.4.3/reference/html/appendix-dependency-versions.html#dependency-versions[`2.4.3`]以降でこれを採用しています)。
