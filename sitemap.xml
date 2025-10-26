@@ -17,6 +17,12 @@
     <loc>https://yukihane.github.io/tags/diary/</loc>
     <lastmod>2025-07-21T11:17:36+09:00</lastmod>
   </url><url>
+    <loc>https://yukihane.github.io/tags/gadget/</loc>
+    <lastmod>2025-07-21T11:17:36+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/keyboard/</loc>
+    <lastmod>2025-07-21T11:17:36+09:00</lastmod>
+  </url><url>
     <loc>https://yukihane.github.io/blog/202507/21/keyboard-majestouch-xacro-m10sp/</loc>
     <lastmod>2025-07-21T11:17:36+09:00</lastmod>
   </url><url>
@@ -365,10 +371,16 @@
     <loc>https://yukihane.github.io/tags/oidc/</loc>
     <lastmod>2021-05-06T10:43:04+00:00</lastmod>
   </url><url>
+    <loc>https://yukihane.github.io/tags/datetime/</loc>
+    <lastmod>2021-04-28T15:55:52+00:00</lastmod>
+  </url><url>
     <loc>https://yukihane.github.io/tags/mysql/</loc>
     <lastmod>2021-04-28T15:55:52+00:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/blog/202104/29/mysql-connector-j-8.0.23/</loc>
+    <lastmod>2021-04-28T15:55:52+00:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/timezone/</loc>
     <lastmod>2021-04-28T15:55:52+00:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/blog/202103/21/implicit-submission/</loc>
@@ -754,9 +766,6 @@
   </url><url>
     <loc>https://yukihane.github.io/blog/202007/15/research-gradle-plugins/</loc>
     <lastmod>2020-07-14T15:58:57+00:00</lastmod>
-  </url><url>
-    <loc>https://yukihane.github.io/tags/datetime/</loc>
-    <lastmod>2020-07-13T18:45:43+00:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/blog/202007/14/iso-8601-2400-is-invalid/</loc>
     <lastmod>2020-07-13T18:45:43+00:00</lastmod>
