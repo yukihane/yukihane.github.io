@@ -16,3 +16,10 @@ WSL2上の操作をWindows Terminalで行っているのですが、codexを利�
 IMEを新しくしてしまうとこの設定が無くなってしまっていたので、古いIMEを使い続けていたのでした。
 
 この問題についてはAutoHotKeyで解消できたように見えるので[次のエントリー](/blog/202511/03/shift_space_with_autohotkey)で説明します。
+
+追記:
+
+こちらで問題について解説されていました。ATOKでも発生するらしいですね。
+英語でのエラーメッセージは "[This terminal has encountered an issue with the graphics driver and it could not recover in time.](https://github.com/microsoft/terminal/issues/15601)" みたいなので検索するときの参考に。
+
+- https://fedibird.com/@mutaguchi/113370605003406704
