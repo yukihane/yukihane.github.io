@@ -56,6 +56,61 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202007/14/iso-8601-2400-is-invalid/">ISO 8601では 24:00 は妥当だったが改訂によりNGになった</a></h1>
+					<time>2020/07/13</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p><a href="https://ja.stackoverflow.com/q/68413/2808">moment().isValid()での24時00分00秒の挙動について - スタック・オーバーフロー</a> より。</p>
+</div>
+<div class="paragraph">
+<p>ISO 8601 の以前のspecでは、 <code>0:00</code> も <code>24:00</code> も両方妥当な表記だったらしいです。
+実際、&#34;ISO8601 24:00&#34; みたいなキーワードで検索するとそのように説明しているサイトも複数ヒットします。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202007/14/iso-8601-2400-is-invalid/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202007/11/same-class-controller-and-repository/">Spring Boot で Controller と Repositoryを同じクラスで併用する</a></h1>
+					<time>2020/07/11</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>…なんてことができたんですね。こんなコード:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>@RestController
+@Repository
+public interface VehicleInterface extends JpaRepository&lt;vehicle, Long&gt; {
+
+    @Query(&#34;select u from vehicle u where u.year = :year&#34;)
+    @RequestMapping(value = &#34;/vehicles&#34;, method = RequestMethod.GET)
+    List&lt;vehicle&gt; findByYearEquals(@Param(&#34;year&#34;) Integer year);
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="http://localhost:8080/vehicles?year=2010" class="bare">http://localhost:8080/vehicles?year=2010</a> 的なURLでアクセスします。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/yukihane/stackoverflow-qa/tree/master/so62843109">サンプルコード</a></p>
+</li>
+<li>
+<p><a href="https://stackoverflow.com/q/62843109/4506703">ネタ元</a></p>
+</li>
+</ul>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202007/11/same-class-controller-and-repository/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202007/11/jsp-on-springboot/">Spring-BootでJSPを使う</a></h1>
 					<time>2020/07/10</time>
 					<br><div class="description">
@@ -385,48 +440,6 @@ spring.mvc.view.suffix=.jsp</code></pre>
 	
 </div>
 					<a class="readmore" href="/blog/202006/12/userdetailsservice-conidered-harmful/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202006/10/alpine-and-glibc-problems/">Alpine Linuxでglibcじゃないことに起因する問題ってちょくちょくあるよね</a></h1>
-					<time>2020/06/10</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p>…と少し思い返していました。といっても思い出せたのは次の2つなのですが。</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://ja.stackoverflow.com/q/66812/2808">alpine Linuxへのawscliインストール</a></p>
-</li>
-<li>
-<p><a href="https://ja.stackoverflow.com/q/67494/2808">alpineでgitがcolorにならない</a></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Alpine特有の問題については、「取り敢えずglibc/GNU版コマンドをインストールしてみろ」ってのが最初に採ってみる方策としてアリなのかも。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202006/10/alpine-and-glibc-problems/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202006/02/note-of-completablefuture/">CompletableFuture覚え書き</a></h1>
-					<time>2020/06/02</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p><code>CompletableFuture</code> の一連の非同期処理 <code>ほげAsync</code> は、デフォルトでは <a href="https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/util/concurrent/ForkJoinPool.html#commonPool()"><code>ForkJoinPool.commonPool()</code></a> という <code>ExecutorService</code> で実行されます。</p>
-</div>
-<div class="paragraph">
-<p>そしてこの <code>ExecutorService</code> のワーカスレッドはデーモンスレッドであるため、非デーモンスレッドが無くなると(≒ メインスレッドが終了すると)プール内の処理を完了させること無くプロセスが終了します。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202006/02/note-of-completablefuture/">Read more ⟶</a>
 				</section>
 				
 				

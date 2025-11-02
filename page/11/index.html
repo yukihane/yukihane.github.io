@@ -56,6 +56,48 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202006/10/alpine-and-glibc-problems/">Alpine Linuxでglibcじゃないことに起因する問題ってちょくちょくあるよね</a></h1>
+					<time>2020/06/10</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>…と少し思い返していました。といっても思い出せたのは次の2つなのですが。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://ja.stackoverflow.com/q/66812/2808">alpine Linuxへのawscliインストール</a></p>
+</li>
+<li>
+<p><a href="https://ja.stackoverflow.com/q/67494/2808">alpineでgitがcolorにならない</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Alpine特有の問題については、「取り敢えずglibc/GNU版コマンドをインストールしてみろ」ってのが最初に採ってみる方策としてアリなのかも。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202006/10/alpine-and-glibc-problems/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202006/02/note-of-completablefuture/">CompletableFuture覚え書き</a></h1>
+					<time>2020/06/02</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p><code>CompletableFuture</code> の一連の非同期処理 <code>ほげAsync</code> は、デフォルトでは <a href="https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/util/concurrent/ForkJoinPool.html#commonPool()"><code>ForkJoinPool.commonPool()</code></a> という <code>ExecutorService</code> で実行されます。</p>
+</div>
+<div class="paragraph">
+<p>そしてこの <code>ExecutorService</code> のワーカスレッドはデーモンスレッドであるため、非デーモンスレッドが無くなると(≒ メインスレッドが終了すると)プール内の処理を完了させること無くプロセスが終了します。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202006/02/note-of-completablefuture/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202005/29/java-source-location/">Javaのソースファイルはpackageに対応したディレクトリ階層に置かなくても良い？</a></h1>
 					<time>2020/05/29</time>
 					<br><div class="description">
@@ -249,45 +291,6 @@ set shiftwidth=2</code></pre>
 	
 </div>
 					<a class="readmore" href="/blog/202004/09/hello-wasm-next/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202004/08/hello-wasm-with-rust/">Hello, Wasm with Rust</a></h1>
-					<time>2020/04/07</time>
-					<br><div class="description">
-	
-	<div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>wasmに挑戦してみようとHello, worldをやってみようとしました。</p>
-</div>
-<div class="paragraph">
-<p>公式っぽいドキュメントとしてはググると次のものが見つかりました:</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202004/08/hello-wasm-with-rust/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202004/08/twitter-on-firefox-security-issue/">TwitterをFirefoxで利用した際のセキュリティ問題</a></h1>
-					<time>2020/04/07</time>
-					<br><div class="description">
-	
-	<div class="ulist">
-<ul>
-<li>
-<p><a href="https://privacy.twitter.com/ja/blog/2020/data-cache-firefox">&gt;Mozilla Firefoxに保存されているTwitterデータのキャッシュについて</a></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>というリリースが先日出されましたが、具体的にどういう問題なのかが書かれていないので調べてみました。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202004/08/twitter-on-firefox-security-issue/">Read more ⟶</a>
 				</section>
 				
 				

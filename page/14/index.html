@@ -56,6 +56,46 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/201908/line-login-sample/">LINEログイン機能を試してみる(Spring Boot 2.1.7/Spring Security 5.1.6)</a></h1>
+					<time>2019/08/25</time>
+					<br><div class="description">
+	
+	<div class="admonitionblock important">
+<table>
+<tbody><tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+本ページは Spring Boot 2.1.7 の頃のものですが、後続として 2.4.5 対応版があります: <a href="/blog/202105/06/ling-login-202105/">LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6)</a> – 発火後忘失
+</td>
+</tr>
+</tbody></table>
+</div>
+<hr/>
+<div class="paragraph">
+<p>Spring SecurityのOAuth実装は <a href="https://qiita.com/yukihane/items/fc97f888ecb6a6850ea7">こちらに書いたとおり</a> 歴史的経緯により複数存在しますが、 <a href="https://start.spring.io/" class="bare">https://start.spring.io/</a> の
+ Dependencies で &#34;OAuth2 Client&#34; を選択した場合に追加されるものは一番新しいSpring Securityの <a href="https://docs.spring.io/spring-security/site/docs/5.1.6.RELEASE/reference/html/modules.html#spring-security-oauth2-client"><code>spring-security-oauth2-client</code></a> (及び <code>spring-security-oauth2-jose</code>)でした。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201908/line-login-sample/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201908/gradle-msys/">Gradleプロジェクトで生成した実行スクリプトがGitBash(MSYS環境)でうまく動かない</a></h1>
+					<time>2019/08/23</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>GitBash環境でSDKMAN!を使ってJBakeをインストールしたのですが、 <code>jbake</code> コマンドを実行すると次のようなエラーが出てうまく動きませんでした。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201908/gradle-msys/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/201908/setup-windows-devenv/">Windows10上に開発環境を整える</a></h1>
 					<time>2019/08/23</time>
 					<br><div class="description">
@@ -313,31 +353,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/201907/04/spring-boot-and-spring-security/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201907/03/you-dont-need-userdetails/">ちょっと待って！そのUserDetails、本当に必要ですか？</a></h1>
-					<time>2019/07/03</time>
-					<br><div class="description">
-	
-	<h1 id="概要">概要</h1>
-<p>Spring Boot の認証を実装してみた系のサンプルでよく <code>UserDetails</code> や <code>UserDetailsService</code> が用いられているが、必然性が不明なものがほとんどである。<br />
-(おそらく当の実装者も理解していない<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。)</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201907/03/you-dont-need-userdetails/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201906/20/dont-use-getrealpath/">ファイル出力先にServletContext#getRealPathを使うな</a></h1>
-					<time>2019/06/20</time>
-					<br><div class="description">
-	
-	<p>タイトルに書いたような、ファイル出力先として <code>ServletContext#getRealPath</code> を利用しているサンプルコードが見つかる、と聞いて検索してみたところ、日本語、非日本語にかかわらず確かにそのようなサンプルコードは散見されました。<br />
-例えば Qiita では(順不同):</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201906/20/dont-use-getrealpath/">Read more ⟶</a>
 				</section>
 				
 				

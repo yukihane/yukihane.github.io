@@ -56,6 +56,45 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202004/08/hello-wasm-with-rust/">Hello, Wasm with Rust</a></h1>
+					<time>2020/04/07</time>
+					<br><div class="description">
+	
+	<div class="sect1">
+<h2 id="_はじめに">はじめに</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>wasmに挑戦してみようとHello, worldをやってみようとしました。</p>
+</div>
+<div class="paragraph">
+<p>公式っぽいドキュメントとしてはググると次のものが見つかりました:</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202004/08/hello-wasm-with-rust/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202004/08/twitter-on-firefox-security-issue/">TwitterをFirefoxで利用した際のセキュリティ問題</a></h1>
+					<time>2020/04/07</time>
+					<br><div class="description">
+	
+	<div class="ulist">
+<ul>
+<li>
+<p><a href="https://privacy.twitter.com/ja/blog/2020/data-cache-firefox">&gt;Mozilla Firefoxに保存されているTwitterデータのキャッシュについて</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>というリリースが先日出されましたが、具体的にどういう問題なのかが書かれていないので調べてみました。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202004/08/twitter-on-firefox-security-issue/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202004/06/hello-jsf/">Hello, JSF</a></h1>
 					<time>2020/04/06</time>
 					<br><div class="description">
@@ -253,60 +292,6 @@ Environment=&#34;HTTP_PROXY=http://myproxy.example.com:8080&#34;</pre>
 	
 </div>
 					<a class="readmore" href="/blog/202001/30/fluentd-request_timeout_sec-default/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202001/26/resttemplate-with-illformed-json/">Spring BootのRestTemplateで text/plain;Windows-31J なRESTレスポンスを処理する</a></h1>
-					<time>2020/01/26</time>
-					<br><div class="description">
-	
-	<div class="sect1">
-<h2 id="_要旨">要旨</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>JSONを返してくるのだけれどMIME typeが <code>text/plain;charset=Windows-31J</code> なレスポンスを、RestTemplateで扱いたい。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>@GetMapping(produces = &#34;text/plain;charset=Windows-31J&#34;)
-public String response() {
-    return &#34;{\&#34;text\&#34;: \&#34;こんにちは世界\&#34; }&#34;;
-}</pre>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202001/26/resttemplate-with-illformed-json/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202001/01/rust-reqwest/">reqwest使おうとしたけどよくわからん</a></h1>
-					<time>2020/01/01</time>
-					<br><div class="description">
-	
-	<h1 id="はじめに">はじめに</h1>
-<p>年の瀬にスクレイピングしたくなって Rust 勉強し始めたけれど、直前に reqwest ライブラリに更新が入ったみたいでコピペコーディングが阻まれた。</p>
-<h1 id="知っとかないといけなかったこと">知っとかないといけなかったこと</h1>
-<ul>
-<li>今回の更新 <a href="https://seanmonstar.com/post/189960517042/reqwest-v010">reqwest 0.10.0</a> で async/await がデフォルトになった(ので従来のサンプルコードは動かなくなった)。</li>
-<li>Cargo には <a href="https://doc.rust-lang.org/stable/cargo/reference/manifest.html#the-features-section">feature flag(feature toggle)</a> 機能があって、reqwest やら(オフィシャルサンプルで利用している)tokio やらもこれを利用している。
-<ul>
-<li>(async/await を使わない、従来の)blocking 版をどうやって使うのか全然わからなかったけれど、features で明示的に指定する必要があった。</li>
-<li><a href="https://github.com/seanmonstar/reqwest/issues/755">オフィシャルサンプルを動かすにしてもこれを知っておかないといけなかった</a>。</li>
-</ul>
-</li>
-<li><a href="https://crates.io/crates/tokio">tokio</a>を用いる必要があった。
-<ul>
-<li>自分が見ていた(古い)サンプルでは<a href="https://crates.io/crates/futures">futures</a>の<code>futures::executor::block_on</code>を利用していたので当初それをコピペったのだが次のエラーが出た: &rsquo;not currently running on the Tokio runtime.',</li>
-<li>async/await 構文が標準に取り込まれた、ということは非同期ランタイムを別のものにすげ替えることが可能、みたいなイメージを持っていたのだが、そうではなさそう。</li>
-<li>おそらく<a href="https://github.com/ghmagazine/rustbook/pull/2">自転車本の補遺</a>が言うところの「非同期エコシステム」が関係する話題。</li>
-</ul>
-</li>
-</ul>
-<h1 id="サンプルを動かすには">サンプルを動かすには</h1>
-<p><a href="https://github.com/seanmonstar/reqwest">https://github.com/seanmonstar/reqwest</a></p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202001/01/rust-reqwest/">Read more ⟶</a>
 				</section>
 				
 				

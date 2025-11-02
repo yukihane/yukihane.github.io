@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Tue, 20 May 2025 12:50:13 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 03 Nov 2025 05:04:49 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/wsl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows Terminalで日本語入力中 頻繁にクラッシュする</title>
+      <link>https://yukihane.github.io/blog/202511/03/windows-terminal-crash/</link>
+      <pubDate>Mon, 03 Nov 2025 05:04:49 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202511/03/windows-terminal-crash/</guid>
+      <description>&lt;p&gt;WSL2上の操作をWindows Terminalで行っているのですが、codexを利用していると(?)、頻繁に次のエラーが出ます。&lt;/p&gt;&#xA;&lt;p&gt;「このターミナルでグラフィックス ドライバーの問題が発生し、時間内に回復できませんでした。ターミナルは一時停止されています。」&lt;/p&gt;</description>
+    </item>
     <item>
       <title>WSL2環境にwslu(wslview)をインストールしよう</title>
       <link>https://yukihane.github.io/blog/202505/20/install-wslu-on-wsl2/</link>

@@ -56,6 +56,42 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202007/28/lombok-and-mapstruct-problem-is-fixed/">LombokとMapStructをEclipseで併用しようとした際の不具合がMapStruct1.4.0で解消されていた</a></h1>
+					<time>2020/07/28</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>これまで、LombokとMapStructを併用しようとした場合、そのままだと不具合(MapStructのアノテーションプロセッシングが動作しない)があり、ちょっとひと手間かけてその不具合を回避する必要がありました。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202007/28/lombok-and-mapstruct-problem-is-fixed/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202007/26/swt-findwindowi-is-deprecated/">SWTのFindWindowはもはや存在しない</a></h1>
+					<time>2020/07/25</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>元ネタ:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://ja.stackoverflow.com/q/68951/2808">古い Eclipse の起動時に UnsatisfiedLinkError が発生する - スタック・オーバーフロー</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>いにしえのJava世界では、Win32APIにアクセスするためにSWTを利用していたそうです(リンク先のエントリは2005年のもの。私がJava始めるまえの話だ…)。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202007/26/swt-findwindowi-is-deprecated/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202007/26/spring-boot-gradle-eclipse/">GradleでSpring Bootプロジェクトを作成してSTS(Eclipse)でインポートする手順</a></h1>
 					<time>2020/07/25</time>
 					<br><div class="description">
@@ -282,61 +318,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/202007/15/research-gradle-plugins/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202007/14/iso-8601-2400-is-invalid/">ISO 8601では 24:00 は妥当だったが改訂によりNGになった</a></h1>
-					<time>2020/07/13</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p><a href="https://ja.stackoverflow.com/q/68413/2808">moment().isValid()での24時00分00秒の挙動について - スタック・オーバーフロー</a> より。</p>
-</div>
-<div class="paragraph">
-<p>ISO 8601 の以前のspecでは、 <code>0:00</code> も <code>24:00</code> も両方妥当な表記だったらしいです。
-実際、&#34;ISO8601 24:00&#34; みたいなキーワードで検索するとそのように説明しているサイトも複数ヒットします。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202007/14/iso-8601-2400-is-invalid/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202007/11/same-class-controller-and-repository/">Spring Boot で Controller と Repositoryを同じクラスで併用する</a></h1>
-					<time>2020/07/11</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p>…なんてことができたんですね。こんなコード:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>@RestController
-@Repository
-public interface VehicleInterface extends JpaRepository&lt;vehicle, Long&gt; {
-
-    @Query(&#34;select u from vehicle u where u.year = :year&#34;)
-    @RequestMapping(value = &#34;/vehicles&#34;, method = RequestMethod.GET)
-    List&lt;vehicle&gt; findByYearEquals(@Param(&#34;year&#34;) Integer year);
-}</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><a href="http://localhost:8080/vehicles?year=2010" class="bare">http://localhost:8080/vehicles?year=2010</a> 的なURLでアクセスします。</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://github.com/yukihane/stackoverflow-qa/tree/master/so62843109">サンプルコード</a></p>
-</li>
-<li>
-<p><a href="https://stackoverflow.com/q/62843109/4506703">ネタ元</a></p>
-</li>
-</ul>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202007/11/same-class-controller-and-repository/">Read more ⟶</a>
 				</section>
 				
 				

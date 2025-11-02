@@ -56,6 +56,58 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202404/05/rust-test-async/">asyncなライブラリー関数のテストを書く</a></h1>
+					<time>2024/04/05</time>
+					<br><div class="description">
+	
+	<div class="sect1">
+<h2 id="_今回解決したい問題">今回解決したい問題</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://docs.rs/reqwest/0.12.2/reqwest/">reqwestのドキュメント</a> の最初のサンプルをテスト実行することを考えます。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-rust" data-lang="rust">let body = reqwest::get(&#34;https://www.rust-lang.org&#34;)
+    .await?
+    .text()
+    .await?;
+
+println!(&#34;body = {body:?}&#34;);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>まず <code>Cargo.toml</code> に依存関係を追加して、</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>cargo new --lib test-async
+cd test-async
+cargo add reqwest</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>冒頭のコードを実行する関数を作ります。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202404/05/rust-test-async/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202209/03/language-implementation-patterns/">言語実装パターン レビュー</a></h1>
+					<time>2022/09/03</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>(レビュー、という大層な物言いはあまりしたくないのですが、自分が書籍の感想を検索するときには &#34;&lt;書籍名&gt; レビュー&#34; で検索することが多いので…​)</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202209/03/language-implementation-patterns/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202208/26/hello-jooq/">jOOQ で Hello, world</a></h1>
 					<time>2022/08/26</time>
 					<br><div class="description">
@@ -276,68 +328,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/202203/12/kotlin-jpa-definition/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202203/12/jackson-deserialize-by-constructor/">Jacksonでコンストラクタを利用してデシリアライズ</a></h1>
-					<time>2022/03/12</time>
-					<br><div class="description">
-	
-	<div class="ulist">
-<ul>
-<li>
-<p>今回のコード: <a href="https://github.com/yukihane/hello-java/tree/main/jackson/jackson-deserialize-by-constructor" class="bare">https://github.com/yukihane/hello-java/tree/main/jackson/jackson-deserialize-by-constructor</a></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Jackson は引数なしコンストラクタが必要、というblogを目にしましたが、正しくありません。</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>@JsonCreator</code> を付与することでそのコンストラクタを使ってデシリアライズするように指示できます。</p>
-<div class="ulist">
-<ul>
-<li>
-<p>コンストラクタが1つしか無い場合は省略できます。</p>
-</li>
-</ul>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202203/12/jackson-deserialize-by-constructor/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202201/24/git-commit-id-maven-plugin-on-worktree/">git worktree を利用していると git-commit-id-maven-plugin でエラー</a></h1>
-					<time>2022/01/24</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p>…​になりました。</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://github.com/git-commit-id/git-commit-id-maven-plugin/issues/215">Support of git worktree option (for JGIT) · Issue #215 · git-commit-id/git-commit-id-maven-plugin · GitHub</a></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>コマンドライン引数でスキップさせるには、 <a href="https://github.com/git-commit-id/git-commit-id-maven-plugin/pull/278">#278</a> で導入された <code>maven.gitcommitid.skip</code> オプション(<a href="https://github.com/git-commit-id/git-commit-id-maven-plugin/blob/v5.0.0/src/main/java/pl/project13/maven/git/GitCommitIdMojo.java#L241-L251">現時点最新版の該当コードリンク</a>)を利用して、</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>mvn -Dmaven.gitcommitid.skip package</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>などとすれば良さそうです。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202201/24/git-commit-id-maven-plugin-on-worktree/">Read more ⟶</a>
 				</section>
 				
 				

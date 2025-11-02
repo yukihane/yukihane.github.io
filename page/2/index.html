@@ -56,6 +56,47 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202412/15/failed-scoop-update-pwsh/">Scoopでpwshのupdateに失敗する</a></h1>
+					<time>2024/12/15</time>
+					<br><div class="description">
+	
+	<p>Scoop で</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scoop update pwsh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>を実行してもプロセスが起動しているからスキップする</p>
+<pre tabindex="0"><code>ERROR The following instances of &#34;pwsh&#34; are still running. Close them and try again.
+
+ NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+ ------    -----      -----     ------      --  -- -----------
+     71    42.12     104.00       0.52   26500   1 pwsh
+</code></pre><p>というメッセージが出てアップデートできない事象がずっと続いていました。<br />
+(ちゃんと読んでいないのですが)公式のGitHubでissueがいくつか建っているようです。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202412/15/failed-scoop-update-pwsh/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202411/24/muscle-pain-on-running/">ランニングで筋肉痛になったと思ったら1ヶ月経っても治らない</a></h1>
+					<time>2024/11/24</time>
+					<br><div class="description">
+	
+	<h2 id="はじめに">はじめに</h2>
+<p>ランニングが原因で筋肉痛になっていたと考えていた痛みが1ヶ月以上治まらず整形外科で診察を受けたところランニング障害と診断されました。<br />
+この症状について、行った対策などを記録していこうと思います。<br />
+完治するまで更新予定です。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202411/24/muscle-pain-on-running/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202411/23/minecraft-bedrock-programming/">Minecraft Bedrock で Add-on 開発環境を利用して Hello, world!</a></h1>
 					<time>2024/11/23</time>
 					<br><div class="description">
@@ -226,58 +267,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/202404/06/losts-on-wayland/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202404/05/rust-test-async/">asyncなライブラリー関数のテストを書く</a></h1>
-					<time>2024/04/05</time>
-					<br><div class="description">
-	
-	<div class="sect1">
-<h2 id="_今回解決したい問題">今回解決したい問題</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><a href="https://docs.rs/reqwest/0.12.2/reqwest/">reqwestのドキュメント</a> の最初のサンプルをテスト実行することを考えます。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-rust" data-lang="rust">let body = reqwest::get(&#34;https://www.rust-lang.org&#34;)
-    .await?
-    .text()
-    .await?;
-
-println!(&#34;body = {body:?}&#34;);</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>まず <code>Cargo.toml</code> に依存関係を追加して、</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>cargo new --lib test-async
-cd test-async
-cargo add reqwest</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>冒頭のコードを実行する関数を作ります。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202404/05/rust-test-async/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202209/03/language-implementation-patterns/">言語実装パターン レビュー</a></h1>
-					<time>2022/09/03</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p>(レビュー、という大層な物言いはあまりしたくないのですが、自分が書籍の感想を検索するときには &#34;&lt;書籍名&gt; レビュー&#34; で検索することが多いので…​)</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202209/03/language-implementation-patterns/">Read more ⟶</a>
 				</section>
 				
 				

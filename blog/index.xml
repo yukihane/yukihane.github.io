@@ -7,8 +7,22 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Wed, 20 Aug 2025 19:48:29 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 03 Nov 2025 05:14:44 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows11でShift&#43;Spaceで日本語/英語切り替えを行えるようにする</title>
+      <link>https://yukihane.github.io/blog/202511/03/shift_space_with_autohotkey/</link>
+      <pubDate>Mon, 03 Nov 2025 05:14:44 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202511/03/shift_space_with_autohotkey/</guid>
+      <description>&lt;p&gt;ひとつ前のエントリーに記載した通り、これまでShift+Spaceで日本語と英語の切り替えを行うために「以前のバージョンのMicrosoft IMEを使う」の設定を有効化していましたが、Windows Terminalとの相性が悪いため無効化せざるを得なくなりました。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Windows Terminalで日本語入力中 頻繁にクラッシュする</title>
+      <link>https://yukihane.github.io/blog/202511/03/windows-terminal-crash/</link>
+      <pubDate>Mon, 03 Nov 2025 05:04:49 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202511/03/windows-terminal-crash/</guid>
+      <description>&lt;p&gt;WSL2上の操作をWindows Terminalで行っているのですが、codexを利用していると(?)、頻繁に次のエラーが出ます。&lt;/p&gt;&#xA;&lt;p&gt;「このターミナルでグラフィックス ドライバーの問題が発生し、時間内に回復できませんでした。ターミナルは一時停止されています。」&lt;/p&gt;</description>
+    </item>
     <item>
       <title>IntelliJの自動整形でimportのwildcardを使わないようにする</title>
       <link>https://yukihane.github.io/blog/202508/20/no-use-wildcard-on-intellij/</link>
@@ -694,20 +708,6 @@
       <pubDate>Sun, 23 Aug 2020 05:09:07 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202008/23/openapi-generator/</guid>
       <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_今回の成果物&#34;&gt;今回の成果物&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/yukihane/hello-java/tree/master/spring/openapi-sample&#34; class=&#34;bare&#34;&gt;https://github.com/yukihane/hello-java/tree/master/spring/openapi-sample&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_設定&#34;&gt;設定&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;sect2&#34;&gt;&#xA;&lt;h3 id=&#34;_build_gradle&#34;&gt;build.gradle&lt;/h3&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator-gradle-plugin&#34;&gt;openapi-generator-gradle-plugin&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators/spring.md&#34;&gt;spring generator&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;辺りを参考にしています。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;listingblock&#34;&gt;&#xA;&lt;div class=&#34;title&#34;&gt;build.gradle&lt;/div&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;language-groovy&#34; data-lang=&#34;groovy&#34;&gt;plugins {&#xA;    id &amp;#39;eclipse&amp;#39;&#xA;    id &amp;#39;org.openapi.generator&amp;#39; version &amp;#39;4.3.1&amp;#39;&#xA;}&#xA;&#xA;ext {&#xA;    openApiOutputDir = &amp;#34;$rootDir/build/generated/openapi&amp;#34;&#xA;}&#xA;&#xA;sourceSets.main.java.srcDirs += [&amp;#34;$openApiOutputDir/src/main/java&amp;#34;]&#xA;&#xA;dependencies {&#xA;    // これらは自動生成クラスが import しているので必要&#xA;    implementation &amp;#39;org.springframework.boot:spring-boot-starter-validation&amp;#39;&#xA;    implementation &amp;#39;org.openapitools:jackson-databind-nullable:0.2.1&amp;#39;&#xA;    compileOnly &amp;#39;io.swagger:swagger-annotations:1.6.2&amp;#39;&#xA;}&#xA;&#xA;openApiGenerate {&#xA;    generatorName = &amp;#39;spring&amp;#39;&#xA;    inputSpec = &amp;#34;$rootDir/specs/test.yml&amp;#34;&#xA;    outputDir = &amp;#34;$openApiOutputDir&amp;#34;&#xA;    apiPackage = &amp;#39;org.openapi.example.api&amp;#39;&#xA;    modelPackage = &amp;#39;org.openapi.example.model&amp;#39;&#xA;    configOptions = [&#xA;        dateLibrary: &amp;#39;java8&amp;#39;,&#xA;        interfaceOnly: &amp;#39;true&amp;#39;,&#xA;        skipDefaultInterface: &amp;#39;true&amp;#39;,&#xA;    ]&#xA;}&#xA;&#xA;compileJava.dependsOn tasks.openApiGenerate&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;</description>
-    </item>
-    <item>
-      <title>Spring BootプロジェクトにLombokとMapStructを追加する(Eclipse &amp; Maven/Gradle)</title>
-      <link>https://yukihane.github.io/blog/202008/23/spring-lombok-mapstruct/</link>
-      <pubDate>Sun, 23 Aug 2020 03:23:31 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202008/23/spring-lombok-mapstruct/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;(2021-10-16 更新)&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Spring Boot プロジェクトにLombokとMapStructを追加し、かつ Eclipse で開発を行う場合の設定です。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;同じようなことを何回か書いてきた気がするのですが、結局どうすれば良いの？というのをまとめて書いたものが無いっぽいので改めて記事に起こしました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
-    </item>
-    <item>
-      <title>Gradleでintegration testを作成するも実行できない(JUnit5)</title>
-      <link>https://yukihane.github.io/blog/202008/16/gradle-test-not-working/</link>
-      <pubDate>Sun, 16 Aug 2020 14:20:16 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202008/16/gradle-test-not-working/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Gradle で integration-test 用にテストディレクトリを分けようとして &lt;a href=&#34;https://docs.gradle.org/current/userguide/java_testing.html#sec:configuring_java_integration_tests&#34;&gt;リファレンス&lt;/a&gt; を参考に &lt;code&gt;build.gradle&lt;/code&gt; を編集しました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;しかし、コンパイル対象には入っているようですがこのテストが実行されている気配がありません。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
     </item>
   </channel>
 </rss>

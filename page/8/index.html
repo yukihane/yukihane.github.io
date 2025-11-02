@@ -56,6 +56,58 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202009/04/oidc-change-redirect-uri/">Spring Security: OIDC の redirect_uri を変更する</a></h1>
+					<time>2020/09/03</time>
+					<br><div class="description">
+	
+	<div class="sect1">
+<h2 id="_はじめに">はじめに</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="/blog/202007/21/hello-oidc-with-keycloak/">KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる</a> で作成したコードに対して、 カスタム <code>redirect_uri</code> の設定を行ってみます。</p>
+</div>
+<div class="paragraph">
+<p>今回のコードはこちら:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redirect-uri" class="bare">https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redirect-uri</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_変更手順">変更手順</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_keycloak_登録情報の変更">KeyCloak 登録情報の変更</h3>
+<div class="paragraph">
+<p><a href="/blog/202007/21/hello-oidc-with-keycloak/">前回のページ</a> を参考に、 &#34;Valid Redirect URIs&#34; の値を今回変更するURL <strong>http://localhost:8080/my_redirect_uri</strong> に更新します。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202009/04/oidc-change-redirect-uri/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202009/02/spring-boot-session-take-over-on-restart-with-devtools/">DevToolsを組み込んでいると再起動してもsessionが引き継がれる</a></h1>
+					<time>2020/09/01</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>Spring Boot開発中、再起動するとsessionは消失すると思いこんでいたのですが、どうも引き継がれているように見えて混乱しました。</p>
+</div>
+<div class="paragraph">
+<p>その後、調査してみると <code>server.servlet.session.persistent</code> プロパティで再起動時セッションを破棄するか保持するかを設定できることがわかりました。ただし、デフォルト値は <code>false</code> で、もちろんデフォルトからは変更していません(存在を知らなかったので)。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202009/02/spring-boot-session-take-over-on-restart-with-devtools/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202009/02/ruby-on-rails-on-centos6-centos7/">Ruby on Rails 6 を Centos6 や Centos7 で動かす</a></h1>
 					<time>2020/09/01</time>
 					<br><div class="description">
@@ -340,42 +392,6 @@ compileJava.dependsOn tasks.openApiGenerate</code></pre>
 	
 </div>
 					<a class="readmore" href="/blog/202008/05/spring-boot-oidc-testing/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202007/28/lombok-and-mapstruct-problem-is-fixed/">LombokとMapStructをEclipseで併用しようとした際の不具合がMapStruct1.4.0で解消されていた</a></h1>
-					<time>2020/07/28</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p>これまで、LombokとMapStructを併用しようとした場合、そのままだと不具合(MapStructのアノテーションプロセッシングが動作しない)があり、ちょっとひと手間かけてその不具合を回避する必要がありました。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202007/28/lombok-and-mapstruct-problem-is-fixed/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202007/26/swt-findwindowi-is-deprecated/">SWTのFindWindowはもはや存在しない</a></h1>
-					<time>2020/07/25</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p>元ネタ:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://ja.stackoverflow.com/q/68951/2808">古い Eclipse の起動時に UnsatisfiedLinkError が発生する - スタック・オーバーフロー</a></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>いにしえのJava世界では、Win32APIにアクセスするためにSWTを利用していたそうです(リンク先のエントリは2005年のもの。私がJava始めるまえの話だ…)。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202007/26/swt-findwindowi-is-deprecated/">Read more ⟶</a>
 				</section>
 				
 				

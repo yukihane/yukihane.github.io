@@ -56,6 +56,68 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202203/12/jackson-deserialize-by-constructor/">Jacksonでコンストラクタを利用してデシリアライズ</a></h1>
+					<time>2022/03/12</time>
+					<br><div class="description">
+	
+	<div class="ulist">
+<ul>
+<li>
+<p>今回のコード: <a href="https://github.com/yukihane/hello-java/tree/main/jackson/jackson-deserialize-by-constructor" class="bare">https://github.com/yukihane/hello-java/tree/main/jackson/jackson-deserialize-by-constructor</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Jackson は引数なしコンストラクタが必要、というblogを目にしましたが、正しくありません。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>@JsonCreator</code> を付与することでそのコンストラクタを使ってデシリアライズするように指示できます。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>コンストラクタが1つしか無い場合は省略できます。</p>
+</li>
+</ul>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202203/12/jackson-deserialize-by-constructor/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202201/24/git-commit-id-maven-plugin-on-worktree/">git worktree を利用していると git-commit-id-maven-plugin でエラー</a></h1>
+					<time>2022/01/24</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>…​になりました。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/git-commit-id/git-commit-id-maven-plugin/issues/215">Support of git worktree option (for JGIT) · Issue #215 · git-commit-id/git-commit-id-maven-plugin · GitHub</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>コマンドライン引数でスキップさせるには、 <a href="https://github.com/git-commit-id/git-commit-id-maven-plugin/pull/278">#278</a> で導入された <code>maven.gitcommitid.skip</code> オプション(<a href="https://github.com/git-commit-id/git-commit-id-maven-plugin/blob/v5.0.0/src/main/java/pl/project13/maven/git/GitCommitIdMojo.java#L241-L251">現時点最新版の該当コードリンク</a>)を利用して、</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>mvn -Dmaven.gitcommitid.skip package</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>などとすれば良さそうです。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202201/24/git-commit-id-maven-plugin-on-worktree/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202201/12/kotlin-kotest-mockk/">JUnit &#43; Mockito テストケースを Kotest &#43; MockK に書き換える</a></h1>
 					<time>2022/01/12</time>
 					<br><div class="description">
@@ -296,42 +358,6 @@ Mockito で言うところの <code>@Mock</code> や <code>@InjectMocks</code> �
 	
 </div>
 					<a class="readmore" href="/blog/202110/18/mapstruct-spring-extensions/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202110/16/sts-import-getting-started-content-is-stuck/">STS(Eclipse) で Import Getting Started Content が進まない</a></h1>
-					<time>2021/10/16</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p><a href="https://spring.io/tools">Spring Tools 4 for Eclipse</a> を利用していると、バージョンによって？ プロジェクト新規作成時などで &#34;Import Getting Started Content&#34; というタスクが走るのですがこれが全く終わらないことがあります。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202110/16/sts-import-getting-started-content-is-stuck/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202110/15/rust-map-with-result/">map で Result を引き回すときに Err を意識したくない その2</a></h1>
-					<time>2021/10/15</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p>その1はこちらです:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://ja.stackoverflow.com/q/82978/2808">map で Result を引き回すときに Err を意識したくない - スタック・オーバーフロー</a></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>その1では戻り値が <code>i * 2</code> の <code>i32</code> 型になる話でしたが、その次に考えたかったのは <code>Result</code> が返ってくるメソッドで引き回すときの話でした。こんな感じで:</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202110/15/rust-map-with-result/">Read more ⟶</a>
 				</section>
 				
 				

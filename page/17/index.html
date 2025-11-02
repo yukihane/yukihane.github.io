@@ -56,6 +56,44 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/201807/07/jsf-on-tomcat/">Tomcat上でJSF実現</a></h1>
+					<time>2018/07/07</time>
+					<br><div class="description">
+	
+	<p>非 JavaEE なサーブレットコンテナ上で JSF を実行するように変更する手順。</p>
+<h1 id="tldr">TL;DR</h1>
+<ul>
+<li>Mojarra を依存関係に含める</li>
+<li>JSF リソースを <code>javax.faces.webapp.FacesServlet</code> にマップするよう <code>web.xml</code> で設定する</li>
+</ul>
+<h1 id="実装例">実装例</h1>
+<p><a href="https://github.com/yukihane/hello-jsf/tree/feature/server/tomcat">https://github.com/yukihane/hello-jsf/tree/feature/server/tomcat</a></p>
+<p><code>feature/server/tomcat</code> ブランチと <code>feature/server/javaee</code> ブランチで diff を取れば、 JavaEE アプリケーションサーバ向け設定との差異がわかります。<br />
+(ちなみに <code>master</code>ブランチや <code>README.md</code> の説明は別の内容向けなので気にしないで下さい)</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201807/07/jsf-on-tomcat/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201805/19/building-java-project/">Building Java Project</a></h1>
+					<time>2018/05/19</time>
+					<br><div class="description">
+	
+	<h2 id="はじめに">はじめに</h2>
+<ul>
+<li>他者が作成したプログラムにちょっと変更を加えて使いたい</li>
+<li>その言語は未経験だけれど、コードの変更自体は検索したり周辺コードのコピペで何とかなりそう</li>
+<li>しかし、変更したコードをどうやってビルドすれば良いんだ…？</li>
+</ul>
+<p>なんてことがたまにあります。<br />
+そんな時に参考になるようなドキュメントを目指して記述しました。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201805/19/building-java-project/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/201805/09/yaml/">yamlの継承っぽいのは継承というよりハッシュのマージ</a></h1>
 					<time>2018/05/09</time>
 					<br><div class="description">

@@ -56,6 +56,60 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202001/26/resttemplate-with-illformed-json/">Spring BootのRestTemplateで text/plain;Windows-31J なRESTレスポンスを処理する</a></h1>
+					<time>2020/01/26</time>
+					<br><div class="description">
+	
+	<div class="sect1">
+<h2 id="_要旨">要旨</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>JSONを返してくるのだけれどMIME typeが <code>text/plain;charset=Windows-31J</code> なレスポンスを、RestTemplateで扱いたい。</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>@GetMapping(produces = &#34;text/plain;charset=Windows-31J&#34;)
+public String response() {
+    return &#34;{\&#34;text\&#34;: \&#34;こんにちは世界\&#34; }&#34;;
+}</pre>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202001/26/resttemplate-with-illformed-json/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202001/01/rust-reqwest/">reqwest使おうとしたけどよくわからん</a></h1>
+					<time>2020/01/01</time>
+					<br><div class="description">
+	
+	<h1 id="はじめに">はじめに</h1>
+<p>年の瀬にスクレイピングしたくなって Rust 勉強し始めたけれど、直前に reqwest ライブラリに更新が入ったみたいでコピペコーディングが阻まれた。</p>
+<h1 id="知っとかないといけなかったこと">知っとかないといけなかったこと</h1>
+<ul>
+<li>今回の更新 <a href="https://seanmonstar.com/post/189960517042/reqwest-v010">reqwest 0.10.0</a> で async/await がデフォルトになった(ので従来のサンプルコードは動かなくなった)。</li>
+<li>Cargo には <a href="https://doc.rust-lang.org/stable/cargo/reference/manifest.html#the-features-section">feature flag(feature toggle)</a> 機能があって、reqwest やら(オフィシャルサンプルで利用している)tokio やらもこれを利用している。
+<ul>
+<li>(async/await を使わない、従来の)blocking 版をどうやって使うのか全然わからなかったけれど、features で明示的に指定する必要があった。</li>
+<li><a href="https://github.com/seanmonstar/reqwest/issues/755">オフィシャルサンプルを動かすにしてもこれを知っておかないといけなかった</a>。</li>
+</ul>
+</li>
+<li><a href="https://crates.io/crates/tokio">tokio</a>を用いる必要があった。
+<ul>
+<li>自分が見ていた(古い)サンプルでは<a href="https://crates.io/crates/futures">futures</a>の<code>futures::executor::block_on</code>を利用していたので当初それをコピペったのだが次のエラーが出た: &rsquo;not currently running on the Tokio runtime.',</li>
+<li>async/await 構文が標準に取り込まれた、ということは非同期ランタイムを別のものにすげ替えることが可能、みたいなイメージを持っていたのだが、そうではなさそう。</li>
+<li>おそらく<a href="https://github.com/ghmagazine/rustbook/pull/2">自転車本の補遺</a>が言うところの「非同期エコシステム」が関係する話題。</li>
+</ul>
+</li>
+</ul>
+<h1 id="サンプルを動かすには">サンプルを動かすには</h1>
+<p><a href="https://github.com/seanmonstar/reqwest">https://github.com/seanmonstar/reqwest</a></p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202001/01/rust-reqwest/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202001/rust-create-library/">Rustでライブラリを作成する</a></h1>
 					<time>2019/12/31</time>
 					<br><div class="description">
@@ -293,46 +347,6 @@ spring.JPA.database_platform=mysql
 	
 </div>
 					<a class="readmore" href="/blog/201908/line-richmenu-sample/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201908/line-login-sample/">LINEログイン機能を試してみる(Spring Boot 2.1.7/Spring Security 5.1.6)</a></h1>
-					<time>2019/08/25</time>
-					<br><div class="description">
-	
-	<div class="admonitionblock important">
-<table>
-<tbody><tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-本ページは Spring Boot 2.1.7 の頃のものですが、後続として 2.4.5 対応版があります: <a href="/blog/202105/06/ling-login-202105/">LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6)</a> – 発火後忘失
-</td>
-</tr>
-</tbody></table>
-</div>
-<hr/>
-<div class="paragraph">
-<p>Spring SecurityのOAuth実装は <a href="https://qiita.com/yukihane/items/fc97f888ecb6a6850ea7">こちらに書いたとおり</a> 歴史的経緯により複数存在しますが、 <a href="https://start.spring.io/" class="bare">https://start.spring.io/</a> の
- Dependencies で &#34;OAuth2 Client&#34; を選択した場合に追加されるものは一番新しいSpring Securityの <a href="https://docs.spring.io/spring-security/site/docs/5.1.6.RELEASE/reference/html/modules.html#spring-security-oauth2-client"><code>spring-security-oauth2-client</code></a> (及び <code>spring-security-oauth2-jose</code>)でした。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201908/line-login-sample/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201908/gradle-msys/">Gradleプロジェクトで生成した実行スクリプトがGitBash(MSYS環境)でうまく動かない</a></h1>
-					<time>2019/08/23</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p>GitBash環境でSDKMAN!を使ってJBakeをインストールしたのですが、 <code>jbake</code> コマンドを実行すると次のようなエラーが出てうまく動きませんでした。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201908/gradle-msys/">Read more ⟶</a>
 				</section>
 				
 				
