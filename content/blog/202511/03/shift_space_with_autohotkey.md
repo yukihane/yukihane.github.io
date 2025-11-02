@@ -9,9 +9,7 @@ draft: false
 
 したがって、Shift+Spaceで切り替えできるようにする代替策を考える必要が出ました。
 
-ChatGPTに聞いてみたところ、 [AutoHotKey](https://www.autohotkey.com/) で解消できましたのでその設定を記載します。
-ちなみに[ChatGPTとの会話ログ記録はこちら](https://chatgpt.com/share/6907bcf6-4da8-8002-ad23-7283b7aaadae)です。
-結構紆余曲折があります。
+ChatGPTに聞いてみたところ、 [AutoHotKey](https://www.autohotkey.com/) で解消できましたのでその設定をGitHubに登録しています。
 
 成果物は[こちらのリポジトリー](https://github.com/yukihane/prefs/tree/main/windows) の `ime_toggle.ahk` になります。
 利用方法はREADMEを参照してください。
