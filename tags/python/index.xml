@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/python/</link>
+    <description>Recent content in Python on 発火後忘失</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Mon, 03 Nov 2025 09:26:32 +0900</lastBuildDate>
+    <atom:link href="https://yukihane.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OBS Python Scriptingで利用できるPythonバージョンの調べ方</title>
+      <link>https://yukihane.github.io/blog/202511/03/how-to-find-out-python-version-of-obs-scripting/</link>
+      <pubDate>Mon, 03 Nov 2025 09:26:32 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202511/03/how-to-find-out-python-version-of-obs-scripting/</guid>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://obsproject.com/forum/threads/which-version-of-python-works-on-obs-30-2-3.181517/post-688250&#34;&gt;Which version of python works on Obs 30.2.3 ? | OBS Forums&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;より。&lt;br /&gt;&#xA;&lt;a href=&#34;https://github.com/obsproject/obs-studio/blob/master/shared/obs-scripting/obs-scripting-python-import.c&#34;&gt;shared/obs-scripting/obs-scripting-python-import.c&lt;/a&gt; を見れば良さそうです。&lt;br /&gt;&#xA;この記事を書いている時点ではは 3.12 までのようですね。&lt;br /&gt;&#xA;現在の最新安定版が 3.14 なのでちょっと注意する必要があります。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

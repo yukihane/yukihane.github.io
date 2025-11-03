@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Mon, 03 Nov 2025 05:14:44 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 03 Nov 2025 09:26:32 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OBS Python Scriptingで利用できるPythonバージョンの調べ方</title>
+      <link>https://yukihane.github.io/blog/202511/03/how-to-find-out-python-version-of-obs-scripting/</link>
+      <pubDate>Mon, 03 Nov 2025 09:26:32 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202511/03/how-to-find-out-python-version-of-obs-scripting/</guid>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://obsproject.com/forum/threads/which-version-of-python-works-on-obs-30-2-3.181517/post-688250&#34;&gt;Which version of python works on Obs 30.2.3 ? | OBS Forums&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;より。&lt;br /&gt;&#xA;&lt;a href=&#34;https://github.com/obsproject/obs-studio/blob/master/shared/obs-scripting/obs-scripting-python-import.c&#34;&gt;shared/obs-scripting/obs-scripting-python-import.c&lt;/a&gt; を見れば良さそうです。&lt;br /&gt;&#xA;この記事を書いている時点ではは 3.12 までのようですね。&lt;br /&gt;&#xA;現在の最新安定版が 3.14 なのでちょっと注意する必要があります。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Windows11でShift&#43;Spaceで日本語/英語切り替えを行えるようにする</title>
       <link>https://yukihane.github.io/blog/202511/03/shift_space_with_autohotkey/</link>
@@ -701,13 +708,6 @@
       <pubDate>Sat, 29 Aug 2020 19:23:06 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202008/30/openapi-spring-mvc-handler-args/</guid>
       <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202008/23/openapi-generator/&#34;&gt;openapi generator を Spring Boot で利用してみる&lt;/a&gt; で openapi-generator を用いて Spring MVC のコントローラ(のインタフェース)を自動生成してみました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;その後、これを実際に利用してみて気づいたのですが、ハンドラ(controllerのメソッド)に独自の引数を生やしたいことが多く、このままだと非常に不便です。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
-    </item>
-    <item>
-      <title>Restful API, path を使うか query を使うか</title>
-      <link>https://yukihane.github.io/blog/202008/24/rest-path-or-query/</link>
-      <pubDate>Sun, 23 Aug 2020 17:24:37 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202008/24/rest-path-or-query/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;特に結論はなく、情報収集です。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;quoteblock&#34;&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Google の検索 URI「http://www.google.com/search?q=jellyfish」について考えてみよう。Google Web アプリケーションがパス変数を使用していたならば、この URI はアルゴリズムの実行結果というよりも、ディレクトリのようになっていただろう（http://www.google.com/search/jellyfish）。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
     </item>
   </channel>
 </rss>

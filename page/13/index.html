@@ -56,6 +56,25 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202001/30/fluentd-request_timeout_sec-default/">`fluent-plugin-bigquery` のパラメータ `request_timeout_sec` 、未設定の場合はどうなるの？</a></h1>
+					<time>2020/01/30</time>
+					<br><div class="description">
+	
+	<div class="sect1">
+<h2 id="_要旨">要旨</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>fluent-plugin-bigquery</code> の <a href="https://github.com/fluent-plugins-nursery/fluent-plugin-bigquery/blob/v2.2.0/README.md">README</a> を読んでいると、 <code>request_timeout_sec</code> のデフォルト値が <code>nil</code> になっている(その下の <code>request_open_timeout_sec</code> には <code>60</code> が設定されているのに)のが気になりました。</p>
+</div>
+<div class="paragraph">
+<p>結論としては、 <code>request_timeout_sec</code> は最終的に <code>httpclient</code> の <code>send_timeout</code> 及び <code>receive_timeout</code> パラメータとして利用され、未設定の場合は <a href="https://github.com/nahi/httpclient/blob/v3.2.8/lib/httpclient/session.rb#L134-L135">そこで指定されているデフォルト値</a>である <code>send_timeout = 120</code>, <code>receive_timeout = 60</code> が採用されるようです。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202001/30/fluentd-request_timeout_sec-default/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202001/26/resttemplate-with-illformed-json/">Spring BootのRestTemplateで text/plain;Windows-31J なRESTレスポンスを処理する</a></h1>
 					<time>2020/01/26</time>
 					<br><div class="description">
@@ -323,30 +342,6 @@ spring.JPA.database_platform=mysql
 	
 </div>
 					<a class="readmore" href="/blog/201908/line-bot-sample/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201908/line-richmenu-sample/">LINE リッチメニューを試してみる</a></h1>
-					<time>2019/08/25</time>
-					<br><div class="description">
-	
-	<div class="ulist">
-<ul>
-<li>
-<p><a href="https://github.com/yukihane/hello-java/tree/master/line/richmenu-sample" class="bare">https://github.com/yukihane/hello-java/tree/master/line/richmenu-sample</a></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a href="https://developers.line.biz/ja/docs/messaging-api/using-rich-menus/">公式リファレンス</a> に書いてある通りですが、リッチメニューを試してみました。
-メニューをタップするとPostBackEventを送信します。</p>
-</div>
-<div class="paragraph">
-<p>botでハンドリングするために、 <a href="https://himeji-cs.jp/blog2/blog/2019/08/line-bot-sample.html">前回</a> 作成した <a href="https://github.com/yukihane/hello-java/tree/master/line/line-bot-sample">bot</a> に、PostBackEvent のハンドラを追加しています。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201908/line-richmenu-sample/">Read more ⟶</a>
 				</section>
 				
 				

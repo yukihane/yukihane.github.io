@@ -56,6 +56,36 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202203/12/kotlin-jpa-definition/">Kotlin で JPA エンティティクラスを定義する</a></h1>
+					<time>2022/03/12</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>Kotlin で JPA エンティティを実装しようと思って調べた結果をまとめた記事です。</p>
+</div>
+<div class="paragraph">
+<p>まとめ:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>プロジェクト構成について</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://kotlinlang.org/docs/no-arg-plugin.html#jpa-support"><code>kotlin-jpa</code></a> compiler plugin を適用する</p>
+</li>
+<li>
+<p><a href="https://kotlinlang.org/docs/all-open-plugin.html"><code>all-open</code></a> compiler plugin を適用し、 <code>@Entity</code>, <code>@Embeddable</code>, <code>@MappedSuperclass</code> を対象に設定する</p>
+</li>
+</ul>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202203/12/kotlin-jpa-definition/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202203/12/jackson-deserialize-by-constructor/">Jacksonでコンストラクタを利用してデシリアライズ</a></h1>
 					<time>2022/03/12</time>
 					<br><div class="description">
@@ -339,25 +369,6 @@ Mockito で言うところの <code>@Mock</code> や <code>@InjectMocks</code> �
 	
 </div>
 					<a class="readmore" href="/blog/202110/18/java17-record-on-spring-mvc/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202110/18/mapstruct-spring-extensions/">Mapstruct Spring Extensions を試してみる</a></h1>
-					<time>2021/10/18</time>
-					<br><div class="description">
-	
-	<div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><a href="https://mapstruct.org/">MapStruct の公式サイト</a>を見ていると、 <a href="https://mapstruct.org/documentation/spring-extensions/reference/html/">Mapstruct Spring Extensions</a> なるサブプロジェクトが発足していたので、何者か調べようと試してみました。</p>
-</div>
-<div class="paragraph">
-<p>結果、これは Spring の <a href="https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#core-convert-ConversionService-API"><code>ConversionService</code></a> の <a href="https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#core-convert-Converter-API"><code>Converter</code></a> と MapStruct の <code>Mapper</code> を統合して、実装を少し楽にしよう、というもののようでした。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202110/18/mapstruct-spring-extensions/">Read more ⟶</a>
 				</section>
 				
 				

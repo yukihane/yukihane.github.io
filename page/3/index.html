@@ -56,6 +56,29 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202404/06/losts-on-wayland/">Wayland では gimp でスクリーンショットを撮れなくなったり xeyes が追従しなくなったり</a></h1>
+					<time>2024/04/06</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p>セキュリティ上の理由っぽいのですが、最近 Ubuntu でやろうとしてできないことが重なり、あれ？ってなりました。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://gitlab.gnome.org/GNOME/gimp/-/issues/8510#note_2014569">Screenshot not capturing &#39;snapped&#39; window; Screenshot window pops up behind main GIMP window</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>ここで &#34;Screenshot portal&#34; を使えと言われてますが、一般名詞過ぎて検索してもなんのこっちゃでしたが、おそらく以下で説明されている <code>xdg-desktop-portal</code> のことですかね…？</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202404/06/losts-on-wayland/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202404/05/rust-test-async/">asyncなライブラリー関数のテストを書く</a></h1>
 					<time>2024/04/05</time>
 					<br><div class="description">
@@ -298,36 +321,6 @@ cargo add reqwest</code></pre>
 	
 </div>
 					<a class="readmore" href="/blog/202203/28/docker-on-wsl2/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202203/12/kotlin-jpa-definition/">Kotlin で JPA エンティティクラスを定義する</a></h1>
-					<time>2022/03/12</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p>Kotlin で JPA エンティティを実装しようと思って調べた結果をまとめた記事です。</p>
-</div>
-<div class="paragraph">
-<p>まとめ:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>プロジェクト構成について</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://kotlinlang.org/docs/no-arg-plugin.html#jpa-support"><code>kotlin-jpa</code></a> compiler plugin を適用する</p>
-</li>
-<li>
-<p><a href="https://kotlinlang.org/docs/all-open-plugin.html"><code>all-open</code></a> compiler plugin を適用し、 <code>@Entity</code>, <code>@Embeddable</code>, <code>@MappedSuperclass</code> を対象に設定する</p>
-</li>
-</ul>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202203/12/kotlin-jpa-definition/">Read more ⟶</a>
 				</section>
 				
 				

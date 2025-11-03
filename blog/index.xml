@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Mon, 03 Nov 2025 05:14:44 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 03 Nov 2025 09:26:32 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OBS Python Scriptingで利用できるPythonバージョンの調べ方</title>
+      <link>https://yukihane.github.io/blog/202511/03/how-to-find-out-python-version-of-obs-scripting/</link>
+      <pubDate>Mon, 03 Nov 2025 09:26:32 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202511/03/how-to-find-out-python-version-of-obs-scripting/</guid>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://obsproject.com/forum/threads/which-version-of-python-works-on-obs-30-2-3.181517/post-688250&#34;&gt;Which version of python works on Obs 30.2.3 ? | OBS Forums&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;より。&lt;br /&gt;&#xA;&lt;a href=&#34;https://github.com/obsproject/obs-studio/blob/master/shared/obs-scripting/obs-scripting-python-import.c&#34;&gt;shared/obs-scripting/obs-scripting-python-import.c&lt;/a&gt; を見れば良さそうです。&lt;br /&gt;&#xA;この記事を書いている時点ではは 3.12 までのようですね。&lt;br /&gt;&#xA;現在の最新安定版が 3.14 なのでちょっと注意する必要があります。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Windows11でShift&#43;Spaceで日本語/英語切り替えを行えるようにする</title>
       <link>https://yukihane.github.io/blog/202511/03/shift_space_with_autohotkey/</link>
@@ -701,13 +708,6 @@
       <pubDate>Sun, 23 Aug 2020 17:24:37 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202008/24/rest-path-or-query/</guid>
       <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;特に結論はなく、情報収集です。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;quoteblock&#34;&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Google の検索 URI「http://www.google.com/search?q=jellyfish」について考えてみよう。Google Web アプリケーションがパス変数を使用していたならば、この URI はアルゴリズムの実行結果というよりも、ディレクトリのようになっていただろう（http://www.google.com/search/jellyfish）。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
-    </item>
-    <item>
-      <title>openapi generator を Spring Boot で利用してみる</title>
-      <link>https://yukihane.github.io/blog/202008/23/openapi-generator/</link>
-      <pubDate>Sun, 23 Aug 2020 05:09:07 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202008/23/openapi-generator/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_今回の成果物&#34;&gt;今回の成果物&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/yukihane/hello-java/tree/master/spring/openapi-sample&#34; class=&#34;bare&#34;&gt;https://github.com/yukihane/hello-java/tree/master/spring/openapi-sample&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_設定&#34;&gt;設定&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;sect2&#34;&gt;&#xA;&lt;h3 id=&#34;_build_gradle&#34;&gt;build.gradle&lt;/h3&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator-gradle-plugin&#34;&gt;openapi-generator-gradle-plugin&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators/spring.md&#34;&gt;spring generator&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;辺りを参考にしています。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;listingblock&#34;&gt;&#xA;&lt;div class=&#34;title&#34;&gt;build.gradle&lt;/div&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;language-groovy&#34; data-lang=&#34;groovy&#34;&gt;plugins {&#xA;    id &amp;#39;eclipse&amp;#39;&#xA;    id &amp;#39;org.openapi.generator&amp;#39; version &amp;#39;4.3.1&amp;#39;&#xA;}&#xA;&#xA;ext {&#xA;    openApiOutputDir = &amp;#34;$rootDir/build/generated/openapi&amp;#34;&#xA;}&#xA;&#xA;sourceSets.main.java.srcDirs += [&amp;#34;$openApiOutputDir/src/main/java&amp;#34;]&#xA;&#xA;dependencies {&#xA;    // これらは自動生成クラスが import しているので必要&#xA;    implementation &amp;#39;org.springframework.boot:spring-boot-starter-validation&amp;#39;&#xA;    implementation &amp;#39;org.openapitools:jackson-databind-nullable:0.2.1&amp;#39;&#xA;    compileOnly &amp;#39;io.swagger:swagger-annotations:1.6.2&amp;#39;&#xA;}&#xA;&#xA;openApiGenerate {&#xA;    generatorName = &amp;#39;spring&amp;#39;&#xA;    inputSpec = &amp;#34;$rootDir/specs/test.yml&amp;#34;&#xA;    outputDir = &amp;#34;$openApiOutputDir&amp;#34;&#xA;    apiPackage = &amp;#39;org.openapi.example.api&amp;#39;&#xA;    modelPackage = &amp;#39;org.openapi.example.model&amp;#39;&#xA;    configOptions = [&#xA;        dateLibrary: &amp;#39;java8&amp;#39;,&#xA;        interfaceOnly: &amp;#39;true&amp;#39;,&#xA;        skipDefaultInterface: &amp;#39;true&amp;#39;,&#xA;    ]&#xA;}&#xA;&#xA;compileJava.dependsOn tasks.openApiGenerate&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;</description>
     </item>
   </channel>
 </rss>
