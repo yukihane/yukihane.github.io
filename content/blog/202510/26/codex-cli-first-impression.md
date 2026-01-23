@@ -2,7 +2,7 @@
 title: "これまでのAIコーディングの略歴、Codex Cli ファーストインプレッション"
 date: 2025-10-26T13:29:34+09:00
 tags: ["ai-coding"]
-draft: true
+draft: false
 ---
 
 最近はもっぱらAIを利用してコーディングしています。
@@ -15,7 +15,7 @@ draft: true
 
 GitHub Copilot を利用し始めたのがおそらく2024-10-04で、その1ヶ月後に年間プランに入っています。
 
-「[CLINEに全部賭けろ](https://zenn.dev/mizchi/articles/all-in-on-cline)」という記事が投稿されたのが 2025-02-26 であるのに対し、自分がClineを使い始めたのは 2025-04-04 。
+「[CLINEに全部賭けろ](https://zenn.dev/mizchi/articles/all-in-on-cline)」という記事が投稿されたのが 2025-02-26 であるのに対し、自分がClineを使い始めたのは [2025-04-04ごろ](https://x.com/yukihane/status/1908146157840404584) 。
 
 その後[入院していて](/blog/202507/21/status-report/)、少しプログラミング環境から離れた後、 Claude Code は 2025-08-18 に仕事に復帰してから本格的に使い始めました。
 (それまではCline用に購入していた従量課金のクレジット残額でちょこちょこ触っていた程度)
@@ -26,6 +26,14 @@ Claude Codeは仕事先に経費として請求できることになったので
 
 なので、現在は、仕事ではClaude Codeを、プライベートではCodex Cliを利用している、ということになります。
 GitHub Copilotもまだ契約期間内ですが、ほぼ存在を忘れています...
+
+追記:
+この記事を書いてから公開するまでに少し時間が空いてしまったので2026-01現在の状況を追記しておきます:
+
+- Claude Code Max x5 プラン
+- Chat GPT Plus プラン(Codex CLI用)
+- Google AI Pro 年間プラン(Gemini CLI用; セールしていたので年契約)
+- Perplexiy Pro 年間プラン(プログラミング用途には用いていない; paypalのプロモーションで無料だったので)
 
 ## これまでの感想
 
@@ -56,3 +64,9 @@ Claude Codeは、確か私が初めて触れたときはplan modeがまだ無く
 ちなみに、Codex Cliでplan modeを実現する提案は次にあります。workaroundについても書かれています。
 
 - [Request: Plan Mode #2101](https://github.com/openai/codex/issues/2101)
+
+追記:
+こちらへも追記すると、ちょうどCodex CLIにもplan modeが導入されたようです。まだ使ってはいないので感想は書けませんが。
+
+- [Codex CLI の v0.88.0 で plan mode (Collaboration mode)を使う -Zenn](https://zenn.dev/yorifuji/articles/ac6883cf8fac82)
+- https://github.com/openai/codex/blob/main/codex-rs/core/templates/collaboration_mode/plan.md
