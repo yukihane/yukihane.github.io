@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html><head lang="ja">
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Davinci Resolve - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-録画フォーマット
-
-
-OBS
-Studioでオーディオをマルチトラックで録画する場合にはmkvを使うのがよさそう。
-ただしそのままではDavinci Resolveが認識できないのでffmpegで変換を行う。
-" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>DaVinci Resolve - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="録画フォーマット
+OBS Studioでオーディオをマルチトラックで録画する場合にはmkvを使うのがよさそう。
+ただしそのままではDavinci Resolveが認識できないのでffmpegで変換を行う。" />
 	<meta property="og:image" content=""/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/apps/davinci-resolve/">
   <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Davinci Resolve">
-  <meta property="og:description" content="録画フォーマット OBS Studioでオーディオをマルチトラックで録画する場合にはmkvを使うのがよさそう。 ただしそのままではDavinci Resolveが認識できないのでffmpegで変換を行う。">
+  <meta property="og:title" content="DaVinci Resolve">
+  <meta property="og:description" content="録画フォーマット OBS Studioでオーディオをマルチトラックで録画する場合にはmkvを使うのがよさそう。
+ただしそのままではDavinci Resolveが認識できないのでffmpegで変換を行う。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -22,8 +18,9 @@ Studioでオーディオをマルチトラックで録画する場合にはmkv�
     <meta property="article:modified_time" content="2020-07-23T16:26:52+00:00">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Davinci Resolve">
-  <meta name="twitter:description" content="録画フォーマット OBS Studioでオーディオをマルチトラックで録画する場合にはmkvを使うのがよさそう。 ただしそのままではDavinci Resolveが認識できないのでffmpegで変換を行う。">
+  <meta name="twitter:title" content="DaVinci Resolve">
+  <meta name="twitter:description" content="録画フォーマット OBS Studioでオーディオをマルチトラックで録画する場合にはmkvを使うのがよさそう。
+ただしそのままではDavinci Resolveが認識できないのでffmpegで変換を行う。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -61,30 +58,17 @@ Studioでオーディオをマルチトラックで録画する場合にはmkv�
       
       <div class="post-content">
         <div class="title">
-          <h1 class="title">Davinci Resolve</h1>
+          <h1 class="title">DaVinci Resolve</h1>
           <div class="meta">Posted on 2020/07/23</div>
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_録画フォーマット">録画フォーマット</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>OBS
-Studioでオーディオをマルチトラックで録画する場合にはmkvを使うのがよさそう。
+          <h2 id="録画フォーマット">録画フォーマット</h2>
+<p>OBS Studioでオーディオをマルチトラックで録画する場合にはmkvを使うのがよさそう。<br />
 ただしそのままではDavinci Resolveが認識できないのでffmpegで変換を行う。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre> ffmpeg -i &lt;入力ファイル&gt;.mkv -c copy  -map 0 output.mov</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>実際には次のようなシェルスクリプトを使ってgit-bashのbashで実行している:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>#!/bin/bash
+<pre tabindex="0"><code> ffmpeg -i &lt;入力ファイル&gt;.mkv -c copy  -map 0 output.mov
+</code></pre><p>実際には次のようなシェルスクリプトを使ってgit-bashのbashで実行している:</p>
+<pre tabindex="0"><code>#!/bin/bash
 # https://stackoverflow.com/a/8200370/4506703
 
 set -eu
@@ -98,36 +82,25 @@ for i in *.mkv; do
     else
       echo &#34;skip $i, processd file exists&#34;
     fi
-done</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_howto">HowTo</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_字幕を挿入する">字幕を挿入する</h3>
-<div class="paragraph">
+done
+</code></pre><ul>
+<li>追記1: OBS Studioにremux(再多重化)という機能があり、これを使えば同等のことができる。 <strong>ファイル &gt; 録画の再多重化</strong> メニューで実行できる</li>
+<li>追記2: 現行バージョンのDaVinci Resolveは直接mkvを扱えるようになったのでもはやこの変換は不要</li>
+<li>追記3: OBS Studioで Hybrid MP4という録画形式を選べるようになったので、mkvでなくそちらを選んで良いかもしれない</li>
+</ul>
+<h2 id="howto">HowTo</h2>
+<h3 id="字幕を挿入する">字幕を挿入する</h3>
 <p><a href="https://www.youtube.com/watch?v=mH9jMdorT-c">本当の字幕機能もある</a>が、いわゆるゲーム実況での字幕はこの機能では十分ではないはず。</p>
-</div>
-<div class="paragraph">
-<p>エフェクトライブラリ &gt; ツールボックス &gt; タイトル &gt; テキスト
+<p>エフェクトライブラリ &gt; ツールボックス &gt; タイトル &gt; テキスト<br />
 から挿入できるものが欲しかったもののはず。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_瞬間的なピーク音を低減する">瞬間的なピーク音を低減する</h3>
-<div class="paragraph">
-<p>参考: <a href="https://www.youtube.com/watch?v=E8Q2MhGw3wk&amp;t=3m10s" class="bare">https://www.youtube.com/watch?v=E8Q2MhGw3wk&amp;t=3m10s</a></p>
-</div>
-<div class="paragraph">
-<p>インスペクタ &gt; オーディオ &gt; クリップのボリューム
+<h3 id="瞬間的なピーク音を低減する">瞬間的なピーク音を低減する</h3>
+<p>参考: <a href="https://www.youtube.com/watch?v=E8Q2MhGw3wk&amp;t=3m10s">https://www.youtube.com/watch?v=E8Q2MhGw3wk&t=3m10s</a></p>
+<p>インスペクタ &gt; オーディオ &gt; クリップのボリューム<br />
 で特定の区間のボリュームを調整できる。</p>
-</div>
-</div>
-</div>
-</div>
+<h3 id="複数音声トラックを含む動画ファイルをタイムラインで編集する">複数音声トラックを含む動画ファイルをタイムラインで編集する</h3>
+<p>Editタブのメニューで <strong>Edit &gt; Edit Options &gt; Automatically</strong></p>
+<p>この設定を有効にしておかないと、タイムラインにDnDしたとき音声トラックが自動では1つしか現れない。<br />
+以前のバージョンではこの設定がONの状態がデフォルトの挙動だったので、昔から使っているユーザー(自分含め)が混乱していることが多い。</p>
 
         </section>
         <div class="post-tags">
@@ -148,7 +121,7 @@ done</pre>
    <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
 </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2025  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  &amp;copy;{year}, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>
