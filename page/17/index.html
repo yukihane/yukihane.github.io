@@ -56,6 +56,27 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/201807/08/jsf-on-undertow/">Undertow上でJSF実現</a></h1>
+					<time>2018/07/08</time>
+					<br><div class="description">
+	
+	<h1 id="手順">手順</h1>
+<ul>
+<li><a href="https://github.com/javaserverfaces/mojarra/blob/2.2.8-28/jsf-ri/src/main/java/com/sun/faces/config/FacesInitializer.java#L120">FacesInitializer#onStartup</a>でやっていることを自力で書く</li>
+<li>標準パス(<code>WEB-INF/classes</code>)に無いので、<code>ManagedBean</code>アノテーションを付与したクラスを自前で収集する</li>
+</ul>
+<p>ソースは: <a href="https://github.com/yukihane/hello-undertow-mojarra">https://github.com/yukihane/hello-undertow-mojarra</a></p>
+<h2 id="関連">関連</h2>
+<ul>
+<li><a href="https://qiita.com/yukihane/items/45c562809360cfa27be9">Tomcat 上で JSF 実現 - Qiita</a></li>
+<li><a href="https://stackoverflow.com/questions/51223600/">Does Undertow work with JSF? - Stack Overflow</a></li>
+</ul>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201807/08/jsf-on-undertow/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/201807/08/java-compiler-error-in-japanese/">エラーメッセージでググろうと思ったんだけど日本語だからかヒットしない</a></h1>
 					<time>2018/07/08</time>
 					<br><div class="description">

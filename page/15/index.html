@@ -56,6 +56,79 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/201907/12/h2-console-on-spring-boot/">h2-consoleとspring-boot-starter-securityと私</a></h1>
+					<time>2019/07/12</time>
+					<br><div class="description">
+	
+	<h1 id="概要">概要</h1>
+<p><code>spring-boot-starter-security</code> を導入しても http://localhost:8080/h2-console にアクセスしたかった。</p>
+<p>作業結果: <a href="https://github.com/yukihane/hello-java/tree/master/spring/h2-console-spring-security-example">https://github.com/yukihane/hello-java/tree/master/spring/h2-console-spring-security-example</a></p>
+<h1 id="手順">手順</h1>
+<h2 id="h2-console-が使える依存関係を追加してプロジェクトセットアップ-8113d7">h2-console が使える依存関係を追加してプロジェクトセットアップ <a href="https://github.com/yukihane/hello-java/commit/8113d7bc552c11f3e1cf3d6e64fe97be922d2596">8113d7</a></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-pom.xml" data-lang="pom.xml"><span class="line"><span class="cl">    <span class="nt">&lt;dependencies&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-jdbc<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>com.h2database<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>h2<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;scope&gt;</span>runtime<span class="nt">&lt;/scope&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="h2-console-を表示してみる-1b16dc">h2-console を表示してみる <a href="https://github.com/yukihane/hello-java/commit/1b16dcc49ca9a83dd0a80b947800a63be0d39422">1b16dc</a></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-application.properties" data-lang="application.properties"><span class="line"><span class="cl"><span class="na">spring.h2.console.enabled</span><span class="o">=</span><span class="s">true</span>
+</span></span><span class="line"><span class="cl"><span class="na">spring.datasource.generate-unique-name</span><span class="o">=</span><span class="s">false</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-schema.sql" data-lang="schema.sql"><span class="line"><span class="cl"><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="nf">greeting_table</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">message</span><span class="w"> </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="no">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>(注: <code>spring.datasource.generate-unique-name</code> 設定は Spring Boot 2.3.0 からデフォルト値が変わったため必要になったもので、リンク先 Git リポジトリには含まれていません(<a href="https://qiita.com/yukihane/items/2be37518f42525c8327d">参考</a>))</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201907/12/h2-console-on-spring-boot/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/201907/04/spring-boot-and-spring-security/">spring-boot-starter-security を入れたら認証画面が！</a></h1>
 					<time>2019/07/04</time>
 					<br><div class="description">
@@ -359,28 +432,6 @@ private RestTemplateBuilder builder;
 	
 </div>
 					<a class="readmore" href="/blog/201904/16/migration-to-junit5/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201903/26/change-spring-validator-message/">Spring Validator(でラップされたBean Validation)のメッセージをi18nしたときの覚え書き</a></h1>
-					<time>2019/03/26</time>
-					<br><div class="description">
-	
-	<h1 id="やりたかったこと">やりたかったこと</h1>
-<ul>
-<li>BeanValidation のプロパティファイル <a href="https://docs.jboss.org/hibernate/validator/6.1/reference/en-US/html_single/#validator-customconstraints-errormessage"><code>ValidationMessages.properties</code></a> でなく、 Spring のメッセージプロパティに統合したい。
-<ul>
-<li>Spring のメッセージプロパティとは？</li>
-</ul>
-</li>
-<li><code>Accept-Language</code>ベースでメッセージを国際化したい。</li>
-</ul>
-<h1 id="調べた">調べた</h1>
-<h2 id="spring-のメッセージプロパティファイルはどこ">Spring のメッセージプロパティファイルはどこ？</h2>
-<p>これはキーワード &ldquo;site:spring.io i18n message&rdquo; でググるとすぐ見つかった。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201903/26/change-spring-validator-message/">Read more ⟶</a>
 				</section>
 				
 				

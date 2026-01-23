@@ -56,6 +56,25 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202009/12/gradle-resource-encoding/">WindowsでGradleが扱うリソースのファイルエンコーディング設定</a></h1>
+					<time>2020/09/12</time>
+					<br><div class="description">
+	
+	<div class="sect1">
+<h2 id="_問題">問題</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Spring Bootの自動テストで <a href="https://docs.spring.io/spring-boot/docs/2.3.3.RELEASE/reference/htmlsingle/#howto-initialize-a-database-using-spring-jdbc"><code>data.sql</code></a> を作成しているのですが、 <code>gradle check</code> でテストを実行すると、失敗してしまう。</p>
+</div>
+<div class="paragraph">
+<p>原因を調べたのですが、どうも日本語のカラムを比較しているところで失敗しているようで、出力を見る感じ <code>data.sql</code> のファイルエンコーディングが <code>MS932</code> で扱われてしまっているようでした。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202009/12/gradle-resource-encoding/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202009/04/oidc-add-claim-and-scope/">claimとscopeを追加して取得してみる</a></h1>
 					<time>2020/09/03</time>
 					<br><div class="description">
@@ -369,22 +388,6 @@ compileJava.dependsOn tasks.openApiGenerate</code></pre>
 	
 </div>
 					<a class="readmore" href="/blog/202008/16/gradle-test-not-working/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202008/15/capability-url/">ランダム文字列URL生成に関するメモ</a></h1>
-					<time>2020/08/15</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p>推測されないような文字列を動的に生成しURLに利用できるような仕組みを調べていますが、その調査メモです。</p>
-</div>
-<div class="paragraph">
-<p>ちょうど私が調べている時期と重なって、関心対象が同じ資料がアップロードされていました:</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202008/15/capability-url/">Read more ⟶</a>
 				</section>
 				
 				

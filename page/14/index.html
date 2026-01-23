@@ -56,6 +56,46 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/201908/line-bot-sample/">LINE Messaging API を試してみる</a></h1>
+					<time>2019/08/25</time>
+					<br><div class="description">
+	
+	<div class="sect1">
+<h2 id="_準備">準備</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_spring_boot_セットアップ">Spring Boot セットアップ</h3>
+<div class="paragraph">
+<p><a href="https://start.spring.io/" class="bare">https://start.spring.io/</a> でテンプレートを作成して次の依存関係を追加します。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;dependency&gt;
+    &lt;groupId&gt;com.linecorp.bot&lt;/groupId&gt;
+    &lt;artifactId&gt;line-bot-spring-boot&lt;/artifactId&gt;
+    &lt;version&gt;2.7.0&lt;/version&gt;
+&lt;/dependency&gt;</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>リポジトリ: <a href="https://github.com/line/line-bot-sdk-java/tree/master/line-bot-spring-boot" class="bare">https://github.com/line/line-bot-sdk-java/tree/master/line-bot-spring-boot</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_heroku_セットアップ">Heroku セットアップ</h3>
+<div class="paragraph">
+<p>今回は <code>linebotbeta</code> というアプリケーション名にしました。</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201908/line-bot-sample/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/201908/line-richmenu-sample/">LINE リッチメニューを試してみる</a></h1>
 					<time>2019/08/25</time>
 					<br><div class="description">
@@ -292,79 +332,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/201907/18/spring-boot-filter-bean/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201907/12/h2-console-on-spring-boot/">h2-consoleとspring-boot-starter-securityと私</a></h1>
-					<time>2019/07/12</time>
-					<br><div class="description">
-	
-	<h1 id="概要">概要</h1>
-<p><code>spring-boot-starter-security</code> を導入しても http://localhost:8080/h2-console にアクセスしたかった。</p>
-<p>作業結果: <a href="https://github.com/yukihane/hello-java/tree/master/spring/h2-console-spring-security-example">https://github.com/yukihane/hello-java/tree/master/spring/h2-console-spring-security-example</a></p>
-<h1 id="手順">手順</h1>
-<h2 id="h2-console-が使える依存関係を追加してプロジェクトセットアップ-8113d7">h2-console が使える依存関係を追加してプロジェクトセットアップ <a href="https://github.com/yukihane/hello-java/commit/8113d7bc552c11f3e1cf3d6e64fe97be922d2596">8113d7</a></h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-pom.xml" data-lang="pom.xml"><span class="line"><span class="cl">    <span class="nt">&lt;dependencies&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-jdbc<span class="nt">&lt;/artifactId&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>com.h2database<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>h2<span class="nt">&lt;/artifactId&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&lt;scope&gt;</span>runtime<span class="nt">&lt;/scope&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="h2-console-を表示してみる-1b16dc">h2-console を表示してみる <a href="https://github.com/yukihane/hello-java/commit/1b16dcc49ca9a83dd0a80b947800a63be0d39422">1b16dc</a></h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-application.properties" data-lang="application.properties"><span class="line"><span class="cl"><span class="na">spring.h2.console.enabled</span><span class="o">=</span><span class="s">true</span>
-</span></span><span class="line"><span class="cl"><span class="na">spring.datasource.generate-unique-name</span><span class="o">=</span><span class="s">false</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-schema.sql" data-lang="schema.sql"><span class="line"><span class="cl"><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="nf">greeting_table</span><span class="w"> </span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">message</span><span class="w"> </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="no">null</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>(注: <code>spring.datasource.generate-unique-name</code> 設定は Spring Boot 2.3.0 からデフォルト値が変わったため必要になったもので、リンク先 Git リポジトリには含まれていません(<a href="https://qiita.com/yukihane/items/2be37518f42525c8327d">参考</a>))</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201907/12/h2-console-on-spring-boot/">Read more ⟶</a>
 				</section>
 				
 				

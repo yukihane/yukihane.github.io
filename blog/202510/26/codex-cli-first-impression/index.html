@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html><head lang="ja">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>これまでのAIコーディングの略歴、Codex Cli ファーストインプレッション - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="最近はもっぱらAIを利用してコーディングしています。
+が、blogにそういったことをまだ書いたことがなかったなあということで、記録を残そうと思った次第です。" />
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content="https://yukihane.github.io/blog/202510/26/codex-cli-first-impression/">
+  <meta property="og:site_name" content="発火後忘失">
+  <meta property="og:title" content="これまでのAIコーディングの略歴、Codex Cli ファーストインプレッション">
+  <meta property="og:description" content="最近はもっぱらAIを利用してコーディングしています。
+が、blogにそういったことをまだ書いたことがなかったなあということで、記録を残そうと思った次第です。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-10-26T13:29:34+09:00">
+    <meta property="article:modified_time" content="2025-10-26T13:29:34+09:00">
+    <meta property="article:tag" content="Ai-Coding">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="これまでのAIコーディングの略歴、Codex Cli ファーストインプレッション">
+  <meta name="twitter:description" content="最近はもっぱらAIを利用してコーディングしています。
+が、blogにそういったことをまだ書いたことがなかったなあということで、記録を残そうと思った次第です。">
+
+        <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://yukihane.github.io/">発火後忘失</a>
+	</div>
+	<nav>
+		
+		<a href="/blog">Blog</a>
+		
+		<a href="/docs">Docs</a>
+		
+		<a href="/tags">Tags</a>
+		
+		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
+		
+		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
+</svg></span>
+		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
+		
+	</nav>
+</header>
+
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        <div class="title">
+          <h1 class="title">これまでのAIコーディングの略歴、Codex Cli ファーストインプレッション</h1>
+          <div class="meta">Posted on 2025/10/26</div>
+        </div>
+        
+        <section class="body">
+          <p>最近はもっぱらAIを利用してコーディングしています。<br />
+が、blogにそういったことをまだ書いたことがなかったなあということで、記録を残そうと思った次第です。</p>
+<h2 id="ai利用略歴">AI利用略歴</h2>
+<p>私は最先鋒でAI-codingを試しているわけではなくて、界隈で盛り上がってるな、というのを見て試し始める、くらいのスピード感です。<br />
+<a href="https://ja.wikipedia.org/wiki/%E6%99%AE%E5%8F%8A%E5%AD%A6">イノベーター理論</a>でいうところのアーリーマジョリティーくらいかな？と自己を認識しています。</p>
+<p>GitHub Copilot を利用し始めたのがおそらく2024-10-04で、その1ヶ月後に年間プランに入っています。</p>
+<p>「<a href="https://zenn.dev/mizchi/articles/all-in-on-cline">CLINEに全部賭けろ</a>」という記事が投稿されたのが 2025-02-26 であるのに対し、自分がClineを使い始めたのは <a href="https://x.com/yukihane/status/1908146157840404584">2025-04-04ごろ</a> 。</p>
+<p>その後<a href="/blog/202507/21/status-report/">入院していて</a>、少しプログラミング環境から離れた後、 Claude Code は 2025-08-18 に仕事に復帰してから本格的に使い始めました。<br />
+(それまではCline用に購入していた従量課金のクレジット残額でちょこちょこ触っていた程度)<br />
+2025-08-29 にproプランじゃ仕事に使うには足りない、ということでmaxプランにアップグレードしています。</p>
+<p>そして現在ですが、ちょうど私が本格的にClaude Codeを使い始めた頃でしょうか、世間ではClaude CodeよりCodex Cliの方が賢い！と話題になっています。<br />
+Claude Codeは仕事先に経費として請求できることになったので、自腹でCodex Cliを試してみよう、とplusプランを契約したのがこの記事を書いているちょうど1ヶ月前の 2025-09-25 になります。</p>
+<p>なので、現在は、仕事ではClaude Codeを、プライベートではCodex Cliを利用している、ということになります。<br />
+GitHub Copilotもまだ契約期間内ですが、ほぼ存在を忘れています&hellip;</p>
+<p>追記:<br />
+この記事を書いてから公開するまでに少し時間が空いてしまったので2026-01現在の状況を追記しておきます:</p>
+<ul>
+<li>Claude Code Max x5 プラン</li>
+<li>Chat GPT Plus プラン(Codex CLI用)</li>
+<li>Google AI Pro 年間プラン(Gemini CLI用; セールしていたので年契約)</li>
+<li>Perplexiy Pro 年間プラン(プログラミング用途には用いていない; paypalのプロモーションで無料だったので)</li>
+</ul>
+<h2 id="これまでの感想">これまでの感想</h2>
+<p>GitHub Copilot 使い始めた頃はこれは便利だ！ということで年間契約したのですが、トレンドが次々に変わるのをすぐ感じたので、それ以降は年間契約できるものも月額契約するようにしています。<br />
+おそらく多くの人もそうだと思いますが。</p>
+<p>Clineは、私が使っていたころはVSCodeにしか対応していなくて、Kotlin on Intellij IDEAの開発がやや面倒でした。<br />
+自分はAIに書かせるときはVSCode上で、自分はIntelliJ IDEAで書く、ということをしていました。<br />
+VSCodeだとKotlin LSPが無いので他の言語と比較して不利、なんてことも言われていました。<br />
+当時の状況は下のスライドに詳しいです:</p>
+<ul>
+<li><a href="https://speakerdeck.com/kohii00/making-the-most-of-ai-in-kotlin-development">Kotlinの開発でも AIをいい感じに使いたい</a></li>
+</ul>
+<p>Claude Codeは、確か私が初めて触れたときはplan modeがまだ無くて、Clineには及ばないな…と感じた記憶があります。<br />
+その後、改めて触ったときにplan modeがあるのに気付き、ならKotlinも任せられるのでは…！と徐々にシフトしていきました。</p>
+<p>私はplan modeが大好きです。<br />
+前述の通り世間ではCodex Cliの方が賢いといわれているのですが、Codexはplan mode相当の機能がなく、皆はその賢さをどうコントロールしているのか不思議でなりません。<br />
+また、Claude Cliはコンテキスト容量が小さいといわれており、それは確かに私も痛感していますが、世間で言われているほどcompactしたときに馬鹿になる、という感じもしていません。<br />
+私が扱っている対象コードの規模が比較的小さめということもあるでしょうが、世間の人とはAIの使い方が違っているのだろうな、とも感じています。<br />
+この辺りはSIerとしてプログラマーをマネージしていた経験が生きているのではないかな、と。</p>
+<p>また、Claude Codeはデフォルト(少しの設定)でウェブ検索して実装を考えてくれるのに対し、Codex Cliはウェブ情報を見てくれる設定が無いんですかね？そのせいで、GIMP2 -&gt; GIMP3 への <a href="https://github.com/yukihane/python-fu">python-fu</a> マイグレーションを頼んだ時に、Claude Codeは一向に動く実装が作れませんでした。</p>
+<p>&hellip;改めて調べてみると、Codex CliもWebSearchを有効化するオプションがありますね。そりゃそうか。<br />
+というわけで、次の記事ではもう少しちゃんとCodex Cliを使ってみた系のことを書こうかなと思います。</p>
+<p>ちなみに、Codex Cliでplan modeを実現する提案は次にあります。workaroundについても書かれています。</p>
+<ul>
+<li><a href="https://github.com/openai/codex/issues/2101">Request: Plan Mode #2101</a></li>
+</ul>
+<p>追記:<br />
+こちらへも追記すると、ちょうどCodex CLIにもplan modeが導入されたようです。まだ使ってはいないので感想は書けませんが。</p>
+<ul>
+<li><a href="https://zenn.dev/yorifuji/articles/ac6883cf8fac82">Codex CLI の v0.88.0 で plan mode (Collaboration mode)を使う -Zenn</a></li>
+<li><a href="https://github.com/openai/codex/blob/main/codex-rs/core/templates/collaboration_mode/plan.md">https://github.com/openai/codex/blob/main/codex-rs/core/templates/collaboration_mode/plan.md</a></li>
+</ul>
+
+        </section>
+        <div class="post-tags">
+          
+          
+          <nav class="nav tags">
+            <ul class="tags">
+              
+              <li><a href="/tags/ai-coding">ai-coding</a></li>
+              
+            </ul>
+          </nav>
+          
+          
+        </div>
+      </div>
+
+      
+      
+    </div>
+
+    </article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
+   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+</svg></a><a class="border"></a></div>
+  <div class="footer-info">
+    2026  &amp;copy;{year}, All Rights Reserved |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E9J8FN5B4Q');
+        }
+      </script>
+
+</div>
+    </body>
+</html>

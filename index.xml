@@ -31,6 +31,13 @@
       <description>&lt;p&gt;WSL2上の操作をWindows Terminalで行っているのですが、codexを利用していると(?)、頻繁に次のエラーが出ます。&lt;/p&gt;&#xA;&lt;p&gt;「このターミナルでグラフィックス ドライバーの問題が発生し、時間内に回復できませんでした。ターミナルは一時停止されています。」&lt;/p&gt;</description>
     </item>
     <item>
+      <title>これまでのAIコーディングの略歴、Codex Cli ファーストインプレッション</title>
+      <link>https://yukihane.github.io/blog/202510/26/codex-cli-first-impression/</link>
+      <pubDate>Sun, 26 Oct 2025 13:29:34 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202510/26/codex-cli-first-impression/</guid>
+      <description>&lt;p&gt;最近はもっぱらAIを利用してコーディングしています。&lt;br /&gt;&#xA;が、blogにそういったことをまだ書いたことがなかったなあということで、記録を残そうと思った次第です。&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>IntelliJの自動整形でimportのwildcardを使わないようにする</title>
       <link>https://yukihane.github.io/blog/202508/20/no-use-wildcard-on-intellij/</link>
       <pubDate>Wed, 20 Aug 2025 19:48:29 +0900</pubDate>
@@ -701,13 +708,6 @@
       <pubDate>Sat, 29 Aug 2020 23:16:09 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202008/30/gradle-bootrun-parameter/</guid>
       <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;gradle bootRun&lt;/code&gt; を実行する際にアクティブ化するプロファイルの指定を行いたかったのですが、ぱっと思いつかなかったのでメモ。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;まず、&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;listingblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre class=&#34;highlight&#34;&gt;&lt;code&gt;gradle bootRun -Dprofiles.active=myproile&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;はうまくいきません。`profiles.active`システムプロパティは (アプリケーションでなく) Gradle に渡されるためです。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
-    </item>
-    <item>
-      <title>openapi-generaterで生成したcontrollerにカスタム引数を追加する</title>
-      <link>https://yukihane.github.io/blog/202008/30/openapi-spring-mvc-handler-args/</link>
-      <pubDate>Sat, 29 Aug 2020 19:23:06 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202008/30/openapi-spring-mvc-handler-args/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202008/23/openapi-generator/&#34;&gt;openapi generator を Spring Boot で利用してみる&lt;/a&gt; で openapi-generator を用いて Spring MVC のコントローラ(のインタフェース)を自動生成してみました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;その後、これを実際に利用してみて気づいたのですが、ハンドラ(controllerのメソッド)に独自の引数を生やしたいことが多く、このままだと非常に不便です。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
     </item>
   </channel>
 </rss>

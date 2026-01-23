@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ai-Coding on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/ai-coding/</link>
+    <description>Recent content in Ai-Coding on 発火後忘失</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Sun, 26 Oct 2025 13:29:34 +0900</lastBuildDate>
+    <atom:link href="https://yukihane.github.io/tags/ai-coding/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>これまでのAIコーディングの略歴、Codex Cli ファーストインプレッション</title>
+      <link>https://yukihane.github.io/blog/202510/26/codex-cli-first-impression/</link>
+      <pubDate>Sun, 26 Oct 2025 13:29:34 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202510/26/codex-cli-first-impression/</guid>
+      <description>&lt;p&gt;最近はもっぱらAIを利用してコーディングしています。&lt;br /&gt;&#xA;が、blogにそういったことをまだ書いたことがなかったなあということで、記録を残そうと思った次第です。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

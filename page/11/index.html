@@ -56,6 +56,22 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202006/13/list-contains-null/">List#contains(null)は使わないほうが良い</a></h1>
+					<time>2020/06/13</time>
+					<br><div class="description">
+	
+	<div class="paragraph">
+<p><code>List</code>(などのコレクション)が要素に <code>null</code> を含むかどうかの判定に、 <code>contains(null)</code> を利用すると <code>NullPointerException</code> が発生することがあります。</p>
+</div>
+<div class="paragraph">
+<p>リファレンスには次のようにあります:</p>
+</div>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202006/13/list-contains-null/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202006/12/userdetailsservice-conidered-harmful/">UserDetailsServiceは誤解されている</a></h1>
 					<time>2020/06/12</time>
 					<br><div class="description">
@@ -272,25 +288,6 @@ set shiftwidth=2</code></pre>
 	
 </div>
 					<a class="readmore" href="/blog/202004/15/redux-basic-tutorial/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202004/13/react-router/">React Router &lt;Route&gt; で描画したいコンポーネントの指定方法が人によってまちまちなんだけどどれが正解なの？</a></h1>
-					<time>2020/04/13</time>
-					<br><div class="description">
-	
-	<p><a href="https://reacttraining.com/react-router/web/api/Route/route-render-methods">https://reacttraining.com/react-router/web/api/Route/route-render-methods</a></p>
-<blockquote>
-<p><strong>The recommended method of rendering something with a <Route> is to use children elements</strong>, as shown above. There are, however, a few other methods you can use to render something with a <Route>. These are provided mostly for supporting apps that were built with earlier versions of the router before hooks were introduced.</p>
-<ul>
-<li>&lt;Route component&gt;</li>
-<li>&lt;Route render&gt;</li>
-<li>&lt;Route children&gt; function</li>
-</ul></blockquote>
-<p>つまり、引用部の直前にあるこの書き方:</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202004/13/react-router/">Read more ⟶</a>
 				</section>
 				
 				
