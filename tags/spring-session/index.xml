@@ -6,7 +6,7 @@
     <description>Recent content in Spring-Session on 発火後忘失</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <copyright>© Yukihane, All Rights Reserved</copyright>
     <lastBuildDate>Sun, 24 Jan 2021 13:31:55 +0000</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/spring-session/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,7 +14,7 @@
       <link>https://yukihane.github.io/blog/202101/24/spring-session-in-memory/</link>
       <pubDate>Sun, 24 Jan 2021 13:31:55 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202101/24/spring-session-in-memory/</guid>
-      <description>&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/q/48906697/4506703&#34;&gt;What should be a replacement for StoreType.HASH_MAP in spring-boot 2&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;昔は &lt;code&gt;spring.session.store-type&lt;/code&gt; の選択肢に &lt;code&gt;hash_map&lt;/code&gt; というものがあったようですが、現在は存在しません。(ちなみに &lt;code&gt;none&lt;/code&gt; は Spring Session を利用しない、という意味になるようで、挙動が変わってしまいます( &lt;code&gt;JSESSIONID&lt;/code&gt; と &lt;code&gt;SESSIONID&lt;/code&gt; とか))&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/q/48906697/4506703&#34;&gt;What should be a replacement for StoreType.HASH_MAP in spring-boot 2&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;昔は &lt;code&gt;spring.session.store-type&lt;/code&gt; の選択肢に &lt;code&gt;hash_map&lt;/code&gt; というものがあったようですが、現在は存在しません。(ちなみに &lt;code&gt;none&lt;/code&gt; は Spring Session を利用しない、という意味になるようで、挙動が変わってしまいます( &lt;code&gt;JSESSIONID&lt;/code&gt; と &lt;code&gt;SESSIONID&lt;/code&gt; とか))&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

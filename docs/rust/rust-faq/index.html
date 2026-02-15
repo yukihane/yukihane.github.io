@@ -2,27 +2,13 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Rust 勝手に FAQ - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-自身の勉強中にまとめているページなので誤っている可能性も大きいです。
-
-
+	<meta name="description" content="自身の勉強中にまとめているページなので誤っている可能性も大きいです。
 簡単に実行できる環境が欲しい
-
-
 Webブラウザ上で実行結果が確認できます:
-
-
 https://play.rust-lang.org/
-
-
-
-
 変数束縛の方が知りたい
-
-
-その変数の存在しないフィールドアクセスなどを行ってコンパイルエラーを起こさせるのが簡単そう。
-" />
-	<meta property="og:image" content=""/>
+その変数の存在しないフィールドアクセスなどを行ってコンパイルエラーを起こさせるのが簡単そう。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/rust/rust-faq/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Rust 勝手に FAQ">
@@ -47,8 +33,8 @@ https://play.rust-lang.org/
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -65,9 +51,17 @@ https://play.rust-lang.org/
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -84,111 +78,44 @@ https://play.rust-lang.org/
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>自身の勉強中にまとめているページなので誤っている可能性も大きいです。</p>
-</div>
-<div class="sect1">
-<h2 id="_簡単に実行できる環境が欲しい">簡単に実行できる環境が欲しい</h2>
-<div class="sectionbody">
-<div class="paragraph">
+          <p>自身の勉強中にまとめているページなので誤っている可能性も大きいです。</p>
+<h1 id="簡単に実行できる環境が欲しい">簡単に実行できる環境が欲しい</h1>
 <p>Webブラウザ上で実行結果が確認できます:</p>
-</div>
-<div class="paragraph">
-<p><a href="https://play.rust-lang.org/" class="bare">https://play.rust-lang.org/</a></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_変数束縛の方が知りたい">変数束縛の方が知りたい</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<p><a href="https://play.rust-lang.org/">https://play.rust-lang.org/</a></p>
+<h1 id="変数束縛の方が知りたい">変数束縛の方が知りたい</h1>
 <p>その変数の存在しないフィールドアクセスなどを行ってコンパイルエラーを起こさせるのが簡単そう。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://stackoverflow.com/q/21747136/4506703">How do I print the type
-of a variable in Rust? - Stack Overflow</a></p>
-</li>
+<li><a href="https://stackoverflow.com/q/21747136/4506703">How do I print the type of a variable in Rust? - Stack Overflow</a></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="to_string_と_to_owned_どちらを使うのが正しいのか">to_string() と to_owned() どちらを使うのが正しいのか</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="to_string-と-to_owned-どちらを使うのが正しいのか">to_string() と to_owned() どちらを使うのが正しいのか</h1>
 <p>どちらでもよい。</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
-<p><a href="http://qiita.com/uasi/items/3b08a5ba81fede837531">&amp;str を String
-に変換する4つの方法 - Qiita</a></p>
+<p><a href="http://qiita.com/uasi/items/3b08a5ba81fede837531">&amp;str を String に変換する4つの方法 - Qiita</a></p>
 </li>
 <li>
-<p><a href="https://mgattozzi.github.io/2016/05/26/how-do-i-str-string.html">How do
-I convert a &amp;str to a String in Rust?</a></p>
+<p><a href="https://mgattozzi.github.io/2016/05/26/how-do-i-str-string.html">How do I convert a &amp;str to a String in Rust?</a></p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="crate_type_とは">crate_type とは？</h2>
-<div class="sectionbody">
-<div class="ulist">
+<h1 id="crate_type-とは">crate_type とは？</h1>
 <ul>
 <li>
-<p><a href="http://qiita.com/etoilevi/items/4bd4c5b726e41f5a6689">Rust の
-crate_type をまとめてみた - Qiita</a></p>
+<p><a href="http://qiita.com/etoilevi/items/4bd4c5b726e41f5a6689">Rust の crate_type をまとめてみた - Qiita</a></p>
 </li>
 <li>
-<p><a href="https://doc.rust-lang.org/reference/linkage.html">Linkage - The Rust
-Reference</a></p>
+<p><a href="https://doc.rust-lang.org/reference/linkage.html">Linkage - The Rust Reference</a></p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_トレイトtraitとは">トレイト(trait)とは？</h2>
-<div class="sectionbody">
-<div class="quoteblock">
+<h1 id="トレイトtraitとは">トレイト(trait)とは？</h1>
 <blockquote>
-<div class="paragraph">
-<p>トレイト(trait)とは任意の型となりうる`Self`に対して定義されたメソッドの集合のことです。</p>
-</div>
-</blockquote>
-</div>
-<div class="ulist">
+<p>トレイト(trait)とは任意の型となりうる`Self`に対して定義されたメソッドの集合のことです。</p></blockquote>
 <ul>
-<li>
-<p><a href="http://rust-lang-ja.org/rust-by-example/trait.html" class="bare">http://rust-lang-ja.org/rust-by-example/trait.html</a></p>
-</li>
+<li><a href="http://rust-lang-ja.org/rust-by-example/trait.html">http://rust-lang-ja.org/rust-by-example/trait.html</a></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_とは">&#34;?&#34;とは？</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>`Result`に対するエラー伝播のためのショートカット(糖衣構文)。
-`Ok`なら内容を取得し、`Err`ならその`Err`でリターンする。
-戻り値が`Result`であるような関数内で使用できる。</p>
-</div>
-<div class="paragraph">
-<p>ありがちなのは、<code>main`関数の中で使用しようとしてコンパイルエラーになること。
-(`main`は戻り値が</code>()`であり、上の条件を満たさないので使用できない)</p>
-</div>
-<div class="paragraph">
-<p>参考:
-<a href="https://doc.rust-lang.org/book/second-edition/ch09-02-recoverable-errors-with-result.html">Recoverable
-Errors with <code>Result</code> - The Rust Programming Language</a></p>
-</div>
-</div>
-</div>
+<h1 id="とは">&ldquo;?&ldquo;とは？</h1>
+<p>`Result`に対するエラー伝播のためのショートカット(糖衣構文)。 `Ok`なら内容を取得し、`Err`ならその`Err`でリターンする。 戻り値が`Result`であるような関数内で使用できる。</p>
+<p>ありがちなのは、<code>main`関数の中で使用しようとしてコンパイルエラーになること。 (`main`は戻り値が</code>()`であり、上の条件を満たさないので使用できない)</p>
+<p>参考: <a href="https://doc.rust-lang.org/book/second-edition/ch09-02-recoverable-errors-with-result.html">Recoverable Errors with <code>Result</code> - The Rust Programming Language</a></p>
 
         </section>
         <div class="post-tags">
@@ -206,10 +133,10 @@ Errors with <code>Result</code> - The Rust Programming Language</a></p>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

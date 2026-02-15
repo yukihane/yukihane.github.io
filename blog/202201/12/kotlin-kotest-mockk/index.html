@@ -2,28 +2,17 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>JUnit &#43; Mockito テストケースを Kotest &#43; MockK に書き換える - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-Kotest &#43; MockK の組み合わせは Kotlin ではメジャー…​かと思いきや検索してみても公式の
-
-
-
+	<meta name="description" content="Kotest &#43; MockK の組み合わせは Kotlin ではメジャー…​かと思いきや検索してみても公式の
 
 Mocking and Kotest
 
-
-
-
-にあるような例しか見つかりませんでした。
-Mockito で言うところの @Mock や @InjectMocks を使ってモックを差し込みたいんじゃい！
-ということでサンプルです。
-" />
-	<meta property="og:image" content=""/>
+にあるような例しか見つかりませんでした。 Mockito で言うところの @Mock や @InjectMocks を使ってモックを差し込みたいんじゃい！ ということでサンプルです。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202201/12/kotlin-kotest-mockk/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="JUnit &#43; Mockito テストケースを Kotest &#43; MockK に書き換える">
   <meta property="og:description" content="Kotest &#43; MockK の組み合わせは Kotlin ではメジャー…​かと思いきや検索してみても公式の
-Mocking and Kotest
-にあるような例しか見つかりませんでした。 Mockito で言うところの @Mock や @InjectMocks を使ってモックを差し込みたいんじゃい！ ということでサンプルです。">
+Mocking and Kotest にあるような例しか見つかりませんでした。 Mockito で言うところの @Mock や @InjectMocks を使ってモックを差し込みたいんじゃい！ ということでサンプルです。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -34,15 +23,14 @@ Mocking and Kotest
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="JUnit &#43; Mockito テストケースを Kotest &#43; MockK に書き換える">
   <meta name="twitter:description" content="Kotest &#43; MockK の組み合わせは Kotlin ではメジャー…​かと思いきや検索してみても公式の
-Mocking and Kotest
-にあるような例しか見つかりませんでした。 Mockito で言うところの @Mock や @InjectMocks を使ってモックを差し込みたいんじゃい！ ということでサンプルです。">
+Mocking and Kotest にあるような例しか見つかりませんでした。 Mockito で言うところの @Mock や @InjectMocks を使ってモックを差し込みたいんじゃい！ ということでサンプルです。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -59,9 +47,17 @@ Mocking and Kotest
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -78,103 +74,151 @@ Mocking and Kotest
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>Kotest + MockK の組み合わせは Kotlin ではメジャー…​かと思いきや検索してみても公式の</p>
-</div>
-<div class="ulist">
+          <p>Kotest + MockK の組み合わせは Kotlin ではメジャー…​かと思いきや検索してみても公式の</p>
 <ul>
-<li>
-<p><a href="https://kotest.io/docs/framework/integrations/mocking.html">Mocking and Kotest</a></p>
-</li>
+<li><a href="https://kotest.io/docs/framework/integrations/mocking.html">Mocking and Kotest</a></li>
 </ul>
-</div>
-<div class="paragraph">
-<p>にあるような例しか見つかりませんでした。
-Mockito で言うところの <code>@Mock</code> や <code>@InjectMocks</code> を使ってモックを差し込みたいんじゃい！
-ということでサンプルです。</p>
-</div>
-<div class="paragraph">
+<p>にあるような例しか見つかりませんでした。 Mockito で言うところの <code>@Mock</code> や <code>@InjectMocks</code> を使ってモックを差し込みたいんじゃい！ ということでサンプルです。</p>
 <p>前回の記事 <a href="https://yukihane.github.io/blog/202201/10/kotlin-junit4/">Kotlin で JUnit4 のテストケースを書く</a> のテストコードと同じものを作成しています。</p>
-</div>
-<div class="paragraph">
 <p>前回のコードと見比べてみると分かる通り、結構似てます(<a href="https://github.com/yukihane/hello-kotlin/commit/6e14f6b02ee9838a76b1292a377ab2957cbf560a">差分</a>)。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p>成果物: <a href="https://github.com/yukihane/hello-kotlin/tree/main/kotest-mockk-example" class="bare">https://github.com/yukihane/hello-kotlin/tree/main/kotest-mockk-example</a></p>
-</li>
+<li>成果物: <a href="https://github.com/yukihane/hello-kotlin/tree/main/kotest-mockk-example">https://github.com/yukihane/hello-kotlin/tree/main/kotest-mockk-example</a></li>
 </ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="k">package</span> <span class="nn">com.github.yukihane.example</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">io.kotest.core.spec.style.FunSpec</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">io.kotest.datatest.withData</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">io.kotest.matchers.shouldBe</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">io.kotest.matchers.types.shouldBeSameInstanceAs</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">io.mockk.MockKAnnotations</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">io.mockk.every</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">io.mockk.impl.annotations.InjectMockKs</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">io.mockk.impl.annotations.MockK</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">io.mockk.mockk</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MyControllerKtTest</span> <span class="p">:</span> <span class="n">FunSpec</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@MockK</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">lateinit</span> <span class="k">var</span> <span class="py">service</span><span class="p">:</span> <span class="n">MyService</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@MockK</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">lateinit</span> <span class="k">var</span> <span class="py">outputMapper</span><span class="p">:</span> <span class="n">MyParamMapper</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@InjectMockKs</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">lateinit</span> <span class="k">var</span> <span class="py">sut</span><span class="p">:</span> <span class="n">MyController</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">data</span> <span class="k">class</span> <span class="nc">Param</span><span class="p">(</span><span class="k">val</span> <span class="py">input</span><span class="p">:</span> <span class="n">MyParamDTO</span><span class="p">,</span> <span class="k">val</span> <span class="py">expected</span><span class="p">:</span> <span class="n">MyParamDTO</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">val</span> <span class="py">params</span> <span class="p">=</span> <span class="n">listOf</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Param</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">MyParamDTO</span><span class="p">(</span><span class="s2">&#34;alice&#34;</span><span class="p">,</span> <span class="m">16</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">MyParamDTO</span><span class="p">(</span><span class="s2">&#34;alice&#34;</span><span class="p">,</span> <span class="m">17</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Param</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">MyParamDTO</span><span class="p">(</span><span class="s2">&#34;bob&#34;</span><span class="p">,</span> <span class="m">32</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">MyParamDTO</span><span class="p">(</span><span class="s2">&#34;bob&#34;</span><span class="p">,</span> <span class="m">33</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">init</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">beforeTest</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nc">MockKAnnotations</span><span class="p">.</span><span class="k">init</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">context</span><span class="p">(</span><span class="s2">&#34;normal&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">withData</span><span class="p">&lt;</span><span class="n">Param</span><span class="p">&gt;(</span><span class="n">nameFn</span> <span class="p">=</span> <span class="p">{</span> <span class="s2">&#34;</span><span class="si">${it.input.name}</span><span class="s2"> </span><span class="si">${it.input.age}</span><span class="s2">&#34;</span> <span class="p">},</span> <span class="n">params</span><span class="p">)</span> <span class="p">{</span> <span class="k">param</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">val</span> <span class="py">service</span><span class="p">:</span> <span class="n">MyService</span> <span class="p">=</span> <span class="n">MyServiceImpl</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                <span class="k">val</span> <span class="py">controller</span> <span class="p">=</span> <span class="n">MyController</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="nc">MyParamMapper</span><span class="p">.</span><span class="n">INSTANCE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">val</span> <span class="py">res</span> <span class="p">=</span> <span class="n">controller</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="k">param</span><span class="p">.</span><span class="n">input</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">res</span> <span class="n">shouldBe</span> <span class="k">param</span><span class="p">.</span><span class="n">expected</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">context</span><span class="p">(</span><span class="s2">&#34;mocking&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">withData</span><span class="p">(</span><span class="n">nameFn</span> <span class="p">=</span> <span class="p">{</span> <span class="s2">&#34;</span><span class="si">${it.input.name}</span><span class="s2"> </span><span class="si">${it.input.age}</span><span class="s2">&#34;</span> <span class="p">},</span> <span class="n">params</span><span class="p">)</span> <span class="p">{</span> <span class="k">param</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">every</span> <span class="p">{</span> <span class="n">outputMapper</span><span class="p">.</span><span class="n">convert</span><span class="p">(</span><span class="n">any</span><span class="p">&lt;</span><span class="n">MyParamDTO</span><span class="p">&gt;())</span> <span class="p">}</span> <span class="n">returns</span> <span class="n">mockk</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                <span class="n">every</span> <span class="p">{</span> <span class="n">service</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">any</span><span class="p">())</span> <span class="p">}</span> <span class="n">returns</span> <span class="n">mockk</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                <span class="k">val</span> <span class="py">exp</span> <span class="p">=</span> <span class="n">mockk</span><span class="p">&lt;</span><span class="n">MyParamDTO</span><span class="p">&gt;()</span>
+</span></span><span class="line"><span class="cl">                <span class="n">every</span> <span class="p">{</span> <span class="n">outputMapper</span><span class="p">.</span><span class="n">convert</span><span class="p">(</span><span class="n">any</span><span class="p">&lt;</span><span class="n">MyParam</span><span class="p">&gt;())</span> <span class="p">}</span> <span class="n">returns</span> <span class="n">exp</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="k">val</span> <span class="py">res</span> <span class="p">=</span> <span class="n">sut</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="k">param</span><span class="p">.</span><span class="n">input</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">res</span> <span class="n">shouldBeSameInstanceAs</span> <span class="n">exp</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">package com.github.yukihane.example
-
-import io.kotest.core.spec.style.FunSpec
-import io.kotest.datatest.withData
-import io.kotest.matchers.shouldBe
-import io.kotest.matchers.types.shouldBeSameInstanceAs
-import io.mockk.MockKAnnotations
-import io.mockk.every
-import io.mockk.impl.annotations.InjectMockKs
-import io.mockk.impl.annotations.MockK
-import io.mockk.mockk
-
-class MyControllerKtTest : FunSpec() {
-
-    @MockK
-    private lateinit var service: MyService
-
-    @MockK
-    private lateinit var outputMapper: MyParamMapper
-
-    @InjectMockKs
-    private lateinit var sut: MyController
-
-    data class Param(val input: MyParamDTO, val expected: MyParamDTO)
-
-    private val params = listOf(
-        Param(
-            MyParamDTO(&#34;alice&#34;, 16),
-            MyParamDTO(&#34;alice&#34;, 17)
-        ),
-        Param(
-            MyParamDTO(&#34;bob&#34;, 32),
-            MyParamDTO(&#34;bob&#34;, 33)
-        )
-    )
-
-    init {
-
-        beforeTest {
-            MockKAnnotations.init(this)
-        }
-
-        context(&#34;normal&#34;) {
-            withData&lt;Param&gt;(nameFn = { &#34;${it.input.name} ${it.input.age}&#34; }, params) { param -&gt;
-                val service: MyService = MyServiceImpl()
-                val controller = MyController(service, MyParamMapper.INSTANCE)
-                val res = controller.index(param.input)
-                res shouldBe param.expected
-            }
-        }
-
-        context(&#34;mocking&#34;) {
-            withData(nameFn = { &#34;${it.input.name} ${it.input.age}&#34; }, params) { param -&gt;
-                every { outputMapper.convert(any&lt;MyParamDTO&gt;()) } returns mockk()
-                every { service.execute(any()) } returns mockk()
-                val exp = mockk&lt;MyParamDTO&gt;()
-                every { outputMapper.convert(any&lt;MyParam&gt;()) } returns exp
-
-                val res = sut.index(param.input)
-                res shouldBeSameInstanceAs exp
-            }
-        }
-    }
-}</code></pre>
 </div>
-</div>
-
         </section>
         <div class="post-tags">
           
@@ -182,7 +226,7 @@ class MyControllerKtTest : FunSpec() {
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/kotlin">kotlin</a></li>
+              <li><a href="/tags/kotlin/">kotlin</a></li>
               
             </ul>
           </nav>
@@ -199,10 +243,10 @@ class MyControllerKtTest : FunSpec() {
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

@@ -2,16 +2,9 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>LINE Messaging API を試してみる - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-準備
-
-
+	<meta name="description" content="準備
 Spring Boot セットアップ
-
 https://start.spring.io/ でテンプレートを作成して次の依存関係を追加します。
-
-
-
 &lt;dependency&gt;
     &lt;groupId&gt;com.linecorp.bot&lt;/groupId&gt;
     &lt;artifactId&gt;line-bot-spring-boot&lt;/artifactId&gt;
@@ -19,26 +12,16 @@ https://start.spring.io/ でテンプレートを作成して次の依存関係�
 &lt;/dependency&gt;
 
 
-
-
-
 リポジトリ: https://github.com/line/line-bot-sdk-java/tree/master/line-bot-spring-boot
 
-
-
-
-
 Heroku セットアップ
-
-今回は linebotbeta というアプリケーション名にしました。
-" />
-	<meta property="og:image" content=""/>
+今回は linebotbeta というアプリケーション名にしました。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/201908/line-bot-sample/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="LINE Messaging API を試してみる">
   <meta property="og:description" content="準備 Spring Boot セットアップ https://start.spring.io/ でテンプレートを作成して次の依存関係を追加します。
-&lt;dependency&gt; &lt;groupId&gt;com.linecorp.bot&lt;/groupId&gt; &lt;artifactId&gt;line-bot-spring-boot&lt;/artifactId&gt; &lt;version&gt;2.7.0&lt;/version&gt; &lt;/dependency&gt; リポジトリ: https://github.com/line/line-bot-sdk-java/tree/master/line-bot-spring-boot
-Heroku セットアップ 今回は linebotbeta というアプリケーション名にしました。">
+&lt;dependency&gt; &lt;groupId&gt;com.linecorp.bot&lt;/groupId&gt; &lt;artifactId&gt;line-bot-spring-boot&lt;/artifactId&gt; &lt;version&gt;2.7.0&lt;/version&gt; &lt;/dependency&gt; リポジトリ: https://github.com/line/line-bot-sdk-java/tree/master/line-bot-spring-boot Heroku セットアップ 今回は linebotbeta というアプリケーション名にしました。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -51,15 +34,14 @@ Heroku セットアップ 今回は linebotbeta というアプリケーショ�
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="LINE Messaging API を試してみる">
   <meta name="twitter:description" content="準備 Spring Boot セットアップ https://start.spring.io/ でテンプレートを作成して次の依存関係を追加します。
-&lt;dependency&gt; &lt;groupId&gt;com.linecorp.bot&lt;/groupId&gt; &lt;artifactId&gt;line-bot-spring-boot&lt;/artifactId&gt; &lt;version&gt;2.7.0&lt;/version&gt; &lt;/dependency&gt; リポジトリ: https://github.com/line/line-bot-sdk-java/tree/master/line-bot-spring-boot
-Heroku セットアップ 今回は linebotbeta というアプリケーション名にしました。">
+&lt;dependency&gt; &lt;groupId&gt;com.linecorp.bot&lt;/groupId&gt; &lt;artifactId&gt;line-bot-spring-boot&lt;/artifactId&gt; &lt;version&gt;2.7.0&lt;/version&gt; &lt;/dependency&gt; リポジトリ: https://github.com/line/line-bot-sdk-java/tree/master/line-bot-spring-boot Heroku セットアップ 今回は linebotbeta というアプリケーション名にしました。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -76,9 +58,17 @@ Heroku セットアップ 今回は linebotbeta というアプリケーショ�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -95,179 +85,97 @@ Heroku セットアップ 今回は linebotbeta というアプリケーショ�
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_準備">準備</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_spring_boot_セットアップ">Spring Boot セットアップ</h3>
-<div class="paragraph">
-<p><a href="https://start.spring.io/" class="bare">https://start.spring.io/</a> でテンプレートを作成して次の依存関係を追加します。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;dependency&gt;
+          <h1 id="準備">準備</h1>
+<h2 id="spring-boot-セットアップ">Spring Boot セットアップ</h2>
+<p><a href="https://start.spring.io/">https://start.spring.io/</a> でテンプレートを作成して次の依存関係を追加します。</p>
+<pre><code>&lt;dependency&gt;
     &lt;groupId&gt;com.linecorp.bot&lt;/groupId&gt;
     &lt;artifactId&gt;line-bot-spring-boot&lt;/artifactId&gt;
     &lt;version&gt;2.7.0&lt;/version&gt;
-&lt;/dependency&gt;</pre>
-</div>
-</div>
-<div class="ulist">
+&lt;/dependency&gt;
+</code></pre>
 <ul>
-<li>
-<p>リポジトリ: <a href="https://github.com/line/line-bot-sdk-java/tree/master/line-bot-spring-boot" class="bare">https://github.com/line/line-bot-sdk-java/tree/master/line-bot-spring-boot</a></p>
-</li>
+<li>リポジトリ: <a href="https://github.com/line/line-bot-sdk-java/tree/master/line-bot-spring-boot">https://github.com/line/line-bot-sdk-java/tree/master/line-bot-spring-boot</a></li>
 </ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_heroku_セットアップ">Heroku セットアップ</h3>
-<div class="paragraph">
+<h2 id="heroku-セットアップ">Heroku セットアップ</h2>
 <p>今回は <code>linebotbeta</code> というアプリケーション名にしました。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>heroku create -n -a linebotbeta</pre>
-</div>
-</div>
-<div class="ulist">
+<pre><code>heroku create -n -a linebotbeta
+</code></pre>
 <ul>
-<li>
-<p>参考: <a href="https://himeji-cs.jp/blog2/blog/2019/08/hello-heroku-with-springboot.html">HerokuでSpringBootアプリを動かしてみる &gt; ローカルでビルドした jar をデプロイする</a> 及びそのリンク先</p>
-</li>
+<li>参考: <a href="https://himeji-cs.jp/blog2/blog/2019/08/hello-heroku-with-springboot.html">HerokuでSpringBootアプリを動かしてみる &gt; ローカルでビルドした jar をデプロイする</a> 及びそのリンク先</li>
 </ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_line_platform_セットアップ">LINE platform セットアップ</h3>
-<div class="paragraph">
+<h2 id="line-platform-セットアップ">LINE platform セットアップ</h2>
 <p><a href="https://developers.line.biz/console/">LINEデベロッパーコンソール</a> で今回のbotが利用するプロバイダ、チャネルを作成します。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p>参考: <a href="https://developers.line.biz/ja/docs/messaging-api/building-sample-bot-with-heroku/">Herokuでサンプルボットを作成する &gt; 始める前に</a></p>
-</li>
+<li>参考: <a href="https://developers.line.biz/ja/docs/messaging-api/building-sample-bot-with-heroku/">Herokuでサンプルボットを作成する &gt; 始める前に</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>「チャネル基本設定」タブで次の設定を行います。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;"/>
-<col style="width: 50%;"/>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">設定項目</th>
-<th class="tableblock halign-left valign-top">設定値</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">アクセストークン(ロングターム)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">(発行しておく)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Webhook送信</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">利用する</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Webhook URL</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linebotbeta.herokuapp.com/callback" class="bare">https://linebotbeta.herokuapp.com/callback</a></p></td>
-</tr>
-</tbody>
+<table>
+  <thead>
+      <tr>
+          <th>設定項目</th>
+          <th>設定値</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>アクセストークン(ロングターム)</td>
+          <td>(発行しておく)</td>
+      </tr>
+      <tr>
+          <td>Webhook送信</td>
+          <td>利用する</td>
+      </tr>
+      <tr>
+          <td>Webhook URL</td>
+          <td><a href="https://linebotbeta.herokuapp.com/callback">https://linebotbeta.herokuapp.com/callback</a></td>
+      </tr>
+  </tbody>
 </table>
-<div class="paragraph">
-<p>Webhook URL の設定値について、 <code>linebotbata</code> というのは先に作成したHeroku上のapp名、 <code>/callback</code> は line-bot-spring-bootのデフォルトのコールバックエンドポイントです。
-これは <a href="https://github.com/line/line-bot-sdk-java/tree/master/line-bot-spring-boot#configuration"><code>line.bot.handler.path</code> プロパティで変更可能です</a>。</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_実装">実装</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_コントローラハンドラ実装">コントローラ(ハンドラ)実装</h3>
-<div class="paragraph">
+<p>Webhook URL の設定値について、 <code>linebotbata</code> というのは先に作成したHeroku上のapp名、 <code>/callback</code> は line-bot-spring-bootのデフォルトのコールバックエンドポイントです。 これは <a href="https://github.com/line/line-bot-sdk-java/tree/master/line-bot-spring-boot#configuration"><code>line.bot.handler.path</code> プロパティで変更可能です</a>。</p>
+<h1 id="実装">実装</h1>
+<h2 id="コントローラハンドラ実装">コントローラ(ハンドラ)実装</h2>
 <p>今回はとりあえず <a href="https://github.com/line/line-bot-sdk-java/tree/master/line-bot-spring-boot#usage">README</a> にあるオウム返しするハンドラを試しに実装しておきます。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>@LineMessageHandler
+<pre><code>@LineMessageHandler
 public class MyController {
 
     @EventMapping
     public TextMessage handleTextMessageEvent(final MessageEvent&lt;TextMessageContent&gt; event) throws Exception {
-        System.out.println(&#34;event: &#34; + event);
+        System.out.println(&quot;event: &quot; + event);
         return new TextMessage(event.getMessage().getText());
     }
-}</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_プロパティ設定">プロパティ設定</h3>
-<div class="paragraph">
+}
+</code></pre>
+<h2 id="プロパティ設定">プロパティ設定</h2>
 <p><code>src/main/resources/application.properties</code> に、デベロッパーコンソールの今回使用するチャネルに表示されている次の項目をセットします。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;"/>
-<col style="width: 50%;"/>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">設定項目</th>
-<th class="tableblock halign-left valign-top">設定値</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">line.bot.channelToken</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>アクセストークン（ロングターム）</code> の値</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">line.bot.channelSecret</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Channel Secret</code> の値</p></td>
-</tr>
-</tbody>
+<table>
+  <thead>
+      <tr>
+          <th>設定項目</th>
+          <th>設定値</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>line.bot.channelToken</td>
+          <td><code>アクセストークン（ロングターム）</code> の値</td>
+      </tr>
+      <tr>
+          <td>line.bot.channelSecret</td>
+          <td><code>Channel Secret</code> の値</td>
+      </tr>
+  </tbody>
 </table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_ビルドデプロイ">ビルド&amp;デプロイ</h2>
-<div class="sectionbody">
-<div class="listingblock">
-<div class="content">
-<pre>mvn package
-heroku deploy:jar target/line-bot-sample-0.0.1-SNAPSHOT.jar -a linebotbeta</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_実行してみる">実行してみる</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="ビルドデプロイ">ビルド&amp;デプロイ</h1>
+<pre><code>mvn package
+heroku deploy:jar target/line-bot-sample-0.0.1-SNAPSHOT.jar -a linebotbeta
+</code></pre>
+<h1 id="実行してみる">実行してみる</h1>
 <p>デベロッパーコンソールのチャネルページにQRコードが表示されていると思いますので、スマートフォンのLINEアプリで読み取ってチャネルにアクセスします。</p>
-</div>
-<div class="paragraph">
 <p>トーク画面で何かメッセージを入力すると、botがオウム返ししてきます。</p>
-</div>
-<div class="paragraph">
 <p>botのログは <code>heroku logs</code> コマンドで確認できます。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>heroku logs -a linebotbeta</pre>
-</div>
-</div>
-</div>
-</div>
+<pre><code>heroku logs -a linebotbeta
+</code></pre>
 
         </section>
         <div class="post-tags">
@@ -276,11 +184,11 @@ heroku deploy:jar target/line-bot-sample-0.0.1-SNAPSHOT.jar -a linebotbeta</pre>
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/java">java</a></li>
+              <li><a href="/tags/java/">java</a></li>
               
-              <li><a href="/tags/spring-boot">spring-boot</a></li>
+              <li><a href="/tags/spring-boot/">spring-boot</a></li>
               
-              <li><a href="/tags/line">line</a></li>
+              <li><a href="/tags/line/">line</a></li>
               
             </ul>
           </nav>
@@ -297,10 +205,10 @@ heroku deploy:jar target/line-bot-sample-0.0.1-SNAPSHOT.jar -a linebotbeta</pre>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

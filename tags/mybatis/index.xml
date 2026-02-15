@@ -6,7 +6,7 @@
     <description>Recent content in Mybatis on 発火後忘失</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <copyright>© Yukihane, All Rights Reserved</copyright>
     <lastBuildDate>Tue, 10 Mar 2020 05:44:01 +0000</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/mybatis/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,14 +14,14 @@
       <link>https://yukihane.github.io/blog/202003/10/stored-procesure-with-mybatis/</link>
       <pubDate>Tue, 10 Mar 2020 05:44:01 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202003/10/stored-procesure-with-mybatis/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;(もしかしたら以前どこかで書いたかも…)&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;MyBatisでストアドプロシージャを実行する必要に迫られたことがありましたが、オフィシャルリファレンスを見てもどこにもストアドプロシージャについて記述がないので困った記憶をふと思い出しました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;(もしかしたら以前どこかで書いたかも…)&lt;/p&gt;&#xA;&lt;p&gt;MyBatisでストアドプロシージャを実行する必要に迫られたことがありましたが、オフィシャルリファレンスを見てもどこにもストアドプロシージャについて記述がないので困った記憶をふと思い出しました。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Spring Bootでは -parameters オプションは有効化されている</title>
       <link>https://yukihane.github.io/blog/202002/20/spring-boot-compiler-parameters/</link>
       <pubDate>Thu, 20 Feb 2020 06:25:59 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202002/20/spring-boot-compiler-parameters/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;MyBatisの設定項目として &lt;a href=&#34;https://github.com/mybatis/mybatis-3/issues/549#issuecomment-218483088&#34;&gt;&lt;code&gt;useActualParamName&lt;/code&gt;&lt;/a&gt; というものがあります。マニュアルの説明によると、&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;quoteblock&#34;&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;ステートメントの引数を参照する際、メソッドシグネチャで宣言されている名前で参照できるようにします。 このオプションを有効にする場合、プロジェクトを Java 8 （コンパイラオプション -parameters 付き）でコンパイルする必要があります。 (導入されたバージョン: 3.4.1)&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;MyBatisの設定項目として &lt;a href=&#34;https://github.com/mybatis/mybatis-3/issues/549#issuecomment-218483088&#34;&gt;&lt;code&gt;useActualParamName&lt;/code&gt;&lt;/a&gt; というものがあります。マニュアルの説明によると、&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;ステートメントの引数を参照する際、メソッドシグネチャで宣言されている名前で参照できるようにします。 このオプションを有効にする場合、プロジェクトを Java 8 （コンパイラオプション -parameters 付き）でコンパイルする必要があります。 (導入されたバージョン: 3.4.1)&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

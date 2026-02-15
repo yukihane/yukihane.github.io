@@ -6,7 +6,7 @@
     <description>Recent content in Javascript on 発火後忘失</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <copyright>© Yukihane, All Rights Reserved</copyright>
     <lastBuildDate>Sat, 10 Jul 2021 23:53:20 +0000</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,21 +14,21 @@
       <link>https://yukihane.github.io/blog/202107/11/spring-boot-with-babel/</link>
       <pubDate>Sat, 10 Jul 2021 23:53:20 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202107/11/spring-boot-with-babel/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202107/10/spring-boot-with-typescript/&#34;&gt;前回&lt;/a&gt; は &lt;code&gt;ts-loader&lt;/code&gt; を用いて TypeScript をビルドしました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;簡潔にセットアップできたのは良いのですが、実際にはPolyfillを行いたいので &lt;code&gt;babel-loader&lt;/code&gt; をベースに再構築することにします。また、自動テスト( &lt;code&gt;jest&lt;/code&gt; )も導入します。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202107/10/spring-boot-with-typescript/&#34;&gt;前回&lt;/a&gt; は &lt;code&gt;ts-loader&lt;/code&gt; を用いて TypeScript をビルドしました。&lt;/p&gt;&#xA;&lt;p&gt;簡潔にセットアップできたのは良いのですが、実際にはPolyfillを行いたいので &lt;code&gt;babel-loader&lt;/code&gt; をベースに再構築することにします。また、自動テスト( &lt;code&gt;jest&lt;/code&gt; )も導入します。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle)</title>
       <link>https://yukihane.github.io/blog/202107/10/spring-boot-with-typescript/</link>
       <pubDate>Fri, 09 Jul 2021 22:54:04 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202107/10/spring-boot-with-typescript/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Spring Boot で JavaScript を扱うときは素のJSをhtml(Thymeleafテンプレート)に &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; タグで埋め込む、というのが多分一般的で手っ取り早い方法かと思います。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;Spring Boot で JavaScript を扱うときは素のJSをhtml(Thymeleafテンプレート)に &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; タグで埋め込む、というのが多分一般的で手っ取り早い方法かと思います。&lt;/p&gt;</description>
     </item>
     <item>
       <title>formで(送信ボタンを押さずに)エンターキーで送信する</title>
       <link>https://yukihane.github.io/blog/202103/21/implicit-submission/</link>
       <pubDate>Sun, 21 Mar 2021 09:54:35 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202103/21/implicit-submission/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;入力フォームに値を入力して、(送信ボタンを押すのではなく)入力フィールド内でエンターキーを押すと送信される機能、&amp;#34;Implicit Submission&amp;#34;(日本語にすると&amp;#34;暗黙的送信&amp;#34;ですかね？)というそうです。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;入力フォームに値を入力して、(送信ボタンを押すのではなく)入力フィールド内でエンターキーを押すと送信される機能、&amp;ldquo;Implicit Submission&amp;rdquo;(日本語にすると&amp;quot;暗黙的送信&amp;quot;ですかね？)というそうです。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Electronでfs(File IO)</title>

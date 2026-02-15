@@ -2,10 +2,8 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>bashで標準出力をファイルに、標準エラー出力を画面とファイルに出力したい - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-Git の pre-push でテスト実行を行おうとした際、通常テスト実行ではデバッグログを出しているところを、エラーを表すものだけに絞って出すようにしようと考えました。
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="Git の pre-push でテスト実行を行おうとした際、通常テスト実行ではデバッグログを出しているところを、エラーを表すものだけに絞って出すようにしようと考えました。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/201908/bash-redirect-earch-other/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="bashで標準出力をファイルに、標準エラー出力を画面とファイルに出力したい">
@@ -26,8 +24,8 @@ Git の pre-push でテスト実行を行おうとした際、通常テスト実
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -44,9 +42,17 @@ Git の pre-push でテスト実行を行おうとした際、通常テスト実
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -63,34 +69,43 @@ Git の pre-push でテスト実行を行おうとした際、通常テスト実
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>Git の pre-push でテスト実行を行おうとした際、通常テスト実行ではデバッグログを出しているところを、エラーを表すものだけに絞って出すようにしようと考えました。</p>
+          <p>Git の pre-push でテスト実行を行おうとした際、通常テスト実行ではデバッグログを出しているところを、エラーを表すものだけに絞って出すようにしようと考えました。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> -eu
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">targetdir</span><span class="o">=</span>target
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;executing git pre-push hook...&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mvn clean &gt; /dev/null
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> ! -d <span class="nv">$targetdir</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">  mkdir <span class="nv">$targetdir</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span> mvn <span class="nb">test</span> 1&gt; <span class="nv">$targetdir</span>/pre-push.stdout.txt<span class="p">;</span> <span class="o">}</span> 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> tee <span class="nv">$targetdir</span>/pre-push.stderr.txt
+</span></span><span class="line"><span class="cl"><span class="nb">exit</span> <span class="si">${</span><span class="nv">PIPESTATUS</span><span class="p">[0]</span><span class="si">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">#!/bin/bash
-
-set -eu
-
-targetdir=target
-
-echo &#39;executing git pre-push hook...&#39;
-
-mvn clean &gt; /dev/null
-if [ ! -d $targetdir ]; then
-  mkdir $targetdir
-fi
-{ mvn test 1&gt; $targetdir/pre-push.stdout.txt; } 2&gt;&amp;1 | tee $targetdir/pre-push.stderr.txt
-exit ${PIPESTATUS[0]}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><code>{ …​; }</code> は <a href="https://www.gnu.org/software/bash/manual/html_node/Command-Grouping.html">command grouping</a>と言うそうです。</p>
-</div>
-<div class="paragraph">
+</div><p><code>{ …​; }</code> は <a href="https://www.gnu.org/software/bash/manual/html_node/Command-Grouping.html">command grouping</a>と言うそうです。</p>
 <p>参考:</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p><a href="https://qiita.com/laikuaut/items/e1cc312ffc7ec2c872fc">bash: 標準出力、標準エラー出力をファイル、画面それぞれに出力する方法</a> - Qiita</p>
@@ -99,7 +114,6 @@ exit ${PIPESTATUS[0]}</code></pre>
 <p><a href="https://qiita.com/laikuaut/items/b918e6fa63bdc61f5308">bashで複数のコマンドを一つのコマンドとして扱う方法(複合コマンド)</a> - Qiita</p>
 </li>
 </ul>
-</div>
 
         </section>
         <div class="post-tags">
@@ -108,9 +122,9 @@ exit ${PIPESTATUS[0]}</code></pre>
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/bash">bash</a></li>
+              <li><a href="/tags/bash/">bash</a></li>
               
-              <li><a href="/tags/git">git</a></li>
+              <li><a href="/tags/git/">git</a></li>
               
             </ul>
           </nav>
@@ -127,10 +141,10 @@ exit ${PIPESTATUS[0]}</code></pre>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

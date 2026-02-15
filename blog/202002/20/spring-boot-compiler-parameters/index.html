@@ -2,15 +2,10 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Spring Bootでは -parameters オプションは有効化されている - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-MyBatisの設定項目として useActualParamName というものがあります。マニュアルの説明によると、
+	<meta name="description" content="MyBatisの設定項目として useActualParamName というものがあります。マニュアルの説明によると、
 
-
-
-
-ステートメントの引数を参照する際、メソッドシグネチャで宣言されている名前で参照できるようにします。 このオプションを有効にする場合、プロジェクトを Java 8 （コンパイラオプション -parameters 付き）でコンパイルする必要があります。 (導入されたバージョン: 3.4.1)
-" />
-	<meta property="og:image" content=""/>
+ステートメントの引数を参照する際、メソッドシグネチャで宣言されている名前で参照できるようにします。 このオプションを有効にする場合、プロジェクトを Java 8 （コンパイラオプション -parameters 付き）でコンパイルする必要があります。 (導入されたバージョン: 3.4.1)" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202002/20/spring-boot-compiler-parameters/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Spring Bootでは -parameters オプションは有効化されている">
@@ -33,8 +28,8 @@ MyBatisの設定項目として useActualParamName というものがありま�
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -51,9 +46,17 @@ MyBatisの設定項目として useActualParamName というものがありま�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -70,56 +73,21 @@ MyBatisの設定項目として useActualParamName というものがありま�
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>MyBatisの設定項目として <a href="https://github.com/mybatis/mybatis-3/issues/549#issuecomment-218483088"><code>useActualParamName</code></a> というものがあります。マニュアルの説明によると、</p>
-</div>
-<div class="quoteblock">
+          <p>MyBatisの設定項目として <a href="https://github.com/mybatis/mybatis-3/issues/549#issuecomment-218483088"><code>useActualParamName</code></a> というものがあります。マニュアルの説明によると、</p>
 <blockquote>
-<div class="paragraph">
 <p>ステートメントの引数を参照する際、メソッドシグネチャで宣言されている名前で参照できるようにします。 このオプションを有効にする場合、プロジェクトを Java 8 （コンパイラオプション -parameters 付き）でコンパイルする必要があります。 (導入されたバージョン: 3.4.1)</p>
-</div>
-</blockquote>
-<div class="attribution">
-— <a href="https://mybatis.org/mybatis-3/ja/configuration.html#settings">設定 &gt; settings</a>
-</div>
-</div>
-<div class="paragraph">
+<p>—  <a href="https://mybatis.org/mybatis-3/ja/configuration.html#settings">設定 &gt; settings</a></p></blockquote>
 <p>もう少し具体的には、</p>
-</div>
-<div class="quoteblock">
 <blockquote>
-<div class="paragraph">
-<p>3.4.3 以降では、引数名を指定することによって arg 要素を順不同で記述できるようになりました。引数を名前で指定するためには、各引数に @Param アノテーションを追加するか、プロジェクトを &#39;-parameters&#39; オプション付きでコンパイルし、useActualParamName に true （デフォルト値です）を設定します。</p>
-</div>
-</blockquote>
-<div class="attribution">
-— <a href="https://mybatis.org/mybatis-3/ja/sqlmap-xml.html#constructor">Mapper XML ファイル &gt; constructor</a>
-</div>
-</div>
-<div class="paragraph">
+<p>3.4.3 以降では、引数名を指定することによって arg 要素を順不同で記述できるようになりました。引数を名前で指定するためには、各引数に @Param アノテーションを追加するか、プロジェクトを &lsquo;-parameters&rsquo; オプション付きでコンパイルし、useActualParamName に true （デフォルト値です）を設定します。</p>
+<p>—  <a href="https://mybatis.org/mybatis-3/ja/sqlmap-xml.html#constructor">Mapper XML ファイル &gt; constructor</a></p></blockquote>
 <p>とあります。説明されているセクションが期待するものと違うのでわかりにくい…</p>
-</div>
-<div class="paragraph">
 <p>ちなみに <code>@Param</code> の意味を調べようと検索すると、説明には次のように書かれており、 <code>useActualParamName</code> という機能があることに気づかないので不親切に感じます。</p>
-</div>
-<div class="quoteblock">
 <blockquote>
-<div class="paragraph">
-<p>Mapper メソッドが複数の引数を取る場合、このアノテーションを付加することで各引数を名前で参照できるようになります。アノテーションがない場合、各引数は位置を表す数字で #{param1}, #{param2} のように参照します（RowBounds 引数はカウントしません）。 引数に @Param(&#34;person&#34;) というアノテーションを付加すると、この引数は #{person} として参照できるようになります。</p>
-</div>
-</blockquote>
-<div class="attribution">
-— <a href="https://mybatis.org/mybatis-3/ja/java-api.html#Mapper_.E3.82.A2.E3.83.8E.E3.83.86.E3.83.BC.E3.82.B7.E3.83.A7.E3.83.B3">Java API &gt; Mapper アノテーション</a>
-</div>
-</div>
-<div class="paragraph">
-<p>閑話休題。
-この <code>useActualParamName</code> は引用部にある通りデフォルトで <code>true</code> ですが、実際に使うには <code>-parameters</code> オプション付きでコンパイルする必要があります。
-この <code>-parameters</code> オプションはどうやって付ければ良いのでしょうか？</p>
-</div>
-<div class="paragraph">
+<p>Mapper メソッドが複数の引数を取る場合、このアノテーションを付加することで各引数を名前で参照できるようになります。アノテーションがない場合、各引数は位置を表す数字で #{param1}, #{param2} のように参照します（RowBounds 引数はカウントしません）。 引数に @Param(&ldquo;person&rdquo;) というアノテーションを付加すると、この引数は #{person} として参照できるようになります。</p>
+<p>—  <a href="https://mybatis.org/mybatis-3/ja/java-api.html#Mapper_.E3.82.A2.E3.83.8E.E3.83.86.E3.83.BC.E3.82.B7.E3.83.A7.E3.83.B3">Java API &gt; Mapper アノテーション</a></p></blockquote>
+<p>閑話休題。 この <code>useActualParamName</code> は引用部にある通りデフォルトで <code>true</code> ですが、実際に使うには <code>-parameters</code> オプション付きでコンパイルする必要があります。 この <code>-parameters</code> オプションはどうやって付ければ良いのでしょうか？</p>
 <p>…というのを調べようとしたのですが、Spring Boot の場合、 <code>spring-boot-starter-parent</code> で <a href="https://github.com/spring-projects/spring-boot/blob/v2.1.9.RELEASE/spring-boot-project/spring-boot-starters/spring-boot-starter-parent/pom.xml#L78"><code>-parameters</code> オプションが有効になるような設定が為されている</a> ので、明示的に設定しなくても利用できます。</p>
-</div>
 
         </section>
         <div class="post-tags">
@@ -128,9 +96,9 @@ MyBatisの設定項目として useActualParamName というものがありま�
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/spring-boot">spring-boot</a></li>
+              <li><a href="/tags/spring-boot/">spring-boot</a></li>
               
-              <li><a href="/tags/mybatis">mybatis</a></li>
+              <li><a href="/tags/mybatis/">mybatis</a></li>
               
             </ul>
           </nav>
@@ -147,10 +115,10 @@ MyBatisの設定項目として useActualParamName というものがありま�
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

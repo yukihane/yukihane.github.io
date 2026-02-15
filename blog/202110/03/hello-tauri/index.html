@@ -2,16 +2,10 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Tauri を GUI にして Rust と React に入門する - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-はじめに
-
-
+	<meta name="description" content="はじめに
 Tauri という、 WebView を利用して GUI を実現する Rust 製フレームワークを試してみました。
-
-
-Rust も React も入門書から陸続きで書き始められるので、余計なことに気を取られずに済みそうです(ただし、 JS - Rust 間のデータ受け渡しに利用する JSON オブジェクトのシリアライズ/デシリアライズに利用する Serde についての知識は少し必要になりそうでした)。
-" />
-	<meta property="og:image" content=""/>
+Rust も React も入門書から陸続きで書き始められるので、余計なことに気を取られずに済みそうです(ただし、 JS - Rust 間のデータ受け渡しに利用する JSON オブジェクトのシリアライズ/デシリアライズに利用する Serde についての知識は少し必要になりそうでした)。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202110/03/hello-tauri/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Tauri を GUI にして Rust と React に入門する">
@@ -35,8 +29,8 @@ Rust も React も入門書から陸続きで書き始められるので、余�
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -53,9 +47,17 @@ Rust も React も入門書から陸続きで書き始められるので、余�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -72,20 +74,10 @@ Rust も React も入門書から陸続きで書き始められるので、余�
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="paragraph">
+          <h1 id="はじめに">はじめに</h1>
 <p><a href="https://tauri.studio/">Tauri</a> という、 WebView を利用して GUI を実現する Rust 製フレームワークを試してみました。</p>
-</div>
-<div class="paragraph">
 <p>Rust も React も入門書から陸続きで書き始められるので、余計なことに気を取られずに済みそうです(ただし、 JS - Rust 間のデータ受け渡しに利用する JSON オブジェクトのシリアライズ/デシリアライズに利用する <a href="https://serde.rs/">Serde</a> についての知識は少し必要になりそうでした)。</p>
-</div>
-<div class="paragraph">
-<p>本エントリは、 Tauri で Hello World するアプリケーションを作成しビルドしてみた過程の記録です。
-次のような処理を行うプログラムを作成しました。</p>
-</div>
-<div class="ulist">
+<p>本エントリは、 Tauri で Hello World するアプリケーションを作成しビルドしてみた過程の記録です。 次のような処理を行うプログラムを作成しました。</p>
 <ul>
 <li>
 <p>JS 側でパラメータを伴った <a href="https://tauri.studio/en/docs/usage/guides/command/">コマンド</a> をリクエスト</p>
@@ -97,31 +89,15 @@ Rust も React も入門書から陸続きで書き始められるので、余�
 <p>計算結果を JS 側に返して出力</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <figure><img src="/20211003/tauri-app.png">
 </figure>
 
-</div>
-<div class="paragraph">
 <p>今回実装したコードはこちらです:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/yukihane/hello-rust/tree/master/hello-tauri" class="bare">https://github.com/yukihane/hello-rust/tree/master/hello-tauri</a></p>
-</li>
+<li><a href="https://github.com/yukihane/hello-rust/tree/master/hello-tauri">https://github.com/yukihane/hello-rust/tree/master/hello-tauri</a></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_環境">環境</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="環境">環境</h1>
 <p><code>yarn tauri info</code> コマンド実行結果より。</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p>Ubuntu 20.04</p>
@@ -139,61 +115,27 @@ Rust も React も入門書から陸続きで書き始められるので、余�
 <p>React 17.0.2</p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_初期セットアップ">初期セットアップ</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>公式ドキュメントに従って進めるだけです。
-私は前述の通り Ubuntu 上で開発しているので、 <a href="https://tauri.studio/en/docs/getting-started/setup-linux">Setup for Linux</a> の Debian の項に書かれているパッケージをそのままインストールしました｡</p>
-</div>
-<div class="paragraph">
+<h1 id="初期セットアップ">初期セットアップ</h1>
+<p>公式ドキュメントに従って進めるだけです。 私は前述の通り Ubuntu 上で開発しているので、 <a href="https://tauri.studio/en/docs/getting-started/setup-linux">Setup for Linux</a> の Debian の項に書かれているパッケージをそのままインストールしました｡</p>
 <p>Node や Rust 開発環境は既にセットアップしていたものをそのまま利用しています。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_プロジェクト雛形作成と起動">プロジェクト雛形作成と起動</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="プロジェクト雛形作成と起動">プロジェクト雛形作成と起動</h1>
 <p><a href="https://tauri.studio/en/docs/usage/development/integration">Integrate with Tauri</a> 章をそのまま実行するだけです。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>yarn create tauri-app</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>yarn create tauri-app
+</code></pre>
 <p>上記コマンドを実行すると、いくつか作成する雛形について質問されます。</p>
-</div>
-<div class="paragraph">
-<p>例えば JS フレームワークについて。
-私は create-react-app を選択しました。
-この後さらに TypeScript テンプレートを利用するか聞かれます。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>? What UI recipe would you like to add?
+<p>例えば JS フレームワークについて。 私は create-react-app を選択しました。 この後さらに TypeScript テンプレートを利用するか聞かれます。</p>
+<pre><code>? What UI recipe would you like to add?
 ❯ Vanilla.js (html, css, and js without the bundlers)
   create-react-app (https://create-react-app.dev/)
   create-vite (https://vitejs.dev/guide/#scaffolding-your-first-vite-project)
   Vue CLI (https://cli.vuejs.org/)
   Angular CLI (https://angular.io/cli)
   Svelte (https://github.com/sveltejs/template)
-  Dominator (https://crates.io/crates/dominator/)</pre>
-</div>
-</div>
-<div class="paragraph">
+  Dominator (https://crates.io/crates/dominator/)
+</code></pre>
 <p>コマンド実行が正常終了すると、次のようなファイル/ディレクトリが生成されます。</p>
-</div>
-<div class="paragraph">
 <p>create-react-app(以降CRA)で生成したプロジェクトテンプレートに加えて、 <code>src-tauri</code> というディレクトリが生成されています。この後 <code>src-tauri</code> が Rust 側のプロジェクトです。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>.
+<pre><code>.
 ├── README.md
 ├── node_modules
 ├── package.json
@@ -201,73 +143,44 @@ Rust も React も入門書から陸続きで書き始められるので、余�
 ├── src
 ├── src-tauri
 ├── tsconfig.json
-└── yarn.lock</pre>
-</div>
-</div>
-<div class="paragraph">
+└── yarn.lock
+</code></pre>
 <p>プロジェクトテンプレートが作成できたら次のコマンドで起動できます。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>yarn tauri dev</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>まずCRAの <code>yarn start</code> と同じくウェブブラウザが起動し、その後 Rust のコンパイル完了後に Tauri アプリケーションが起動します。
-JS に閉じたアプリケーションであれば、 CRA と同じくウェブブラウザの方を見て開発できそうですが、 API を利用して Rust 側とコミュニケーションする場合は、ウェブブラウザの方は API にアクセスするとエラーになるので利用できません。
-(補足: どうもこの挙動は不具合だったらしく、 <a href="https://github.com/tauri-apps/tauri/issues/2793"><code>#2793</code></a> で対応が入ったようです)</p>
-</div>
-<div class="paragraph">
-<p>パッケージングは次のコマンドです。
-<code>--verbose</code> は必須ではありませんが、付けないと何か問題が発生した場合でもほとんど情報が出ませんでした。</p>
-</div>
-<div class="paragraph">
+<pre><code>yarn tauri dev
+</code></pre>
+<p>まずCRAの <code>yarn start</code> と同じくウェブブラウザが起動し、その後 Rust のコンパイル完了後に Tauri アプリケーションが起動します。 JS に閉じたアプリケーションであれば、 CRA と同じくウェブブラウザの方を見て開発できそうですが、 API を利用して Rust 側とコミュニケーションする場合は、ウェブブラウザの方は API にアクセスするとエラーになるので利用できません。 (補足: どうもこの挙動は不具合だったらしく、 <a href="https://github.com/tauri-apps/tauri/issues/2793"><code>#2793</code></a> で対応が入ったようです)</p>
+<p>パッケージングは次のコマンドです。 <code>--verbose</code> は必須ではありませんが、付けないと何か問題が発生した場合でもほとんど情報が出ませんでした。</p>
 <p><code>yarn tauri build --verbose</code></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_実装">実装</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="実装">実装</h1>
 <p>上記で作成したプロジェクトテンプレートに <a href="https://tauri.studio/en/docs/usage/guides/command">Create Rust Commands</a> を参照しながら実装していきます。</p>
-</div>
-<div class="paragraph">
 <p>まず、 <a href="https://github.com/yukihane/hello-rust/blob/master/hello-tauri/src/App.tsx">JS 側を実装</a>しました(重要でない行は適当に省略しています。全コードはリンク先参照)。</p>
+<div class="formalpara-title">
+<p><strong><a href="https://github.com/yukihane/hello-rust/blob/master/hello-tauri/src/App.tsx">src/App.tsx</a></strong></p>
 </div>
-<div class="listingblock">
-<div class="title"><a href="https://github.com/yukihane/hello-rust/blob/master/hello-tauri/src/App.tsx">src/App.tsx</a></div>
-<div class="content">
-<pre>import { invoke } from &#34;@tauri-apps/api&#34;;
+<pre><code>import { invoke } from &quot;@tauri-apps/api&quot;;
 
 function App() {
 
-  const [message, setMessage] = useState(&#34;&#34;);
+  const [message, setMessage] = useState(&quot;&quot;);
 
   const submit = () =&gt; {
     const data: Request = { personalData: { name, birthDay } };
-    invoke&lt;Response&gt;(&#34;greet&#34;, data).then((resp) =&gt; {
+    invoke&lt;Response&gt;(&quot;greet&quot;, data).then((resp) =&gt; {
       setMessage(resp.message);
     });
   };
 
   return (...);
-}</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><code>invoke</code> 関数の第1引数にコマンド名、第2引数にJSONでコマンドパラメータを設定し呼び出します。
-戻り値は <code>Promise</code> 型です。</p>
-</div>
-<div class="paragraph">
+}
+</code></pre>
+<p><code>invoke</code> 関数の第1引数にコマンド名、第2引数にJSONでコマンドパラメータを設定し呼び出します。 戻り値は <code>Promise</code> 型です。</p>
 <p>続いてこのコマンドに対応する処理を <a href="https://github.com/yukihane/hello-rust/blob/master/hello-tauri/src-tauri/src/main.rs">Rust 側に実装</a>します。</p>
+<div class="formalpara-title">
+<p><strong><a href="https://github.com/yukihane/hello-rust/blob/master/hello-tauri/src-tauri/src/main.rs">src-tauri/src/main.rs</a></strong></p>
 </div>
-<div class="listingblock">
-<div class="title"><a href="https://github.com/yukihane/hello-rust/blob/master/hello-tauri/src-tauri/src/main.rs">src-tauri/src/main.rs</a></div>
-<div class="content">
-<pre>#![cfg_attr(
-  all(not(debug_assertions), target_os = &#34;windows&#34;),
-  windows_subsystem = &#34;windows&#34;
+<pre><code>#![cfg_attr(
+  all(not(debug_assertions), target_os = &quot;windows&quot;),
+  windows_subsystem = &quot;windows&quot;
 )]
 
 use chrono::{DateTime, Datelike, Local, Utc};
@@ -286,9 +199,9 @@ struct Response {
 
 #[tauri::command]
 fn greet(personal_data: PersonalData) -&gt; Response {
-  println!(&#34;recieve: {:?}&#34;, personal_data);
+  println!(&quot;recieve: {:?}&quot;, personal_data);
   let age: i32 = calc_age(&amp;personal_data.birthDay, &amp;Local::now());
-  let message = format!(&#34;こんにちは, {}({}歳)！&#34;, personal_data.name, age);
+  let message = format!(&quot;こんにちは, {}({}歳)！&quot;, personal_data.name, age);
 
   Response { message }
 }
@@ -314,39 +227,22 @@ fn main() {
   tauri::Builder::default()
     .invoke_handler(tauri::generate_handler![greet])
     .run(tauri::generate_context!())
-    .expect(&#34;error while running tauri application&#34;);
-}</pre>
-</div>
-</div>
-<div class="paragraph">
+    .expect(&quot;error while running tauri application&quot;);
+}
+</code></pre>
 <p>コマンド名と同じ名前の関数を定義し <code>#[tauri::command]</code> アトリビュートを付与、 builder の <code>invoke_handler</code> 関数の引数に設定します。</p>
-</div>
-<div class="paragraph">
 <p>引数や戻り値は JS の JSON と Rust の構造体に(基本的には(?) <code>Serde</code> の自動で)相互変換されるようでした。</p>
-</div>
-<div class="paragraph">
 <p>命名規則は決まっており、名前や型が異なると呼び出されませんでした(意図通り動かなかった場合、原因を探すのが少し大変そうです)。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_大変そう大変だったところ">大変そう/大変だったところ</h2>
-<div class="sectionbody">
-<div class="ulist">
+<h1 id="大変そう大変だったところ">大変そう/大変だったところ</h1>
 <ul>
 <li>
 <p>冒頭でも少し触れましたが、 <a href="https://serde.rs/">Serde</a> という crate が JS - Rust 間データ変換を担っているので、この crate の知識が少し必要になりそうでした。</p>
-<div class="ulist">
 <ul>
-<li>
-<p>今回のコードでいうと、 <code>Date</code> 型のオブジェクトを渡すのに <a href="https://github.com/yukihane/hello-rust/blob/d18f92e49f5bbe3a50cece81469fc29b31d1cd21/hello-tauri/src-tauri/Cargo.toml#L20"><code>Cargo.toml</code> の dependencies</a> に <code>chrono = { version = &#34;0.4.19&#34;, features = [&#34;serde&#34;] }</code> を追加する必要がありましたが、解答に辿り着くまで結構時間がかかりました。</p>
-</li>
+<li>今回のコードでいうと、 <code>Date</code> 型のオブジェクトを渡すのに <a href="https://github.com/yukihane/hello-rust/blob/d18f92e49f5bbe3a50cece81469fc29b31d1cd21/hello-tauri/src-tauri/Cargo.toml#L20"><code>Cargo.toml</code> の dependencies</a> に <code>chrono = { version = &quot;0.4.19&quot;, features = [&quot;serde&quot;] }</code> を追加する必要がありましたが、解答に辿り着くまで結構時間がかかりました。</li>
 </ul>
-</div>
 </li>
 <li>
 <p>解説やサンプルが少ないです。公式/非公式ドキュメントも少なく、 <a href="https://tauri.studio/en/showcase">showcase</a> からリンクされているコードを理解しようにも、まず動かすまでにも至れなかったりしました。</p>
-<div class="ulist">
 <ul>
 <li>
 <p><a href="https://github.com/tauri-apps/tauri/tree/next/examples">公式リポジトリの examples</a> が数少ない情報源でした。今回のことについては <a href="https://github.com/tauri-apps/tauri/tree/next/examples/commands">commands</a> が該当します。</p>
@@ -355,22 +251,14 @@ fn main() {
 <p>examples 以下のコードを実行するには、リポジトリをチェックアウトして <code>cargo run --example commands</code> (など)。</p>
 </li>
 </ul>
-</div>
 </li>
 <li>
 <p>現状、 JS - Rust 間のやりとりは JSON のみなので、例えばバイナリを高頻度で送受信する必要があるようなアプリケーションではパフォーマンス問題が表出しそうにも思われます。</p>
-<div class="ulist">
 <ul>
-<li>
-<p>refs: <a href="https://github.com/tauri-apps/tauri/issues/1271">Pass messages between Rust frontend and backend without JSON serialization #1271</a></p>
+<li>refs: <a href="https://github.com/tauri-apps/tauri/issues/1271">Pass messages between Rust frontend and backend without JSON serialization #1271</a></li>
+</ul>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
 
         </section>
         <div class="post-tags">
@@ -379,11 +267,11 @@ fn main() {
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/rust">rust</a></li>
+              <li><a href="/tags/rust/">rust</a></li>
               
-              <li><a href="/tags/react">react</a></li>
+              <li><a href="/tags/react/">react</a></li>
               
-              <li><a href="/tags/tauri">tauri</a></li>
+              <li><a href="/tags/tauri/">tauri</a></li>
               
             </ul>
           </nav>
@@ -400,10 +288,10 @@ fn main() {
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

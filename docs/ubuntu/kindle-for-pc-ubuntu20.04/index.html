@@ -2,13 +2,9 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Ubuntu20.04 で Kindle for PCを使う - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-はじめに
-
-
-2021-03-07時点では、 UbuntuでKindle for PCを使う の方法で Ubuntu20.04 に Kindle for PC をインストールして起動すると、次のようなエラーが出てコンテンツにアクセスできなくなってしまっていました:
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="はじめに
+2021-03-07時点では、 UbuntuでKindle for PCを使う の方法で Ubuntu20.04 に Kindle for PC をインストールして起動すると、次のようなエラーが出てコンテンツにアクセスできなくなってしまっていました:" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/ubuntu/kindle-for-pc-ubuntu20.04/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Ubuntu20.04 で Kindle for PCを使う">
@@ -27,8 +23,8 @@
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -45,9 +41,17 @@
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -64,22 +68,11 @@
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="paragraph">
+          <h1 id="はじめに">はじめに</h1>
 <p>2021-03-07時点では、 <a href="/docs/ubuntu/kindle-for-pc/">UbuntuでKindle for PCを使う</a> の方法で Ubuntu20.04 に Kindle for PC をインストールして起動すると、次のようなエラーが出てコンテンツにアクセスできなくなってしまっていました:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>接続できません ネットワークの設定とプロキシの構成を確認してください。</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>そこで、改めてインストール手順を書き直したのが本ドキュメントです。
-本ドキュメントで用いた各ソフトウェアのバージョンは次のとおりです(いずれも入手できた最新版を用いました):</p>
-</div>
-<div class="ulist">
+<pre><code>接続できません ネットワークの設定とプロキシの構成を確認してください。
+</code></pre>
+<p>そこで、改めてインストール手順を書き直したのが本ドキュメントです。 本ドキュメントで用いた各ソフトウェアのバージョンは次のとおりです(いずれも入手できた最新版を用いました):</p>
 <ul>
 <li>
 <p>Ubuntu 20.04</p>
@@ -94,81 +87,33 @@
 <p>Kindle for PC 1.26.0(55076)</p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_ちなみに">ちなみに</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="ちなみに">ちなみに</h1>
 <p>素のwineの環境は <code>~/.wine</code> に、 PlayOnLinux の環境は <code>~/.PlayOnLinux</code> にあるので、初期状態に戻したければこれらのディレクトリを削除すればよいでしょう。</p>
-</div>
-<div class="paragraph">
 <p>また、wineのデフォルト設定ではWindowsのマイドキュメントがUbuntuの <code>~/Documents</code> にシンボリックリンクされているようなので、 <code>~/Documents/My\ Kindle\ Content</code> にKindleの書籍データが入っています。初期状態に戻したいのであればこれも削除しましょう。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_wine_インストール">Wine インストール</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="wine-インストール">Wine インストール</h1>
 <p>今回の手順では PlayOnLinux を利用せず直接このwineを利用して Kindle for PC を起動します。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p>参考: <a href="https://wiki.winehq.org/Ubuntu" class="bare">https://wiki.winehq.org/Ubuntu</a></p>
-</li>
+<li>参考: <a href="https://wiki.winehq.org/Ubuntu">https://wiki.winehq.org/Ubuntu</a></li>
 </ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>sudo dpkg --add-architecture i386</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>wget -nc https://dl.winehq.org/wine-builds/winehq.key
-sudo apt-key add winehq.key</pre>
-</div>
-</div>
-<div class="paragraph">
+<!-- -->
+<pre><code>sudo dpkg --add-architecture i386
+
+wget -nc https://dl.winehq.org/wine-builds/winehq.key
+sudo apt-key add winehq.key
+</code></pre>
 <p>リポジトリを追加します。コマンドはUbuntuのバージョンによって異なります。上記リンク先を参照してください(下記の例は20.04のものです)。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>sudo add-apt-repository &#39;deb https://dl.winehq.org/wine-builds/ubuntu/ focal main&#39;</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main'
+</code></pre>
 <p>リポジトリを追加したら、次のコマンドでWineのstable版をインストールします。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>sudo apt-get install --install-recommends winehq-stable</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>sudo apt-get install --install-recommends winehq-stable
+</code></pre>
 <p>今回インストールされたバージョンは <code>6.0</code> のようでした。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ wine64 --version
-wine-6.0</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_補足_インストールするwineとkindleのバージョンについて">補足: インストールするWineとKindleのバージョンについて</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<pre><code>$ wine64 --version
+wine-6.0
+</code></pre>
+<h1 id="補足-インストールするwineとkindleのバージョンについて">補足: インストールするWineとKindleのバージョンについて</h1>
 <p>過去の記事(本記事冒頭でリンクしている私自身が書いたものも含む)では、WineとKindle for PCは最新バージョンにすれば良いわけではなく、相性がある、と書かれてきました。</p>
-</div>
-<div class="paragraph">
 <p>ただ、現時点ではむしろ過去の相性が良いと言われていたバージョンは動かなくなってしまっており、最新を選んだ方が良いようでした。次の不具合が関係していそうです:</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p><a href="https://forum.manjaro.org/t/is-there-anyone-who-use-amazon-kindle-for-pc-via-wine/46560">Is there anyone who use Amazon Kindle for PC via Wine?</a></p>
@@ -177,117 +122,45 @@ wine-6.0</pre>
 <p><a href="https://bugs.winehq.org/show_bug.cgi?id=50471">Bug 50471 Kindle for PC 1.16.0 can’t connect</a></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p>解決策は、 <a href="https://bugs.winehq.org/show_bug.cgi?id=50471#c9">このコメント</a>にある通り</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Now I can connect kindle for PC to amazon with Kindle version 1.30.0.
+<pre><code>Now I can connect kindle for PC to amazon with Kindle version 1.30.0.
 What I did are following.
-1. uninstall old kindle with command &#34;wine64 uninstaller&#34;
+1. uninstall old kindle with command &quot;wine64 uninstaller&quot;
 2. mkdir -p ${WINEPREFIX:-$HOME/.wine}/drive_c/users/$USER/AppData/Local/Amazon/Kindle
-3. install Kindle for PC version 1.30.0.</pre>
-</div>
-</div>
-<div class="paragraph">
+3. install Kindle for PC version 1.30.0.
+</code></pre>
 <p>を実行すれば良いです。</p>
-</div>
-<div class="paragraph">
 <p>以下、具体的な手順を記述します。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_cjkフォントインストール">cjkフォントインストール</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>素の状態だと日本語メニューが文字化けするのでフォントをインストールしておきます。
-<a href="https://wiki.winehq.org/Winetricks"><code>winetricks</code></a> というパッケージを追加でインストールします:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>sudo apt install winetricks</pre>
-</div>
-</div>
-<div class="paragraph">
+<h1 id="cjkフォントインストール">cjkフォントインストール</h1>
+<p>素の状態だと日本語メニューが文字化けするのでフォントをインストールしておきます。 <a href="https://wiki.winehq.org/Winetricks"><code>winetricks</code></a> というパッケージを追加でインストールします:</p>
+<pre><code>sudo apt install winetricks
+</code></pre>
 <p><code>winetricks</code> コマンドを実行するとウィザードダイアログが出るので、次のとおり進めていきます:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p>Select the default wineprefix &gt; Install a font &gt; cjk fonts</p>
-</li>
+<li>Select the default wineprefix &gt; Install a font &gt; cjk fonts</li>
 </ul>
-</div>
-<div class="paragraph">
 <p>実行するとエラーダイアログが複数回出ますが、無視してOKボタンを押せばよいです。</p>
-</div>
-<div class="paragraph">
 <p>完了するとウィザードダイアログに戻ります。キャンセルボタンを押して終了します。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_手動で必要なディレクトリ作成">手動で必要なディレクトリ作成</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="手動で必要なディレクトリ作成">手動で必要なディレクトリ作成</h1>
 <p>前述のコメントに書かれているコマンドをそのまま実行します:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>mkdir -p ${WINEPREFIX:-$HOME/.wine}/drive_c/users/$USER/AppData/Local/Amazon/Kindle</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_kindle_for_pc_インストーラダウンロード_実行">Kindle for PC インストーラダウンロード &amp; 実行</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<pre><code>mkdir -p ${WINEPREFIX:-$HOME/.wine}/drive_c/users/$USER/AppData/Local/Amazon/Kindle
+</code></pre>
+<h1 id="kindle-for-pc-インストーラダウンロード--実行">Kindle for PC インストーラダウンロード &amp; 実行</h1>
 <p>最新版を用意すれば良いので、公式サイトからダウンロードしましょう:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://www.amazon.co.jp//dp/B011UEHYWQ" class="bare">https://www.amazon.co.jp//dp/B011UEHYWQ</a></p>
-</li>
+<li><a href="https://www.amazon.co.jp//dp/B011UEHYWQ">https://www.amazon.co.jp//dp/B011UEHYWQ</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>ちなみに現時点で 1.30.0 がリリースされているはずなのですが、私がインストールを実行したところ 1.26.0 がインストールされました。</p>
-</div>
-<div class="paragraph">
 <p>インストールコマンド:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>wine64 &lt;ダウンロードしたexeファイル&gt;</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>wine64 &lt;ダウンロードしたexeファイル&gt;
+</code></pre>
 <p>これでインストール完了です。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_実行">実行</h2>
-<div class="sectionbody">
-<div class="listingblock">
-<div class="content">
-<pre>wine64 ~/.wine/drive_c/Program\ Files\ \(x86\)/Amazon/Kindle/Kindle.exe</pre>
-</div>
-</div>
-<div class="paragraph">
+<h1 id="実行">実行</h1>
+<pre><code>wine64 ~/.wine/drive_c/Program\ Files\ \(x86\)/Amazon/Kindle/Kindle.exe
+</code></pre>
 <p>コマンドで起動できます。毎回打つのは面倒なのでalias設定しておけばよいでしょう:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>echo &#39;alias kindle=&#34;wine64 $HOME/.wine/drive_c/Program\ Files\ \(x86\)/Amazon/Kindle/Kindle.exe&#34;&#39; &gt;&gt; ~/.bashrc</pre>
-</div>
-</div>
-</div>
-</div>
+<pre><code>echo 'alias kindle=&quot;wine64 $HOME/.wine/drive_c/Program\ Files\ \(x86\)/Amazon/Kindle/Kindle.exe&quot;' &gt;&gt; ~/.bashrc
+</code></pre>
 
         </section>
         <div class="post-tags">
@@ -305,10 +178,10 @@ What I did are following.
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

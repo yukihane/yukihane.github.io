@@ -2,12 +2,8 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Ubuntu18.04 ハイバネート(休止) - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-Ubuntu16.04
-の頃には特に問題なくハイバネートできていたがそれ以降のバージョンでうまくいかない/設定方法がわからない、という記事をよく見かけます。
-自分もその一人ですが、今回やり方がわかったのでメモしておきます。
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="Ubuntu16.04 の頃には特に問題なくハイバネートできていたがそれ以降のバージョンでうまくいかない/設定方法がわからない、という記事をよく見かけます。 自分もその一人ですが、今回やり方がわかったのでメモしておきます。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/ubuntu/hibernate/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Ubuntu18.04 ハイバネート(休止)">
@@ -26,8 +22,8 @@ Ubuntu16.04
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -44,9 +40,17 @@ Ubuntu16.04
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -63,231 +67,108 @@ Ubuntu16.04
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>Ubuntu16.04
-の頃には特に問題なくハイバネートできていたがそれ以降のバージョンでうまくいかない/設定方法がわからない、という記事をよく見かけます。
-自分もその一人ですが、今回やり方がわかったのでメモしておきます。</p>
-</div>
-<div class="paragraph">
+          <p>Ubuntu16.04 の頃には特に問題なくハイバネートできていたがそれ以降のバージョンでうまくいかない/設定方法がわからない、という記事をよく見かけます。 自分もその一人ですが、今回やり方がわかったのでメモしておきます。</p>
 <p>18.04時点で、obsolatedとなった昔の方法を含めいくつかやり方があるようですが、ここで記載するのはuswsusp(s2disk)を用いる方法です。</p>
-</div>
-<div class="sect1">
-<h2 id="_参考リンク">参考リンク</h2>
-<div class="sectionbody">
-<div class="ulist">
+<h1 id="参考リンク">参考リンク</h1>
 <ul>
 <li>
-<p><a href="https://askubuntu.com/a/1038856/460420">Ubuntu 18.04 can’t resume after
-hibernate</a> - Ask Ubuntu</p>
-<div class="ulist">
+<p><a href="https://askubuntu.com/a/1038856/460420">Ubuntu 18.04 can’t resume after hibernate</a> - Ask Ubuntu</p>
 <ul>
-<li>
-<p>全体の流れの説明</p>
-</li>
+<li>全体の流れの説明</li>
 </ul>
-</div>
 </li>
 <li>
 <p><a href="https://wiki.archlinux.jp/index.php/%E3%82%B5%E3%82%B9%E3%83%9A%E3%83%B3%E3%83%89%E3%81%A8%E3%83%8F%E3%82%A4%E3%83%90%E3%83%8D%E3%83%BC%E3%83%88">サスペンドとハイバネート</a></p>
-<div class="ulist">
 <ul>
-<li>
-<p>Arch Linux Wiki</p>
-</li>
+<li>Arch Linux Wiki</li>
 </ul>
-</div>
 </li>
 <li>
-<p><a href="https://askubuntu.com/a/892410/460420">Ubuntu 18.04 can’t resume after
-hibernate</a> - Ask Ubuntu</p>
-<div class="ulist">
+<p><a href="https://askubuntu.com/a/892410/460420">Ubuntu 18.04 can’t resume after hibernate</a> - Ask Ubuntu</p>
 <ul>
-<li>
-<p>uswsusp の利用方法</p>
-</li>
+<li>uswsusp の利用方法</li>
 </ul>
-</div>
 </li>
 <li>
-<p><a href="https://askubuntu.com/q/927854/460420">How do I increase the size of
-swapfile without removing it in the terminal?</a> - Ask Ubuntu</p>
-<div class="ulist">
+<p><a href="https://askubuntu.com/q/927854/460420">How do I increase the size of swapfile without removing it in the terminal?</a> - Ask Ubuntu</p>
 <ul>
-<li>
-<p>スワップファイルサイズ変更の参考手順</p>
-</li>
+<li>スワップファイルサイズ変更の参考手順</li>
 </ul>
-</div>
 </li>
 <li>
 <p><a href="https://wiki.ubuntu.com/Kernel/KernelBootParameters">KernelBootParameters</a></p>
-<div class="ulist">
 <ul>
 <li>
 <p>Ubuntu Wiki</p>
-<div class="ulist">
+<ul>
+<li>ブートローダでカーネルパラメータを渡す設定方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="note">note</h1>
 <ul>
 <li>
-<p>ブートローダでカーネルパラメータを渡す設定方法</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_note">note</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>pm-utils(pm-hibernate含む)(<a href="https://wiki.archlinux.jp/index.php/Pm-utils">Arch
-Linux Wiki による解説</a>)を用いる解説もまだ見かけるが、
-<a href="https://bugs.launchpad.net/ubuntu/+source/plainbox-provider-checkbox/+bug/1646036">obsoleted</a>な方法である。pm-utilsパッケージはもはやメンテナンスされていない。</p>
+<p>pm-utils(pm-hibernate含む)(<a href="https://wiki.archlinux.jp/index.php/Pm-utils">Arch Linux Wiki による解説</a>)を用いる解説もまだ見かけるが、 <a href="https://bugs.launchpad.net/ubuntu/&#43;source/plainbox-provider-checkbox/&#43;bug/1646036">obsoleted</a>な方法である。pm-utilsパッケージはもはやメンテナンスされていない。</p>
 </li>
 <li>
 <p>ハイバネートを行う際にはスワップ領域にディスクイメージを対比させるようだが、スワップ領域がパーティションである場合とファイルである場合がある。それぞれ容量の拡張方法が異なることに注意。</p>
-<div class="ulist">
 <ul>
-<li>
-<p>Ubuntu17.04以降(?)でスワップファイルになったようだが、それ以前のバージョンからアップグレードした場合にはスワップパーティションを利用しているかもしれない。</p>
+<li>Ubuntu17.04以降(?)でスワップファイルになったようだが、それ以前のバージョンからアップグレードした場合にはスワップパーティションを利用しているかもしれない。</li>
+</ul>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_設定手順">設定手順</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_カーネルがサポートしているかの確認">カーネルがサポートしているかの確認</h3>
-<div class="literalblock">
-<div class="content">
-<pre>cat /sys/power/state</pre>
-</div>
-</div>
-<div class="paragraph">
+<h1 id="設定手順">設定手順</h1>
+<h2 id="カーネルがサポートしているかの確認">カーネルがサポートしているかの確認</h2>
+<pre><code>cat /sys/power/state
+</code></pre>
 <p>コマンドを実行して、結果に <strong>disk</strong> が含まれているかを確認する。 例:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ cat /sys/power/state
-freeze mem disk</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>disk</strong> が含まれていない場合、BIOSの設定でSecure
-Bootが有効になっていれば無効にする、という対策がよく書かれている。
-自分の場合、Secure
-Bootは無効であったが、休止モードの利用も無効になっていた。休止モード利用を有効に設定すると
-<strong>disk</strong> が現れた。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_スワップ領域の容量確認と拡張">スワップ領域の容量確認と拡張</h3>
-<div class="paragraph">
+<pre><code>$ cat /sys/power/state
+freeze mem disk
+</code></pre>
+<p><strong>disk</strong> が含まれていない場合、BIOSの設定でSecure Bootが有効になっていれば無効にする、という対策がよく書かれている。 自分の場合、Secure Bootは無効であったが、休止モードの利用も無効になっていた。休止モード利用を有効に設定すると <strong>disk</strong> が現れた。</p>
+<h2 id="スワップ領域の容量確認と拡張">スワップ領域の容量確認と拡張</h2>
 <p><code>cat /proc/swaps</code> コマンド(あるいは <code>swapon -s</code> コマンドでも同様の結果を得られる)で現状を確認。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ cat /proc/swaps
+<pre><code>$ cat /proc/swaps
 Filename                Type        Size    Used    Priority
-/swapfile                               file        2097148 890488  -2</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><code>/swapfile</code>
-という約2GBのファイルをスワップ領域として利用しているのが確認できる。(これがUbuntu18.04のデフォルトのはず。以下これを前提としてスワップ領域を拡張する。スワップパーティションを利用していた場合、別の手順となるため、他の解説ページを参照のこと。)</p>
-</div>
-<div class="paragraph">
+/swapfile                               file        2097148 890488  -2
+</code></pre>
+<p><code>/swapfile</code> という約2GBのファイルをスワップ領域として利用しているのが確認できる。(これがUbuntu18.04のデフォルトのはず。以下これを前提としてスワップ領域を拡張する。スワップパーティションを利用していた場合、別の手順となるため、他の解説ページを参照のこと。)</p>
 <p>必要なサイズは、 <a href="https://help.ubuntu.com/community/SwapFaq#How_much_swap_do_I_need.3F">公式FAQ</a>によると</p>
-</div>
-<div class="quoteblock">
 <blockquote>
-<div class="paragraph">
-<p>For more modern systems (&gt;1GB), your swap space should be at a minimum
-be equal to your physical memory (RAM) size &#34;if you use hibernation&#34;,
-otherwise you need a minimum of round(sqrt(RAM)) and a maximum of twice
-the amount of RAM.</p>
-</div>
-</blockquote>
-</div>
-<div class="paragraph">
+<p>For more modern systems (&gt;1GB), your swap space should be at a minimum be equal to your physical memory (RAM) size &ldquo;if you use hibernation&rdquo;, otherwise you need a minimum of round(sqrt(RAM)) and a maximum of twice the amount of RAM.</p></blockquote>
 <p>ということなので、物理メモリ16GBの場合は16GB〜32GB程度、ということだろうか。今回32GBに増やすことにした。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>sudo swapoff /swapfile
+<pre><code>sudo swapoff /swapfile
 sudo fallocate -l 32G /swapfile
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
-sudo swapon /swapfile</pre>
-</div>
-</div>
-<div class="paragraph">
+sudo swapon /swapfile
+</code></pre>
 <p>冒頭に記載した`cat /proc/swaps`で変更を確認できる。</p>
-</div>
-<div class="paragraph">
 <p>また、次のコマンドでこのスワップファイルのUUIDを参照できる。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ sudo findmnt -no SOURCE,UUID -T /swapfile
-/dev/nvme0n1p3 02cf8bf4-7690-4cf8-9aa3-c58c8fcc7ff0</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="uswsusp_のインストールとセットアップ">uswsusp のインストールとセットアップ</h3>
-<div class="sect3">
-<h4 id="_インストール">インストール</h4>
-<div class="literalblock">
-<div class="content">
-<pre>sudo apt install uswsusp</pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_セットアップ">セットアップ</h4>
-<div class="paragraph">
+<pre><code>$ sudo findmnt -no SOURCE,UUID -T /swapfile
+/dev/nvme0n1p3 02cf8bf4-7690-4cf8-9aa3-c58c8fcc7ff0
+</code></pre>
+<h2 id="uswsusp-のインストールとセットアップ">uswsusp のインストールとセットアップ</h2>
+<h3 id="インストール">インストール</h3>
+<pre><code>sudo apt install uswsusp
+</code></pre>
+<h3 id="セットアップ">セットアップ</h3>
 <p><code>/etc/uswsusp.conf</code> を作成する。(インストール時に作成されていたが、一応再作成することにした)</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>sudo dpkg-reconfigure -pmedium uswsusp</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>このとき、次のようなメッセージが表示されたが、<strong>はい</strong>を選択して継続するのが正解のようだ。(※
-いいえも選択し直してみたが何が変わったのかわからなかったが。)</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>uswsusp の設定ファイルで指定されているスワップファイル、あるいはスワップパーティションが有効になっていません。
+<pre><code>sudo dpkg-reconfigure -pmedium uswsusp
+</code></pre>
+<p>このとき、次のようなメッセージが表示されたが、<strong>はい</strong>を選択して継続するのが正解のようだ。(※ いいえも選択し直してみたが何が変わったのかわからなかったが。)</p>
+<pre><code>uswsusp の設定ファイルで指定されているスワップファイル、あるいはスワップパーティションが有効になっていません。
 多くの場合、これはユーザ空間でのソフトウェアサスペンドが期待通りに動作しないことを意味しています。他のスワップ領域を選ぶ必要があります。                                      しかし、いくつか稀なケースとして、この設定通りになることもあります。
-利用可能なスワップ領域がありませんが、続行しますか?</pre>
-</div>
-</div>
-<div class="ulist">
+利用可能なスワップ領域がありませんが、続行しますか?
+</code></pre>
 <ul>
 <li>
-<p>&#34;レジュームに利用するスワップ領域&#34;
-は、上で述べた <code>sudo findmnt -no SOURCE,UUID -T /swapfile</code> で表示されたUUIDのものを選択するようだ。</p>
-<div class="ulist">
+<p>&ldquo;レジュームに利用するスワップ領域&rdquo; は、上で述べた <code>sudo findmnt -no SOURCE,UUID -T /swapfile</code> で表示されたUUIDのものを選択するようだ。</p>
 <ul>
-<li>
-<p>自分の場合は <code>/dev/disk/by-uuid/02cf8bf4-7690-4cf8-9aa3-c58c8fcc7ff0</code> (もう一つ表示されていた選択肢 <code>/swapfile</code> だと駄目なのかはわからない)</p>
-</li>
+<li>自分の場合は <code>/dev/disk/by-uuid/02cf8bf4-7690-4cf8-9aa3-c58c8fcc7ff0</code> (もう一つ表示されていた選択肢 <code>/swapfile</code> だと駄目なのかはわからない)</li>
 </ul>
-</div>
 </li>
 <li>
 <p>暗号化は<strong>しない</strong>ことにした。</p>
@@ -296,106 +177,41 @@ sudo swapon /swapfile</pre>
 <p>別の解説の手順で <code>/etc/initramfs-tools/conf.d/resume</code> ファイルを作成するように書かれていたので先にそれを試していたのdが、このファイルがあると正しくスワップ領域を認識できなかった。削除してやり直すと上手く行った。</p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="カーネルパラメータ_resume_設定">カーネルパラメータ resume 設定</h3>
-<div class="paragraph">
+<h2 id="カーネルパラメータ-resume-設定">カーネルパラメータ resume 設定</h2>
 <p><code>/etc/default/grub</code> ファイルの、</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>GRUB_CMDLINE_LINUX_DEFAULT=&#34;quiet splash&#34;</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet splash&quot;
+</code></pre>
 <p>の行を次のように編集した:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>GRUB_CMDLINE_LINUX_DEFAULT=&#34;quiet splash resume=02cf8bf4-7690-4cf8-9aa3-c58c8fcc7ff0&#34;</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>ここで設定しているUUIDはこれまでに見てきた <code>/swapfile</code> のもの。
-設定を反映するために次のコマンドを実行:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>sudo update-grub</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet splash resume=02cf8bf4-7690-4cf8-9aa3-c58c8fcc7ff0&quot;
+</code></pre>
+<p>ここで設定しているUUIDはこれまでに見てきた <code>/swapfile</code> のもの。 設定を反映するために次のコマンドを実行:</p>
+<pre><code>sudo update-grub
+</code></pre>
 <p>(※ 参照した解説では`resume_offset`も設定すべきと書かれていたが、無くても上手く行った)</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_ハイバネートを試しレジュームできることを確認">ハイバネートを試しレジュームできることを確認</h3>
-<div class="paragraph">
+<h2 id="ハイバネートを試しレジュームできることを確認">ハイバネートを試しレジュームできることを確認</h2>
 <p>(再起動してからの方が良いのか？不明)</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>sudo s2disk</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>を実行。再起動後resumeできた。
-なお失敗する場合は単に電源OFFの挙動になってしまうので、途中作業のものは全て保存してから試すべきだろう。</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_追加の設定">追加の設定</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="systemd_hibernate_の更新">systemd hibernate の更新</h3>
-<div class="paragraph">
+<pre><code>sudo s2disk
+</code></pre>
+<p>を実行。再起動後resumeできた。 なお失敗する場合は単に電源OFFの挙動になってしまうので、途中作業のものは全て保存してから試すべきだろう。</p>
+<h1 id="追加の設定">追加の設定</h1>
+<h2 id="systemd-hibernate-の更新">systemd hibernate の更新</h2>
 <p>今回のs2diskを利用する方法で設定を上書きする。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>sudo systemctl edit systemd-hibernate.service</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>sudo systemctl edit systemd-hibernate.service
+</code></pre>
 <p>でエディタを開き、次の内容を記述して保存。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>[Service]
+<pre><code>[Service]
 ExecStart=
 ExecStart=/usr/sbin/s2disk
-ExecStartPost=/bin/run-parts -a post /lib/systemd/system-sleep</pre>
-</div>
-</div>
-<div class="paragraph">
+ExecStartPost=/bin/run-parts -a post /lib/systemd/system-sleep
+</code></pre>
 <p>これにより、 <code>/etc/systemd/system/systemd-hibernate.service.d/override.conf</code> ファイルが生成される。</p>
-</div>
-<div class="sect3">
-<h4 id="_編集の確認">編集の確認</h4>
-<div class="literalblock">
-<div class="content">
-<pre>sudo systemctl hibernate</pre>
-</div>
-</div>
-<div class="paragraph">
+<h3 id="編集の確認">編集の確認</h3>
+<pre><code>sudo systemctl hibernate
+</code></pre>
 <p>を実行してハイバネートとresumeが機能することを確認する。</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_アイドル時スリープsuspendでなく休止hibernateにする">アイドル時スリープ(suspend)でなく休止(hibernate)にする</h3>
-<div class="literalblock">
-<div class="content">
-<pre>gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type &#39;hibernate&#39;</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
+<h2 id="アイドル時スリープsuspendでなく休止hibernateにする">アイドル時スリープ(suspend)でなく休止(hibernate)にする</h2>
+<pre><code>gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'hibernate'
+</code></pre>
 
         </section>
         <div class="post-tags">
@@ -413,10 +229,10 @@ ExecStartPost=/bin/run-parts -a post /lib/systemd/system-sleep</pre>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

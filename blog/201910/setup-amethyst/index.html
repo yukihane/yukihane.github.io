@@ -2,13 +2,8 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Intel iGPU環境でのAmethyst 開発環境セットアップ - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-TL;DR
-
-
+	<meta name="description" content="TL;DR
 Ubuntu18.04, Coffee Lake iGPU で vulkan での実行を可能にするには
-
-
 
 
 mesa-vulkan-drivers パッケージインストール
@@ -17,14 +12,9 @@ mesa-vulkan-drivers パッケージインストール
 /etc/X11/xorg.conf.d/20-intel.conf で DRI3 有効化
 
 
-
-
 の2点が必要。
-
-
-(おそらく実際には、実行に libvulkan1 、及び開発には加えて libvulkan-dev も必要と思われるが、最初からインストールされていた)
-" />
-	<meta property="og:image" content=""/>
+(おそらく実際には、実行に libvulkan1 、及び開発には加えて libvulkan-dev も必要と思われるが、最初からインストールされていた)" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/201910/setup-amethyst/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Intel iGPU環境でのAmethyst 開発環境セットアップ">
@@ -53,8 +43,8 @@ mesa-vulkan-drivers パッケージインストール
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -71,9 +61,17 @@ mesa-vulkan-drivers パッケージインストール
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -90,13 +88,8 @@ mesa-vulkan-drivers パッケージインストール
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_tldr">TL;DR</h2>
-<div class="sectionbody">
-<div class="paragraph">
+          <h1 id="tldr">TL;DR</h1>
 <p>Ubuntu18.04, Coffee Lake iGPU で vulkan での実行を可能にするには</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p><code>mesa-vulkan-drivers</code> パッケージインストール</p>
@@ -105,124 +98,44 @@ mesa-vulkan-drivers パッケージインストール
 <p><code>/etc/X11/xorg.conf.d/20-intel.conf</code> で DRI3 有効化</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p>の2点が必要。</p>
-</div>
-<div class="paragraph">
 <p>(おそらく実際には、実行に <code>libvulkan1</code> 、及び開発には加えて <code>libvulkan-dev</code> も必要と思われるが、最初からインストールされていた)</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="はじめに">はじめに</h1>
 <p>Ubuntu18.04, Intel i5-8400(Coffee Lake; <a href="https://ja.wikipedia.org/wiki/Intel_Core_i5#Coffee_Lake_%E4%B8%96%E4%BB%A3">Wikipedia</a>によるとiGPUは <strong>UHD Graphics 630</strong> だそうだ)でRustで開発されたゲームエンジン <a href="https://amethyst.rs/">Amethyst</a> を動かしてみようとしたところ次のエラーでクラッシュしたので解決を試みました。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_作業ログ">作業ログ</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_ソースのダウンロードと実行">ソースのダウンロードと実行</h3>
-<div class="paragraph">
+<h1 id="作業ログ">作業ログ</h1>
+<h2 id="ソースのダウンロードと実行">ソースのダウンロードと実行</h2>
 <p><a href="https://github.com/amethyst/amethyst-starter-2d">amethyst-starter-2d</a> をダウンロードして <code>cargo run</code> してみたところ次のエラーとなりました。</p>
-</div>
-<div class="quoteblock">
 <blockquote>
-<div class="paragraph">
-<p>thread &#39;main&#39; panicked at &#39;Unable to create Vulkan instance: VkError(ERROR_INCOMPATIBLE_DRIVER)&#39;, src/libcore/result.rs:1084:5</p>
-</div>
-</blockquote>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_リファレンスに書かれていた依存ライブラリのインストール">リファレンスに書かれていた依存ライブラリのインストール</h3>
-<div class="paragraph">
+<p>thread &lsquo;main&rsquo; panicked at &lsquo;Unable to create Vulkan instance: VkError(ERROR_INCOMPATIBLE_DRIVER)&rsquo;, src/libcore/result.rs:1084:5</p></blockquote>
+<h2 id="リファレンスに書かれていた依存ライブラリのインストール">リファレンスに書かれていた依存ライブラリのインストール</h2>
 <p><a href="https://book.amethyst.rs/stable/getting-started.html#required-dependencies">ガイド</a>を読んでみると必要な依存関係が書かれていたので、この通りにインストールを行いました(ただし既に全てインストール済みのようでした)。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>sudo apt install gcc pkg-config openssl libasound2-dev cmake build-essential python3 libfreetype6-dev libexpat1-dev libxcb-composite0-dev libssl-dev libx11-dev</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>sudo apt install gcc pkg-config openssl libasound2-dev cmake build-essential python3 libfreetype6-dev libexpat1-dev libxcb-composite0-dev libssl-dev libx11-dev
+</code></pre>
 <p>この後再度 <code>cargo run</code> するも当然ながら結果は変わらず。</p>
-</div>
-<div class="paragraph">
 <p><code>vulkan-utils</code> パッケージの <code>vulkaninfo</code> コマンドで情報を表示できるようなのでインストールして実行してみました。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>sudo apt install vulkan-utils
-vulkaninfo</pre>
-</div>
-</div>
-<div class="quoteblock">
+<pre><code>sudo apt install vulkan-utils
+vulkaninfo
+</code></pre>
 <blockquote>
-<div class="paragraph">
 <p>Vulkan Instance Version: 1.1.70</p>
-</div>
-<div class="paragraph">
-<p>Cannot create Vulkan instance.
-/build/vulkan-UL09PJ/vulkan-1.1.70+dfsg1/demos/vulkaninfo.c:768: failed with VK_ERROR_INCOMPATIBLE_DRIVER</p>
-</div>
-</blockquote>
-</div>
-<div class="paragraph">
+<p>Cannot create Vulkan instance. /build/vulkan-UL09PJ/vulkan-1.1.70+dfsg1/demos/vulkaninfo.c:768: failed with VK_ERROR_INCOMPATIBLE_DRIVER</p></blockquote>
 <p>ということでやはり同じ(と思われる)エラーが出ました。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_mesaインストール">Mesaインストール</h3>
-<div class="paragraph">
-<p>Wikipediaの <a href="https://en.wikipedia.org/wiki/Vulkan_(API)#Compatibility">VulkanのCompatibility</a>の項目を読むと、Mesaで対応しているようなので <code>apt search &#34;mesa vulkan&#34;`コマンドを実行して見つかったパッケージ `mesa-vulkan-drivers</code> をインストールしてみました(ちなみに、参考文献のリンク先はもはや陳腐化した記述になっていましたのでその記述通りにはセットアップできません <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>)。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>sudo apt install mesa-vulkan-drivers</pre>
-</div>
-</div>
-<div class="paragraph">
+<h2 id="mesaインストール">Mesaインストール</h2>
+<p>Wikipediaの <a href="https://en.wikipedia.org/wiki/Vulkan_%28API%29#Compatibility">VulkanのCompatibility</a>の項目を読むと、Mesaで対応しているようなので <code>apt search &quot;mesa vulkan&quot;`コマンドを実行して見つかったパッケージ `mesa-vulkan-drivers</code> をインストールしてみました(ちなみに、参考文献のリンク先はもはや陳腐化した記述になっていましたのでその記述通りにはセットアップできません <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>)。</p>
+<pre><code>sudo apt install mesa-vulkan-drivers
+</code></pre>
 <p>この後、再び <code>amethyst-starter-2d</code> を <code>cargo run</code> してみたところ、前回とは異なるエラーが出るようになっていました。</p>
-</div>
-<div class="paragraph">
 <p>かなり長いメッセージが出ていますが、</p>
-</div>
-<div class="quoteblock">
 <blockquote>
-<div class="paragraph">
-<p>vulkan: No DRI3 support detected - required for presentation
-Note: you can probably enable DRI3 in your Xorg config</p>
-</div>
-</blockquote>
-</div>
-<div class="paragraph">
+<p>vulkan: No DRI3 support detected - required for presentation Note: you can probably enable DRI3 in your Xorg config</p></blockquote>
 <p>がキモのようです。</p>
-</div>
-<div class="paragraph">
 <p>前出の <code>vulkaninfo</code> コマンドは正常終了するようになりました。</p>
-</div>
-<div class="paragraph">
 <p>また、 <code>vulkan-utils</code> パッケージには <code>vulkan-smoketest</code> というコマンドも含まれているようなのでこれも実行してみます。結果:</p>
-</div>
-<div class="quoteblock">
 <blockquote>
-<div class="paragraph">
-<p>vulkan: No DRI3 support detected - required for presentation<br/>
-Note: you can probably enable DRI3 in your Xorg config</p>
-</div>
-</blockquote>
-</div>
-<div class="paragraph">
+<p>vulkan: No DRI3 support detected - required for presentation<br />
+Note: you can probably enable DRI3 in your Xorg config</p></blockquote>
 <p>ということで、 DIR3 を有効にする、というのが解決策のように見えました。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_dri3_有効化">DRI3 有効化</h3>
-<div class="ulist">
+<h2 id="dri3-有効化">DRI3 有効化</h2>
 <ul>
 <li>
 <p><a href="https://steamcommunity.com/app/221410/discussions/6/1742227264188882438/">Installing Vulkan :: Steam for Linux Intel Graphics Cards</a></p>
@@ -231,46 +144,28 @@ Note: you can probably enable DRI3 in your Xorg config</p>
 <p><a href="https://askubuntu.com/questions/817226/how-to-enable-dri3-on-ubuntu-16-04">How to enable DRI3 on Ubuntu 16.04 - Ask Ubuntu</a></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p>上記の説明を参考にし、</p>
-</div>
-<div class="paragraph">
 <p><code>/etc/X11/xorg.conf.d/20-intel.conf</code> ファイルの該当箇所に次の記述を追加しました。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Option      &#34;DRI&#34;    &#34;3&#34;</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>Option      &quot;DRI&quot;    &quot;3&quot;
+</code></pre>
 <p>元々の設定と合わせると、次のようなものになりました。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>Section &#34;Device&#34;
-   Identifier  &#34;Intel Graphics&#34;
-   Driver      &#34;intel&#34;
-   Option      &#34;TripleBuffer&#34; &#34;true&#34;
-   Option      &#34;TearFree&#34;     &#34;true&#34;
-   Option      &#34;DRI&#34;     &#34;3&#34;
-EndSection</code></pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>Section &quot;Device&quot;
+   Identifier  &quot;Intel Graphics&quot;
+   Driver      &quot;intel&quot;
+   Option      &quot;TripleBuffer&quot; &quot;true&quot;
+   Option      &quot;TearFree&quot;     &quot;true&quot;
+   Option      &quot;DRI&quot;     &quot;3&quot;
+EndSection
+</code></pre>
 <p>その後、再起動。</p>
-</div>
-<div class="paragraph">
 <p>再起動後、 <code>vulkan-smoketest</code> を実行すると正常に実行でき、また、 amethyst-starter-2d ディレクトリでの <code>cargo run</code> も実行できるようになりました。</p>
-</div>
-</div>
-</div>
-</div>
-<div id="footnotes">
-<hr/>
-<div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. 以前はIntelのグラフィックドライバはソースからインストールする必要があった(そのためPPAが作られた)ようですが、現在はカーネルに統合されているようです(<a href="https://01.org/linuxgraphics/downloads/update-tool">参考</a>)。
-</div>
+<div class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn:1">
+<p>以前はIntelのグラフィックドライバはソースからインストールする必要があった(そのためPPAが作られた)ようですが、現在はカーネルに統合されているようです(<a href="https://01.org/linuxgraphics/downloads/update-tool">参考</a>)。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
 </div>
 
         </section>
@@ -280,9 +175,9 @@ EndSection</code></pre>
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/rust">rust</a></li>
+              <li><a href="/tags/rust/">rust</a></li>
               
-              <li><a href="/tags/ubuntu">ubuntu</a></li>
+              <li><a href="/tags/ubuntu/">ubuntu</a></li>
               
             </ul>
           </nav>
@@ -299,10 +194,10 @@ EndSection</code></pre>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

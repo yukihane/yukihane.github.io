@@ -2,26 +2,17 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Spring BootでTomcatのデフォルトエラーページが出るのを抑止する - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-Spring Boot を実行していると、Tomcatのデフォルトエラーページが表示されるような事象に遭遇することがあります。
-
-
-
+	<meta name="description" content="Spring Boot を実行していると、Tomcatのデフォルトエラーページが表示されるような事象に遭遇することがあります。
 
 Tomcat invokes ErrorReportValve directly for malformed URLs · Issue #21257 · spring-projects/spring-boot
 
-
-
-
-このページのカスタマイズ方法は、上記issueにありますが、現状Spring Boot フレームワークでは提供されておらず少しトリッキーです。
-" />
-	<meta property="og:image" content=""/>
+このページのカスタマイズ方法は、上記issueにありますが、現状Spring Boot フレームワークでは提供されておらず少しトリッキーです。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202105/21/spring-boot-avoid-tomcat-error-page/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Spring BootでTomcatのデフォルトエラーページが出るのを抑止する">
   <meta property="og:description" content="Spring Boot を実行していると、Tomcatのデフォルトエラーページが表示されるような事象に遭遇することがあります。
-Tomcat invokes ErrorReportValve directly for malformed URLs · Issue #21257 · spring-projects/spring-boot
-このページのカスタマイズ方法は、上記issueにありますが、現状Spring Boot フレームワークでは提供されておらず少しトリッキーです。">
+Tomcat invokes ErrorReportValve directly for malformed URLs · Issue #21257 · spring-projects/spring-boot このページのカスタマイズ方法は、上記issueにありますが、現状Spring Boot フレームワークでは提供されておらず少しトリッキーです。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -32,15 +23,14 @@ Tomcat invokes ErrorReportValve directly for malformed URLs · Issue #21257 · s
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Spring BootでTomcatのデフォルトエラーページが出るのを抑止する">
   <meta name="twitter:description" content="Spring Boot を実行していると、Tomcatのデフォルトエラーページが表示されるような事象に遭遇することがあります。
-Tomcat invokes ErrorReportValve directly for malformed URLs · Issue #21257 · spring-projects/spring-boot
-このページのカスタマイズ方法は、上記issueにありますが、現状Spring Boot フレームワークでは提供されておらず少しトリッキーです。">
+Tomcat invokes ErrorReportValve directly for malformed URLs · Issue #21257 · spring-projects/spring-boot このページのカスタマイズ方法は、上記issueにありますが、現状Spring Boot フレームワークでは提供されておらず少しトリッキーです。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -57,9 +47,17 @@ Tomcat invokes ErrorReportValve directly for malformed URLs · Issue #21257 · s
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -76,91 +74,138 @@ Tomcat invokes ErrorReportValve directly for malformed URLs · Issue #21257 · s
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>Spring Boot を実行していると、Tomcatのデフォルトエラーページが表示されるような事象に遭遇することがあります。</p>
-</div>
-<div class="ulist">
+          <p>Spring Boot を実行していると、Tomcatのデフォルトエラーページが表示されるような事象に遭遇することがあります。</p>
 <ul>
-<li>
-<p><a href="https://github.com/spring-projects/spring-boot/issues/21257">Tomcat invokes ErrorReportValve directly for malformed URLs · Issue #21257 · spring-projects/spring-boot</a></p>
-</li>
+<li><a href="https://github.com/spring-projects/spring-boot/issues/21257">Tomcat invokes ErrorReportValve directly for malformed URLs · Issue #21257 · spring-projects/spring-boot</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>このページのカスタマイズ方法は、上記issueにありますが、現状Spring Boot フレームワークでは提供されておらず少しトリッキーです。</p>
-</div>
-<div class="paragraph">
 <p>まず <code>ErrorReportValve</code> を継承したカスタムクラスを用意し、ここでhtmlを生成します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.IOException</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.Writer</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.atomic.AtomicBoolean</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.logging.Logger</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.catalina.connector.Request</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.catalina.connector.Response</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.catalina.valves.ErrorReportValve</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.coyote.ActionCode</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.tomcat.util.ExceptionUtils</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CustomErrorReportValve</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ErrorReportValve</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// Create a simple logger</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Logger</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Logger</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">CustomErrorReportValve</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">report</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">Request</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Response</span><span class="w"> </span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Throwable</span><span class="w"> </span><span class="n">throwable</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// ErrorReportValve を参考に実装</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">statusCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getStatus</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// Do nothing on a 1xx, 2xx and 3xx status</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// Do nothing if anything has been written already</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// Do nothing if the response hasn&#39;t been explicitly marked as in error</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//    and that error has not been reported.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">statusCode</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">400</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getContentWritten</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">response</span><span class="p">.</span><span class="na">setErrorReported</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// If an error has occurred that prevents further I/O, don&#39;t waste time</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// producing an error report that will never be read</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">AtomicBoolean</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AtomicBoolean</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">response</span><span class="p">.</span><span class="na">getCoyoteResponse</span><span class="p">().</span><span class="na">action</span><span class="p">(</span><span class="n">ActionCode</span><span class="p">.</span><span class="na">IS_IO_ALLOWED</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">result</span><span class="p">.</span><span class="na">get</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">response</span><span class="p">.</span><span class="na">setContentType</span><span class="p">(</span><span class="s">&#34;text/html&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">response</span><span class="p">.</span><span class="na">setCharacterEncoding</span><span class="p">(</span><span class="s">&#34;utf-8&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">Throwable</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">ExceptionUtils</span><span class="p">.</span><span class="na">handleThrowable</span><span class="p">(</span><span class="n">t</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">container</span><span class="p">.</span><span class="na">getLogger</span><span class="p">().</span><span class="na">isDebugEnabled</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">container</span><span class="p">.</span><span class="na">getLogger</span><span class="p">().</span><span class="na">debug</span><span class="p">(</span><span class="s">&#34;status.setContentType&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kd">final</span><span class="w"> </span><span class="n">Writer</span><span class="w"> </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getReporter</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">writer</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="c1">// If writer is null, it&#39;s an indication that the response has</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="c1">// been hard committed already, which should never happen</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">writer</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="s">&#34;&lt;!doctype html&gt;&lt;html lang=\&#34;en\&#34;&gt;&lt;title&gt;error&lt;/title&gt;&lt;body&gt;Error occured.&lt;/body&gt;&lt;/html&gt;&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">response</span><span class="p">.</span><span class="na">finishResponse</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// Ignore</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">import java.io.IOException;
-import java.io.Writer;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.logging.Logger;
-import org.apache.catalina.connector.Request;
-import org.apache.catalina.connector.Response;
-import org.apache.catalina.valves.ErrorReportValve;
-import org.apache.coyote.ActionCode;
-import org.apache.tomcat.util.ExceptionUtils;
-
-public class CustomErrorReportValve extends ErrorReportValve {
-
-    // Create a simple logger
-    Logger log = Logger.getLogger(CustomErrorReportValve.class.getName());
-
-    @Override
-    protected void report(final Request request, final Response response, final Throwable throwable) {
-        // ErrorReportValve を参考に実装
-
-        final int statusCode = response.getStatus();
-
-        // Do nothing on a 1xx, 2xx and 3xx status
-        // Do nothing if anything has been written already
-        // Do nothing if the response hasn&#39;t been explicitly marked as in error
-        //    and that error has not been reported.
-        if (statusCode &lt; 400 || response.getContentWritten() &gt; 0 || !response.setErrorReported()) {
-            return;
-        }
-
-        // If an error has occurred that prevents further I/O, don&#39;t waste time
-        // producing an error report that will never be read
-        final AtomicBoolean result = new AtomicBoolean(false);
-        response.getCoyoteResponse().action(ActionCode.IS_IO_ALLOWED, result);
-        if (!result.get()) {
-            return;
-        }
-
-        try {
-            try {
-                response.setContentType(&#34;text/html&#34;);
-                response.setCharacterEncoding(&#34;utf-8&#34;);
-            } catch (final Throwable t) {
-                ExceptionUtils.handleThrowable(t);
-                if (container.getLogger().isDebugEnabled()) {
-                    container.getLogger().debug(&#34;status.setContentType&#34;, t);
-                }
-            }
-            final Writer writer = response.getReporter();
-            if (writer != null) {
-                // If writer is null, it&#39;s an indication that the response has
-                // been hard committed already, which should never happen
-                writer.write(&#34;&lt;!doctype html&gt;&lt;html lang=\&#34;en\&#34;&gt;&lt;title&gt;error&lt;/title&gt;&lt;body&gt;Error occured.&lt;/body&gt;&lt;/html&gt;&#34;);
-                response.finishResponse();
-            }
-        } catch (IOException | IllegalStateException e) {
-            // Ignore
-        }
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>そしてこれを登録します。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>import org.apache.catalina.Container;
+</div><p>そしてこれを登録します。</p>
+<pre><code>import org.apache.catalina.Container;
 import org.apache.catalina.core.StandardHost;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
@@ -179,24 +224,17 @@ public class MyConfig {
                 final Container parent = context.getParent();
                 if (parent instanceof StandardHost) {
                     ((StandardHost) parent).setErrorReportValveClass(
-                        &#34;com.example.errorcontrollerthrowexceptionexample.CustomErrorReportValve&#34;);
+                        &quot;com.example.errorcontrollerthrowexceptionexample.CustomErrorReportValve&quot;);
                 }
             });
         };
     }
-}</pre>
-</div>
-</div>
-<div class="paragraph">
+}
+</code></pre>
 <p>これで、元々 `ErrorReportValve ` で生成されていた <a href="https://github.com/apache/tomcat/blob/9.0.46/java/org/apache/catalina/valves/ErrorReportValve.java#L242-L312">デフォルトエラーページ</a> の代わりに、自前で用意したページが表示されるようになります。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p>参考実装: <a href="https://github.com/yukihane/hello-java/tree/master/spring/errorcontroller-throw-exception-example" class="bare">https://github.com/yukihane/hello-java/tree/master/spring/errorcontroller-throw-exception-example</a></p>
-</li>
+<li>参考実装: <a href="https://github.com/yukihane/hello-java/tree/master/spring/errorcontroller-throw-exception-example">https://github.com/yukihane/hello-java/tree/master/spring/errorcontroller-throw-exception-example</a></li>
 </ul>
-</div>
 
         </section>
         <div class="post-tags">
@@ -205,7 +243,7 @@ public class MyConfig {
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/spring-boot">spring-boot</a></li>
+              <li><a href="/tags/spring-boot/">spring-boot</a></li>
               
             </ul>
           </nav>
@@ -222,10 +260,10 @@ public class MyConfig {
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

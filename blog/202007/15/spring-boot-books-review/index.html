@@ -2,13 +2,9 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Spring Bootブックレビュー Spring Boot 2 入門: 基礎から実演まで - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-Kindle Unlimited でいくつかのSpring Framework/Spring Boot 本が読めることに気づきました。
-
-
-もし入門本として有用なものがあれば初心者の方に薦めていきたいなと考え、今回それらを呼んでみましたので感想を記録します。
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="Kindle Unlimited でいくつかのSpring Framework/Spring Boot 本が読めることに気づきました。
+もし入門本として有用なものがあれば初心者の方に薦めていきたいなと考え、今回それらを呼んでみましたので感想を記録します。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202007/15/spring-boot-books-review/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Spring Bootブックレビュー Spring Boot 2 入門: 基礎から実演まで">
@@ -31,8 +27,8 @@ Kindle Unlimited でいくつかのSpring Framework/Spring Boot 本が読める�
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -49,9 +45,17 @@ Kindle Unlimited でいくつかのSpring Framework/Spring Boot 本が読める�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -68,26 +72,16 @@ Kindle Unlimited でいくつかのSpring Framework/Spring Boot 本が読める�
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>Kindle Unlimited でいくつかのSpring Framework/Spring Boot 本が読めることに気づきました。</p>
-</div>
-<div class="paragraph">
+          <p>Kindle Unlimited でいくつかのSpring Framework/Spring Boot 本が読めることに気づきました。</p>
 <p>もし入門本として有用なものがあれば初心者の方に薦めていきたいなと考え、今回それらを呼んでみましたので感想を記録します。</p>
-</div>
-<div class="sect1">
-<h2 id="_spring_boot_2_入門_基礎から実演まで_kindle版_原田_けいと_竹田_甘地_robert_segawa"><a href="https://www.amazon.co.jp/dp/B0893LQ5KY/">Spring Boot 2 入門: 基礎から実演まで Kindle版</a> / 原田 けいと, 竹田 甘地, Robert Segawa</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h2 id="spring-boot-2-入門-基礎から実演まで-kindle版--原田-けいと-竹田-甘地-robert-segawa"><a href="https://www.amazon.co.jp/dp/B0893LQ5KY/">Spring Boot 2 入門: 基礎から実演まで Kindle版</a> / 原田 けいと, 竹田 甘地, Robert Segawa</h2>
 <p>購入する場合の価格は780円。</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p>○ 独自解釈(と捉えられそうな)の書き方は排除しようという意志が感じられる。ちゃんとオフィシャルの説明を根拠にして書こうとしている。</p>
 </li>
 <li>
 <p>☓ Hello, worldプログラムで`PostMapping`を使っている(そして正しくない使い方をしている)。 <a href="http://localhost:1313/posts/202007/15/spring-boot-books-review/">オフィシャル</a> だとここは <code>GetMapping</code> 。</p>
-<div class="ulist">
 <ul>
 <li>
 <p>3.3.3節で <code>GetMapping</code> が登場するが、 <code>RequestMapping</code> との関係について特に言及がなく、唐突に感じる。( <code>RequestMapping</code> を使う必要が無かったのでは )</p>
@@ -96,7 +90,6 @@ Kindle Unlimited でいくつかのSpring Framework/Spring Boot 本が読める�
 <p>3.4.4節 で <code>RequestMapping</code> についてちゃんと説明しているので著者が分かっていないわけではなく、書き方(や説明順)の問題。</p>
 </li>
 </ul>
-</div>
 </li>
 <li>
 <p>- MVCウェブフレームワークについての知識がゼロの人だと、唐突に説明なしで用語が登場して戸惑うかもしれない(例えば、人によっては「テンプレートエンジンって何？」「コントローラって何？」となるかもしれない)。ただそのレベルから本書で説明しろ、というのも酷だと思うので個人的には妥当だと思う。</p>
@@ -105,7 +98,7 @@ Kindle Unlimited でいくつかのSpring Framework/Spring Boot 本が読める�
 <p>- がっつりEclipse(STS)を前提としている。が、敢えてIntelliJとかVSCodeとか使ってる人なら読み替えるのは容易なはずだよね :) 個人的にもSTS前提とするのは妥当だと思う。</p>
 </li>
 <li>
-<p>☓ Springマジックをちゃんと説明するのは難しいので「こう書けばこうなります」的な説明になってしまうのは仕方がないのかな、と思う(例: コントローラのハンドラメソッドで <code>return &#34;index&#34;;</code> とすれば <code>templates/index.html</code> が呼ばれます)。ただ、なんでそうなるのか調べたい人に対して、オフィシャルへの導線があると良かった。</p>
+<p>☓ Springマジックをちゃんと説明するのは難しいので「こう書けばこうなります」的な説明になってしまうのは仕方がないのかな、と思う(例: コントローラのハンドラメソッドで <code>return &quot;index&quot;;</code> とすれば <code>templates/index.html</code> が呼ばれます)。ただ、なんでそうなるのか調べたい人に対して、オフィシャルへの導線があると良かった。</p>
 </li>
 <li>
 <p>○ オフィシャルリファレンスへのリンクが正しい。ちゃんと特定バージョン(今回の場合 <code>2.3.0.RELEASE</code> )へのリンクになっている。</p>
@@ -117,7 +110,7 @@ Kindle Unlimited でいくつかのSpring Framework/Spring Boot 本が読める�
 <p>☓ 最初からThymeleafを使っているが、Thymeleafに対する説明が少し足りない感じを受ける。オフィシャルリファレンス( <a href="https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf_ja.html">3.0</a>, <a href="https://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html">Springインテグレーション</a>)へのリンクくらいは有っても良いのでは。</p>
 </li>
 <li>
-<p>☓ 細かいですが、3.3.4節の記述「 <code>@RequestParam(&#34;message&#34;)</code> は、正式には <code>name=&#34;message&#34;</code> を省略したものです。」は不正確。正しくは(これはJavaの仕様) 「 <code>value=&#34;message&#34;</code> を省略したもの」。(ただしここでは <code>name</code> も <code>value</code> も同じ役割なので結果は同じ。)</p>
+<p>☓ 細かいですが、3.3.4節の記述「 <code>@RequestParam(&quot;message&quot;)</code> は、正式には <code>name=&quot;message&quot;</code> を省略したものです。」は不正確。正しくは(これはJavaの仕様) 「 <code>value=&quot;message&quot;</code> を省略したもの」。(ただしここでは <code>name</code> も <code>value</code> も同じ役割なので結果は同じ。)</p>
 </li>
 <li>
 <p>○ 表紙で「2.3対応」と謳っているだけでなく、ちゃんと内容も2.3での変更点が反映されている。具体的には 4.2.3節で validation が別扱いになったこと、5.3節で h2databese データベース自動命名のランダム化、について触れられている。</p>
@@ -130,13 +123,9 @@ Kindle Unlimited でいくつかのSpring Framework/Spring Boot 本が読める�
 </li>
 <li>
 <p>○ Spring Data JPAをちゃんと評価している。日本の記事だと、某氏の影響からか、使いもせずにJPAディス(&amp; MyBatisアゲ)のものが多い…</p>
-<div class="ulist">
 <ul>
-<li>
-<p>ただ、Spring Data JDBC を誤解しているような気がします。JPAほど複雑さを持ち込まずSpring Data JPAっぽい自動クエリ生成ができるライブラリ、みたいな立ち位置ですよねこれ。(Spring Data JDBC の &#34;JDBC&#34; は &#34;非JPA&#34; みたいなニュアンスの命名。歴史的にも Spring Data JDBC の方が新しい、はず。)</p>
-</li>
+<li>ただ、Spring Data JDBC を誤解しているような気がします。JPAほど複雑さを持ち込まずSpring Data JPAっぽい自動クエリ生成ができるライブラリ、みたいな立ち位置ですよねこれ。(Spring Data JDBC の &ldquo;JDBC&rdquo; は &ldquo;非JPA&rdquo; みたいなニュアンスの命名。歴史的にも Spring Data JDBC の方が新しい、はず。)</li>
 </ul>
-</div>
 </li>
 <li>
 <p>☓ 本書で解説し切ることはできないのは当然なので、JPAもしくはHibernateリファレンスへのリンクが欲しい。</p>
@@ -154,9 +143,6 @@ Kindle Unlimited でいくつかのSpring Framework/Spring Boot 本が読める�
 <p>☓ テスティングについての言及がない</p>
 </li>
 </ul>
-</div>
-</div>
-</div>
 
         </section>
         <div class="post-tags">
@@ -165,9 +151,9 @@ Kindle Unlimited でいくつかのSpring Framework/Spring Boot 本が読める�
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/book">book</a></li>
+              <li><a href="/tags/book/">book</a></li>
               
-              <li><a href="/tags/spring-boot">spring-boot</a></li>
+              <li><a href="/tags/spring-boot/">spring-boot</a></li>
               
             </ul>
           </nav>
@@ -184,10 +170,10 @@ Kindle Unlimited でいくつかのSpring Framework/Spring Boot 本が読める�
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

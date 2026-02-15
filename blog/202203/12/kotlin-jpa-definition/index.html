@@ -2,27 +2,18 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Kotlin で JPA エンティティクラスを定義する - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-Kotlin で JPA エンティティを実装しようと思って調べた結果をまとめた記事です。
-
-
+	<meta name="description" content="Kotlin で JPA エンティティを実装しようと思って調べた結果をまとめた記事です。
 まとめ:
-
-
 
 
 プロジェクト構成について
 
 
-
 kotlin-jpa compiler plugin を適用する
 
 
-all-open compiler plugin を適用し、 @Entity, @Embeddable, @MappedSuperclass を対象に設定する
-
-
-" />
-	<meta property="og:image" content=""/>
+all-open compiler plugin を適用し、 @Entity, @Embeddable, @MappedSuperclass を対象に設定する" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202203/12/kotlin-jpa-definition/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Kotlin で JPA エンティティクラスを定義する">
@@ -51,8 +42,8 @@ all-open compiler plugin を適用し、 @Entity, @Embeddable, @MappedSuperclass
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -69,9 +60,17 @@ all-open compiler plugin を適用し、 @Entity, @Embeddable, @MappedSuperclass
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -88,17 +87,11 @@ all-open compiler plugin を適用し、 @Entity, @Embeddable, @MappedSuperclass
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>Kotlin で JPA エンティティを実装しようと思って調べた結果をまとめた記事です。</p>
-</div>
-<div class="paragraph">
+          <p>Kotlin で JPA エンティティを実装しようと思って調べた結果をまとめた記事です。</p>
 <p>まとめ:</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p>プロジェクト構成について</p>
-<div class="ulist">
 <ul>
 <li>
 <p><a href="https://kotlinlang.org/docs/no-arg-plugin.html#jpa-support"><code>kotlin-jpa</code></a> compiler plugin を適用する</p>
@@ -107,74 +100,45 @@ all-open compiler plugin を適用し、 @Entity, @Embeddable, @MappedSuperclass
 <p><a href="https://kotlinlang.org/docs/all-open-plugin.html"><code>all-open</code></a> compiler plugin を適用し、 <code>@Entity</code>, <code>@Embeddable</code>, <code>@MappedSuperclass</code> を対象に設定する</p>
 </li>
 </ul>
-</div>
 </li>
 <li>
 <p>エンティティ定義について</p>
-<div class="ulist">
 <ul>
 <li>
-<p>(原則として) <code>data</code> class や <code>val</code>  の利用は諦める</p>
-<div class="ulist">
+<p>(原則として) <code>data</code> class や <code>val</code> の利用は諦める</p>
 <ul>
-<li>
-<p>Java で Lombok の <code>@Data</code> や <code>@Value</code> を付与したときと同じような問題がある(<a href="/blog/202107/31/dont-use-lombok-with-jpa/">参考</a>)</p>
+<li>Java で Lombok の <code>@Data</code> や <code>@Value</code> を付与したときと同じような問題がある(<a href="/blog/202107/31/dont-use-lombok-with-jpa/">参考</a>)</li>
+</ul>
 </li>
 </ul>
-</div>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
 <p>参考になるリンクとしては:</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p><a href="https://www.jpa-buddy.com/blog/best-practices-and-common-pitfalls/">Best Practices and Common Pitfalls of Using JPA (Hibernate) with Kotlin</a></p>
-<div class="ulist">
 <ul>
 <li>
 <p>IntelliJ <a href="https://plugins.jetbrains.com/plugin/15075-jpa-buddy">JPA Buddy プラグイン</a> の公式ブログ</p>
 </li>
 <li>
-<p>最後の &#34;Conclusion&#34; 節にまとまっています</p>
+<p>最後の &ldquo;Conclusion&rdquo; 節にまとまっています</p>
 </li>
 </ul>
-</div>
 </li>
 <li>
 <p><a href="https://spring.io/guides/tutorials/spring-boot-kotlin/">Building web applications with Spring Boot and Kotlin</a></p>
-<div class="ulist">
 <ul>
-<li>
-<p>Spring Boot 公式チュートリアル</p>
+<li>Spring Boot 公式チュートリアル</li>
+</ul>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
 <p>どちらもサンプルコードが付属しているので、具体的にどう実装すれば良いかはそちらを見れば明確です。</p>
-</div>
-<div class="paragraph">
 <p>一応、自分のサンプルコードもリンクしておきます:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/yukihane/hello-kotlin/tree/main/jpa-example" class="bare">https://github.com/yukihane/hello-kotlin/tree/main/jpa-example</a></p>
-</li>
+<li><a href="https://github.com/yukihane/hello-kotlin/tree/main/jpa-example">https://github.com/yukihane/hello-kotlin/tree/main/jpa-example</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>上記以外の情報ソースとしては次のものがあるかと思います:</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p><a href="https://github.com/spring-guides/tut-spring-boot-kotlin/issues">上記 Spring Boot チュートリアルの issues</a> を JPA 関連ワードで検索する</p>
@@ -183,62 +147,51 @@ all-open compiler plugin を適用し、 @Entity, @Embeddable, @MappedSuperclass
 <p><a href="https://youtrack.jetbrains.com/issues/KT">JetBrains issue tracker</a> を JPA 関連ワードで検索する</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>ちなみに、上記したリンク先に書かれいることに反しているとうまく動かないのかと言うと、必ずしもそうではありません。
-が、もしあなたが JPA に精通していないのであればそれらに従っておくのが無難かと考えます(問題が発生したとき、何が原因なのか突き止められない可能性があります)。</p>
-</div>
-<div class="paragraph">
+<p>ちなみに、上記したリンク先に書かれいることに反しているとうまく動かないのかと言うと、必ずしもそうではありません。 が、もしあなたが JPA に精通していないのであればそれらに従っておくのが無難かと考えます(問題が発生したとき、何が原因なのか突き止められない可能性があります)。</p>
 <p>例えば、次のエンティティは正常に永続化できますが、これは何故動作するのかを説明できるでしょうか(なぜ <code>id</code> は <code>val</code> なのに値が変わるのでしょうか)。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@Entity</span>
+</span></span><span class="line"><span class="cl"><span class="k">data</span> <span class="k">class</span> <span class="nc">MyData</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Id</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@GeneratedValue</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">id</span> <span class="p">:</span><span class="n">Int</span><span class="p">?</span> <span class="p">=</span> <span class="k">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">@Entity
-data class MyData(
-    @Id
-    @GeneratedValue
-    val id :Int? = null,
-    val name: String,
-)</code></pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
+</div><ul>
 <li>
 <p>JPA 仕様上は許されていません</p>
-<div class="ulist">
 <ul>
-<li>
-<p>&#34;No methods or persistent instance variables of the entity class may be final.&#34; (<a href="https://jakarta.ee/specifications/persistence/3.0/jakarta-persistence-spec-3.0.html#a18">2.1. The Entity Class</a>)</p>
-</li>
+<li>&ldquo;No methods or persistent instance variables of the entity class may be final.&rdquo; (<a href="https://jakarta.ee/specifications/persistence/3.0/jakarta-persistence-spec-3.0.html#a18">2.1. The Entity Class</a>)</li>
 </ul>
-</div>
 </li>
 <li>
 <p><code>val</code> (<code>final</code>) の値が変更できるのは、 Hibernate 実装においてリフレクションで値を設定しているからです。</p>
-<div class="ulist">
 <ul>
 <li>
-<p><a href="https://stackoverflow.com/a/3683453/4506703" class="bare">https://stackoverflow.com/a/3683453/4506703</a></p>
+<p><a href="https://stackoverflow.com/a/3683453/4506703">https://stackoverflow.com/a/3683453/4506703</a></p>
 </li>
 <li>
 <p>ただし、 Hibernate プロジェクトは今や JPA にかなり寄り添っているので、 JPA の仕様から反してはいるが Hibernate では合法、とも言えないでしょう。たまたま上手く動いているだけ、とみなすのが正しい認識かと考えます。</p>
 </li>
 </ul>
-</div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p>こちらの動画でも似たような話題が挙がっていました:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://youtu.be/a_6V8xwiv04?t=1031">Getting the Most from JPA with Kotlin</a></p>
-</li>
+<li><a href="https://youtu.be/a_6V8xwiv04?t=1031">Getting the Most from JPA with Kotlin</a></li>
 </ul>
-</div>
 
         </section>
         <div class="post-tags">
@@ -247,9 +200,9 @@ data class MyData(
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/jpa">jpa</a></li>
+              <li><a href="/tags/jpa/">jpa</a></li>
               
-              <li><a href="/tags/kotlin">kotlin</a></li>
+              <li><a href="/tags/kotlin/">kotlin</a></li>
               
             </ul>
           </nav>
@@ -266,10 +219,10 @@ data class MyData(
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

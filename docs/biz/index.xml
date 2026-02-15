@@ -6,7 +6,7 @@
     <description>Recent content in 仕事 on 発火後忘失</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <copyright>© Yukihane, All Rights Reserved</copyright>
     <lastBuildDate>Thu, 23 Jul 2020 17:16:55 +0000</lastBuildDate>
     <atom:link href="https://yukihane.github.io/docs/biz/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,28 +14,28 @@
       <link>https://yukihane.github.io/docs/biz/term/</link>
       <pubDate>Thu, 23 Jul 2020 17:16:55 +0000</pubDate>
       <guid>https://yukihane.github.io/docs/biz/term/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_ctiソリューション&#34;&gt;CTIソリューション&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;CTIとは Computer Telephony Integration の略。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;コールセンターで利用するシステムのこと？&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;ctiソリューション&#34;&gt;CTIソリューション&lt;/h1&gt;&#xA;&lt;p&gt;CTIとは Computer Telephony Integration の略。&lt;/p&gt;&#xA;&lt;p&gt;コールセンターで利用するシステムのこと？&lt;/p&gt;</description>
     </item>
     <item>
       <title>フリーランス契約</title>
       <link>https://yukihane.github.io/docs/biz/contract/</link>
       <pubDate>Thu, 23 Jul 2020 17:13:25 +0000</pubDate>
       <guid>https://yukihane.github.io/docs/biz/contract/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;フリーランスで働く上での契約についての知識。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_契約形態&#34;&gt;契約形態&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://qiita.com/tetsuya-imamura/items/d291859ee57b96d4c502&#34;&gt;請負契約と準委任契約、どっちで契約すればいいの？〜請負契約・準委任契約・労働者派遣契約の違い〜&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;quoteblock&#34;&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;「請負契約」「準委任契約」「労働者派遣契約」の知識を、主に発注側の視点から解説します。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;quoteblock&#34;&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;民法では(中略)業務委託契約というものは&lt;strong&gt;存在しません&lt;/strong&gt;。業務委託契約とは、請負契約と準委任契約をひっくるめた実務上の呼称なのです。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;フリーランスで働く上での契約についての知識。&lt;/p&gt;&#xA;&lt;h1 id=&#34;契約形態&#34;&gt;契約形態&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://qiita.com/tetsuya-imamura/items/d291859ee57b96d4c502&#34;&gt;請負契約と準委任契約、どっちで契約すればいいの？〜請負契約・準委任契約・労働者派遣契約の違い〜&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;「請負契約」「準委任契約」「労働者派遣契約」の知識を、主に発注側の視点から解説します。&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;民法では(中略)業務委託契約というものは&lt;strong&gt;存在しません&lt;/strong&gt;。業務委託契約とは、請負契約と準委任契約をひっくるめた実務上の呼称なのです。&lt;/p&gt;</description>
     </item>
     <item>
       <title>確定申告</title>
       <link>https://yukihane.github.io/docs/biz/report/</link>
       <pubDate>Thu, 23 Jul 2020 17:09:11 +0000</pubDate>
       <guid>https://yukihane.github.io/docs/biz/report/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_初めて青色申告はやめにやっておくこと&#34;&gt;初めて青色申告、はやめにやっておくこと&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;確定申告に使うサービスの初期セットアップ&lt;/p&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;自分は当初http://www.yayoi-kk.co.jp/products/aoiro/index.html[やよいの青色申告]を使っていてその後https://www.freee.co.jp/[freee]に乗り換え。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;今からならWebサービスの方が良いでしょう。パッケージソフトのライセンス管理とか、Windowsでしか動かないとかは今やどうかと。(ちなみにやよいの青色申告もhttp://www.yayoi-kk.co.jp/products/aoiro_ol/index.html[オンライン版]がある模様。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;それ以外だと Money Forwardの&#xA;&lt;a href=&#34;https://biz.moneyforward.com/tax_return&#34;&gt;MFクラウド確定申告&lt;/a&gt;が有名なのかな？&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;初めて青色申告はやめにやっておくこと&#34;&gt;初めて青色申告、はやめにやっておくこと&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;確定申告に使うサービスの初期セットアップ&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;自分は当初http://www.yayoi-kk.co.jp/products/aoiro/index.html[やよいの青色申告]を使っていてその後https://www.freee.co.jp/[freee]に乗り換え。&lt;/p&gt;</description>
     </item>
     <item>
       <title>freee</title>
       <link>https://yukihane.github.io/docs/biz/freee/</link>
       <pubDate>Thu, 23 Jul 2020 17:07:53 +0000</pubDate>
       <guid>https://yukihane.github.io/docs/biz/freee/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_売掛金&#34;&gt;売掛金&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://support.freee.co.jp/hc/ja/articles/203317600-%E6%9C%AA%E6%B1%BA%E6%B8%88%E3%81%AE%E5%8F%96%E5%BC%95%E3%82%92%E7%99%BB%E9%8C%B2%E3%81%99%E3%82%8B-%E6%B6%88%E3%81%97%E8%BE%BC%E3%82%80-%E5%A3%B2%E6%8E%9B%E9%87%91-%E8%B2%B7%E6%8E%9B%E9%87%91%E3%81%AA%E3%81%A9-&#34;&gt;未決済の取引を登録する・消し込む(売掛金・買掛金など)&#xA;– freee ヘルプセンター&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;売掛金&#34;&gt;売掛金&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://support.freee.co.jp/hc/ja/articles/203317600-%E6%9C%AA%E6%B1%BA%E6%B8%88%E3%81%AE%E5%8F%96%E5%BC%95%E3%82%92%E7%99%BB%E9%8C%B2%E3%81%99%E3%82%8B-%E6%B6%88%E3%81%97%E8%BE%BC%E3%82%80-%E5%A3%B2%E6%8E%9B%E9%87%91-%E8%B2%B7%E6%8E%9B%E9%87%91%E3%81%AA%E3%81%A9-&#34;&gt;未決済の取引を登録する・消し込む(売掛金・買掛金など) – freee ヘルプセンター&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
   </channel>
 </rss>

@@ -6,7 +6,7 @@
     <description>Recent content in Rust on 発火後忘失</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <copyright>© Yukihane, All Rights Reserved</copyright>
     <lastBuildDate>Tue, 20 May 2025 12:50:13 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/rust/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -21,42 +21,42 @@
       <link>https://yukihane.github.io/blog/202404/05/rust-test-async/</link>
       <pubDate>Fri, 05 Apr 2024 05:45:28 +0900</pubDate>
       <guid>https://yukihane.github.io/blog/202404/05/rust-test-async/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_今回解決したい問題&#34;&gt;今回解決したい問題&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://docs.rs/reqwest/0.12.2/reqwest/&#34;&gt;reqwestのドキュメント&lt;/a&gt; の最初のサンプルをテスト実行することを考えます。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;listingblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;let body = reqwest::get(&amp;#34;https://www.rust-lang.org&amp;#34;)&#xA;    .await?&#xA;    .text()&#xA;    .await?;&#xA;&#xA;println!(&amp;#34;body = {body:?}&amp;#34;);&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;まず &lt;code&gt;Cargo.toml&lt;/code&gt; に依存関係を追加して、&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;listingblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre class=&#34;highlight&#34;&gt;&lt;code&gt;cargo new --lib test-async&#xA;cd test-async&#xA;cargo add reqwest&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;冒頭のコードを実行する関数を作ります。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;今回解決したい問題&#34;&gt;今回解決したい問題&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://docs.rs/reqwest/0.12.2/reqwest/&#34;&gt;reqwestのドキュメント&lt;/a&gt; の最初のサンプルをテスト実行することを考えます。&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&#xA;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;reqwest&lt;/span&gt;::&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;https://www.rust-lang.org&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;await&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;?&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;await&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;?&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;fm&#34;&gt;println!&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;body = &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{body:?}&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;p&gt;まず &lt;code&gt;Cargo.toml&lt;/code&gt; に依存関係を追加して、&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;cargo new --lib test-async&#xA;cd test-async&#xA;cargo add reqwest&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;冒頭のコードを実行する関数を作ります。&lt;/p&gt;</description>
     </item>
     <item>
       <title>map で Result を引き回すときに Err を意識したくない その2</title>
       <link>https://yukihane.github.io/blog/202110/15/rust-map-with-result/</link>
       <pubDate>Fri, 15 Oct 2021 21:12:09 +0900</pubDate>
       <guid>https://yukihane.github.io/blog/202110/15/rust-map-with-result/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;その1はこちらです:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://ja.stackoverflow.com/q/82978/2808&#34;&gt;map で Result を引き回すときに Err を意識したくない - スタック・オーバーフロー&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;その1では戻り値が &lt;code&gt;i * 2&lt;/code&gt; の &lt;code&gt;i32&lt;/code&gt; 型になる話でしたが、その次に考えたかったのは &lt;code&gt;Result&lt;/code&gt; が返ってくるメソッドで引き回すときの話でした。こんな感じで:&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;その1はこちらです:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://ja.stackoverflow.com/q/82978/2808&#34;&gt;map で Result を引き回すときに Err を意識したくない - スタック・オーバーフロー&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;その1では戻り値が &lt;code&gt;i * 2&lt;/code&gt; の &lt;code&gt;i32&lt;/code&gt; 型になる話でしたが、その次に考えたかったのは &lt;code&gt;Result&lt;/code&gt; が返ってくるメソッドで引き回すときの話でした。こんな感じで:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Rust に reduce は、あります</title>
       <link>https://yukihane.github.io/blog/202110/09/rust-reduce/</link>
       <pubDate>Sat, 09 Oct 2021 02:14:55 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202110/09/rust-reduce/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;ググっていると、ちょくちょく 「Rust に &lt;code&gt;reduce&lt;/code&gt; は無い、代わりに &lt;code&gt;fold&lt;/code&gt; を使え」という話が出てくるのが疑問だったのですが、 &lt;a href=&#34;https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.reduce&#34;&gt;&lt;code&gt;reduce&lt;/code&gt; が導入されたのって &lt;code&gt;1.51.0&lt;/code&gt;&lt;/a&gt;(&lt;a href=&#34;https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-1510-2021-03-25&#34;&gt;2021-03-25&lt;/a&gt;)と、比較的最近だからなんですね。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;しかしリリースノートを見てもこういう変更は載っていないのですね。&#xA;細かすぎるから？&#xA;気付いてない人は気付かないまま過ごしてそう…&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;ググっていると、ちょくちょく 「Rust に &lt;code&gt;reduce&lt;/code&gt; は無い、代わりに &lt;code&gt;fold&lt;/code&gt; を使え」という話が出てくるのが疑問だったのですが、 &lt;a href=&#34;https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.reduce&#34;&gt;&lt;code&gt;reduce&lt;/code&gt; が導入されたのって &lt;code&gt;1.51.0&lt;/code&gt;&lt;/a&gt;(&lt;a href=&#34;https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-1510-2021-03-25&#34;&gt;2021-03-25&lt;/a&gt;)と、比較的最近だからなんですね。&lt;/p&gt;&#xA;&lt;p&gt;しかしリリースノートを見てもこういう変更は載っていないのですね。 細かすぎるから？ 気付いてない人は気付かないまま過ごしてそう…&lt;/p&gt;</description>
     </item>
     <item>
       <title>Rust の Result を良い感じにまとめるには</title>
       <link>https://yukihane.github.io/blog/202110/09/rust-result/</link>
       <pubDate>Fri, 08 Oct 2021 18:50:43 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202110/09/rust-result/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;…というのを検索する用語が &amp;#34;エラーハンドリング(error handling)&amp;#34; だということに気付くまでにも時間がかかるくらいの初級者です。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Rust でのエラーハンドリングについては歴史的変遷があるようで、ググると結局今はどうやったらええねん、という新たな疑問が湧いてきます。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;…というのを検索する用語が &amp;ldquo;エラーハンドリング(error handling)&amp;rdquo; だということに気付くまでにも時間がかかるくらいの初級者です。&lt;/p&gt;&#xA;&lt;p&gt;Rust でのエラーハンドリングについては歴史的変遷があるようで、ググると結局今はどうやったらええねん、という新たな疑問が湧いてきます。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hello Project Panama, on Java17</title>
       <link>https://yukihane.github.io/blog/202110/08/hello-project-panama-on-java17/</link>
       <pubDate>Fri, 08 Oct 2021 04:49:30 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202110/08/hello-project-panama-on-java17/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202002/11/hello-project-panama/&#34;&gt;Hello Project Panama – 発火後忘失&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;で、 Project Panama (&lt;a href=&#34;https://openjdk.java.net/projects/panama/&#34;&gt;リンク1&lt;/a&gt;, &lt;a href=&#34;https://jdk.java.net/panama/&#34;&gt;リンク2&lt;/a&gt;) の機能を利用して、 Java から Rust を呼び出してみました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;当時(Java14)は Project Panama 用にビルドされた JDK を利用する必要がありましたが、 Java17 では incubator ではあるものの &lt;a href=&#34;https://openjdk.java.net/jeps/412&#34;&gt;JEP 412: Foreign Function &amp;amp; Memory API&lt;/a&gt; が標準 JDK に導入された&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202002/11/hello-project-panama/&#34;&gt;Hello Project Panama – 発火後忘失&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;で、 Project Panama (&lt;a href=&#34;https://openjdk.java.net/projects/panama/&#34;&gt;リンク1&lt;/a&gt;, &lt;a href=&#34;https://jdk.java.net/panama/&#34;&gt;リンク2&lt;/a&gt;) の機能を利用して、 Java から Rust を呼び出してみました。&lt;/p&gt;&#xA;&lt;p&gt;当時(Java14)は Project Panama 用にビルドされた JDK を利用する必要がありましたが、 Java17 では incubator ではあるものの &lt;a href=&#34;https://openjdk.java.net/jeps/412&#34;&gt;JEP 412: Foreign Function &amp;amp; Memory API&lt;/a&gt; が標準 JDK に導入された&lt;/p&gt;</description>
     </item>
     <item>
       <title>Tauri を GUI にして Rust と React に入門する</title>
       <link>https://yukihane.github.io/blog/202110/03/hello-tauri/</link>
       <pubDate>Sun, 03 Oct 2021 08:20:21 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202110/03/hello-tauri/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://tauri.studio/&#34;&gt;Tauri&lt;/a&gt; という、 WebView を利用して GUI を実現する Rust 製フレームワークを試してみました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Rust も React も入門書から陸続きで書き始められるので、余計なことに気を取られずに済みそうです(ただし、 JS - Rust 間のデータ受け渡しに利用する JSON オブジェクトのシリアライズ/デシリアライズに利用する &lt;a href=&#34;https://serde.rs/&#34;&gt;Serde&lt;/a&gt; についての知識は少し必要になりそうでした)。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://tauri.studio/&#34;&gt;Tauri&lt;/a&gt; という、 WebView を利用して GUI を実現する Rust 製フレームワークを試してみました。&lt;/p&gt;&#xA;&lt;p&gt;Rust も React も入門書から陸続きで書き始められるので、余計なことに気を取られずに済みそうです(ただし、 JS - Rust 間のデータ受け渡しに利用する JSON オブジェクトのシリアライズ/デシリアライズに利用する &lt;a href=&#34;https://serde.rs/&#34;&gt;Serde&lt;/a&gt; についての知識は少し必要になりそうでした)。&lt;/p&gt;</description>
     </item>
     <item>
       <title>rustでwasmでhello, world(2020-04-08版) の次</title>
@@ -70,7 +70,7 @@
       <link>https://yukihane.github.io/blog/202004/08/hello-wasm-with-rust/</link>
       <pubDate>Tue, 07 Apr 2020 22:39:49 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202004/08/hello-wasm-with-rust/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;wasmに挑戦してみようとHello, worldをやってみようとしました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;公式っぽいドキュメントとしてはググると次のものが見つかりました:&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;wasmに挑戦してみようとHello, worldをやってみようとしました。&lt;/p&gt;&#xA;&lt;p&gt;公式っぽいドキュメントとしてはググると次のものが見つかりました:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://rustwasm.github.io/docs/book/&#34;&gt;The Rust and WebAssembly Book&lt;/a&gt; (&lt;a href=&#34;https://github.com/rustwasm/book&#34;&gt;GitHub repo&lt;/a&gt;)&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hello Project Panama</title>
@@ -84,7 +84,7 @@
       <link>https://yukihane.github.io/blog/202002/01/hello-rust-neon/</link>
       <pubDate>Sat, 01 Feb 2020 05:09:38 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202002/01/hello-rust-neon/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;RustプログラムのGUIにElectronを使うことを考えています。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;その前調査としてNodeのネイティブモジュールとしてRustプログラムを利用できるようにする &lt;a href=&#34;https://neon-bindings.com/&#34;&gt;Neon&lt;/a&gt; というツールを使ってHello, worldしてみることにしました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;RustプログラムのGUIにElectronを使うことを考えています。&lt;/p&gt;&#xA;&lt;p&gt;その前調査としてNodeのネイティブモジュールとしてRustプログラムを利用できるようにする &lt;a href=&#34;https://neon-bindings.com/&#34;&gt;Neon&lt;/a&gt; というツールを使ってHello, worldしてみることにしました。&lt;/p&gt;</description>
     </item>
     <item>
       <title>reqwest使おうとしたけどよくわからん</title>
@@ -98,35 +98,35 @@
       <link>https://yukihane.github.io/blog/202001/rust-create-library/</link>
       <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202001/rust-create-library/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;他の言語で言うところの&amp;#34;ライブラリ&amp;#34;は、Rustでは &amp;#34;ライブラリクレート&amp;#34;(library crate) と呼ぶようです。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;他の言語で言うところの&amp;quot;ライブラリ&amp;quot;は、Rustでは &amp;ldquo;ライブラリクレート&amp;rdquo;(library crate) と呼ぶようです。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Intel iGPU環境でのAmethyst 開発環境セットアップ</title>
       <link>https://yukihane.github.io/blog/201910/setup-amethyst/</link>
       <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/201910/setup-amethyst/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Ubuntu18.04, Coffee Lake iGPU で vulkan での実行を可能にするには&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;code&gt;mesa-vulkan-drivers&lt;/code&gt; パッケージインストール&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;code&gt;/etc/X11/xorg.conf.d/20-intel.conf&lt;/code&gt; で DRI3 有効化&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;の2点が必要。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;(おそらく実際には、実行に &lt;code&gt;libvulkan1&lt;/code&gt; 、及び開発には加えて &lt;code&gt;libvulkan-dev&lt;/code&gt; も必要と思われるが、最初からインストールされていた)&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;tldr&#34;&gt;TL;DR&lt;/h1&gt;&#xA;&lt;p&gt;Ubuntu18.04, Coffee Lake iGPU で vulkan での実行を可能にするには&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;code&gt;mesa-vulkan-drivers&lt;/code&gt; パッケージインストール&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;code&gt;/etc/X11/xorg.conf.d/20-intel.conf&lt;/code&gt; で DRI3 有効化&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;の2点が必要。&lt;/p&gt;&#xA;&lt;p&gt;(おそらく実際には、実行に &lt;code&gt;libvulkan1&lt;/code&gt; 、及び開発には加えて &lt;code&gt;libvulkan-dev&lt;/code&gt; も必要と思われるが、最初からインストールされていた)&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cargo.lock をバージョン管理するや否や</title>
       <link>https://yukihane.github.io/blog/201909/rust-cago.lock/</link>
       <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/201909/rust-cago.lock/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;cargo new --bin&lt;/code&gt; したパッケージに対して、たまたまデフォルで生成される &lt;code&gt;.gitignore&lt;/code&gt; を用いずに &lt;a href=&#34;https://gitignore.io/&#34; class=&#34;bare&#34;&gt;https://gitignore.io/&lt;/a&gt; で生成してものを用いていたのですが、 &lt;code&gt;Cargo.lock&lt;/code&gt; ファイルの扱いが異なるように思われ、あれ？と思って見直してみました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;&lt;code&gt;cargo new --bin&lt;/code&gt; したパッケージに対して、たまたまデフォルで生成される &lt;code&gt;.gitignore&lt;/code&gt; を用いずに &lt;a href=&#34;https://gitignore.io/&#34;&gt;https://gitignore.io/&lt;/a&gt; で生成してものを用いていたのですが、 &lt;code&gt;Cargo.lock&lt;/code&gt; ファイルの扱いが異なるように思われ、あれ？と思って見直してみました。&lt;/p&gt;</description>
     </item>
     <item>
       <title>VSCodeでRustの整形ができない？</title>
       <link>https://yukihane.github.io/blog/201908/rust-format-on-vscode/</link>
       <pubDate>Sun, 18 Aug 2019 00:00:00 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/201908/rust-format-on-vscode/</guid>
-      <description>&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/rust-lang/rls-vscode/issues/534&#34;&gt;Format not work #534&lt;/a&gt; - rust-lang/rls-vscode&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;VSCodeでRustの勉強をしているのですが、現在、どうもコード整形機能が上手く働いていない…？&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;代替策としては、 &lt;a href=&#34;https://github.com/rust-lang/rustfmt&#34;&gt;&lt;code&gt;rustfmt&lt;/code&gt;&lt;/a&gt; を使って、 &lt;code&gt;cargo fmt&lt;/code&gt; コマンドで整形すれば良さそう。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/rust-lang/rls-vscode/issues/534&#34;&gt;Format not work #534&lt;/a&gt; - rust-lang/rls-vscode&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;VSCodeでRustの勉強をしているのですが、現在、どうもコード整形機能が上手く働いていない…？&lt;/p&gt;&#xA;&lt;p&gt;代替策としては、 &lt;a href=&#34;https://github.com/rust-lang/rustfmt&#34;&gt;&lt;code&gt;rustfmt&lt;/code&gt;&lt;/a&gt; を使って、 &lt;code&gt;cargo fmt&lt;/code&gt; コマンドで整形すれば良さそう。&lt;/p&gt;</description>
     </item>
     <item>
       <title>cargo build で特定のバージョンの rustc を利用する</title>
       <link>https://yukihane.github.io/blog/201908/use-specific-rustc-version/</link>
       <pubDate>Sat, 03 Aug 2019 00:00:00 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/201908/use-specific-rustc-version/</guid>
-      <description>&lt;div class=&#34;listingblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre&gt;rustup run 1.15.1 cargo build&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;もちろん事前に使用するバージョンをインストールしておく必要がある:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;listingblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre&gt;rustup install 1.15.1&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;参考:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://doc.rust-lang.org/edition-guide/rust-2018/rustup-for-managing-rust-versions.html&#34;&gt;Rustup for managing Rust versions&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;pre&gt;&lt;code&gt;rustup run 1.15.1 cargo build&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;もちろん事前に使用するバージョンをインストールしておく必要がある:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;rustup install 1.15.1&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;参考:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://doc.rust-lang.org/edition-guide/rust-2018/rustup-for-managing-rust-versions.html&#34;&gt;Rustup for managing Rust versions&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
   </channel>
 </rss>

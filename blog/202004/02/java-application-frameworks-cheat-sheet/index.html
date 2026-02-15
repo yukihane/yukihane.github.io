@@ -2,16 +2,10 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>いきなりJavaアプリケーションサーバの保守を任されることになった人のためのチートシート(1) - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-目的
-
-
+	<meta name="description" content="目的
 Javaを用いた開発にある程度慣れている場合でも、初めてアプリケーションフレームワーク上で開発するとなると戸惑うことがあります。
-
-
-ここでは、ある程度Javaに対する知識が、Java EE/Spring Bootアプリケーションの保守を担当になって、ローカルで実行する、そしてデバッグを行おうとした際に引っかかりそうなポイントをまとめていきたいと考えています。
-" />
-	<meta property="og:image" content=""/>
+ここでは、ある程度Javaに対する知識が、Java EE/Spring Bootアプリケーションの保守を担当になって、ローカルで実行する、そしてデバッグを行おうとした際に引っかかりそうなポイントをまとめていきたいと考えています。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202004/02/java-application-frameworks-cheat-sheet/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="いきなりJavaアプリケーションサーバの保守を任されることになった人のためのチートシート(1)">
@@ -35,8 +29,8 @@ Javaを用いた開発にある程度慣れている場合でも、初めてア�
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -53,9 +47,17 @@ Javaを用いた開発にある程度慣れている場合でも、初めてア�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -72,225 +74,90 @@ Javaを用いた開発にある程度慣れている場合でも、初めてア�
         </div>
         
         <section class="body">
-          
-<div class="sect1">
-<h2 id="_目的">目的</h2>
-<div class="sectionbody">
-<div class="paragraph">
+          <h1 id="目的">目的</h1>
 <p>Javaを用いた開発にある程度慣れている場合でも、初めてアプリケーションフレームワーク上で開発するとなると戸惑うことがあります。</p>
-</div>
-<div class="paragraph">
 <p>ここでは、ある程度Javaに対する知識が、Java EE/Spring Bootアプリケーションの保守を担当になって、ローカルで実行する、そしてデバッグを行おうとした際に引っかかりそうなポイントをまとめていきたいと考えています。</p>
-</div>
-<div class="paragraph">
 <p>説明に用いているコードは次になります:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/yukihane/java-application-frameworks-cheat-sheet" class="bare">https://github.com/yukihane/java-application-frameworks-cheat-sheet</a></p>
-</li>
+<li><a href="https://github.com/yukihane/java-application-frameworks-cheat-sheet">https://github.com/yukihane/java-application-frameworks-cheat-sheet</a></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_アプリケーションをデプロイする">アプリケーションをデプロイする</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="アプリケーションをデプロイする">アプリケーションをデプロイする</h1>
 <p>ローカル実行環境でアプリケーションを実行する場合、アプリケーションサーバにアプリケーションをデプロイする必要があります。</p>
-</div>
-<div class="paragraph">
 <p>デプロイの方法はアプリケーションサーバのツールセットとしてMavenプラグインとして提供されていたり、IDEの機能として提供されていたり様々あります。</p>
-</div>
-<div class="paragraph">
 <p>ところでデプロイというのは何をやっているかというと、アプリケーションファイル( <code>.war</code> だったり <code>.jar</code> だったりします)をアプリケーションサーバの所定のディレクトリにコピーしているだけです。</p>
-</div>
-<div class="paragraph">
 <p>ですので、専用ツールやコマンドラインを使わずとも、デプロイすることは可能です。</p>
-</div>
-<div class="paragraph">
 <p>なお、Spring BootやWildFly Thorntailは <code>jar</code> の中にアプリケーションサーバー機能を組み込んでいるので、デプロイ操作が不要でそのまま <code>jar</code> ファイルを実行できるようになっています。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>mvn clean package -pl servlet-sample</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>mvn clean package -pl servlet-sample
+</code></pre>
 <p>コマンドを実行すると、アプリケーション <code>servlet-sample/target/servlet-sample.war</code> がビルドできますので、これをデプロイして起動してみましょう。</p>
-</div>
-<div class="sect2">
-<h3 id="_tomcat_にデプロイする">Tomcat にデプロイする</h3>
-<div class="paragraph">
-<p>Tomcatのデプロイディレクトリは <code>webapps</code> なのでこの下に <code>servlet-sample.war</code> をコピーし、 <code>bin/startup.sh</code> コマンドを実行します。そして <a href="http://localhost:8080/servlet-sample/" class="bare">http://localhost:8080/servlet-sample/</a> にアクセスしてみます。 終了するには <code>bin/shutdown.sh</code> コマンドを実行します。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_wildfly_にデプロイする">WildFly にデプロイする</h3>
-<div class="paragraph">
-<p>WildFlyのデプロイディレクトリは <code>standalone/deployments</code> なのでこの下に <code>servlet-sample.war</code> をコピーし、 <code>/bin/standalone.sh</code> コマンドを実行します。して <a href="http://localhost:8080/servlet-sample/" class="bare">http://localhost:8080/servlet-sample/</a> にアクセスしてみます。終了するには <code>Ctrl + C</code> です。</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_デバッガを接続しステップ実行できるようにする">デバッガを接続しステップ実行できるようにする</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h2 id="tomcat-にデプロイする">Tomcat にデプロイする</h2>
+<p>Tomcatのデプロイディレクトリは <code>webapps</code> なのでこの下に <code>servlet-sample.war</code> をコピーし、 <code>bin/startup.sh</code> コマンドを実行します。そして <a href="http://localhost:8080/servlet-sample/">http://localhost:8080/servlet-sample/</a> にアクセスしてみます。 終了するには <code>bin/shutdown.sh</code> コマンドを実行します。</p>
+<h2 id="wildfly-にデプロイする">WildFly にデプロイする</h2>
+<p>WildFlyのデプロイディレクトリは <code>standalone/deployments</code> なのでこの下に <code>servlet-sample.war</code> をコピーし、 <code>/bin/standalone.sh</code> コマンドを実行します。して <a href="http://localhost:8080/servlet-sample/">http://localhost:8080/servlet-sample/</a> にアクセスしてみます。終了するには <code>Ctrl + C</code> です。</p>
+<h1 id="デバッガを接続しステップ実行できるようにする">デバッガを接続しステップ実行できるようにする</h1>
 <p>アプリケーションサーバをデバッガ接続可能状態にするオプションをつけて起動した上で、IDEからデバッガをアタッチする、というのが基本的なデバッガ利用法になります。いわゆる「リモートデバッグ」という形態になります。</p>
-</div>
-<div class="paragraph">
 <p>これもまた、IDE組み込み機能でアプリケーションを起動させたりする方法もあったり、現場で実際にどう行っているかは様々だと思います。</p>
-</div>
-<div class="paragraph">
 <p>アプリケーション起動手順はアプリケーションサーバごとに違うのでリファレンスなど記載箇所を検索してください(あるいは、起動スクリプト内の記述がヒントになります(ex. <a href="https://github.com/apache/tomcat/blob/9.0.33/bin/catalina.sh#L632-L641">Tomcat</a>, <a href="https://github.com/wildfly/wildfly-core/blob/11.0.0.Final/core-feature-pack/src/main/resources/content/bin/standalone.sh#L3">WildFly</a>))。</p>
-</div>
-<div class="paragraph">
 <p>デバッガのアタッチ方法も IDE ごとに異なるのでこちらも検索が必要です。</p>
-</div>
-<div class="sect2">
-<h3 id="_tomcat_へ_eclipse_でデバッガをアタッチする">Tomcat へ Eclipse でデバッガをアタッチする</h3>
-<div class="paragraph">
+<h2 id="tomcat-へ-eclipse-でデバッガをアタッチする">Tomcat へ Eclipse でデバッガをアタッチする</h2>
 <p>Tomcatでリモートデバッグできるようにする設定は次に記載があります:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://cwiki.apache.org/confluence/display/TOMCAT/Developing#Developing-Q1" class="bare">https://cwiki.apache.org/confluence/display/TOMCAT/Developing#Developing-Q1</a></p>
-</li>
+<li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/Developing#Developing-Q1">https://cwiki.apache.org/confluence/display/TOMCAT/Developing#Developing-Q1</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>まず、<code>servlet-sample.war</code> をデプロイし、Tomcatに上記に記載されているJVMオプションをつけて起動します:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>JAVA_OPTS=&#39;-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n&#39; bin/startup.sh</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>JAVA_OPTS='-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n' bin/startup.sh
+</code></pre>
 <p>あるいは、これもリンク先に書いていますが、 <code>catalina</code> コマンドにデバッグ可能オプションをつけて起動するのが短くて良いかもしれません。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>bin/catalina.sh jdpa start</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>bin/catalina.sh jdpa start
+</code></pre>
 <p>これで 8000番ポートでデバッガ接続できる状態で起動しました。</p>
-</div>
-<div class="paragraph">
 <p>続いてEclipseからアタッチします。</p>
-</div>
-<div class="paragraph">
 <p>Eclipseで <code>servlet-sample</code> プロジェクトをインポートし、Package Explorer で右クリック、 Debug As &gt; Debug Configurations…​ を選択します。</p>
-</div>
-<div class="paragraph">
 <figure><img src="/20200402/01eclipse-configuration.png">
 </figure>
 
-</div>
-<div class="paragraph">
-<p>表示されたダイアログで &#34;Remote Java Application&#34; を右クリックし &#34;New Configuration&#34; を選択します。</p>
-</div>
-<div class="paragraph">
-<p>新しくデバッグのconfigurationが&#34;servlet-sample&#34;という名前で作成されますのでこれを編集していきます…が、今回はこのままの設定で動きますので何も触りません。</p>
-</div>
-<div class="paragraph">
-<p>ダイアログ右下の&#34;Debug&#34;ボタンを押してアタッチします。</p>
-</div>
-<div class="paragraph">
-<p>以上でデバッグ環境が整いました。 <a href="https://github.com/yukihane/java-application-frameworks-cheat-sheet/blob/5ac9fdcd16886ad43d9804750bc0943ccc1b6709/servlet-sample/src/main/java/jp/himeji_cs/example/servlet/ServletByAnnotation.java#L22"><code>ServletByAnnotation</code></a>クラスにbreakポイントを設定して <a href="http://localhost:8080/servlet-sample/annotation" class="bare">http://localhost:8080/servlet-sample/annotation</a> へアクセスすることで実行が一時停止することを確認してみましょう。</p>
-</div>
-<div class="paragraph">
-<p>デバッガをデタッチする場合はDebugパースペクティブに表示されている &#34;Disconnect&#34; ボタンを押します。</p>
-</div>
-<div class="paragraph">
+<p>表示されたダイアログで &ldquo;Remote Java Application&rdquo; を右クリックし &ldquo;New Configuration&rdquo; を選択します。</p>
+<p>新しくデバッグのconfigurationが&quot;servlet-sample&quot;という名前で作成されますのでこれを編集していきます…が、今回はこのままの設定で動きますので何も触りません。</p>
+<p>ダイアログ右下の&quot;Debug&quot;ボタンを押してアタッチします。</p>
+<p>以上でデバッグ環境が整いました。 <a href="https://github.com/yukihane/java-application-frameworks-cheat-sheet/blob/5ac9fdcd16886ad43d9804750bc0943ccc1b6709/servlet-sample/src/main/java/jp/himeji_cs/example/servlet/ServletByAnnotation.java#L22"><code>ServletByAnnotation</code></a>クラスにbreakポイントを設定して <a href="http://localhost:8080/servlet-sample/annotation">http://localhost:8080/servlet-sample/annotation</a> へアクセスすることで実行が一時停止することを確認してみましょう。</p>
+<p>デバッガをデタッチする場合はDebugパースペクティブに表示されている &ldquo;Disconnect&rdquo; ボタンを押します。</p>
 <figure><img src="/20200402/02disconnect.png">
 </figure>
 
-</div>
-</div>
-<div class="sect2">
-<h3 id="_wildfly_へ_eclipse_でデバッガをアタッチする">WildFly へ Eclipse でデバッガをアタッチする</h3>
-<div class="paragraph">
-<p>WildFlyのリモートデバッグ方法の記述は次にあります <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>:</p>
-</div>
-<div class="ulist">
+<h2 id="wildfly-へ-eclipse-でデバッガをアタッチする">WildFly へ Eclipse でデバッガをアタッチする</h2>
+<p>WildFlyのリモートデバッグ方法の記述は次にあります <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>:</p>
 <ul>
-<li>
-<p><a href="https://docs.wildfly.org/19/Getting_Started_Developing_Applications_Guide.html#debugging-project-with-intellij-and-as7" class="bare">https://docs.wildfly.org/19/Getting_Started_Developing_Applications_Guide.html#debugging-project-with-intellij-and-as7</a></p>
-</li>
+<li><a href="https://docs.wildfly.org/19/Getting_Started_Developing_Applications_Guide.html#debugging-project-with-intellij-and-as7">https://docs.wildfly.org/19/Getting_Started_Developing_Applications_Guide.html#debugging-project-with-intellij-and-as7</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p><code>servlet-sample.war</code> をデプロイした後、次のコマンドでWildFlyを起動します:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>bin/standalone.sh --debug</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>bin/standalone.sh --debug
+</code></pre>
 <p>(Tomcatとは異なり)デフォルトでは8787番ポートでデバッガがアタッチできるような状態で起動します。</p>
-</div>
-<div class="paragraph">
-<p>続いてEclipseからアタッチします。手順の詳細は前述Tomcatの節を参照してください。ただし1点気をつけるべきは、デフォルト設定では8000番ポートへ接続しようとするので、 &#34;Connect&#34; タブの &#34;Connection Properties&#34; 設定の &#34;Port&#34; 値を <code>8787</code> に変更してください。</p>
-</div>
-<div class="paragraph">
+<p>続いてEclipseからアタッチします。手順の詳細は前述Tomcatの節を参照してください。ただし1点気をつけるべきは、デフォルト設定では8000番ポートへ接続しようとするので、 &ldquo;Connect&rdquo; タブの &ldquo;Connection Properties&rdquo; 設定の &ldquo;Port&rdquo; 値を <code>8787</code> に変更してください。</p>
 <p>実行確認、デタッチ方法はTomcat節に記載した手順と同じです。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_spring_boot_アプリケーションへ_eclipse_をアタッチする">Spring Boot アプリケーションへ Eclipse をアタッチする</h3>
-<div class="paragraph">
+<h2 id="spring-boot-アプリケーションへ-eclipse-をアタッチする">Spring Boot アプリケーションへ Eclipse をアタッチする</h2>
 <p>Spring Boot アプリケーションは前述の通りデプロイを必要とせず単独で実行できます。通常の実行コマンドにデバッグオプションを付与すれば良いです。</p>
-</div>
-<div class="paragraph">
 <p><code>spring-boot-sample</code> プロジェクトをビルドします:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>mvn clean package -pl spring-boot-sample</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>mvn clean package -pl spring-boot-sample
+</code></pre>
 <p>作成された <code>spring-boot-sample-0.0.1-SNAPSHOT.jar</code> をデバッガアタッチ可能な状態で起動します:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000 \
--jar spring-boot-sample/target/spring-boot-sample-0.0.1-SNAPSHOT.jar</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000 \
+-jar spring-boot-sample/target/spring-boot-sample-0.0.1-SNAPSHOT.jar
+</code></pre>
 <p>Eclipseからアタッチする方法は前述Tomcat節と同じです。</p>
-</div>
-<div class="paragraph">
 <p>また、Spring Bootアプリケーションにははじめから <a href="https://docs.spring.io/spring-boot/docs/current/maven-plugin/examples/run-debug.html">Spring Boot Maven Plugin</a>が組み込まれているため、こちらから起動することになるかもしれません。その場合はリンク先を参照してください。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_その他のアプリケーションサーバideを利用する">その他のアプリケーションサーバ、IDEを利用する</h3>
-<div class="paragraph">
+<h2 id="その他のアプリケーションサーバideを利用する">その他のアプリケーションサーバ、IDEを利用する</h2>
 <p>ここまで書いてきて、次のサイトでも同じことについて言及しているの気づきました。WebLogic, Glassfish, Jetty, IntelliJなどについての言及もあるようでしたので参照してください:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://www.baeldung.com/spring-debugging" class="bare">https://www.baeldung.com/spring-debugging</a></p>
-</li>
+<li><a href="https://www.baeldung.com/spring-debugging">https://www.baeldung.com/spring-debugging</a></li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-<div id="footnotes">
-<hr/>
-<div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. 久しぶりにWildFlyのリファレンス見ましたが、以前にも増して混沌としていますね…
-</div>
+<div class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn:1">
+<p>久しぶりにWildFlyのリファレンス見ましたが、以前にも増して混沌としていますね…&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
 </div>
 
         </section>
@@ -300,11 +167,11 @@ Javaを用いた開発にある程度慣れている場合でも、初めてア�
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/java">Java</a></li>
+              <li><a href="/tags/java/">Java</a></li>
               
-              <li><a href="/tags/javaee">javaee</a></li>
+              <li><a href="/tags/javaee/">javaee</a></li>
               
-              <li><a href="/tags/spring">spring</a></li>
+              <li><a href="/tags/spring/">spring</a></li>
               
             </ul>
           </nav>
@@ -321,10 +188,10 @@ Javaを用いた開発にある程度慣れている場合でも、初めてア�
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

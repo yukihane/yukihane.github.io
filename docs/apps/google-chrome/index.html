@@ -2,70 +2,48 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Google Chrome - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-インストールする機能拡張
-
-
+	<meta name="description" content="インストールする機能拡張
 
 
 octotree
 
 
-Quick
-Javascript Switcher
+Quick Javascript Switcher
 
 
-uBlock
-Origin
-
-
-
-
+uBlock Origin
 
 
 検索エンジン設定
 
-
-
-
-
-
-
-
-
-検索エンジン
-キーワード
-URL
-
-
-
-
-alc
-alc
-https://eow.alc.co.jp/search?q=%s
-
-
-Maven Central
-mvn
-https://search.maven.org/search?q=%s
-
-
-
-
+  
+      
+          検索エンジン
+          キーワード
+          URL
+      
+  
+  
+      
+          alc
+          alc
+          https://eow.alc.co.jp/search?q=%s
+      
+      
+          Maven Central
+          mvn
+          https://search.maven.org/search?q=%s
+      
+  
 " />
-	<meta property="og:image" content=""/>
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/apps/google-chrome/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Google Chrome">
   <meta property="og:description" content="インストールする機能拡張 octotree
 Quick Javascript Switcher
 uBlock Origin
-検索エンジン設定 検索エンジン キーワード URL alc
-alc
-https://eow.alc.co.jp/search?q=%s
-Maven Central
-mvn
-https://search.maven.org/search?q=%s">
+検索エンジン設定 検索エンジン キーワード URL alc alc https://eow.alc.co.jp/search?q=%s Maven Central mvn https://search.maven.org/search?q=%s">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -77,19 +55,14 @@ https://search.maven.org/search?q=%s">
   <meta name="twitter:description" content="インストールする機能拡張 octotree
 Quick Javascript Switcher
 uBlock Origin
-検索エンジン設定 検索エンジン キーワード URL alc
-alc
-https://eow.alc.co.jp/search?q=%s
-Maven Central
-mvn
-https://search.maven.org/search?q=%s">
+検索エンジン設定 検索エンジン キーワード URL alc alc https://eow.alc.co.jp/search?q=%s Maven Central mvn https://search.maven.org/search?q=%s">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -106,9 +79,17 @@ https://search.maven.org/search?q=%s">
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -125,57 +106,40 @@ https://search.maven.org/search?q=%s">
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_インストールする機能拡張">インストールする機能拡張</h2>
-<div class="sectionbody">
-<div class="ulist">
+          <h1 id="インストールする機能拡張">インストールする機能拡張</h1>
 <ul>
 <li>
 <p><a href="https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc?hl=ja">octotree</a></p>
 </li>
 <li>
-<p><a href="https://chrome.google.com/webstore/detail/quick-javascript-switcher/geddoclleiomckbhadiaipdggiiccfje?hl=ja">Quick
-Javascript Switcher</a></p>
+<p><a href="https://chrome.google.com/webstore/detail/quick-javascript-switcher/geddoclleiomckbhadiaipdggiiccfje?hl=ja">Quick Javascript Switcher</a></p>
 </li>
 <li>
-<p><a href="https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=ja">uBlock
-Origin</a></p>
+<p><a href="https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=ja">uBlock Origin</a></p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_検索エンジン設定">検索エンジン設定</h2>
-<div class="sectionbody">
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;"/>
-<col style="width: 33.3333%;"/>
-<col style="width: 33.3334%;"/>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">検索エンジン</th>
-<th class="tableblock halign-left valign-top">キーワード</th>
-<th class="tableblock halign-left valign-top">URL</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">alc</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">alc</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">https://eow.alc.co.jp/search?q=%s</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Maven Central</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">mvn</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">https://search.maven.org/search?q=%s</p></td>
-</tr>
-</tbody>
+<h1 id="検索エンジン設定">検索エンジン設定</h1>
+<table>
+  <thead>
+      <tr>
+          <th>検索エンジン</th>
+          <th>キーワード</th>
+          <th>URL</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>alc</td>
+          <td>alc</td>
+          <td><a href="https://eow.alc.co.jp/search?q=%25s">https://eow.alc.co.jp/search?q=%s</a></td>
+      </tr>
+      <tr>
+          <td>Maven Central</td>
+          <td>mvn</td>
+          <td><a href="https://search.maven.org/search?q=%25s">https://search.maven.org/search?q=%s</a></td>
+      </tr>
+  </tbody>
 </table>
-</div>
-</div>
 
         </section>
         <div class="post-tags">
@@ -193,10 +157,10 @@ Origin</a></p>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

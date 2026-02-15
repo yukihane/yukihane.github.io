@@ -6,7 +6,7 @@
     <description>Recent content in Elixir on 発火後忘失</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <copyright>© Yukihane, All Rights Reserved</copyright>
     <lastBuildDate>Sun, 01 May 2022 12:47:31 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/elixir/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,7 +14,7 @@
       <link>https://yukihane.github.io/blog/202205/01/setup-elixir/</link>
       <pubDate>Sun, 01 May 2022 12:47:31 +0900</pubDate>
       <guid>https://yukihane.github.io/blog/202205/01/setup-elixir/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4908829306/&#34;&gt;改訂新版 Elixir/Phoenix 初級①: はじめの一歩&lt;/a&gt; という書籍で Phoenix というウェブフレームワークの勉強をはじめました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Elixir という言語で実装していくことになりますが、本書籍は Elixir 言語入門としても優れているので、少なくとも本書を読み進めていくに当たって、言語仕様のことで困ることは無さそうです。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4908829306/&#34;&gt;改訂新版 Elixir/Phoenix 初級①: はじめの一歩&lt;/a&gt; という書籍で Phoenix というウェブフレームワークの勉強をはじめました。&lt;/p&gt;&#xA;&lt;p&gt;Elixir という言語で実装していくことになりますが、本書籍は Elixir 言語入門としても優れているので、少なくとも本書を読み進めていくに当たって、言語仕様のことで困ることは無さそうです。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

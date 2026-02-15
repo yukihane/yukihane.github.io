@@ -2,16 +2,8 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Eclipse - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-dropins ディレクトリ構成パターン
-
-
-参考:
-The
-dropins folder and supported file layouts
-
-
-
+	<meta name="description" content="dropins ディレクトリ構成パターン
+参考: The dropins folder and supported file layouts
  eclipse/
    dropins/
      org.eclipse.core.tools_1.4.0.200710121455.jar
@@ -21,17 +13,11 @@ dropins folder and supported file layouts
        ... etc ...
    ...
 
-
-
-
  eclipse/
    dropins/
      eclipse/
        features/
        plugins/
-
-
-
 
  eclipse/
    dropins/
@@ -45,13 +31,7 @@ dropins folder and supported file layouts
          plugins/
      ... etc ...
 
-
-
-
-
 テンプレート変数
-
-
 
 
 オフィシャルマニュアル
@@ -59,11 +39,8 @@ dropins folder and supported file layouts
 
 日本語での説明
 
-
-
-
 " />
-	<meta property="og:image" content=""/>
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/java/eclipse/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Eclipse">
@@ -86,8 +63,8 @@ eclipse/ dropins/ org.eclipse.core.tools_1.4.0.200710121455.jar org.eclipse.rele
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -104,9 +81,17 @@ eclipse/ dropins/ org.eclipse.core.tools_1.4.0.200710121455.jar org.eclipse.rele
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -123,38 +108,24 @@ eclipse/ dropins/ org.eclipse.core.tools_1.4.0.200710121455.jar org.eclipse.rele
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="dropins_ディレクトリ構成パターン">dropins ディレクトリ構成パターン</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>参考:
-<a href="http://help.eclipse.org/neon/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Freference%2Fmisc%2Fp2_dropins_format.html">The
-dropins folder and supported file layouts</a></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre> eclipse/
+          <h1 id="dropins-ディレクトリ構成パターン">dropins ディレクトリ構成パターン</h1>
+<p>参考: <a href="http://help.eclipse.org/neon/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Freference%2Fmisc%2Fp2_dropins_format.html">The dropins folder and supported file layouts</a></p>
+<pre><code> eclipse/
    dropins/
      org.eclipse.core.tools_1.4.0.200710121455.jar
      org.eclipse.releng.tools_3.3.0.v20070412/
        plugin.xml
        tools.jar
        ... etc ...
-   ...</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre> eclipse/
+   ...
+
+ eclipse/
    dropins/
      eclipse/
        features/
-       plugins/</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre> eclipse/
+       plugins/
+
+ eclipse/
    dropins/
      emf/
        eclipse/
@@ -164,15 +135,9 @@ dropins folder and supported file layouts</a></p>
        eclipse/
          features/
          plugins/
-     ... etc ...</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_テンプレート変数">テンプレート変数</h2>
-<div class="sectionbody">
-<div class="ulist">
+     ... etc ...
+</code></pre>
+<h1 id="テンプレート変数">テンプレート変数</h1>
 <ul>
 <li>
 <p><a href="http://help.eclipse.org/neon/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Fconcepts%2Fconcept-template-variables.htm">オフィシャルマニュアル</a></p>
@@ -181,9 +146,6 @@ dropins folder and supported file layouts</a></p>
 <p><a href="http://www.ibm.com/support/knowledgecenter/ja/SSQ2R2_9.1.1/org.eclipse.jdt.doc.user/concepts/concept-template-variables.htm">日本語での説明</a></p>
 </li>
 </ul>
-</div>
-</div>
-</div>
 
         </section>
         <div class="post-tags">
@@ -201,10 +163,10 @@ dropins folder and supported file layouts</a></p>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

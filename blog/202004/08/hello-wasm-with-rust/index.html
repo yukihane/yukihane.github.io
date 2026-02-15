@@ -2,21 +2,19 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Hello, Wasm with Rust - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-はじめに
-
-
+	<meta name="description" content="はじめに
 wasmに挑戦してみようとHello, worldをやってみようとしました。
-
-
 公式っぽいドキュメントとしてはググると次のものが見つかりました:
-" />
-	<meta property="og:image" content=""/>
+
+
+The Rust and WebAssembly Book (GitHub repo)" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202004/08/hello-wasm-with-rust/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Hello, Wasm with Rust">
   <meta property="og:description" content="はじめに wasmに挑戦してみようとHello, worldをやってみようとしました。
-公式っぽいドキュメントとしてはググると次のものが見つかりました:">
+公式っぽいドキュメントとしてはググると次のものが見つかりました:
+The Rust and WebAssembly Book (GitHub repo)">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -28,14 +26,15 @@ wasmに挑戦してみようとHello, worldをやってみようとしました�
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Hello, Wasm with Rust">
   <meta name="twitter:description" content="はじめに wasmに挑戦してみようとHello, worldをやってみようとしました。
-公式っぽいドキュメントとしてはググると次のものが見つかりました:">
+公式っぽいドキュメントとしてはググると次のものが見つかりました:
+The Rust and WebAssembly Book (GitHub repo)">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -52,9 +51,17 @@ wasmに挑戦してみようとHello, worldをやってみようとしました�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -71,16 +78,9 @@ wasmに挑戦してみようとHello, worldをやってみようとしました�
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="paragraph">
+          <h1 id="はじめに">はじめに</h1>
 <p>wasmに挑戦してみようとHello, worldをやってみようとしました。</p>
-</div>
-<div class="paragraph">
 <p>公式っぽいドキュメントとしてはググると次のものが見つかりました:</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p><a href="https://rustwasm.github.io/docs/book/">The Rust and WebAssembly Book</a> (<a href="https://github.com/rustwasm/book">GitHub repo</a>)</p>
@@ -89,14 +89,8 @@ wasmに挑戦してみようとHello, worldをやってみようとしました�
 <p><a href="https://developer.mozilla.org/ja/docs/WebAssembly/Rust_to_wasm">Rust から WebAssembly にコンパイルする - WebAssembly | MDN</a></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p>最初は1つめのドキュメントを見ながらやり始めたのですが、どうも記述が古いっぽい気がしてリポジトリを見てみると最終コミットが5ヶ月前で、ちょっとどうかと思ったので2つめを見てみたのですが、こちらはこちらで本当にHello, world部分しか説明されておらず先に進めそうもありませんでした。</p>
-</div>
-<div class="paragraph">
-<p>それ以外のものを探したところ、 <a href="https://rustwasm.github.io/" class="bare">https://rustwasm.github.io/</a> から辿れる次のドキュメントを見つけました:</p>
-</div>
-<div class="ulist">
+<p>それ以外のものを探したところ、 <a href="https://rustwasm.github.io/">https://rustwasm.github.io/</a> から辿れる次のドキュメントを見つけました:</p>
 <ul>
 <li>
 <p><a href="https://rustwasm.github.io/docs/wasm-pack/">The wasm-pack Book</a></p>
@@ -105,24 +99,11 @@ wasmに挑戦してみようとHello, worldをやってみようとしました�
 <p><a href="https://rustwasm.github.io/docs/wasm-bindgen/">The wasm-bindgen Guide</a></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p>…がこちらも少し現状に即していないように見えました。</p>
-</div>
-<div class="paragraph">
 <p>以下、上記のドキュメントを継ぎ接ぎしてHello, worldを作成してみた記録です。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_プロジェクト作成の前に">プロジェクト作成の前に</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_ツールの種類と概要">ツールの種類と概要</h3>
-<div class="paragraph">
+<h1 id="プロジェクト作成の前に">プロジェクト作成の前に</h1>
+<h2 id="ツールの種類と概要">ツールの種類と概要</h2>
 <p>似た名前のツール/コマンドが登場するので最初に一覧を見ておくと良いかと考えます。The Rust Wasm Bookに説明があります。</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p><a href="https://rustwasm.github.io/docs/book/reference/crates.html">5.1. Crates You Should Know</a></p>
@@ -134,120 +115,59 @@ wasmに挑戦してみようとHello, worldをやってみようとしました�
 <p><a href="https://rustwasm.github.io/docs/book/reference/project-templates.html">5.3. Project Templates</a></p>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_プロジェクトテンプレート">プロジェクトテンプレート</h3>
-<div class="paragraph">
+<h2 id="プロジェクトテンプレート">プロジェクトテンプレート</h2>
 <p>前述リンク <a href="https://rustwasm.github.io/docs/book/reference/project-templates.html">5.3. Project Templates</a> 先には3種類のプロジェクトテンプレートが紹介されています。</p>
-</div>
-<div class="paragraph">
 <p>いろいろなチュートリアルを見ていると、このテンプレートが事前説明無く使われている(あるいはテンプレート無しで進めていく)のでどのチュートリアルを参考にすれば良いのか混乱しました。</p>
-</div>
-<div class="paragraph">
 <p>ですのでここで簡単に触れておきます。</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><a href="https://github.com/rustwasm/wasm-pack-template">wasm-pack-template</a></dt>
-<dd>
-<p>RustのコードをWasmプロジェクトにパッケージングするためのテンプレート。JavaScriptの世界とは無関係です(ので <code>package.json</code> などが含まれない)。</p>
-</dd>
-<dt class="hdlist1"><a href="https://github.com/rustwasm/create-wasm-app">create-wasm-app</a></dt>
-<dd>
-<p>Rustから生成したWasmのNPMパッケージを利用するようなJavaScriptプロジェクトのテンプレート。Rustの世界とは無関係です(ので <code>Cargo.toml</code> などが含まれない)。</p>
-</dd>
-<dt class="hdlist1"><a href="https://github.com/rustwasm/rust-webpack-template">rust-webpack-template</a></dt>
-<dd>
-<p>JavaScriptプロジェクトですが、一部をRustで実装し、Wasmに変換して利用するようなプロジェクト。</p>
-</dd>
-</dl>
-</div>
-<div class="paragraph">
-<p>&#34;Hello, worldをWasmでやってみよう！&#34;という場合、おそらく利用することになるのは rust-webpack-template ではないでしょうか。</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_プロジェクト作成">プロジェクト作成</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<p><a href="https://github.com/rustwasm/wasm-pack-template">wasm-pack-template</a><br />
+RustのコードをWasmプロジェクトにパッケージングするためのテンプレート。JavaScriptの世界とは無関係です(ので <code>package.json</code> などが含まれない)。</p>
+<p><a href="https://github.com/rustwasm/create-wasm-app">create-wasm-app</a><br />
+Rustから生成したWasmのNPMパッケージを利用するようなJavaScriptプロジェクトのテンプレート。Rustの世界とは無関係です(ので <code>Cargo.toml</code> などが含まれない)。</p>
+<p><a href="https://github.com/rustwasm/rust-webpack-template">rust-webpack-template</a><br />
+JavaScriptプロジェクトですが、一部をRustで実装し、Wasmに変換して利用するようなプロジェクト。</p>
+<p>&ldquo;Hello, worldをWasmでやってみよう！&ldquo;という場合、おそらく利用することになるのは rust-webpack-template ではないでしょうか。</p>
+<h1 id="プロジェクト作成">プロジェクト作成</h1>
 <p>The wasm-pack Book の <a href="https://rustwasm.github.io/docs/wasm-pack/tutorials/hybrid-applications-with-webpack/index.html">5.1. Hybrid applications with Webpack</a> が <code>rust-webpack-template</code> を利用したプロジェクト作成チュートリアルになっているのでこれをなぞります。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>npm init rust-webpack wasm-app</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>npm init rust-webpack wasm-app
+</code></pre>
 <p>( <code>wasm-pack</code> のチュートリアルで用いられているのは <a href="https://github.com/rustwasm/wasm-pack-template"><code>wasm-pack-template</code></a> でなく <a href="https://github.com/rustwasm/rust-webpack-template"><code>rust-webpack-template</code></a> …​これだけで混乱するには十分です…​)</p>
-</div>
-<div class="paragraph">
-<p>ちなみに <code>yarn create rust-webpack</code> は何故か失敗します(<a href="https://github.com/rustwasm/create-wasm-app/issues/143">こちら</a> と同じ原因でしょうか)。
-ですので、 <code>yarn</code> を利用する場合もここだけ <code>npm</code> コマンドで実行する必要がありそうです。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_hello_world_加筆">Hello, world 加筆</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<p>ちなみに <code>yarn create rust-webpack</code> は何故か失敗します(<a href="https://github.com/rustwasm/create-wasm-app/issues/143">こちら</a> と同じ原因でしょうか)。 ですので、 <code>yarn</code> を利用する場合もここだけ <code>npm</code> コマンドで実行する必要がありそうです。</p>
+<h1 id="hello-world-加筆">Hello, world 加筆</h1>
 <p>上で参考にしたチュートリアルの続きを進めたいのですが、 <a href="https://rustwasm.github.io/docs/wasm-pack/tutorials/hybrid-applications-with-webpack/using-your-library.html#your-rust-crate">Your Rust Crate</a> に書かれているコード</p>
+<div class="formalpara-title">
+<p><strong>src/lib.rs</strong></p>
 </div>
-<div class="literalblock">
-<div class="title">src/lib.rs</div>
-<div class="content">
-<pre>// Your code goes here!
-let p: web_sys::Node = document.create_element(&#34;p&#34;)?.into();
-p.set_text_content(Some(&#34;Hello from Rust, WebAssembly, and Webpack!&#34;));</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>// Your code goes here!
+let p: web_sys::Node = document.create_element(&quot;p&quot;)?.into();
+p.set_text_content(Some(&quot;Hello from Rust, WebAssembly, and Webpack!&quot;));
+</code></pre>
 <p>を追加してもコンパイルが通りません。</p>
-</div>
-<div class="paragraph">
 <p>これを解決するには The <code>wasm-bindgen</code> Guide の <a href="https://rustwasm.github.io/docs/wasm-bindgen/examples/dom.html">1.9. web-sys: DOM hello world</a> に書かれている通り、 <code>web-sys</code> の features 設定を行う必要があります。</p>
-</div>
-<div class="paragraph">
 <p>また、そもそもコード自体も間違っており features 追加した後コード修正も必要になります。これも上記ページが参考になります。</p>
+<div class="formalpara-title">
+<p><strong>Cargo.toml</strong></p>
 </div>
-<div class="literalblock">
-<div class="title">Cargo.toml</div>
-<div class="content">
-<pre>[dependencies.web-sys]
-version = &#34;0.3.22&#34;
-features = [&#34;console&#34;, &#39;Document&#39;, &#39;Element&#39;, &#39;HtmlElement&#39;, &#39;Node&#39;, &#39;Window&#39;]</pre>
+<pre><code>[dependencies.web-sys]
+version = &quot;0.3.22&quot;
+features = [&quot;console&quot;, 'Document', 'Element', 'HtmlElement', 'Node', 'Window']
+</code></pre>
+<div class="formalpara-title">
+<p><strong>src/lib.rs</strong></p>
 </div>
-</div>
-<div class="literalblock">
-<div class="title">src/lib.rs</div>
-<div class="content">
-<pre>// Your code goes here!
-let window = web_sys::window().expect(&#34;no global `window` exists&#34;);
-let document = window.document().expect(&#34;should have a document on window&#34;);
-let body = document.body().expect(&#34;document should have a body&#34;);
+<pre><code>// Your code goes here!
+let window = web_sys::window().expect(&quot;no global `window` exists&quot;);
+let document = window.document().expect(&quot;should have a document on window&quot;);
+let body = document.body().expect(&quot;document should have a body&quot;);
 
-let val = document.create_element(&#34;p&#34;)?;
-val.set_text_content(Some(&#34;Hello from Rust, WebAssembly, and Webpack!&#34;));
+let val = document.create_element(&quot;p&quot;)?;
+val.set_text_content(Some(&quot;Hello from Rust, WebAssembly, and Webpack!&quot;));
 
-body.append_child(&amp;val)?;</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_サンプル実装リンク">サンプル実装リンク</h2>
-<div class="sectionbody">
-<div class="ulist">
+body.append_child(&amp;val)?;
+</code></pre>
+<h1 id="サンプル実装リンク">サンプル実装リンク</h1>
 <ul>
-<li>
-<p><a href="https://github.com/yukihane/hello-rust/tree/master/wasm-app" class="bare">https://github.com/yukihane/hello-rust/tree/master/wasm-app</a></p>
-</li>
+<li><a href="https://github.com/yukihane/hello-rust/tree/master/wasm-app">https://github.com/yukihane/hello-rust/tree/master/wasm-app</a></li>
 </ul>
-</div>
-</div>
-</div>
 
         </section>
         <div class="post-tags">
@@ -256,9 +176,9 @@ body.append_child(&amp;val)?;</pre>
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/rust">rust</a></li>
+              <li><a href="/tags/rust/">rust</a></li>
               
-              <li><a href="/tags/wasm">wasm</a></li>
+              <li><a href="/tags/wasm/">wasm</a></li>
               
             </ul>
           </nav>
@@ -275,10 +195,10 @@ body.append_child(&amp;val)?;</pre>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

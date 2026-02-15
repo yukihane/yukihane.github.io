@@ -2,13 +2,9 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Spring SecurityのOAuth2.0関連の歴史を調査し実装してみた - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-Qiita に昔(2019年中頃)書いていた資料を転記し忘れていたので構成を見直してアップロードし直します。
-
-
-2020年現在の状況はまた更新されています。次のURLを参照してください。
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="Qiita に昔(2019年中頃)書いていた資料を転記し忘れていたので構成を見直してアップロードし直します。
+2020年現在の状況はまた更新されています。次のURLを参照してください。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202007/15/history-of-spring-oauth2-libraries/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Spring SecurityのOAuth2.0関連の歴史を調査し実装してみた">
@@ -32,8 +28,8 @@ Qiita に昔(2019年中頃)書いていた資料を転記し忘れていたの�
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -50,9 +46,17 @@ Qiita に昔(2019年中頃)書いていた資料を転記し忘れていたの�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -69,17 +73,11 @@ Qiita に昔(2019年中頃)書いていた資料を転記し忘れていたの�
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>Qiita に昔(2019年中頃)書いていた資料を転記し忘れていたので構成を見直してアップロードし直します。</p>
-</div>
-<div class="paragraph">
+          <p>Qiita に昔(2019年中頃)書いていた資料を転記し忘れていたので構成を見直してアップロードし直します。</p>
 <p>2020年現在の状況はまた更新されています。次のURLを参照してください。</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
-<p><a href="https://spring.io/blog/2019/11/14/spring-security-oauth-2-0-roadmap-update" class="bare">https://spring.io/blog/2019/11/14/spring-security-oauth-2-0-roadmap-update</a></p>
-<div class="ulist">
+<p><a href="https://spring.io/blog/2019/11/14/spring-security-oauth-2-0-roadmap-update">https://spring.io/blog/2019/11/14/spring-security-oauth-2-0-roadmap-update</a></p>
 <ul>
 <li>
 <p>認可サーバのサポートが無くなることが決定した(が、後にこの決定を見直すことも示唆されており、不透明)</p>
@@ -88,123 +86,66 @@ Qiita に昔(2019年中頃)書いていた資料を転記し忘れていたの�
 <p>spring-security-oauth2 の EOL が発表された(2021/5 頃)</p>
 </li>
 </ul>
-</div>
 </li>
 </ul>
-</div>
-<div class="sect1">
-<h2 id="_背景と概要">背景と概要</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="背景と概要">背景と概要</h1>
 <p>Spring Boot最新版(2.1.6.RELEASE)でOAuth 2.0 対応のリソースサーバ兼認可サーバを実装する必要に迫られましたが、Spring的にOAuth 2.0 対応が過渡期なようでドキュメントを探したりするのに手間取りました。</p>
-</div>
-<div class="paragraph">
 <p>本エントリは、ドキュメントの所在のメモと、自分の理解度の確認として冒頭に紹介した <a href="https://qiita.com/kazuki43zoo">@kazuki43zoo</a> さんのコードを Spring Boot 2.1.6.RELEASE へマイグレーションしてみたのでそれについてもメモするためのものです。</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p>元ネタ</p>
-<div class="ulist">
 <ul>
 <li>
 <p><a href="https://qiita.com/kazuki43zoo/items/9cc00f0c92c7b0e1e529">Spring Security OAuthで認可コードグラントフローを体感しよう -第２回：とりあえずアプリを作る編</a> - Qiita</p>
 </li>
 <li>
-<p><a href="https://github.com/kazuki43zoo/spring-security-oauth-demo" class="bare">https://github.com/kazuki43zoo/spring-security-oauth-demo</a></p>
+<p><a href="https://github.com/kazuki43zoo/spring-security-oauth-demo">https://github.com/kazuki43zoo/spring-security-oauth-demo</a></p>
 </li>
 </ul>
-</div>
 </li>
 <li>
 <p>今回作成したソース</p>
-<div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/yukihane/spring-security-oauth-demo" class="bare">https://github.com/yukihane/spring-security-oauth-demo</a></p>
+<p><a href="https://github.com/yukihane/spring-security-oauth-demo">https://github.com/yukihane/spring-security-oauth-demo</a></p>
 </li>
 <li>
 <p>差異の詳細は後述</p>
 </li>
 </ul>
-</div>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_spring_boot2_1_6における_oauth_2_0_対応">Spring Boot2.1.6における OAuth 2.0 対応</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="spring-boot216における-oauth-20-対応">Spring Boot2.1.6における OAuth 2.0 対応</h1>
 <p>リファレンス <a href="https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/html/boot-features-security.html#_authorization_server">30.3.3 Authorization Server</a> では</p>
-</div>
-<div class="quoteblock">
 <blockquote>
-<div class="paragraph">
 <p>Currently, Spring Security does not provide support for implementing an OAuth 2.0 Authorization Server. However, this functionality is available from the Spring Security OAuth project, which will eventually be superseded by Spring Security completely.</p>
-</div>
-</blockquote>
-<div class="attribution">
-— Spring Boot 2.1.6.RELEASE リファレンス <a href="https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/html/boot-features-security.html#_authorization_server">30.3.3 Authorization Server</a>
-</div>
-</div>
-<div class="paragraph">
-<p>と若干引っかかる説明になっています。
-これはどういうことかというと、この節のリンクの何クリックか先にあるドキュメント</p>
-</div>
-<div class="ulist">
+<p>—  Spring Boot 2.1.6.RELEASE リファレンス <a href="https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/html/boot-features-security.html#_authorization_server">30.3.3 Authorization Server</a></p></blockquote>
+<p>と若干引っかかる説明になっています。 これはどういうことかというと、この節のリンクの何クリックか先にあるドキュメント</p>
 <ul>
-<li>
-<p><a href="https://github.com/spring-projects/spring-security/wiki/OAuth-2.0-Features-Matrix">OAuth 2.0 Features Matrix</a></p>
-</li>
+<li><a href="https://github.com/spring-projects/spring-security/wiki/OAuth-2.0-Features-Matrix">OAuth 2.0 Features Matrix</a></li>
 </ul>
-</div>
-<div class="paragraph">
-<p>を見ることで事情が理解できます。
-(注: 現在は当時から改訂が入っています)</p>
-</div>
-<div class="ulist">
+<p>を見ることで事情が理解できます。 (注: 現在は当時から改訂が入っています)</p>
 <ul>
 <li>
-<p>OAuth 2.0 は &#34;Spring Security&#34; で実現する方針で、Spring Boot 1.x の頃に利用していた &#34;Spring Security OAuth&#34;(spring-security-oauth*)はもはやメンテナンスモードである</p>
+<p>OAuth 2.0 は &ldquo;Spring Security&rdquo; で実現する方針で、Spring Boot 1.x の頃に利用していた &ldquo;Spring Security OAuth&rdquo;(spring-security-oauth*)はもはやメンテナンスモードである</p>
 </li>
 <li>
 <p>とはいえ、Spring Securityにはまだ認可サーバサポートがない</p>
-<div class="ulist">
 <ul>
-<li>
-<p>(予定では &#34;the end of 2018 or early 2019&#34; に対応、だったようだが)</p>
+<li>(予定では &ldquo;the end of 2018 or early 2019&rdquo; に対応、だったようだが)</li>
+</ul>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
 <p>というわけで、現時点で認可サーバ実装を行おうとした場合には spring-security-oauth2 を利用することになります。</p>
-</div>
-<div class="paragraph">
-<p>リソースサーバやクライアントはSpring Securityのものが利用できるのかというと、不可能ではないが <a href="https://docs.spring.io/spring-security-oauth2-boot/docs/current-SNAPSHOT/reference/html5/#oauth2-boot-authorization-server-spring-security-oauth2-resource-server">何やら面倒そうな気配</a> がします。
-何か問題が起きたときに解決できる気がしなかったので私は今回Spring Security版を採用するのはやめました。</p>
-</div>
-<div class="paragraph">
+<p>リソースサーバやクライアントはSpring Securityのものが利用できるのかというと、不可能ではないが <a href="https://docs.spring.io/spring-security-oauth2-boot/docs/current-SNAPSHOT/reference/html5/#oauth2-boot-authorization-server-spring-security-oauth2-resource-server">何やら面倒そうな気配</a> がします。 何か問題が起きたときに解決できる気がしなかったので私は今回Spring Security版を採用するのはやめました。</p>
 <p>まとめると、Spring Bootでリソースサーバ兼認可サーバを作る場合、現時点ではSpring Boot 1.x の頃と同じ仕組みを利用するのが無難そう、という結論に至りました。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_リファレンス">リファレンス</h2>
-<div class="sectionbody">
-<div class="ulist">
+<h1 id="リファレンス">リファレンス</h1>
 <ul>
 <li>
 <p><a href="https://projects.spring.io/spring-security-oauth/docs/oauth2.html">OAuth 2 Developers Guide</a> - spring-security-oauth2</p>
-<div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/spring-projects/spring-security-oauth/tree/master/samples/oauth2" class="bare">https://github.com/spring-projects/spring-security-oauth/tree/master/samples/oauth2</a></p>
-<div class="ulist">
+<p><a href="https://github.com/spring-projects/spring-security-oauth/tree/master/samples/oauth2">https://github.com/spring-projects/spring-security-oauth/tree/master/samples/oauth2</a></p>
 <ul>
 <li>
 <p>(Spring Bootだけでなく)Spring Frameworkのコードが理解できるのならこのサンプルコードは役に立ちそうな気がします。私は理解できません。</p>
@@ -213,10 +154,8 @@ Qiita に昔(2019年中頃)書いていた資料を転記し忘れていたの�
 <p>正常動作させるために <a href="https://github.com/spring-projects/spring-security-oauth/pull/1674">プルリク#1674</a> をマージする必要がありました。</p>
 </li>
 </ul>
-</div>
 </li>
 </ul>
-</div>
 </li>
 <li>
 <p><a href="https://docs.spring.io/spring-security-oauth2-boot/docs/2.1.6.RELEASE/reference/html5/">OAuth2 Autoconfig</a> - spring-security-oauth2-boot の 2.1.6版</p>
@@ -226,59 +165,34 @@ Qiita に昔(2019年中頃)書いていた資料を転記し忘れていたの�
 </li>
 <li>
 <p><a href="https://spring.io/guides/tutorials/spring-boot-oauth2/">Spring Boot and OAuth2</a> - 公式チュートリアル</p>
-<div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/spring-guides/tut-spring-boot-oauth2" class="bare">https://github.com/spring-guides/tut-spring-boot-oauth2</a></p>
+<p><a href="https://github.com/spring-guides/tut-spring-boot-oauth2">https://github.com/spring-guides/tut-spring-boot-oauth2</a></p>
 </li>
 <li>
 <p>ソーシャルログインしたいわけではないので自分にはあまり見どころが無かった</p>
 </li>
 </ul>
-</div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p>spring-security-oauth2-boot の 2.1.6版だけでなくcurrent-SNAPSHOT版も見ないと情報が出揃わない、というのが罠でした。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_今回作成したコードについて">今回作成したコードについて</h2>
-<div class="sectionbody">
-<div class="ulist">
+<h1 id="今回作成したコードについて">今回作成したコードについて</h1>
 <ul>
-<li>
-<p><a href="https://github.com/yukihane/spring-security-oauth-demo" class="bare">https://github.com/yukihane/spring-security-oauth-demo</a></p>
-</li>
+<li><a href="https://github.com/yukihane/spring-security-oauth-demo">https://github.com/yukihane/spring-security-oauth-demo</a></li>
 </ul>
-</div>
-<div class="paragraph">
-<p>冒頭で紹介した @kazuki43zoo さんのソースのforkです。
-非互換性といくつか本質的でない変更を行っているのでそれについて記載しておきます。</p>
-</div>
-<div class="ulist">
+<p>冒頭で紹介した @kazuki43zoo さんのソースのforkです。 非互換性といくつか本質的でない変更を行っているのでそれについて記載しておきます。</p>
 <ul>
 <li>
 <p>クライアントにブラウザでアクセスした際の認証は OAuth 2.0 とは無関係かと考えたのでスキップするようにしています。 <a href="https://github.com/yukihane/spring-security-oauth-demo/commit/98db0dd40be08e63ec7e91210c8b0b7ed6f58989">98db0dd</a></p>
-<div class="ulist">
 <ul>
-<li>
-<p>(追記)ワンショットのリクエストならそれで問題ないのですが、 refresh_token のフローを見てみたい場合などはクライアントがセッションを持っている必要がありました(ので後にもとに戻しています)。</p>
-</li>
+<li>(追記)ワンショットのリクエストならそれで問題ないのですが、 refresh_token のフローを見てみたい場合などはクライアントがセッションを持っている必要がありました(ので後にもとに戻しています)。</li>
 </ul>
-</div>
 </li>
 <li>
 <p>grant_type: passwordが通りませんので「<a href="https://qiita.com/kazuki43zoo/items/9cc00f0c92c7b0e1e529#%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E3%81%AE%E5%8F%96%E5%BE%97">アクセストークンの取得</a>」の動作確認ができません。</p>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://projects.spring.io/spring-security-oauth/docs/oauth2.html#grant-types">このへん</a> やってないからかな、と思うのですがあまり興味がなかったのでちゃんとは見ていません。</p>
-</li>
+<li><a href="https://projects.spring.io/spring-security-oauth/docs/oauth2.html#grant-types">このへん</a> やってないからかな、と思うのですがあまり興味がなかったのでちゃんとは見ていません。</li>
 </ul>
-</div>
 </li>
 <li>
 <p>元々 <code>application.properties</code> で設定されていたものがJava Configに移っています。リファレンスを真似たためです。 <a href="https://github.com/yukihane/spring-security-oauth-demo/commit/87ab086226ffa96946eec1c9c765202835ba9dc9">87ab08</a></p>
@@ -290,9 +204,6 @@ Qiita に昔(2019年中頃)書いていた資料を転記し忘れていたの�
 <p>Javaバージョンを11に上げています。 <a href="https://github.com/yukihane/spring-security-oauth-demo/commit/c70a534bf6ee253f1697973580fe86f315177740">c70a534</a></p>
 </li>
 </ul>
-</div>
-</div>
-</div>
 
         </section>
         <div class="post-tags">
@@ -301,11 +212,11 @@ Qiita に昔(2019年中頃)書いていた資料を転記し忘れていたの�
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/spring-security">spring-security</a></li>
+              <li><a href="/tags/spring-security/">spring-security</a></li>
               
-              <li><a href="/tags/oauth">oauth</a></li>
+              <li><a href="/tags/oauth/">oauth</a></li>
               
-              <li><a href="/tags/spring-boot">spring-boot</a></li>
+              <li><a href="/tags/spring-boot/">spring-boot</a></li>
               
             </ul>
           </nav>
@@ -322,10 +233,10 @@ Qiita に昔(2019年中頃)書いていた資料を転記し忘れていたの�
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

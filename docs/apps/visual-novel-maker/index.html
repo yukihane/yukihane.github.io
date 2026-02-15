@@ -2,63 +2,38 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>ラノゲメーカーMV - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-リンク
-
-
+	<meta name="description" content="リンク
 基本情報
-
 
 
 オフィシャルサイト
 
-
-
 オフィシャルのDL版
-
-
 
 
 
 Steam
 
 
-
-
 メモ:
 
 
-
-
 ストア版(非Steam版)ではインストールできるのは1台(RPGツクールMVのみ2台)らしい(オフィシャルFAQ)。だとすると、複数の環境で開発する場合にはSteam版の方が良いのかもしれない。
-
-
 
 …と思いきや、 ストア版はSteamキーが付属しているのでストアで買えばSteam版として使用できるらしい。
 
 
 
-
-
-Steam版には Live2D が付属していないエディションがある。
-
-
-ラノゲツクールとラノゲツクールMVは別物。
-
-
-" />
-	<meta property="og:image" content=""/>
+Steam版には Live2D が付属していないエディションがある。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/apps/visual-novel-maker/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="ラノゲメーカーMV">
   <meta property="og:description" content="リンク 基本情報 オフィシャルサイト
-オフィシャルのDL版
-Steam
+オフィシャルのDL版 Steam
 メモ:
 ストア版(非Steam版)ではインストールできるのは1台(RPGツクールMVのみ2台)らしい(オフィシャルFAQ)。だとすると、複数の環境で開発する場合にはSteam版の方が良いのかもしれない。
-…と思いきや、 ストア版はSteamキーが付属しているのでストアで買えばSteam版として使用できるらしい。
-Steam版には Live2D が付属していないエディションがある。
-ラノゲツクールとラノゲツクールMVは別物。">
+…と思いきや、 ストア版はSteamキーが付属しているのでストアで買えばSteam版として使用できるらしい。 Steam版には Live2D が付属していないエディションがある。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -68,20 +43,17 @@ Steam版には Live2D が付属していないエディションがある。
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="ラノゲメーカーMV">
   <meta name="twitter:description" content="リンク 基本情報 オフィシャルサイト
-オフィシャルのDL版
-Steam
+オフィシャルのDL版 Steam
 メモ:
 ストア版(非Steam版)ではインストールできるのは1台(RPGツクールMVのみ2台)らしい(オフィシャルFAQ)。だとすると、複数の環境で開発する場合にはSteam版の方が良いのかもしれない。
-…と思いきや、 ストア版はSteamキーが付属しているのでストアで買えばSteam版として使用できるらしい。
-Steam版には Live2D が付属していないエディションがある。
-ラノゲツクールとラノゲツクールMVは別物。">
+…と思いきや、 ストア版はSteamキーが付属しているのでストアで買えばSteam版として使用できるらしい。 Steam版には Live2D が付属していないエディションがある。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -98,9 +70,17 @@ Steam版には Live2D が付属していないエディションがある。
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -117,42 +97,26 @@ Steam版には Live2D が付属していないエディションがある。
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_リンク">リンク</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_基本情報">基本情報</h3>
-<div class="ulist">
+          <h1 id="リンク">リンク</h1>
+<h2 id="基本情報">基本情報</h2>
 <ul>
 <li>
 <p><a href="https://tkool.jp/lngmv/">オフィシャルサイト</a></p>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://tkool.jp/lngmv/download/index.html">オフィシャルのDL版</a></p>
-</li>
+<li><a href="https://tkool.jp/lngmv/download/index.html">オフィシャルのDL版</a></li>
 </ul>
-</div>
 </li>
 <li>
 <p><a href="http://store.steampowered.com/app/495480/Visual_Novel_Maker/">Steam</a></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p>メモ:</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p>ストア版(非Steam版)ではインストールできるのは1台(RPGツクールMVのみ2台)らしい(<a href="https://tkool.jp/support/faq/activation">オフィシャルFAQ</a>)。だとすると、複数の環境で開発する場合にはSteam版の方が良いのかもしれない。</p>
-<div class="ulist">
 <ul>
-<li>
-<p>…と思いきや、 <a href="https://forum.tkool.jp/index.php?threads/%E3%83%A9%E3%83%8E%E3%82%B2%E3%83%84%E3%82%AF%E3%83%BC%E3%83%ABmv%E3%81%AE%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%81%AE%E4%BD%9C%E6%88%90%E3%81%8C%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E7%97%87%E7%8A%B6.578/">ストア版はSteamキーが付属している</a>のでストアで買えばSteam版として使用できるらしい。</p>
-</li>
+<li>…と思いきや、 <a href="https://forum.tkool.jp/index.php?threads/%E3%83%A9%E3%83%8E%E3%82%B2%E3%83%84%E3%82%AF%E3%83%BC%E3%83%ABmv%E3%81%AE%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%81%AE%E4%BD%9C%E6%88%90%E3%81%8C%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E7%97%87%E7%8A%B6.578/">ストア版はSteamキーが付属している</a>のでストアで買えばSteam版として使用できるらしい。</li>
 </ul>
-</div>
 </li>
 <li>
 <p>Steam版には Live2D が付属していないエディションがある。</p>
@@ -161,50 +125,18 @@ Steam版には Live2D が付属していないエディションがある。
 <p><a href="https://tkool.jp/lng/">ラノゲツクール</a>とラノゲツクールMVは別物。</p>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_チュートリアルなど初心者向け情報">チュートリアルなど初心者向け情報</h3>
-<div class="ulist">
+<h2 id="チュートリアルなど初心者向け情報">チュートリアルなど初心者向け情報</h2>
 <ul>
-<li>
-<p><a href="https://steamcommunity.com/app/495480/discussions/0/3183345176714166592/">Tutorials
-:: Visual Novel Maker General Discussion</a> -
-チュートリアルビデオリンク集(英語)</p>
-</li>
+<li><a href="https://steamcommunity.com/app/495480/discussions/0/3183345176714166592/">Tutorials :: Visual Novel Maker General Discussion</a> - チュートリアルビデオリンク集(英語)</li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_初期設定序盤知識">初期設定/序盤知識</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_日本語">日本語</h3>
-<div class="paragraph">
+<h1 id="初期設定序盤知識">初期設定/序盤知識</h1>
+<h2 id="日本語">日本語</h2>
 <p>Tools &gt; Preferences &gt; Application &gt; General の Language</p>
-</div>
-<div class="paragraph">
-<p>設定が終わったら再起動。
-なお、https://tkool.jp/support/faq/lngmv/lngmv_faq[オフィシャルのFAQ]によると、すぐに再起動するのでなく、終了後10秒ほど待ってから起動すると良いらしい。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_マニュアル">マニュアル</h3>
-<div class="paragraph">
+<p>設定が終わったら再起動。 なお、https://tkool.jp/support/faq/lngmv/lngmv_faq[オフィシャルのFAQ]によると、すぐに再起動するのでなく、終了後10秒ほど待ってから起動すると良いらしい。</p>
+<h2 id="マニュアル">マニュアル</h2>
 <p>ヘルプメニューから開けるが、一瞬どう見ればいいのかわからない。</p>
-</div>
-<div class="paragraph">
-<p>左端のナビゲーションの中の Table of Contents
-をクリックしてメニューを出した後、そのメニューの中の▲をクリックすれば全体の目次が表示される。</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="Vnmaker_helpmenu.png" alt="Vnmaker_helpmenu.png" title="Vnmaker_helpmenu.png"/></span></p>
-</div>
-</div>
-</div>
-</div>
+<p>左端のナビゲーションの中の Table of Contents をクリックしてメニューを出した後、そのメニューの中の▲をクリックすれば全体の目次が表示される。</p>
+<p><img src="Vnmaker_helpmenu.png" alt=""></p>
 
         </section>
         <div class="post-tags">
@@ -222,10 +154,10 @@ Steam版には Live2D が付属していないエディションがある。
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

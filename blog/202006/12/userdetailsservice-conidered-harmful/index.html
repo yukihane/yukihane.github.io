@@ -2,10 +2,8 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>UserDetailsServiceは誤解されている - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-サンプルコード等だけを見ていると UserDetailsService を利用することがSpring Securityの唯一の認証処理実現方法だと誤解しがちですが、 UserDetailsService はむしろユーティリティライブラリくらいの立ち位置で、別に利用しなくても実現可能です。
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="サンプルコード等だけを見ていると UserDetailsService を利用することがSpring Securityの唯一の認証処理実現方法だと誤解しがちですが、 UserDetailsService はむしろユーティリティライブラリくらいの立ち位置で、別に利用しなくても実現可能です。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202006/12/userdetailsservice-conidered-harmful/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="UserDetailsServiceは誤解されている">
@@ -26,8 +24,8 @@
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -44,9 +42,17 @@
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -63,34 +69,14 @@
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>サンプルコード等だけを見ていると <code>UserDetailsService</code> を利用することがSpring Securityの唯一の認証処理実現方法だと誤解しがちですが、 <code>UserDetailsService</code> はむしろユーティリティライブラリくらいの立ち位置で、別に利用しなくても実現可能です。</p>
-</div>
-<div class="paragraph">
-<p>そして、役割も誤解されがちで、これは単に認証に必要な情報を&#34;名前をキーにして&#34;取得するDAOです。
-認証を行うクラスではありませんし、そもそも名前をキーにしないようなシステムでは適合しません。
-しかしSpring Boot上でデフォルト設定で使っていると認証するためのクラスが一切出てこないので誤解してしまう、というわけです。</p>
-</div>
-<div class="paragraph">
+          <p>サンプルコード等だけを見ていると <code>UserDetailsService</code> を利用することがSpring Securityの唯一の認証処理実現方法だと誤解しがちですが、 <code>UserDetailsService</code> はむしろユーティリティライブラリくらいの立ち位置で、別に利用しなくても実現可能です。</p>
+<p>そして、役割も誤解されがちで、これは単に認証に必要な情報を&quot;名前をキーにして&quot;取得するDAOです。 認証を行うクラスではありませんし、そもそも名前をキーにしないようなシステムでは適合しません。 しかしSpring Boot上でデフォルト設定で使っていると認証するためのクラスが一切出てこないので誤解してしまう、というわけです。</p>
 <p>公式リファレンスでは次のようにあります:</p>
-</div>
-<div class="quoteblock">
 <blockquote>
-<div class="paragraph">
 <p><code>UserDetailsService</code> is a DAO interface for loading data that is specific to a user account. It has no other function other to load that data for use by other components within the framework. It is not responsible for authenticating the user. Authenticating a user with a username/password combination is most commonly performed by the <code>DaoAuthenticationProvider</code>, which is injected with a <code>UserDetailsService</code> to allow it to load the password (and other data) for a user in order to compare it with the submitted value. Note that if you are using LDAP, this approach may not work.</p>
-</div>
-<div class="paragraph">
 <p>If you want to customize the authentication process then you should implement AuthenticationProvider yourself.</p>
-</div>
-</blockquote>
-<div class="attribution">
-— <a href="https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#appendix-faq-what-is-userdetailservice">What is a UserDetailsService and do I need one?</a>
-</div>
-</div>
-<div class="paragraph">
+<p>—  <a href="https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#appendix-faq-what-is-userdetailservice">What is a UserDetailsService and do I need one?</a></p></blockquote>
 <p>その他、次のQ&amp;Aも参照してみてください:</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p><a href="https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#appendix-faq-extra-login-fields">I need to login in with more information than just the username.</a></p>
@@ -105,33 +91,16 @@
 <p><a href="https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#appendix-faq-password-in-user-service">How do I access the user’s password in a UserDetailsService?</a></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p>要約すると、それらは <code>UserDetailsService</code> の役割ではなくて、 認証フィルター だったり authentication-provider だったりが為すべきことである、というのが理解されていない、というような話です。</p>
-</div>
-<div class="paragraph">
 <p>このような誤解を避けるためにも、少なくともはじめはユーティリティクラスであるところの <code>UserDetailsService</code> を利用しない、シンプルなコードサンプルを参照して理解したほうが良いのではないか、と考えるに至りました。</p>
-</div>
-<div class="paragraph">
 <p>が、そういったサンプルがどこにあるか思い浮かばなかったので(オフィシャルのサンプルも常に <code>UserDetailsService</code> を使っている)、自分で作りました。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/yukihane/hello-java/tree/master/spring/springboot-auth-example-202006" class="bare">https://github.com/yukihane/hello-java/tree/master/spring/springboot-auth-example-202006</a></p>
-</li>
+<li><a href="https://github.com/yukihane/hello-java/tree/master/spring/springboot-auth-example-202006">https://github.com/yukihane/hello-java/tree/master/spring/springboot-auth-example-202006</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>関連リンク:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://ja.stackoverflow.com/q/67596/2808">UserDetailsServiceのloadUserByUsernameの存在意義がよくわからないです</a></p>
-</li>
+<li><a href="https://ja.stackoverflow.com/q/67596/2808">UserDetailsServiceのloadUserByUsernameの存在意義がよくわからないです</a></li>
 </ul>
-</div>
 
         </section>
         <div class="post-tags">
@@ -140,9 +109,9 @@
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/spring-boot">spring-boot</a></li>
+              <li><a href="/tags/spring-boot/">spring-boot</a></li>
               
-              <li><a href="/tags/spring-security">spring-security</a></li>
+              <li><a href="/tags/spring-security/">spring-security</a></li>
               
             </ul>
           </nav>
@@ -159,10 +128,10 @@
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

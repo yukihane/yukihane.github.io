@@ -2,82 +2,133 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Rust学習メモ - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-リンク
-
-
-
+	<meta name="description" content="リンク
 
 Rust Playground
-
-
 https://imoz.jp/note/rust-functions.html[Rustは何が新しいのか（基本的な言語機能の紹介）
-
 
 
 いもす研 (imos laboratory)]
 
 
-
-
-
 プログラミング言語Rust
 
-
-
 原版にはhttps://doc.rust-lang.org/book/first-edition/[1st
-Edition], 2nd
-Editionがあるが、そのどちらとも違う模様(和訳されているのは1stの古いバージョンか？)
-
-
-
+Edition], https://doc.rust-lang.org/book/second-edition/[2nd
+Edition]があるが、そのどちらとも違う模様(和訳されているのは1stの古いバージョンか？)
 
 
 Rust by Example
-
-
-
-
-
 
 学習順序
 
-
-
-
 プログラミング言語Rust
 3.1数当てゲームまでを実行。
-
-
-Rust by
-Exampleのhttp://rust-lang-ja.org/rust-by-example/hello.html[1Hello
+http://rust-lang-ja.org/rust-by-example/[Rust by
+Example]のhttp://rust-lang-ja.org/rust-by-example/hello.html[1Hello
 World]を少し読むも、先にテスト方法を見ておいた方がよいかと考える。
-
-
 プログラミング言語Rust
-5.2
-テストを実行。
+https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/testing.html[5.2
+テスト]を実行。
+
+
+新用語: アトリビュート(#[test], #[cfg(test)]), モジュール
+
+
+https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/crates-and-modules.html[4.25
+クレートとモジュール]
+
+
+クレート(crate):
+他の言語における「ライブラリ」や「パッケージ」(Javaでいうところのpackageではないと思う)
+モジュール:
+Javaのpackageのようなもの。ただし階層(ディレクトリ)ごとに可視性を設定できる模様
+
+
+https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/attributes.html[4.27
+アトリビュート]
+
+
+Javaのアノテーションのようなものか。ただしおそらくコンパイル時に解釈されるもののみ。
+(少なくとも現時点では)アトリビュートの自作はできない。言語仕様で決められているものがすべて。
+
+
+冒頭リンク
+Rustは何が新しいのかを流し読み。わからないこともいくつかあるがとりあえず流す。
+
+
+&quot;hoge&quot;.into()のintoとは？ (「into() の返り値は result
+の型に依存するので、推論には用いられません。」というコメントがあるが…？)
+ジェネリクスの&amp;&#39;a？(「&lsquo;a は寿命を表し、orig
+と返り値は同じ寿命であることを表します。」というコメントがあるが…？)
+
+
+Rust by Exampleを再開。
+
+
+3.1構造体
+
+デストラクト単に「分解する」の意味の模様。デストラクタなどの言語仕様的な単語ではない。http://rust-lang-ja.org/rust-by-example/flow_control/match/destructuring.html[7.5.1
+デストラクト]に説明がある。なお原文では destructure/destructuring
+であり、destructではない。
+ユニット: 原文ではユニット構造体(unit
+structs)。単に「ユニット」と呼ぶとほかの何かと混同してしまうのではないか。
+「構造体の定義とインスタンスの作成を同時に行う」は原文では「struct
+instantiation is an expression too」となっており全く意味が違う。
+
+
+http://rust-lang-ja.org/rust-by-example/custom_types/enum/testcase_linked_list.html[3.2.3
+テストケース: 連結リスト]
+
+Box:
+「Rustにおいて、すべての値はデフォルトでスタックに割り当てられます。Boxを作成することで、値をボックス化、すなわちヒープ上に割り当てることができます。ボックスとは正確にはヒープ上におかれたTの値へのスマートポインタです。」http://rust-lang-ja.org/rust-by-example/std/box.html[17.1
+Box, スタックとヒープ] より。
+やろうとしていることはわかるが各要素が理解できない。後で見直す。
+
+
+変数をアンダーバーから始めると未使用でも警告が出ない。
+型キャストの仕様は独特だが、必要な時に見直せばよいか。
+5 型キャスティング
+
+未解決の疑問点など
+
+メソッドのオーバロードはない？
+
+http://rust-lang-ja.org/rust-by-example/fn/methods.html
+とかを見ると名前を変えている。
+https://www.reddit.com/r/rust/comments/2umcxv/wait_rust_doesnt_have_function_overloading/
 
 
 
-新用語: アトリビュート([test], [cfg(test)]), モジュール
-
-
-" />
-	<meta property="og:image" content=""/>
+Rustでオーバーロードが存在すると引数でmoveするのかborrowするのか紛らわしくなるのでそれを嫌っている可能性も？" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/rust/rust-memo/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Rust学習メモ">
-  <meta property="og:description" content="リンク Rust Playground
-https://imoz.jp/note/rust-functions.html[Rustは何が新しいのか（基本的な言語機能の紹介）
-いもす研 (imos laboratory)]
-プログラミング言語Rust
-原版にはhttps://doc.rust-lang.org/book/first-edition/[1st Edition], 2nd Editionがあるが、そのどちらとも違う模様(和訳されているのは1stの古いバージョンか？)
-Rust by Example
-学習順序 プログラミング言語Rust 3.1数当てゲームまでを実行。
-Rust by Exampleのhttp://rust-lang-ja.org/rust-by-example/hello.html[1Hello World]を少し読むも、先にテスト方法を見ておいた方がよいかと考える。
-プログラミング言語Rust 5.2 テストを実行。
-新用語: アトリビュート([test], [cfg(test)]), モジュール">
+  <meta property="og:description" content="リンク Rust Playground https://imoz.jp/note/rust-functions.html[Rustは何が新しいのか（基本的な言語機能の紹介） いもす研 (imos laboratory)] プログラミング言語Rust 原版にはhttps://doc.rust-lang.org/book/first-edition/[1st
+Edition], https://doc.rust-lang.org/book/second-edition/[2nd
+Edition]があるが、そのどちらとも違う模様(和訳されているのは1stの古いバージョンか？) Rust by Example 学習順序 プログラミング言語Rust
+3.1数当てゲームまでを実行。 http://rust-lang-ja.org/rust-by-example/[Rust by
+Example]のhttp://rust-lang-ja.org/rust-by-example/hello.html[1Hello
+World]を少し読むも、先にテスト方法を見ておいた方がよいかと考える。 プログラミング言語Rust
+https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/testing.html[5.2
+テスト]を実行。 新用語: アトリビュート(#[test], #[cfg(test)]), モジュール https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/crates-and-modules.html[4.25
+クレートとモジュール] クレート(crate):
+他の言語における「ライブラリ」や「パッケージ」(Javaでいうところのpackageではないと思う) モジュール:
+Javaのpackageのようなもの。ただし階層(ディレクトリ)ごとに可視性を設定できる模様 https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/attributes.html[4.27
+アトリビュート] Javaのアノテーションのようなものか。ただしおそらくコンパイル時に解釈されるもののみ。 (少なくとも現時点では)アトリビュートの自作はできない。言語仕様で決められているものがすべて。 冒頭リンク
+Rustは何が新しいのかを流し読み。わからないこともいくつかあるがとりあえず流す。 &#34;hoge&#34;.into()のintoとは？ (「into() の返り値は result
+の型に依存するので、推論には用いられません。」というコメントがあるが…？) ジェネリクスの&amp;&#39;a？(「‘a は寿命を表し、orig
+と返り値は同じ寿命であることを表します。」というコメントがあるが…？) Rust by Exampleを再開。 3.1構造体 デストラクト単に「分解する」の意味の模様。デストラクタなどの言語仕様的な単語ではない。http://rust-lang-ja.org/rust-by-example/flow_control/match/destructuring.html[7.5.1
+デストラクト]に説明がある。なお原文では destructure/destructuring
+であり、destructではない。 ユニット: 原文ではユニット構造体(unit
+structs)。単に「ユニット」と呼ぶとほかの何かと混同してしまうのではないか。 「構造体の定義とインスタンスの作成を同時に行う」は原文では「struct
+instantiation is an expression too」となっており全く意味が違う。 http://rust-lang-ja.org/rust-by-example/custom_types/enum/testcase_linked_list.html[3.2.3
+テストケース: 連結リスト] Box:
+「Rustにおいて、すべての値はデフォルトでスタックに割り当てられます。Boxを作成することで、値をボックス化、すなわちヒープ上に割り当てることができます。ボックスとは正確にはヒープ上におかれたTの値へのスマートポインタです。」http://rust-lang-ja.org/rust-by-example/std/box.html[17.1
+Box, スタックとヒープ] より。 やろうとしていることはわかるが各要素が理解できない。後で見直す。 変数をアンダーバーから始めると未使用でも警告が出ない。 型キャストの仕様は独特だが、必要な時に見直せばよいか。
+5 型キャスティング 未解決の疑問点など メソッドのオーバロードはない？ http://rust-lang-ja.org/rust-by-example/fn/methods.html
+とかを見ると名前を変えている。 https://www.reddit.com/r/rust/comments/2umcxv/wait_rust_doesnt_have_function_overloading/ Rustでオーバーロードが存在すると引数でmoveするのかborrowするのか紛らわしくなるのでそれを嫌っている可能性も？">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -86,23 +137,37 @@ Rust by Exampleのhttp://rust-lang-ja.org/rust-by-example/hello.html[1Hello Worl
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Rust学習メモ">
-  <meta name="twitter:description" content="リンク Rust Playground
-https://imoz.jp/note/rust-functions.html[Rustは何が新しいのか（基本的な言語機能の紹介）
-いもす研 (imos laboratory)]
-プログラミング言語Rust
-原版にはhttps://doc.rust-lang.org/book/first-edition/[1st Edition], 2nd Editionがあるが、そのどちらとも違う模様(和訳されているのは1stの古いバージョンか？)
-Rust by Example
-学習順序 プログラミング言語Rust 3.1数当てゲームまでを実行。
-Rust by Exampleのhttp://rust-lang-ja.org/rust-by-example/hello.html[1Hello World]を少し読むも、先にテスト方法を見ておいた方がよいかと考える。
-プログラミング言語Rust 5.2 テストを実行。
-新用語: アトリビュート([test], [cfg(test)]), モジュール">
+  <meta name="twitter:description" content="リンク Rust Playground https://imoz.jp/note/rust-functions.html[Rustは何が新しいのか（基本的な言語機能の紹介） いもす研 (imos laboratory)] プログラミング言語Rust 原版にはhttps://doc.rust-lang.org/book/first-edition/[1st
+Edition], https://doc.rust-lang.org/book/second-edition/[2nd
+Edition]があるが、そのどちらとも違う模様(和訳されているのは1stの古いバージョンか？) Rust by Example 学習順序 プログラミング言語Rust
+3.1数当てゲームまでを実行。 http://rust-lang-ja.org/rust-by-example/[Rust by
+Example]のhttp://rust-lang-ja.org/rust-by-example/hello.html[1Hello
+World]を少し読むも、先にテスト方法を見ておいた方がよいかと考える。 プログラミング言語Rust
+https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/testing.html[5.2
+テスト]を実行。 新用語: アトリビュート(#[test], #[cfg(test)]), モジュール https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/crates-and-modules.html[4.25
+クレートとモジュール] クレート(crate):
+他の言語における「ライブラリ」や「パッケージ」(Javaでいうところのpackageではないと思う) モジュール:
+Javaのpackageのようなもの。ただし階層(ディレクトリ)ごとに可視性を設定できる模様 https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/attributes.html[4.27
+アトリビュート] Javaのアノテーションのようなものか。ただしおそらくコンパイル時に解釈されるもののみ。 (少なくとも現時点では)アトリビュートの自作はできない。言語仕様で決められているものがすべて。 冒頭リンク
+Rustは何が新しいのかを流し読み。わからないこともいくつかあるがとりあえず流す。 &#34;hoge&#34;.into()のintoとは？ (「into() の返り値は result
+の型に依存するので、推論には用いられません。」というコメントがあるが…？) ジェネリクスの&amp;&#39;a？(「‘a は寿命を表し、orig
+と返り値は同じ寿命であることを表します。」というコメントがあるが…？) Rust by Exampleを再開。 3.1構造体 デストラクト単に「分解する」の意味の模様。デストラクタなどの言語仕様的な単語ではない。http://rust-lang-ja.org/rust-by-example/flow_control/match/destructuring.html[7.5.1
+デストラクト]に説明がある。なお原文では destructure/destructuring
+であり、destructではない。 ユニット: 原文ではユニット構造体(unit
+structs)。単に「ユニット」と呼ぶとほかの何かと混同してしまうのではないか。 「構造体の定義とインスタンスの作成を同時に行う」は原文では「struct
+instantiation is an expression too」となっており全く意味が違う。 http://rust-lang-ja.org/rust-by-example/custom_types/enum/testcase_linked_list.html[3.2.3
+テストケース: 連結リスト] Box:
+「Rustにおいて、すべての値はデフォルトでスタックに割り当てられます。Boxを作成することで、値をボックス化、すなわちヒープ上に割り当てることができます。ボックスとは正確にはヒープ上におかれたTの値へのスマートポインタです。」http://rust-lang-ja.org/rust-by-example/std/box.html[17.1
+Box, スタックとヒープ] より。 やろうとしていることはわかるが各要素が理解できない。後で見直す。 変数をアンダーバーから始めると未使用でも警告が出ない。 型キャストの仕様は独特だが、必要な時に見直せばよいか。
+5 型キャスティング 未解決の疑問点など メソッドのオーバロードはない？ http://rust-lang-ja.org/rust-by-example/fn/methods.html
+とかを見ると名前を変えている。 https://www.reddit.com/r/rust/comments/2umcxv/wait_rust_doesnt_have_function_overloading/ Rustでオーバーロードが存在すると引数でmoveするのかborrowするのか紛らわしくなるのでそれを嫌っている可能性も？">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -119,9 +184,17 @@ Rust by Exampleのhttp://rust-lang-ja.org/rust-by-example/hello.html[1Hello Worl
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -138,212 +211,115 @@ Rust by Exampleのhttp://rust-lang-ja.org/rust-by-example/hello.html[1Hello Worl
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_リンク">リンク</h2>
-<div class="sectionbody">
-<div class="ulist">
+          <h2 id="リンク">リンク</h2>
 <ul>
-<li>
-<p><a href="https://play.rust-lang.org/">Rust Playground</a></p>
-</li>
-<li>
-<p><a href="https://imoz.jp/note/rust-functions.html" class="bare">https://imoz.jp/note/rust-functions.html</a>[Rustは何が新しいのか（基本的な言語機能の紹介）</p>
-<div class="ulist">
+<li><a href="https://play.rust-lang.org/">Rust Playground</a></li>
+<li><a href="https://imoz.jp/note/rust-functions.html[Rust">https://imoz.jp/note/rust-functions.html[Rust</a>は何が新しいのか（基本的な言語機能の紹介）</li>
+</ul>
 <ul>
-<li>
-<p>いもす研 (imos laboratory)]</p>
-</li>
+<li>いもす研 (imos laboratory)]</li>
 </ul>
-</div>
-</li>
-<li>
-<p><a href="http://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/">プログラミング言語Rust</a></p>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://doc.rust-lang.org/book/">原版</a>にはhttps://doc.rust-lang.org/book/first-edition/[1st
-Edition], <a href="https://doc.rust-lang.org/book/second-edition/">2nd
-Edition</a>があるが、そのどちらとも違う模様(和訳されているのは1stの古いバージョンか？)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><a href="http://rust-lang-ja.org/rust-by-example/">Rust by Example</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_学習順序">学習順序</h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><a href="http://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/">プログラミング言語Rust</a>
-<a href="http://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/guessing-game.html">3.1数当てゲーム</a>までを実行。</p>
-</li>
-<li>
-<p><a href="http://rust-lang-ja.org/rust-by-example/">Rust by
-Example</a>のhttp://rust-lang-ja.org/rust-by-example/hello.html[1Hello
-World]を少し読むも、先にテスト方法を見ておいた方がよいかと考える。</p>
-</li>
-<li>
-<p><a href="http://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/">プログラミング言語Rust</a>
-<a href="https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/testing.html">5.2
-テスト</a>を実行。</p>
-<div class="ulist">
+<li><a href="http://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/">プログラミング言語Rust</a>
 <ul>
-<li>
-<p>新用語: <strong>アトリビュート</strong>(<code><mark>[test]</mark></code>, <code>[cfg(test)]</code>), <strong>モジュール</strong></p>
-</li>
+<li><a href="https://doc.rust-lang.org/book/">原版</a>にはhttps://doc.rust-lang.org/book/first-edition/[1st<br />
+Edition], <a href="https://doc.rust-lang.org/book/second-edition/[2nd">https://doc.rust-lang.org/book/second-edition/[2nd</a><br />
+Edition]があるが、そのどちらとも違う模様(和訳されているのは1stの古いバージョンか？)</li>
 </ul>
-</div>
 </li>
-<li>
-<p><a href="https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/crates-and-modules.html">4.25
-クレートとモジュール</a></p>
-<div class="ulist">
-<ul>
-<li>
-<p>クレート(crate):
-他の言語における「ライブラリ」や「パッケージ」(Javaでいうところのpackageではないと思う)</p>
-</li>
-<li>
-<p>モジュール:
-Javaのpackageのようなもの。ただし階層(ディレクトリ)ごとに可視性を設定できる模様</p>
-</li>
+<li><a href="http://rust-lang-ja.org/rust-by-example/">Rust by Example</a></li>
 </ul>
-</div>
-</li>
-<li>
-<p><a href="https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/attributes.html">4.27
-アトリビュート</a></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Javaのアノテーションのようなものか。ただしおそらくコンパイル時に解釈されるもののみ。</p>
-</li>
-<li>
-<p>(少なくとも現時点では)アトリビュートの自作はできない。言語仕様で決められているものがすべて。</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>冒頭リンク
-<a href="https://imoz.jp/note/rust-functions.html">Rustは何が新しいのか</a>を流し読み。わからないこともいくつかあるがとりあえず流す。</p>
-<div class="ulist">
-<ul>
-<li>
-<p>`&#34;hoge&#34;.into()`の`into`とは？ (「into() の返り値は result
-の型に依存するので、推論には用いられません。」というコメントがあるが…？)</p>
-</li>
-<li>
-<p>ジェネリクスの`&amp;&#39;a`？(「&#39;a は寿命を表し、orig
-と返り値は同じ寿命であることを表します。」というコメントがあるが…？)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Rust by Exampleを再開。</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="http://rust-lang-ja.org/rust-by-example/custom_types/structs.html">3.1構造体</a></p>
-<div class="ulist">
-<ul>
-<li>
-<p>デストラクト単に「分解する」の意味の模様。デストラクタなどの言語仕様的な単語ではない。http://rust-lang-ja.org/rust-by-example/flow_control/match/destructuring.html[7.5.1
-デストラクト]に説明がある。なお原文では destructure/destructuring
-であり、destructではない。</p>
-</li>
-<li>
-<p>ユニット: 原文ではユニット構造体(unit
-structs)。単に「ユニット」と呼ぶとほかの何かと混同してしまうのではないか。</p>
-</li>
-<li>
-<p>「構造体の定義とインスタンスの作成を同時に行う」は原文では「struct
-instantiation is an expression too」となっており全く意味が違う。</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><a href="http://rust-lang-ja.org/rust-by-example/custom_types/enum/testcase_linked_list.html">3.2.3
-テストケース: 連結リスト</a></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Box:
-「Rustにおいて、すべての値はデフォルトでスタックに割り当てられます。Boxを作成することで、値をボックス化、すなわちヒープ上に割り当てることができます。ボックスとは正確にはヒープ上におかれたTの値へのスマートポインタです。」http://rust-lang-ja.org/rust-by-example/std/box.html[17.1
-Box, スタックとヒープ] より。</p>
-</li>
-<li>
-<p>やろうとしていることはわかるが各要素が理解できない。後で見直す。</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>変数をアンダーバーから始めると未使用でも警告が出ない。</p>
-</li>
-<li>
-<p>型キャストの仕様は独特だが、必要な時に見直せばよいか。
-<a href="http://rust-lang-ja.org/rust-by-example/cast.html">5 型キャスティング</a></p>
-</li>
-</ul>
-</div>
-</li>
+<h2 id="学習順序">学習順序</h2>
+<ol>
+<li><a href="http://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/">プログラミング言語Rust</a><br />
+<a href="http://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/guessing-game.html">3.1数当てゲーム</a>までを実行。</li>
+<li><a href="http://rust-lang-ja.org/rust-by-example/[Rust">http://rust-lang-ja.org/rust-by-example/[Rust</a> by<br />
+Example]のhttp://rust-lang-ja.org/rust-by-example/hello.html[1Hello<br />
+World]を少し読むも、先にテスト方法を見ておいた方がよいかと考える。</li>
+<li><a href="http://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/">プログラミング言語Rust</a><br />
+<a href="https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/testing.html[5.2">https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/testing.html[5.2</a><br />
+テスト]を実行。</li>
 </ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_未解決の疑問点など">未解決の疑問点など</h2>
-<div class="sectionbody">
-<div class="ulist">
 <ul>
-<li>
-<p>メソッドのオーバロードはない？</p>
-<div class="ulist">
+<li>新用語: <em>アトリビュート</em>(<code>#[test]</code>, <code>#[cfg(test)]</code>), <em>モジュール</em></li>
+</ul>
+<ol>
+<li><a href="https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/crates-and-modules.html[4.25">https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/crates-and-modules.html[4.25</a><br />
+クレートとモジュール]</li>
+</ol>
 <ul>
-<li>
-<p><a href="http://rust-lang-ja.org/rust-by-example/fn/methods.html" class="bare">http://rust-lang-ja.org/rust-by-example/fn/methods.html</a>
-とかを見ると名前を変えている。</p>
+<li>クレート(crate):<br />
+他の言語における「ライブラリ」や「パッケージ」(Javaでいうところのpackageではないと思う)</li>
+<li>モジュール:<br />
+Javaのpackageのようなもの。ただし階層(ディレクトリ)ごとに可視性を設定できる模様</li>
+</ul>
+<ol>
+<li><a href="https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/attributes.html[4.27">https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/attributes.html[4.27</a><br />
+アトリビュート]</li>
+</ol>
+<ul>
+<li>Javaのアノテーションのようなものか。ただしおそらくコンパイル時に解釈されるもののみ。</li>
+<li>(少なくとも現時点では)アトリビュートの自作はできない。言語仕様で決められているものがすべて。</li>
+</ul>
+<ol>
+<li>冒頭リンク<br />
+<a href="https://imoz.jp/note/rust-functions.html">Rustは何が新しいのか</a>を流し読み。わからないこともいくつかあるがとりあえず流す。</li>
+</ol>
+<ul>
+<li><code>&quot;hoge&quot;.into()</code>の<code>into</code>とは？ (「into() の返り値は result<br />
+の型に依存するので、推論には用いられません。」というコメントがあるが…？)</li>
+<li>ジェネリクスの<code>&amp;'a</code>？(「&lsquo;a は寿命を表し、orig<br />
+と返り値は同じ寿命であることを表します。」というコメントがあるが…？)</li>
+</ul>
+<ol>
+<li>Rust by Exampleを再開。</li>
+</ol>
+<ul>
+<li><a href="http://rust-lang-ja.org/rust-by-example/custom_types/structs.html">3.1構造体</a>
+<ul>
+<li>デストラクト単に「分解する」の意味の模様。デストラクタなどの言語仕様的な単語ではない。http://rust-lang-ja.org/rust-by-example/flow_control/match/destructuring.html[7.5.1<br />
+デストラクト]に説明がある。なお原文では destructure/destructuring<br />
+であり、destructではない。</li>
+<li>ユニット: 原文ではユニット構造体(unit<br />
+structs)。単に「ユニット」と呼ぶとほかの何かと混同してしまうのではないか。</li>
+<li>「構造体の定義とインスタンスの作成を同時に行う」は原文では「struct<br />
+instantiation is an expression too」となっており全く意味が違う。</li>
+</ul>
 </li>
-<li>
-<p><a href="https://www.reddit.com/r/rust/comments/2umcxv/wait_rust_doesnt_have_function_overloading/" class="bare">https://www.reddit.com/r/rust/comments/2umcxv/wait_rust_doesnt_have_function_overloading/</a></p>
+<li><a href="http://rust-lang-ja.org/rust-by-example/custom_types/enum/testcase_linked_list.html[3.2.3">http://rust-lang-ja.org/rust-by-example/custom_types/enum/testcase_linked_list.html[3.2.3</a><br />
+テストケース: 連結リスト]
+<ul>
+<li>Box:<br />
+「Rustにおいて、すべての値はデフォルトでスタックに割り当てられます。Boxを作成することで、値をボックス化、すなわちヒープ上に割り当てることができます。ボックスとは正確にはヒープ上におかれたTの値へのスマートポインタです。」http://rust-lang-ja.org/rust-by-example/std/box.html[17.1<br />
+Box, スタックとヒープ] より。</li>
+<li>やろうとしていることはわかるが各要素が理解できない。後で見直す。</li>
+</ul>
+</li>
+<li>変数をアンダーバーから始めると未使用でも警告が出ない。</li>
+<li>型キャストの仕様は独特だが、必要な時に見直せばよいか。<br />
+<a href="http://rust-lang-ja.org/rust-by-example/cast.html">5 型キャスティング</a></li>
+</ul>
+<h2 id="未解決の疑問点など">未解決の疑問点など</h2>
+<ul>
+<li>メソッドのオーバロードはない？
+<ul>
+<li><a href="http://rust-lang-ja.org/rust-by-example/fn/methods.html">http://rust-lang-ja.org/rust-by-example/fn/methods.html</a><br />
+とかを見ると名前を変えている。</li>
+<li><a href="https://www.reddit.com/r/rust/comments/2umcxv/wait_rust_doesnt_have_function_overloading/">https://www.reddit.com/r/rust/comments/2umcxv/wait_rust_doesnt_have_function_overloading/</a></li>
+</ul>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
 <p>Rustでオーバーロードが存在すると引数でmoveするのかborrowするのか紛らわしくなるのでそれを嫌っている可能性も？</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p>「メソッド」という呼称はなくなった？</p>
-<div class="ulist">
+<li>「メソッド」という呼称はなくなった？
 <ul>
-<li>
-<p><a href="http://rust-lang-ja.org/rust-by-example/generics/impl.html" class="bare">http://rust-lang-ja.org/rust-by-example/generics/impl.html</a>
-のタイトルは「メソッド」だが、英語版では
-<a href="https://rustbyexample.com/generics/impl.html" class="bare">https://rustbyexample.com/generics/impl.html</a>
-&#34;Implementation&#34;(実装)になっている。</p>
+<li><a href="http://rust-lang-ja.org/rust-by-example/generics/impl.html">http://rust-lang-ja.org/rust-by-example/generics/impl.html</a><br />
+のタイトルは「メソッド」だが、英語版では<br />
+<a href="https://rustbyexample.com/generics/impl.html">https://rustbyexample.com/generics/impl.html</a><br />
+&ldquo;Implementation&rdquo;(実装)になっている。</li>
+</ul>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
 
         </section>
         <div class="post-tags">
@@ -361,10 +337,10 @@ Box, スタックとヒープ] より。</p>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

@@ -2,45 +2,27 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>JAAS - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-https://github.com/yukihane/hello-rest-environment の hello-wildfly-rest
-にサンプルコードを置いている。
-
-
+	<meta name="description" content="https://github.com/yukihane/hello-rest-environment の hello-wildfly-rest にサンプルコードを置いている。
 WildFly設定 standalone/configuration/standalone.xml
 
 
+Security subsystem configuration - WildFly 10 - Project Documentation Editor
 
-
-Security
-subsystem configuration - WildFly 10 - Project Documentation Editor
-
-
-
-Authentication
-Modules - WildFly 10 - Project Documentation Editor
+Authentication Modules - WildFly 10 - Project Documentation Editor
 
 
 
+Wildfly 8でJAAS - hatenob
 
 
-Wildfly 8でJAAS -
-hatenob
-
-
-
-
-standalone/configuration/standalone.xml の security
-サブシステム設定部分にsecurity-domainを追加:
-" />
-	<meta property="og:image" content=""/>
+standalone/configuration/standalone.xml の security サブシステム設定部分にsecurity-domainを追加:" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/wildfly/jaas/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="JAAS">
   <meta property="og:description" content="https://github.com/yukihane/hello-rest-environment の hello-wildfly-rest にサンプルコードを置いている。
 WildFly設定 standalone/configuration/standalone.xml Security subsystem configuration - WildFly 10 - Project Documentation Editor
-Authentication Modules - WildFly 10 - Project Documentation Editor
-Wildfly 8でJAAS - hatenob
+Authentication Modules - WildFly 10 - Project Documentation Editor Wildfly 8でJAAS - hatenob
 standalone/configuration/standalone.xml の security サブシステム設定部分にsecurity-domainを追加:">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
@@ -52,16 +34,15 @@ standalone/configuration/standalone.xml の security サブシステム設定部
   <meta name="twitter:title" content="JAAS">
   <meta name="twitter:description" content="https://github.com/yukihane/hello-rest-environment の hello-wildfly-rest にサンプルコードを置いている。
 WildFly設定 standalone/configuration/standalone.xml Security subsystem configuration - WildFly 10 - Project Documentation Editor
-Authentication Modules - WildFly 10 - Project Documentation Editor
-Wildfly 8でJAAS - hatenob
+Authentication Modules - WildFly 10 - Project Documentation Editor Wildfly 8でJAAS - hatenob
 standalone/configuration/standalone.xml の security サブシステム設定部分にsecurity-domainを追加:">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -78,9 +59,17 @@ standalone/configuration/standalone.xml の security サブシステム設定部
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -97,179 +86,228 @@ standalone/configuration/standalone.xml の security サブシステム設定部
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p><a href="https://github.com/yukihane/hello-rest-environment" class="bare">https://github.com/yukihane/hello-rest-environment</a> の hello-wildfly-rest
-にサンプルコードを置いている。</p>
-</div>
-<div class="sect1">
-<h2 id="wildfly設定_standaloneconfigurationstandalone.xml">WildFly設定 standalone/configuration/standalone.xml</h2>
-<div class="sectionbody">
-<div class="ulist">
+          <p><a href="https://github.com/yukihane/hello-rest-environment">https://github.com/yukihane/hello-rest-environment</a> の hello-wildfly-rest にサンプルコードを置いている。</p>
+<h1 id="wildfly設定-standaloneconfigurationstandalonexml">WildFly設定 standalone/configuration/standalone.xml</h1>
 <ul>
 <li>
-<p><a href="https://docs.jboss.org/author/display/WFLY10/Security+subsystem+configuration">Security
-subsystem configuration - WildFly 10 - Project Documentation Editor</a></p>
-<div class="ulist">
+<p><a href="https://docs.jboss.org/author/display/WFLY10/Security&#43;subsystem&#43;configuration">Security subsystem configuration - WildFly 10 - Project Documentation Editor</a></p>
 <ul>
-<li>
-<p><a href="https://docs.jboss.org/author/display/WFLY10/Authentication+Modules">Authentication
-Modules - WildFly 10 - Project Documentation Editor</a></p>
-</li>
+<li><a href="https://docs.jboss.org/author/display/WFLY10/Authentication&#43;Modules">Authentication Modules - WildFly 10 - Project Documentation Editor</a></li>
 </ul>
-</div>
 </li>
 <li>
-<p><a href="http://nobrooklyn.hateblo.jp/entry/2015/02/23/230640">Wildfly 8でJAAS -
-hatenob</a></p>
+<p><a href="http://nobrooklyn.hateblo.jp/entry/2015/02/23/230640">Wildfly 8でJAAS - hatenob</a></p>
 </li>
 </ul>
+<p><code>standalone/configuration/standalone.xml</code> の security サブシステム設定部分にsecurity-domainを追加:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">        <span class="nt">&lt;subsystem</span> <span class="na">xmlns=</span><span class="s">&#34;urn:jboss:domain:security:1.2&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;security-domains&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;security-domain</span> <span class="na">name=</span><span class="s">&#34;own-domain&#34;</span> <span class="na">cache-type=</span><span class="s">&#34;default&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&lt;authentication&gt;</span>
+</span></span><span class="line"><span class="cl">                        <span class="nt">&lt;login-module</span> <span class="na">code=</span><span class="s">&#34;Database&#34;</span> <span class="na">flag=</span><span class="s">&#34;required&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">                          <span class="nt">&lt;module-option</span> <span class="na">name=</span><span class="s">&#34;dsJndiName&#34;</span> <span class="na">value=</span><span class="s">&#34;java:jboss/datasources/hello-wildfly-restDS&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">                          <span class="nt">&lt;module-option</span> <span class="na">name=</span><span class="s">&#34;principalsQuery&#34;</span> <span class="na">value=</span><span class="s">&#34;select email from Member where name = ?&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">                          <span class="nt">&lt;module-option</span> <span class="na">name=</span><span class="s">&#34;rolesQuery&#34;</span> <span class="na">value=</span><span class="s">&#34;select &#39;user&#39;, &#39;Roles&#39; from Member where name = ?&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">                        <span class="nt">&lt;/login-module&gt;</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&lt;/authentication&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;/security-domain&gt;</span>
+</span></span><span class="line"><span class="cl">(後略)
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="paragraph">
-<p><code>standalone/configuration/standalone.xml</code> の security
-サブシステム設定部分にsecurity-domainを追加:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-xml" data-lang="xml">        &lt;subsystem xmlns=&#34;urn:jboss:domain:security:1.2&#34;&gt;
-            &lt;security-domains&gt;
-                &lt;security-domain name=&#34;own-domain&#34; cache-type=&#34;default&#34;&gt;
-                    &lt;authentication&gt;
-                        &lt;login-module code=&#34;Database&#34; flag=&#34;required&#34;&gt;
-                          &lt;module-option name=&#34;dsJndiName&#34; value=&#34;java:jboss/datasources/hello-wildfly-restDS&#34;/&gt;
-                          &lt;module-option name=&#34;principalsQuery&#34; value=&#34;select email from Member where name = ?&#34;/&gt;
-                          &lt;module-option name=&#34;rolesQuery&#34; value=&#34;select &#39;user&#39;, &#39;Roles&#39; from Member where name = ?&#34;/&gt;
-                        &lt;/login-module&gt;
-                    &lt;/authentication&gt;
-                &lt;/security-domain&gt;
-(後略)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>login-module の code や module-option
-については前述のリンク先に説明がある。</p>
-</div>
-<div class="paragraph">
+</div><p>login-module の code や module-option については前述のリンク先に説明がある。</p>
 <p>`rolesQuery`についてはクエリの1項目目がロール、2項目目がロールグループだそうだが、2項目目はhttps://docs.jboss.org/author/display/WFLY10/Authentication+Modules[`Roles`固定でないといけない]らしい。</p>
-</div>
-<div class="paragraph">
 <p>また、ここでは認証(authentication)だけ行いたく、認可(authorization)はアプリケーション独自で行う想定なので、1項目目も`user`固定としている。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_warで利用する">WARで利用する</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="jboss_web.xml">jboss-web.xml</h3>
-<div class="paragraph">
+<h1 id="warで利用する">WARで利用する</h1>
+<h2 id="jboss-webxml">jboss-web.xml</h2>
 <p><code>WEB-INF</code> ディレクトリ以下に <code>jboss-web.xml</code> ファイルを作成し、次の内容を記載する:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;jboss-web&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;security-domain&gt;</span>own-domain<span class="nt">&lt;/security-domain&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/jboss-web&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;
-&lt;jboss-web&gt;
-  &lt;security-domain&gt;own-domain&lt;/security-domain&gt;
-&lt;/jboss-web&gt;</code></pre>
+</div><h2 id="webxml">web.xml</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;web-app&gt;</span>
+</span></span><span class="line"><span class="cl">(前略)
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;security-constraint&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;display-name&gt;</span>None Authorized Resource<span class="nt">&lt;/display-name&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;web-resource-collection&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;web-resource-name&gt;</span>non-protected-page<span class="nt">&lt;/web-resource-name&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;description&gt;</span>認証不要リソース<span class="nt">&lt;/description&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;url-pattern&gt;</span>/rest/ejb/*<span class="nt">&lt;/url-pattern&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;url-pattern&gt;</span>/rest/login/*<span class="nt">&lt;/url-pattern&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;url-pattern&gt;</span>/rest/swagger.json<span class="nt">&lt;/url-pattern&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/web-resource-collection&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/security-constraint&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;security-constraint&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;display-name&gt;</span>Authorized Resource<span class="nt">&lt;/display-name&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;web-resource-collection&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;web-resource-name&gt;</span>protected-page<span class="nt">&lt;/web-resource-name&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;description&gt;</span>ログイン認証後に表示されるリソース<span class="nt">&lt;/description&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;url-pattern&gt;</span>/*<span class="nt">&lt;/url-pattern&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/web-resource-collection&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;auth-constraint&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;description&gt;</span>認証完了したユーザが参照できるリソース<span class="nt">&lt;/description&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;role-name&gt;</span>user<span class="nt">&lt;/role-name&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/auth-constraint&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/security-constraint&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;login-config&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;auth-method&gt;</span>FORM<span class="nt">&lt;/auth-method&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;realm-name&gt;</span>own-domain<span class="nt">&lt;/realm-name&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;form-login-config&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;form-login-page&gt;</span>/rest/login/<span class="nt">&lt;/form-login-page&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;form-error-page&gt;</span>/rest/login/<span class="nt">&lt;/form-error-page&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/form-login-config&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/login-config&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;security-role&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;role-name&gt;</span>user<span class="nt">&lt;/role-name&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/security-role&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/web-app&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
+</div><h1 id="ejb-で利用する">EJB で利用する</h1>
+<h2 id="jboss-ejb3xml">jboss-ejb3.xml</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;jboss:ejb-jar</span> <span class="na">xmlns:jboss=</span><span class="s">&#34;http://www.jboss.com/xml/ns/javaee&#34;</span> <span class="na">xmlns=</span><span class="s">&#34;http://java.sun.com/xml/ns/javaee&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns:s=</span><span class="s">&#34;urn:security&#34;</span> <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.jboss.com/xml/ns/javaee http://www.jboss.org/j2ee/schema/jboss-ejb3-2_0.xsd
+</span></span></span><span class="line"><span class="cl"><span class="s">                     http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">version=</span><span class="s">&#34;3.1&#34;</span> <span class="na">impl-version=</span><span class="s">&#34;2.0&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;assembly-descriptor&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;s:security&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;ejb-name&gt;</span>*<span class="nt">&lt;/ejb-name&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;s:security-domain&gt;</span>own-domain<span class="nt">&lt;/s:security-domain&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/s:security&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;method-permission&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;unchecked</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;method&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;ejb-name&gt;</span>MyNonSecureEjb<span class="nt">&lt;/ejb-name&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;method-name&gt;</span>getText<span class="nt">&lt;/method-name&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/method&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/method-permission&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;method-permission&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;unchecked</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;method&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;ejb-name&gt;</span>MemberRegistration<span class="nt">&lt;/ejb-name&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;method-name&gt;</span>register<span class="nt">&lt;/method-name&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/method&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/method-permission&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;method-permission&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;role-name&gt;</span>user<span class="nt">&lt;/role-name&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;method&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;ejb-name&gt;</span>*<span class="nt">&lt;/ejb-name&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;method-name&gt;</span>*<span class="nt">&lt;/method-name&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/method&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/method-permission&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/assembly-descriptor&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/jboss:ejb-jar&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_web_xml">web.xml</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;web-app&gt;
-(前略)
-  &lt;security-constraint&gt;
-    &lt;display-name&gt;None Authorized Resource&lt;/display-name&gt;
-    &lt;web-resource-collection&gt;
-      &lt;web-resource-name&gt;non-protected-page&lt;/web-resource-name&gt;
-      &lt;description&gt;認証不要リソース&lt;/description&gt;
-      &lt;url-pattern&gt;/rest/ejb/*&lt;/url-pattern&gt;
-      &lt;url-pattern&gt;/rest/login/*&lt;/url-pattern&gt;
-      &lt;url-pattern&gt;/rest/swagger.json&lt;/url-pattern&gt;
-    &lt;/web-resource-collection&gt;
-  &lt;/security-constraint&gt;
-  &lt;security-constraint&gt;
-    &lt;display-name&gt;Authorized Resource&lt;/display-name&gt;
-    &lt;web-resource-collection&gt;
-      &lt;web-resource-name&gt;protected-page&lt;/web-resource-name&gt;
-      &lt;description&gt;ログイン認証後に表示されるリソース&lt;/description&gt;
-      &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
-    &lt;/web-resource-collection&gt;
-    &lt;auth-constraint&gt;
-      &lt;description&gt;認証完了したユーザが参照できるリソース&lt;/description&gt;
-      &lt;role-name&gt;user&lt;/role-name&gt;
-    &lt;/auth-constraint&gt;
-  &lt;/security-constraint&gt;
-  &lt;login-config&gt;
-    &lt;auth-method&gt;FORM&lt;/auth-method&gt;
-    &lt;realm-name&gt;own-domain&lt;/realm-name&gt;
-    &lt;form-login-config&gt;
-      &lt;form-login-page&gt;/rest/login/&lt;/form-login-page&gt;
-      &lt;form-error-page&gt;/rest/login/&lt;/form-error-page&gt;
-    &lt;/form-login-config&gt;
-  &lt;/login-config&gt;
-  &lt;security-role&gt;
-    &lt;role-name&gt;user&lt;/role-name&gt;
-  &lt;/security-role&gt;
-&lt;/web-app&gt;</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="ejb_で利用する">EJB で利用する</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="jboss_ejb3.xml">jboss-ejb3.xml</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;?xml version=&#34;1.0&#34;?&gt;
-&lt;jboss:ejb-jar xmlns:jboss=&#34;http://www.jboss.com/xml/ns/javaee&#34; xmlns=&#34;http://java.sun.com/xml/ns/javaee&#34;
-  xmlns:s=&#34;urn:security&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34;
-  xsi:schemaLocation=&#34;http://www.jboss.com/xml/ns/javaee http://www.jboss.org/j2ee/schema/jboss-ejb3-2_0.xsd
-                     http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd&#34;
-  version=&#34;3.1&#34; impl-version=&#34;2.0&#34;&gt;
-
-  &lt;assembly-descriptor&gt;
-    &lt;s:security&gt;
-      &lt;ejb-name&gt;*&lt;/ejb-name&gt;
-      &lt;s:security-domain&gt;own-domain&lt;/s:security-domain&gt;
-    &lt;/s:security&gt;
-    &lt;method-permission&gt;
-      &lt;unchecked /&gt;
-      &lt;method&gt;
-        &lt;ejb-name&gt;MyNonSecureEjb&lt;/ejb-name&gt;
-        &lt;method-name&gt;getText&lt;/method-name&gt;
-      &lt;/method&gt;
-    &lt;/method-permission&gt;
-    &lt;method-permission&gt;
-      &lt;unchecked /&gt;
-      &lt;method&gt;
-        &lt;ejb-name&gt;MemberRegistration&lt;/ejb-name&gt;
-        &lt;method-name&gt;register&lt;/method-name&gt;
-      &lt;/method&gt;
-    &lt;/method-permission&gt;
-    &lt;method-permission&gt;
-      &lt;role-name&gt;user&lt;/role-name&gt;
-      &lt;method&gt;
-        &lt;ejb-name&gt;*&lt;/ejb-name&gt;
-        &lt;method-name&gt;*&lt;/method-name&gt;
-      &lt;/method&gt;
-    &lt;/method-permission&gt;
-  &lt;/assembly-descriptor&gt;
-&lt;/jboss:ejb-jar&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>認証不要にしたいものは <code>ejb-name</code> , <code>method-name</code> を <code>*</code> にせず明示した上で
-<code>&lt;unchecked /&gt;</code> とする必要があった。
-例えば <code>method-name</code> を <code>*</code> にしてしまうと想定通り動かない( <code>user</code> ロール権限が必要になった)。</p>
-</div>
-</div>
-</div>
-</div>
+</div><p>認証不要にしたいものは <code>ejb-name</code> , <code>method-name</code> を <code>*</code> にせず明示した上で <code>&lt;unchecked /&gt;</code> とする必要があった。 例えば <code>method-name</code> を <code>*</code> にしてしまうと想定通り動かない( <code>user</code> ロール権限が必要になった)。</p>
 
         </section>
         <div class="post-tags">
@@ -287,10 +325,10 @@ hatenob</a></p>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

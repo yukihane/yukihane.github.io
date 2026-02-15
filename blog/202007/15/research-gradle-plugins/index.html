@@ -2,10 +2,8 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Gradleプラグイン/アノテーションプロセッシング調査 - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-元々JBoss/WildFlyの流れで開発してきたのでずっとMavenを利用してきたのですが、今度のプロジェクトではGradleを使うことに決まったようで、新しい知識が必要となりました。
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="元々JBoss/WildFlyの流れで開発してきたのでずっとMavenを利用してきたのですが、今度のプロジェクトではGradleを使うことに決まったようで、新しい知識が必要となりました。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202007/15/research-gradle-plugins/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Gradleプラグイン/アノテーションプロセッシング調査">
@@ -26,8 +24,8 @@
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -44,9 +42,17 @@
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -63,138 +69,63 @@
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>元々JBoss/WildFlyの流れで開発してきたのでずっとMavenを利用してきたのですが、今度のプロジェクトではGradleを使うことに決まったようで、新しい知識が必要となりました。</p>
-</div>
-<div class="paragraph">
+          <p>元々JBoss/WildFlyの流れで開発してきたのでずっとMavenを利用してきたのですが、今度のプロジェクトではGradleを使うことに決まったようで、新しい知識が必要となりました。</p>
 <p>特にMavenで利用していたプラグインと同等のものがあるかどうかを調べる必要を感じたので調査しました。</p>
-</div>
-<div class="paragraph">
 <p>結論としては、これまで利用してきた静的解析系のプラグインは同じようなものがあり、問題なさそう、という感触です。</p>
-</div>
-<div class="paragraph">
-<p>ただし、buildshipという、Eclipseに組み込まれている Gradle → Eclipse プロジェクト変換ツール(Mavenでいうところのm2eみたいなもの)の機能が不十分で、Gradle + Eclipse という組み合わせでは使わない方が良さそうです。
-(Gradleを使いたいのならIntelliJなどを利用し、Eclipseが使いたいのならMavenを利用する)</p>
-</div>
-<div class="sect1">
-<h2 id="_プラグイン">プラグイン</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_formatter">formatter</h3>
-<div class="paragraph">
+<p>ただし、buildshipという、Eclipseに組み込まれている Gradle → Eclipse プロジェクト変換ツール(Mavenでいうところのm2eみたいなもの)の機能が不十分で、Gradle + Eclipse という組み合わせでは使わない方が良さそうです。 (Gradleを使いたいのならIntelliJなどを利用し、Eclipseが使いたいのならMavenを利用する)</p>
+<h1 id="プラグイン">プラグイン</h1>
+<h2 id="formatter">formatter</h2>
 <p>Mavenでは <a href="https://github.com/revelc/formatter-maven-plugin">formatter-maven-plugin</a> を利用していました。</p>
-</div>
-<div class="paragraph">
-<p>これは、Eclipseに組み込まれているフォーマッタをMavenプラグインとして利用できるようにしたもので、設定ファイルもEclipseのものを読み込め、IDEと設定を共通化できるのが強みです。
-(IDEと外部フォーマッタの挙動が少しでも違っているとかなりストレスを感じますよね)</p>
-</div>
-<div class="paragraph">
+<p>これは、Eclipseに組み込まれているフォーマッタをMavenプラグインとして利用できるようにしたもので、設定ファイルもEclipseのものを読み込め、IDEと設定を共通化できるのが強みです。 (IDEと外部フォーマッタの挙動が少しでも違っているとかなりストレスを感じますよね)</p>
 <p>GradleでEclipseのフォーマッタ設定を流用できそうなものとしては <a href="https://github.com/diffplug/spotless">spotless</a> というものがあるようです。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_checkstyle">checkstyle</h3>
-<div class="paragraph">
+<h2 id="checkstyle">checkstyle</h2>
 <p>Gradleオフィシャルプラグンとして存在している？</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.gradle.org/current/userguide/plugin_reference.html#code_analysis" class="bare">https://docs.gradle.org/current/userguide/plugin_reference.html#code_analysis</a></p>
+<p><a href="https://docs.gradle.org/current/userguide/plugin_reference.html#code_analysis">https://docs.gradle.org/current/userguide/plugin_reference.html#code_analysis</a></p>
 </li>
 <li>
-<p><a href="https://docs.gradle.org/current/userguide/checkstyle_plugin.html" class="bare">https://docs.gradle.org/current/userguide/checkstyle_plugin.html</a></p>
+<p><a href="https://docs.gradle.org/current/userguide/checkstyle_plugin.html">https://docs.gradle.org/current/userguide/checkstyle_plugin.html</a></p>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_pmd">pmd</h3>
-<div class="paragraph">
+<h2 id="pmd">pmd</h2>
 <p>同じくオフィシャル。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://docs.gradle.org/current/userguide/pmd_plugin.html" class="bare">https://docs.gradle.org/current/userguide/pmd_plugin.html</a></p>
-</li>
+<li><a href="https://docs.gradle.org/current/userguide/pmd_plugin.html">https://docs.gradle.org/current/userguide/pmd_plugin.html</a></li>
 </ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_spotbugs">spotbugs</h3>
-<div class="paragraph">
+<h2 id="spotbugs">spotbugs</h2>
 <p>spotbugsコミュニティが提供しているみたいです。</p>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/spotbugs/spotbugs-gradle-plugin" class="bare">https://github.com/spotbugs/spotbugs-gradle-plugin</a></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_その他プラグイン">その他プラグイン</h3>
-<div class="paragraph">
+<p><a href="https://github.com/spotbugs/spotbugs-gradle-plugin">https://github.com/spotbugs/spotbugs-gradle-plugin</a></p>
+<h2 id="その他プラグイン">その他プラグイン</h2>
 <p>今まで利用したことがないが、今回の調査中に見つけた、有用そうなプラグイン。</p>
-</div>
-<div class="sect3">
-<h4 id="_error_prone"><a href="https://errorprone.info/">Error Prone</a></h4>
-<div class="paragraph">
-<p>Google製Spotbugs(?)。
-Gradleプラグインは第三者が開発しているものを利用するようです。</p>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/tbroyer/gradle-errorprone-plugin" class="bare">https://github.com/tbroyer/gradle-errorprone-plugin</a></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_アノテーションプロセッシング">アノテーションプロセッシング</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>気になっているのは処理する順番を明示的に設定できるのかどうかという点。
-MavenでMapStructとLombokを併用する場合も問題になったが、Gradleではどうなのか。</p>
-</div>
-<div class="paragraph">
+<h3 id="error-prone"><a href="https://errorprone.info/">Error Prone</a></h3>
+<p>Google製Spotbugs(?)。 Gradleプラグインは第三者が開発しているものを利用するようです。</p>
+<p><a href="https://github.com/tbroyer/gradle-errorprone-plugin">https://github.com/tbroyer/gradle-errorprone-plugin</a></p>
+<h1 id="アノテーションプロセッシング">アノテーションプロセッシング</h1>
+<p>気になっているのは処理する順番を明示的に設定できるのかどうかという点。 MavenでMapStructとLombokを併用する場合も問題になったが、Gradleではどうなのか。</p>
 <p>結論としては、 <a href="https://github.com/mapstruct/mapstruct-examples/blob/master/mapstruct-lombok/build.gradle">ここ</a> にあるような書き方で行けそうなんじゃないかな、と。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="line"><span class="cl"><span class="n">dependencies</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">annotationProcessor</span> <span class="s2">&#34;org.mapstruct:mapstruct-processor:${mapstructVersion}&#34;</span><span class="o">,</span> <span class="s2">&#34;org.projectlombok:lombok:${lombokVersion}&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy">dependencies {
-    annotationProcessor &#34;org.mapstruct:mapstruct-processor:${mapstructVersion}&#34;, &#34;org.projectlombok:lombok:${lombokVersion}&#34;
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>やってみたところ、コマンドラインからは上手く行っているように見えます。</p>
-</div>
-<div class="paragraph">
+</div><p>やってみたところ、コマンドラインからは上手く行っているように見えます。</p>
 <p>ただし、Eclipseで操作するとMapStructアノテーションプロセッシングが動作しません。おそらく以下のissueが関連しています。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/eclipse/buildship/issues/329">Annotation Processor configuration from Gradle Eclipse Plugin #329</a> - eclipse/buildship</p>
-</li>
+<li><a href="https://github.com/eclipse/buildship/issues/329">Annotation Processor configuration from Gradle Eclipse Plugin #329</a> - eclipse/buildship</li>
 </ul>
-</div>
-<div class="paragraph">
 <p>また、ビルド結果が <code>build</code> ディレクトリでなく <code>bin</code> ディレクトリに出力されたりと、統合具合が Maven(m2e)と比較して低い感じを受けました。</p>
-</div>
-<div class="sect2">
-<h3 id="_lombok">lombok</h3>
-<div class="paragraph">
-<p><a href="https://projectlombok.org/setup/gradle" class="bare">https://projectlombok.org/setup/gradle</a></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_mapstruct">MapStruct</h3>
-<div class="paragraph">
-<p><a href="https://mapstruct.org/documentation/installation/#gradle" class="bare">https://mapstruct.org/documentation/installation/#gradle</a></p>
-</div>
-</div>
-</div>
-</div>
+<h2 id="lombok">lombok</h2>
+<p><a href="https://projectlombok.org/setup/gradle">https://projectlombok.org/setup/gradle</a></p>
+<h2 id="mapstruct">MapStruct</h2>
+<p><a href="https://mapstruct.org/documentation/installation/#gradle">https://mapstruct.org/documentation/installation/#gradle</a></p>
 
         </section>
         <div class="post-tags">
@@ -203,9 +134,9 @@ MavenでMapStructとLombokを併用する場合も問題になったが、Gradle
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/java">java</a></li>
+              <li><a href="/tags/java/">java</a></li>
               
-              <li><a href="/tags/gradle">gradle</a></li>
+              <li><a href="/tags/gradle/">gradle</a></li>
               
             </ul>
           </nav>
@@ -222,10 +153,10 @@ MavenでMapStructとLombokを併用する場合も問題になったが、Gradle
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

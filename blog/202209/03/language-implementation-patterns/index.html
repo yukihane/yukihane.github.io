@@ -2,14 +2,12 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>言語実装パターン レビュー - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-(レビュー、という大層な物言いはあまりしたくないのですが、自分が書籍の感想を検索するときには &#34;&lt;書籍名&gt; レビュー&#34; で検索することが多いので…​)
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="(レビュー、という大層な物言いはあまりしたくないのですが、自分が書籍の感想を検索するときには &ldquo;&lt;書籍名&gt; レビュー&rdquo; で検索することが多いので…​)" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202209/03/language-implementation-patterns/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="言語実装パターン レビュー">
-  <meta property="og:description" content="(レビュー、という大層な物言いはあまりしたくないのですが、自分が書籍の感想を検索するときには &#34;&lt;書籍名&gt; レビュー&#34; で検索することが多いので…​)">
+  <meta property="og:description" content="(レビュー、という大層な物言いはあまりしたくないのですが、自分が書籍の感想を検索するときには “&lt;書籍名&gt; レビュー” で検索することが多いので…​)">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -20,14 +18,14 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="言語実装パターン レビュー">
-  <meta name="twitter:description" content="(レビュー、という大層な物言いはあまりしたくないのですが、自分が書籍の感想を検索するときには &#34;&lt;書籍名&gt; レビュー&#34; で検索することが多いので…​)">
+  <meta name="twitter:description" content="(レビュー、という大層な物言いはあまりしたくないのですが、自分が書籍の感想を検索するときには “&lt;書籍名&gt; レビュー” で検索することが多いので…​)">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -44,9 +42,17 @@
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -63,50 +69,22 @@
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>(レビュー、という大層な物言いはあまりしたくないのですが、自分が書籍の感想を検索するときには &#34;&lt;書籍名&gt; レビュー&#34; で検索することが多いので…​)</p>
-</div>
-<div class="paragraph">
+          <p>(レビュー、という大層な物言いはあまりしたくないのですが、自分が書籍の感想を検索するときには &ldquo;&lt;書籍名&gt; レビュー&rdquo; で検索することが多いので…​)</p>
 <p>タイトルにある書籍、 <a href="https://www.oreilly.co.jp/books/9784873115320/">言語実装パターン</a>(<a href="https://amzn.to/3VMNKpZ">Amazon</a>) を読み始めたので、ファースト・インプレッションを記録しておきます。</p>
-</div>
-<div class="paragraph">
-<p>この書籍のゴールを、誤解を恐れずワンフレーズで表現すると、 &#34;ANTLR3 の気持ちを理解する&#34; です。
-最終的に読者は ANTLR3 を利用することを前提として説明が進んでいきます。
-コードサンプルも、 ANTLR が自動生成するコードに倣ったもので、可読性は低いです。
-本書の前半は ANTLR を利用しない lexer や parser が提示されますが、エッジケースには対応していなかったりします <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>。
-この辺りについては、「最終的には ANTLR に任せれば良いわけで、ニュアンスが掴めれば良い」というスタンスなんだと思います。</p>
-</div>
-<div class="paragraph">
-<p>写経に向いた書籍ではありません。
-前述の通り、最終的には ANTLR に任せるので、人間が書くことを前提にしていません。
-書籍内に登場するコード片だけを見ても理解が進まないと思います。
-<a href="https://www.oreilly.co.jp/books/9784873115320/">オライリーのサイト</a>からコード全文をダウンロードできます。デバッガでステップ実行しながら本文の内容を理解していく、という利用方法が良いと考えます。
-あまり細かい実装の意図を理解しようとするのは無駄です。</p>
-</div>
-<div class="paragraph">
-<p>ソースコードについて。
-オリジナルのソースコードは、 Ant プロジェクトで Java1.5 を前提としているような前時代的なものです。そこで、 Maven, Java17 で利用できるようにするスクリプトを書きました。利用方法は README を参照してください。</p>
-</div>
-<div class="ulist">
+<p>この書籍のゴールを、誤解を恐れずワンフレーズで表現すると、 &ldquo;ANTLR3 の気持ちを理解する&rdquo; です。 最終的に読者は ANTLR3 を利用することを前提として説明が進んでいきます。 コードサンプルも、 ANTLR が自動生成するコードに倣ったもので、可読性は低いです。 本書の前半は ANTLR を利用しない lexer や parser が提示されますが、エッジケースには対応していなかったりします <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。 この辺りについては、「最終的には ANTLR に任せれば良いわけで、ニュアンスが掴めれば良い」というスタンスなんだと思います。</p>
+<p>写経に向いた書籍ではありません。 前述の通り、最終的には ANTLR に任せるので、人間が書くことを前提にしていません。 書籍内に登場するコード片だけを見ても理解が進まないと思います。 <a href="https://www.oreilly.co.jp/books/9784873115320/">オライリーのサイト</a>からコード全文をダウンロードできます。デバッガでステップ実行しながら本文の内容を理解していく、という利用方法が良いと考えます。 あまり細かい実装の意図を理解しようとするのは無駄です。</p>
+<p>ソースコードについて。 オリジナルのソースコードは、 Ant プロジェクトで Java1.5 を前提としているような前時代的なものです。そこで、 Maven, Java17 で利用できるようにするスクリプトを書きました。利用方法は README を参照してください。</p>
 <ul>
-<li>
-<p><a href="https://github.com/yukihane/mavenize-language-implementation-patterns" class="bare">https://github.com/yukihane/mavenize-language-implementation-patterns</a></p>
-</li>
+<li><a href="https://github.com/yukihane/mavenize-language-implementation-patterns">https://github.com/yukihane/mavenize-language-implementation-patterns</a></li>
 </ul>
-</div>
-<div class="paragraph">
-<p>どんな人に向いた書籍か。
-まず、 ANTLR3 をこれから使おうとしている人には向いているかと思います
-(ただし、現在の最新バージョンは ANTLR4 なので、そのような人は少ないと思います)。
-あとは、 ANTLR4 を使おうとしているけれど、英語に苦手意識があって公式ドキュメントの前に何か日本語の参考資料を探しているような人でしょうか。
-上記のような人以外にとっては、今や他に効率的な学習方法があるような気がしています…​
-例えば ANTLR について学びたいのであれば <a href="https://pragprog.com/titles/tpantlr2/the-definitive-antlr-4-reference/">The Definitive ANTLR 4 Reference</a> が良さそうですし、インタプリタを写経しながら実装してみたい、というのであればググった感じ <a href="https://www.oreilly.co.jp/books/9784873118222/">Go言語でつくるインタプリタ</a> が向いていそうです。</p>
-</div>
-<div id="footnotes">
-<hr/>
-<div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. p.40 で説明されている実行で、入力に &#39;[a,b c,[d,e]]&#39; を与えても通ってしまいました(<code>bc</code> というtokenが生成されてしまいました)。
-</div>
+<p>どんな人に向いた書籍か。 まず、 ANTLR3 をこれから使おうとしている人には向いているかと思います (ただし、現在の最新バージョンは ANTLR4 なので、そのような人は少ないと思います)。 あとは、 ANTLR4 を使おうとしているけれど、英語に苦手意識があって公式ドキュメントの前に何か日本語の参考資料を探しているような人でしょうか。 上記のような人以外にとっては、今や他に効率的な学習方法があるような気がしています…​ 例えば ANTLR について学びたいのであれば <a href="https://pragprog.com/titles/tpantlr2/the-definitive-antlr-4-reference/">The Definitive ANTLR 4 Reference</a> が良さそうですし、インタプリタを写経しながら実装してみたい、というのであればググった感じ <a href="https://www.oreilly.co.jp/books/9784873118222/">Go言語でつくるインタプリタ</a> が向いていそうです。</p>
+<div class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn:1">
+<p>p.40 で説明されている実行で、入力に &lsquo;[a,b c,[d,e]]&rsquo; を与えても通ってしまいました(<code>bc</code> というtokenが生成されてしまいました)。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
 </div>
 
         </section>
@@ -116,9 +94,9 @@
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/book">book</a></li>
+              <li><a href="/tags/book/">book</a></li>
               
-              <li><a href="/tags/parser">parser</a></li>
+              <li><a href="/tags/parser/">parser</a></li>
               
             </ul>
           </nav>
@@ -135,10 +113,10 @@
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

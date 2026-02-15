@@ -2,26 +2,17 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Java における value objects - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-Java 標準 API のドキュメントには、 &#34;値ベース・クラス&#34; というページがあります:
-
-
-
+	<meta name="description" content="Java 標準 API のドキュメントには、 &ldquo;値ベース・クラス&rdquo; というページがあります:
 
 https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/ValueBased.html
 
-
-
-
-機械翻訳っぽくて分かりづらい箇所もあるので、併せて Java8 版 や 英語版 も見てみると良いかもです。
-" />
-	<meta property="og:image" content=""/>
+機械翻訳っぽくて分かりづらい箇所もあるので、併せて Java8 版 や 英語版 も見てみると良いかもです。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202206/12/java-value-based-class/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Java における value objects">
-  <meta property="og:description" content="Java 標準 API のドキュメントには、 &#34;値ベース・クラス&#34; というページがあります:
-https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/ValueBased.html
-機械翻訳っぽくて分かりづらい箇所もあるので、併せて Java8 版 や 英語版 も見てみると良いかもです。">
+  <meta property="og:description" content="Java 標準 API のドキュメントには、 “値ベース・クラス” というページがあります:
+https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/ValueBased.html 機械翻訳っぽくて分かりづらい箇所もあるので、併せて Java8 版 や 英語版 も見てみると良いかもです。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -31,16 +22,15 @@ https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/Valu
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Java における value objects">
-  <meta name="twitter:description" content="Java 標準 API のドキュメントには、 &#34;値ベース・クラス&#34; というページがあります:
-https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/ValueBased.html
-機械翻訳っぽくて分かりづらい箇所もあるので、併せて Java8 版 や 英語版 も見てみると良いかもです。">
+  <meta name="twitter:description" content="Java 標準 API のドキュメントには、 “値ベース・クラス” というページがあります:
+https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/ValueBased.html 機械翻訳っぽくて分かりづらい箇所もあるので、併せて Java8 版 や 英語版 も見てみると良いかもです。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -57,9 +47,17 @@ https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/Valu
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -76,23 +74,12 @@ https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/Valu
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>Java 標準 API のドキュメントには、 &#34;値ベース・クラス&#34; というページがあります:</p>
-</div>
-<div class="ulist">
+          <p>Java 標準 API のドキュメントには、 &ldquo;値ベース・クラス&rdquo; というページがあります:</p>
 <ul>
-<li>
-<p><a href="https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/ValueBased.html" class="bare">https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/ValueBased.html</a></p>
-</li>
+<li><a href="https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/ValueBased.html">https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/ValueBased.html</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>機械翻訳っぽくて分かりづらい箇所もあるので、併せて <a href="https://docs.oracle.com/javase/jp/8/docs/api/java/lang/doc-files/ValueBased.html">Java8 版</a> や <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/doc-files/ValueBased.html">英語版</a> も見てみると良いかもです。</p>
-</div>
-<div class="paragraph">
-<p>現在の Java <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup> における value objects は、この値ベース・クラスの要件に沿ったクラスをインスタンス化したもの、と考えて良さそうに思いました。次の点が注目ポイントでしょうか:</p>
-</div>
-<div class="ulist">
+<p>現在の Java <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> における value objects は、この値ベース・クラスの要件に沿ったクラスをインスタンス化したもの、と考えて良さそうに思いました。次の点が注目ポイントでしょうか:</p>
 <ul>
 <li>
 <p>インスタンスフィールドは <code>final</code></p>
@@ -101,18 +88,15 @@ https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/Valu
 <p><code>==</code>, <code>!=</code> を用いて比較してはいけない。 インスタンスフィールドの値で比較する(<code>equals()</code> をそのように実装して、それを用いる)。</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p><a href="/blog/202206/11/value-object/">前回</a>触れた、 <a href="https://ja.wikipedia.org/wiki/Value_object#Java">Wikipedia</a> の Java の項に書かれていることですね。</p>
-</div>
-<div class="paragraph">
-<p>ちなみに、 Java16 以降では、JDK の中の値ベース・クラスに相当するクラスには <a href="https://github.com/openjdk/jdk/blob/jdk-17+35/src/java.base/share/classes/jdk/internal/ValueBased.java"><code>jdk.internal.ValueBased</code> アノテーション</a>が付与されているようです(このアノテーションの目的は <a href="https://openjdk.java.net/jeps/390">JEP390</a> にあります。 Project Valhalla の準備として、不適切に利用されている箇所でコンパイル時に警告するためのようです)。</p>
-</div>
-<div id="footnotes">
-<hr/>
-<div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. <a href="https://openjdk.java.net/projects/valhalla/">Project Valhalla</a> 導入後はまた話が変わるはずです。
-</div>
+<p>ちなみに、 Java16 以降では、JDK の中の値ベース・クラスに相当するクラスには <a href="https://github.com/openjdk/jdk/blob/jdk-17&#43;35/src/java.base/share/classes/jdk/internal/ValueBased.java"><code>jdk.internal.ValueBased</code> アノテーション</a>が付与されているようです(このアノテーションの目的は <a href="https://openjdk.java.net/jeps/390">JEP390</a> にあります。 Project Valhalla の準備として、不適切に利用されている箇所でコンパイル時に警告するためのようです)。</p>
+<div class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://openjdk.java.net/projects/valhalla/">Project Valhalla</a> 導入後はまた話が変わるはずです。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
 </div>
 
         </section>
@@ -122,7 +106,7 @@ https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/Valu
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/java">java</a></li>
+              <li><a href="/tags/java/">java</a></li>
               
             </ul>
           </nav>
@@ -139,10 +123,10 @@ https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/Valu
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

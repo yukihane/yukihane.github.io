@@ -2,30 +2,19 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Spring Security OAuth 2.0 Login を自動テストする - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる で作成したプログラムの自動テスト方法です。
-
-
+	<meta name="description" content="KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる で作成したプログラムの自動テスト方法です。
 今回のコードも前回と同じく次のディレクトリにあります:
-
-
-
 
 https://github.com/yukihane/hello-java/tree/master/spring/oidc-example
 
-
-
-
-まず結論なのですが、リファレンスに説明がありますのでここを参照しましょう、ということになります:
-" />
-	<meta property="og:image" content=""/>
+まず結論なのですが、リファレンスに説明がありますのでここを参照しましょう、ということになります:" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202008/05/spring-boot-oidc-testing/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Spring Security OAuth 2.0 Login を自動テストする">
   <meta property="og:description" content="KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる で作成したプログラムの自動テスト方法です。
 今回のコードも前回と同じく次のディレクトリにあります:
-https://github.com/yukihane/hello-java/tree/master/spring/oidc-example
-まず結論なのですが、リファレンスに説明がありますのでここを参照しましょう、ということになります:">
+https://github.com/yukihane/hello-java/tree/master/spring/oidc-example まず結論なのですが、リファレンスに説明がありますのでここを参照しましょう、ということになります:">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -40,15 +29,14 @@ https://github.com/yukihane/hello-java/tree/master/spring/oidc-example
   <meta name="twitter:title" content="Spring Security OAuth 2.0 Login を自動テストする">
   <meta name="twitter:description" content="KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる で作成したプログラムの自動テスト方法です。
 今回のコードも前回と同じく次のディレクトリにあります:
-https://github.com/yukihane/hello-java/tree/master/spring/oidc-example
-まず結論なのですが、リファレンスに説明がありますのでここを参照しましょう、ということになります:">
+https://github.com/yukihane/hello-java/tree/master/spring/oidc-example まず結論なのですが、リファレンスに説明がありますのでここを参照しましょう、ということになります:">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -65,9 +53,17 @@ https://github.com/yukihane/hello-java/tree/master/spring/oidc-example
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -84,91 +80,102 @@ https://github.com/yukihane/hello-java/tree/master/spring/oidc-example
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p><a href="/blog/202007/21/hello-oidc-with-keycloak/">KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる</a> で作成したプログラムの自動テスト方法です。</p>
-</div>
-<div class="paragraph">
+          <p><a href="/blog/202007/21/hello-oidc-with-keycloak/">KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる</a> で作成したプログラムの自動テスト方法です。</p>
 <p>今回のコードも前回と同じく次のディレクトリにあります:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/yukihane/hello-java/tree/master/spring/oidc-example" class="bare">https://github.com/yukihane/hello-java/tree/master/spring/oidc-example</a></p>
-</li>
+<li><a href="https://github.com/yukihane/hello-java/tree/master/spring/oidc-example">https://github.com/yukihane/hello-java/tree/master/spring/oidc-example</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>まず結論なのですが、リファレンスに説明がありますのでここを参照しましょう、ということになります:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#testing-oauth2-client">Testing OAuth 2.0 Clients</a> - 19.2.2. SecurityMockMvcRequestPostProcessors</p>
-</li>
+<li><a href="https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#testing-oauth2-client">Testing OAuth 2.0 Clients</a> - 19.2.2. SecurityMockMvcRequestPostProcessors</li>
 </ul>
-</div>
-<div class="paragraph">
 <p>実際のコードがこちらです。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@WebMvcTest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">HelloControllerTest</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Autowired</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">ClientRegistrationRepository</span><span class="w"> </span><span class="n">clientRegistrationRepository</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 未ログイン状態の場合、IdPへリダイレクトする。
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">未ログイン状態</span><span class="p">(</span><span class="nd">@Autowired</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MockMvc</span><span class="w"> </span><span class="n">mvc</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">mvc</span><span class="p">.</span><span class="na">perform</span><span class="p">(</span><span class="n">get</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">)).</span><span class="na">andExpect</span><span class="p">(</span><span class="n">status</span><span class="p">().</span><span class="na">is3xxRedirection</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">andExpect</span><span class="p">(</span><span class="n">header</span><span class="p">().</span><span class="na">exists</span><span class="p">(</span><span class="s">&#34;Location&#34;</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">ログイン状態</span><span class="p">(</span><span class="nd">@Autowired</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MockMvc</span><span class="w"> </span><span class="n">mvc</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// https://docs.spring.io/spring-security/site/docs/current/reference/html5/#testing-oauth2-client</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">mvc</span><span class="p">.</span><span class="na">perform</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">get</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">with</span><span class="p">(</span><span class="n">oidcLogin</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">.</span><span class="na">clientRegistration</span><span class="p">((</span><span class="k">this</span><span class="p">.</span><span class="na">clientRegistrationRepository</span><span class="p">.</span><span class="na">findByRegistrationId</span><span class="p">(</span><span class="s">&#34;myspring&#34;</span><span class="p">)))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">andExpect</span><span class="p">(</span><span class="n">status</span><span class="p">().</span><span class="na">isOk</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@TestConfiguration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AuthorizedClientConfig</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">OAuth2AuthorizedClientRepository</span><span class="w"> </span><span class="nf">authorizedClientRepository</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpSessionOAuth2AuthorizedClientRepository</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">@WebMvcTest
-class HelloControllerTest {
-
-    @Autowired
-    ClientRegistrationRepository clientRegistrationRepository;
-
-    /**
-     * 未ログイン状態の場合、IdPへリダイレクトする。
-     */
-    @Test
-    public void 未ログイン状態(@Autowired final MockMvc mvc) throws Exception {
-        mvc.perform(get(&#34;/&#34;)).andExpect(status().is3xxRedirection())
-            .andExpect(header().exists(&#34;Location&#34;));
-    }
-
-    @Test
-    public void ログイン状態(@Autowired final MockMvc mvc) throws Exception {
-
-        // https://docs.spring.io/spring-security/site/docs/current/reference/html5/#testing-oauth2-client
-        mvc.perform(
-            get(&#34;/&#34;)
-                .with(oidcLogin()
-                    .clientRegistration((this.clientRegistrationRepository.findByRegistrationId(&#34;myspring&#34;)))
-
-                ))
-            .andExpect(status().isOk());
-    }
-
-    @TestConfiguration
-    static class AuthorizedClientConfig {
-        @Bean
-        OAuth2AuthorizedClientRepository authorizedClientRepository() {
-            return new HttpSessionOAuth2AuthorizedClientRepository();
-        }
-    }
-
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><code>spring-security-oauth2</code> (何回も書きますが現在利用すべき Spring Security OAuth 2.0 Client とは別のライブラリです)時代は、 <a href="https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#test-method-withmockuser"><code>@WithMockUser</code></a> や、 <a href="https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#test-method-withsecuritycontext"><code>@WithSecurityContext</code></a> を利用してモック認証ユーザを作成していましたが、現在のライブラリではそのようにアノテーションで設定する方針は採らないようです。</p>
-</div>
-<div class="quoteblock">
+</div><p><code>spring-security-oauth2</code> (何回も書きますが現在利用すべき Spring Security OAuth 2.0 Client とは別のライブラリです)時代は、 <a href="https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#test-method-withmockuser"><code>@WithMockUser</code></a> や、 <a href="https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#test-method-withsecuritycontext"><code>@WithSecurityContext</code></a> を利用してモック認証ユーザを作成していましたが、現在のライブラリではそのようにアノテーションで設定する方針は採らないようです。</p>
 <blockquote>
-I think we avoided annotation support for OIDC because it was not very easy for users to customize the OidcUser and OAuth2AuthenticationToken objects (the attributes are rich objects which cannot easily be modified by an annotation). Instead, we felt that user’s could set SecurityContextHolder directly for method support or use the oidcLogin support for MockMvc style testing.
-</blockquote>
-<div class="attribution">
-— , <a href="https://github.com/spring-projects/spring-security/pull/8461#issuecomment-624229723">spring-security-test @WithMockOidcuser gh-8459 #8461</a>
-</div>
-</div>
-<hr/>
-<div class="paragraph">
+<p>I think we avoided annotation support for OIDC because it was not very easy for users to customize the OidcUser and OAuth2AuthenticationToken objects (the attributes are rich objects which cannot easily be modified by an annotation). Instead, we felt that user’s could set SecurityContextHolder directly for method support or use the oidcLogin support for MockMvc style testing.</p>
+<p>—  , <a href="https://github.com/spring-projects/spring-security/pull/8461#issuecomment-624229723">spring-security-test @WithMockOidcuser gh-8459 #8461</a></p></blockquote>
 <p>続いて別の話なのですが、<a href="/blog/202007/21/hello-oidc-with-keycloak/">前回</a>、 <code>issuer-uri</code> だけ設定すれば他の設定が色々省略できて便利、と書きましたが、 <code>issuer-uri</code> を設定してしまうと(そして他の設定を省略すると) テスト開始時IdPへアクセスしに行こうとしてしまうようです。IdPに接続できないとテストが失敗します。</p>
-</div>
-<div class="paragraph">
 <p>これを避けるために、結局、 <code>authorization-uri</code> などは明記する、というところで落ち着きました。</p>
-</div>
 
         </section>
         <div class="post-tags">
@@ -177,13 +184,13 @@ I think we avoided annotation support for OIDC because it was not very easy for 
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/spring-boot">spring-boot</a></li>
+              <li><a href="/tags/spring-boot/">spring-boot</a></li>
               
-              <li><a href="/tags/spring-security">spring-security</a></li>
+              <li><a href="/tags/spring-security/">spring-security</a></li>
               
-              <li><a href="/tags/oauth">oauth</a></li>
+              <li><a href="/tags/oauth/">oauth</a></li>
               
-              <li><a href="/tags/oidc">oidc</a></li>
+              <li><a href="/tags/oidc/">oidc</a></li>
               
             </ul>
           </nav>
@@ -200,10 +207,10 @@ I think we avoided annotation support for OIDC because it was not very easy for 
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

@@ -2,26 +2,17 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>GitHub Actions を使って GitHub Pages を定期更新する - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-これまで GitHub Actions を使ったことがなかったのですが、
-
-
-
+	<meta name="description" content="これまで GitHub Actions を使ったことがなかったのですが、
 
 GitHub Pagesの更新を自動化したい - スタック・オーバーフロー
 
-
-
-
-という質問を見かけ、丁度よいお題だと思ったのでこれを実現してみることにしました。
-" />
-	<meta property="og:image" content=""/>
+という質問を見かけ、丁度よいお題だと思ったのでこれを実現してみることにしました。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202106/06/hello-github-actions/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="GitHub Actions を使って GitHub Pages を定期更新する">
   <meta property="og:description" content="これまで GitHub Actions を使ったことがなかったのですが、
-GitHub Pagesの更新を自動化したい - スタック・オーバーフロー
-という質問を見かけ、丁度よいお題だと思ったのでこれを実現してみることにしました。">
+GitHub Pagesの更新を自動化したい - スタック・オーバーフロー という質問を見かけ、丁度よいお題だと思ったのでこれを実現してみることにしました。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -32,15 +23,14 @@ GitHub Pagesの更新を自動化したい - スタック・オーバーフロ�
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="GitHub Actions を使って GitHub Pages を定期更新する">
   <meta name="twitter:description" content="これまで GitHub Actions を使ったことがなかったのですが、
-GitHub Pagesの更新を自動化したい - スタック・オーバーフロー
-という質問を見かけ、丁度よいお題だと思ったのでこれを実現してみることにしました。">
+GitHub Pagesの更新を自動化したい - スタック・オーバーフロー という質問を見かけ、丁度よいお題だと思ったのでこれを実現してみることにしました。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -57,9 +47,17 @@ GitHub Pagesの更新を自動化したい - スタック・オーバーフロ�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -76,29 +74,14 @@ GitHub Pagesの更新を自動化したい - スタック・オーバーフロ�
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>これまで GitHub Actions を使ったことがなかったのですが、</p>
-</div>
-<div class="ulist">
+          <p>これまで GitHub Actions を使ったことがなかったのですが、</p>
 <ul>
-<li>
-<p><a href="https://ja.stackoverflow.com/q/76279/2808">GitHub Pagesの更新を自動化したい - スタック・オーバーフロー</a></p>
-</li>
+<li><a href="https://ja.stackoverflow.com/q/76279/2808">GitHub Pagesの更新を自動化したい - スタック・オーバーフロー</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>という質問を見かけ、丁度よいお題だと思ったのでこれを実現してみることにしました。</p>
-</div>
-<div class="sect1">
-<h2 id="_リポジトリ作成とコードコミット">リポジトリ作成とコードコミット</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="リポジトリ作成とコードコミット">リポジトリ作成とコードコミット</h1>
 <p>まず、GitHub Pages用のリポジトリとそれを定期更新するためのプログラムを管理するリポジトリの2つを用意します。これらは1つのリポジトリにまとめてしまえると思いますが、冒頭の質問者の環境はそうでは無さそうだったので今回は別々にしました。</p>
-</div>
-<div class="paragraph">
 <p>なお、私は既に個人用に GitHub Pages を利用しているので、別途 <a href="https://github.com/hello-github-actions/">hello-github-actions</a> という <a href="https://docs.github.com/ja/organizations/collaborating-with-groups-in-organizations/about-organizations">Organization</a> を作成して、そちらに上記2リポジトリを作成しました。</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p>GitHub Pages 用: <a href="https://github.com/hello-github-actions/hello-github-actions.github.io">hello-github-actions/hello-github-actions.github.io</a></p>
@@ -107,129 +90,46 @@ GitHub Pagesの更新を自動化したい - スタック・オーバーフロ�
 <p>更新プログラム管理用: <a href="https://github.com/hello-github-actions/updater">hello-github-actions/updater</a></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p>更新プログラムは <a href="https://github.com/hello-github-actions/updater/blob/main/src/main/java/com/github/yukihane/actions/App.java">こんな感じ</a> のもので、スタック・オーバーフローのRSSを取得して <code>public</code> ディレクトリにhtmlで書き出すものです。 この <code>public</code> ディレクトリ以下を GitHub Pages に表示する設定を行っていきます。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_deploy_key_設定">Deploy key 設定</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="deploy-key-設定">Deploy key 設定</h1>
 <p><a href="https://github.com/peaceiris/actions-gh-pages">GitHub Actions for GitHub Pages</a> というアクションを利用して更新を行います。</p>
-</div>
-<div class="paragraph">
 <p>このページの <a href="https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-deploy-to-external-repository-external_repository">Deploy to external repository external_repository</a> に記載されている機能を用いるために、 Deploy key の設定を行っておきます。</p>
-</div>
-<div class="sect2">
-<h3 id="_鍵生成">鍵生成</h3>
-<div class="paragraph">
+<h2 id="鍵生成">鍵生成</h2>
 <p>まず、 <a href="https://docs.github.com/ja/developers/overview/managing-deploy-keys#%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97-2">デプロイキーの管理 &gt; デプロイキー &gt; セットアップ</a> の手順通り、 <a href="https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key"><code>ssh-keygen</code> コマンドでキーを生成</a>します。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>ssh-keygen -t ed25519 -C &#34;your_email@example.com&#34;</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_github_pages_リポジトリへ_deploy_key_として公開鍵を登録">GitHub Pages リポジトリへ deploy key として公開鍵を登録</h3>
-<div class="paragraph">
+<pre><code>ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;
+</code></pre>
+<h2 id="github-pages-リポジトリへ-deploy-key-として公開鍵を登録">GitHub Pages リポジトリへ deploy key として公開鍵を登録</h2>
 <p>続いて、公開鍵を GitHub Pages のリポジトリに Deploy key として登録します。</p>
-</div>
-<div class="paragraph">
-<p>リポジトリの Settings &gt; Deploy keys &gt; Add deploy key ボタンから登録できます。
-上記した私のリポジトリの場合は</p>
-</div>
-<div class="ulist">
+<p>リポジトリの Settings &gt; Deploy keys &gt; Add deploy key ボタンから登録できます。 上記した私のリポジトリの場合は</p>
 <ul>
-<li>
-<p><a href="https://github.com/hello-github-actions/hello-github-actions.github.io/settings/keys/new" class="bare">https://github.com/hello-github-actions/hello-github-actions.github.io/settings/keys/new</a></p>
-</li>
+<li><a href="https://github.com/hello-github-actions/hello-github-actions.github.io/settings/keys/new">https://github.com/hello-github-actions/hello-github-actions.github.io/settings/keys/new</a></li>
 </ul>
-</div>
-<div class="paragraph">
-<p>から登録することになります。
- <strong>Allow write access</strong> のチェックを入れます。Title は何でも良いようです。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_更新プログラム_リポジトリへ_repository_secret_として秘密鍵を登録">更新プログラム リポジトリへ repository secret として秘密鍵を登録</h3>
-<div class="paragraph">
+<p>から登録することになります。 <strong>Allow write access</strong> のチェックを入れます。Title は何でも良いようです。</p>
+<h2 id="更新プログラム-リポジトリへ-repository-secret-として秘密鍵を登録">更新プログラム リポジトリへ repository secret として秘密鍵を登録</h2>
 <p>その後、秘密鍵を更新プログラムリポジトリのシークレットとして登録します。</p>
-</div>
-<div class="paragraph">
-<p>リポジトリの Settings &gt; Secrets &gt; New repository secret ボタンから登録できます。
-私のリポジトリの場合は</p>
-</div>
-<div class="ulist">
+<p>リポジトリの Settings &gt; Secrets &gt; New repository secret ボタンから登録できます。 私のリポジトリの場合は</p>
 <ul>
-<li>
-<p><a href="https://github.com/hello-github-actions/updater/settings/secrets/actions/new" class="bare">https://github.com/hello-github-actions/updater/settings/secrets/actions/new</a></p>
-</li>
+<li><a href="https://github.com/hello-github-actions/updater/settings/secrets/actions/new">https://github.com/hello-github-actions/updater/settings/secrets/actions/new</a></li>
 </ul>
-</div>
-<div class="paragraph">
-<p>から登録することになります。
-Name は後で GitHub Actions スクリプトから変数名として利用するので覚えておいてください。今回のサンプル実装では <a href="https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-deploy-to-external-repository-external_repository">リファレンスのサンプル</a>と同じく <strong>ACTIONS_DEPLOY_KEY</strong> という名前に設定しています。</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_github_actions_設定">GitHub Actions 設定</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<p>から登録することになります。 Name は後で GitHub Actions スクリプトから変数名として利用するので覚えておいてください。今回のサンプル実装では <a href="https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-deploy-to-external-repository-external_repository">リファレンスのサンプル</a>と同じく <strong>ACTIONS_DEPLOY_KEY</strong> という名前に設定しています。</p>
+<h1 id="github-actions-設定">GitHub Actions 設定</h1>
 <p>更新プログラムを定期的に実行したいので、更新プログラムリポジトリに設定を行います。</p>
-</div>
-<div class="paragraph">
 <p><code>.github/workflows</code> に ymlファイルを作成します。名前は何でも良いようなので今回は <code>update.yml</code> としました。</p>
-</div>
-<div class="paragraph">
 <p>記載内容は</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://docs.github.com/ja/actions" class="bare">https://docs.github.com/ja/actions</a></p>
-</li>
+<li><a href="https://docs.github.com/ja/actions">https://docs.github.com/ja/actions</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>などを参考にし、結果的に次のようになっています。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/hello-github-actions/updater/blob/main/.github/workflows/update.yml" class="bare">https://github.com/hello-github-actions/updater/blob/main/.github/workflows/update.yml</a></p>
-</li>
+<li><a href="https://github.com/hello-github-actions/updater/blob/main/.github/workflows/update.yml">https://github.com/hello-github-actions/updater/blob/main/.github/workflows/update.yml</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>前述した通り、 <strong>ACTIONS_DEPLOY_KEY</strong> という名前を変数として用いています。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_成果物">成果物</h2>
-<div class="sectionbody">
-<div class="ulist">
+<h1 id="成果物">成果物</h1>
 <ul>
-<li>
-<p><a href="https://hello-github-actions.github.io/" class="bare">https://hello-github-actions.github.io/</a></p>
-</li>
+<li><a href="https://hello-github-actions.github.io/">https://hello-github-actions.github.io/</a></li>
 </ul>
-</div>
-<div class="paragraph">
-<p>1時間おきに <a href="https://ja.stackoverflow.com/" class="bare">https://ja.stackoverflow.com/</a> の上位の質問を取得して一覧します。</p>
-</div>
-<div class="paragraph">
-<p>毎時15分に更新する設定にしていますが、 <a href="https://github.com/hello-github-actions/updater/actions">GitHub Actionsのログ</a>を見ると 30-40分程度遅れて実行されているようです。
-(検証時、書き方が間違っているせいで実行できていないのかとあせりました…)</p>
-</div>
-</div>
-</div>
+<p>1時間おきに <a href="https://ja.stackoverflow.com/">https://ja.stackoverflow.com/</a> の上位の質問を取得して一覧します。</p>
+<p>毎時15分に更新する設定にしていますが、 <a href="https://github.com/hello-github-actions/updater/actions">GitHub Actionsのログ</a>を見ると 30-40分程度遅れて実行されているようです。 (検証時、書き方が間違っているせいで実行できていないのかとあせりました…)</p>
 
         </section>
         <div class="post-tags">
@@ -238,7 +138,7 @@ Name は後で GitHub Actions スクリプトから変数名として利用す�
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/github">github</a></li>
+              <li><a href="/tags/github/">github</a></li>
               
             </ul>
           </nav>
@@ -255,10 +155,10 @@ Name は後で GitHub Actions スクリプトから変数名として利用す�
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

@@ -2,14 +2,9 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Spring Boot でカスタム validator に injection する - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-はじめに
-
-
-Spring Boot で JPA Validator にインジェクションしようとしたけどできなかった、という話を何度か聞いてその度に調べていたので、次回に備えてまとめておきます。
-サンプルコードはこちら:
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="はじめに
+Spring Boot で JPA Validator にインジェクションしようとしたけどできなかった、という話を何度か聞いてその度に調べていたので、次回に備えてまとめておきます。 サンプルコードはこちら:" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202110/18/spring-inject-in-validator/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Spring Boot でカスタム validator に injection する">
@@ -29,8 +24,8 @@ Spring Boot で JPA Validator にインジェクションしようとしたけ�
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -47,9 +42,17 @@ Spring Boot で JPA Validator にインジェクションしようとしたけ�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -66,29 +69,13 @@ Spring Boot で JPA Validator にインジェクションしようとしたけ�
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Spring Boot で JPA Validator にインジェクションしようとしたけどできなかった、という話を何度か聞いてその度に調べていたので、次回に備えてまとめておきます。
-サンプルコードはこちら:</p>
-</div>
-<div class="ulist">
+          <h1 id="はじめに">はじめに</h1>
+<p>Spring Boot で JPA Validator にインジェクションしようとしたけどできなかった、という話を何度か聞いてその度に調べていたので、次回に備えてまとめておきます。 サンプルコードはこちら:</p>
 <ul>
-<li>
-<p><a href="https://github.com/yukihane/hello-java/tree/master/spring/inject-in-validator" class="bare">https://github.com/yukihane/hello-java/tree/master/spring/inject-in-validator</a></p>
-</li>
+<li><a href="https://github.com/yukihane/hello-java/tree/master/spring/inject-in-validator">https://github.com/yukihane/hello-java/tree/master/spring/inject-in-validator</a></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_解説">解説</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="解説">解説</h1>
 <p>Spring Boot で JPA Validator を利用するのは、典型的には</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p>Sprng MVC でハンドラメソッドにアノテーションを付与する</p>
@@ -97,102 +84,112 @@ Spring Boot で JPA Validator にインジェクションしようとしたけ�
 <p>永続化時のバリデーション (一般的な JPA Validation の利用方法)</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p>の 2 つのタイミングがあるのかなと思っています。</p>
-</div>
-<div class="paragraph">
 <p>前者は次のような感じのものです:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">MyEntity</span><span class="w"> </span><span class="nf">index</span><span class="p">(</span><span class="nd">@Valid</span><span class="w"> </span><span class="nd">@RequestBody</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MyRequest</span><span class="w"> </span><span class="n">req</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">MyRequest</span><span class="p">(</span><span class="nd">@MyConstraint</span><span class="p">(</span><span class="s">&#34;1&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">    @PostMapping(&#34;/&#34;)
-    public MyEntity index(@Valid @RequestBody final MyRequest req) {
-        ...
-    }
-
-    public record MyRequest(@MyConstraint(&#34;1&#34;) String name, int age) {
-    }</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>こちらは、 Spring Framework のリファレンス <a href="https://docs.spring.io/spring-framework/docs/5.3.3/reference/html/core.html#validation-beanvalidation-spring">3.7.2. Configuring a Bean Validation Provider</a> に説明があり、この設定を行うことでカスタム validator でも <code>@Autowired</code> が利用できるようになります。</p>
-</div>
-<div class="paragraph">
+</div><p>こちらは、 Spring Framework のリファレンス <a href="https://docs.spring.io/spring-framework/docs/5.3.3/reference/html/core.html#validation-beanvalidation-spring">3.7.2. Configuring a Bean Validation Provider</a> に説明があり、この設定を行うことでカスタム validator でも <code>@Autowired</code> が利用できるようになります。</p>
 <p>ちなみに Spring Boot では自動設定されます(<a href="https://github.com/spring-projects/spring-boot/blob/v2.5.5/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/validation/ValidationAutoConfiguration.java"><code>ValidationAutoConfiguration</code></a>)ので明示的なコンフィグレーションは不要です。</p>
-</div>
-<div class="paragraph">
 <p>よく困るのは後者です。エンティティにアノテーションを付与して、永続化時に検証するものです:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Entity</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyEntity</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Id</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@MyConstraint</span><span class="p">(</span><span class="s">&#34;4&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">@Entity
-public class MyEntity {
-
-    @Id
-    private Long id;
-
-    @MyConstraint(&#34;4&#34;)
-    private String name;
-
-    private int age;
-}</code></pre>
+</div><p>こちらは自動設定されないので明示的なコンフィグレーションが必要になります。 次のような設定を行います:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">javax.validation.Validator</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.boot.autoconfigure.orm.jpa.HibernatePropertiesCustomizer</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.context.annotation.Bean</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.context.annotation.Configuration</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyConfig</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">HibernatePropertiesCustomizer</span><span class="w"> </span><span class="nf">hibernatePropertiesCustomizer</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">Validator</span><span class="w"> </span><span class="n">validator</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HibernatePropertiesCustomizer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">customize</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">hibernateProperties</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">hibernateProperties</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&#34;javax.persistence.validation.factory&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">validator</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-</div>
-<div class="paragraph">
-<p>こちらは自動設定されないので明示的なコンフィグレーションが必要になります。
-次のような設定を行います:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">import java.util.Map;
-import javax.validation.Validator;
-import org.springframework.boot.autoconfigure.orm.jpa.HibernatePropertiesCustomizer;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-
-@Configuration
-public class MyConfig {
-
-    @Bean
-    public HibernatePropertiesCustomizer hibernatePropertiesCustomizer(final Validator validator) {
-        return new HibernatePropertiesCustomizer() {
-            @Override
-            public void customize(final Map&lt;String, Object&gt; hibernateProperties) {
-                hibernateProperties.put(&#34;javax.persistence.validation.factory&#34;, validator);
-            }
-        };
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>この設定を行うことで、 JPA フレームワークが用いる validator インスタンスの生成が Spring Framework に委譲され、 Spring Bean として管理されることになります。
-そのため <code>@Autowired</code> も利用できるようになります。</p>
-</div>
-<div class="paragraph">
+</div><p>この設定を行うことで、 JPA フレームワークが用いる validator インスタンスの生成が Spring Framework に委譲され、 Spring Bean として管理されることになります。 そのため <code>@Autowired</code> も利用できるようになります。</p>
 <p>参考:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://ja.stackoverflow.com/a/73728/2808">@AutowiredでインジェクトしたUserServiceがnullになってしまう</a> - スタック・オーバーフロー</p>
-</li>
+<li><a href="https://ja.stackoverflow.com/a/73728/2808">@AutowiredでインジェクトしたUserServiceがnullになってしまう</a> - スタック・オーバーフロー</li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_余談">余談</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="余談">余談</h1>
 <p>この検証をしていて気づいたのですが、 validator インスタンスは必要に応じて生成されるんですね。</p>
-</div>
-<div class="paragraph">
 <p>通常の <code>@Component</code> を付与した Spring Bean は(特に設定しないと)singleton なので 1 つしか生成されないのですが、そうすると不都合あるよな…(validator が状態を持っているので並行して validation できない)とか思っていたのですが、ちゃんとチェックするタイミングごと(context ごと、というのが正確なのかな？)にインスタンス生成されていますね。</p>
-</div>
-</div>
-</div>
 
         </section>
         <div class="post-tags">
@@ -201,7 +198,7 @@ public class MyConfig {
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/spring-boot">spring-boot</a></li>
+              <li><a href="/tags/spring-boot/">spring-boot</a></li>
               
             </ul>
           </nav>
@@ -218,10 +215,10 @@ public class MyConfig {
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

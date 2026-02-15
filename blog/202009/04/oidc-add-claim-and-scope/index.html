@@ -2,16 +2,10 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>claimとscopeを追加して取得してみる - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-はじめに
-
-
+	<meta name="description" content="はじめに
 Keycloak上で新しいclaimと、それを取得できる新しいscopeを定義し、Spring Securityを使って参照してみます。
-
-
-KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる で作成したコードをベースにしています。
-" />
-	<meta property="og:image" content=""/>
+KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる で作成したコードをベースにしています。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202009/04/oidc-add-claim-and-scope/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="claimとscopeを追加して取得してみる">
@@ -35,8 +29,8 @@ KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -53,9 +47,17 @@ KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -72,174 +74,148 @@ KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="paragraph">
+          <h1 id="はじめに">はじめに</h1>
 <p>Keycloak上で新しいclaimと、それを取得できる新しいscopeを定義し、Spring Securityを使って参照してみます。</p>
-</div>
-<div class="paragraph">
 <p><a href="/blog/202007/21/hello-oidc-with-keycloak/">KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる</a> で作成したコードをベースにしています。</p>
-</div>
-<div class="paragraph">
 <p>今回のコードはこちらです:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-add-scope" class="bare">https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-add-scope</a></p>
-</li>
+<li><a href="https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-add-scope">https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-add-scope</a></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_keycloak上の設定手順">Keycloak上の設定手順</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_ユーザ属性claim追加">ユーザ属性(claim)追加</h3>
-<div class="paragraph">
+<h1 id="keycloak上の設定手順">Keycloak上の設定手順</h1>
+<h2 id="ユーザ属性claim追加">ユーザ属性(claim)追加</h2>
 <p><a href="/blog/202007/21/hello-oidc-with-keycloak/">KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる</a> のときと同様に、管理者でログインします。</p>
-</div>
-<div class="paragraph">
 <p><a href="http://localhost:8081/auth/admin/master/console/#/realms/myrealm/users">Users</a> 設定画面から以前作成したユーザ <code>myuser</code> の編集を行います。</p>
-</div>
-<div class="paragraph">
 <p><code>myuser</code> の編集画面で <strong>Attrributes</strong> タブを開き、次のレコードを作成し、保存します。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;"/>
-<col style="width: 50%;"/>
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Key</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">fav-number</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-</tr>
-</tbody>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Key</td>
+          <td>fav-number</td>
+      </tr>
+      <tr>
+          <td>Value</td>
+          <td>8</td>
+      </tr>
+  </tbody>
 </table>
-</div>
-<div class="sect2">
-<h3 id="_scope追加">scope追加</h3>
-<div class="paragraph">
+<h2 id="scope追加">scope追加</h2>
 <p><a href="http://localhost:8081/auth/admin/master/console/#/realms/myrealm/client-scopes">Client Scopes</a>を選択し、表の右上 <strong>Create</strong> ボタンを押します。</p>
-</div>
-<div class="paragraph">
 <p>次の情報を入力し、 <strong>Save</strong> します。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;"/>
-<col style="width: 50%;"/>
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">extrainfo</p></td>
-</tr>
-</tbody>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Name</td>
+          <td>extrainfo</td>
+      </tr>
+  </tbody>
 </table>
-<div class="paragraph">
 <p>つづいて <strong>Mappers</strong> タブを開きます。 <strong>Create</strong> ボタンを押し、次の情報を入力します。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;"/>
-<col style="width: 50%;"/>
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">extrainfo mapper</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mapper Type</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">User Attribute</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">User Attribute</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">fav-number</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Token Claim Name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">fav-number</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Claim JSON Type</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">int</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add to ID token</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">OFF</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add to access token</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">OFF</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add to usrinfo</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ON (デフォルトのまま)</p></td>
-</tr>
-</tbody>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Name</td>
+          <td>extrainfo mapper</td>
+      </tr>
+      <tr>
+          <td>Mapper Type</td>
+          <td>User Attribute</td>
+      </tr>
+      <tr>
+          <td>User Attribute</td>
+          <td>fav-number</td>
+      </tr>
+      <tr>
+          <td>Token Claim Name</td>
+          <td>fav-number</td>
+      </tr>
+      <tr>
+          <td>Claim JSON Type</td>
+          <td>int</td>
+      </tr>
+      <tr>
+          <td>Add to ID token</td>
+          <td>OFF</td>
+      </tr>
+      <tr>
+          <td>Add to access token</td>
+          <td>OFF</td>
+      </tr>
+      <tr>
+          <td>Add to usrinfo</td>
+          <td>ON (デフォルトのまま)</td>
+      </tr>
+  </tbody>
 </table>
-</div>
-<div class="sect2">
-<h3 id="_クライアントから取得できるようにする">クライアントから取得できるようにする</h3>
-<div class="paragraph">
+<h2 id="クライアントから取得できるようにする">クライアントから取得できるようにする</h2>
 <p><a href="http://localhost:8081/auth/admin/master/console/#/realms/myrealm/clients">Clients</a> 画面で <code>myclient</code> を選択し、 <strong>Client Scopes</strong> タブを開きます。</p>
-</div>
-<div class="paragraph">
 <p><strong>Optional Client Scopes</strong> で、 <code>extrainfo</code> を <strong>Assined Optional Client Scopes</strong> に移します。</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_spring_bootの設定">Spring Bootの設定</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_scope追加_2">scope追加</h3>
-<div class="paragraph">
+<h1 id="spring-bootの設定">Spring Bootの設定</h1>
+<h2 id="scope追加-1">scope追加</h2>
 <p><code>application.yml</code> で設定している registration に、今回追加で取得するscope <code>extrainfo</code> 追加します。</p>
+<div class="formalpara-title">
+<p><strong>application.yml</strong></p>
 </div>
-<div class="listingblock">
-<div class="title">application.yml</div>
-<div class="content">
-<pre class="highlight"><code class="language-yml" data-lang="yml">        registration:
-          myspring:
-            scope:
-            - openid
-            - extrainfo</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="w">        </span><span class="nt">registration</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">myspring</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">scope</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="l">openid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="l">extrainfo</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_取得した情報を表示してみる">取得した情報を表示してみる</h3>
-<div class="paragraph">
+</div><h2 id="取得した情報を表示してみる">取得した情報を表示してみる</h2>
 <p>コントローラで情報を取得してみます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@GetMapping</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">index</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Authentication</span><span class="w"> </span><span class="n">authn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SecurityContextHolder</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getAuthentication</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&#34;Authentication: {}&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">authn</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">OAuth2User</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="n">OAuth2AuthenticationToken</span><span class="p">)</span><span class="w"> </span><span class="n">authn</span><span class="p">).</span><span class="na">getPrincipal</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">favNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="na">getAttribute</span><span class="p">(</span><span class="s">&#34;fav-number&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;Hello &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">authn</span><span class="p">.</span><span class="na">getName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;! Your fav is &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">favNum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;.&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">    @GetMapping
-    public String index() {
-        final Authentication authn = SecurityContextHolder.getContext().getAuthentication();
-        log.info(&#34;Authentication: {}&#34;, authn);
-
-        final OAuth2User user = ((OAuth2AuthenticationToken) authn).getPrincipal();
-        final Object favNum = user.getAttribute(&#34;fav-number&#34;);
-        return &#34;Hello &#34; + authn.getName() + &#34;! Your fav is &#34; + favNum + &#34;.&#34;;
-    }</code></pre>
 </div>
-</div>
-</div>
-</div>
-</div>
-
         </section>
         <div class="post-tags">
           
@@ -247,11 +223,11 @@ KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/oidc">oidc</a></li>
+              <li><a href="/tags/oidc/">oidc</a></li>
               
-              <li><a href="/tags/spring-boot">spring-boot</a></li>
+              <li><a href="/tags/spring-boot/">spring-boot</a></li>
               
-              <li><a href="/tags/spring-security">spring-security</a></li>
+              <li><a href="/tags/spring-security/">spring-security</a></li>
               
             </ul>
           </nav>
@@ -268,10 +244,10 @@ KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

@@ -2,13 +2,9 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Servlet 5.1 で Samesite 属性を設定できるようになる - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-現在の Servlet API では Cookie に SameSite 属性を設定するメソッドがありません。
-
-
-そのため、仕様外の、フレームワーク固有の方法だったり、低レイヤーの仕組みを使って設定する必要があります。
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="現在の Servlet API では Cookie に SameSite 属性を設定するメソッドがありません。
+そのため、仕様外の、フレームワーク固有の方法だったり、低レイヤーの仕組みを使って設定する必要があります。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202110/15/servlet-with-cookies-samesite/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Servlet 5.1 で Samesite 属性を設定できるようになる">
@@ -30,8 +26,8 @@
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -48,9 +44,17 @@
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -67,13 +71,8 @@
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>現在の Servlet API では <a href="https://jakarta.ee/specifications/platform/8/apidocs/javax/servlet/http/cookie"><code>Cookie</code></a> に <a href="https://developer.mozilla.org/ja/docs/Web/HTTP/Cookies#samesite_attribute"><code>SameSite</code> 属性</a>を設定するメソッドがありません。</p>
-</div>
-<div class="paragraph">
+          <p>現在の Servlet API では <a href="https://jakarta.ee/specifications/platform/8/apidocs/javax/servlet/http/cookie"><code>Cookie</code></a> に <a href="https://developer.mozilla.org/ja/docs/Web/HTTP/Cookies#samesite_attribute"><code>SameSite</code> 属性</a>を設定するメソッドがありません。</p>
 <p>そのため、仕様外の、フレームワーク固有の方法だったり、低レイヤーの仕組みを使って設定する必要があります。</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p><a href="https://zenn.dev/backpaper0/articles/b8d624990d09169abf81">ServletでSameSite Cookieを設定する - Zenn</a></p>
@@ -85,20 +84,11 @@
 <p><a href="https://docs.spring.io/spring-session/docs/2.5.2/api/org/springframework/session/web/http/DefaultCookieSerializer.html#setSameSite-java.lang.String-"><code>DefaultCookieSerializer#setSameSite()</code> - spring-session-docs 2.5.2 API</a></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p>そういった状況に対して、Servlet 5.1 で、 <code>Cookie</code> に <code>setAttribute</code> という汎用的な属性設定用のメソッドが追加されることになったようです。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/eclipse-ee4j/servlet-api/issues/175">SameSite Cookie Support #175 - eclipse-ee4j/servlet-api</a></p>
-</li>
+<li><a href="https://github.com/eclipse-ee4j/servlet-api/issues/175">SameSite Cookie Support #175 - eclipse-ee4j/servlet-api</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>変更差分を見てみると、 <a href="https://github.com/eclipse-ee4j/servlet-api/pull/401/files#diff-efd9fbfb2d16ee6423b8d6c37d235871db13a6cbe03ee41f52900412c67df0b8L285-L299"><code>setSecure()</code></a>とか <a href="https://github.com/eclipse-ee4j/servlet-api/pull/401/files#diff-efd9fbfb2d16ee6423b8d6c37d235871db13a6cbe03ee41f52900412c67df0b8L417-R446"><code>setHttpOnly()</code></a>といった既存のメソッドも今回の仕組みで実装し直されています。</p>
-</div>
 
         </section>
         <div class="post-tags">
@@ -107,7 +97,7 @@
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/java">java</a></li>
+              <li><a href="/tags/java/">java</a></li>
               
             </ul>
           </nav>
@@ -124,10 +114,10 @@
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

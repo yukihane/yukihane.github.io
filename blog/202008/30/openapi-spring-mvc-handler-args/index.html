@@ -2,16 +2,10 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>openapi-generaterで生成したcontrollerにカスタム引数を追加する - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-はじめに
-
-
+	<meta name="description" content="はじめに
 openapi generator を Spring Boot で利用してみる で openapi-generator を用いて Spring MVC のコントローラ(のインタフェース)を自動生成してみました。
-
-
-その後、これを実際に利用してみて気づいたのですが、ハンドラ(controllerのメソッド)に独自の引数を生やしたいことが多く、このままだと非常に不便です。
-" />
-	<meta property="og:image" content=""/>
+その後、これを実際に利用してみて気づいたのですが、ハンドラ(controllerのメソッド)に独自の引数を生やしたいことが多く、このままだと非常に不便です。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202008/30/openapi-spring-mvc-handler-args/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="openapi-generaterで生成したcontrollerにカスタム引数を追加する">
@@ -34,8 +28,8 @@ openapi generator を Spring Boot で利用してみる で openapi-generator �
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -52,9 +46,17 @@ openapi generator を Spring Boot で利用してみる で openapi-generator �
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -71,171 +73,92 @@ openapi generator を Spring Boot で利用してみる で openapi-generator �
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="paragraph">
+          <h1 id="はじめに">はじめに</h1>
 <p><a href="https://yukihane.github.io/blog/202008/23/openapi-generator/">openapi generator を Spring Boot で利用してみる</a> で openapi-generator を用いて Spring MVC のコントローラ(のインタフェース)を自動生成してみました。</p>
-</div>
-<div class="paragraph">
 <p>その後、これを実際に利用してみて気づいたのですが、ハンドラ(controllerのメソッド)に独自の引数を生やしたいことが多く、このままだと非常に不便です。</p>
-</div>
-<div class="paragraph">
 <p>Springを利用していると当然発生する欲求だと思ったのですが、検索してみても全然ヒットしません。</p>
-</div>
-<div class="paragraph">
 <p>仕方がないのでやり方を自分で考えてみました。</p>
-</div>
-<div class="paragraph">
 <p>成果物は、前回と同じディレクトリになります:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/yukihane/hello-java/tree/master/spring/openapi-sample" class="bare">https://github.com/yukihane/hello-java/tree/master/spring/openapi-sample</a></p>
-</li>
+<li><a href="https://github.com/yukihane/hello-java/tree/master/spring/openapi-sample">https://github.com/yukihane/hello-java/tree/master/spring/openapi-sample</a></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_対応の概要">対応の概要</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="対応の概要">対応の概要</h1>
 <p><a href="https://swagger.io/docs/specification/2-0/swagger-extensions/">extension(vender extension)</a> という仕様があり、これを用いればspecファイルに自分で属性を定義して値を付与することができます。</p>
-</div>
-<div class="paragraph">
 <p>そして、 <a href="https://openapi-generator.tech/docs/templating/">テンプレートをカスタマイズ</a>し、この属性を見て自動生成時に引数を追加する、というようなことを行いました。</p>
-</div>
-<div class="paragraph">
 <p>ただ、ここで利用される <a href="https://mustache.github.io/">mustache</a> というテンプレートエンジン、文法が簡易で学習コストが低いというのが売りなようですが、代わりに表現力が非常に低く、色々妥協しないと容易にスパゲッティ化しそうです(というか既存のテンプレートの時点でもはやスパゲッティ化していると言って差し支えなさそう…)。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_対応手順">対応手順</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_デフォルトテンプレートをローカルにコピー">デフォルトテンプレートをローカルにコピー</h3>
-<div class="paragraph">
+<h1 id="対応手順">対応手順</h1>
+<h2 id="デフォルトテンプレートをローカルにコピー">デフォルトテンプレートをローカルにコピー</h2>
 <p>参考:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://openapi-generator.tech/docs/templating/">Using Templates</a></p>
-</li>
+<li><a href="https://openapi-generator.tech/docs/templating/">Using Templates</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>上のページにある通り、最新版の5.0(現時点ではまだ正式リリースされておらずbeta版)と、それより古いバージョンではテンプレートの取得方法が異なるようです。</p>
-</div>
-<div class="paragraph">
 <p>今回は、5.0の方が簡単そうに見えたのでそちらの方法でダウンロードしました。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/" class="bare">https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/</a></p>
-</li>
+<li><a href="https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/">https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>から所望のバージョン(<a href="https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.0.0-beta/openapi-generator-cli-5.0.0-beta.jar">openapi-generator-cli-5.0.0-beta.jar</a>)をダウンロードし、これを用いて <code>specs/template</code> へテンプレートを格納します。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>java -jar openapi-generator-cli-5.0.0-beta.jar author template \
--g spring --library spring-boot -o specs/template</code></pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>java -jar openapi-generator-cli-5.0.0-beta.jar author template \
+-g spring --library spring-boot -o specs/template
+</code></pre>
 <p>つづいて、 <code>build.gradle</code> でこのローカルに格納したテンプレートを用いるよう設定を行います。</p>
+<div class="formalpara-title">
+<p><strong>build.gradle</strong></p>
 </div>
-<div class="listingblock">
-<div class="title">build.gradle</div>
-<div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy"> openApiGenerate {
-     templateDir = &#34;$rootDir/specs/template&#34;
-     // ...
- }</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="line"><span class="cl"> <span class="n">openApiGenerate</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">     <span class="n">templateDir</span> <span class="o">=</span> <span class="s2">&#34;$rootDir/specs/template&#34;</span>
+</span></span><span class="line"><span class="cl">     <span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
+</div><p>extension機能を用い、次のようにハンドラの引数を宣言することとしました:</p>
+<div class="formalpara-title">
+<p><strong>specs/test.yml</strong></p>
 </div>
-<div class="paragraph">
-<p>extension機能を用い、次のようにハンドラの引数を宣言することとしました:</p>
-</div>
-<div class="listingblock">
-<div class="title">specs/test.yml</div>
-<div class="content">
-<pre class="highlight"><code>   /books:
-     get:
-       description: books listing
-       x-handler-args:
-         - arg: javax.servlet.http.HttpServletRequest request
-         - arg: org.springframework.web.util.UriComponentsBuilder builder</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>ちなみに、デフォルトで <code>UriComponentsBuilder builder, ` のように挿入されるのですが、最後のカンマが必要ない(他に引数がない)場合には次のように `last</code> という属性を用いることにしました:</p>
-</div>
-<div class="listingblock">
-<div class="title">specs/test.yml</div>
-<div class="content">
-<pre class="highlight"><code>   /books:
+<pre><code>   /books:
      get:
        description: books listing
        x-handler-args:
          - arg: javax.servlet.http.HttpServletRequest request
          - arg: org.springframework.web.util.UriComponentsBuilder builder
-           last: true</code></pre>
+</code></pre>
+<p>ちなみに、デフォルトで <code>UriComponentsBuilder builder, ` のように挿入されるのですが、最後のカンマが必要ない(他に引数がない)場合には次のように `last</code> という属性を用いることにしました:</p>
+<div class="formalpara-title">
+<p><strong>specs/test.yml</strong></p>
 </div>
-</div>
-<div class="paragraph">
+<pre><code>   /books:
+     get:
+       description: books listing
+       x-handler-args:
+         - arg: javax.servlet.http.HttpServletRequest request
+         - arg: org.springframework.web.util.UriComponentsBuilder builder
+           last: true
+</code></pre>
 <p>そして最後に、上記 <code>x-handler-args</code> を参照して自動生成するようにテンプレートを編集しました:</p>
+<div class="formalpara-title">
+<p><strong>specs/template/api.mustache</strong></p>
 </div>
-<div class="listingblock">
-<div class="title">specs/template/api.mustache</div>
-<div class="content">
-<pre class="highlight"><code>({{#vendorExtensions.x-handler-args}}{{{arg}}}{{^last}}, {{/last}}{{/vendorExtensions.x-handler-args}}</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_備考">備考</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<pre><code>({{#vendorExtensions.x-handler-args}}{{{arg}}}{{^last}}, {{/last}}{{/vendorExtensions.x-handler-args}}
+</code></pre>
+<h1 id="備考">備考</h1>
 <p>この対応を行った後、</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/OpenAPITools/openapi-generator/issues/4680#issuecomment-656199687">[REQ] How to add Principal parameter to Spring interface method? #4680</a></p>
-</li>
+<li><a href="https://github.com/OpenAPITools/openapi-generator/issues/4680#issuecomment-656199687">[REQ] How to add Principal parameter to Spring interface method? #4680</a></li>
 </ul>
-</div>
-<div class="paragraph">
-<p>というissueがあるのに気づきました。
-しかし、ここに書かれている対応を行ってみたものの上手く行きませんでした。
-( <code>in: query</code> って指定しているから <code>@RequestParam</code> が付く、つまりクエリパラメータとみなされてしまう。リンク先のような出力にはならない、よね…？)</p>
-</div>
-<hr/>
-<div class="paragraph">
+<p>というissueがあるのに気づきました。 しかし、ここに書かれている対応を行ってみたものの上手く行きませんでした。 ( <code>in: query</code> って指定しているから <code>@RequestParam</code> が付く、つまりクエリパラメータとみなされてしまう。リンク先のような出力にはならない、よね…？)</p>
 <p>そういえば、modelの方にもカスタムバリデーションのアノテーションとかも付与したくなるよな…と考えたのですが、こちらは既に行われている方がいらっしゃいました:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://int128.hatenablog.com/entry/2017/08/14/014253">Swagger Codegenにおけるカスタムバリデーションの追加 - GeekFactory</a></p>
-</li>
+<li><a href="https://int128.hatenablog.com/entry/2017/08/14/014253">Swagger Codegenにおけるカスタムバリデーションの追加 - GeekFactory</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>やっぱり同じように vendor extension を使ってなんとかするようです。</p>
-</div>
-</div>
-</div>
 
         </section>
         <div class="post-tags">
@@ -244,9 +167,9 @@ openapi generator を Spring Boot で利用してみる で openapi-generator �
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/openapi">openapi</a></li>
+              <li><a href="/tags/openapi/">openapi</a></li>
               
-              <li><a href="/tags/spring-boot">spring-boot</a></li>
+              <li><a href="/tags/spring-boot/">spring-boot</a></li>
               
             </ul>
           </nav>
@@ -263,10 +186,10 @@ openapi generator を Spring Boot で利用してみる で openapi-generator �
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

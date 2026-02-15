@@ -2,16 +2,10 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>WindowsでGradleが扱うリソースのファイルエンコーディング設定 - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-問題
-
-
+	<meta name="description" content="問題
 Spring Bootの自動テストで data.sql を作成しているのですが、 gradle check でテストを実行すると、失敗してしまう。
-
-
-原因を調べたのですが、どうも日本語のカラムを比較しているところで失敗しているようで、出力を見る感じ data.sql のファイルエンコーディングが MS932 で扱われてしまっているようでした。
-" />
-	<meta property="og:image" content=""/>
+原因を調べたのですが、どうも日本語のカラムを比較しているところで失敗しているようで、出力を見る感じ data.sql のファイルエンコーディングが MS932 で扱われてしまっているようでした。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202009/12/gradle-resource-encoding/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="WindowsでGradleが扱うリソースのファイルエンコーディング設定">
@@ -33,8 +27,8 @@ Spring Bootの自動テストで data.sql を作成しているのですが、 g
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -51,9 +45,17 @@ Spring Bootの自動テストで data.sql を作成しているのですが、 g
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -70,77 +72,48 @@ Spring Bootの自動テストで data.sql を作成しているのですが、 g
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_問題">問題</h2>
-<div class="sectionbody">
-<div class="paragraph">
+          <h1 id="問題">問題</h1>
 <p>Spring Bootの自動テストで <a href="https://docs.spring.io/spring-boot/docs/2.3.3.RELEASE/reference/htmlsingle/#howto-initialize-a-database-using-spring-jdbc"><code>data.sql</code></a> を作成しているのですが、 <code>gradle check</code> でテストを実行すると、失敗してしまう。</p>
-</div>
-<div class="paragraph">
 <p>原因を調べたのですが、どうも日本語のカラムを比較しているところで失敗しているようで、出力を見る感じ <code>data.sql</code> のファイルエンコーディングが <code>MS932</code> で扱われてしまっているようでした。</p>
-</div>
-<div class="paragraph">
 <p>この解決策としては、</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gradle -Dfile.encoding<span class="o">=</span>UTF-8 check
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">gradle -Dfile.encoding=UTF-8 check</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>とすれば良いことに気づきました。</p>
-</div>
-<div class="paragraph">
+</div><p>とすれば良いことに気づきました。</p>
 <p>ただ、毎回この <code>-Dfile.encoding=UTF-8</code> を打ちたくないので、デフォルトオプションに指定したく、色々と試行錯誤した結果、次の設定が等価のようです。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_解決手順">解決手順</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="解決手順">解決手順</h1>
 <p>自分はGradleをSDKMAN!でインストールしてGit Bashでのみ利用しています。解決の確認もこの環境で行っています。</p>
+<p>まず、環境変数 <code>GRADLE_USER_HOME</code> を設定します <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export GRADLE_USER_HOME=$HOME/.gradle&#39;</span> &gt;&gt; ~/.bashrc
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="paragraph">
-<p>まず、環境変数 <code>GRADLE_USER_HOME</code> を設定します <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">echo &#39;export GRADLE_USER_HOME=$HOME/.gradle&#39; &gt;&gt; ~/.bashrc</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>続いて、 <code>gradle.properties</code> でファイルエンコーディングを設定します。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>mkdir -p ~/.gradle
-echo &#39;file.encoding=UTF-8&#39; &gt;&gt; ~/.gradle/gradle.properties</pre>
-</div>
-</div>
-<div class="paragraph">
+</div><p>続いて、 <code>gradle.properties</code> でファイルエンコーディングを設定します。</p>
+<pre><code>mkdir -p ~/.gradle
+echo 'file.encoding=UTF-8' &gt;&gt; ~/.gradle/gradle.properties
+</code></pre>
 <p>これでOKでした。</p>
-</div>
-<div class="paragraph">
 <p>他の方法、 <code>GRADLE_OPTS</code> 環境変数に設定するなど次のページに書かれている方法ではいずれも目的を達成できませんでした。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://stackoverflow.com/q/21267234/4506703">Show UTF-8 text properly in Gradle - Stack Overflow</a></p>
-</li>
+<li><a href="https://stackoverflow.com/q/21267234/4506703">Show UTF-8 text properly in Gradle - Stack Overflow</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>UTF-8として認識されないまま、あるいは、リソースファイルの読み取りだけでなくGradleコンソール出力もUTF-8になってしまう(結果、出力の日本語が化けてしまう)という結果となりました。</p>
-</div>
-</div>
-</div>
-<div id="footnotes">
-<hr/>
-<div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. <a href="https://docs.gradle.org/current/userguide/build_environment.html#sec:gradle_environment_variables">リファレンス</a>によると未設定の場合は <code>$USER_HOME/.gradle</code> になる、とありましたが、今回この環境変数を明示的に設定しないと有効になりませんでした
-</div>
+<div class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://docs.gradle.org/current/userguide/build_environment.html#sec:gradle_environment_variables">リファレンス</a>によると未設定の場合は <code>$USER_HOME/.gradle</code> になる、とありましたが、今回この環境変数を明示的に設定しないと有効になりませんでした&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
 </div>
 
         </section>
@@ -150,7 +123,7 @@ echo &#39;file.encoding=UTF-8&#39; &gt;&gt; ~/.gradle/gradle.properties</pre>
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/gradle">gradle</a></li>
+              <li><a href="/tags/gradle/">gradle</a></li>
               
             </ul>
           </nav>
@@ -167,10 +140,10 @@ echo &#39;file.encoding=UTF-8&#39; &gt;&gt; ~/.gradle/gradle.properties</pre>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

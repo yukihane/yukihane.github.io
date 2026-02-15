@@ -2,10 +2,8 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Gradleプロジェクトで生成した実行スクリプトがGitBash(MSYS環境)でうまく動かない - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-GitBash環境でSDKMAN!を使ってJBakeをインストールしたのですが、 jbake コマンドを実行すると次のようなエラーが出てうまく動きませんでした。
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="GitBash環境でSDKMAN!を使ってJBakeをインストールしたのですが、 jbake コマンドを実行すると次のようなエラーが出てうまく動きませんでした。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/201908/gradle-msys/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Gradleプロジェクトで生成した実行スクリプトがGitBash(MSYS環境)でうまく動かない">
@@ -27,8 +25,8 @@ GitBash環境でSDKMAN!を使ってJBakeをインストールしたのですが�
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -45,9 +43,17 @@ GitBash環境でSDKMAN!を使ってJBakeをインストールしたのですが�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -64,31 +70,21 @@ GitBash環境でSDKMAN!を使ってJBakeをインストールしたのですが�
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>GitBash環境でSDKMAN!を使ってJBakeをインストールしたのですが、 <code>jbake</code> コマンドを実行すると次のようなエラーが出てうまく動きませんでした。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>エラー: メイン・クラスorg.jbake.launcher.Mainを検出およびロードできませんでした
-原因: java.lang.ClassNotFoundException: org.jbake.launcher.Main</pre>
-</div>
-</div>
-<div class="paragraph">
+          <p>GitBash環境でSDKMAN!を使ってJBakeをインストールしたのですが、 <code>jbake</code> コマンドを実行すると次のようなエラーが出てうまく動きませんでした。</p>
+<pre><code>エラー: メイン・クラスorg.jbake.launcher.Mainを検出およびロードできませんでした
+原因: java.lang.ClassNotFoundException: org.jbake.launcher.Main
+</code></pre>
 <p>実行スクリプトを調べてみると、クラスパス設定時にjarをワイルドカード指定している(<a href="https://docs.oracle.com/javase/jp/8/docs/technotes/tools/windows/classpath.html#A1100762">参考</a>)のですが、そこで絶対パスの記述方式がMSYSのもの <code>/c/Users/yuki/…​/*</code> のような形になっているため <code>java</code> コマンドに想定通り受け付けられていないようでした。</p>
+<p>この <code>jbake</code> スクリプトファイルを見てみたところ、次のようにmsysを判定している処理は入っていました。 が、この <code>msys</code> 変数を以降の処理で全く参照していませんでした。</p>
+<div class="formalpara-title">
+<p><strong>jbake</strong></p>
 </div>
-<div class="paragraph">
-<p>この <code>jbake</code> スクリプトファイルを見てみたところ、次のようにmsysを判定している処理は入っていました。
-が、この <code>msys</code> 変数を以降の処理で全く参照していませんでした。</p>
-</div>
-<div class="listingblock">
-<div class="title">jbake</div>
-<div class="content">
-<pre># OS specific support (must be &#39;true&#39; or &#39;false&#39;).
+<pre><code># OS specific support (must be 'true' or 'false').
 cygwin=false
 msys=false
 darwin=false
 nonstop=false
-case &#34;`uname`&#34; in
+case &quot;`uname`&quot; in
   CYGWIN* )
     cygwin=true
     ;;
@@ -101,46 +97,22 @@ case &#34;`uname`&#34; in
   NONSTOP* )
     nonstop=true
     ;;
-esac</pre>
-</div>
-</div>
-<div class="paragraph">
+esac
+</code></pre>
 <p>Cygwinと同じ分岐に乗せればうまく動きそうに見えたので、そのように修正しようとしたのですが、いくらGitリポジトリを探してもみつからない。つまりバージョン管理対象ではなく自動生成しているようでした。</p>
-</div>
-<div class="paragraph">
 <p>ファイルをいろいろ見て回った結果、 <code>gradle/application.gradle</code> ファイル内の <code>startScripts</code> がそれっぽく見えたので検索してみたところ、やっとたどり着きました。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://docs.gradle.org/current/userguide/application_plugin.html">The Application Plugin</a></p>
-</li>
+<li><a href="https://docs.gradle.org/current/userguide/application_plugin.html">The Application Plugin</a></li>
 </ul>
-</div>
-<div class="paragraph">
-<p>Gradleのコア機能だったようです。
-これはGradleへの近トリビュートチャンスか？と思いIssuesを見てみたのですが、なんと、最新のバージョンである5.6で修正されていました…</p>
-</div>
-<div class="ulist">
+<p>Gradleのコア機能だったようです。 これはGradleへの近トリビュートチャンスか？と思いIssuesを見てみたのですが、なんと、最新のバージョンである5.6で修正されていました…</p>
 <ul>
-<li>
-<p><a href="https://github.com/gradle/gradle/pull/8679">Fix start script to run in MingW shell properly #8679</a></p>
-</li>
+<li><a href="https://github.com/gradle/gradle/pull/8679">Fix start script to run in MingW shell properly #8679</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>というわけで、JBakeがGitBashで実行できない問題は、gradlewが使用しているGradleのバージョンをアップグレードすれば解消されます。</p>
-</div>
-<div class="paragraph">
 <p>というわけでIssueを挙げました:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/jbake-org/jbake/issues/612">jbake command does not work on MSYS(GitBash) #612</a></p>
-</li>
+<li><a href="https://github.com/jbake-org/jbake/issues/612">jbake command does not work on MSYS(GitBash) #612</a></li>
 </ul>
-</div>
 
         </section>
         <div class="post-tags">
@@ -149,11 +121,11 @@ esac</pre>
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/java">java</a></li>
+              <li><a href="/tags/java/">java</a></li>
               
-              <li><a href="/tags/jbake">jbake</a></li>
+              <li><a href="/tags/jbake/">jbake</a></li>
               
-              <li><a href="/tags/gradle">gradle</a></li>
+              <li><a href="/tags/gradle/">gradle</a></li>
               
             </ul>
           </nav>
@@ -170,10 +142,10 @@ esac</pre>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

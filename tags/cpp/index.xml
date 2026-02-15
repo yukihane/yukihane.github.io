@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cpp on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/cpp/</link>
+    <description>Recent content in Cpp on 発火後忘失</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <copyright>© Yukihane, All Rights Reserved</copyright>
+    <lastBuildDate>Sun, 15 Feb 2026 18:29:09 +0900</lastBuildDate>
+    <atom:link href="https://yukihane.github.io/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>江添亮の入門C&#43;&#43; PDF(フォント埋め込み)</title>
+      <link>https://yukihane.github.io/blog/202602/15/cpp_intro/</link>
+      <pubDate>Sun, 15 Feb 2026 18:29:09 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202602/15/cpp_intro/</guid>
+      <description>&lt;p&gt;最近Xで、&amp;ldquo;ゲームプログラマーになりたいならC++は必須&amp;quot;みたいなポストを見かけ、そういや最近のC++ってどうなっているのか知っといてもいいかも、ということでC++を学べる教材を探すことにしました。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

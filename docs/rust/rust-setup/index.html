@@ -2,45 +2,25 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Rust環境セットアップ - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-Windows インストール
-
-
+	<meta name="description" content="Windows インストール
 WinodowsにRustとEclipseベースIDEをインストールする手順。
-
-
 資料
 
 
-
-Rustのインストール
-およびここからたどれる
-https://github.com/rust-lang-nursery/rustup.rs/blob/master/README.md#working-with-rust-on-windows[rustup
-
-
+Rustのインストール およびここからたどれる https://github.com/rust-lang-nursery/rustup.rs/blob/master/README.md#working-with-rust-on-windows[rustup
 
 Working with Rust on Windows]
 
 
 
-
-
-IDE(Eclipseベース):
-RustDT
-Installationおよびここからたどれる
-User
-Guide - Configuration
-
-
-" />
-	<meta property="og:image" content=""/>
+IDE(Eclipseベース): RustDT Installationおよびここからたどれる User Guide - Configuration" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/rust/rust-setup/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Rust環境セットアップ">
   <meta property="og:description" content="Windows インストール WinodowsにRustとEclipseベースIDEをインストールする手順。
 資料 Rustのインストール およびここからたどれる https://github.com/rust-lang-nursery/rustup.rs/blob/master/README.md#working-with-rust-on-windows[rustup
-Working with Rust on Windows]
-IDE(Eclipseベース): RustDT Installationおよびここからたどれる User Guide - Configuration">
+Working with Rust on Windows] IDE(Eclipseベース): RustDT Installationおよびここからたどれる User Guide - Configuration">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -51,15 +31,14 @@ IDE(Eclipseベース): RustDT Installationおよびここからたどれる User
   <meta name="twitter:title" content="Rust環境セットアップ">
   <meta name="twitter:description" content="Windows インストール WinodowsにRustとEclipseベースIDEをインストールする手順。
 資料 Rustのインストール およびここからたどれる https://github.com/rust-lang-nursery/rustup.rs/blob/master/README.md#working-with-rust-on-windows[rustup
-Working with Rust on Windows]
-IDE(Eclipseベース): RustDT Installationおよびここからたどれる User Guide - Configuration">
+Working with Rust on Windows] IDE(Eclipseベース): RustDT Installationおよびここからたどれる User Guide - Configuration">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -76,9 +55,17 @@ IDE(Eclipseベース): RustDT Installationおよびここからたどれる User
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -95,310 +82,130 @@ IDE(Eclipseベース): RustDT Installationおよびここからたどれる User
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="windows_インストール">Windows インストール</h2>
-<div class="sectionbody">
-<div class="paragraph">
+          <h1 id="windows-インストール">Windows インストール</h1>
 <p>WinodowsにRustとEclipseベースIDEをインストールする手順。</p>
-</div>
-<div class="sect2">
-<h3 id="_資料">資料</h3>
-<div class="ulist">
+<h2 id="資料">資料</h2>
 <ul>
 <li>
-<p><a href="https://www.rust-lang.org/ja-JP/install.html">Rustのインストール</a>
-およびここからたどれる
-<a href="https://github.com/rust-lang-nursery/rustup.rs/blob/master/README.md#working-with-rust-on-windows" class="bare">https://github.com/rust-lang-nursery/rustup.rs/blob/master/README.md#working-with-rust-on-windows</a>[rustup</p>
-<div class="ulist">
+<p><a href="https://www.rust-lang.org/ja-JP/install.html">Rustのインストール</a> およびここからたどれる <a href="https://github.com/rust-lang-nursery/rustup.rs/blob/master/README.md#working-with-rust-on-windows">https://github.com/rust-lang-nursery/rustup.rs/blob/master/README.md#working-with-rust-on-windows</a>[rustup</p>
+<ul>
+<li>Working with Rust on Windows]</li>
+</ul>
+</li>
+<li>
+<p>IDE(Eclipseベース): <a href="https://github.com/RustDT/RustDT/blob/latest/documentation/Installation.md">RustDT Installation</a>およびここからたどれる <a href="https://github.com/RustDT/RustDT/blob/latest/documentation/UserGuide.md#configuration">User Guide - Configuration</a></p>
+</li>
+</ul>
+<h2 id="事前知識">事前知識</h2>
+<h3 id="windows-に関する特記事項">Windows に関する特記事項</h3>
+<p>上記のリンク中に説明があるが、Windows版はMSVC ABI と GNU ABIどちらか向けにビルドできる模様(なお、おそらくインストール後でもターゲットはhttps://github.com/rust-lang-nursery/rustup.rs/blob/master/README.md#working-with-rust-on-windows[`rustup`コマンドで変更(追加?)可能]だと思われる)。</p>
+<p>MSVCは必須ではない模様で、おそらく学習用途であればGNU ABIだけでも良いのではないか。</p>
+<p>MSVC ABI を利用するにはhttps://www.visualstudio.com/ja/downloads/[Build Tools for Visual Studio 2017]か、Visual Studio本体(VSを使用する場合、1.19より前のバージョンではhttp://hiratara.hatenadiary.jp/entry/2017/03/28/222553[少し別途対応が要るらしい])のインストールが必要。</p>
+<h3 id="ideデバッガの種類">IDE/デバッガの種類</h3>
+<p><a href="https://forge.rust-lang.org/ides.html">Rust and IDEs · The Rust Forge</a> にIDEの一覧がある。</p>
+<p>現状、GDBデバッガ(つまりGNU ABI向け)対応しているのは本ページで説明しているEclipseプラグイン(RustDT)のみの模様。</p>
+<p>本ページ記載時MSVC ABI向けデバッガは無いと思い込んでいたが、Visual StudioもしくはVisual Studio Codeで実現できる模様。</p>
 <ul>
 <li>
-<p>Working with Rust on Windows]</p>
-</li>
-</ul>
-</div>
+<p><a href="http://www.jonathanturner.org/2017/03/rust-in-windows.html">Using Rust in Windows</a></p>
 </li>
 <li>
-<p>IDE(Eclipseベース):
-<a href="https://github.com/RustDT/RustDT/blob/latest/documentation/Installation.md">RustDT
-Installation</a>およびここからたどれる
-<a href="https://github.com/RustDT/RustDT/blob/latest/documentation/UserGuide.md#configuration">User
-Guide - Configuration</a></p>
+<p><a href="http://www.brycevandyk.com/debug-rust-on-windows-with-visual-studio-code-and-the-msvc-debugger/">Debug Rust on Windows with Visual Studio Code and the MSVC Debugger</a></p>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_事前知識">事前知識</h3>
-<div class="sect3">
-<h4 id="windows_に関する特記事項">Windows に関する特記事項</h4>
-<div class="paragraph">
-<p>上記のリンク中に説明があるが、Windows版はMSVC ABI と GNU
-ABIどちらか向けにビルドできる模様(なお、おそらくインストール後でもターゲットはhttps://github.com/rust-lang-nursery/rustup.rs/blob/master/README.md#working-with-rust-on-windows[`rustup`コマンドで変更(追加?)可能]だと思われる)。</p>
-</div>
-<div class="paragraph">
-<p>MSVCは必須ではない模様で、おそらく学習用途であればGNU
-ABIだけでも良いのではないか。</p>
-</div>
-<div class="paragraph">
-<p>MSVC ABI を利用するにはhttps://www.visualstudio.com/ja/downloads/[Build
-Tools for Visual Studio 2017]か、Visual
-Studio本体(VSを使用する場合、1.19より前のバージョンではhttp://hiratara.hatenadiary.jp/entry/2017/03/28/222553[少し別途対応が要るらしい])のインストールが必要。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_ideデバッガの種類">IDE/デバッガの種類</h4>
-<div class="paragraph">
-<p><a href="https://forge.rust-lang.org/ides.html">Rust and IDEs · The Rust Forge</a>
-にIDEの一覧がある。</p>
-</div>
-<div class="paragraph">
-<p>現状、GDBデバッガ(つまりGNU
-ABI向け)対応しているのは本ページで説明しているEclipseプラグイン(RustDT)のみの模様。</p>
-</div>
-<div class="paragraph">
-<p>本ページ記載時MSVC ABI向けデバッガは無いと思い込んでいたが、Visual
-StudioもしくはVisual Studio Codeで実現できる模様。</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="http://www.jonathanturner.org/2017/03/rust-in-windows.html">Using Rust
-in Windows</a></p>
-</li>
-<li>
-<p><a href="http://www.brycevandyk.com/debug-rust-on-windows-with-visual-studio-code-and-the-msvc-debugger/">Debug
-Rust on Windows with Visual Studio Code and the MSVC Debugger</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_手順">手順</h3>
-<div class="sect3">
-<h4 id="_事前準備">事前準備</h4>
-<div class="paragraph">
-<p>MSVC ABI
-をターゲットにしたいのならhttps://www.visualstudio.com/ja/downloads/[Build
-Tools for Visual Studio 2017]をダウンロードしてインストールしておく。</p>
-</div>
-<div class="paragraph">
-<p>GNU ABI だけでよいのなら不要。本格開発でなく勉強目的なら不要だろう。
-この場合、インストール時に(もちろん後からでも編集可能だが)、default host
-triple を
-`x86_64-pc-windows-msvc`から`x86_64-pc-windows-gnu`に変更しておく。</p>
-</div>
-<div class="paragraph">
-<p>なお、インストールせずに次に記載している <code>rustup‑init.exe</code>
-を実行した場合、次の通りBuild Toolsインストールを促される。</p>
-</div>
-<div class="quoteblock">
+<h2 id="手順">手順</h2>
+<h3 id="事前準備">事前準備</h3>
+<p>MSVC ABI をターゲットにしたいのならhttps://www.visualstudio.com/ja/downloads/[Build Tools for Visual Studio 2017]をダウンロードしてインストールしておく。</p>
+<p>GNU ABI だけでよいのなら不要。本格開発でなく勉強目的なら不要だろう。 この場合、インストール時に(もちろん後からでも編集可能だが)、default host triple を `x86_64-pc-windows-msvc`から`x86_64-pc-windows-gnu`に変更しておく。</p>
+<p>なお、インストールせずに次に記載している <code>rustup‑init.exe</code> を実行した場合、次の通りBuild Toolsインストールを促される。</p>
 <blockquote>
-<div class="paragraph">
 <p>Rust Visual C++ prerequisites</p>
-</div>
-<div class="paragraph">
-<p>Rust requires the Microsoft C++ build tools for Visual Studio 2013 or
-later, but they don’t seem to be installed.</p>
-</div>
-<div class="paragraph">
-<p>The easiest way to acquire the build tools is by installing Microsoft
-Visual C Build Tools 2015 which provides just the Visual C build
-tools:</p>
-</div>
-<div class="paragraph">
-<p><code> `http://landinghub.visualstudio.com/visual-cpp-build-tools[`http://landinghub.visualstudio.com/visual-cpp-build-tools</code>]</p>
-</div>
-<div class="paragraph">
-<p>Alternately, you can install Visual Studio 2015 or Visual Studio 2013
-and during install select the &#34;C++ tools&#34;:</p>
-</div>
-<div class="paragraph">
-<p><code> `https://www.visualstudio.com/downloads/[`https://www.visualstudio.com/downloads/</code>]</p>
-</div>
-<div class="paragraph">
+<p>Rust requires the Microsoft C++ build tools for Visual Studio 2013 or later, but they don’t seem to be installed.</p>
+<p>The easiest way to acquire the build tools is by installing Microsoft Visual C Build Tools 2015 which provides just the Visual C build tools:</p>
+<p><code>`http://landinghub.visualstudio.com/visual-cpp-build-tools[`http://landinghub.visualstudio.com/visual-cpp-build-tools</code>]</p>
+<p>Alternately, you can install Visual Studio 2015 or Visual Studio 2013 and during install select the &ldquo;C++ tools&rdquo;:</p>
+<p><code>`https://www.visualstudio.com/downloads/[`https://www.visualstudio.com/downloads/</code>]</p>
 <p>Install the C++ build tools before proceeding.</p>
-</div>
-<div class="paragraph">
-<p>If you will be targetting the GNU ABI or otherwise know what you are
-doing then it is fine to continue installation without the build tools,
-but otherwise, install the C++ build tools before proceeding.</p>
-</div>
-<div class="paragraph">
-<p>Continue? (Y/n)</p>
-</div>
-</blockquote>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_rustインストール">Rustインストール</h4>
-<div class="paragraph">
-<p><a href="https://www.rust-lang.org/ja-JP/install.html" class="bare">https://www.rust-lang.org/ja-JP/install.html</a>
-から`rustup‑init.exe`をダウンロードし実行する。これだけでコンパイルはできるようになる。</p>
-</div>
-<div class="paragraph">
-<p>ここまでの手順通りインストールを進めるとMSVC
-ABIがデフォルトになっているためGDBデバッガでデバッグできない。GNU
-ABIをデフォルトに設定しなおす。(Build
-Toolsをインストールしていない場合はGNU
-ABIがデフォルトになっていると思われるので本コマンド実行は不要なはず)
-&lt;syntaxhighlight lang=&#34;bash&gt; rustup install stable-x86_64-pc-windows-gnu
-rustup set default-host x86_64-pc-windows-gnu</p>
-</div>
-<div class="paragraph">
+<p>If you will be targetting the GNU ABI or otherwise know what you are doing then it is fine to continue installation without the build tools, but otherwise, install the C++ build tools before proceeding.</p>
+<p>Continue? (Y/n)</p></blockquote>
+<h3 id="rustインストール">Rustインストール</h3>
+<p><a href="https://www.rust-lang.org/ja-JP/install.html">https://www.rust-lang.org/ja-JP/install.html</a> から`rustup‑init.exe`をダウンロードし実行する。これだけでコンパイルはできるようになる。</p>
+<p>ここまでの手順通りインストールを進めるとMSVC ABIがデフォルトになっているためGDBデバッガでデバッグできない。GNU ABIをデフォルトに設定しなおす。(Build Toolsをインストールしていない場合はGNU ABIがデフォルトになっていると思われるので本コマンド実行は不要なはず) &lt;syntaxhighlight lang=&ldquo;bash&gt; rustup install stable-x86_64-pc-windows-gnu rustup set default-host x86_64-pc-windows-gnu</p>
 <p>あるいは、あらかじめ`rustup‑init.exe`実行時のインストールオプションで`default host triple`を`x86_64-pc-windows-gnu`に変更したうえでインストールを行う。</p>
-</div>
-<div class="paragraph">
 <p>後はIDEのための設定。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p>次のコマンドを実行する(<a href="https://github.com/RustDT/RustDT/blob/latest/documentation/UserGuide.md#configuration">参考</a>):</p>
-</li>
+<li>次のコマンドを実行する(<a href="https://github.com/RustDT/RustDT/blob/latest/documentation/UserGuide.md#configuration">参考</a>):</li>
 </ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">rustup component add rust-src
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">rustup component add rust-src</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_ideインストール">IDEインストール</h4>
-<div class="paragraph">
-<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle
-JDK</a>をインストールする。</p>
-</div>
-<div class="paragraph">
-<p><a href="http://archive.eclipse.org/eclipse/downloads/">Eclipseアーカイブダウンロードページ</a>
-&gt; 最新バージョン &gt; Platform Runtime Binary セクションの該当OSバイナリ
-をダウンロードして展開する。</p>
-</div>
-<div class="paragraph">
-<p>Eclipseを起動し、Help &gt; Install New Software &gt; Add で
-<a href="https://rustdt.github.io/releases/" class="bare">https://rustdt.github.io/releases/</a> を追加する。</p>
-</div>
-<div class="paragraph">
-<p>RustDT にチェックを入れてインストールする。その際、&#34;Contact all update
-sites during install to find required
-software&#34;にもチェックを入れておくこと(依存モジュールも同時にインストールされるようになる)。</p>
-</div>
-<div class="paragraph">
+</div><h3 id="ideインストール">IDEインストール</h3>
+<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle JDK</a>をインストールする。</p>
+<p><a href="http://archive.eclipse.org/eclipse/downloads/">Eclipseアーカイブダウンロードページ</a> &gt; 最新バージョン &gt; Platform Runtime Binary セクションの該当OSバイナリ をダウンロードして展開する。</p>
+<p>Eclipseを起動し、Help &gt; Install New Software &gt; Add で <a href="https://rustdt.github.io/releases/">https://rustdt.github.io/releases/</a> を追加する。</p>
+<p>RustDT にチェックを入れてインストールする。その際、&ldquo;Contact all update sites during install to find required software&quot;にもチェックを入れておくこと(依存モジュールも同時にインストールされるようになる)。</p>
 <p>インストール完了後、Eclipse再起動を促されるので再起動する。</p>
-</div>
-<div class="paragraph">
-<p>Window &gt; Preference メニューを開き、 Rust
-を選択する。このダイアログ入力欄に次のように値を設定する。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;"/>
-<col style="width: 50%;"/>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">項目名</th>
-<th class="tableblock halign-left valign-top">入力値</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Directory</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">%USERPROFILE%\.rustup\toolchains\stable-x86_64-pc-windows-gnu</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rust &#39;src&#39; Directory</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">%USERPROFILE%\.rustup\toolchains\stable-x86_64-pc-windows-gnu\lib\rustlib\src\rust\src</p></td>
-</tr>
-</tbody>
+<p>Window &gt; Preference メニューを開き、 Rust を選択する。このダイアログ入力欄に次のように値を設定する。</p>
+<table>
+  <thead>
+      <tr>
+          <th>項目名</th>
+          <th>入力値</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Directory</td>
+          <td>%USERPROFILE%\rustup\toolchains\stable-x86_64-pc-windows-gnu</td>
+      </tr>
+      <tr>
+          <td>Rust &lsquo;src&rsquo; Directory</td>
+          <td>%USERPROFILE%\rustup\toolchains\stable-x86_64-pc-windows-gnu\lib\rustlib\src\rust\src</td>
+      </tr>
+  </tbody>
 </table>
-<div class="paragraph">
 <p>＊ `%USERPROFILE%`は実際にはホームディレクトリを指定する。</p>
-</div>
-<div class="paragraph">
-<p>Racer, Rainicorn parse_describe,
-rustfmtはそれぞれDownloadボタンで自動設定できる(コンパイル挟むのでそれなりに時間がかかる)。実行すると、自動で次のようにpathが設定される。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;"/>
-<col style="width: 50%;"/>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">項目名</th>
-<th class="tableblock halign-left valign-top">入力値</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Racer</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">%USERPROFILE%\.cargo\RustDT\bin\racer.exe</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rainicorn parse_describe</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">%USERPROFILE%\.cargo\RustDT\bin\parse_describe.exe</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">rustfmt</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">%USERPROFILE%\.cargo\RustDT\bin\rustfmt.exe</p></td>
-</tr>
-</tbody>
+<p>Racer, Rainicorn parse_describe, rustfmtはそれぞれDownloadボタンで自動設定できる(コンパイル挟むのでそれなりに時間がかかる)。実行すると、自動で次のようにpathが設定される。</p>
+<table>
+  <thead>
+      <tr>
+          <th>項目名</th>
+          <th>入力値</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Racer</td>
+          <td>%USERPROFILE%\cargo\RustDT\bin\racer.exe</td>
+      </tr>
+      <tr>
+          <td>Rainicorn parse_describe</td>
+          <td>%USERPROFILE%\cargo\RustDT\bin\parse_describe.exe</td>
+      </tr>
+      <tr>
+          <td>rustfmt</td>
+          <td>%USERPROFILE%\cargo\RustDT\bin\rustfmt.exe</td>
+      </tr>
+  </tbody>
 </table>
-</div>
-<div class="sect3">
-<h4 id="_デバッガgdb及びコンパイラインストール">デバッガ(GDB)及びコンパイラインストール</h4>
-<div class="paragraph">
-<p>デバッガ(GDB)をセットアップします。
-また、次のページに書かれていることに従って、コンパイラ(GCC)もインストールしておいた方が良いのかもしれません。</p>
-</div>
-<div class="ulist">
+<h3 id="デバッガgdb及びコンパイラインストール">デバッガ(GDB)及びコンパイラインストール</h3>
+<p>デバッガ(GDB)をセットアップします。 また、次のページに書かれていることに従って、コンパイラ(GCC)もインストールしておいた方が良いのかもしれません。</p>
 <ul>
-<li>
-<p><a href="http://sunday-programming.hatenablog.com/entry/2016/05/07/231639">Rust
-Win GNU ABI で実際何か作る時は MinGW-w64 の gcc
-にパスを通しておくのが実質必須と言うお話 - 日曜プログラミング</a></p>
-</li>
+<li><a href="http://sunday-programming.hatenablog.com/entry/2016/05/07/231639">Rust Win GNU ABI で実際何か作る時は MinGW-w64 の gcc にパスを通しておくのが実質必須と言うお話 - 日曜プログラミング</a></li>
 </ul>
-</div>
-<div class="paragraph">
-<p>これらはMSYS2を用いてセットアップします。<a href="MSYS2インストール">MSYS2インストールを参照してください</a>。</p>
-</div>
-<div class="paragraph">
-<p>なお、GDB(とGCC)だけでよいのであれば、http://tdm-gcc.tdragon.net/download[TDM-GCC]が容量も小さいのでこちらの方が良いかもしれません。
-ただし、ここではこの後Qtのビルドも行いたいので、MSYS2を選んでいます(複数のパッケージ導入はMSYS2上で管理する方が簡単)。</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_プロジェクト作成実行">プロジェクト作成/実行</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_注意点">注意点</h3>
-<div class="paragraph">
-<p>現状、RustDTのメニューからプロジェクトを生成した場合、テストファイルは1つも生成されないが、この状態だと
-Run や Debug で &#34;Executable file doesnt exist&#34;, &#34;Program file doesnt
-exist&#34;などと言われてしまう。</p>
-</div>
-<div class="paragraph">
-<p>対処法は
-`tests/dummy.rs`に空ファイルを生成すること。テストコードが1つもない場合上の事象になってしまうようだ(<a href="https://github.com/RustDT/RustDT/issues/30#issuecomment-235007244">参考</a>。なお他にもボタンを押したときの実行コマンドラインを変更するといったワークアラウンドもある模様
-)。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_プロジェクトインポート">プロジェクトインポート</h3>
-<div class="paragraph">
-<p>新規プロジェクト作成と同様の手順(New &gt; Project &gt; Rust &gt; Rust Cargo
-Project)で進め、LocationでCargo.tomlを置いているディレクトリを指定すればよい。
-通常のプロジェクトインポート(Importメニュー)とは異なるので注意。</p>
-</div>
-</div>
-</div>
-</div>
+<p>これらはMSYS2を用いてセットアップします。<a href="MSYS2%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">MSYS2インストールを参照してください</a>。</p>
+<p>なお、GDB(とGCC)だけでよいのであれば、http://tdm-gcc.tdragon.net/download[TDM-GCC]が容量も小さいのでこちらの方が良いかもしれません。 ただし、ここではこの後Qtのビルドも行いたいので、MSYS2を選んでいます(複数のパッケージ導入はMSYS2上で管理する方が簡単)。</p>
+<h1 id="プロジェクト作成実行">プロジェクト作成/実行</h1>
+<h2 id="注意点">注意点</h2>
+<p>現状、RustDTのメニューからプロジェクトを生成した場合、テストファイルは1つも生成されないが、この状態だと Run や Debug で &ldquo;Executable file doesnt exist&rdquo;, &ldquo;Program file doesnt exist&quot;などと言われてしまう。</p>
+<p>対処法は `tests/dummy.rs`に空ファイルを生成すること。テストコードが1つもない場合上の事象になってしまうようだ(<a href="https://github.com/RustDT/RustDT/issues/30#issuecomment-235007244">参考</a>。なお他にもボタンを押したときの実行コマンドラインを変更するといったワークアラウンドもある模様 )。</p>
+<h2 id="プロジェクトインポート">プロジェクトインポート</h2>
+<p>新規プロジェクト作成と同様の手順(New &gt; Project &gt; Rust &gt; Rust Cargo Project)で進め、LocationでCargo.tomlを置いているディレクトリを指定すればよい。 通常のプロジェクトインポート(Importメニュー)とは異なるので注意。</p>
 
         </section>
         <div class="post-tags">
@@ -416,10 +223,10 @@ Project)で進め、LocationでCargo.tomlを置いているディレクトリを
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

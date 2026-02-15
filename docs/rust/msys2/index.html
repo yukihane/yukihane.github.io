@@ -2,26 +2,12 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>MSYS2インストール - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-RustでデバッグするためのGDBと、Qtコンパイル用環境をMSYS2上でセットアップします。
-
-
+	<meta name="description" content="RustでデバッグするためのGDBと、Qtコンパイル用環境をMSYS2上でセットアップします。
 インストール
-
-
-オフィシャルページ http://www.msys2.org/
-から64bit用インストーラをダウンロードし、書かれている手順に沿って進めるだけです。
-
-
-
-
+オフィシャルページ http://www.msys2.org/ から64bit用インストーラをダウンロードし、書かれている手順に沿って進めるだけです。
 PATH 設定
-
-
-`C:\msys64\mingw64\bin`を`PATH`に追加しておきます。
-(Eclipseからgdbが実行できるようにするためにはこの設定が必要です。)
-" />
-	<meta property="og:image" content=""/>
+`C:\msys64\mingw64\bin`を`PATH`に追加しておきます。 (Eclipseからgdbが実行できるようにするためにはこの設定が必要です。)" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/rust/msys2/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="MSYS2インストール">
@@ -44,8 +30,8 @@ PATH 設定 `C:\msys64\mingw64\bin`を`PATH`に追加しておきます。 (Ecli
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -62,9 +48,17 @@ PATH 設定 `C:\msys64\mingw64\bin`を`PATH`に追加しておきます。 (Ecli
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -81,73 +75,31 @@ PATH 設定 `C:\msys64\mingw64\bin`を`PATH`に追加しておきます。 (Ecli
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p><a href="Rust">RustでデバッグするためのGDBと</a>、Qtコンパイル用環境をMSYS2上でセットアップします。</p>
-</div>
-<div class="sect1">
-<h2 id="_インストール">インストール</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>オフィシャルページ <a href="http://www.msys2.org/" class="bare">http://www.msys2.org/</a>
-から64bit用インストーラをダウンロードし、書かれている手順に沿って進めるだけです。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="path_設定">PATH 設定</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>`C:\msys64\mingw64\bin`を`PATH`に追加しておきます。
-(Eclipseからgdbが実行できるようにするためにはこの設定が必要です。)</p>
-</div>
-<div class="paragraph">
+          <p><a href="Rust">RustでデバッグするためのGDBと</a>、Qtコンパイル用環境をMSYS2上でセットアップします。</p>
+<h1 id="インストール">インストール</h1>
+<p>オフィシャルページ <a href="http://www.msys2.org/">http://www.msys2.org/</a> から64bit用インストーラをダウンロードし、書かれている手順に沿って進めるだけです。</p>
+<h1 id="path-設定">PATH 設定</h1>
+<p>`C:\msys64\mingw64\bin`を`PATH`に追加しておきます。 (Eclipseからgdbが実行できるようにするためにはこの設定が必要です。)</p>
 <p>なお、優先度は低く(つまり、PATHの最後に追記する)しておいた方が良いかと思います。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_各種パッケージのインストール">各種パッケージのインストール</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="デバッガ_コンパイラ">デバッガ, コンパイラ</h3>
-<div class="paragraph">
-<p><code>pacman -S base-devel mingw-w64-x86_64-toolchain</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_qt">Qt</h3>
-<div class="paragraph">
-<p><code>pacman -S mingw-w64-x86_64-qt-creator mingw-w64-x86_64-cmake</code></p>
-</div>
-<div class="paragraph">
+<h1 id="各種パッケージのインストール">各種パッケージのインストール</h1>
+<h2 id="デバッガ-コンパイラ">デバッガ, コンパイラ</h2>
+<p><code>pacman -S base-devel mingw-w64-x86_64-toolchain</code></p>
+<h2 id="qt">Qt</h2>
+<p><code>pacman -S mingw-w64-x86_64-qt-creator mingw-w64-x86_64-cmake</code></p>
 <p>スタティックリンク版が必要なら</p>
-</div>
-<div class="paragraph">
-<p><code>pacman -S mingw-w64-x86_64-qt5-static</code></p>
-</div>
-<div class="paragraph">
+<p><code>pacman -S mingw-w64-x86_64-qt5-static</code></p>
 <p>参考:</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
-<p><a href="https://wiki.qt.io/MSYS2#Obtain_Pre-Built_Qt_.26_QtCreator_binary_files_and_Use_instantly_without_Building.2FCompiling" class="bare">https://wiki.qt.io/MSYS2#Obtain_Pre-Built_Qt_.26_QtCreator_binary_files_and_Use_instantly_without_Building.2FCompiling</a>[MSYS2</p>
-<div class="ulist">
+<p><a href="https://wiki.qt.io/MSYS2#Obtain_Pre-Built_Qt_.26_QtCreator_binary_files_and_Use_instantly_without_Building.2FCompiling">https://wiki.qt.io/MSYS2#Obtain_Pre-Built_Qt_.26_QtCreator_binary_files_and_Use_instantly_without_Building.2FCompiling</a>[MSYS2</p>
 <ul>
-<li>
-<p>Qt Wiki]</p>
-</li>
+<li>Qt Wiki]</li>
 </ul>
-</div>
 </li>
 <li>
 <p><a href="https://wiki.qt.io/MinGW-64-bit">MinGW-64-bit - Qt Wiki</a></p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-</div>
 
         </section>
         <div class="post-tags">
@@ -165,10 +117,10 @@ PATH 設定 `C:\msys64\mingw64\bin`を`PATH`に追加しておきます。 (Ecli
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

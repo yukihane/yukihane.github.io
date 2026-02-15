@@ -4,7 +4,7 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>発火後忘失 | Home </title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Fire and Forget blog" />
-	<meta property="og:image" content=""/>
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<link rel="alternate" type="application/rss+xml" href="https://yukihane.github.io/index.xml" title="発火後忘失" />
 	<meta property="og:url" content="https://yukihane.github.io/">
   <meta property="og:site_name" content="発火後忘失">
@@ -21,8 +21,8 @@
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 
 	<body>
@@ -41,9 +41,17 @@
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -56,14 +64,35 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202204/19/listing-my-git-branch/">自分の作成したGitブランチを表示する</a></h1>
+					<time>2022/04/19</time>
+					<br><div class="description">
+	
+	<p>リモートブランチに一時的なブランチ、テスト的に作ったブランチなどをpushしていたのを掃除したくなりました。</p>
+<p>複数人で共同作業するために利用しているので、どれが自分のブランチなのかをまずリスト化したかったので、どうすれば出力できるか調べました。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202204/19/listing-my-git-branch/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202204/16/gui-on-wsl2/">WSL2上のGUIアプリケーションを動かす</a></h1>
+					<time>2022/04/16</time>
+					<br><div class="description">
+	
+	<p><a href="/blog/202110/03/hello-tauri/">Tauri</a> の開発環境を Windows10 の WSL2 に移行するために、 WSL2 上の GUI アプリを Windows で表示するようにセットアップしました。</p>
+<p>とは言いつつ、既に次の手順でセットアップしたことがあるので、今回はこれが動くかどうかを確認しただけですが。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202204/16/gui-on-wsl2/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202203/28/docker-on-wsl2/">WSL2上にDockerをインストールする</a></h1>
 					<time>2022/03/28</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>現在、 Windows で Docker を利用するには大きく2つ方策があるのかなと思います。</p>
-</div>
-<div class="ulist">
+	<p>現在、 Windows で Docker を利用するには大きく2つ方策があるのかなと思います。</p>
 <ul>
 <li>
 <p><a href="https://docs.docker.com/desktop/windows/install/">Docker Desktop for Windows</a> を利用する</p>
@@ -72,11 +101,7 @@
 <p>WSL2 上に <a href="https://docs.docker.com/engine/install/ubuntu/">Docker Engine</a> をインストールする</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>自分は元々 Ubuntu 上で Docker を利用してきたので、馴染みのある後者を選択することにしました。
-(ちなみにこだわりが無いのなら前者の方が良いと思います)</p>
-</div>&hellip;
+<p>自分は元々 Ubuntu 上で Docker を利用してきたので、馴染みのある後者を選択することにしました。 (ちなみにこだわりが無いのなら前者の方が良いと思います)</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202203/28/docker-on-wsl2/">Read more ⟶</a>
@@ -87,26 +112,17 @@
 					<time>2022/03/12</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>Kotlin で JPA エンティティを実装しようと思って調べた結果をまとめた記事です。</p>
-</div>
-<div class="paragraph">
+	<p>Kotlin で JPA エンティティを実装しようと思って調べた結果をまとめた記事です。</p>
 <p>まとめ:</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p>プロジェクト構成について</p>
-<div class="ulist">
 <ul>
 <li>
 <p><a href="https://kotlinlang.org/docs/no-arg-plugin.html#jpa-support"><code>kotlin-jpa</code></a> compiler plugin を適用する</p>
 </li>
 <li>
-<p><a href="https://kotlinlang.org/docs/all-open-plugin.html"><code>all-open</code></a> compiler plugin を適用し、 <code>@Entity</code>, <code>@Embeddable</code>, <code>@MappedSuperclass</code> を対象に設定する</p>
-</li>
-</ul>
-</div>&hellip;
+<p><a href="https://kotlinlang.org/docs/all-open-plugin.html"><code>all-open</code></a> compiler plugin を適用し、 <code>@Entity</code>, <code>@Embeddable</code>, <code>@MappedSuperclass</code> を対象に設定する</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202203/12/kotlin-jpa-definition/">Read more ⟶</a>
@@ -117,27 +133,13 @@
 					<time>2022/03/12</time>
 					<br><div class="description">
 	
-	<div class="ulist">
-<ul>
-<li>
-<p>今回のコード: <a href="https://github.com/yukihane/hello-java/tree/main/jackson/jackson-deserialize-by-constructor" class="bare">https://github.com/yukihane/hello-java/tree/main/jackson/jackson-deserialize-by-constructor</a></p>
-</li>
+	<ul>
+<li>今回のコード: <a href="https://github.com/yukihane/hello-java/tree/main/jackson/jackson-deserialize-by-constructor">https://github.com/yukihane/hello-java/tree/main/jackson/jackson-deserialize-by-constructor</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>Jackson は引数なしコンストラクタが必要、というblogを目にしましたが、正しくありません。</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
-<p><code>@JsonCreator</code> を付与することでそのコンストラクタを使ってデシリアライズするように指示できます。</p>
-<div class="ulist">
-<ul>
-<li>
-<p>コンストラクタが1つしか無い場合は省略できます。</p>
-</li>
-</ul>
-</div>&hellip;
+<p><code>@JsonCreator</code> を付与することでそのコンストラクタを使ってデシリアライズするように指示できます。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202203/12/jackson-deserialize-by-constructor/">Read more ⟶</a>
@@ -148,27 +150,14 @@
 					<time>2022/01/24</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>…​になりました。</p>
-</div>
-<div class="ulist">
+	<p>…​になりました。</p>
 <ul>
-<li>
-<p><a href="https://github.com/git-commit-id/git-commit-id-maven-plugin/issues/215">Support of git worktree option (for JGIT) · Issue #215 · git-commit-id/git-commit-id-maven-plugin · GitHub</a></p>
-</li>
+<li><a href="https://github.com/git-commit-id/git-commit-id-maven-plugin/issues/215">Support of git worktree option (for JGIT) · Issue #215 · git-commit-id/git-commit-id-maven-plugin · GitHub</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>コマンドライン引数でスキップさせるには、 <a href="https://github.com/git-commit-id/git-commit-id-maven-plugin/pull/278">#278</a> で導入された <code>maven.gitcommitid.skip</code> オプション(<a href="https://github.com/git-commit-id/git-commit-id-maven-plugin/blob/v5.0.0/src/main/java/pl/project13/maven/git/GitCommitIdMojo.java#L241-L251">現時点最新版の該当コードリンク</a>)を利用して、</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>mvn -Dmaven.gitcommitid.skip package</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>などとすれば良さそうです。</p>
-</div>&hellip;
+<pre><code>mvn -Dmaven.gitcommitid.skip package
+</code></pre>
+<p>などとすれば良さそうです。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202201/24/git-commit-id-maven-plugin-on-worktree/">Read more ⟶</a>
@@ -179,21 +168,11 @@
 					<time>2022/01/12</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>Kotest + MockK の組み合わせは Kotlin ではメジャー…​かと思いきや検索してみても公式の</p>
-</div>
-<div class="ulist">
+	<p>Kotest + MockK の組み合わせは Kotlin ではメジャー…​かと思いきや検索してみても公式の</p>
 <ul>
-<li>
-<p><a href="https://kotest.io/docs/framework/integrations/mocking.html">Mocking and Kotest</a></p>
-</li>
+<li><a href="https://kotest.io/docs/framework/integrations/mocking.html">Mocking and Kotest</a></li>
 </ul>
-</div>
-<div class="paragraph">
-<p>にあるような例しか見つかりませんでした。
-Mockito で言うところの <code>@Mock</code> や <code>@InjectMocks</code> を使ってモックを差し込みたいんじゃい！
-ということでサンプルです。</p>
-</div>&hellip;
+<p>にあるような例しか見つかりませんでした。 Mockito で言うところの <code>@Mock</code> や <code>@InjectMocks</code> を使ってモックを差し込みたいんじゃい！ ということでサンプルです。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202201/12/kotlin-kotest-mockk/">Read more ⟶</a>
@@ -204,8 +183,7 @@ Mockito で言うところの <code>@Mock</code> や <code>@InjectMocks</code> �
 					<time>2022/01/10</time>
 					<br><div class="description">
 	
-	<div class="ulist">
-<ul>
+	<ul>
 <li>
 <p>JUnit4 / Parameterized</p>
 </li>
@@ -216,37 +194,14 @@ Mockito で言うところの <code>@Mock</code> や <code>@InjectMocks</code> �
 <p>テスト対象が Lombok, MapStruct 使用</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p>な状況で Kotlin でテストコードを書きます。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p>成果物: <a href="https://github.com/yukihane/hello-kotlin/tree/main/junit4-mockito-example" class="bare">https://github.com/yukihane/hello-kotlin/tree/main/junit4-mockito-example</a></p>
-</li>
+<li>成果物: <a href="https://github.com/yukihane/hello-kotlin/tree/main/junit4-mockito-example">https://github.com/yukihane/hello-kotlin/tree/main/junit4-mockito-example</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>先にまとめを書いておきます。</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
-<p>(IntelliJ で Java のコードを <code>.kt</code> にペーストすると Kotlin コードに変換してくれるが、コレジャナイ感溢れるコードになったのであまり自動変換コードを信用するのは危険かも)</p>
-</li>
-<li>
-<p><code>@Mock</code> や <code>@InjectMocks</code> を付与したフィールドは <code>lateinit var</code></p>
-</li>
-<li>
-<p><code>static</code> メソッドを書きたい場合は <code>companion object</code> で囲って <code>@JvmStatic</code> アノテーションを付与する</p>
-<div class="ulist">
-<ul>
-<li>
-<p>今回の場合は JUnit4 のパラメータ供給メソッド(<code>@Parameters</code>)が該当</p>
-</li>
-</ul>
-</div>&hellip;
+<p>(IntelliJ で Java のコードを <code>.kt</code> にペーストすると Kotlin コードに変換してくれるが、コレジャナイ感溢れるコードになったのであまり自動変換コードを信用するのは危険かも)</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202201/10/kotlin-junit4/">Read more ⟶</a>
@@ -257,27 +212,15 @@ Mockito で言うところの <code>@Mock</code> や <code>@InjectMocks</code> �
 					<time>2022/01/09</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>入門書を一通り読み終えたのでサンプルプロジェクトを作成しようと思いました。</p>
-</div>
-<div class="paragraph">
+	<p>入門書を一通り読み終えたのでサンプルプロジェクトを作成しようと思いました。</p>
 <p>JetBrains がメンテナンスしている archetype が利用できそうです。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-archetype-jvm" class="bare">https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-archetype-jvm</a></p>
-</li>
+<li><a href="https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-archetype-jvm">https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-archetype-jvm</a></li>
 </ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>mvn archetype:generate -DarchetypeGroupId=org.jetbrains.kotlin -DarchetypeArtifactId=kotlin-archetype-jvm</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>IntelliJ IDEA から作成した場合も似た感じの <code>pom.xml</code> が作成されるかなと思います。</p>
-</div>&hellip;
+<!-- -->
+<pre><code>mvn archetype:generate -DarchetypeGroupId=org.jetbrains.kotlin -DarchetypeArtifactId=kotlin-archetype-jvm
+</code></pre>
+<p>IntelliJ IDEA から作成した場合も似た感じの <code>pom.xml</code> が作成されるかなと思います。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202201/09/kotlin-maven-pom/">Read more ⟶</a>
@@ -288,12 +231,8 @@ Mockito で言うところの <code>@Mock</code> や <code>@InjectMocks</code> �
 					<time>2022/01/05</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>[追記 2022-01-17] 今回リリースされた <code>213-1.6.10-release-944-IJ6461.79</code> で修正されたようです(ただし <code>.idea</code> ディレクトリを削除してからインポートし直す必要がありました)。</p>
-</div>
-<div class="paragraph">
-<p><a href="https://kotlinlang.org/docs/whatsnew1520.html">Kotlin 1.5.20</a> から <a href="https://kotlinlang.org/docs/lombok.html">Lombok compiler plugin</a> というものが提供されるようになり、 Kotlin から自動生成される getter などにアクセスできるようになりました(※実験的機能なようですが)。</p>
-</div>&hellip;
+	<p>[追記 2022-01-17] 今回リリースされた <code>213-1.6.10-release-944-IJ6461.79</code> で修正されたようです(ただし <code>.idea</code> ディレクトリを削除してからインポートし直す必要がありました)。</p>
+<p><a href="https://kotlinlang.org/docs/whatsnew1520.html">Kotlin 1.5.20</a> から <a href="https://kotlinlang.org/docs/lombok.html">Lombok compiler plugin</a> というものが提供されるようになり、 Kotlin から自動生成される getter などにアクセスできるようになりました(※実験的機能なようですが)。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202201/05/kotlin-lombok-intellij-problem/">Read more ⟶</a>
@@ -304,16 +243,9 @@ Mockito で言うところの <code>@Mock</code> や <code>@InjectMocks</code> �
 					<time>2022/01/01</time>
 					<br><div class="description">
 	
-	<div class="sect1">
-<h2 id="_kotlin_関連書籍について">Kotlin 関連書籍について</h2>
-<div class="sectionbody">
-<div class="paragraph">
+	<h1 id="kotlin-関連書籍について">Kotlin 関連書籍について</h1>
 <p>書籍 <a href="https://book.mynavi.jp/ec/products/detail/id=78137">Kotlinイン・アクション</a> を読んでいます。</p>
-</div>
-<div class="paragraph">
-<p>2022 年 1 月現在の <a href="https://kotlinlang.org/docs/releases.html#release-details">Kotlin 最新バージョン</a> が <code>1.6.10</code> であるのに対し、本書が解説しているのは <code>1.0</code> のようなので、役に立つのかな…と当初は考えていましたが、今のところ、これは駄目だ、というところは無さそうです。
-(気になる人はドキュメントの &#34;Earlier versions&#34; (<a href="https://kotlinlang.org/docs/whatsnew11.html">このあたり</a>) で新機能について説明があります)</p>
-</div>&hellip;
+<p>2022 年 1 月現在の <a href="https://kotlinlang.org/docs/releases.html#release-details">Kotlin 最新バージョン</a> が <code>1.6.10</code> であるのに対し、本書が解説しているのは <code>1.0</code> のようなので、役に立つのかな…と当初は考えていましたが、今のところ、これは駄目だ、というところは無さそうです。 (気になる人はドキュメントの &ldquo;Earlier versions&rdquo; (<a href="https://kotlinlang.org/docs/whatsnew11.html">このあたり</a>) で新機能について説明があります)</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202201/01/kotlin-in-action/">Read more ⟶</a>
@@ -324,12 +256,8 @@ Mockito で言うところの <code>@Mock</code> や <code>@InjectMocks</code> �
 					<time>2021/12/12</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>表題のような事象がたまに発生していて、これまではOS再起動で直していました。</p>
-</div>
-<div class="paragraph">
-<p>その症状が今しがた出たのですが、ふと <code>imwheel</code> をインストールしていたことを思い出してこれをアンインストールしてみたところ、再起動せずにスクロール機能が復活しました。</p>
-</div>&hellip;
+	<p>表題のような事象がたまに発生していて、これまではOS再起動で直していました。</p>
+<p>その症状が今しがた出たのですが、ふと <code>imwheel</code> をインストールしていたことを思い出してこれをアンインストールしてみたところ、再起動せずにスクロール機能が復活しました。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202112/13/mouse-wheel-stop-working-on-ubuntu/">Read more ⟶</a>
@@ -340,46 +268,10 @@ Mockito で言うところの <code>@Mock</code> や <code>@InjectMocks</code> �
 					<time>2021/10/31</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>Stack Overflow で Spring Boot の質問に回答するときのサンプルプロジェクトを作成するとき、 <a href="https://start.spring.io/">Spirng Initializr</a> を利用しているのですが、よく必要な dependencies を追加し忘れたり、設定しておいた方が良いプロパティってなんだっけかな、と迷うことがあります。</p>
-</div>&hellip;
+	<p>Stack Overflow で Spring Boot の質問に回答するときのサンプルプロジェクトを作成するとき、 <a href="https://start.spring.io/">Spirng Initializr</a> を利用しているのですが、よく必要な dependencies を追加し忘れたり、設定しておいた方が良いプロパティってなんだっけかな、と迷うことがあります。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202110/31/spring-boot-template/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202110/25/vscode-underline-coloring/">VSCode でエラー/警告アンダーラインの区別がつかない</a></h1>
-					<time>2021/10/25</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p>VSCode のデフォルトの色設定だと、エラーの波線と警告の波線との区別が私の目では付けづらいのです。
-おそらく赤色と黄色だと思うのですが…</p>
-</div>
-<div class="paragraph">
-<p>色についてのプロパティは次のリンク先に説明がありました。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202110/25/vscode-underline-coloring/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202110/18/spring-inject-in-validator/">Spring Boot でカスタム validator に injection する</a></h1>
-					<time>2021/10/18</time>
-					<br><div class="description">
-	
-	<div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Spring Boot で JPA Validator にインジェクションしようとしたけどできなかった、という話を何度か聞いてその度に調べていたので、次回に備えてまとめておきます。
-サンプルコードはこちら:</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202110/18/spring-inject-in-validator/">Read more ⟶</a>
 				</section>
 				
 				
@@ -401,10 +293,10 @@ Mockito で言うところの <code>@Mock</code> や <code>@InjectMocks</code> �
 			</main>
 			<footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

@@ -2,13 +2,9 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle) - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-はじめに
-
-
-Spring Boot で JavaScript を扱うときは素のJSをhtml(Thymeleafテンプレート)に &lt;script&gt; タグで埋め込む、というのが多分一般的で手っ取り早い方法かと思います。
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="はじめに
+Spring Boot で JavaScript を扱うときは素のJSをhtml(Thymeleafテンプレート)に &lt;script&gt; タグで埋め込む、というのが多分一般的で手っ取り早い方法かと思います。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202107/10/spring-boot-with-typescript/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle)">
@@ -29,8 +25,8 @@ Spring Boot で JavaScript を扱うときは素のJSをhtml(Thymeleafテンプ�
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -47,9 +43,17 @@ Spring Boot で JavaScript を扱うときは素のJSをhtml(Thymeleafテンプ�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -66,43 +70,18 @@ Spring Boot で JavaScript を扱うときは素のJSをhtml(Thymeleafテンプ�
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="paragraph">
+          <h1 id="はじめに">はじめに</h1>
 <p>Spring Boot で JavaScript を扱うときは素のJSをhtml(Thymeleafテンプレート)に <code>&lt;script&gt;</code> タグで埋め込む、というのが多分一般的で手っ取り早い方法かと思います。</p>
-</div>
-<div class="paragraph">
 <p>ただ、そろそろ素のJSを書くのをやめたい、という思いもあり、今回設定方法を考え、記録しました。</p>
-</div>
-<div class="paragraph">
-<p>私は普段はMavenを使っているのですが、今回は事情によりGradleプロジェクトの設定方法です。
-(Mavenでも同じ方針で実現できると思います)</p>
-</div>
-<div class="paragraph">
+<p>私は普段はMavenを使っているのですが、今回は事情によりGradleプロジェクトの設定方法です。 (Mavenでも同じ方針で実現できると思います)</p>
 <p>今回の実証コードはこちらです:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/yukihane/hello-java/tree/master/spring/with-ts" class="bare">https://github.com/yukihane/hello-java/tree/master/spring/with-ts</a></p>
-</li>
+<li><a href="https://github.com/yukihane/hello-java/tree/master/spring/with-ts">https://github.com/yukihane/hello-java/tree/master/spring/with-ts</a></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_手順">手順</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_spring_boot_プロジェクトを構成する">Spring Boot プロジェクトを構成する</h3>
-<div class="paragraph">
-<p><a href="https://start.spring.io/" class="bare">https://start.spring.io/</a> で、Webアプリケーションを構成します。</p>
-</div>
-<div class="paragraph">
+<h1 id="手順">手順</h1>
+<h2 id="spring-boot-プロジェクトを構成する">Spring Boot プロジェクトを構成する</h2>
+<p><a href="https://start.spring.io/">https://start.spring.io/</a> で、Webアプリケーションを構成します。</p>
 <p>今回は次のdependenciesを追加しました。</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p>Spring Boot DevTools</p>
@@ -120,209 +99,225 @@ Spring Boot で JavaScript を扱うときは素のJSをhtml(Thymeleafテンプ�
 <p>Thymeleaf</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>Project は、冒頭に記載した通り今回は &#34;Gradle Project&#34; を選択します。</p>
-</div>
-<div class="paragraph">
+<p>Project は、冒頭に記載した通り今回は &ldquo;Gradle Project&rdquo; を選択します。</p>
 <p><code>build.gradle</code> にデフォルトで導入するプラグインをセットアップします。</p>
+<div class="formalpara-title">
+<p><strong>build.gradle</strong></p>
 </div>
-<div class="listingblock">
-<div class="title">build.gradle</div>
-<div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy">plugins {
-    // ...
-    id &#39;eclipse&#39;
-    id &#39;com.diffplug.eclipse.apt&#39; version &#39;3.30.0&#39;
-    id &#39;com.dorongold.task-tree&#39; version &#39;2.1.0&#39;
-}</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="line"><span class="cl"><span class="n">plugins</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">id</span> <span class="s1">&#39;eclipse&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">id</span> <span class="s1">&#39;com.diffplug.eclipse.apt&#39;</span> <span class="n">version</span> <span class="s1">&#39;3.30.0&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">id</span> <span class="s1">&#39;com.dorongold.task-tree&#39;</span> <span class="n">version</span> <span class="s1">&#39;2.1.0&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
-</div>
-<div class="paragraph">
-<p>Eclipseプロジェクトを構成します。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>gradle build cleanEclipse eclipse</code></pre>
-</div>
-</div>
-<div class="paragraph">
+</div><p>Eclipseプロジェクトを構成します。</p>
+<pre><code>gradle build cleanEclipse eclipse
+</code></pre>
 <p>Eclipse メニューの <strong>File &gt; Import</strong> を選択し、ダイアログの <strong>General &gt; Existing Projects into Workspace</strong> から今回のプロジェクトをインポートします。</p>
-</div>
-<div class="sect3">
-<h4 id="_補足">補足</h4>
-<div class="paragraph">
+<h3 id="補足">補足</h3>
 <p>GradleプロジェクトをEclipse(Spring Tools 4 for Eclipse)にインポートする手順は次のエントリで説明しています。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="/blog/202007/26/spring-boot-gradle-eclipse/">GradleでSpring Bootプロジェクトを作成してSTS(Eclipse)でインポートする手順</a> – 発火後忘失</p>
-</li>
+<li><a href="/blog/202007/26/spring-boot-gradle-eclipse/">GradleでSpring Bootプロジェクトを作成してSTS(Eclipse)でインポートする手順</a> – 発火後忘失</li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_yarn_プロジェクトを構成する">Yarn プロジェクトを構成する</h3>
-<div class="paragraph">
+<h2 id="yarn-プロジェクトを構成する">Yarn プロジェクトを構成する</h2>
 <p>上記で作成したGradleプロジェクトのルートディレクトリでYarnプロジェクトを生成します。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>yarn init -y
+<pre><code>yarn init -y
 yarn add --dev webpack webpack-cli
-yarn webpack init</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><code>yarn webpack init</code> を実行するとインタラクティブにプロジェクトが構成されます。
-それぞれの質問には次のように返答します:</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 80%;"/>
-<col style="width: 20%;"/>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">質問</th>
-<th class="tableblock halign-left valign-top">返答</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Would you like to install &#39;@webpack-cli/generators&#39; package?</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Which of the following JS solutions do you want to use?</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Typescript</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Do you want to use webpack-dev-server?</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Do you want to simplify the creation of HTML files for your bundle?</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Do you want to add PWA support?</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Which of the following CSS solutions do you want to use?</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Do you like to install prettier to format generated configuration?</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Overwrite package.json?</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">y (overwrite)</p></td>
-</tr>
-</tbody>
+yarn webpack init
+</code></pre>
+<p><code>yarn webpack init</code> を実行するとインタラクティブにプロジェクトが構成されます。 それぞれの質問には次のように返答します:</p>
+<table>
+  <thead>
+      <tr>
+          <th>質問</th>
+          <th>返答</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Would you like to install &lsquo;@webpack-cli/generators&rsquo; package?</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Which of the following JS solutions do you want to use?</td>
+          <td>Typescript</td>
+      </tr>
+      <tr>
+          <td>Do you want to use webpack-dev-server?</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Do you want to simplify the creation of HTML files for your bundle?</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Do you want to add PWA support?</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Which of the following CSS solutions do you want to use?</td>
+          <td>none</td>
+      </tr>
+      <tr>
+          <td>Do you like to install prettier to format generated configuration?</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Overwrite package.json?</td>
+          <td>y (overwrite)</td>
+      </tr>
+  </tbody>
 </table>
-<div class="paragraph">
 <p>続いて、不要なファイルが生成されているので削除します:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>rm README.md index.html src/index.ts</code></pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>rm README.md index.html src/index.ts
+</code></pre>
 <p><code>tsconfig.json</code> を次のように書き換えます:</p>
+<div class="formalpara-title">
+<p><strong>tsconfig.json</strong></p>
 </div>
-<div class="listingblock">
-<div class="title">tsconfig.json</div>
-<div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">{
-  &#34;compilerOptions&#34;: {
-    &#34;strict&#34;: true,
-    &#34;module&#34;: &#34;es6&#34;,
-    &#34;target&#34;: &#34;es5&#34;,
-  },
-}</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;compilerOptions&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;strict&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;module&#34;</span><span class="p">:</span> <span class="s2">&#34;es6&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;target&#34;</span><span class="p">:</span> <span class="s2">&#34;es5&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
+</div><p><code>javascript</code> ファイルは <code>src/main/js</code> に、そして出力は <code>build/resources/main/static/static</code> に出力するよう設定します。 また、 <code>mylib</code> という名前のライブラリとして生成します。</p>
+<div class="formalpara-title">
+<p><strong>webpack.config.js</strong></p>
 </div>
-<div class="paragraph">
-<p><code>javascript</code> ファイルは <code>src/main/js</code> に、そして出力は <code>build/resources/main/static/static</code> に出力するよう設定します。
-また、 <code>mylib</code> という名前のライブラリとして生成します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="s2">&#34;use strict&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Generated using webpack-cli https://github.com/webpack/webpack-cli
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;path&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">isProduction</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span> <span class="o">==</span> <span class="s2">&#34;production&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// https://webpack.js.org/concepts/output/#multiple-entry-points
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// https://webpack.js.org/configuration/output/#outputlibrary
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">entry</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">mylib</span><span class="o">:</span> <span class="s2">&#34;./src/main/js/index.ts&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">output</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">library</span><span class="o">:</span> <span class="s2">&#34;[name]&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">path</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s2">&#34;build/resources/main/static/static&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Add your plugins here
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// Learn more about plugins from https://webpack.js.org/configuration/plugins/
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">module</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">rules</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.(ts|tsx)$/i</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">loader</span><span class="o">:</span> <span class="s2">&#34;ts-loader&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">exclude</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;/node_modules/&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="c1">// Add your rules for custom modules here
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="c1">// Learn more about loaders from https://webpack.js.org/loaders/
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">resolve</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">extensions</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;.tsx&#34;</span><span class="p">,</span> <span class="s2">&#34;.ts&#34;</span><span class="p">,</span> <span class="s2">&#34;.js&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">isProduction</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">config</span><span class="p">.</span><span class="nx">mode</span> <span class="o">=</span> <span class="s2">&#34;production&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">config</span><span class="p">.</span><span class="nx">mode</span> <span class="o">=</span> <span class="s2">&#34;development&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">config</span><span class="p">.</span><span class="nx">devtool</span> <span class="o">=</span> <span class="s2">&#34;inline-source-map&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">config</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="title">webpack.config.js</div>
-<div class="content">
-<pre class="highlight"><code class="language-javascript" data-lang="javascript">&#34;use strict&#34;;
-// Generated using webpack-cli https://github.com/webpack/webpack-cli
-
-const path = require(&#34;path&#34;);
-
-const isProduction = process.env.NODE_ENV == &#34;production&#34;;
-
-const config = {
-  // https://webpack.js.org/concepts/output/#multiple-entry-points
-  // https://webpack.js.org/configuration/output/#outputlibrary
-  entry: {
-    mylib: &#34;./src/main/js/index.ts&#34;,
-  },
-  output: {
-    library: &#34;[name]&#34;,
-    path: path.resolve(__dirname, &#34;build/resources/main/static/static&#34;),
-  },
-  plugins: [
-    // Add your plugins here
-    // Learn more about plugins from https://webpack.js.org/configuration/plugins/
-  ],
-  module: {
-    rules: [
-      {
-        test: /\.(ts|tsx)$/i,
-        loader: &#34;ts-loader&#34;,
-        exclude: [&#34;/node_modules/&#34;],
-      },
-
-      // Add your rules for custom modules here
-      // Learn more about loaders from https://webpack.js.org/loaders/
-    ],
-  },
-  resolve: {
-    extensions: [&#34;.tsx&#34;, &#34;.ts&#34;, &#34;.js&#34;],
-  },
-};
-
-module.exports = () =&gt; {
-  if (isProduction) {
-    config.mode = &#34;production&#34;;
-  } else {
-    config.mode = &#34;development&#34;;
-    config.devtool = &#34;inline-source-map&#34;;
-  }
-  return config;
-};</code></pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_補足_2">補足</h4>
-<div class="paragraph">
+</div><h3 id="補足-1">補足</h3>
 <p><code>yarn add</code> の対象は次のページを参考にしました:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://webpack.js.org/guides/getting-started/#basic-setup">Getting Started | webpack</a></p>
-</li>
+<li><a href="https://webpack.js.org/guides/getting-started/#basic-setup">Getting Started | webpack</a></li>
 </ul>
-</div>
-<div class="paragraph">
-<p><code>webpack.config.js</code> の設定は、 `ts-loader`のリファレンス中で <a href="https://github.com/TypeStrong/ts-loader#examples">&#34;simplest&#34;</a> と表現されていた <a href="https://github.com/TypeStrong/ts-loader/tree/main/examples/vanilla">こちらのサンプル</a> も参考にしています。</p>
-</div>
-<div class="paragraph">
+<p><code>webpack.config.js</code> の設定は、 `ts-loader`のリファレンス中で <a href="https://github.com/TypeStrong/ts-loader#examples">&ldquo;simplest&rdquo;</a> と表現されていた <a href="https://github.com/TypeStrong/ts-loader/tree/main/examples/vanilla">こちらのサンプル</a> も参考にしています。</p>
 <p>また、次の説明も参考にしています:</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p><a href="https://webpack.js.org/concepts/output/#multiple-entry-points">Output &gt; Multiple Entry Points | webpack</a></p>
@@ -331,206 +326,237 @@ module.exports = () =&gt; {
 <p><a href="https://webpack.js.org/configuration/output/#outputlibrary">Output &gt; output.library | webpack</a></p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_yarn_を_gradle_に統合する">Yarn を Gradle に統合する</h3>
-<div class="paragraph">
+<h2 id="yarn-を-gradle-に統合する">Yarn を Gradle に統合する</h2>
 <p><code>gradle build</code> で ts のビルドも含めて実行できるようにします。</p>
-</div>
-<div class="paragraph">
 <p><a href="https://github.com/node-gradle/gradle-node-plugin"><code>gradle-node-plugin</code></a> を導入し、 task の依存関係を設定します:</p>
+<div class="formalpara-title">
+<p><strong>build.gradle</strong></p>
 </div>
-<div class="listingblock">
-<div class="title">build.gradle</div>
-<div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy">plugins {
-    // ...
-    id &#39;com.github.node-gradle.node&#39; version &#39;3.1.0&#39;
-}
-// ...
-
-yarn_build.dependsOn yarn_install
-processResources.dependsOn yarn_build</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="line"><span class="cl"><span class="n">plugins</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">id</span> <span class="s1">&#39;com.github.node-gradle.node&#39;</span> <span class="n">version</span> <span class="s1">&#39;3.1.0&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">yarn_build</span><span class="o">.</span><span class="na">dependsOn</span> <span class="n">yarn_install</span>
+</span></span><span class="line"><span class="cl"><span class="n">processResources</span><span class="o">.</span><span class="na">dependsOn</span> <span class="n">yarn_build</span>
+</span></span></code></pre></td></tr></table>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_ビルドしてみる">ビルドしてみる</h3>
-<div class="paragraph">
-<p>設定はここまでで完了しました。
-試しにサンプルコードをおいてビルドしてみます。</p>
-</div>
-<div class="paragraph">
-<p>なお、サンプルコードでは  <a href="https://github.com/faisalman/ua-parser-js"><code>UAParser.js</code></a> を利用していますので、事前に</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>yarn add ua-parser-js
-yarn add --dev @types/ua-parser-js</code></pre>
-</div>
-</div>
-<div class="paragraph">
+</div><h2 id="ビルドしてみる">ビルドしてみる</h2>
+<p>設定はここまでで完了しました。 試しにサンプルコードをおいてビルドしてみます。</p>
+<p>なお、サンプルコードでは <a href="https://github.com/faisalman/ua-parser-js"><code>UAParser.js</code></a> を利用していますので、事前に</p>
+<pre><code>yarn add ua-parser-js
+yarn add --dev @types/ua-parser-js
+</code></pre>
 <p>を実行しています。</p>
-</div>
-<div class="paragraph">
 <p>以下、サンプルコード:</p>
+<div class="formalpara-title">
+<p><strong>src/main/java/com/github/yukihane/withts/MyController.java</strong></p>
 </div>
-<div class="listingblock">
-<div class="title">src/main/java/com/github/yukihane/withts/MyController.java</div>
-<div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">@Controller
-@RequestMapping(&#34;&#34;)
-public class MyController {
-
-    @GetMapping
-    public String index(final Model model) {
-        model.addAttribute(&#34;now&#34;, new Date());
-        return &#34;index&#34;;
-    }
-}</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Controller</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyController</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@GetMapping</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">index</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">Model</span><span class="w"> </span><span class="n">model</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&#34;now&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;index&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
+</div><div class="formalpara-title">
+<p><strong>src/main/resources/templates/index.html</strong></p>
 </div>
-<div class="listingblock">
-<div class="title">src/main/resources/templates/index.html</div>
-<div class="content">
-<pre class="highlight"><code class="language-html" data-lang="html">&lt;!DOCTYPE html&gt;
-&lt;html lang=&#34;ja&#34; xmlns:th=&#34;http://www.thymeleaf.org&#34;&gt;
-  &lt;head&gt;
-    &lt;meta charset=&#34;UTF-8&#34; /&gt;
-    &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=edge&#34; /&gt;
-    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34; /&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-    &lt;style&gt;
-      table,
-      td,
-      th {
-        border: 1px solid;
-      }
-    &lt;/style&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;サーバ時刻&lt;/td&gt;
-          &lt;td id=&#34;server&#34;&gt;&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;ブラウザ&lt;/td&gt;
-          &lt;td id=&#34;client&#34;&gt;&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-    &lt;script
-      type=&#34;text/javascript&#34;
-      src=&#34;../../../../build/resources/main/static/static/mylib.js&#34;
-      th:src=&#34;@{/static/mylib.js}&#34;
-    &gt;&lt;/script&gt;
-    &lt;script th:inline=&#34;javascript&#34;&gt;
-      window.addEventListener(&#34;DOMContentLoaded&#34;, (event) =&gt; {
-        const serverTime = /*[[${now}]]*/ &#34;2020-01-01T10:10:10.000+09:00&#34;;
-        const server = document.getElementById(&#34;server&#34;);
-        server.innerText = serverTime;
-
-        const clientTime = mylib.getOS();
-        const client = document.getElementById(&#34;client&#34;);
-        client.innerText = clientTime;
-      });
-    &lt;/script&gt;
-  &lt;/body&gt;
-&lt;/html&gt;</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;ja&#34;</span> <span class="na">xmlns:th</span><span class="o">=</span><span class="s">&#34;http://www.thymeleaf.org&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&#34;X-UA-Compatible&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;IE=edge&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;viewport&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;width=device-width, initial-scale=1.0&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">table</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">td</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">th</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">border</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>サーバ時刻<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">td</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;server&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>ブラウザ<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">td</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;client&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">script</span>
+</span></span><span class="line"><span class="cl">      <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="na">src</span><span class="o">=</span><span class="s">&#34;../../../../build/resources/main/static/static/mylib.js&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="na">th:src</span><span class="o">=</span><span class="s">&#34;@{/static/mylib.js}&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">th:inline</span><span class="o">=</span><span class="s">&#34;javascript&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">serverTime</span> <span class="o">=</span> <span class="cm">/*[[${now}]]*/</span> <span class="s2">&#34;2020-01-01T10:10:10.000+09:00&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;server&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">server</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="nx">serverTime</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">clientTime</span> <span class="o">=</span> <span class="nx">mylib</span><span class="p">.</span><span class="nx">getOS</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;client&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">client</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="nx">clientTime</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
+</div><div class="formalpara-title">
+<p><strong>src/main/js/index.ts</strong></p>
 </div>
-<div class="listingblock">
-<div class="title">src/main/js/index.ts</div>
-<div class="content">
-<pre class="highlight"><code class="language-javascript" data-lang="javascript">import { UAParser } from &#34;ua-parser-js&#34;;
-
-export const getOS = (userAgent: string) =&gt; {
-  const parser = new UAParser(userAgent);
-  return JSON.stringify(parser.getOS());
-};</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">UAParser</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;ua-parser-js&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">getOS</span> <span class="o">=</span> <span class="p">(</span><span class="nx">userAgent</span><span class="o">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">parser</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UAParser</span><span class="p">(</span><span class="nx">userAgent</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">parser</span><span class="p">.</span><span class="nx">getOS</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
 </div>
-</div>
-<div class="paragraph">
-<p>上記のソースを作成し終わったら、ビルドし、実行してみます:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>gradle clean build
-java -jar build/libs/with-ts-0.0.1-SNAPSHOT.jar</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><a href="http://localhost:8080" class="bare">http://localhost:8080</a> にアクセスすると、サーバ側で取得した時刻がThymeleafによって挿入され、また、ブラウザ側で取得したOS情報が JavaScript によって挿入されているのが確認できます。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_hot_swapping_するコード変更を自動反映する">Hot Swapping する(コード変更を自動反映する)</h3>
-<div class="paragraph">
+</div><p>上記のソースを作成し終わったら、ビルドし、実行してみます:</p>
+<pre><code>gradle clean build
+java -jar build/libs/with-ts-0.0.1-SNAPSHOT.jar
+</code></pre>
+<p><a href="http://localhost:8080">http://localhost:8080</a> にアクセスすると、サーバ側で取得した時刻がThymeleafによって挿入され、また、ブラウザ側で取得したOS情報が JavaScript によって挿入されているのが確認できます。</p>
+<h2 id="hot-swapping-するコード変更を自動反映する">Hot Swapping する(コード変更を自動反映する)</h2>
 <p>前述の方法は <code>jar</code> を作成して実行するものでしたが、これでは開発がやりにくいので、ソースを編集したらリアルタイムで反映してくれるように実行方法を工夫します。</p>
-</div>
-<div class="paragraph">
 <p>まず、TypeScriptの更新が行われたら自動でビルドするようにwatchします。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>yarn watch</code></pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>yarn watch
+</code></pre>
 <p>Java側の変更を検知してビルドし直すようにgradleでwatchします。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>gradle -t classes -x yarn_build</code></pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>gradle -t classes -x yarn_build
+</code></pre>
 <p>サーバを起動します。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>gradle bootRun -x yarn_build</code></pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>gradle bootRun -x yarn_build
+</code></pre>
 <p>これで、TypeScript, Java 等のコードを修正し保存すると自動でSpring Bootが再起動し反映されるようになりました。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_spring_boot_プロセスにデバッガeclipseをアタッチする">Spring Boot プロセスにデバッガ(Eclipse)をアタッチする</h3>
-<div class="paragraph">
+<h2 id="spring-boot-プロセスにデバッガeclipseをアタッチする">Spring Boot プロセスにデバッガ(Eclipse)をアタッチする</h2>
 <p>はじめに、起動時に suspend する必要がなければ、次の設定を行っておきます:</p>
+<div class="formalpara-title">
+<p><strong>build.gradle</strong></p>
 </div>
-<div class="listingblock">
-<div class="title">build.gradle</div>
-<div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy">bootRun {
-    debugOptions {
-        suspend = false
-    }
-}</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="line"><span class="cl"><span class="n">bootRun</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">debugOptions</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">suspend</span> <span class="o">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
-</div>
-<div class="paragraph">
-<p>そして、前節で説明した最後のコマンド <code>gradle bootRun -x yarn_build</code> に、 <code>--debug-jvm</code> オプションを付けて実行します:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>gradle bootRun -x yarn_build --debug-jvm</code></pre>
-</div>
-</div>
-<div class="paragraph">
+</div><p>そして、前節で説明した最後のコマンド <code>gradle bootRun -x yarn_build</code> に、 <code>--debug-jvm</code> オプションを付けて実行します:</p>
+<pre><code>gradle bootRun -x yarn_build --debug-jvm
+</code></pre>
 <p>これでデバッガをアタッチできるような状態でSpring Bootが起動しました。</p>
-</div>
-<div class="paragraph">
 <p>続いて、Eclipse側で設定を行いアタッチします。</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
+<ol>
 <li>
 <p>メニューから <strong>Run &gt; Debug Configurations</strong> を選択します。</p>
 </li>
@@ -541,20 +567,10 @@ java -jar build/libs/with-ts-0.0.1-SNAPSHOT.jar</code></pre>
 <p><strong>Project</strong> に今回のプロジェクトを設定します。 <strong>Port</strong> を <code>5005</code> に設定変更します。</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
 <p>設定が完了したら、 Debug ボタンを押してデバッグを開始します。</p>
-</div>
-<div class="sect3">
-<h4 id="_補足_3">補足</h4>
-<div class="paragraph">
-<p>Eclipse をアタッチしている状態で Eclipse で Javaコードを編集した場合、デバッガ経由で変更が反映されるので <code>gradle -t classes -x yarn_build</code> は必要ありません。
-(ただし、静的リソースファイルなどの更新は検知できなくなります)</p>
-</div>
-<div class="paragraph">
+<h3 id="補足-2">補足</h3>
+<p>Eclipse をアタッチしている状態で Eclipse で Javaコードを編集した場合、デバッガ経由で変更が反映されるので <code>gradle -t classes -x yarn_build</code> は必要ありません。 (ただし、静的リソースファイルなどの更新は検知できなくなります)</p>
 <p>Grdleプロジェクトのデバッグオプションについてはこちらに記載しています:</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p><a href="/blog/202006/15/spring-boot-debugging/">Spring BootのGradleでのデバッグ実行方法</a> – 発火後忘失</p>
@@ -563,25 +579,11 @@ java -jar build/libs/with-ts-0.0.1-SNAPSHOT.jar</code></pre>
 <p><a href="https://stackoverflow.com/a/62567812/4506703">debug gradle bootRun having server=n</a> - Stack Overflow</p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_自動テストを実行するjest">自動テストを実行する(Jest)</h3>
-<div class="paragraph">
-<p>説明が前後してしまいますが、次の記事を参照してください。
-次の記事はBabelを組み込む方法ですが、Jestに関しては同じ設定でいけるはずです。</p>
-</div>
-<div class="ulist">
+<h2 id="自動テストを実行するjest">自動テストを実行する(Jest)</h2>
+<p>説明が前後してしまいますが、次の記事を参照してください。 次の記事はBabelを組み込む方法ですが、Jestに関しては同じ設定でいけるはずです。</p>
 <ul>
-<li>
-<p><a href="/blog/202107/11/spring-boot-with-babel/">Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle) - Polyfillも必要とする場合</a></p>
-</li>
+<li><a href="/blog/202107/11/spring-boot-with-babel/">Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle) - Polyfillも必要とする場合</a></li>
 </ul>
-</div>
-</div>
-</div>
-</div>
 
         </section>
         <div class="post-tags">
@@ -590,9 +592,9 @@ java -jar build/libs/with-ts-0.0.1-SNAPSHOT.jar</code></pre>
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/spring-boot">spring-boot</a></li>
+              <li><a href="/tags/spring-boot/">spring-boot</a></li>
               
-              <li><a href="/tags/javascript">javascript</a></li>
+              <li><a href="/tags/javascript/">javascript</a></li>
               
             </ul>
           </nav>
@@ -609,10 +611,10 @@ java -jar build/libs/with-ts-0.0.1-SNAPSHOT.jar</code></pre>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

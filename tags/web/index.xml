@@ -6,7 +6,7 @@
     <description>Recent content in Web on 発火後忘失</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <copyright>© Yukihane, All Rights Reserved</copyright>
     <lastBuildDate>Sun, 23 Aug 2020 17:24:37 +0000</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/web/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,14 +14,14 @@
       <link>https://yukihane.github.io/blog/202008/24/rest-path-or-query/</link>
       <pubDate>Sun, 23 Aug 2020 17:24:37 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202008/24/rest-path-or-query/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;特に結論はなく、情報収集です。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;quoteblock&#34;&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Google の検索 URI「http://www.google.com/search?q=jellyfish」について考えてみよう。Google Web アプリケーションがパス変数を使用していたならば、この URI はアルゴリズムの実行結果というよりも、ディレクトリのようになっていただろう（http://www.google.com/search/jellyfish）。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;特に結論はなく、情報収集です。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Google の検索 URI「http://www.google.com/search?q=jellyfish」について考えてみよう。Google Web アプリケーションがパス変数を使用していたならば、この URI はアルゴリズムの実行結果というよりも、ディレクトリのようになっていただろう（http://www.google.com/search/jellyfish）。&lt;/p&gt;</description>
     </item>
     <item>
       <title>ランダム文字列URL生成に関するメモ</title>
       <link>https://yukihane.github.io/blog/202008/15/capability-url/</link>
       <pubDate>Sat, 15 Aug 2020 10:26:40 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202008/15/capability-url/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;推測されないような文字列を動的に生成しURLに利用できるような仕組みを調べていますが、その調査メモです。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;ちょうど私が調べている時期と重なって、関心対象が同じ資料がアップロードされていました:&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;推測されないような文字列を動的に生成しURLに利用できるような仕組みを調べていますが、その調査メモです。&lt;/p&gt;&#xA;&lt;p&gt;ちょうど私が調べている時期と重なって、関心対象が同じ資料がアップロードされていました:&lt;/p&gt;</description>
     </item>
     <item>
       <title>https://hatena.ne.jp/ にアクセスできてるとお思いで？</title>

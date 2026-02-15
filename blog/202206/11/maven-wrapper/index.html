@@ -2,10 +2,8 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Maven Wrapper が Maven3 に正式導入された - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-Gradle には Gradle Wrapper といって、 ビルドするためのツールである Gradle の該当バージョンがローカルにインストールされていない場合でも、自動で取得してビルド環境をセットアップしてくれる仕組みがあります。
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="Gradle には Gradle Wrapper といって、 ビルドするためのツールである Gradle の該当バージョンがローカルにインストールされていない場合でも、自動で取得してビルド環境をセットアップしてくれる仕組みがあります。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202206/11/maven-wrapper/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Maven Wrapper が Maven3 に正式導入された">
@@ -25,8 +23,8 @@ Gradle には Gradle Wrapper といって、 ビルドするためのツール�
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -43,9 +41,17 @@ Gradle には Gradle Wrapper といって、 ビルドするためのツール�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -62,27 +68,13 @@ Gradle には Gradle Wrapper といって、 ビルドするためのツール�
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>Gradle には <a href="https://docs.gradle.org/current/userguide/gradle_wrapper.html">Gradle Wrapper</a> といって、 ビルドするためのツールである Gradle の該当バージョンがローカルにインストールされていない場合でも、自動で取得してビルド環境をセットアップしてくれる仕組みがあります。</p>
-</div>
-<div class="paragraph">
+          <p>Gradle には <a href="https://docs.gradle.org/current/userguide/gradle_wrapper.html">Gradle Wrapper</a> といって、 ビルドするためのツールである Gradle の該当バージョンがローカルにインストールされていない場合でも、自動で取得してビルド環境をセットアップしてくれる仕組みがあります。</p>
 <p>これに影響を受けて、 <a href="https://github.com/apache/maven-wrapper">Maven Wrapper</a> というプラグインを作成されていた方がいらっしゃったのですが、 Maven4 で公式に取り込まれることになっていました。</p>
-</div>
-<div class="paragraph">
-<p>…​が、どうやら前倒しで <a href="https://maven.apache.org/wrapper/">Maven3 にも取り込まれる</a> ようになったようです。
-現時点で次のコマンドでセットアップすることができるようになっています。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>mvn wrapper:wrapper</code></pre>
-</div>
-</div>
-<div class="paragraph">
+<p>…​が、どうやら前倒しで <a href="https://maven.apache.org/wrapper/">Maven3 にも取り込まれる</a> ようになったようです。 現時点で次のコマンドでセットアップすることができるようになっています。</p>
+<pre><code>mvn wrapper:wrapper
+</code></pre>
 <p><a href="https://start.spring.io/">Spring Boot Initializr</a> で作成したプロジェクトでは昔からテンプレートに含まれていたので存在を知っていた人は多いかと思うのですが、実は Maven 本体の機能では無かったんですよねこれ。</p>
-</div>
-<div class="paragraph">
 <p>Maven は Gradle ほどツールのバージョン依存性は無い(バージョン間の互換性が高いしメジャーバージョンアップもそんなに無い)ので Gradle ほどの必要性は無いですが、まあ、有ったほうが嬉しいには違いない。</p>
-</div>
 
         </section>
         <div class="post-tags">
@@ -91,7 +83,7 @@ Gradle には Gradle Wrapper といって、 ビルドするためのツール�
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/maven">maven</a></li>
+              <li><a href="/tags/maven/">maven</a></li>
               
             </ul>
           </nav>
@@ -108,10 +100,10 @@ Gradle には Gradle Wrapper といって、 ビルドするためのツール�
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

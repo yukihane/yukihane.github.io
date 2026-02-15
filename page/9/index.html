@@ -4,7 +4,7 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>発火後忘失 | Home </title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Fire and Forget blog" />
-	<meta property="og:image" content=""/>
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<link rel="alternate" type="application/rss+xml" href="https://yukihane.github.io/index.xml" title="発火後忘失" />
 	<meta property="og:url" content="https://yukihane.github.io/">
   <meta property="og:site_name" content="発火後忘失">
@@ -21,8 +21,8 @@
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 
 	<body>
@@ -41,9 +41,17 @@
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -56,16 +64,37 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202008/23/spring-lombok-mapstruct/">Spring BootプロジェクトにLombokとMapStructを追加する(Eclipse &amp; Maven/Gradle)</a></h1>
+					<time>2020/08/23</time>
+					<br><div class="description">
+	
+	<p>(2021-10-16 更新)</p>
+<p>Spring Boot プロジェクトにLombokとMapStructを追加し、かつ Eclipse で開発を行う場合の設定です。</p>
+<p>同じようなことを何回か書いてきた気がするのですが、結局どうすれば良いの？というのをまとめて書いたものが無いっぽいので改めて記事に起こしました。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202008/23/spring-lombok-mapstruct/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202008/16/gradle-test-not-working/">Gradleでintegration testを作成するも実行できない(JUnit5)</a></h1>
+					<time>2020/08/16</time>
+					<br><div class="description">
+	
+	<p>Gradle で integration-test 用にテストディレクトリを分けようとして <a href="https://docs.gradle.org/current/userguide/java_testing.html#sec:configuring_java_integration_tests">リファレンス</a> を参考に <code>build.gradle</code> を編集しました。</p>
+<p>しかし、コンパイル対象には入っているようですがこのテストが実行されている気配がありません。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202008/16/gradle-test-not-working/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202008/15/capability-url/">ランダム文字列URL生成に関するメモ</a></h1>
 					<time>2020/08/15</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>推測されないような文字列を動的に生成しURLに利用できるような仕組みを調べていますが、その調査メモです。</p>
-</div>
-<div class="paragraph">
-<p>ちょうど私が調べている時期と重なって、関心対象が同じ資料がアップロードされていました:</p>
-</div>&hellip;
+	<p>推測されないような文字列を動的に生成しURLに利用できるような仕組みを調べていますが、その調査メモです。</p>
+<p>ちょうど私が調べている時期と重なって、関心対象が同じ資料がアップロードされていました:</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202008/15/capability-url/">Read more ⟶</a>
@@ -76,22 +105,12 @@
 					<time>2020/08/04</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p><a href="/blog/202007/21/hello-oidc-with-keycloak/">KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる</a> で作成したプログラムの自動テスト方法です。</p>
-</div>
-<div class="paragraph">
+	<p><a href="/blog/202007/21/hello-oidc-with-keycloak/">KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる</a> で作成したプログラムの自動テスト方法です。</p>
 <p>今回のコードも前回と同じく次のディレクトリにあります:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/yukihane/hello-java/tree/master/spring/oidc-example" class="bare">https://github.com/yukihane/hello-java/tree/master/spring/oidc-example</a></p>
-</li>
+<li><a href="https://github.com/yukihane/hello-java/tree/master/spring/oidc-example">https://github.com/yukihane/hello-java/tree/master/spring/oidc-example</a></li>
 </ul>
-</div>
-<div class="paragraph">
-<p>まず結論なのですが、リファレンスに説明がありますのでここを参照しましょう、ということになります:</p>
-</div>&hellip;
+<p>まず結論なのですが、リファレンスに説明がありますのでここを参照しましょう、ということになります:</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202008/05/spring-boot-oidc-testing/">Read more ⟶</a>
@@ -102,9 +121,7 @@
 					<time>2020/07/28</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>これまで、LombokとMapStructを併用しようとした場合、そのままだと不具合(MapStructのアノテーションプロセッシングが動作しない)があり、ちょっとひと手間かけてその不具合を回避する必要がありました。</p>
-</div>&hellip;
+	<p>これまで、LombokとMapStructを併用しようとした場合、そのままだと不具合(MapStructのアノテーションプロセッシングが動作しない)があり、ちょっとひと手間かけてその不具合を回避する必要がありました。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202007/28/lombok-and-mapstruct-problem-is-fixed/">Read more ⟶</a>
@@ -115,19 +132,11 @@
 					<time>2020/07/25</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>元ネタ:</p>
-</div>
-<div class="ulist">
+	<p>元ネタ:</p>
 <ul>
-<li>
-<p><a href="https://ja.stackoverflow.com/q/68951/2808">古い Eclipse の起動時に UnsatisfiedLinkError が発生する - スタック・オーバーフロー</a></p>
-</li>
+<li><a href="https://ja.stackoverflow.com/q/68951/2808">古い Eclipse の起動時に UnsatisfiedLinkError が発生する - スタック・オーバーフロー</a></li>
 </ul>
-</div>
-<div class="paragraph">
-<p>いにしえのJava世界では、Win32APIにアクセスするためにSWTを利用していたそうです(リンク先のエントリは2005年のもの。私がJava始めるまえの話だ…)。</p>
-</div>&hellip;
+<p>いにしえのJava世界では、Win32APIにアクセスするためにSWTを利用していたそうです(リンク先のエントリは2005年のもの。私がJava始めるまえの話だ…)。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202007/26/swt-findwindowi-is-deprecated/">Read more ⟶</a>
@@ -138,12 +147,8 @@
 					<time>2020/07/25</time>
 					<br><div class="description">
 	
-	<div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><a href="https://start.spring.io/">Spring Initializr</a>を使ってGradle形式でプロジェクトを作成した場合、どうやってSTS(Eclipse)へインポートするのか逡巡しました。</p>
-</div>&hellip;
+	<h1 id="はじめに">はじめに</h1>
+<p><a href="https://start.spring.io/">Spring Initializr</a>を使ってGradle形式でプロジェクトを作成した場合、どうやってSTS(Eclipse)へインポートするのか逡巡しました。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202007/26/spring-boot-gradle-eclipse/">Read more ⟶</a>
@@ -154,15 +159,9 @@
 					<time>2020/07/20</time>
 					<br><div class="description">
 	
-	<div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="paragraph">
+	<h1 id="はじめに">はじめに</h1>
 <p>Spring Boot で Spring Security OAuth 2.0 <a href="https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#oauth2login">Login</a> / <a href="https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#oauth2client">Client</a> を利用する手順をまとめます。</p>
-</div>
-<div class="paragraph">
-<p>また、認可サーバ(IdP)にはローカルで立てたKeycloakを用いますのでそちらのセットアップ手順も記載します。</p>
-</div>&hellip;
+<p>また、認可サーバ(IdP)にはローカルで立てたKeycloakを用いますのでそちらのセットアップ手順も記載します。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202007/21/hello-oidc-with-keycloak/">Read more ⟶</a>
@@ -173,12 +172,8 @@
 					<time>2020/07/20</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>現在、新しいプロジェクトに参画してGitのブランチ戦略を考えています。</p>
-</div>
-<div class="paragraph">
-<p>何回かブランチ戦略を考え、そして運用してきたのですが、思うところを書いてみます。</p>
-</div>&hellip;
+	<p>現在、新しいプロジェクトに参画してGitのブランチ戦略を考えています。</p>
+<p>何回かブランチ戦略を考え、そして運用してきたのですが、思うところを書いてみます。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202007/21/why-git-branching-is-difficult/">Read more ⟶</a>
@@ -189,38 +184,24 @@
 					<time>2020/07/20</time>
 					<br><div class="description">
 	
-	<div class="ulist">
-<ul>
-<li>
-<p><a href="https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2ClientAutoConfiguration.java"><code>OAuth2ClientAutoConfiguration</code></a></p>
-</li>
+	<ul>
+<li><a href="https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2ClientAutoConfiguration.java"><code>OAuth2ClientAutoConfiguration</code></a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>上記のクラスが <code>Import</code> しているもの(など):</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p><a href="https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2ClientRegistrationRepositoryConfiguration.java"><code>OAuth2ClientRegistrationRepositoryConfiguration</code></a></p>
-<div class="ulist">
 <ul>
 <li>
 <p><code>ClientRegistrationRepository</code> bean 定義。</p>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/OAuth2ClientProperties.java"><code>OAuth2ClientProperties</code></a>(<code>spring.security.oauth2.client</code>)プロパティから定義を取得して生成するインメモリレジストリを生成。</p>
+<li><a href="https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/OAuth2ClientProperties.java"><code>OAuth2ClientProperties</code></a>(<code>spring.security.oauth2.client</code>)プロパティから定義を取得して生成するインメモリレジストリを生成。</li>
+</ul>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
 </li>
 <li>
 <p><a href="https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2WebSecurityConfiguration.java"><code>OAuth2WebSecurityConfiguration</code></a></p>
-<div class="ulist">
 <ul>
 <li>
 <p><a href="https://github.com/spring-projects/spring-security/blob/5.3.3.RELEASE/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/OAuth2AuthorizedClientService.java"><code>OAuth2AuthorizedClientService</code></a> bean 定義。</p>
@@ -230,13 +211,14 @@
 </li>
 <li>
 <p><code>WebSecurityConfigurerAdapter</code> デフォルト実装。</p>
-<div class="ulist">
 <ul>
-<li>
-<p>全てのリクエストに authenticated を要求する。 oauth2Login, oauth2Client 有効化。</p>
+<li>全てのリクエストに authenticated を要求する。 oauth2Login, oauth2Client 有効化。</li>
+</ul>
 </li>
 </ul>
-</div>&hellip;
+</li>
+</ul>
+<p>リファレンスリンク:</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202007/20/spring-security-oauth-2.0-client/">Read more ⟶</a>
@@ -247,19 +229,11 @@
 					<time>2020/07/19</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p><code>RestTemplateBuilder</code> の <code>Bean</code> がsingleton-socpeかつちょっと変態的なインスタンス生成を行っていたので驚いた、というエントリを昔書きました:</p>
-</div>
-<div class="ulist">
+	<p><code>RestTemplateBuilder</code> の <code>Bean</code> がsingleton-socpeかつちょっと変態的なインスタンス生成を行っていたので驚いた、というエントリを昔書きました:</p>
 <ul>
-<li>
-<p><a href="https://yukihane.github.io/posts/201912/10/resttemplatebuilder/">RestTemplateBuilderに関する覚書</a></p>
-</li>
+<li><a href="https://yukihane.github.io/posts/201912/10/resttemplatebuilder/">RestTemplateBuilderに関する覚書</a></li>
 </ul>
-</div>
-<div class="paragraph">
-<p>ところで、現時点で <a href="https://docs.spring.io/spring-framework/docs/5.2.7.RELEASE/javadoc-api/org/springframework/web/client/RestTemplate.html"><code>RestTemplate</code> は既に maintenance mode</a> なので、新規実装に用いるのは忍びないなあ、と思い、 <code>WebClient</code> を利用する前提で薦めることにしました。</p>
-</div>&hellip;
+<p>ところで、現時点で <a href="https://docs.spring.io/spring-framework/docs/5.2.7.RELEASE/javadoc-api/org/springframework/web/client/RestTemplate.html"><code>RestTemplate</code> は既に maintenance mode</a> なので、新規実装に用いるのは忍びないなあ、と思い、 <code>WebClient</code> を利用する前提で薦めることにしました。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202007/20/webclientbuilder/">Read more ⟶</a>
@@ -270,16 +244,11 @@
 					<time>2020/07/19</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>次のQiitaのコメントを見て、そうなんだ、となりました:</p>
-</div>
-<div class="ulist">
+	<p>次のQiitaのコメントを見て、そうなんだ、となりました:</p>
 <ul>
-<li>
-<p><a href="https://qiita.com/github0013@github/items/e57c452de28f3918bf05#comment-4df8a971cd5c8c2d0673">Auth TokenをlocalStorageに入れようが、cookieに入れようがどっちもXSS危険性には無防備（同ドメイン内なら …​）</a></p>
-</li>
+<li><a href="https://qiita.com/github0013@github/items/e57c452de28f3918bf05#comment-4df8a971cd5c8c2d0673">Auth TokenをlocalStorageに入れようが、cookieに入れようがどっちもXSS危険性には無防備（同ドメイン内なら …​）</a></li>
 </ul>
-</div>&hellip;
+<p>根拠を探してみたところ、同じくQiitaの記事</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202007/19/cookies-and-same-origin-policy/">Read more ⟶</a>
@@ -290,47 +259,10 @@
 					<time>2020/07/19</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>私は普段全く <code>git pull</code> は使わず、 <code>git fetch</code> で賄ってきたのですが、今日たまたま <code>git pull</code> を行ったところ、いつの頃からか次のようなメッセージが出るようになっていることに気づきました:</p>
-</div>&hellip;
+	<p>私は普段全く <code>git pull</code> は使わず、 <code>git fetch</code> で賄ってきたのですが、今日たまたま <code>git pull</code> を行ったところ、いつの頃からか次のようなメッセージが出るようになっていることに気づきました:</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202007/19/use-git-pull-ff-only/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202007/19/spring-security-authentication-server/">Spring Security から認可サーバサポートが無くなる、というのは取り敢えず見直されています</a></h1>
-					<time>2020/07/19</time>
-					<br><div class="description">
-	
-	<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p>世の中に認可サーバー製品がたくさんあるので、Spring Securityではサポートしないことを決定しました</p>
-</div>
-</blockquote>
-<div class="attribution">
-— <a href="https://qiita.com/suke_masa/items/4e68012e3b8c92822a9a">Spring Security OAuth2はあと数年でサポート終了、その代替策 - Qiita</a>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202007/19/spring-security-authentication-server/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202007/15/spring-boot-books-review/">Spring Bootブックレビュー Spring Boot 2 入門: 基礎から実演まで</a></h1>
-					<time>2020/07/15</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p>Kindle Unlimited でいくつかのSpring Framework/Spring Boot 本が読めることに気づきました。</p>
-</div>
-<div class="paragraph">
-<p>もし入門本として有用なものがあれば初心者の方に薦めていきたいなと考え、今回それらを呼んでみましたので感想を記録します。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202007/15/spring-boot-books-review/">Read more ⟶</a>
 				</section>
 				
 				
@@ -352,10 +284,10 @@
 			</main>
 			<footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

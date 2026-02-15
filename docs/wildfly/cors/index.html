@@ -2,31 +2,23 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>CORS - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-RestyGwtを使用してWildFlyへクロスドメインのリクエストを投げたい場合の設定。
-
-
+	<meta name="description" content="RestyGwtを使用してWildFlyへクロスドメインのリクエストを投げたい場合の設定。
 下記のURLあたりを参考に。
-
-
 
 
 jboss - CORS: AngularJS
 Resteasy 3 &#43; Wildfly - Stack Overflow
 
 
-jax rs - How to enable
-Cross domain requests on JAX-RS web services? - Stack Overflow
-
-
-" />
-	<meta property="og:image" content=""/>
+jax rs - How to enable Cross domain requests on JAX-RS web services? - Stack Overflow" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/wildfly/cors/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="CORS">
   <meta property="og:description" content="RestyGwtを使用してWildFlyへクロスドメインのリクエストを投げたい場合の設定。
 下記のURLあたりを参考に。
-jboss - CORS: AngularJS Resteasy 3 &#43; Wildfly - Stack Overflow
+jboss - CORS: AngularJS
+Resteasy 3 &#43; Wildfly - Stack Overflow
 jax rs - How to enable Cross domain requests on JAX-RS web services? - Stack Overflow">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
@@ -38,15 +30,16 @@ jax rs - How to enable Cross domain requests on JAX-RS web services? - Stack Ove
   <meta name="twitter:title" content="CORS">
   <meta name="twitter:description" content="RestyGwtを使用してWildFlyへクロスドメインのリクエストを投げたい場合の設定。
 下記のURLあたりを参考に。
-jboss - CORS: AngularJS Resteasy 3 &#43; Wildfly - Stack Overflow
+jboss - CORS: AngularJS
+Resteasy 3 &#43; Wildfly - Stack Overflow
 jax rs - How to enable Cross domain requests on JAX-RS web services? - Stack Overflow">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -63,9 +56,17 @@ jax rs - How to enable Cross domain requests on JAX-RS web services? - Stack Ove
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -82,83 +83,103 @@ jax rs - How to enable Cross domain requests on JAX-RS web services? - Stack Ove
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>RestyGwtを使用してWildFlyへクロスドメインのリクエストを投げたい場合の設定。</p>
-</div>
-<div class="paragraph">
+          <p>RestyGwtを使用してWildFlyへクロスドメインのリクエストを投げたい場合の設定。</p>
 <p>下記のURLあたりを参考に。</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
-<p><a href="https://stackoverflow.com/a/39215400/4506703">jboss - CORS: AngularJS<br/>
+<p><a href="https://stackoverflow.com/a/39215400/4506703">jboss - CORS: AngularJS<br />
 Resteasy 3 + Wildfly - Stack Overflow</a></p>
 </li>
 <li>
-<p><a href="https://stackoverflow.com/a/23631475/4506703">jax rs - How to enable
-Cross domain requests on JAX-RS web services? - Stack Overflow</a></p>
+<p><a href="https://stackoverflow.com/a/23631475/4506703">jax rs - How to enable Cross domain requests on JAX-RS web services? - Stack Overflow</a></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p>RestyGwtはデフォルトで`X-HTTP-Method-Override`ヘッダが付くのでこれも許容するようにしなければならなかった。(なお、https://github.com/resty-gwt/resty-gwt/issues/245#ref-pullrequest-103108519[設定で付与しないこともできる]らしい)</p>
-</div>
-<div class="paragraph">
 <p>最終的には、`Access-Control-Allow-Origin`と`Access-Control-Allow-Headers`だけを適切に許容設定すれば良さそう。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">        <span class="nt">&lt;subsystem</span> <span class="na">xmlns=</span><span class="s">&#34;urn:jboss:domain:undertow:3.1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;buffer-cache</span> <span class="na">name=</span><span class="s">&#34;default&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;server</span> <span class="na">name=</span><span class="s">&#34;default-server&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;http-listener</span> <span class="na">name=</span><span class="s">&#34;default&#34;</span> <span class="na">socket-binding=</span><span class="s">&#34;http&#34;</span> <span class="na">redirect-socket=</span><span class="s">&#34;https&#34;</span> <span class="na">enable-http2=</span><span class="s">&#34;true&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;https-listener</span> <span class="na">name=</span><span class="s">&#34;https&#34;</span> <span class="na">socket-binding=</span><span class="s">&#34;https&#34;</span> <span class="na">security-realm=</span><span class="s">&#34;ApplicationRealm&#34;</span> <span class="na">enable-http2=</span><span class="s">&#34;true&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;host</span> <span class="na">name=</span><span class="s">&#34;default-host&#34;</span> <span class="na">alias=</span><span class="s">&#34;localhost&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&lt;location</span> <span class="na">name=</span><span class="s">&#34;/&#34;</span> <span class="na">handler=</span><span class="s">&#34;welcome-content&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&lt;location</span> <span class="na">name=</span><span class="s">&#34;/swagger&#34;</span> <span class="na">handler=</span><span class="s">&#34;swagger&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&lt;filter-ref</span> <span class="na">name=</span><span class="s">&#34;server-header&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&lt;filter-ref</span> <span class="na">name=</span><span class="s">&#34;x-powered-by-header&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&lt;filter-ref</span> <span class="na">name=</span><span class="s">&#34;Access-Control-Allow-Origin&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&lt;filter-ref</span> <span class="na">name=</span><span class="s">&#34;Access-Control-Allow-Headers&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!--
+</span></span></span><span class="line"><span class="cl"><span class="c">                    &lt;filter-ref name=&#34;Access-Control-Allow-Methods&#34;/&gt;
+</span></span></span><span class="line"><span class="cl"><span class="c">                    &lt;filter-ref name=&#34;Access-Control-Allow-Credentials&#34;/&gt;
+</span></span></span><span class="line"><span class="cl"><span class="c">                    &lt;filter-ref name=&#34;Access-Control-Max-Age&#34;/&gt;
+</span></span></span><span class="line"><span class="cl"><span class="c">--&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;/host&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;/server&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;servlet-container</span> <span class="na">name=</span><span class="s">&#34;default&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;jsp-config/&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;websockets/&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;/servlet-container&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;handlers&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;file</span> <span class="na">name=</span><span class="s">&#34;welcome-content&#34;</span> <span class="na">path=</span><span class="s">&#34;${jboss.home.dir}/welcome-content&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;file</span> <span class="na">name=</span><span class="s">&#34;swagger&#34;</span> <span class="na">path=</span><span class="s">&#34;${jboss.home.dir}/swagger&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;/handlers&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;filters&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;response-header</span> <span class="na">name=</span><span class="s">&#34;server-header&#34;</span> <span class="na">header-name=</span><span class="s">&#34;Server&#34;</span> <span class="na">header-value=</span><span class="s">&#34;WildFly/10&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;response-header</span> <span class="na">name=</span><span class="s">&#34;x-powered-by-header&#34;</span> <span class="na">header-name=</span><span class="s">&#34;X-Powered-By&#34;</span> <span class="na">header-value=</span><span class="s">&#34;Undertow/1&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;response-header</span> <span class="na">name=</span><span class="s">&#34;Access-Control-Allow-Origin&#34;</span> <span class="na">header-name=</span><span class="s">&#34;Access-Control-Allow-Origin&#34;</span> <span class="na">header-value=</span><span class="s">&#34;*&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;response-header</span> <span class="na">name=</span><span class="s">&#34;Access-Control-Allow-Methods&#34;</span> <span class="na">header-name=</span><span class="s">&#34;Access-Control-Allow-Methods&#34;</span> <span class="na">header-value=</span><span class="s">&#34;GET, POST, OPTIONS, PUT, DELETE&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;response-header</span> <span class="na">name=</span><span class="s">&#34;Access-Control-Allow-Headers&#34;</span> <span class="na">header-name=</span><span class="s">&#34;Access-Control-Allow-Headers&#34;</span> <span class="na">header-value=</span><span class="s">&#34;accept, authorization,  content-type, x-requested-with, X-HTTP-Method-Override&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;response-header</span> <span class="na">name=</span><span class="s">&#34;Access-Control-Allow-Credentials&#34;</span> <span class="na">header-name=</span><span class="s">&#34;Access-Control-Allow-Credentials&#34;</span> <span class="na">header-value=</span><span class="s">&#34;true&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;response-header</span> <span class="na">name=</span><span class="s">&#34;Access-Control-Max-Age&#34;</span> <span class="na">header-name=</span><span class="s">&#34;Access-Control-Max-Age&#34;</span> <span class="na">header-value=</span><span class="s">&#34;1&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;/filters&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/subsystem&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-xml" data-lang="xml">        &lt;subsystem xmlns=&#34;urn:jboss:domain:undertow:3.1&#34;&gt;
-            &lt;buffer-cache name=&#34;default&#34;/&gt;
-            &lt;server name=&#34;default-server&#34;&gt;
-                &lt;http-listener name=&#34;default&#34; socket-binding=&#34;http&#34; redirect-socket=&#34;https&#34; enable-http2=&#34;true&#34;/&gt;
-                &lt;https-listener name=&#34;https&#34; socket-binding=&#34;https&#34; security-realm=&#34;ApplicationRealm&#34; enable-http2=&#34;true&#34;/&gt;
-                &lt;host name=&#34;default-host&#34; alias=&#34;localhost&#34;&gt;
-                    &lt;location name=&#34;/&#34; handler=&#34;welcome-content&#34;/&gt;
-                    &lt;location name=&#34;/swagger&#34; handler=&#34;swagger&#34;/&gt;
-                    &lt;filter-ref name=&#34;server-header&#34;/&gt;
-                    &lt;filter-ref name=&#34;x-powered-by-header&#34;/&gt;
-                    &lt;filter-ref name=&#34;Access-Control-Allow-Origin&#34;/&gt;
-                    &lt;filter-ref name=&#34;Access-Control-Allow-Headers&#34;/&gt;
-&lt;!--
-                    &lt;filter-ref name=&#34;Access-Control-Allow-Methods&#34;/&gt;
-                    &lt;filter-ref name=&#34;Access-Control-Allow-Credentials&#34;/&gt;
-                    &lt;filter-ref name=&#34;Access-Control-Max-Age&#34;/&gt;
---&gt;
-                &lt;/host&gt;
-            &lt;/server&gt;
-            &lt;servlet-container name=&#34;default&#34;&gt;
-                &lt;jsp-config/&gt;
-                &lt;websockets/&gt;
-            &lt;/servlet-container&gt;
-            &lt;handlers&gt;
-                &lt;file name=&#34;welcome-content&#34; path=&#34;${jboss.home.dir}/welcome-content&#34;/&gt;
-                &lt;file name=&#34;swagger&#34; path=&#34;${jboss.home.dir}/swagger&#34;/&gt;
-            &lt;/handlers&gt;
-            &lt;filters&gt;
-                &lt;response-header name=&#34;server-header&#34; header-name=&#34;Server&#34; header-value=&#34;WildFly/10&#34;/&gt;
-                &lt;response-header name=&#34;x-powered-by-header&#34; header-name=&#34;X-Powered-By&#34; header-value=&#34;Undertow/1&#34;/&gt;
-                &lt;response-header name=&#34;Access-Control-Allow-Origin&#34; header-name=&#34;Access-Control-Allow-Origin&#34; header-value=&#34;*&#34;/&gt;
-                &lt;response-header name=&#34;Access-Control-Allow-Methods&#34; header-name=&#34;Access-Control-Allow-Methods&#34; header-value=&#34;GET, POST, OPTIONS, PUT, DELETE&#34;/&gt;
-                &lt;response-header name=&#34;Access-Control-Allow-Headers&#34; header-name=&#34;Access-Control-Allow-Headers&#34; header-value=&#34;accept, authorization,  content-type, x-requested-with, X-HTTP-Method-Override&#34;/&gt;
-                &lt;response-header name=&#34;Access-Control-Allow-Credentials&#34; header-name=&#34;Access-Control-Allow-Credentials&#34; header-value=&#34;true&#34;/&gt;
-                &lt;response-header name=&#34;Access-Control-Max-Age&#34; header-name=&#34;Access-Control-Max-Age&#34; header-value=&#34;1&#34;/&gt;
-            &lt;/filters&gt;
-        &lt;/subsystem&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>また、サーバ側では別途preflight
-request向けにOPTIONSを受け付けられるようにしなければならないらしい。</p>
-</div>
-<div class="ulist">
+</div><p>また、サーバ側では別途preflight request向けにOPTIONSを受け付けられるようにしなければならないらしい。</p>
 <ul>
-<li>
-<p><a href="https://dzone.com/articles/cross-site-requests-gwt">Cross Site Requests
-With GWT, RestyGWT and HTML5 CORS - DZone Web Dev</a></p>
-</li>
+<li><a href="https://dzone.com/articles/cross-site-requests-gwt">Cross Site Requests With GWT, RestyGWT and HTML5 CORS - DZone Web Dev</a></li>
 </ul>
-</div>
 
         </section>
         <div class="post-tags">
@@ -176,10 +197,10 @@ With GWT, RestyGWT and HTML5 CORS - DZone Web Dev</a></p>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

@@ -2,27 +2,17 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>UbuntuでKindle for PCを使う - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-書きかけのページです。次のリンク先が参考になります。
-
-
-
+	<meta name="description" content="書きかけのページです。次のリンク先が参考になります。
 
 https://qiita.com/giwagiwa/items/d2e447af5225c1ce9800
 
-
-
-
-Ubuntu16.04上で、PlayOnLinxで管理されたWine環境でKindle for
-PCを動作させる手順です。
-" />
-	<meta property="og:image" content=""/>
+Ubuntu16.04上で、PlayOnLinxで管理されたWine環境でKindle for PCを動作させる手順です。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/ubuntu/kindle-for-pc/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="UbuntuでKindle for PCを使う">
   <meta property="og:description" content="書きかけのページです。次のリンク先が参考になります。
-https://qiita.com/giwagiwa/items/d2e447af5225c1ce9800
-Ubuntu16.04上で、PlayOnLinxで管理されたWine環境でKindle for PCを動作させる手順です。">
+https://qiita.com/giwagiwa/items/d2e447af5225c1ce9800 Ubuntu16.04上で、PlayOnLinxで管理されたWine環境でKindle for PCを動作させる手順です。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -32,15 +22,14 @@ Ubuntu16.04上で、PlayOnLinxで管理されたWine環境でKindle for PCを動
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="UbuntuでKindle for PCを使う">
   <meta name="twitter:description" content="書きかけのページです。次のリンク先が参考になります。
-https://qiita.com/giwagiwa/items/d2e447af5225c1ce9800
-Ubuntu16.04上で、PlayOnLinxで管理されたWine環境でKindle for PCを動作させる手順です。">
+https://qiita.com/giwagiwa/items/d2e447af5225c1ce9800 Ubuntu16.04上で、PlayOnLinxで管理されたWine環境でKindle for PCを動作させる手順です。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -57,9 +46,17 @@ Ubuntu16.04上で、PlayOnLinxで管理されたWine環境でKindle for PCを動
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -76,242 +73,83 @@ Ubuntu16.04上で、PlayOnLinxで管理されたWine環境でKindle for PCを動
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>書きかけのページです。次のリンク先が参考になります。</p>
-</div>
-<div class="ulist">
+          <p>書きかけのページです。次のリンク先が参考になります。</p>
 <ul>
-<li>
-<p><a href="https://qiita.com/giwagiwa/items/d2e447af5225c1ce9800" class="bare">https://qiita.com/giwagiwa/items/d2e447af5225c1ce9800</a></p>
-</li>
+<li><a href="https://qiita.com/giwagiwa/items/d2e447af5225c1ce9800" class="bare"><a href="https://qiita.com/giwagiwa/items/d2e447af5225c1ce9800">https://qiita.com/giwagiwa/items/d2e447af5225c1ce9800</a></a></li>
 </ul>
-</div>
-<div class="paragraph">
-<p>Ubuntu16.04上で、PlayOnLinxで管理されたWine環境でKindle for
-PCを動作させる手順です。</p>
-</div>
-<div class="sect1">
-<h2 id="wine_インストール">Wine インストール</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>PlayOnLinuxを動作させるのに先立ってWineが必要らしいのでインストールします。
-なお<strong>このWineはKindleを動作させるものではない</strong>ので、最新安定版をインストールしておけば良いようです。
-(後述しますが、<strong>Kindleを動作させるWine</strong>は相性問題で必ずしも最新版が良いとは限らないようです。)</p>
-</div>
-<hr/>
-<div class="paragraph">
-<p>古い記事では ppa:wine/wine-builds
-を使用するよう書かれているが、これは既にdeprecatedです(リポジトリ追加時に警告も出る)。</p>
-</div>
-<div class="paragraph">
-<p><a href="https://launchpad.net/~wine/+archive/ubuntu/wine-builds" class="bare">https://launchpad.net/~wine/+archive/ubuntu/wine-builds</a></p>
-</div>
-<div class="quoteblock">
+<p>Ubuntu16.04上で、PlayOnLinxで管理されたWine環境でKindle for PCを動作させる手順です。</p>
+<h2 id="wine-インストール">Wine インストール</h2>
+<p>PlayOnLinuxを動作させるのに先立ってWineが必要らしいのでインストールします。 なお<strong>このWineはKindleを動作させるものではない</strong>ので、最新安定版をインストールしておけば良いようです。 (後述しますが、<strong>Kindleを動作させるWine</strong>は相性問題で必ずしも最新版が良いとは限らないようです。)</p>
+<hr />
+<p>古い記事では ppa:wine/wine-builds を使用するよう書かれているが、これは既にdeprecatedです(リポジトリ追加時に警告も出る)。</p>
+<p><a href="https://launchpad.net/~wine/+archive/ubuntu/wine-builds" class="bare"><a href="https://launchpad.net/~wine/&#43;archive/ubuntu/wine-builds">https://launchpad.net/~wine/+archive/ubuntu/wine-builds</a></a></p>
 <blockquote>
-<div class="paragraph">
 <p>!!! PLEASE NOTE THAT THIS REPOSITORY IS DEPRECATED !!!</p>
-</div>
-<div class="paragraph">
 <p>For more information, please see:</p>
-</div>
-<div class="paragraph">
 <p><code>   `https://www.winehq.org/pipermail/wine-devel/2017-March/117104.html[`https://www.winehq.org/pipermail/wine-devel/2017-March/117104.html</code>]</p>
-</div>
-<div class="paragraph">
 <p>The following commands can be used to add the new repository:</p>
-</div>
-<div class="paragraph">
-<p><code>   wget `https://dl.winehq.org/wine-builds/Release.key[`https://dl.winehq.org/wine-builds/Release.key</code>]<br/>
-<code>   sudo apt-key add Release.key</code><br/>
-<code>   sudo apt-add-repository ‘<a href="https://dl.winehq.org/wine-builds/ubuntu/">`https://dl.winehq.org/wine-builds/ubuntu/</a></code>’`</p>
-</div>
-</blockquote>
-</div>
-<div class="paragraph">
-<p>というわけで、ここに書かれているとおり、代わりに新しいリポジトリを用います。
-…と、以前はそれでよかったのですが、2018年末、ここから更に公開鍵が変わったようなので、次のコマンドを実行する必要があります(<a href="https://wiki.winehq.org/Ubuntu">参考</a>)。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>wget -nc https://dl.winehq.org/wine-builds/winehq.key
-sudo apt-key add winehq.key</pre>
-</div>
-</div>
-<div class="paragraph">
+<p><code>   wget `https://dl.winehq.org/wine-builds/Release.key[`https://dl.winehq.org/wine-builds/Release.key</code>]<br />
+<code>   sudo apt-key add Release.key</code></p>
+<p>   sudo apt-add-repository ‘<a href="https://dl.winehq.org/wine-builds/ubuntu/">`https://dl.winehq.org/wine-builds/ubuntu/</a>’`</p></blockquote>
+<p>というわけで、ここに書かれているとおり、代わりに新しいリポジトリを用います。 …と、以前はそれでよかったのですが、2018年末、ここから更に公開鍵が変わったようなので、次のコマンドを実行する必要があります(<a href="https://wiki.winehq.org/Ubuntu">参考</a>)。</p>
+<pre><code>wget -nc https://dl.winehq.org/wine-builds/winehq.key
+sudo apt-key add winehq.key
+</code></pre>
 <p>リポジトリを追加します。Ubuntuのバージョンごとに異なりますのでhttps://wiki.winehq.org/Ubuntu[リンク先]を参照してください。下は18.04の例です。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>sudo apt-add-repository &#39;deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main&#39;</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'
+</code></pre>
 <p>リポジトリを追加したら、次のコマンドでWineのstable版をインストールします。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>sudo apt-get install --install-recommends winehq-stable</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="playonlinux_インストール">PlayOnLinux インストール</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Ubuntuのリポジトリにも playonlinux
-は存在するが、オフィシャルサイトにある方がバージョンが新しかったのでそちらを用いることにします。</p>
-</div>
-<div class="ulist">
+<pre><code>sudo apt-get install --install-recommends winehq-stable
+</code></pre>
+<h2 id="playonlinux-インストール">PlayOnLinux インストール</h2>
+<p>Ubuntuのリポジトリにも playonlinux は存在するが、オフィシャルサイトにある方がバージョンが新しかったのでそちらを用いることにします。</p>
 <ul>
-<li>
-<p><a href="https://www.playonlinux.com/en/download.html" class="bare">https://www.playonlinux.com/en/download.html</a></p>
-</li>
+<li><a href="https://www.playonlinux.com/en/download.html" class="bare"><a href="https://www.playonlinux.com/en/download.html">https://www.playonlinux.com/en/download.html</a></a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>に書かれているとおりにインストール。`playonlinux_xenial.list`の部分はバージョンによって異なるので適宜読み替えます。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>wget -q &#34;http://deb.playonlinux.com/public.gpg&#34; -O- | sudo apt-key add -
+<pre><code>wget -q &quot;http://deb.playonlinux.com/public.gpg&quot; -O- | sudo apt-key add -
 sudo wget http://deb.playonlinux.com/playonlinux_xenial.list -O /etc/apt/sources.list.d/playonlinux.list
 sudo apt-get update
-sudo apt-get install playonlinux</pre>
-</div>
-</div>
-<div class="paragraph">
+sudo apt-get install playonlinux
+</code></pre>
 <p>なお、このページに以下の通り書かれているのが確認できるはず。実際にwineをインストールせずにplayonlinuxを起動するとwineが必要という警告ダイアログが出ます。</p>
-</div>
-<div class="quoteblock">
 <blockquote>
-<div class="paragraph">
-<p>Ubuntu Precise (and superior) users : You must install the package
-wine:i386 to get PlayOnLinux working</p>
-</div>
-</blockquote>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_インストールするwineとkindleのバージョンの選定">インストールするWineとKindleのバージョンの選定</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>冒頭でも少し触れましたが、WineとKindle for
-PCは最新版のほうが良いとは限らず、相性があるようです。
-次のページに動作検証結果が書かれています。</p>
-</div>
-<div class="ulist">
+<p>Ubuntu Precise (and superior) users : You must install the package wine:i386 to get PlayOnLinux working</p></blockquote>
+<h2 id="インストールするwineとkindleのバージョンの選定">インストールするWineとKindleのバージョンの選定</h2>
+<p>冒頭でも少し触れましたが、WineとKindle for PCは最新版のほうが良いとは限らず、相性があるようです。 次のページに動作検証結果が書かれています。</p>
 <ul>
-<li>
-<p><a href="https://appdb.winehq.org/objectManager.php?sClass=application&amp;iId=10597" class="bare">https://appdb.winehq.org/objectManager.php?sClass=application&amp;iId=10597</a></p>
-</li>
+<li><a href="https://appdb.winehq.org/objectManager.php?sClass=application&amp;iId=10597" class="bare"><a href="https://appdb.winehq.org/objectManager.php?sClass=application&amp;amp;iId=10597">https://appdb.winehq.org/objectManager.php?sClass=application&amp;iId=10597</a></a></li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>Latest Rating</em> の項目が Platinum か Gold
-になっているものを選んでおけばよいかと思います。
-今回はPlatinumとされている Kindle for PCのバージョン 1.17.x , Wine
-のバージョン 2.15 を選ぶこととしました。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="kindle_for_pc.co.jp対応版_ダウンロード">Kindle for PC(.co.jp対応版) ダウンロード</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Kindle for
-PCについて、PlayOnLinuxからダウンロードはできるものは.co.jpアカウントでログイン出来ないようですので、別途入手します。
-参考にした <a href="https://qiita.com/giwagiwa/items/d2e447af5225c1ce9800">こちら</a>のページでは <a href="https://kindle-for-pc.en.uptodown.com/windows">このサイト</a>から入手していました。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_playonlinxにkindle環境を構築">PlayOnLinxにKindle環境を構築</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_playonlinux起動">PlayOnLinux起動</h3>
-<div class="paragraph">
+<p><em>Latest Rating</em> の項目が Platinum か Gold になっているものを選んでおけばよいかと思います。 今回はPlatinumとされている Kindle for PCのバージョン 1.17.x , Wine のバージョン 2.15 を選ぶこととしました。</p>
+<h2 id="kindle-for-pccojp対応版-ダウンロード">Kindle for PC(.co.jp対応版) ダウンロード</h2>
+<p>Kindle for PCについて、PlayOnLinuxからダウンロードはできるものは.co.jpアカウントでログイン出来ないようですので、別途入手します。 参考にした <a href="https://qiita.com/giwagiwa/items/d2e447af5225c1ce9800">こちら</a>のページでは <a href="https://kindle-for-pc.en.uptodown.com/windows">このサイト</a>から入手していました。</p>
+<h2 id="playonlinxにkindle環境を構築">PlayOnLinxにKindle環境を構築</h2>
+<h3 id="playonlinux起動">PlayOnLinux起動</h3>
 <p><code>playonlinux</code> コマンドで起動できます。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_kindleを動作させるwineのインストール">Kindleを動作させるWineのインストール</h3>
-<div class="paragraph">
-<p>ツール &gt; Wineのバージョンを管理
-メニューを選択し、前述の通り決定したバージョン 2.15
-をインストールします。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="kindle_for_pc_のインストール">Kindle for PC のインストール</h3>
-<div class="paragraph">
-<p>ファイル &gt; インストール
-メニューを選択します。(本来ならここでインストール可能なアプリ一覧が表示されるようですが、私が今回インストールしたバージョンでは読み込み中表示のまま止まっています)</p>
-</div>
-<div class="paragraph">
-<p>画面下部の&#34;<em>リストにないプログラムをインストールする</em>&#34;を選択します。</p>
-</div>
-<div class="paragraph">
-<p>&#34;<em>Install a program in a new virtual drive</em>&#34;を選択します。</p>
-</div>
-<div class="paragraph">
+<h3 id="kindleを動作させるwineのインストール">Kindleを動作させるWineのインストール</h3>
+<p>ツール &gt; Wineのバージョンを管理 メニューを選択し、前述の通り決定したバージョン 2.15 をインストールします。</p>
+<h3 id="kindle-for-pc-のインストール">Kindle for PC のインストール</h3>
+<p>ファイル &gt; インストール メニューを選択します。(本来ならここでインストール可能なアプリ一覧が表示されるようですが、私が今回インストールしたバージョンでは読み込み中表示のまま止まっています)</p>
+<p>画面下部の&quot;<em>リストにないプログラムをインストールする</em>&ldquo;を選択します。</p>
+<p>&ldquo;<em>Install a program in a new virtual drive</em>&ldquo;を選択します。</p>
 <p>好きな名前を入力します。(私は <em>for_kindle</em> と入力しました)</p>
-</div>
-<div class="paragraph">
-<p>&#34;<em>Use another version of Wine</em>&#34; と &#34;<em>Configure Wine</em>&#34;
-にチェックを入れます。</p>
-</div>
-<div class="paragraph">
+<p>&ldquo;<em>Use another version of Wine</em>&rdquo; と &ldquo;<em>Configure Wine</em>&rdquo; にチェックを入れます。</p>
 <p>Kindle for PCを動作させるWineのバージョンである <em>2.15</em> を選択します。</p>
-</div>
-<div class="paragraph">
-<p>&#34;<em>32bits windows installation</em>&#34; を選択します。</p>
-</div>
-<div class="paragraph">
+<p>&ldquo;<em>32bits windows installation</em>&rdquo; を選択します。</p>
 <p>MonoインストールとGeckoインストールを促されますが、両方キャンセルします。</p>
-</div>
-<div class="paragraph">
-<p>&#34;アプリケーション&#34;タブの &#34;Windowsバージョン&#34; を <strong>Windows 8.1</strong>
-に設定します。</p>
-</div>
-<div class="paragraph">
-<p>install file の選択に置いて、先にダウンロードしておいた Kindle for
-PCのインストーラexeを指定します。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_文字化けの解消">文字化けの解消</h3>
-<div class="paragraph">
-<p>ここまでの設定でKindleは起動できるようになります。
-が、起動してみると分かる通りメニューの日本語が豆腐表示になっています。
-これを解消します。</p>
-</div>
-<div class="ulist">
+<p>&ldquo;アプリケーション&quot;タブの &ldquo;Windowsバージョン&rdquo; を <strong>Windows 8.1</strong> に設定します。</p>
+<p>install file の選択に置いて、先にダウンロードしておいた Kindle for PCのインストーラexeを指定します。</p>
+<h3 id="文字化けの解消">文字化けの解消</h3>
+<p>ここまでの設定でKindleは起動できるようになります。 が、起動してみると分かる通りメニューの日本語が豆腐表示になっています。 これを解消します。</p>
 <ul>
-<li>
-<p>参考: <a href="https://pri-light.hatenadiary.org/entry/20170723/p1">LubuntuにplayonlinuxでKindleをインストール</a> - Jiyu na Blog</p>
-</li>
+<li>参考: <a href="https://pri-light.hatenadiary.org/entry/20170723/p1">LubuntuにplayonlinuxでKindleをインストール</a> - Jiyu na Blog</li>
 </ul>
-</div>
-<div class="paragraph">
 <p>今回は <a href="https://github.com/miiton/Cica">Cicaフォント</a>(<code>Cica-Regular.ttf</code>)を利用しました。他のフォントを利用する場合は適宜読み替えてください。</p>
-</div>
-<div class="sect3">
-<h4 id="_フォントを配備">フォントを配備</h4>
-<div class="paragraph">
+<h4 id="フォントを配備">フォントを配備</h4>
 <p><code>~/PlayOnLinux’s virtual drives/for_kindle/drive_c/windows/Fonts</code> にフォントファイル <code>Cica-Regular.ttf</code> を置きます。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_レジストリファイル作成">レジストリファイル作成</h4>
-<div class="paragraph">
-<p><code>~/Documents/kindle_font.reg</code> というファイル名で次の内容を保存します。
-エンコーディングはShift JISとします。(なお、改行コードは今回LFで行いましたが、これで問題ありませんでした。)</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-reg" data-lang="reg">REGEDIT4
+<h4 id="レジストリファイル作成">レジストリファイル作成</h4>
+<p><code>~/Documents/kindle_font.reg</code> というファイル名で次の内容を保存します。 エンコーディングはShift JISとします。(なお、改行コードは今回LFで行いましたが、これで問題ありませんでした。)</p>
+<pre tabindex="0"><code class="language-highlight" data-lang="highlight">REGEDIT4
 
 [HKEY_CURRENT_USER\Software\Wine\Fonts\Replacements]
 &#34;Andale Mono&#34;=&#34;Cica&#34;
@@ -327,19 +165,9 @@ PCのインストーラexeを指定します。</p>
 &#34;ＭＳ ゴシック&#34;=&#34;Cica&#34;
 &#34;ＭＳ 明朝&#34;=&#34;Cica&#34;
 &#34;ＭＳ Ｐゴシック&#34;=&#34;Cica&#34;
-&#34;ＭＳ Ｐ明朝&#34;=&#34;Cica&#34;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>PlayOnLinuxのランチャー画面でKindleアイコンを右クリックし、コンテキストメニューからレジストリエディタを起動します。</p>
-</div>
-<div class="paragraph">
+&#34;ＭＳ Ｐ明朝&#34;=&#34;Cica&#34;
+</code></pre><p>PlayOnLinuxのランチャー画面でKindleアイコンを右クリックし、コンテキストメニューからレジストリエディタを起動します。</p>
 <p>レジストリエディタのメニューから「レジストリのインポート」を選択し、上記で作成したファイルを選択するとフォント置換設定がインポートされ、上の設定の通りCicaフォントで表示されるようになります。</p>
-</div>
-</div>
-</div>
-</div>
-</div>
 
         </section>
         <div class="post-tags">
@@ -357,10 +185,10 @@ PCのインストーラexeを指定します。</p>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

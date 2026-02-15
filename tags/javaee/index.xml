@@ -6,7 +6,7 @@
     <description>Recent content in Javaee on 発火後忘失</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <copyright>© Yukihane, All Rights Reserved</copyright>
     <lastBuildDate>Mon, 06 Apr 2020 01:52:30 +0000</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/javaee/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,21 +14,21 @@
       <link>https://yukihane.github.io/blog/202004/06/hello-jsf/</link>
       <pubDate>Mon, 06 Apr 2020 01:52:30 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202004/06/hello-jsf/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;JSFを少し触ってみようと思ったのですが、もはやロストテクノロジーでどう始めるのかすらドキュメントを探すのが大変…&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;今回はかろうじてこちらを探し当てられました:&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;JSFを少し触ってみようと思ったのですが、もはやロストテクノロジーでどう始めるのかすらドキュメントを探すのが大変…&lt;/p&gt;&#xA;&lt;p&gt;今回はかろうじてこちらを探し当てられました:&lt;/p&gt;</description>
     </item>
     <item>
       <title>いきなりJavaアプリケーションサーバの保守を任されることになった人のためのチートシート(2)</title>
       <link>https://yukihane.github.io/blog/202004/03/java-application-frameworks-cheat-sheet2/</link>
       <pubDate>Fri, 03 Apr 2020 02:44:22 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202004/03/java-application-frameworks-cheat-sheet2/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/posts/202004/02/java-application-frameworks-cheat-sheet/&#34;&gt;前回&lt;/a&gt;はアプリケーションサーバにデバッガをアタッチする方法までを説明しました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;今回は、ソースコードを眺めているだけでは通ることを見つけにくい(のでbreakポイントを仕掛け忘れがちな)クラス/メソッドについてリストにしていきます。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/posts/202004/02/java-application-frameworks-cheat-sheet/&#34;&gt;前回&lt;/a&gt;はアプリケーションサーバにデバッガをアタッチする方法までを説明しました。&lt;/p&gt;&#xA;&lt;p&gt;今回は、ソースコードを眺めているだけでは通ることを見つけにくい(のでbreakポイントを仕掛け忘れがちな)クラス/メソッドについてリストにしていきます。&lt;/p&gt;</description>
     </item>
     <item>
       <title>いきなりJavaアプリケーションサーバの保守を任されることになった人のためのチートシート(1)</title>
       <link>https://yukihane.github.io/blog/202004/02/java-application-frameworks-cheat-sheet/</link>
       <pubDate>Thu, 02 Apr 2020 06:15:28 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202004/02/java-application-frameworks-cheat-sheet/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_目的&#34;&gt;目的&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Javaを用いた開発にある程度慣れている場合でも、初めてアプリケーションフレームワーク上で開発するとなると戸惑うことがあります。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;ここでは、ある程度Javaに対する知識が、Java EE/Spring Bootアプリケーションの保守を担当になって、ローカルで実行する、そしてデバッグを行おうとした際に引っかかりそうなポイントをまとめていきたいと考えています。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;目的&#34;&gt;目的&lt;/h1&gt;&#xA;&lt;p&gt;Javaを用いた開発にある程度慣れている場合でも、初めてアプリケーションフレームワーク上で開発するとなると戸惑うことがあります。&lt;/p&gt;&#xA;&lt;p&gt;ここでは、ある程度Javaに対する知識が、Java EE/Spring Bootアプリケーションの保守を担当になって、ローカルで実行する、そしてデバッグを行おうとした際に引っかかりそうなポイントをまとめていきたいと考えています。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

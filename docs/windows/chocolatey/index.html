@@ -2,18 +2,11 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Chocolatey - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-https://chocolatey.org/
-
-
+	<meta name="description" content="https://chocolatey.org/
 インストール
-
-
 PowerShell プロファイル作成
-
-プロファイルが存在しない状態でChocolateyインストールを行うと警告が出て気持ち悪いので、プロファイルがなければ先に作成しておく。ただ、PowerShell2では挙動は変わらないようなので無視しても良さそう。
-" />
-	<meta property="og:image" content=""/>
+プロファイルが存在しない状態でChocolateyインストールを行うと警告が出て気持ち悪いので、プロファイルがなければ先に作成しておく。ただ、PowerShell2では挙動は変わらないようなので無視しても良さそう。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/windows/chocolatey/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Chocolatey">
@@ -34,8 +27,8 @@ PowerShell プロファイル作成
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -52,9 +45,17 @@ PowerShell プロファイル作成
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -71,289 +72,353 @@ PowerShell プロファイル作成
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p><a href="https://chocolatey.org/" class="bare">https://chocolatey.org/</a></p>
-</div>
-<div class="sect1">
-<h2 id="_インストール">インストール</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="powershell_プロファイル作成">PowerShell プロファイル作成</h3>
-<div class="paragraph">
+          <p><a href="https://chocolatey.org/">https://chocolatey.org/</a></p>
+<h1 id="インストール">インストール</h1>
+<h2 id="powershell-プロファイル作成">PowerShell プロファイル作成</h2>
 <p>プロファイルが存在しない状態でChocolateyインストールを行うと警告が出て気持ち悪いので、プロファイルがなければ先に作成しておく。ただ、PowerShell2では挙動は変わらないようなので無視しても良さそう。</p>
-</div>
-<div class="paragraph">
-<p>参考:
-<a href="https://technet.microsoft.com/ja-jp/scriptcenter/powershell_owner06.aspx" class="bare">https://technet.microsoft.com/ja-jp/scriptcenter/powershell_owner06.aspx</a></p>
-</div>
-<div class="paragraph">
+<p>参考: <a href="https://technet.microsoft.com/ja-jp/scriptcenter/powershell_owner06.aspx">https://technet.microsoft.com/ja-jp/scriptcenter/powershell_owner06.aspx</a></p>
 <p>PowerShellを起動し</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$profile</span>
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-powershell" data-lang="powershell">$profile</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>を実行。これがプロファイル設定ファイルなので、ここにファイルが存在しなければファイルを作成する。</p>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/chocolatey/choco/issues/991">Not setting tab
-completion · Issue #991 · chocolatey/choco</a>
-によるとファイルサイズが4バイト以上無ければならないようなので、適当に数文字コメントを書いておく。このコメントはインストール後削除すれば良い。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="chocolatey_インストール">Chocolatey インストール</h3>
-<div class="paragraph">
-<p>参考: <a href="https://chocolatey.org/install" class="bare">https://chocolatey.org/install</a></p>
-</div>
-<div class="paragraph">
-<p>管理者権限無しでインストールする方法もあるようだが、以下では管理者権限でインストールする前提。
-PowerShellやコマンドプロンプトを右クリックで「管理者として実行」メニューから実行し、その上でコマンドを叩く。</p>
-</div>
-<div class="paragraph">
+</div><p>を実行。これがプロファイル設定ファイルなので、ここにファイルが存在しなければファイルを作成する。</p>
+<p><a href="https://github.com/chocolatey/choco/issues/991">Not setting tab completion · Issue #991 · chocolatey/choco</a> によるとファイルサイズが4バイト以上無ければならないようなので、適当に数文字コメントを書いておく。このコメントはインストール後削除すれば良い。</p>
+<h2 id="chocolatey-インストール">Chocolatey インストール</h2>
+<p>参考: <a href="https://chocolatey.org/install">https://chocolatey.org/install</a></p>
+<p>管理者権限無しでインストールする方法もあるようだが、以下では管理者権限でインストールする前提。 PowerShellやコマンドプロンプトを右クリックで「管理者として実行」メニューから実行し、その上でコマンドを叩く。</p>
 <p>PowerShell3では冒頭に記載されているコマンドでインストールできるのだろうが、Windows7のPowerShell2では実行できなかった。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-winbatch" data-lang="winbatch"><span class="line"><span class="cl">PS C:\Windows\system32<span class="p">&gt;</span> iwr https://chocolatey.org/install.ps1 -UseBasicParsing <span class="p">|</span> iex
+</span></span><span class="line"><span class="cl">用語 &#39;iwr&#39; は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前として認識されません。名前が
+</span></span><span class="line"><span class="cl">正しく記述されていることを確認し、パスが含まれている場合はそのパスが正しいことを確認してから、再試行してください。
+</span></span><span class="line"><span class="cl">発生場所 行:1 文字:4
+</span></span><span class="line"><span class="cl">+ iwr <span class="p">&lt;</span>&lt;&lt;&lt;  https://chocolatey.org/install.ps1 -UseBasicParsing <span class="p">|</span> iex
+</span></span><span class="line"><span class="cl">    + CategoryInfo          : ObjectNotFound: (iwr:String) []、CommandNotFoundException
+</span></span><span class="line"><span class="cl">    + FullyQualifiedErrorId : CommandNotFoundException
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-winbatch" data-lang="winbatch">PS C:\Windows\system32&gt; iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
-用語 &#39;iwr&#39; は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前として認識されません。名前が
-正しく記述されていることを確認し、パスが含まれている場合はそのパスが正しいことを確認してから、再試行してください。
-発生場所 行:1 文字:4
-+ iwr &lt;&lt;&lt;&lt;  https://chocolatey.org/install.ps1 -UseBasicParsing | iex
-    + CategoryInfo          : ObjectNotFound: (iwr:String) []、CommandNotFoundException
-    + FullyQualifiedErrorId : CommandNotFoundException</code></pre>
+</div><p>代わりに、https://chocolatey.org/install#alternative-installation-options[Alternative Installation Options]のCommand Lineに書いてある方法を採用。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-winbatch" data-lang="winbatch"><span class="line"><span class="cl">C<span class="p">:</span><span class="nl">\Windows\system32</span><span class="c1">&gt;@powershell -NoProfile -ExecutionPolicy unrestricted -Command &#34;(iex ((new-object net.webclient).DownloadString(&#39;https://chocolatey.org/install.ps1&#39;))) &gt;$null 2&gt;&amp;1&#34; &amp;&amp; SET PATH=&#34;%PATH%;%ALLUSERSPROFILE%\chocolatey\bin&#34;</span>
+</span></span><span class="line"><span class="cl">WARNING: It&#39;s very likely you will need to close and reopen your shell
+</span></span><span class="line"><span class="cl">  before you can use choco.
+</span></span><span class="line"><span class="cl">WARNING: You can safely ignore errors related to missing log files when
+</span></span><span class="line"><span class="cl">  upgrading from a version of Chocolatey less than 0.9.9.
+</span></span><span class="line"><span class="cl">  &#39;Batch file could not be found&#39; is also safe to ignore.
+</span></span><span class="line"><span class="cl">  &#39;The system cannot find the file specified&#39; - also safe.
+</span></span><span class="line"><span class="cl"><span class="k">PATH</span> environment variable does not have C:\ProgramData\chocolatey\bin in it. Adding...
+</span></span><span class="line"><span class="cl">WARNING: Chocolatey profile installed. Reload your profile - type . $profile
+</span></span><span class="line"><span class="cl">WARNING: Tab completion does not currently work in PowerShell v2.
+</span></span><span class="line"><span class="cl"> Please upgrade to a more recent version of PowerShell to take advantage of tab completion.
+</span></span></code></pre></td></tr></table>
 </div>
-</div>
-<div class="paragraph">
-<p>代わりに、https://chocolatey.org/install#alternative-installation-options[Alternative
-Installation Options]のCommand Lineに書いてある方法を採用。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-winbatch" data-lang="winbatch">C:\Windows\system32&gt;@powershell -NoProfile -ExecutionPolicy unrestricted -Command &#34;(iex ((new-object net.webclient).DownloadString(&#39;https://chocolatey.org/install.ps1&#39;))) &gt;$null 2&gt;&amp;1&#34; &amp;&amp; SET PATH=&#34;%PATH%;%ALLUSERSPROFILE%\chocolatey\bin&#34;
-WARNING: It&#39;s very likely you will need to close and reopen your shell
-  before you can use choco.
-WARNING: You can safely ignore errors related to missing log files when
-  upgrading from a version of Chocolatey less than 0.9.9.
-  &#39;Batch file could not be found&#39; is also safe to ignore.
-  &#39;The system cannot find the file specified&#39; - also safe.
-PATH environment variable does not have C:\ProgramData\chocolatey\bin in it. Adding...
-WARNING: Chocolatey profile installed. Reload your profile - type . $profile
-WARNING: Tab completion does not currently work in PowerShell v2.
- Please upgrade to a more recent version of PowerShell to take advantage of tab completion.</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>幾つか警告が出ているがインストールされた模様。
-環境変数 <code>ChocolateyInstall</code> にインストール先(デフォルトでは <code>C:\ProgramData\chocolatey</code> )が設定されたりしている。</p>
-</div>
-<div class="paragraph">
+</div><p>幾つか警告が出ているがインストールされた模様。 環境変数 <code>ChocolateyInstall</code> にインストール先(デフォルトでは <code>C:\ProgramData\chocolatey</code> )が設定されたりしている。</p>
 <p>インストール後、コマンドプロンプトを新しく起動し、 <code>choco</code> コマンドを実行してバージョンが出力されればOKだと思われる。</p>
+<h2 id="補足-プロファイル設定ファイルがなかった場合">補足: プロファイル設定ファイルがなかった場合</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-winbatch" data-lang="winbatch"><span class="line"><span class="cl">C<span class="p">:</span><span class="nl">\Windows\system32</span><span class="c1">&gt;@powershell -NoProfile -ExecutionPolicy unrestricted -Command &#34;(iex ((new-object net.webclient).DownloadString(&#39;https://chocolatey.org/install.ps1&#39;))) &gt;$null 2&gt;&amp;1&#34; &amp;&amp; SET PATH=&#34;%PATH%;%ALLUSERSPROFILE%\chocolatey\bin&#34;</span>
+</span></span><span class="line"><span class="cl">WARNING: It&#39;s very likely you will need to close and reopen your shell
+</span></span><span class="line"><span class="cl">  before you can use choco.
+</span></span><span class="line"><span class="cl">WARNING: You can safely ignore errors related to missing log files when
+</span></span><span class="line"><span class="cl">  upgrading from a version of Chocolatey less than 0.9.9.
+</span></span><span class="line"><span class="cl">  &#39;Batch file could not be found&#39; is also safe to ignore.
+</span></span><span class="line"><span class="cl">  &#39;The system cannot find the file specified&#39; - also safe.
+</span></span><span class="line"><span class="cl"><span class="k">PATH</span> environment variable does not have C:\ProgramData\chocolatey\bin in it. Adding...
+</span></span><span class="line"><span class="cl">警告: Not setting tab completion: Profile file does not exist at
+</span></span><span class="line"><span class="cl">&#39;C:\Users\xxx\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1&#39;.
+</span></span></code></pre></td></tr></table>
 </div>
+</div><p>インストール後、次の内容が <code>$profile</code> ファイルに追記されるので、もしインストール時にこのような警告を受け取っても、後から手で編集すればよいだろう。 なお、先に示した設定ファイルが存在する場合のインストールログから分かる通り、いずれにせよWindows7のPowerShell2では補完は機能しない模様。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c"># Chocolatey profile</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$ChocolateyProfile</span> <span class="p">=</span> <span class="s2">&#34;</span><span class="nv">$env:ChocolateyInstall</span><span class="s2">\helpers\chocolateyProfile.psm1&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nb">Test-Path</span><span class="p">(</span><span class="nv">$ChocolateyProfile</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">Import-Module</span> <span class="s2">&#34;</span><span class="nv">$ChocolateyProfile</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="sect2">
-<h3 id="補足_プロファイル設定ファイルがなかった場合">補足: プロファイル設定ファイルがなかった場合</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-winbatch" data-lang="winbatch">C:\Windows\system32&gt;@powershell -NoProfile -ExecutionPolicy unrestricted -Command &#34;(iex ((new-object net.webclient).DownloadString(&#39;https://chocolatey.org/install.ps1&#39;))) &gt;$null 2&gt;&amp;1&#34; &amp;&amp; SET PATH=&#34;%PATH%;%ALLUSERSPROFILE%\chocolatey\bin&#34;
-WARNING: It&#39;s very likely you will need to close and reopen your shell
-  before you can use choco.
-WARNING: You can safely ignore errors related to missing log files when
-  upgrading from a version of Chocolatey less than 0.9.9.
-  &#39;Batch file could not be found&#39; is also safe to ignore.
-  &#39;The system cannot find the file specified&#39; - also safe.
-PATH environment variable does not have C:\ProgramData\chocolatey\bin in it. Adding...
-警告: Not setting tab completion: Profile file does not exist at
-&#39;C:\Users\xxx\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1&#39;.</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>インストール後、次の内容が <code>$profile</code> ファイルに追記されるので、もしインストール時にこのような警告を受け取っても、後から手で編集すればよいだろう。
-なお、先に示した設定ファイルが存在する場合のインストールログから分かる通り、いずれにせよWindows7のPowerShell2では補完は機能しない模様。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-powershell" data-lang="powershell"># Chocolatey profile
-$ChocolateyProfile = &#34;$env:ChocolateyInstall\helpers\chocolateyProfile.psm1&#34;
-if (Test-Path($ChocolateyProfile)) {
-  Import-Module &#34;$ChocolateyProfile&#34;
-}</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_アンインストール">アンインストール</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>参考: <a href="https://chocolatey.org/docs/uninstallation" class="bare">https://chocolatey.org/docs/uninstallation</a></p>
-</div>
-<div class="paragraph">
+</div><h1 id="アンインストール">アンインストール</h1>
+<p>参考: <a href="https://chocolatey.org/docs/uninstallation">https://chocolatey.org/docs/uninstallation</a></p>
 <p>アンインストールスクリプトもあるようだが、手動で行うことにする。</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p>インストールディレクトリ: <code>C:\ProgramData\chocolatey</code> を削除する.</p>
 </li>
 <li>
-<p>環境変数: <code>ChocolateyInstall</code>, <code>ChocolateyBinRoot</code>,
-`ChocolateyToolsLocation`を削除する. また,
-`PATH`にもchocolateyのものが含まれているので削る。</p>
+<p>環境変数: <code>ChocolateyInstall</code>, <code>ChocolateyBinRoot</code>, `ChocolateyToolsLocation`を削除する. また, `PATH`にもchocolateyのものが含まれているので削る。</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p>なお当方の環境では、環境変数は <code>ChocolateyInstall</code> しか存在しなかった。</p>
-</div>
-<div class="paragraph">
 <p>古いバージョンではインストールディレクトリが異なっていたりするようなので、正確な情報は先に示したURLを参照するのが良い。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="パッケージ_インストール">パッケージ インストール</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="パッケージ-インストール">パッケージ インストール</h1>
 <p>ここではpython(Python3)をインストールしてみる。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-winbatch" data-lang="winbatch"><span class="line"><span class="cl">C<span class="p">:</span><span class="nl">\Windows\system32</span><span class="c1">&gt;cinst python</span>
+</span></span><span class="line"><span class="cl">Chocolatey v0.10.3
+</span></span><span class="line"><span class="cl">Installing the following packages:
+</span></span><span class="line"><span class="cl">python
+</span></span><span class="line"><span class="cl">By installing you accept licenses for the packages.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">python3 v3.6.0 [Approved]
+</span></span><span class="line"><span class="cl">python3 package files install completed. Performing other installation steps.
+</span></span><span class="line"><span class="cl">The package python3 wants to run &#39;chocolateyInstall.ps1&#39;.
+</span></span><span class="line"><span class="cl">Note: If you don&#39;t run this script, the installation will fail.
+</span></span><span class="line"><span class="cl">Note: To confirm automatically next time, use &#39;-y&#39; or consider setting
+</span></span><span class="line"><span class="cl"> &#39;allowGlobalConfirmation&#39;. Run &#39;choco feature -h&#39; for more details.
+</span></span><span class="line"><span class="cl">Do you want to run the script?([Y]es/[N]o/[P]rint): y
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Using system proxy server &#39;[xxxx]&#39;.
+</span></span><span class="line"><span class="cl">Downloading python3 64 bit
+</span></span><span class="line"><span class="cl">  from &#39;https://www.python.org/ftp/python/3.6.0/python-3.6.0-amd64.exe&#39;
+</span></span><span class="line"><span class="cl">Using system proxy server &#39;xxxx&#39;.
+</span></span><span class="line"><span class="cl">Progress: 100% - Completed download of C:\Users\xxx\AppData\Local\Temp\chocolatey\python3\3.6.0\python-3.6.0-amd64.exe
+</span></span><span class="line"><span class="cl"><span class="p">(</span>30.05 MB<span class="p">)</span>.
+</span></span><span class="line"><span class="cl">Download of python-3.6.0-amd64.exe (30.05 MB) completed.
+</span></span><span class="line"><span class="cl">Hashes match.
+</span></span><span class="line"><span class="cl">Installing python3...
+</span></span><span class="line"><span class="cl">python3 has been installed.
+</span></span><span class="line"><span class="cl">Installed to &#39;C:\Python36&#39;
+</span></span><span class="line"><span class="cl">Environment Vars (like PATH) have changed. Close/reopen your shell to
+</span></span><span class="line"><span class="cl"> see the changes (or in powershell/cmd.exe just type `refreshenv`).
+</span></span><span class="line"><span class="cl"> The install of python3 was successful.
+</span></span><span class="line"><span class="cl">  Software installed as &#39;EXE&#39;, install location is likely default.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">python v3.6.0 [Approved]
+</span></span><span class="line"><span class="cl">python package files install completed. Performing other installation steps.
+</span></span><span class="line"><span class="cl"> The install of python was successful.
+</span></span><span class="line"><span class="cl">  Software install location not explicitly set, could be in package or
+</span></span><span class="line"><span class="cl">  default install location if installer.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Chocolatey installed 2/2 packages. 0 packages failed.
+</span></span><span class="line"><span class="cl"> See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-winbatch" data-lang="winbatch">C:\Windows\system32&gt;cinst python
-Chocolatey v0.10.3
-Installing the following packages:
-python
-By installing you accept licenses for the packages.
-
-python3 v3.6.0 [Approved]
-python3 package files install completed. Performing other installation steps.
-The package python3 wants to run &#39;chocolateyInstall.ps1&#39;.
-Note: If you don&#39;t run this script, the installation will fail.
-Note: To confirm automatically next time, use &#39;-y&#39; or consider setting
- &#39;allowGlobalConfirmation&#39;. Run &#39;choco feature -h&#39; for more details.
-Do you want to run the script?([Y]es/[N]o/[P]rint): y
-
-Using system proxy server &#39;[xxxx]&#39;.
-Downloading python3 64 bit
-  from &#39;https://www.python.org/ftp/python/3.6.0/python-3.6.0-amd64.exe&#39;
-Using system proxy server &#39;xxxx&#39;.
-Progress: 100% - Completed download of C:\Users\xxx\AppData\Local\Temp\chocolatey\python3\3.6.0\python-3.6.0-amd64.exe
-(30.05 MB).
-Download of python-3.6.0-amd64.exe (30.05 MB) completed.
-Hashes match.
-Installing python3...
-python3 has been installed.
-Installed to &#39;C:\Python36&#39;
-Environment Vars (like PATH) have changed. Close/reopen your shell to
- see the changes (or in powershell/cmd.exe just type `refreshenv`).
- The install of python3 was successful.
-  Software installed as &#39;EXE&#39;, install location is likely default.
-
-python v3.6.0 [Approved]
-python package files install completed. Performing other installation steps.
- The install of python was successful.
-  Software install location not explicitly set, could be in package or
-  default install location if installer.
-
-Chocolatey installed 2/2 packages. 0 packages failed.
- See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>新しく(一般権限で)コマンドプロンプトを起動し <code>python --version</code> を打ってみるとインストールされているのが確認できる。</p>
-</div>
-<div class="paragraph">
+</div><p>新しく(一般権限で)コマンドプロンプトを起動し <code>python --version</code> を打ってみるとインストールされているのが確認できる。</p>
 <p>本題とは外れるが、上記インストールログ中に <code>refreshenv</code> コマンドというものが登場するので、インストールした直後のコマンドプロンプトで挙動を確認しておく。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-winbatch" data-lang="winbatch"><span class="line"><span class="cl">C<span class="p">:</span><span class="nl">\Windows\system32</span><span class="c1">&gt;python --version</span>
+</span></span><span class="line"><span class="cl">&#39;python&#39; は、内部コマンドまたは外部コマンド、
+</span></span><span class="line"><span class="cl">操作可能なプログラムまたはバッチ ファイルとして認識されていません。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">C<span class="p">:</span><span class="nl">\Windows\system32</span><span class="c1">&gt;refreshenv</span>
+</span></span><span class="line"><span class="cl">Refreshing environment variables from registry for cmd.exe. Please wait...Finished..
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">C<span class="p">:</span><span class="nl">\Windows\system32</span><span class="c1">&gt;python --version</span>
+</span></span><span class="line"><span class="cl">Python 3.6.0
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-winbatch" data-lang="winbatch">C:\Windows\system32&gt;python --version
-&#39;python&#39; は、内部コマンドまたは外部コマンド、
-操作可能なプログラムまたはバッチ ファイルとして認識されていません。
-
-C:\Windows\system32&gt;refreshenv
-Refreshing environment variables from registry for cmd.exe. Please wait...Finished..
-
-C:\Windows\system32&gt;python --version
-Python 3.6.0</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="パッケージ_アンインストール">パッケージ アンインストール</h2>
-<div class="sectionbody">
-<div class="paragraph">
+</div><h1 id="パッケージ-アンインストール">パッケージ アンインストール</h1>
 <p><code>python</code> パッケージをインストールすると、 <code>python</code>, <code>python3</code> パッケージがインストールされるので、両方アンインストールする必要がある。</p>
-</div>
-<div class="paragraph">
 <p>現在インストールされているパッケージ一覧は <code>choco version all</code> で参照できる。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-winbatch" data-lang="winbatch"><span class="line"><span class="cl">C<span class="p">:</span><span class="nl">\Windows\system32</span><span class="c1">&gt;choco version all</span>
+</span></span><span class="line"><span class="cl">Chocolatey v0.10.3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">DEPRECATION NOTICE - choco version command is deprecated and will be
+</span></span><span class="line"><span class="cl"> removed in version 1.0.0. Please use `choco upgrade pgkname --noop`
+</span></span><span class="line"><span class="cl"> instead.
+</span></span><span class="line"><span class="cl">_ Chocolatey:ChocolateyVersionCommand - Noop Mode _
+</span></span><span class="line"><span class="cl">chocolatey v0.10.3 is the latest version available based on your source(s).
+</span></span><span class="line"><span class="cl">python v3.6.0 is the latest version available based on your source(s).
+</span></span><span class="line"><span class="cl">python3 v3.6.0 is the latest version available based on your source(s).
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-winbatch" data-lang="winbatch">C:\Windows\system32&gt;choco version all
-Chocolatey v0.10.3
-
-DEPRECATION NOTICE - choco version command is deprecated and will be
- removed in version 1.0.0. Please use `choco upgrade pgkname --noop`
- instead.
-_ Chocolatey:ChocolateyVersionCommand - Noop Mode _
-chocolatey v0.10.3 is the latest version available based on your source(s).
-python v3.6.0 is the latest version available based on your source(s).
-python3 v3.6.0 is the latest version available based on your source(s).</code></pre>
+</div><p>アンインストールを実行。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-winbatch" data-lang="winbatch"><span class="line"><span class="cl">C<span class="p">:</span><span class="nl">\Windows\system32</span><span class="c1">&gt;cuninst python</span>
+</span></span><span class="line"><span class="cl">Chocolatey v0.10.3
+</span></span><span class="line"><span class="cl">Uninstalling the following packages:
+</span></span><span class="line"><span class="cl">python
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">python v3.6.0
+</span></span><span class="line"><span class="cl"> Skipping auto uninstaller - No registry snapshot.
+</span></span><span class="line"><span class="cl"> python has been successfully uninstalled.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Chocolatey uninstalled 1/1 packages. 0 packages failed.
+</span></span><span class="line"><span class="cl"> See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+</span></span><span class="line"><span class="cl">C<span class="p">:</span><span class="nl">\Windows\system32</span><span class="c1">&gt;cuninst python3</span>
+</span></span><span class="line"><span class="cl">Chocolatey v0.10.3
+</span></span><span class="line"><span class="cl">Uninstalling the following packages:
+</span></span><span class="line"><span class="cl">python3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">python3 v3.6.0
+</span></span><span class="line"><span class="cl"> Running auto uninstaller...
+</span></span><span class="line"><span class="cl"> Auto uninstaller has successfully uninstalled python3 or detected previous uninstall.
+</span></span><span class="line"><span class="cl"> Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
+</span></span><span class="line"><span class="cl"> Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
+</span></span><span class="line"><span class="cl"> Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
+</span></span><span class="line"><span class="cl"> Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
+</span></span><span class="line"><span class="cl"> Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
+</span></span><span class="line"><span class="cl"> Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
+</span></span><span class="line"><span class="cl"> Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
+</span></span><span class="line"><span class="cl"> Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
+</span></span><span class="line"><span class="cl"> Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
+</span></span><span class="line"><span class="cl"> Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
+</span></span><span class="line"><span class="cl"> Auto uninstaller has successfully uninstalled python3 or detected previous uninstall.
+</span></span><span class="line"><span class="cl"> python3 has been successfully uninstalled.
+</span></span><span class="line"><span class="cl">Environment Vars (like PATH) have changed. Close/reopen your shell to
+</span></span><span class="line"><span class="cl"> see the changes (or in powershell/cmd.exe just type `refreshenv`).
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Chocolatey uninstalled 1/1 packages. 0 packages failed.
+</span></span><span class="line"><span class="cl"> See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+</span></span></code></pre></td></tr></table>
 </div>
-</div>
-<div class="paragraph">
-<p>アンインストールを実行。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-winbatch" data-lang="winbatch">C:\Windows\system32&gt;cuninst python
-Chocolatey v0.10.3
-Uninstalling the following packages:
-python
-
-python v3.6.0
- Skipping auto uninstaller - No registry snapshot.
- python has been successfully uninstalled.
-
-Chocolatey uninstalled 1/1 packages. 0 packages failed.
- See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
-C:\Windows\system32&gt;cuninst python3
-Chocolatey v0.10.3
-Uninstalling the following packages:
-python3
-
-python3 v3.6.0
- Running auto uninstaller...
- Auto uninstaller has successfully uninstalled python3 or detected previous uninstall.
- Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
- Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
- Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
- Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
- Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
- Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
- Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
- Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
- Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
- Skipping auto uninstaller - The application appears to have been uninstalled already by other means.
- Auto uninstaller has successfully uninstalled python3 or detected previous uninstall.
- python3 has been successfully uninstalled.
-Environment Vars (like PATH) have changed. Close/reopen your shell to
- see the changes (or in powershell/cmd.exe just type `refreshenv`).
-
-Chocolatey uninstalled 1/1 packages. 0 packages failed.
- See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>インストール時に環境変数 <code>PATH</code> にPython関係のものがいくつか追加されていたようだが、このアンインストール手順では削除されない。手動で行う必要がある。</p>
-</div>
-</div>
-</div>
+</div><p>インストール時に環境変数 <code>PATH</code> にPython関係のものがいくつか追加されていたようだが、このアンインストール手順では削除されない。手動で行う必要がある。</p>
 
         </section>
         <div class="post-tags">
@@ -371,10 +436,10 @@ Chocolatey uninstalled 1/1 packages. 0 packages failed.
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

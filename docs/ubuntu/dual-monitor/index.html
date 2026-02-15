@@ -2,11 +2,8 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>UbuntuでdGPU/iGPUのデュアルモニタ設定 - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-1枚のNVIDIA
-GPUと、CPUの統合グラフィクス(iGPU)の2つのGPUにそれぞれモニタを接続してデュアルディスプレイ環境をセットアップする手順。
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="1枚のNVIDIA GPUと、CPUの統合グラフィクス(iGPU)の2つのGPUにそれぞれモニタを接続してデュアルディスプレイ環境をセットアップする手順。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/ubuntu/dual-monitor/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="UbuntuでdGPU/iGPUのデュアルモニタ設定">
@@ -25,8 +22,8 @@ GPUと、CPUの統合グラフィクス(iGPU)の2つのGPUにそれぞれモニ�
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -43,9 +40,17 @@ GPUと、CPUの統合グラフィクス(iGPU)の2つのGPUにそれぞれモニ�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -62,14 +67,8 @@ GPUと、CPUの統合グラフィクス(iGPU)の2つのGPUにそれぞれモニ�
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>1枚のNVIDIA
-GPUと、CPUの統合グラフィクス(iGPU)の2つのGPUにそれぞれモニタを接続してデュアルディスプレイ環境をセットアップする手順。</p>
-</div>
-<div class="sect1">
-<h2 id="_環境">環境</h2>
-<div class="sectionbody">
-<div class="ulist">
+          <p>1枚のNVIDIA GPUと、CPUの統合グラフィクス(iGPU)の2つのGPUにそれぞれモニタを接続してデュアルディスプレイ環境をセットアップする手順。</p>
+<h1 id="環境">環境</h1>
 <ul>
 <li>
 <p>Ubuntu 16.04</p>
@@ -81,19 +80,13 @@ GPUと、CPUの統合グラフィクス(iGPU)の2つのGPUにそれぞれモニ�
 <p>Intel Core i5 3570/ HD2500 (Ivy Bridge)</p>
 </li>
 <li>
-<p>設定前は <code>/etc/X11/xorg.conf</code> ファイルは存在していなかった<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup></p>
+<p>設定前は <code>/etc/X11/xorg.conf</code> ファイルは存在していなかった<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
 </li>
 <li>
-<p>デュアルブートしているWindows10では従来からデュアルモニタで稼働していた<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup></p>
+<p>デュアルブートしているWindows10では従来からデュアルモニタで稼働していた<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_参考">参考</h2>
-<div class="sectionbody">
-<div class="ulist">
+<h1 id="参考">参考</h1>
 <ul>
 <li>
 <p><a href="http://d.hatena.ne.jp/nazodane/20170125/1485360393">NVIDIAとIntelでマルチディスプレイ - 暇つぶし文@謎</a></p>
@@ -105,368 +98,186 @@ GPUと、CPUの統合グラフィクス(iGPU)の2つのGPUにそれぞれモニ�
 <p><a href="http://us.download.nvidia.com/XFree86/Linux-x86/319.12/README/randr14.html">Chapter 32. Offloading Graphics Display with RandR 1.4 - NVIDIA Accelerated Linux Graphics Driver README and Installation Guide</a></p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_手順">手順</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_古いnvidiaドライバのアンインストールと新しいnvidiaドライバのインストール">古いNVIDIAドライバのアンインストールと新しいNVIDIAドライバのインストール</h3>
-<div class="paragraph">
+<h1 id="手順">手順</h1>
+<h2 id="古いnvidiaドライバのアンインストールと新しいnvidiaドライバのインストール">古いNVIDIAドライバのアンインストールと新しいNVIDIAドライバのインストール</h2>
 <p>Ubuntu18.04 で実行したもの。 本節については次のページを参考にした:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://qiita.com/conta_/items/d639ef0068c9b7a0cd12">UbuntuにNvidia
-GPUのDriver + CUDAをInstallする(GTX1080対応版)</a></p>
-</li>
+<li><a href="https://qiita.com/conta_/items/d639ef0068c9b7a0cd12">UbuntuにNvidia GPUのDriver + CUDAをInstallする(GTX1080対応版)</a></li>
 </ul>
-</div>
-<div class="sect3">
-<h4 id="_古いドライバ削除">古いドライバ削除</h4>
-<div class="literalblock">
-<div class="content">
-<pre>sudo apt-get --purge remove nvidia-*
+<h3 id="古いドライバ削除">古いドライバ削除</h3>
+<pre><code>sudo apt-get --purge remove nvidia-*
 sudo apt-get --purge remove cuda-*
-sudo apt-get --purge remove libnvidia-*</pre>
-</div>
-</div>
-<div class="paragraph">
+sudo apt-get --purge remove libnvidia-*
+</code></pre>
 <p>なお自分の環境ではCUDA関係はインストールしていなかったので2行目は意味がなかった。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="proprietary_gpu_drivers_ppa_の登録"><a href="https://launchpad.net/~graphics-drivers/+archive/ubuntu/ppa">Proprietary GPU Drivers PPA</a> の登録</h4>
-<div class="literalblock">
-<div class="content">
-<pre>sudo add-apt-repository ppa:graphics-drivers/ppa
-sudo apt-get update</pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_nvidiaドライバインストール">NVIDIAドライバインストール</h4>
-<div class="literalblock">
-<div class="content">
-<pre>apt-cache search nvidia</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>で`nvidia`を名前に含むパッケージ一覧が検索できるので、ついている数値の一番大きい(一番最新の)ものをインストールする。
-今回は<strong>410</strong>だった。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>sudo apt-get install nvidia-driver-410</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>従来は nvidia-nnn という名前だったが最近のものは nvidia-driver-nnn
-という命名になっているようだ。</p>
-</div>
-<div class="paragraph">
+<h3 id="proprietary-gpu-drivers-ppa-の登録"><a href="https://launchpad.net/~graphics-drivers/&#43;archive/ubuntu/ppa">Proprietary GPU Drivers PPA</a> の登録</h3>
+<pre><code>sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo apt-get update
+</code></pre>
+<h3 id="nvidiaドライバインストール">NVIDIAドライバインストール</h3>
+<pre><code>apt-cache search nvidia
+</code></pre>
+<p>で`nvidia`を名前に含むパッケージ一覧が検索できるので、ついている数値の一番大きい(一番最新の)ものをインストールする。 今回は<strong>410</strong>だった。</p>
+<pre><code>sudo apt-get install nvidia-driver-410
+</code></pre>
+<p>従来は nvidia-nnn という名前だったが最近のものは nvidia-driver-nnn という命名になっているようだ。</p>
 <p>再起動して次のコマンドでGPUが認識されていることを確認:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>nvidia-smi</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_etcx11xorg_conf_作成"><code>/etc/X11/xorg.conf</code> 作成</h3>
-<div class="sect3">
-<h4 id="pci_busid_を調べる">PCI BusID を調べる</h4>
-<div class="paragraph">
+<pre><code>nvidia-smi
+</code></pre>
+<h2 id="etcx11xorgconf-作成"><code>/etc/X11/xorg.conf</code> 作成</h2>
+<h3 id="pci-busid-を調べる">PCI BusID を調べる</h3>
 <p>`lspci`コマンドで調べられる:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>lspci | grep NVIDIA | grep -v Audio | sed -e &#34;s/^0*\(.\+\):0*\(.\+\)\.\(.\)\ .*$/PCI:\1:\2:\3/&#34;</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>lspci | grep NVIDIA | grep -v Audio | sed -e &quot;s/^0*\(.\+\):0*\(.\+\)\.\(.\)\ .*$/PCI:\1:\2:\3/&quot;
+</code></pre>
 <p>あるいは次のコマンドでも可:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>nvidia-xconfig --query-gpu-info</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>nvidia-xconfig --query-gpu-info
+</code></pre>
 <p>自分の環境では`PCI:1:0:0`であった。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="etcx11xorg.conf_記述"><code>/etc/X11/xorg.conf</code> 記述</h4>
-<div class="paragraph">
-<p><code>/etc/X11/xorg.conf</code> ファイルを新規作成し、次をペーストする<sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup>:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Section &#34;ServerLayout&#34;
-    Identifier &#34;layout&#34;
-    Screen 0 &#34;nvidia&#34;
-    Inactive &#34;intel&#34;
+<h3 id="etcx11xorgconf-記述"><code>/etc/X11/xorg.conf</code> 記述</h3>
+<p><code>/etc/X11/xorg.conf</code> ファイルを新規作成し、次をペーストする<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>:</p>
+<pre><code>Section &quot;ServerLayout&quot;
+    Identifier &quot;layout&quot;
+    Screen 0 &quot;nvidia&quot;
+    Inactive &quot;intel&quot;
 EndSection
 
-Section &#34;Device&#34;
-    Identifier &#34;nvidia&#34;
-    Driver &#34;nvidia&#34;
-    BusID &#34;&lt;BusID for NVIDIA device here&gt;&#34;
+Section &quot;Device&quot;
+    Identifier &quot;nvidia&quot;
+    Driver &quot;nvidia&quot;
+    BusID &quot;&lt;BusID for NVIDIA device here&gt;&quot;
 EndSection
 
-Section &#34;Screen&#34;
-    Identifier &#34;nvidia&#34;
-    Device &#34;nvidia&#34;
+Section &quot;Screen&quot;
+    Identifier &quot;nvidia&quot;
+    Device &quot;nvidia&quot;
     # Uncomment this line if your computer has no display devices connected to
     # the NVIDIA GPU.  Leave it commented if you have display devices
     # connected to the NVIDIA GPU that you would like to use.
-    #Option &#34;UseDisplayDevice&#34; &#34;none&#34;
+    #Option &quot;UseDisplayDevice&quot; &quot;none&quot;
 EndSection
 
-Section &#34;Device&#34;
-    Identifier &#34;intel&#34;
-    Driver &#34;modesetting&#34;
+Section &quot;Device&quot;
+    Identifier &quot;intel&quot;
+    Driver &quot;modesetting&quot;
 EndSection
 
-Section &#34;Screen&#34;
-    Identifier &#34;intel&#34;
-    Device &#34;intel&#34;
-EndSection</pre>
-</div>
-</div>
-<div class="paragraph">
+Section &quot;Screen&quot;
+    Identifier &quot;intel&quot;
+    Device &quot;intel&quot;
+EndSection
+</code></pre>
 <p>上記のうち、</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>    BusID &#34;&lt;BusID for NVIDIA device here&gt;&#34;</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>    BusID &quot;&lt;BusID for NVIDIA device here&gt;&quot;
+</code></pre>
 <p>の箇所に調べておいたBusIDを記載する。つまり次のように書き換える:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>    BusID &#34;PCI:1:0:0&#34;</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="xsessionrc_作成"><code>~/.xsessionrc</code> 作成</h3>
-<div class="paragraph">
-<p>今回`~/.xsessionrc`は存在していなかったので新規作成した。
-次のコマンドを追記する:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>xrandr --setprovideroutputsource modesetting NVIDIA-0
-xrandr --auto</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>    BusID &quot;PCI:1:0:0&quot;
+</code></pre>
+<h2 id="xsessionrc-作成"><code>~/.xsessionrc</code> 作成</h2>
+<p>今回`~/.xsessionrc`は存在していなかったので新規作成した。 次のコマンドを追記する:</p>
+<pre><code>xrandr --setprovideroutputsource modesetting NVIDIA-0
+xrandr --auto
+</code></pre>
 <p>`NVIDIA-0`というのは、おそらく次のコマンドで表示されるnameだろう:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>xrandr --listproviders</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>xrandr --listproviders
+</code></pre>
 <p>あとはXを再起動し、Ubuntuのシステム設定の画面でディスプレイ設定を行えば完了。</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="手順390の頃の古い手順_201801ごろ記述">手順(390の頃の古い手順; 2018/01ごろ記述)</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="古いnvidiaドライバのアンインストールと新しいnvidiaドライバのインストール_1">古いNVIDIAドライバのアンインストールと新しいNVIDIAドライバのインストール</h3>
-<div class="paragraph">
+<h1 id="手順390の頃の古い手順-201801ごろ記述">手順(390の頃の古い手順; 2018/01ごろ記述)</h1>
+<h2 id="古いnvidiaドライバのアンインストールと新しいnvidiaドライバのインストール-1">古いNVIDIAドライバのアンインストールと新しいNVIDIAドライバのインストール</h2>
 <p>本節については次のページを参考にした:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://qiita.com/conta_/items/d639ef0068c9b7a0cd12">UbuntuにNvidia
-GPUのDriver + CUDAをInstallする(GTX1080対応版)</a></p>
-</li>
+<li><a href="https://qiita.com/conta_/items/d639ef0068c9b7a0cd12">UbuntuにNvidia GPUのDriver + CUDAをInstallする(GTX1080対応版)</a></li>
 </ul>
-</div>
-<div class="sect3">
-<h4 id="古いドライバ削除_1">古いドライバ削除</h4>
-<div class="literalblock">
-<div class="content">
-<pre>sudo apt-get --purge remove nvidia-*
-sudo apt-get --purge remove cuda-*</pre>
-</div>
-</div>
-<div class="paragraph">
+<h3 id="古いドライバ削除-1">古いドライバ削除</h3>
+<pre><code>sudo apt-get --purge remove nvidia-*
+sudo apt-get --purge remove cuda-*
+</code></pre>
 <p>なお自分の環境ではCUDA関係はインストールしていなかったので2行目は意味がなかった。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="proprietary_gpu_drivers_ppa_の登録_1"><a href="https://launchpad.net/~graphics-drivers/+archive/ubuntu/ppa">Proprietary GPU Drivers PPA</a> の登録</h4>
-<div class="literalblock">
-<div class="content">
-<pre>sudo add-apt-repository ppa:graphics-drivers/ppa
-sudo apt-get update</pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="nvidiaドライバインストール_1">NVIDIAドライバインストール</h4>
-<div class="literalblock">
-<div class="content">
-<pre>apt-cache search nvidia</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>で`nvidia`を名前に含むパッケージ一覧が検索できるので、`nvidia-nnn`の`nnn`が一番大きいもの(つまり最新のドライバ)をインストールする。
-今回は<strong>390</strong>だった。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>sudo apt-get install nvidia-390</pre>
-</div>
-</div>
-<div class="paragraph">
+<h3 id="proprietary-gpu-drivers-ppa-の登録-1"><a href="https://launchpad.net/~graphics-drivers/&#43;archive/ubuntu/ppa">Proprietary GPU Drivers PPA</a> の登録</h3>
+<pre><code>sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo apt-get update
+</code></pre>
+<h3 id="nvidiaドライバインストール-1">NVIDIAドライバインストール</h3>
+<pre><code>apt-cache search nvidia
+</code></pre>
+<p>で`nvidia`を名前に含むパッケージ一覧が検索できるので、`nvidia-nnn`の`nnn`が一番大きいもの(つまり最新のドライバ)をインストールする。 今回は<strong>390</strong>だった。</p>
+<pre><code>sudo apt-get install nvidia-390
+</code></pre>
 <p>再起動して次のコマンドでGPUが認識されていることを確認:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>nvidia-smi</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="etcx11xorg.conf作成_1">`/etc/X11/xorg.conf`作成</h3>
-<div class="sect3">
-<h4 id="pci_busid_を調べる_1">PCI BusID を調べる</h4>
-<div class="paragraph">
+<pre><code>nvidia-smi
+</code></pre>
+<h2 id="etcx11xorgconf作成">`/etc/X11/xorg.conf`作成</h2>
+<h3 id="pci-busid-を調べる-1">PCI BusID を調べる</h3>
 <p>`lspci`コマンドで調べられる:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>lspci | grep NVIDIA | grep -v Audio | sed -e &#34;s/^0*\(.\+\):0*\(.\+\)\.\(.\)\ .*$/PCI:\1:\2:\3/&#34;</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>lspci | grep NVIDIA | grep -v Audio | sed -e &quot;s/^0*\(.\+\):0*\(.\+\)\.\(.\)\ .*$/PCI:\1:\2:\3/&quot;
+</code></pre>
 <p>あるいは次のコマンドでも可:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>nvidia-xconfig --query-gpu-info</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>nvidia-xconfig --query-gpu-info
+</code></pre>
 <p>自分の環境では`PCI:1:0:0`であった。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="etcx11xorg.conf_記述_1"><code>/etc/X11/xorg.conf</code> 記述</h4>
-<div class="paragraph">
-<p>`/etc/X11/xorg.conf`ファイルを新規作成し、次をペーストする<sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup>:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Section &#34;ServerLayout&#34;
-    Identifier &#34;layout&#34;
-    Screen 0 &#34;nvidia&#34;
-    Inactive &#34;intel&#34;
+<h3 id="etcx11xorgconf-記述-1"><code>/etc/X11/xorg.conf</code> 記述</h3>
+<p>`/etc/X11/xorg.conf`ファイルを新規作成し、次をペーストする<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>:</p>
+<pre><code>Section &quot;ServerLayout&quot;
+    Identifier &quot;layout&quot;
+    Screen 0 &quot;nvidia&quot;
+    Inactive &quot;intel&quot;
 EndSection
 
-Section &#34;Device&#34;
-    Identifier &#34;nvidia&#34;
-    Driver &#34;nvidia&#34;
-    BusID &#34;&lt;BusID for NVIDIA device here&gt;&#34;
+Section &quot;Device&quot;
+    Identifier &quot;nvidia&quot;
+    Driver &quot;nvidia&quot;
+    BusID &quot;&lt;BusID for NVIDIA device here&gt;&quot;
 EndSection
 
-Section &#34;Screen&#34;
-    Identifier &#34;nvidia&#34;
-    Device &#34;nvidia&#34;
+Section &quot;Screen&quot;
+    Identifier &quot;nvidia&quot;
+    Device &quot;nvidia&quot;
     # Uncomment this line if your computer has no display devices connected to
     # the NVIDIA GPU.  Leave it commented if you have display devices
     # connected to the NVIDIA GPU that you would like to use.
-    #Option &#34;UseDisplayDevice&#34; &#34;none&#34;
+    #Option &quot;UseDisplayDevice&quot; &quot;none&quot;
 EndSection
 
-Section &#34;Device&#34;
-    Identifier &#34;intel&#34;
-    Driver &#34;modesetting&#34;
+Section &quot;Device&quot;
+    Identifier &quot;intel&quot;
+    Driver &quot;modesetting&quot;
 EndSection
 
-Section &#34;Screen&#34;
-    Identifier &#34;intel&#34;
-    Device &#34;intel&#34;
-EndSection</pre>
-</div>
-</div>
-<div class="paragraph">
+Section &quot;Screen&quot;
+    Identifier &quot;intel&quot;
+    Device &quot;intel&quot;
+EndSection
+</code></pre>
 <p>上記のうち、</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>    BusID &#34;&lt;BusID for NVIDIA device here&gt;&#34;</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>    BusID &quot;&lt;BusID for NVIDIA device here&gt;&quot;
+</code></pre>
 <p>の箇所に調べておいたBusIDを記載する。つまり次のように書き換える:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>    BusID &#34;PCI:1:0:0&#34;</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="xsessionrc_作成_1"><code>~/.xsessionrc</code> 作成</h3>
-<div class="paragraph">
-<p>今回`~/.xsessionrc`は存在していなかったので新規作成した。
-次のコマンドを追記する:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>xrandr --setprovideroutputsource modesetting NVIDIA-0
-xrandr --auto</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>    BusID &quot;PCI:1:0:0&quot;
+</code></pre>
+<h2 id="xsessionrc-作成-1"><code>~/.xsessionrc</code> 作成</h2>
+<p>今回`~/.xsessionrc`は存在していなかったので新規作成した。 次のコマンドを追記する:</p>
+<pre><code>xrandr --setprovideroutputsource modesetting NVIDIA-0
+xrandr --auto
+</code></pre>
 <p>`NVIDIA-0`というのは、おそらく次のコマンドで表示されるnameだろう:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>xrandr --listproviders</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>xrandr --listproviders
+</code></pre>
 <p>あとはXを再起動し、Ubuntuのシステム設定の画面でディスプレイ設定を行えば完了。</p>
-</div>
-</div>
-</div>
-</div>
-<div id="footnotes">
-<hr/>
-<div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. 存在していなかったので今回は新規作成しているが、存在している場合はうまくマージする必要があるのかも知れない
-</div>
-<div class="footnote" id="_footnotedef_2">
-<a href="#_footnoteref_2">2</a>. dGPUとiGPUを両方使うにはBIOSの設定でそのような設定が必要だが、今回は既にそのような設定は行われていた、ということ。一般的には、今回記載した設定以外にも必要な設定があるかも知れないということ。
-</div>
-<div class="footnote" id="_footnotedef_3">
-<a href="#_footnoteref_3">3</a>. 参考に記載した次のURL先の設定そのまま <a href="http://us.download.nvidia.com/XFree86/Linux-x86/319.12/README/randr14.html" class="bare">http://us.download.nvidia.com/XFree86/Linux-x86/319.12/README/randr14.html</a>
-</div>
-<div class="footnote" id="_footnotedef_4">
-<a href="#_footnoteref_4">4</a>. 参考に記載した次のURL先の設定そのまま <a href="http://us.download.nvidia.com/XFree86/Linux-x86/319.12/README/randr14.html" class="bare">http://us.download.nvidia.com/XFree86/Linux-x86/319.12/README/randr14.html</a>
-</div>
+<div class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn:1">
+<p>存在していなかったので今回は新規作成しているが、存在している場合はうまくマージする必要があるのかも知れない&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>dGPUとiGPUを両方使うにはBIOSの設定でそのような設定が必要だが、今回は既にそのような設定は行われていた、ということ。一般的には、今回記載した設定以外にも必要な設定があるかも知れないということ。&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>参考に記載した次のURL先の設定そのまま <a href="http://us.download.nvidia.com/XFree86/Linux-x86/319.12/README/randr14.html">http://us.download.nvidia.com/XFree86/Linux-x86/319.12/README/randr14.html</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>参考に記載した次のURL先の設定そのまま <a href="http://us.download.nvidia.com/XFree86/Linux-x86/319.12/README/randr14.html">http://us.download.nvidia.com/XFree86/Linux-x86/319.12/README/randr14.html</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
 </div>
 
         </section>
@@ -485,10 +296,10 @@ xrandr --auto</pre>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

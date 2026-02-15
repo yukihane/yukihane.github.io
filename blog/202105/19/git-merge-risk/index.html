@@ -2,27 +2,17 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Git の merge も思いの外危険 - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-次のblogエントリがバズっていました:
-
-
-
+	<meta name="description" content="次のblogエントリがバズっていました:
 
 Gitのワークフローについての私のスタンス | おそらくはそれさえも平凡な日々
 
-
-
-
-大局としては同意なのですが、ミクロな点では、 rebase 恐怖症というか、 merge を信頼し過ぎているというか、少し私とは意見が異なると感じました。
-そして、上記のblogのような意見が多数派ではないかと思いますので、改めて merge の怖いところを具体例で示したいと思います。
-" />
-	<meta property="og:image" content=""/>
+大局としては同意なのですが、ミクロな点では、 rebase 恐怖症というか、 merge を信頼し過ぎているというか、少し私とは意見が異なると感じました。 そして、上記のblogのような意見が多数派ではないかと思いますので、改めて merge の怖いところを具体例で示したいと思います。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202105/19/git-merge-risk/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Git の merge も思いの外危険">
   <meta property="og:description" content="次のblogエントリがバズっていました:
-Gitのワークフローについての私のスタンス | おそらくはそれさえも平凡な日々
-大局としては同意なのですが、ミクロな点では、 rebase 恐怖症というか、 merge を信頼し過ぎているというか、少し私とは意見が異なると感じました。 そして、上記のblogのような意見が多数派ではないかと思いますので、改めて merge の怖いところを具体例で示したいと思います。">
+Gitのワークフローについての私のスタンス | おそらくはそれさえも平凡な日々 大局としては同意なのですが、ミクロな点では、 rebase 恐怖症というか、 merge を信頼し過ぎているというか、少し私とは意見が異なると感じました。 そして、上記のblogのような意見が多数派ではないかと思いますので、改めて merge の怖いところを具体例で示したいと思います。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -33,15 +23,14 @@ Gitのワークフローについての私のスタンス | おそらくはそ�
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Git の merge も思いの外危険">
   <meta name="twitter:description" content="次のblogエントリがバズっていました:
-Gitのワークフローについての私のスタンス | おそらくはそれさえも平凡な日々
-大局としては同意なのですが、ミクロな点では、 rebase 恐怖症というか、 merge を信頼し過ぎているというか、少し私とは意見が異なると感じました。 そして、上記のblogのような意見が多数派ではないかと思いますので、改めて merge の怖いところを具体例で示したいと思います。">
+Gitのワークフローについての私のスタンス | おそらくはそれさえも平凡な日々 大局としては同意なのですが、ミクロな点では、 rebase 恐怖症というか、 merge を信頼し過ぎているというか、少し私とは意見が異なると感じました。 そして、上記のblogのような意見が多数派ではないかと思いますので、改めて merge の怖いところを具体例で示したいと思います。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -58,9 +47,17 @@ Gitのワークフローについての私のスタンス | おそらくはそ�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -77,61 +74,74 @@ Gitのワークフローについての私のスタンス | おそらくはそ�
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>次のblogエントリがバズっていました:</p>
-</div>
-<div class="ulist">
+          <p>次のblogエントリがバズっていました:</p>
 <ul>
-<li>
-<p><a href="https://songmu.jp/riji/entry/2021-05-19-my-git-workflow.html">Gitのワークフローについての私のスタンス | おそらくはそれさえも平凡な日々</a></p>
-</li>
+<li><a href="https://songmu.jp/riji/entry/2021-05-19-my-git-workflow.html">Gitのワークフローについての私のスタンス | おそらくはそれさえも平凡な日々</a></li>
 </ul>
-</div>
-<div class="paragraph">
-<p>大局としては同意なのですが、ミクロな点では、 <code>rebase</code> 恐怖症というか、 <code>merge</code> を信頼し過ぎているというか、少し私とは意見が異なると感じました。
-そして、上記のblogのような意見が多数派ではないかと思いますので、改めて <code>merge</code> の怖いところを具体例で示したいと思います。</p>
-</div>
-<div class="paragraph">
+<p>大局としては同意なのですが、ミクロな点では、 <code>rebase</code> 恐怖症というか、 <code>merge</code> を信頼し過ぎているというか、少し私とは意見が異なると感じました。 そして、上記のblogのような意見が多数派ではないかと思いますので、改めて <code>merge</code> の怖いところを具体例で示したいと思います。</p>
 <p>次のようにGitを操作してみてください。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> -eux
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mkdir sample-git
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> sample-git
+</span></span><span class="line"><span class="cl">git init
+</span></span><span class="line"><span class="cl">git commit --allow-empty -m init
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># master で hello.txt 作成</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;Hello, world!&#39;</span> &gt; hello.txt
+</span></span><span class="line"><span class="cl">git add hello.txt <span class="o">&amp;&amp;</span> git commit -m <span class="s1">&#39;create hello.txt&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># feature で hello.txt 削除、 bye.txt 作成</span>
+</span></span><span class="line"><span class="cl">git checkout -b feature
+</span></span><span class="line"><span class="cl">git rm hello.txt
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;さようなら、世界！&#39;</span> &gt; bye.txt
+</span></span><span class="line"><span class="cl">git add bye.txt <span class="o">&amp;&amp;</span> git commit -m <span class="s1">&#39;remove hello.txt and create bye.txt&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># master に feature を merge</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ...をしたつもりだが...</span>
+</span></span><span class="line"><span class="cl">git checkout master
+</span></span><span class="line"><span class="cl">git merge --no-ff --no-commit feature
+</span></span><span class="line"><span class="cl">git reset -- hello.txt
+</span></span><span class="line"><span class="cl">git -c core.editor<span class="o">=</span>/bin/true merge --continue
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">git checkout -- .
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">#!/bin/bash
-
-set -eux
-
-mkdir sample-git
-cd sample-git
-git init
-git commit --allow-empty -m init
-
-# master で hello.txt 作成
-echo &#39;Hello, world!&#39; &gt; hello.txt
-git add hello.txt &amp;&amp; git commit -m &#39;create hello.txt&#39;
-
-# feature で hello.txt 削除、 bye.txt 作成
-git checkout -b feature
-git rm hello.txt
-echo &#39;さようなら、世界！&#39; &gt; bye.txt
-git add bye.txt &amp;&amp; git commit -m &#39;remove hello.txt and create bye.txt&#39;
-
-# master に feature を merge
-# ...をしたつもりだが...
-git checkout master
-git merge --no-ff --no-commit feature
-git reset -- hello.txt
-git -c core.editor=/bin/true merge --continue
-
-git checkout -- .</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><code>git-log</code> や履歴グラフでは <code>feature</code> で行った変更が <code>master</code> にマージされているように見えます。
-が、実際にはそうなっておらず、 <code>master</code> では <code>feature</code> で削除した <code>hello.txt</code> が存在しています。</p>
-</div>
-<div class="paragraph">
+</div><p><code>git-log</code> や履歴グラフでは <code>feature</code> で行った変更が <code>master</code> にマージされているように見えます。 が、実際にはそうなっておらず、 <code>master</code> では <code>feature</code> で削除した <code>hello.txt</code> が存在しています。</p>
 <p>このように、 <code>merge</code> はぱっと見と実際が異なっている場合があるので注意を要します(このようなマージは、悪意が無くとも、 conflict が発生したときにポカミスとかでやってしまうことがあります)。</p>
-</div>
 
         </section>
         <div class="post-tags">
@@ -140,7 +150,7 @@ git checkout -- .</code></pre>
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/git">git</a></li>
+              <li><a href="/tags/git/">git</a></li>
               
             </ul>
           </nav>
@@ -157,10 +167,10 @@ git checkout -- .</code></pre>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

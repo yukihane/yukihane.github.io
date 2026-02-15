@@ -2,17 +2,10 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Bazel - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-Bazelとは
-
-
+	<meta name="description" content="Bazelとは
 ビルドシステム。Ant, Mavenなどと同系統。 ビルド対象はJavaに限らない。
-
-
-Google社内のJava/JavaScript境界辺りを開発している人たちが使っている形跡がある。
-具体的には、GWT, J2CL, Closure Tools。
-" />
-	<meta property="og:image" content=""/>
+Google社内のJava/JavaScript境界辺りを開発している人たちが使っている形跡がある。 具体的には、GWT, J2CL, Closure Tools。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/java/bazel/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Bazel">
@@ -33,8 +26,8 @@ Google社内のJava/JavaScript境界辺りを開発している人たちが使�
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -51,9 +44,17 @@ Google社内のJava/JavaScript境界辺りを開発している人たちが使�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -70,81 +71,38 @@ Google社内のJava/JavaScript境界辺りを開発している人たちが使�
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_bazelとは">Bazelとは</h2>
-<div class="sectionbody">
-<div class="paragraph">
+          <h1 id="bazelとは">Bazelとは</h1>
 <p>ビルドシステム。Ant, Mavenなどと同系統。 ビルド対象はJavaに限らない。</p>
-</div>
-<div class="paragraph">
-<p>Google社内のJava/JavaScript境界辺りを開発している人たちが使っている形跡がある。
-具体的には、GWT, J2CL, Closure Tools。</p>
-</div>
-<div class="paragraph">
+<p>Google社内のJava/JavaScript境界辺りを開発している人たちが使っている形跡がある。 具体的には、GWT, J2CL, Closure Tools。</p>
 <p>比較されるその他のプロダクトには次のようなものがあるらしい。</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/bazelbuild/bazel">Bazel</a> -
-Google社。社内で使用していたBlazeという名前のビルドシステムをオープンソース化したものらしい。</p>
+<p><a href="https://github.com/bazelbuild/bazel">Bazel</a> - Google社。社内で使用していたBlazeという名前のビルドシステムをオープンソース化したものらしい。</p>
 </li>
 <li>
-<p><a href="https://github.com/facebook/buck">Buck</a> -
-Facebook社。元々Blazeクローンとして作られたらしい？<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup><sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup></p>
+<p><a href="https://github.com/facebook/buck">Buck</a> - Facebook社。元々Blazeクローンとして作られたらしい？<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
 </li>
 <li>
 <p><a href="https://github.com/pantsbuild">Pants Build System</a> - Twitter社？</p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_インストール">インストール</h2>
-<div class="sectionbody">
-<div class="ulist">
+<h1 id="インストール">インストール</h1>
 <ul>
-<li>
-<p><a href="https://docs.bazel.build/versions/master/install-ubuntu.html">Installing
-Bazel on Ubuntu - Bazel</a></p>
-</li>
+<li><a href="https://docs.bazel.build/versions/master/install-ubuntu.html">Installing Bazel on Ubuntu - Bazel</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>Ubuntu16.04で行う。後述の通りインストールしたBazelバージョンは0.9.0だが、このバージョンではJDK8対応までで、JDK9は未対応の模様。</p>
-</div>
-<div class="paragraph">
 <p>本環境ではJDK9とJDK8をインストール済みで、デフォルトはJDK9を使うようにしている。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>echo &#34;deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8&#34; | sudo tee /etc/apt/sources.list.d/bazel.list
+<pre><code>echo &quot;deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8&quot; | sudo tee /etc/apt/sources.list.d/bazel.list
 curl https://bazel.build/bazel-release.pub.gpg | sudo apt-key add -
-sudo apt-get update &amp;&amp; sudo apt-get install bazel</pre>
-</div>
-</div>
-<div class="paragraph">
+sudo apt-get update &amp;&amp; sudo apt-get install bazel
+</code></pre>
 <p>1行目は`sources.list`の設定。書式については`man sources.list`コマンドで読める。</p>
-</div>
-<div class="paragraph">
-<p>なお <a href="http://storage.googleapis.com/bazel-apt" class="bare">http://storage.googleapis.com/bazel-apt</a>
-にアクセスしてみたが1.9向けは存在しない模様なのでサンプルの通りjdk1.8としている。</p>
-</div>
-<div class="paragraph">
+<p>なお <a href="http://storage.googleapis.com/bazel-apt">http://storage.googleapis.com/bazel-apt</a> にアクセスしてみたが1.9向けは存在しない模様なのでサンプルの通りjdk1.8としている。</p>
 <p>インストールが終了したら実行してみる。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>bazel version</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>bazel version
+</code></pre>
 <p>JDK9環境では`WARNING`が多数出た。ちなみにJDK8で試すと警告は出ない。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>WARNING: An illegal reflective access operation has occurred
+<pre><code>WARNING: An illegal reflective access operation has occurred
 WARNING: Illegal reflective access by com.google.protobuf.UnsafeUtil (file:/home/yuki/.cache/bazel/_bazel_yuki/install/754ae0b065b3dfe883541ff567ae8b5e/_embedded_binaries/A-server.jar) to field java.nio.Buffer.address
 WARNING: Please consider reporting this to the maintainers of com.google.protobuf.UnsafeUtil
 WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
@@ -153,117 +111,64 @@ Build label: 0.9.0
 Build target: bazel-out/k8-fastbuild/bin/src/main/java/com/google/devtools/build/lib/bazel/BazelServer_deploy.jar
 Build time: Tue Dec 19 09:31:58 2017 (1513675918)
 Build timestamp: 1513675918
-Build timestamp as int: 1513675918</pre>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_お試しビルド">お試しビルド</h3>
-<div class="paragraph">
-<p><a href="https://docs.bazel.build/versions/master/tutorial/java.html#get-the-sample-project">Get
-the sample project</a>
-にサンプルプロジェクトが用意されていたのでそれをそのまま用いることにする。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>git clone https://github.com/bazelbuild/examples/
-cd java-tutorial</pre>
-</div>
-</div>
-<div class="paragraph">
+Build timestamp as int: 1513675918
+</code></pre>
+<h2 id="お試しビルド">お試しビルド</h2>
+<p><a href="https://docs.bazel.build/versions/master/tutorial/java.html#get-the-sample-project">Get the sample project</a> にサンプルプロジェクトが用意されていたのでそれをそのまま用いることにする。</p>
+<pre><code>git clone https://github.com/bazelbuild/examples/
+cd java-tutorial
+</code></pre>
 <p>ビルドしてみる。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>bazel build //:ProjectRunner</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>bazel build //:ProjectRunner
+</code></pre>
 <p>エラーが出てビルド失敗する。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>INFO: Analysed target //:ProjectRunner (0 packages loaded).
+<pre><code>INFO: Analysed target //:ProjectRunner (0 packages loaded).
 INFO: Found 1 target...
-ERROR: missing input file &#39;@local_jdk//:jre/lib/rt.jar&#39;
-ERROR: /home/yuki/programs/hello-bazel/examples/java-tutorial/BUILD:1:1: //:ProjectRunner: missing input file &#39;@local_jdk//:jre/lib/rt.jar&#39;
+ERROR: missing input file '@local_jdk//:jre/lib/rt.jar'
+ERROR: /home/yuki/programs/hello-bazel/examples/java-tutorial/BUILD:1:1: //:ProjectRunner: missing input file '@local_jdk//:jre/lib/rt.jar'
 Target //:ProjectRunner failed to build
 Use --verbose_failures to see the command lines of failed build steps.
 ERROR: /home/yuki/programs/hello-bazel/examples/java-tutorial/BUILD:1:1 1 input file(s) do not exist
 INFO: Elapsed time: 0.325s, Critical Path: 0.04s
-FAILED: Build did NOT complete successfully</pre>
-</div>
-</div>
-<div class="paragraph">
+FAILED: Build did NOT complete successfully
+</code></pre>
 <p>どうやらBazelは初回起動時にサーバを起動し、以後そのサーバ経由で色々と処理を行っているように見える(処理高速化のための仕組みだろう)。</p>
-</div>
-<div class="paragraph">
 <p>このサーバはJDK8が前提になっているようなので、サーバ起動(=初回コマンド実行)はJDK8を用いなければならないようだ。</p>
-</div>
-<div class="paragraph">
 <p>一旦サーバをシャットダウンし、JDK8環境でサーバを起動する。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>bazel shutdown
+<pre><code>bazel shutdown
 (JDK8にパスを通す)
-bazel version</pre>
-</div>
-</div>
-<div class="paragraph">
+bazel version
+</code></pre>
 <p>この状態で、JDK9で再度ビルドコマンドを実行してみる。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>bazel build //:ProjectRunner</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>bazel build //:ProjectRunner
+</code></pre>
 <p>正常にビルドが完了した模様。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>INFO: Analysed target //:ProjectRunner (13 packages loaded).
+<pre><code>INFO: Analysed target //:ProjectRunner (13 packages loaded).
 INFO: Found 1 target...
 Target //:ProjectRunner up-to-date:
   bazel-bin/ProjectRunner.jar
   bazel-bin/ProjectRunner
 INFO: Elapsed time: 3.934s, Critical Path: 0.29s
-INFO: Build completed successfully, 4 total actions</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><code>bazel-bin/ProjectRunner.jar`が生成されているので念のため
-`javap -v`コマンドで</code>.class`ファイルのバージョンを見てみる。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>  minor version: 0
-  major version: 52</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Java8バージョンのバイナリだった。サーバを動かしたJDKを使用しているのだろう(考えてみればそうなるのが自然か)。
-結論として、JDK9にはまだ対応していないのだろう。</p>
-</div>
-<div class="ulist">
+INFO: Build completed successfully, 4 total actions
+</code></pre>
+<p><code>bazel-bin/ProjectRunner.jar`が生成されているので念のため `javap -v`コマンドで</code>.class`ファイルのバージョンを見てみる。</p>
+<pre><code>  minor version: 0
+  major version: 52
+</code></pre>
+<p>Java8バージョンのバイナリだった。サーバを動かしたJDKを使用しているのだろう(考えてみればそうなるのが自然か)。 結論として、JDK9にはまだ対応していないのだろう。</p>
 <ul>
-<li>
-<p><a href="https://github.com/bazelbuild/bazel/issues/3410">Java 9 should be
-supported · Issue #3410 · bazelbuild/bazel</a></p>
-</li>
+<li><a href="https://github.com/bazelbuild/bazel/issues/3410">Java 9 should be supported · Issue #3410 · bazelbuild/bazel</a></li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-<div id="footnotes">
-<hr/>
-<div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. <a href="https://blog.ltgt.net/in-quest-of-the-ultimate-build-tool/" class="bare">https://blog.ltgt.net/in-quest-of-the-ultimate-build-tool/</a>
-</div>
-<div class="footnote" id="_footnotedef_2">
-<a href="#_footnoteref_2">2</a>. <a href="http://anemone.dodgson.org/2015/06/11/cover-songs/" class="bare">http://anemone.dodgson.org/2015/06/11/cover-songs/</a>
-</div>
+<div class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://blog.ltgt.net/in-quest-of-the-ultimate-build-tool/">https://blog.ltgt.net/in-quest-of-the-ultimate-build-tool/</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="http://anemone.dodgson.org/2015/06/11/cover-songs/">http://anemone.dodgson.org/2015/06/11/cover-songs/</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
 </div>
 
         </section>
@@ -282,10 +187,10 @@ supported · Issue #3410 · bazelbuild/bazel</a></p>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

@@ -2,31 +2,27 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Swagger - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-WildFlyにはRestEasyが組み込まれているのでそれを前提に。
-
-
-
+	<meta name="description" content="WildFlyにはRestEasyが組み込まれているのでそれを前提に。
 
 公式Wiki
 
-
-
-
 Swagger セットアップ
-
-
 pom.xml
-
 `swagger-jaxrs`を依存関係に追加する。
-" />
-	<meta property="og:image" content=""/>
+&lt;dependency&gt;
+    &lt;groupId&gt;io.swagger&lt;/groupId&gt;
+    &lt;artifactId&gt;swagger-jaxrs&lt;/artifactId&gt;
+    &lt;version&gt;1.5.13&lt;/version&gt;
+&lt;/dependency&gt;
+
+参考: Adding the dependencies to your application Jersyの場合は専用の別ライブラリがある。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/wildfly/swagger/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Swagger">
   <meta property="og:description" content="WildFlyにはRestEasyが組み込まれているのでそれを前提に。
-公式Wiki
-Swagger セットアップ pom.xml `swagger-jaxrs`を依存関係に追加する。">
+公式Wiki Swagger セットアップ pom.xml `swagger-jaxrs`を依存関係に追加する。
+&lt;dependency&gt; &lt;groupId&gt;io.swagger&lt;/groupId&gt; &lt;artifactId&gt;swagger-jaxrs&lt;/artifactId&gt; &lt;version&gt;1.5.13&lt;/version&gt; &lt;/dependency&gt; 参考: Adding the dependencies to your application Jersyの場合は専用の別ライブラリがある。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -36,15 +32,15 @@ Swagger セットアップ pom.xml `swagger-jaxrs`を依存関係に追加する
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Swagger">
   <meta name="twitter:description" content="WildFlyにはRestEasyが組み込まれているのでそれを前提に。
-公式Wiki
-Swagger セットアップ pom.xml `swagger-jaxrs`を依存関係に追加する。">
+公式Wiki Swagger セットアップ pom.xml `swagger-jaxrs`を依存関係に追加する。
+&lt;dependency&gt; &lt;groupId&gt;io.swagger&lt;/groupId&gt; &lt;artifactId&gt;swagger-jaxrs&lt;/artifactId&gt; &lt;version&gt;1.5.13&lt;/version&gt; &lt;/dependency&gt; 参考: Adding the dependencies to your application Jersyの場合は専用の別ライブラリがある。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -61,9 +57,17 @@ Swagger セットアップ pom.xml `swagger-jaxrs`を依存関係に追加する
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -80,132 +84,83 @@ Swagger セットアップ pom.xml `swagger-jaxrs`を依存関係に追加する
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>WildFlyにはRestEasyが組み込まれているのでそれを前提に。</p>
-</div>
-<div class="ulist">
+          <p>WildFlyにはRestEasyが組み込まれているのでそれを前提に。</p>
 <ul>
-<li>
-<p><a href="https://github.com/swagger-api/swagger-core/wiki/Swagger-Core-JAX-RS-Project-Setup-1.5.X">公式Wiki</a></p>
-</li>
+<li><a href="https://github.com/swagger-api/swagger-core/wiki/Swagger-Core-JAX-RS-Project-Setup-1.5.X">公式Wiki</a></li>
 </ul>
-</div>
-<div class="sect1">
-<h2 id="swagger_セットアップ">Swagger セットアップ</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_pom_xml">pom.xml</h3>
-<div class="paragraph">
+<h1 id="swagger-セットアップ">Swagger セットアップ</h1>
+<h2 id="pomxml">pom.xml</h2>
 <p>`swagger-jaxrs`を依存関係に追加する。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>&lt;dependency&gt;
+<pre><code>&lt;dependency&gt;
     &lt;groupId&gt;io.swagger&lt;/groupId&gt;
     &lt;artifactId&gt;swagger-jaxrs&lt;/artifactId&gt;
     &lt;version&gt;1.5.13&lt;/version&gt;
-&lt;/dependency&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>参考:
-<a href="https://github.com/swagger-api/swagger-core/wiki/Swagger-Core-RESTEasy-2.X-Project-Setup-1.5#adding-the-dependencies-to-your-application">Adding
-the dependencies to your application</a>
-Jersyの場合は専用の別ライブラリがある。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_web_xml">web.xml</h3>
-<div class="paragraph">
+&lt;/dependency&gt;
+</code></pre>
+<p>参考: <a href="https://github.com/swagger-api/swagger-core/wiki/Swagger-Core-RESTEasy-2.X-Project-Setup-1.5#adding-the-dependencies-to-your-application">Adding the dependencies to your application</a> Jersyの場合は専用の別ライブラリがある。</p>
+<h2 id="webxml">web.xml</h2>
 <p>自動でJAX-RSのリソースプロバイダをスキャンするために、`web.xml`に次を追記する。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;context-param&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-name&gt;</span>resteasy.scan<span class="nt">&lt;/param-name&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-value&gt;</span>true<span class="nt">&lt;/param-value&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/context-param&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-xml" data-lang="xml">  &lt;context-param&gt;
-    &lt;param-name&gt;resteasy.scan&lt;/param-name&gt;
-    &lt;param-value&gt;true&lt;/param-value&gt;
-  &lt;/context-param&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>参考:
-<a href="https://github.com/swagger-api/swagger-core/wiki/Swagger-Core-RESTEasy-2.X-Project-Setup-1.5#automatic-scanning-and-registration">Hooking
-up Swagger-Core in your Application - Automatic scanning and
-registration</a> 上記のほか、手動追加など他の選択肢も有る。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_コード">コード</h3>
-<div class="paragraph">
+</div><p>参考: <a href="https://github.com/swagger-api/swagger-core/wiki/Swagger-Core-RESTEasy-2.X-Project-Setup-1.5#automatic-scanning-and-registration">Hooking up Swagger-Core in your Application - Automatic scanning and registration</a> 上記のほか、手動追加など他の選択肢も有る。</p>
+<h2 id="コード">コード</h2>
 <p>`Application`継承クラスのコンストラクタに次を記載する。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">        </span><span class="n">BeanConfig</span><span class="w"> </span><span class="n">beanConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BeanConfig</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">beanConfig</span><span class="p">.</span><span class="na">setVersion</span><span class="p">(</span><span class="s">&#34;0.1.0&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">beanConfig</span><span class="p">.</span><span class="na">setSchemes</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">&#34;http&#34;</span><span class="w"> </span><span class="p">});</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">beanConfig</span><span class="p">.</span><span class="na">setHost</span><span class="p">(</span><span class="s">&#34;localhost:8080&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">beanConfig</span><span class="p">.</span><span class="na">setBasePath</span><span class="p">(</span><span class="s">&#34;/hello-wildfly-rest/rest&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">beanConfig</span><span class="p">.</span><span class="na">setResourcePackage</span><span class="p">(</span><span class="s">&#34;jp.himeji_cs.hello_wildfly_rest.rest&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">beanConfig</span><span class="p">.</span><span class="na">setScan</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">beanConfig</span><span class="p">.</span><span class="na">setPrettyPrint</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">        BeanConfig beanConfig = new BeanConfig();
-        beanConfig.setVersion(&#34;0.1.0&#34;);
-        beanConfig.setSchemes(new String[] { &#34;http&#34; });
-        beanConfig.setHost(&#34;localhost:8080&#34;);
-        beanConfig.setBasePath(&#34;/hello-wildfly-rest/rest&#34;);
-        beanConfig.setResourcePackage(&#34;jp.himeji_cs.hello_wildfly_rest.rest&#34;);
-        beanConfig.setScan(true);
-        beanConfig.setPrettyPrint(true);</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>参考:
-<a href="https://github.com/swagger-api/swagger-core/wiki/Swagger-Core-RESTEasy-2.X-Project-Setup-1.5#using-the-application-class">Configure
-and Initialize Swagger - Using Swagger’s BeanConfig - Using the
-Application class</a> これ以外の設定方法も記載が有る。</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="swagger_ui_セットアップ">Swagger-UI セットアップ</h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>WildFlyのホームディレクトリ(以下、<code>$JBOSS_HOME</code>)直下に`swagger`というディレクトリを作成し、https://github.com/swagger-api/swagger-ui[swagger-ui]の`dist`以下をコピーする。</p>
-</li>
+</div><p>参考: <a href="https://github.com/swagger-api/swagger-core/wiki/Swagger-Core-RESTEasy-2.X-Project-Setup-1.5#using-the-application-class">Configure and Initialize Swagger - Using Swagger’s BeanConfig - Using the Application class</a> これ以外の設定方法も記載が有る。</p>
+<h1 id="swagger-ui-セットアップ">Swagger-UI セットアップ</h1>
+<ol>
+<li>WildFlyのホームディレクトリ(以下、<code>$JBOSS_HOME</code>)直下に`swagger`というディレクトリを作成し、https://github.com/swagger-api/swagger-ui[swagger-ui]の`dist`以下をコピーする。</li>
 </ol>
-</div>
-<div class="paragraph">
-<p>#
-`$JBOSS_HOME/standalone/configuration/standalone.xml`を開き、undertow設定箇所で上記のディレクトリを公開する設定を行う。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>        &lt;subsystem xmlns=&#34;urn:jboss:domain:undertow:3.1&#34;&gt;
-            &lt;server name=&#34;default-server&#34;&gt;
-                &lt;host name=&#34;default-host&#34; alias=&#34;localhost&#34;&gt;
-                    &lt;location name=&#34;/&#34; handler=&#34;welcome-content&#34;/&gt;
-                    &lt;location name=&#34;/swagger&#34; handler=&#34;swagger&#34;/&gt;
+<p># `$JBOSS_HOME/standalone/configuration/standalone.xml`を開き、undertow設定箇所で上記のディレクトリを公開する設定を行う。</p>
+<pre><code>        &lt;subsystem xmlns=&quot;urn:jboss:domain:undertow:3.1&quot;&gt;
+            &lt;server name=&quot;default-server&quot;&gt;
+                &lt;host name=&quot;default-host&quot; alias=&quot;localhost&quot;&gt;
+                    &lt;location name=&quot;/&quot; handler=&quot;welcome-content&quot;/&gt;
+                    &lt;location name=&quot;/swagger&quot; handler=&quot;swagger&quot;/&gt;
                 &lt;/host&gt;
             &lt;/server&gt;
             &lt;handlers&gt;
-                &lt;file name=&#34;welcome-content&#34; path=&#34;${jboss.home.dir}/welcome-content&#34;/&gt;
-                &lt;file name=&#34;swagger&#34; path=&#34;${jboss.home.dir}/swagger&#34;/&gt;
-            &lt;/handlers&gt;</pre>
-</div>
-</div>
-<div class="paragraph">
+                &lt;file name=&quot;welcome-content&quot; path=&quot;${jboss.home.dir}/welcome-content&quot;/&gt;
+                &lt;file name=&quot;swagger&quot; path=&quot;${jboss.home.dir}/swagger&quot;/&gt;
+            &lt;/handlers&gt;
+</code></pre>
 <p>(上記の、 <strong>swagger</strong> という文字列が現れている行(2行)を追加。)</p>
-</div>
-<div class="paragraph">
-<p>これで、 <a href="http://localhost:8080/swagger/" class="bare">http://localhost:8080/swagger/</a>
-へアクセスするとSwagger-UIが利用できる。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_アノテーション">アノテーション</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><a href="https://github.com/swagger-api/swagger-core/wiki/annotations" class="bare">https://github.com/swagger-api/swagger-core/wiki/annotations</a></p>
-</div>
-</div>
-</div>
+<p>これで、 <a href="http://localhost:8080/swagger/">http://localhost:8080/swagger/</a> へアクセスするとSwagger-UIが利用できる。</p>
+<h1 id="アノテーション">アノテーション</h1>
+<p><a href="https://github.com/swagger-api/swagger-core/wiki/annotations">https://github.com/swagger-api/swagger-core/wiki/annotations</a></p>
 
         </section>
         <div class="post-tags">
@@ -223,10 +178,10 @@ Application class</a> これ以外の設定方法も記載が有る。</p>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

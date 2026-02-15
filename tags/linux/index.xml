@@ -6,7 +6,7 @@
     <description>Recent content in Linux on 発火後忘失</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <copyright>© Yukihane, All Rights Reserved</copyright>
     <lastBuildDate>Sat, 16 Nov 2024 12:09:03 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -28,21 +28,21 @@
       <link>https://yukihane.github.io/blog/202404/06/losts-on-wayland/</link>
       <pubDate>Sat, 06 Apr 2024 06:00:24 +0900</pubDate>
       <guid>https://yukihane.github.io/blog/202404/06/losts-on-wayland/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;セキュリティ上の理由っぽいのですが、最近 Ubuntu でやろうとしてできないことが重なり、あれ？ってなりました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://gitlab.gnome.org/GNOME/gimp/-/issues/8510#note_2014569&#34;&gt;Screenshot not capturing &amp;#39;snapped&amp;#39; window; Screenshot window pops up behind main GIMP window&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;ここで &amp;#34;Screenshot portal&amp;#34; を使えと言われてますが、一般名詞過ぎて検索してもなんのこっちゃでしたが、おそらく以下で説明されている &lt;code&gt;xdg-desktop-portal&lt;/code&gt; のことですかね…？&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;セキュリティ上の理由っぽいのですが、最近 Ubuntu でやろうとしてできないことが重なり、あれ？ってなりました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gitlab.gnome.org/GNOME/gimp/-/issues/8510#note_2014569&#34;&gt;Screenshot not capturing &amp;lsquo;snapped&amp;rsquo; window; Screenshot window pops up behind main GIMP window&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;ここで &amp;ldquo;Screenshot portal&amp;rdquo; を使えと言われてますが、一般名詞過ぎて検索してもなんのこっちゃでしたが、おそらく以下で説明されている &lt;code&gt;xdg-desktop-portal&lt;/code&gt; のことですかね…？&lt;/p&gt;</description>
     </item>
     <item>
       <title>CentOS6にGCC10.2.0をインストールしたときのメモ</title>
       <link>https://yukihane.github.io/blog/202008/31/gcc-installation/</link>
       <pubDate>Sun, 30 Aug 2020 21:32:44 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202008/31/gcc-installation/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;ビルド作業は次のページを参考にしました:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://aulta.co.jp/archives/7554&#34;&gt;gcc-10.1.0をCentOS7にソースインストール | 株式会社オルタ&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;環境は &lt;a href=&#34;https://yukihane.github.io/blog/202008/30/gcc-compilation-time/&#34;&gt;こちら&lt;/a&gt; に記載したものです。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;listingblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre class=&#34;highlight&#34;&gt;&lt;code&gt;curl -L -O http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/gcc-10.2.0/gcc-10.2.0.tar.xz&#xA;tar xf gcc-10.2.0.tar.xz&#xA;cd gcc-10.2.0&#xA;./contrib/download_prerequisites&#xA;./configure --enable-languages=c,c++ --prefix=/opt/gcc-10.2.0 --disable-bootstrap --disable-multilib&#xA;make -j 5&#xA;sudo make install&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;つづいて &lt;code&gt;ldoconfig&lt;/code&gt; での登録ですが、そのまま行うとエラーが出たので &lt;a href=&#34;https://qiita.com/knutpb1205/items/4a9b39bf69f1788ef69c#%E3%82%A8%E3%83%A9%E3%83%BC%E5%AF%BE%E7%AD%96&#34;&gt;こちら&lt;/a&gt; を参照にして事前に1つのファイルをリネームしておきました:&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;ビルド作業は次のページを参考にしました:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://aulta.co.jp/archives/7554&#34;&gt;gcc-10.1.0をCentOS7にソースインストール | 株式会社オルタ&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;環境は &lt;a href=&#34;https://yukihane.github.io/blog/202008/30/gcc-compilation-time/&#34;&gt;こちら&lt;/a&gt; に記載したものです。&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;curl -L -O http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/gcc-10.2.0/gcc-10.2.0.tar.xz&#xA;tar xf gcc-10.2.0.tar.xz&#xA;cd gcc-10.2.0&#xA;./contrib/download_prerequisites&#xA;./configure --enable-languages=c,c++ --prefix=/opt/gcc-10.2.0 --disable-bootstrap --disable-multilib&#xA;make -j 5&#xA;sudo make install&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;つづいて &lt;code&gt;ldoconfig&lt;/code&gt; での登録ですが、そのまま行うとエラーが出たので &lt;a href=&#34;https://qiita.com/knutpb1205/items/4a9b39bf69f1788ef69c#%E3%82%A8%E3%83%A9%E3%83%BC%E5%AF%BE%E7%AD%96&#34;&gt;こちら&lt;/a&gt; を参照にして事前に1つのファイルをリネームしておきました:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Alpine Linuxでglibcじゃないことに起因する問題ってちょくちょくあるよね</title>
       <link>https://yukihane.github.io/blog/202006/10/alpine-and-glibc-problems/</link>
       <pubDate>Wed, 10 Jun 2020 10:17:55 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202006/10/alpine-and-glibc-problems/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;…と少し思い返していました。といっても思い出せたのは次の2つなのですが。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://ja.stackoverflow.com/q/66812/2808&#34;&gt;alpine Linuxへのawscliインストール&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://ja.stackoverflow.com/q/67494/2808&#34;&gt;alpineでgitがcolorにならない&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Alpine特有の問題については、「取り敢えずglibc/GNU版コマンドをインストールしてみろ」ってのが最初に採ってみる方策としてアリなのかも。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;…と少し思い返していました。といっても思い出せたのは次の2つなのですが。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://ja.stackoverflow.com/q/66812/2808&#34;&gt;alpine Linuxへのawscliインストール&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://ja.stackoverflow.com/q/67494/2808&#34;&gt;alpineでgitがcolorにならない&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Alpine特有の問題については、「取り敢えずglibc/GNU版コマンドをインストールしてみろ」ってのが最初に採ってみる方策としてアリなのかも。&lt;/p&gt;</description>
     </item>
     <item>
       <title>ワンライナー sudoers 編集</title>

@@ -2,16 +2,10 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Mapstruct Spring Extensions を試してみる - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-はじめに
-
-
+	<meta name="description" content="はじめに
 MapStruct の公式サイトを見ていると、 Mapstruct Spring Extensions なるサブプロジェクトが発足していたので、何者か調べようと試してみました。
-
-
-結果、これは Spring の ConversionService の Converter と MapStruct の Mapper を統合して、実装を少し楽にしよう、というもののようでした。
-" />
-	<meta property="og:image" content=""/>
+結果、これは Spring の ConversionService の Converter と MapStruct の Mapper を統合して、実装を少し楽にしよう、というもののようでした。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202110/18/mapstruct-spring-extensions/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Mapstruct Spring Extensions を試してみる">
@@ -34,8 +28,8 @@ MapStruct の公式サイトを見ていると、 Mapstruct Spring Extensions �
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -52,9 +46,17 @@ MapStruct の公式サイトを見ていると、 Mapstruct Spring Extensions �
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -71,40 +73,17 @@ MapStruct の公式サイトを見ていると、 Mapstruct Spring Extensions �
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="paragraph">
+          <h1 id="はじめに">はじめに</h1>
 <p><a href="https://mapstruct.org/">MapStruct の公式サイト</a>を見ていると、 <a href="https://mapstruct.org/documentation/spring-extensions/reference/html/">Mapstruct Spring Extensions</a> なるサブプロジェクトが発足していたので、何者か調べようと試してみました。</p>
-</div>
-<div class="paragraph">
 <p>結果、これは Spring の <a href="https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#core-convert-ConversionService-API"><code>ConversionService</code></a> の <a href="https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#core-convert-Converter-API"><code>Converter</code></a> と MapStruct の <code>Mapper</code> を統合して、実装を少し楽にしよう、というもののようでした。</p>
-</div>
-<div class="paragraph">
 <p>今回は、 MapStruct の基本的な使い方から始めて、順に Spring Boot に統合していってみます。</p>
-</div>
-<div class="paragraph">
-<p>ちなみに公式サンプルは <a href="https://github.com/mapstruct/mapstruct-spring-extensions/tree/main/examples">こちら</a> になります。
-(いろいろ機能を紹介するサンプルになっていて本質が分かりづらいので、今回シンプルな実装で試してみています。)</p>
-</div>
-<div class="paragraph">
+<p>ちなみに公式サンプルは <a href="https://github.com/mapstruct/mapstruct-spring-extensions/tree/main/examples">こちら</a> になります。 (いろいろ機能を紹介するサンプルになっていて本質が分かりづらいので、今回シンプルな実装で試してみています。)</p>
 <p>今回のコードはこちらです。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/yukihane/hello-java/tree/master/spring/mapstruct-spring-extensions-example" class="bare">https://github.com/yukihane/hello-java/tree/master/spring/mapstruct-spring-extensions-example</a></p>
-</li>
+<li><a href="https://github.com/yukihane/hello-java/tree/master/spring/mapstruct-spring-extensions-example">https://github.com/yukihane/hello-java/tree/master/spring/mapstruct-spring-extensions-example</a></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_実装">実装</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_前提">前提</h3>
-<div class="ulist">
+<h1 id="実装">実装</h1>
+<h2 id="前提">前提</h2>
 <ul>
 <li>
 <p>Java17</p>
@@ -119,196 +98,288 @@ MapStruct の公式サイトを見ていると、 Mapstruct Spring Extensions �
 <p>MapStruct Spring Extensions 0.1.0</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p><a href="https://github.com/yukihane/hello-java/tree/master/spring/mapstruct-spring-extensions-example#readme">README</a> にも書いていますが、どのタイミングでもリクエストは次のコマンドで行います。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl --location --request POST <span class="s1">&#39;http://localhost:8080/&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--header <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--data-raw <span class="s1">&#39;{
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;name&#34;: &#34;my car&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;wheel&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &#34;size&#34;: 100
+</span></span></span><span class="line"><span class="cl"><span class="s1">    },
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;pedal&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &#34;size&#34;: 20
+</span></span></span><span class="line"><span class="cl"><span class="s1">    }
+</span></span></span><span class="line"><span class="cl"><span class="s1">}&#39;</span>
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-sh" data-lang="sh">curl --location --request POST &#39;http://localhost:8080/&#39; \
---header &#39;Content-Type: application/json&#39; \
---data-raw &#39;{
-    &#34;name&#34;: &#34;my car&#34;,
-    &#34;wheel&#34;: {
-        &#34;size&#34;: 100
-    },
-    &#34;pedal&#34;: {
-        &#34;size&#34;: 20
-    }
-}&#39;</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_1_普通の使い方で_mapstruct_を組み込む">1. 普通の使い方で MapStruct を組み込む</h3>
-<div class="ulist">
+</div><h2 id="1-普通の使い方で-mapstruct-を組み込む">1. 普通の使い方で MapStruct を組み込む</h2>
 <ul>
-<li>
-<p>コード: <a href="https://github.com/yukihane/hello-java/tree/c4deee39b1856b76ffde0e2841a368812310b316/spring/mapstruct-spring-extensions-example"><code>c4deee3</code></a></p>
-</li>
+<li>コード: <a href="https://github.com/yukihane/hello-java/tree/c4deee39b1856b76ffde0e2841a368812310b316/spring/mapstruct-spring-extensions-example"><code>c4deee3</code></a></li>
 </ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Car</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Wheel</span><span class="w"> </span><span class="n">wheel</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Pedal</span><span class="w"> </span><span class="n">pedal</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Wheel</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Pedal</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">@Data
-public class Car {
-    private String name;
-    private Wheel wheel;
-    private Pedal pedal;
-}
-
-@Data
-public class Wheel {
-    private int size;
-}
-
-@Data
-public class Pedal {
-    private int size;
-}</code></pre>
+</div><p>のようなコードを、</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CarDto</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">WheelDto</span><span class="w"> </span><span class="n">steeringWheel</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">PedalDto</span><span class="w"> </span><span class="n">footPedal</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WheelDto</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">wheelSize</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PedalDto</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">pedalSize</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
+</div><p>にマッピングすることを考えます。 このとき、マッパーは次のような実装になります。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Mapper</span><span class="p">(</span><span class="n">uses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">WheelMapper</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">PedalMapper</span><span class="p">.</span><span class="na">class</span><span class="w"> </span><span class="p">})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">CarMapper</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Mappings</span><span class="p">({</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nd">@Mapping</span><span class="p">(</span><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;wheel&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;steeringWheel&#34;</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nd">@Mapping</span><span class="p">(</span><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;pedal&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;footPedal&#34;</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">CarDto</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="n">Car</span><span class="w"> </span><span class="n">car</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Mapper</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">WheelMapper</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Mapping</span><span class="p">(</span><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;size&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;wheelSize&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">WheelDto</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="n">Wheel</span><span class="w"> </span><span class="n">wheel</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Mapper</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">PedalMapper</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Mapping</span><span class="p">(</span><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;size&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;pedalSize&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">PedalDto</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="n">Pedal</span><span class="w"> </span><span class="n">pedal</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-<div class="paragraph">
-<p>のようなコードを、</p>
+</div><p>マッピング処理を行いたい箇所でマッパーをインジェクションして利用します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@RestController</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@RequiredArgsConstructor</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Slf4j</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyController</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">CarMapper</span><span class="w"> </span><span class="n">carMapper</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">CarDto</span><span class="w"> </span><span class="nf">index</span><span class="p">(</span><span class="nd">@RequestBody</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Car</span><span class="w"> </span><span class="n">car</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&#34;car: {}&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">car</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">CarDto</span><span class="w"> </span><span class="n">dto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">carMapper</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="n">car</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&#34;dto: {}&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">dto</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dto</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">@Data
-public class CarDto {
-    private String name;
-    private WheelDto steeringWheel;
-    private PedalDto footPedal;
-}
-
-@Data
-public class WheelDto {
-    private int wheelSize;
-}
-
-@Data
-public class PedalDto {
-    private int pedalSize;
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>にマッピングすることを考えます。
-このとき、マッパーは次のような実装になります。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">@Mapper(uses = { WheelMapper.class, PedalMapper.class })
-public interface CarMapper {
-    @Mappings({
-        @Mapping(source = &#34;wheel&#34;, target = &#34;steeringWheel&#34;),
-        @Mapping(source = &#34;pedal&#34;, target = &#34;footPedal&#34;),
-    })
-    CarDto convert(Car car);
-}
-
-@Mapper
-public interface WheelMapper {
-    @Mapping(source = &#34;size&#34;, target = &#34;wheelSize&#34;)
-    WheelDto convert(Wheel wheel);
-}
-
-@Mapper
-public interface PedalMapper {
-    @Mapping(source = &#34;size&#34;, target = &#34;pedalSize&#34;)
-    PedalDto convert(Pedal pedal);
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>マッピング処理を行いたい箇所でマッパーをインジェクションして利用します。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">@RestController
-@RequiredArgsConstructor
-@Slf4j
-public class MyController {
-
-    private final CarMapper carMapper;
-
-    @PostMapping(&#34;/&#34;)
-    public CarDto index(@RequestBody final Car car) {
-        log.info(&#34;car: {}&#34;, car);
-
-        final CarDto dto = carMapper.convert(car);
-        log.info(&#34;dto: {}&#34;, dto);
-
-        return dto;
-    }
-
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_2_converter_として実装する">2. <code>Converter</code> として実装する</h3>
-<div class="ulist">
+</div><h2 id="2-converter-として実装する">2. <code>Converter</code> として実装する</h2>
 <ul>
-<li>
-<p>コード: <a href="https://github.com/yukihane/hello-java/tree/eb23410a8327d43d42111a5c384a51c64f3194d0/spring/mapstruct-spring-extensions-example"><code>eb23410</code></a></p>
-</li>
+<li>コード: <a href="https://github.com/yukihane/hello-java/tree/eb23410a8327d43d42111a5c384a51c64f3194d0/spring/mapstruct-spring-extensions-example"><code>eb23410</code></a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>マッパーが <code>org.springframework.core.convert.converter.Converter</code> を実装したコンポーネントであれば <code>ConversionService</code> の仕組みで変換できるよね、というのが次の発想になります。 <code>extends Converter&lt;_,_&gt;</code> を加えるだけです(正確には、 MapStruct 変換メソッド名は何でもよかったのですが、 <code>Converter</code> を実装するなら <code>convert</code> という名前でないといけないので一般的にはメソッド名変更も伴います)。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Mapper</span><span class="p">(</span><span class="n">uses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">WheelMapper</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">PedalMapper</span><span class="p">.</span><span class="na">class</span><span class="w"> </span><span class="p">})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">CarMapper</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Converter</span><span class="o">&lt;</span><span class="n">Car</span><span class="p">,</span><span class="w"> </span><span class="n">CarDto</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Mappings</span><span class="p">({</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nd">@Mapping</span><span class="p">(</span><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;wheel&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;steeringWheel&#34;</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nd">@Mapping</span><span class="p">(</span><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;pedal&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;footPedal&#34;</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">CarDto</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="n">Car</span><span class="w"> </span><span class="n">car</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// (他の2つのマッパーも同様に extends Converter する)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">@Mapper(uses = { WheelMapper.class, PedalMapper.class })
-public interface CarMapper extends Converter&lt;Car, CarDto&gt; {
-    @Override
-    @Mappings({
-        @Mapping(source = &#34;wheel&#34;, target = &#34;steeringWheel&#34;),
-        @Mapping(source = &#34;pedal&#34;, target = &#34;footPedal&#34;),
-    })
-    CarDto convert(Car car);
-}
-
-// (他の2つのマッパーも同様に extends Converter する)</code></pre>
+</div><p>そうすると、利用個所ではマッパーの代わりに <code>ConversionService</code> をインジェクションして変換できるようになります。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@RestController</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@RequiredArgsConstructor</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Slf4j</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyController</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ConversionService</span><span class="w"> </span><span class="n">conversionService</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">CarDto</span><span class="w"> </span><span class="nf">index</span><span class="p">(</span><span class="nd">@RequestBody</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Car</span><span class="w"> </span><span class="n">car</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&#34;car: {}&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">car</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">CarDto</span><span class="w"> </span><span class="n">dto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conversionService</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="n">car</span><span class="p">,</span><span class="w"> </span><span class="n">CarDto</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&#34;dto: {}&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">dto</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dto</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-</div>
-<div class="paragraph">
-<p>そうすると、利用個所ではマッパーの代わりに <code>ConversionService</code> をインジェクションして変換できるようになります。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">@RestController
-@RequiredArgsConstructor
-@Slf4j
-public class MyController {
-
-    private final ConversionService conversionService;
-
-    @PostMapping(&#34;/&#34;)
-    public CarDto index(@RequestBody final Car car) {
-        log.info(&#34;car: {}&#34;, car);
-
-        final CarDto dto = conversionService.convert(car, CarDto.class);
-        log.info(&#34;dto: {}&#34;, dto);
-
-        return dto;
-    }
-
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>現在、 <code>CarMapper</code> で <code>uses = { WheelMapper.class, PedalMapper.class }</code> というように、内包するエンティティのマッパーも明示的に指定していますが、 <code>ConversionService</code> にどの <code>Converter</code> を使って変換するかは任せてしまえるんじゃないか、というのがこのライブラリのモチベーションのようです(<a href="https://stackoverflow.com/q/58081224">参考</a>)。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_3_mapstruct_spring_extensions_を利用する">3. Mapstruct Spring Extensions を利用する</h3>
-<div class="ulist">
+</div><p>現在、 <code>CarMapper</code> で <code>uses = { WheelMapper.class, PedalMapper.class }</code> というように、内包するエンティティのマッパーも明示的に指定していますが、 <code>ConversionService</code> にどの <code>Converter</code> を使って変換するかは任せてしまえるんじゃないか、というのがこのライブラリのモチベーションのようです(<a href="https://stackoverflow.com/q/58081224">参考</a>)。</p>
+<h2 id="3-mapstruct-spring-extensions-を利用する">3. Mapstruct Spring Extensions を利用する</h2>
 <ul>
 <li>
 <p>コード: <a href="https://github.com/yukihane/hello-java/tree/105b5098d6ccf366c9e501174d279ec8e636ddca/spring/mapstruct-spring-extensions-example"><code>105b509</code></a></p>
-<div class="olist arabic">
-<ol class="arabic">
+<ol>
 <li>
 <p>アノテーションとアノテーションプロセッサを追加(参考: <a href="https://mapstruct.org/documentation/spring-extensions/reference/html/#setup">2. Set up</a>)します(<a href="https://github.com/yukihane/hello-java/commit/105b5098d6ccf366c9e501174d279ec8e636ddca#diff-32c322b0f4bd4686efaf6e9e3d6c38524e924a61b10e937f72b1edd4ad97034e">link</a>)。</p>
 </li>
@@ -319,16 +390,9 @@ public class MyController {
 <p>マッパーの <code>uses</code> 値を <code>ConversionServiceAdapter.class</code> に置き換えます(<a href="https://github.com/yukihane/hello-java/commit/105b5098d6ccf366c9e501174d279ec8e636ddca#diff-fe114dfe3394d15990446499f086103b2e528c78da0939c11cad7e092d02f089">link</a>)。</p>
 </li>
 </ol>
-</div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p>この手順の最後で行っている <code>uses</code> 値が固定値で良くなる、というのが本ライブラリを使うメリット、ということのようです。</p>
-</div>
-</div>
-</div>
-</div>
 
         </section>
         <div class="post-tags">
@@ -337,9 +401,9 @@ public class MyController {
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/mapstruct">mapstruct</a></li>
+              <li><a href="/tags/mapstruct/">mapstruct</a></li>
               
-              <li><a href="/tags/spring-boot">spring-boot</a></li>
+              <li><a href="/tags/spring-boot/">spring-boot</a></li>
               
             </ul>
           </nav>
@@ -356,10 +420,10 @@ public class MyController {
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

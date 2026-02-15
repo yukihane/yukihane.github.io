@@ -2,13 +2,9 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Kubernetes the hard wayを試すためのtmux基礎知識 - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-Kubernetes the hard wayをやるのに`tmux`の操作を覚えておくのが良さそうだったので使いそうなものを記載しておくことにしました。
-
-
-Ctrl キーと b キーの同時押しを ^b と表記しています。
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="Kubernetes the hard wayをやるのに`tmux`の操作を覚えておくのが良さそうだったので使いそうなものを記載しておくことにしました。
+Ctrl キーと b キーの同時押しを ^b と表記しています。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202004/25/tmux/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Kubernetes the hard wayを試すためのtmux基礎知識">
@@ -31,8 +27,8 @@ Ctrl キーと b キーの同時押しを ^b と表記しています。">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -49,9 +45,17 @@ Ctrl キーと b キーの同時押しを ^b と表記しています。">
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -68,62 +72,53 @@ Ctrl キーと b キーの同時押しを ^b と表記しています。">
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p><a href="https://github.com/yukihane/kubernetes-the-hard-way">Kubernetes the hard wayをやる</a>のに`tmux`の操作を覚えておくのが良さそうだったので使いそうなものを記載しておくことにしました。</p>
-</div>
-<div class="paragraph">
+          <p><a href="https://github.com/yukihane/kubernetes-the-hard-way">Kubernetes the hard wayをやる</a>のに`tmux`の操作を覚えておくのが良さそうだったので使いそうなものを記載しておくことにしました。</p>
 <p><code>Ctrl</code> キーと <code>b</code> キーの同時押しを <code>^b</code> と表記しています。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;"/>
-<col style="width: 33.3333%;"/>
-<col style="width: 33.3334%;"/>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">機能</th>
-<th class="tableblock halign-left valign-top">キー操作</th>
-<th class="tableblock halign-left valign-top">補足・説明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">起動</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tmux</code> コマンド</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">当然ですが tmux のセッション外で実行します。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">デタッチ</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>^b</code> <code>d</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">終了とは異なり状態が保存されます。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">アタッチ</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tmux a</code> コマンド</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-t &lt;session名&gt;</code> でアタッチするセッションを選択可能。セッション一覧は <code>tmux list-sessions</code> コマンド。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">上下分割</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>^b</code> <code>&#34;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">分割されたエリアはpaneと呼ばれます。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">上下分割したpaneの高さを均等にする</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>^b</code> <code>Alt+2</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pane移動</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>^b</code> <code>矢印キー</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">マウスクリックでも。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">全paneに同じ入力を行う/解除する</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>^b</code> <code>:setw synchronize-panes</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/yukihane/kubernetes-the-hard-way/blob/master/docs/01-prerequisites.md#running-commands-in-parallel-with-tmux">the hard wayの説明</a>では <code>setw</code> でなく <code>set</code> を用いているが、 <code>set</code> はセッションに対して適用するコマンド(<code>setw</code> はウィンドウに対して適用)。</p></td>
-</tr>
-</tbody>
+<table>
+  <thead>
+      <tr>
+          <th>機能</th>
+          <th>キー操作</th>
+          <th>補足・説明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>起動</td>
+          <td><code>tmux</code> コマンド</td>
+          <td>当然ですが tmux のセッション外で実行します。</td>
+      </tr>
+      <tr>
+          <td>デタッチ</td>
+          <td><code>^b</code> <code>d</code></td>
+          <td>終了とは異なり状態が保存されます。</td>
+      </tr>
+      <tr>
+          <td>アタッチ</td>
+          <td><code>tmux a</code> コマンド</td>
+          <td><code>-t &lt;session名&gt;</code> でアタッチするセッションを選択可能。セッション一覧は <code>tmux list-sessions</code> コマンド。</td>
+      </tr>
+      <tr>
+          <td>上下分割</td>
+          <td><code>^b</code> <code>&quot;</code></td>
+          <td>分割されたエリアはpaneと呼ばれます。</td>
+      </tr>
+      <tr>
+          <td>上下分割したpaneの高さを均等にする</td>
+          <td><code>^b</code> <code>Alt+2</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>pane移動</td>
+          <td><code>^b</code> <code>矢印キー</code></td>
+          <td>マウスクリックでも。</td>
+      </tr>
+      <tr>
+          <td>全paneに同じ入力を行う/解除する</td>
+          <td><code>^b</code> <code>:setw synchronize-panes</code></td>
+          <td><a href="https://github.com/yukihane/kubernetes-the-hard-way/blob/master/docs/01-prerequisites.md#running-commands-in-parallel-with-tmux">the hard wayの説明</a>では <code>setw</code> でなく <code>set</code> を用いているが、 <code>set</code> はセッションに対して適用するコマンド(<code>setw</code> はウィンドウに対して適用)。</td>
+      </tr>
+  </tbody>
 </table>
 
         </section>
@@ -133,9 +128,9 @@ Ctrl キーと b キーの同時押しを ^b と表記しています。">
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/tmux">tmux</a></li>
+              <li><a href="/tags/tmux/">tmux</a></li>
               
-              <li><a href="/tags/kubernetes">kubernetes</a></li>
+              <li><a href="/tags/kubernetes/">kubernetes</a></li>
               
             </ul>
           </nav>
@@ -152,10 +147,10 @@ Ctrl キーと b キーの同時押しを ^b と表記しています。">
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

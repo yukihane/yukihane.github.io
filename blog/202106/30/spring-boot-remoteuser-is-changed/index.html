@@ -2,18 +2,25 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Spring Boot 2.5.0(Spring Security 5.5.0-M2)でremoteUserの値が変わった - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-HttpServletRequest#getRemoteUser() をログ出力(Tomcatの %u)しているのですが、Spring Boot 2.5.0 から返ってくる値が変わったようです。
-
-
+	<meta name="description" content="HttpServletRequest#getRemoteUser() をログ出力(Tomcatの %u)しているのですが、Spring Boot 2.5.0 から返ってくる値が変わったようです。
 どの変更が影響しているのか調べたところ、次のものが該当するようです。
-" />
-	<meta property="og:image" content=""/>
+
+
+5.5.0-M2 Release Notes
+
+getRemoteUser() returns principal name #9211
+
+
+
+実際にどうなったか見てみます。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202106/30/spring-boot-remoteuser-is-changed/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Spring Boot 2.5.0(Spring Security 5.5.0-M2)でremoteUserの値が変わった">
   <meta property="og:description" content="HttpServletRequest#getRemoteUser() をログ出力(Tomcatの %u)しているのですが、Spring Boot 2.5.0 から返ってくる値が変わったようです。
-どの変更が影響しているのか調べたところ、次のものが該当するようです。">
+どの変更が影響しているのか調べたところ、次のものが該当するようです。
+5.5.0-M2 Release Notes
+getRemoteUser() returns principal name #9211 実際にどうなったか見てみます。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -25,14 +32,16 @@ HttpServletRequest#getRemoteUser() をログ出力(Tomcatの %u)しているの�
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Spring Boot 2.5.0(Spring Security 5.5.0-M2)でremoteUserの値が変わった">
   <meta name="twitter:description" content="HttpServletRequest#getRemoteUser() をログ出力(Tomcatの %u)しているのですが、Spring Boot 2.5.0 から返ってくる値が変わったようです。
-どの変更が影響しているのか調べたところ、次のものが該当するようです。">
+どの変更が影響しているのか調べたところ、次のものが該当するようです。
+5.5.0-M2 Release Notes
+getRemoteUser() returns principal name #9211 実際にどうなったか見てみます。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -49,9 +58,17 @@ HttpServletRequest#getRemoteUser() をログ出力(Tomcatの %u)しているの�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -68,88 +85,58 @@ HttpServletRequest#getRemoteUser() をログ出力(Tomcatの %u)しているの�
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p><code>HttpServletRequest#getRemoteUser()</code> をログ出力(Tomcatの <a href="https://tomcat.apache.org/tomcat-9.0-doc/config/valve.html#Access_Log_Valve/Attributes"><code>%u</code></a>)しているのですが、Spring Boot 2.5.0 から返ってくる値が変わったようです。</p>
-</div>
-<div class="paragraph">
+          <p><code>HttpServletRequest#getRemoteUser()</code> をログ出力(Tomcatの <a href="https://tomcat.apache.org/tomcat-9.0-doc/config/valve.html#Access_Log_Valve/Attributes"><code>%u</code></a>)しているのですが、Spring Boot 2.5.0 から返ってくる値が変わったようです。</p>
 <p>どの変更が影響しているのか調べたところ、次のものが該当するようです。</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p><a href="https://github.com/spring-projects/spring-security/releases/tag/5.5.0-M2">5.5.0-M2 Release Notes</a></p>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/spring-projects/spring-security/pull/9211">getRemoteUser() returns principal name #9211</a></p>
+<li><a href="https://github.com/spring-projects/spring-security/pull/9211">getRemoteUser() returns principal name #9211</a></li>
+</ul>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
 <p>実際にどうなったか見てみます。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/">KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる – 発火後忘失</a></p>
-</li>
+<li><a href="https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/">KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる – 発火後忘失</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>で作成した サンプル実装であるところの</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-example" class="bare">https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-example</a></p>
-</li>
+<li><a href="https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-example">https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-example</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>を利用します。</p>
-</div>
-<div class="paragraph">
 <p>上記のサンプル実装を次のように変更します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HelloController</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@GetMapping</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">index</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Authentication</span><span class="w"> </span><span class="n">authn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SecurityContextHolder</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getAuthentication</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&#34;Authentication: {}&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">authn</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getRemoteUser</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">public class HelloController {
-
-    @GetMapping
-    public String index(final HttpServletRequest request) {
-        final Authentication authn = SecurityContextHolder.getContext().getAuthentication();
-        log.info(&#34;Authentication: {}&#34;, authn);
-        return request.getRemoteUser();
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>また、Spring Bootのバージョンを <code>2.4</code> 系の最新版である <code>2.4.8</code> にアップグレードします(Spring Security のバージョンは <code>5.4.7</code> になります)。</p>
-</div>
-<div class="paragraph">
-<p>その上で <a href="http://localhost:8080" class="bare">http://localhost:8080</a> にアクセスしてログインすると、次の出力を得ます。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>Name: [myuser], Granted Authorities: [[ROLE_USER, SCOPE_email, SCOPE_profile]], User Attributes: [{sub=5512f41b-43b1-40cf-858c-ab27bc6a5e9f, email_verified=false, name=my-firstname my-lastname, preferred_username=myuser, given_name=my-firstname, family_name=my-lastname, email=myuser@example.com}]</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>続いて、ソースコードはそのまま、Spring Bootのバージョンを <code>2.5.0</code> に変更して同様にアクセスしてみると、次の出力を得ます。
-なおSpring Securityのバージョンは <code>5.5.0</code> です。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>myuser</code></pre>
-</div>
-</div>
-<div class="paragraph">
+</div><p>また、Spring Bootのバージョンを <code>2.4</code> 系の最新版である <code>2.4.8</code> にアップグレードします(Spring Security のバージョンは <code>5.4.7</code> になります)。</p>
+<p>その上で <a href="http://localhost:8080">http://localhost:8080</a> にアクセスしてログインすると、次の出力を得ます。</p>
+<pre><code>Name: [myuser], Granted Authorities: [[ROLE_USER, SCOPE_email, SCOPE_profile]], User Attributes: [{sub=5512f41b-43b1-40cf-858c-ab27bc6a5e9f, email_verified=false, name=my-firstname my-lastname, preferred_username=myuser, given_name=my-firstname, family_name=my-lastname, email=myuser@example.com}]
+</code></pre>
+<p>続いて、ソースコードはそのまま、Spring Bootのバージョンを <code>2.5.0</code> に変更して同様にアクセスしてみると、次の出力を得ます。 なおSpring Securityのバージョンは <code>5.5.0</code> です。</p>
+<pre><code>myuser
+</code></pre>
 <p>以上、Spring Boot <code>2.5.0</code> 以降(Spring Security <code>5.5.0-M2</code> 以降)で <code>HttpServletRequest#getRemoteUser()</code> の値が変わっていることを確認できました。</p>
-</div>
 
         </section>
         <div class="post-tags">
@@ -158,9 +145,9 @@ HttpServletRequest#getRemoteUser() をログ出力(Tomcatの %u)しているの�
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/spring-boot">spring-boot</a></li>
+              <li><a href="/tags/spring-boot/">spring-boot</a></li>
               
-              <li><a href="/tags/spring-security">spring-security</a></li>
+              <li><a href="/tags/spring-security/">spring-security</a></li>
               
             </ul>
           </nav>
@@ -177,10 +164,10 @@ HttpServletRequest#getRemoteUser() をログ出力(Tomcatの %u)しているの�
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

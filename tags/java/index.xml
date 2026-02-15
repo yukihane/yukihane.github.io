@@ -6,7 +6,7 @@
     <description>Recent content in Java on 発火後忘失</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <copyright>© Yukihane, All Rights Reserved</copyright>
     <lastBuildDate>Mon, 05 May 2025 13:35:57 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -28,119 +28,119 @@
       <link>https://yukihane.github.io/blog/202206/12/java-value-based-class/</link>
       <pubDate>Sun, 12 Jun 2022 05:56:40 +0900</pubDate>
       <guid>https://yukihane.github.io/blog/202206/12/java-value-based-class/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Java 標準 API のドキュメントには、 &amp;#34;値ベース・クラス&amp;#34; というページがあります:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/ValueBased.html&#34; class=&#34;bare&#34;&gt;https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/ValueBased.html&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;機械翻訳っぽくて分かりづらい箇所もあるので、併せて &lt;a href=&#34;https://docs.oracle.com/javase/jp/8/docs/api/java/lang/doc-files/ValueBased.html&#34;&gt;Java8 版&lt;/a&gt; や &lt;a href=&#34;https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/doc-files/ValueBased.html&#34;&gt;英語版&lt;/a&gt; も見てみると良いかもです。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;Java 標準 API のドキュメントには、 &amp;ldquo;値ベース・クラス&amp;rdquo; というページがあります:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/ValueBased.html&#34;&gt;https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/ValueBased.html&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;機械翻訳っぽくて分かりづらい箇所もあるので、併せて &lt;a href=&#34;https://docs.oracle.com/javase/jp/8/docs/api/java/lang/doc-files/ValueBased.html&#34;&gt;Java8 版&lt;/a&gt; や &lt;a href=&#34;https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/doc-files/ValueBased.html&#34;&gt;英語版&lt;/a&gt; も見てみると良いかもです。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Spring MVC で Java17 record を試してみる</title>
       <link>https://yukihane.github.io/blog/202110/18/java17-record-on-spring-mvc/</link>
       <pubDate>Mon, 18 Oct 2021 10:03:46 +0900</pubDate>
       <guid>https://yukihane.github.io/blog/202110/18/java17-record-on-spring-mvc/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;(※ &lt;code&gt;record&lt;/code&gt; は Java14 でプレビュー版が導入、 Java16 で正式版が導入されたので Java17 というのは不正確なようですが…)&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Java17 の &lt;code&gt;record&lt;/code&gt; を今まで利用してきた POJO から置き換えられるのかを簡単に見てみました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;(※ &lt;code&gt;record&lt;/code&gt; は Java14 でプレビュー版が導入、 Java16 で正式版が導入されたので Java17 というのは不正確なようですが…)&lt;/p&gt;&#xA;&lt;p&gt;Java17 の &lt;code&gt;record&lt;/code&gt; を今まで利用してきた POJO から置き換えられるのかを簡単に見てみました。&lt;/p&gt;</description>
     </item>
     <item>
       <title>STS(Eclipse) で Import Getting Started Content が進まない</title>
       <link>https://yukihane.github.io/blog/202110/16/sts-import-getting-started-content-is-stuck/</link>
       <pubDate>Sat, 16 Oct 2021 08:16:59 +0900</pubDate>
       <guid>https://yukihane.github.io/blog/202110/16/sts-import-getting-started-content-is-stuck/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://spring.io/tools&#34;&gt;Spring Tools 4 for Eclipse&lt;/a&gt; を利用していると、バージョンによって？ プロジェクト新規作成時などで &amp;#34;Import Getting Started Content&amp;#34; というタスクが走るのですがこれが全く終わらないことがあります。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://spring.io/tools&#34;&gt;Spring Tools 4 for Eclipse&lt;/a&gt; を利用していると、バージョンによって？ プロジェクト新規作成時などで &amp;ldquo;Import Getting Started Content&amp;rdquo; というタスクが走るのですがこれが全く終わらないことがあります。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Servlet 5.1 で Samesite 属性を設定できるようになる</title>
       <link>https://yukihane.github.io/blog/202110/15/servlet-with-cookies-samesite/</link>
       <pubDate>Fri, 15 Oct 2021 20:31:37 +0900</pubDate>
       <guid>https://yukihane.github.io/blog/202110/15/servlet-with-cookies-samesite/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;現在の Servlet API では &lt;a href=&#34;https://jakarta.ee/specifications/platform/8/apidocs/javax/servlet/http/cookie&#34;&gt;&lt;code&gt;Cookie&lt;/code&gt;&lt;/a&gt; に &lt;a href=&#34;https://developer.mozilla.org/ja/docs/Web/HTTP/Cookies#samesite_attribute&#34;&gt;&lt;code&gt;SameSite&lt;/code&gt; 属性&lt;/a&gt;を設定するメソッドがありません。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;そのため、仕様外の、フレームワーク固有の方法だったり、低レイヤーの仕組みを使って設定する必要があります。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;現在の Servlet API では &lt;a href=&#34;https://jakarta.ee/specifications/platform/8/apidocs/javax/servlet/http/cookie&#34;&gt;&lt;code&gt;Cookie&lt;/code&gt;&lt;/a&gt; に &lt;a href=&#34;https://developer.mozilla.org/ja/docs/Web/HTTP/Cookies#samesite_attribute&#34;&gt;&lt;code&gt;SameSite&lt;/code&gt; 属性&lt;/a&gt;を設定するメソッドがありません。&lt;/p&gt;&#xA;&lt;p&gt;そのため、仕様外の、フレームワーク固有の方法だったり、低レイヤーの仕組みを使って設定する必要があります。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hello Project Panama, on Java17</title>
       <link>https://yukihane.github.io/blog/202110/08/hello-project-panama-on-java17/</link>
       <pubDate>Fri, 08 Oct 2021 04:49:30 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202110/08/hello-project-panama-on-java17/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202002/11/hello-project-panama/&#34;&gt;Hello Project Panama – 発火後忘失&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;で、 Project Panama (&lt;a href=&#34;https://openjdk.java.net/projects/panama/&#34;&gt;リンク1&lt;/a&gt;, &lt;a href=&#34;https://jdk.java.net/panama/&#34;&gt;リンク2&lt;/a&gt;) の機能を利用して、 Java から Rust を呼び出してみました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;当時(Java14)は Project Panama 用にビルドされた JDK を利用する必要がありましたが、 Java17 では incubator ではあるものの &lt;a href=&#34;https://openjdk.java.net/jeps/412&#34;&gt;JEP 412: Foreign Function &amp;amp; Memory API&lt;/a&gt; が標準 JDK に導入された&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202002/11/hello-project-panama/&#34;&gt;Hello Project Panama – 発火後忘失&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;で、 Project Panama (&lt;a href=&#34;https://openjdk.java.net/projects/panama/&#34;&gt;リンク1&lt;/a&gt;, &lt;a href=&#34;https://jdk.java.net/panama/&#34;&gt;リンク2&lt;/a&gt;) の機能を利用して、 Java から Rust を呼び出してみました。&lt;/p&gt;&#xA;&lt;p&gt;当時(Java14)は Project Panama 用にビルドされた JDK を利用する必要がありましたが、 Java17 では incubator ではあるものの &lt;a href=&#34;https://openjdk.java.net/jeps/412&#34;&gt;JEP 412: Foreign Function &amp;amp; Memory API&lt;/a&gt; が標準 JDK に導入された&lt;/p&gt;</description>
     </item>
     <item>
       <title>SLF4Jでplaceholderも使いつつstacktraceも出力したい</title>
       <link>https://yukihane.github.io/blog/202102/02/slf4j-placeholder-throwable/</link>
       <pubDate>Mon, 01 Feb 2021 16:38:42 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202102/02/slf4j-placeholder-throwable/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;SLF4J の &lt;code&gt;Logger&lt;/code&gt; のメソッドを眺めていると、 &lt;code&gt;Throwable&lt;/code&gt; を引数にとれるのは 他に &lt;code&gt;Marker&lt;/code&gt; と &lt;code&gt;String&lt;/code&gt; メッセージだけを持つものばかりで、プレースホルダを利用したい場合にはどうしたら良いのだろう…と思っていたら、普通にプレースホルダと併用できるようです。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;SLF4J の &lt;code&gt;Logger&lt;/code&gt; のメソッドを眺めていると、 &lt;code&gt;Throwable&lt;/code&gt; を引数にとれるのは 他に &lt;code&gt;Marker&lt;/code&gt; と &lt;code&gt;String&lt;/code&gt; メッセージだけを持つものばかりで、プレースホルダを利用したい場合にはどうしたら良いのだろう…と思っていたら、普通にプレースホルダと併用できるようです。&lt;/p&gt;</description>
     </item>
     <item>
       <title>LombokとMapStructをEclipseで併用しようとした際の不具合がMapStruct1.4.0で解消されていた</title>
       <link>https://yukihane.github.io/blog/202007/28/lombok-and-mapstruct-problem-is-fixed/</link>
       <pubDate>Tue, 28 Jul 2020 12:06:03 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202007/28/lombok-and-mapstruct-problem-is-fixed/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;これまで、LombokとMapStructを併用しようとした場合、そのままだと不具合(MapStructのアノテーションプロセッシングが動作しない)があり、ちょっとひと手間かけてその不具合を回避する必要がありました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;これまで、LombokとMapStructを併用しようとした場合、そのままだと不具合(MapStructのアノテーションプロセッシングが動作しない)があり、ちょっとひと手間かけてその不具合を回避する必要がありました。&lt;/p&gt;</description>
     </item>
     <item>
       <title>SWTのFindWindowはもはや存在しない</title>
       <link>https://yukihane.github.io/blog/202007/26/swt-findwindowi-is-deprecated/</link>
       <pubDate>Sat, 25 Jul 2020 23:42:57 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202007/26/swt-findwindowi-is-deprecated/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;元ネタ:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://ja.stackoverflow.com/q/68951/2808&#34;&gt;古い Eclipse の起動時に UnsatisfiedLinkError が発生する - スタック・オーバーフロー&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;いにしえのJava世界では、Win32APIにアクセスするためにSWTを利用していたそうです(リンク先のエントリは2005年のもの。私がJava始めるまえの話だ…)。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;元ネタ:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://ja.stackoverflow.com/q/68951/2808&#34;&gt;古い Eclipse の起動時に UnsatisfiedLinkError が発生する - スタック・オーバーフロー&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;いにしえのJava世界では、Win32APIにアクセスするためにSWTを利用していたそうです(リンク先のエントリは2005年のもの。私がJava始めるまえの話だ…)。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Gradleプラグイン/アノテーションプロセッシング調査</title>
       <link>https://yukihane.github.io/blog/202007/15/research-gradle-plugins/</link>
       <pubDate>Tue, 14 Jul 2020 15:58:57 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202007/15/research-gradle-plugins/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;元々JBoss/WildFlyの流れで開発してきたのでずっとMavenを利用してきたのですが、今度のプロジェクトではGradleを使うことに決まったようで、新しい知識が必要となりました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;元々JBoss/WildFlyの流れで開発してきたのでずっとMavenを利用してきたのですが、今度のプロジェクトではGradleを使うことに決まったようで、新しい知識が必要となりました。&lt;/p&gt;</description>
     </item>
     <item>
       <title>List#contains(null)は使わないほうが良い</title>
       <link>https://yukihane.github.io/blog/202006/13/list-contains-null/</link>
       <pubDate>Sat, 13 Jun 2020 10:34:19 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202006/13/list-contains-null/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;List&lt;/code&gt;(などのコレクション)が要素に &lt;code&gt;null&lt;/code&gt; を含むかどうかの判定に、 &lt;code&gt;contains(null)&lt;/code&gt; を利用すると &lt;code&gt;NullPointerException&lt;/code&gt; が発生することがあります。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;リファレンスには次のようにあります:&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;&lt;code&gt;List&lt;/code&gt;(などのコレクション)が要素に &lt;code&gt;null&lt;/code&gt; を含むかどうかの判定に、 &lt;code&gt;contains(null)&lt;/code&gt; を利用すると &lt;code&gt;NullPointerException&lt;/code&gt; が発生することがあります。&lt;/p&gt;&#xA;&lt;p&gt;リファレンスには次のようにあります:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;NullPointerException&lt;/code&gt; - 指定された要素が &lt;code&gt;null&lt;/code&gt; で、このリストが &lt;code&gt;null&lt;/code&gt; 要素を許可しない場合(オプション)&lt;/p&gt;</description>
     </item>
     <item>
       <title>CompletableFuture覚え書き</title>
       <link>https://yukihane.github.io/blog/202006/02/note-of-completablefuture/</link>
       <pubDate>Tue, 02 Jun 2020 07:54:25 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202006/02/note-of-completablefuture/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;CompletableFuture&lt;/code&gt; の一連の非同期処理 &lt;code&gt;ほげAsync&lt;/code&gt; は、デフォルトでは &lt;a href=&#34;https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/util/concurrent/ForkJoinPool.html#commonPool()&#34;&gt;&lt;code&gt;ForkJoinPool.commonPool()&lt;/code&gt;&lt;/a&gt; という &lt;code&gt;ExecutorService&lt;/code&gt; で実行されます。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;そしてこの &lt;code&gt;ExecutorService&lt;/code&gt; のワーカスレッドはデーモンスレッドであるため、非デーモンスレッドが無くなると(≒ メインスレッドが終了すると)プール内の処理を完了させること無くプロセスが終了します。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;&lt;code&gt;CompletableFuture&lt;/code&gt; の一連の非同期処理 &lt;code&gt;ほげAsync&lt;/code&gt; は、デフォルトでは &lt;a href=&#34;https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/util/concurrent/ForkJoinPool.html#commonPool%28%29&#34;&gt;&lt;code&gt;ForkJoinPool.commonPool()&lt;/code&gt;&lt;/a&gt; という &lt;code&gt;ExecutorService&lt;/code&gt; で実行されます。&lt;/p&gt;&#xA;&lt;p&gt;そしてこの &lt;code&gt;ExecutorService&lt;/code&gt; のワーカスレッドはデーモンスレッドであるため、非デーモンスレッドが無くなると(≒ メインスレッドが終了すると)プール内の処理を完了させること無くプロセスが終了します。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Javaのソースファイルはpackageに対応したディレクトリ階層に置かなくても良い？</title>
       <link>https://yukihane.github.io/blog/202005/29/java-source-location/</link>
       <pubDate>Fri, 29 May 2020 08:28:07 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202005/29/java-source-location/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://twitter.com/hishidama/status/1266176675768745984&#34; class=&#34;bare&#34;&gt;https://twitter.com/hishidama/status/1266176675768745984&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;quoteblock&#34;&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;packageの宣言と実際のディレクトリが一致していなくてもmvn compile（やjavac）が成功するんですが、そういうもんでしたっけ？&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://twitter.com/hishidama/status/1266176675768745984&#34;&gt;https://twitter.com/hishidama/status/1266176675768745984&lt;/a&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;packageの宣言と実際のディレクトリが一致していなくてもmvn compile（やjavac）が成功するんですが、そういうもんでしたっけ？&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hello, JSF</title>
       <link>https://yukihane.github.io/blog/202004/06/hello-jsf/</link>
       <pubDate>Mon, 06 Apr 2020 01:52:30 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202004/06/hello-jsf/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;JSFを少し触ってみようと思ったのですが、もはやロストテクノロジーでどう始めるのかすらドキュメントを探すのが大変…&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;今回はかろうじてこちらを探し当てられました:&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;JSFを少し触ってみようと思ったのですが、もはやロストテクノロジーでどう始めるのかすらドキュメントを探すのが大変…&lt;/p&gt;&#xA;&lt;p&gt;今回はかろうじてこちらを探し当てられました:&lt;/p&gt;</description>
     </item>
     <item>
       <title>いきなりJavaアプリケーションサーバの保守を任されることになった人のためのチートシート(2)</title>
       <link>https://yukihane.github.io/blog/202004/03/java-application-frameworks-cheat-sheet2/</link>
       <pubDate>Fri, 03 Apr 2020 02:44:22 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202004/03/java-application-frameworks-cheat-sheet2/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/posts/202004/02/java-application-frameworks-cheat-sheet/&#34;&gt;前回&lt;/a&gt;はアプリケーションサーバにデバッガをアタッチする方法までを説明しました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;今回は、ソースコードを眺めているだけでは通ることを見つけにくい(のでbreakポイントを仕掛け忘れがちな)クラス/メソッドについてリストにしていきます。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/posts/202004/02/java-application-frameworks-cheat-sheet/&#34;&gt;前回&lt;/a&gt;はアプリケーションサーバにデバッガをアタッチする方法までを説明しました。&lt;/p&gt;&#xA;&lt;p&gt;今回は、ソースコードを眺めているだけでは通ることを見つけにくい(のでbreakポイントを仕掛け忘れがちな)クラス/メソッドについてリストにしていきます。&lt;/p&gt;</description>
     </item>
     <item>
       <title>いきなりJavaアプリケーションサーバの保守を任されることになった人のためのチートシート(1)</title>
       <link>https://yukihane.github.io/blog/202004/02/java-application-frameworks-cheat-sheet/</link>
       <pubDate>Thu, 02 Apr 2020 06:15:28 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202004/02/java-application-frameworks-cheat-sheet/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_目的&#34;&gt;目的&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Javaを用いた開発にある程度慣れている場合でも、初めてアプリケーションフレームワーク上で開発するとなると戸惑うことがあります。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;ここでは、ある程度Javaに対する知識が、Java EE/Spring Bootアプリケーションの保守を担当になって、ローカルで実行する、そしてデバッグを行おうとした際に引っかかりそうなポイントをまとめていきたいと考えています。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;目的&#34;&gt;目的&lt;/h1&gt;&#xA;&lt;p&gt;Javaを用いた開発にある程度慣れている場合でも、初めてアプリケーションフレームワーク上で開発するとなると戸惑うことがあります。&lt;/p&gt;&#xA;&lt;p&gt;ここでは、ある程度Javaに対する知識が、Java EE/Spring Bootアプリケーションの保守を担当になって、ローカルで実行する、そしてデバッグを行おうとした際に引っかかりそうなポイントをまとめていきたいと考えています。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Maven Enforcer Pluginの実行をスキップする</title>
       <link>https://yukihane.github.io/blog/202003/30/skip-maven-enforcer-plugin/</link>
       <pubDate>Mon, 30 Mar 2020 05:37:45 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202003/30/skip-maven-enforcer-plugin/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;とあるMavenプロジェクトを &lt;code&gt;mvn clean install&lt;/code&gt; しようとしたところ、次のエラーになり正常終了しませんでした。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;literalblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre&gt;[WARNING] Rule 0: org.apache.maven.plugins.enforcer.BannedRepositories failed with message:&#xA;Current maven session contains banned repository urls, please double check your pom or settings.xml:&#xA;central - http://my.internal.repo/xxx&#xA;snapshots - http://my.internal.repo/yyy&lt;/pre&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;とあるMavenプロジェクトを &lt;code&gt;mvn clean install&lt;/code&gt; しようとしたところ、次のエラーになり正常終了しませんでした。&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;[WARNING] Rule 0: org.apache.maven.plugins.enforcer.BannedRepositories failed with message:&#xA;Current maven session contains banned repository urls, please double check your pom or settings.xml:&#xA;central - http://my.internal.repo/xxx&#xA;snapshots - http://my.internal.repo/yyy&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;原因は &lt;code&gt;mvn help:effective-pom&lt;/code&gt; 実行結果を見て理解したのですが、どうも &lt;code&gt;http://&lt;/code&gt; だとエラーになるようで、 &lt;code&gt;https://&lt;/code&gt; を使え、ということのようです。 公式リファレンスで該当するのはこれでしょうか:&lt;/p&gt;</description>
     </item>
     <item>
       <title>finalと実質finalの違い</title>
       <link>https://yukihane.github.io/blog/202002/21/effectively-final-difference/</link>
       <pubDate>Fri, 21 Feb 2020 06:53:19 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202002/21/effectively-final-difference/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://ja.stackoverflow.com/a/63099/2808&#34; class=&#34;bare&#34;&gt;https://ja.stackoverflow.com/a/63099/2808&lt;/a&gt; を見ていて気づいたのですが、 &lt;code&gt;実質final&lt;/code&gt; というのは脳内(コンパイラ)で &lt;code&gt;final&lt;/code&gt; を補完してくれる、というような処理が行われるわけではないのですね。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ja.stackoverflow.com/a/63099/2808&#34;&gt;https://ja.stackoverflow.com/a/63099/2808&lt;/a&gt; を見ていて気づいたのですが、 &lt;code&gt;実質final&lt;/code&gt; というのは脳内(コンパイラ)で &lt;code&gt;final&lt;/code&gt; を補完してくれる、というような処理が行われるわけではないのですね。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hello Project Panama</title>
@@ -161,42 +161,42 @@
       <link>https://yukihane.github.io/blog/201908/line-bot-sample/</link>
       <pubDate>Sun, 25 Aug 2019 00:00:00 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/201908/line-bot-sample/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_準備&#34;&gt;準備&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;sect2&#34;&gt;&#xA;&lt;h3 id=&#34;_spring_boot_セットアップ&#34;&gt;Spring Boot セットアップ&lt;/h3&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://start.spring.io/&#34; class=&#34;bare&#34;&gt;https://start.spring.io/&lt;/a&gt; でテンプレートを作成して次の依存関係を追加します。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;listingblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre&gt;&amp;lt;dependency&amp;gt;&#xA;    &amp;lt;groupId&amp;gt;com.linecorp.bot&amp;lt;/groupId&amp;gt;&#xA;    &amp;lt;artifactId&amp;gt;line-bot-spring-boot&amp;lt;/artifactId&amp;gt;&#xA;    &amp;lt;version&amp;gt;2.7.0&amp;lt;/version&amp;gt;&#xA;&amp;lt;/dependency&amp;gt;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;リポジトリ: &lt;a href=&#34;https://github.com/line/line-bot-sdk-java/tree/master/line-bot-spring-boot&#34; class=&#34;bare&#34;&gt;https://github.com/line/line-bot-sdk-java/tree/master/line-bot-spring-boot&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect2&#34;&gt;&#xA;&lt;h3 id=&#34;_heroku_セットアップ&#34;&gt;Heroku セットアップ&lt;/h3&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;今回は &lt;code&gt;linebotbeta&lt;/code&gt; というアプリケーション名にしました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;準備&#34;&gt;準備&lt;/h1&gt;&#xA;&lt;h2 id=&#34;spring-boot-セットアップ&#34;&gt;Spring Boot セットアップ&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://start.spring.io/&#34;&gt;https://start.spring.io/&lt;/a&gt; でテンプレートを作成して次の依存関係を追加します。&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;&amp;lt;dependency&amp;gt;&#xA;    &amp;lt;groupId&amp;gt;com.linecorp.bot&amp;lt;/groupId&amp;gt;&#xA;    &amp;lt;artifactId&amp;gt;line-bot-spring-boot&amp;lt;/artifactId&amp;gt;&#xA;    &amp;lt;version&amp;gt;2.7.0&amp;lt;/version&amp;gt;&#xA;&amp;lt;/dependency&amp;gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;リポジトリ: &lt;a href=&#34;https://github.com/line/line-bot-sdk-java/tree/master/line-bot-spring-boot&#34;&gt;https://github.com/line/line-bot-sdk-java/tree/master/line-bot-spring-boot&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;heroku-セットアップ&#34;&gt;Heroku セットアップ&lt;/h2&gt;&#xA;&lt;p&gt;今回は &lt;code&gt;linebotbeta&lt;/code&gt; というアプリケーション名にしました。&lt;/p&gt;</description>
     </item>
     <item>
       <title>LINE リッチメニューを試してみる</title>
       <link>https://yukihane.github.io/blog/201908/line-richmenu-sample/</link>
       <pubDate>Sun, 25 Aug 2019 00:00:00 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/201908/line-richmenu-sample/</guid>
-      <description>&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/yukihane/hello-java/tree/master/line/richmenu-sample&#34; class=&#34;bare&#34;&gt;https://github.com/yukihane/hello-java/tree/master/line/richmenu-sample&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://developers.line.biz/ja/docs/messaging-api/using-rich-menus/&#34;&gt;公式リファレンス&lt;/a&gt; に書いてある通りですが、リッチメニューを試してみました。&#xA;メニューをタップするとPostBackEventを送信します。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;botでハンドリングするために、 &lt;a href=&#34;https://himeji-cs.jp/blog2/blog/2019/08/line-bot-sample.html&#34;&gt;前回&lt;/a&gt; 作成した &lt;a href=&#34;https://github.com/yukihane/hello-java/tree/master/line/line-bot-sample&#34;&gt;bot&lt;/a&gt; に、PostBackEvent のハンドラを追加しています。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/yukihane/hello-java/tree/master/line/richmenu-sample&#34;&gt;https://github.com/yukihane/hello-java/tree/master/line/richmenu-sample&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://developers.line.biz/ja/docs/messaging-api/using-rich-menus/&#34;&gt;公式リファレンス&lt;/a&gt; に書いてある通りですが、リッチメニューを試してみました。 メニューをタップするとPostBackEventを送信します。&lt;/p&gt;&#xA;&lt;p&gt;botでハンドリングするために、 &lt;a href=&#34;https://himeji-cs.jp/blog2/blog/2019/08/line-bot-sample.html&#34;&gt;前回&lt;/a&gt; 作成した &lt;a href=&#34;https://github.com/yukihane/hello-java/tree/master/line/line-bot-sample&#34;&gt;bot&lt;/a&gt; に、PostBackEvent のハンドラを追加しています。&lt;/p&gt;</description>
     </item>
     <item>
       <title>LINEログイン機能を試してみる(Spring Boot 2.1.7/Spring Security 5.1.6)</title>
       <link>https://yukihane.github.io/blog/201908/line-login-sample/</link>
       <pubDate>Sun, 25 Aug 2019 00:00:00 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/201908/line-login-sample/</guid>
-      <description>&lt;div class=&#34;admonitionblock important&#34;&gt;&#xA;&lt;table&gt;&#xA;&lt;tbody&gt;&lt;tr&gt;&#xA;&lt;td class=&#34;icon&#34;&gt;&#xA;&lt;div class=&#34;title&#34;&gt;Important&lt;/div&gt;&#xA;&lt;/td&gt;&#xA;&lt;td class=&#34;content&#34;&gt;&#xA;本ページは Spring Boot 2.1.7 の頃のものですが、後続として 2.4.5 対応版があります: &lt;a href=&#34;https://yukihane.github.io/blog/202105/06/ling-login-202105/&#34;&gt;LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6)&lt;/a&gt; – 発火後忘失&#xA;&lt;/td&gt;&#xA;&lt;/tr&gt;&#xA;&lt;/tbody&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;hr/&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Spring SecurityのOAuth実装は &lt;a href=&#34;https://qiita.com/yukihane/items/fc97f888ecb6a6850ea7&#34;&gt;こちらに書いたとおり&lt;/a&gt; 歴史的経緯により複数存在しますが、 &lt;a href=&#34;https://start.spring.io/&#34; class=&#34;bare&#34;&gt;https://start.spring.io/&lt;/a&gt; の&#xA; Dependencies で &amp;#34;OAuth2 Client&amp;#34; を選択した場合に追加されるものは一番新しいSpring Securityの &lt;a href=&#34;https://docs.spring.io/spring-security/site/docs/5.1.6.RELEASE/reference/html/modules.html#spring-security-oauth2-client&#34;&gt;&lt;code&gt;spring-security-oauth2-client&lt;/code&gt;&lt;/a&gt; (及び &lt;code&gt;spring-security-oauth2-jose&lt;/code&gt;)でした。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;div class=&#34;important&#34;&gt;&#xA;&lt;p&gt;本ページは Spring Boot 2.1.7 の頃のものですが、後続として 2.4.5 対応版があります: &lt;a href=&#34;https://yukihane.github.io/blog/202105/06/ling-login-202105/&#34;&gt;LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6)&lt;/a&gt; – 発火後忘失&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;Spring SecurityのOAuth実装は &lt;a href=&#34;https://qiita.com/yukihane/items/fc97f888ecb6a6850ea7&#34;&gt;こちらに書いたとおり&lt;/a&gt; 歴史的経緯により複数存在しますが、 &lt;a href=&#34;https://start.spring.io/&#34;&gt;https://start.spring.io/&lt;/a&gt; の Dependencies で &amp;ldquo;OAuth2 Client&amp;rdquo; を選択した場合に追加されるものは一番新しいSpring Securityの &lt;a href=&#34;https://docs.spring.io/spring-security/site/docs/5.1.6.RELEASE/reference/html/modules.html#spring-security-oauth2-client&#34;&gt;&lt;code&gt;spring-security-oauth2-client&lt;/code&gt;&lt;/a&gt; (及び &lt;code&gt;spring-security-oauth2-jose&lt;/code&gt;)でした。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Gradleプロジェクトで生成した実行スクリプトがGitBash(MSYS環境)でうまく動かない</title>
       <link>https://yukihane.github.io/blog/201908/gradle-msys/</link>
       <pubDate>Fri, 23 Aug 2019 00:00:00 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/201908/gradle-msys/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;GitBash環境でSDKMAN!を使ってJBakeをインストールしたのですが、 &lt;code&gt;jbake&lt;/code&gt; コマンドを実行すると次のようなエラーが出てうまく動きませんでした。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;GitBash環境でSDKMAN!を使ってJBakeをインストールしたのですが、 &lt;code&gt;jbake&lt;/code&gt; コマンドを実行すると次のようなエラーが出てうまく動きませんでした。&lt;/p&gt;</description>
     </item>
     <item>
       <title>HerokuでSpringBootアプリを動かしてみる</title>
       <link>https://yukihane.github.io/blog/201908/hello-heroku-with-springboot/</link>
       <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/201908/hello-heroku-with-springboot/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_背景&#34;&gt;背景&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;最終的にはLINE platformのAPIを理解したいのですが、 &lt;a href=&#34;https://developers.line.biz/ja/docs/&#34;&gt;リファレンス&lt;/a&gt;を読んでいるとサンプルプログラム(サンプルbot)をHerokuにデプロイして試してみる、というような説明が多数あったので、Herokuについて理解しておこう、と考えました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;そういった考えで、今回、単純なSpringBoot hello-worldアプリをHerokuにデプロイして接続確認してみることにしました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;背景&#34;&gt;背景&lt;/h1&gt;&#xA;&lt;p&gt;最終的にはLINE platformのAPIを理解したいのですが、 &lt;a href=&#34;https://developers.line.biz/ja/docs/&#34;&gt;リファレンス&lt;/a&gt;を読んでいるとサンプルプログラム(サンプルbot)をHerokuにデプロイして試してみる、というような説明が多数あったので、Herokuについて理解しておこう、と考えました。&lt;/p&gt;&#xA;&lt;p&gt;そういった考えで、今回、単純なSpringBoot hello-worldアプリをHerokuにデプロイして接続確認してみることにしました。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Lombokプラグインを入れているEclipseでMapStruct自動生成が機能しない</title>
       <link>https://yukihane.github.io/blog/201908/eclipse-lombok-mapstruct/</link>
       <pubDate>Sun, 18 Aug 2019 00:00:00 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/201908/eclipse-lombok-mapstruct/</guid>
-      <description>&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;サンプルコード: &lt;a href=&#34;https://github.com/yukihane/hello-java/tree/master/mapstruct/hello-mapstruct&#34; class=&#34;bare&#34;&gt;https://github.com/yukihane/hello-java/tree/master/mapstruct/hello-mapstruct&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;上記のコードのようにLombokとMapStructを併用しているプロジェクトを、 &lt;a href=&#34;https://projectlombok.org/setup/eclipse&#34;&gt;Lombokプラグインを適用したEclipse&lt;/a&gt;で読み込ませるとMapStructのコードが自動生成されません。&#xA;そのため、Eclipse上でJUnitテストを実行すると次のように &lt;code&gt;java.lang.ClassNotFoundException: Cannot find implementation&lt;/code&gt; というエラーになります。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;サンプルコード: &lt;a href=&#34;https://github.com/yukihane/hello-java/tree/master/mapstruct/hello-mapstruct&#34;&gt;https://github.com/yukihane/hello-java/tree/master/mapstruct/hello-mapstruct&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;上記のコードのようにLombokとMapStructを併用しているプロジェクトを、 &lt;a href=&#34;https://projectlombok.org/setup/eclipse&#34;&gt;Lombokプラグインを適用したEclipse&lt;/a&gt;で読み込ませるとMapStructのコードが自動生成されません。 そのため、Eclipse上でJUnitテストを実行すると次のように &lt;code&gt;java.lang.ClassNotFoundException: Cannot find implementation&lt;/code&gt; というエラーになります。&lt;/p&gt;</description>
     </item>
     <item>
       <title>ファイル出力先にServletContext#getRealPathを使うな</title>

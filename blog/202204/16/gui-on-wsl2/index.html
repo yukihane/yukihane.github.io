@@ -2,13 +2,9 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>WSL2上のGUIアプリケーションを動かす - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-Tauri の開発環境を Windows10 の WSL2 に移行するために、 WSL2 上の GUI アプリを Windows で表示するようにセットアップしました。
-
-
-とは言いつつ、既に次の手順でセットアップしたことがあるので、今回はこれが動くかどうかを確認しただけですが。
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="Tauri の開発環境を Windows10 の WSL2 に移行するために、 WSL2 上の GUI アプリを Windows で表示するようにセットアップしました。
+とは言いつつ、既に次の手順でセットアップしたことがあるので、今回はこれが動くかどうかを確認しただけですが。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202204/16/gui-on-wsl2/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="WSL2上のGUIアプリケーションを動かす">
@@ -32,8 +28,8 @@ Tauri の開発環境を Windows10 の WSL2 に移行するために、 WSL2 上
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -50,9 +46,17 @@ Tauri の開発環境を Windows10 の WSL2 に移行するために、 WSL2 上
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -69,35 +73,17 @@ Tauri の開発環境を Windows10 の WSL2 に移行するために、 WSL2 上
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p><a href="/blog/202110/03/hello-tauri/">Tauri</a> の開発環境を Windows10 の WSL2 に移行するために、 WSL2 上の GUI アプリを Windows で表示するようにセットアップしました。</p>
-</div>
-<div class="paragraph">
+          <p><a href="/blog/202110/03/hello-tauri/">Tauri</a> の開発環境を Windows10 の WSL2 に移行するために、 WSL2 上の GUI アプリを Windows で表示するようにセットアップしました。</p>
 <p>とは言いつつ、既に次の手順でセットアップしたことがあるので、今回はこれが動くかどうかを確認しただけですが。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://ja.stackoverflow.com/a/83575/2808">npx playwright codegen wikipedia.org を実行してもブラウザが開かない - スタック・オーバーフロー</a></p>
-</li>
+<li><a href="https://ja.stackoverflow.com/a/83575/2808">npx playwright codegen wikipedia.org を実行してもブラウザが開かない - スタック・オーバーフロー</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>ちなみに、 Windows11 の場合は公式のドキュメントに手順が存在するようです。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/gui-apps">WSL で Linux GUI アプリを実行する | Microsoft Doc</a></p>
-</li>
+<li><a href="https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/gui-apps">WSL で Linux GUI アプリを実行する | Microsoft Doc</a></li>
 </ul>
-</div>
-<hr/>
-<div class="paragraph">
 <p>Windows側の初期設定:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
+<ol>
 <li>
 <p><a href="https://sourceforge.net/projects/vcxsrv/">VcXsrv</a> をインストールします (補足: 私は <a href="https://github.com/ScoopInstaller/Extras/blob/master/bucket/vcxsrv.json"><code>scoop</code></a> でインストールしました )</p>
 </li>
@@ -105,68 +91,47 @@ Tauri の開発環境を Windows10 の WSL2 に移行するために、 WSL2 上
 <p><code>XLauncher</code>(<code>xlaunch.exe</code>) を起動し、次の設定を行います:</p>
 </li>
 <li>
-<p>&#34;Multiple windows&#34; をチェック</p>
+<p>&ldquo;Multiple windows&rdquo; をチェック</p>
 </li>
 <li>
-<p>&#34;Start no client&#34; をチェック</p>
+<p>&ldquo;Start no client&rdquo; をチェック</p>
 </li>
 <li>
-<p>&#34;Native opengl&#34; のチェックを外す、<strong>&#34;Disable access control&#34; をチェック</strong>(重要)</p>
+<p>&ldquo;Native opengl&rdquo; のチェックを外す、<strong>&ldquo;Disable access control&rdquo; をチェック</strong>(重要)</p>
 </li>
 <li>
-<p>&#34;Save configuration&#34; で設定を保存</p>
+<p>&ldquo;Save configuration&rdquo; で設定を保存</p>
 </li>
 <li>
-<p>&#34;完了&#34; を押すと上記の設定で起動します</p>
+<p>&ldquo;完了&rdquo; を押すと上記の設定で起動します</p>
 </li>
 <li>
 <p>(<code>xlaunch.exe</code> のショートカットを作成して引数に <code>-ac -run &lt;設定ファイル&gt;</code> を設定しておくと、次回起動はこのショートカットから行えます(<a href="https://sourceforge.net/p/vcxsrv/wiki/Using%20VcXsrv%20Windows%20X%20Server/">参考</a>))</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
 <p>Ubuntu側の初期設定:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
+<ol>
 <li>
 <p><code>~/.bashrc</code> に次を追記:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>export DISPLAY=$(route.exe print | grep 0.0.0.0 | head -1 | awk &#39;{print $4}&#39;):0.0</code></pre>
-</div>
-</div>
+<pre><code>export DISPLAY=$(route.exe print | grep 0.0.0.0 | head -1 | awk '{print $4}'):0.0
+</code></pre>
 </li>
 <li>
 <p><code>source ~/.bashrc</code> で上の設定を読み込み</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
 <p>参考:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/microsoft/WSL/issues/4106#issuecomment-917564903">Can’t use X-Server in WSL 2 #4106</a></p>
-</li>
+<li><a href="https://github.com/microsoft/WSL/issues/4106#issuecomment-917564903">Can’t use X-Server in WSL 2 #4106</a></li>
 </ul>
-</div>
-<div class="paragraph">
-<p>WSL2 に Google Chrome をインストール方法は、前述の  <a href="https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/gui-apps#install-google-chrome-for-linux">Windows11 向け公式ドキュメント</a> に記載があります。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>cd /tmp
+<p>WSL2 に Google Chrome をインストール方法は、前述の <a href="https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/gui-apps#install-google-chrome-for-linux">Windows11 向け公式ドキュメント</a> に記載があります。</p>
+<pre><code>cd /tmp
 curl -L -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo apt install --fix-broken -y
-sudo dpkg -i google-chrome-stable_current_amd64.deb</code></pre>
-</div>
-</div>
-<div class="paragraph">
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+</code></pre>
 <p><code>google-chrome &amp;</code> コマンドで、 WSL2 上の Google Chrome が起動します。</p>
-</div>
 
         </section>
         <div class="post-tags">
@@ -175,11 +140,11 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb</code></pre>
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/windows">windows</a></li>
+              <li><a href="/tags/windows/">windows</a></li>
               
-              <li><a href="/tags/wsl">wsl</a></li>
+              <li><a href="/tags/wsl/">wsl</a></li>
               
-              <li><a href="/tags/tauri">tauri</a></li>
+              <li><a href="/tags/tauri/">tauri</a></li>
               
             </ul>
           </nav>
@@ -196,10 +161,10 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb</code></pre>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

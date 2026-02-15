@@ -2,26 +2,17 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>`WebClient` の 覚書 - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-RestTemplateBuilder の Bean がsingleton-socpeかつちょっと変態的なインスタンス生成を行っていたので驚いた、というエントリを昔書きました:
-
-
-
+	<meta name="description" content="RestTemplateBuilder の Bean がsingleton-socpeかつちょっと変態的なインスタンス生成を行っていたので驚いた、というエントリを昔書きました:
 
 RestTemplateBuilderに関する覚書
 
-
-
-
-ところで、現時点で RestTemplate は既に maintenance mode なので、新規実装に用いるのは忍びないなあ、と思い、 WebClient を利用する前提で薦めることにしました。
-" />
-	<meta property="og:image" content=""/>
+ところで、現時点で RestTemplate は既に maintenance mode なので、新規実装に用いるのは忍びないなあ、と思い、 WebClient を利用する前提で薦めることにしました。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202007/20/webclientbuilder/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="`WebClient` の 覚書">
   <meta property="og:description" content="RestTemplateBuilder の Bean がsingleton-socpeかつちょっと変態的なインスタンス生成を行っていたので驚いた、というエントリを昔書きました:
-RestTemplateBuilderに関する覚書
-ところで、現時点で RestTemplate は既に maintenance mode なので、新規実装に用いるのは忍びないなあ、と思い、 WebClient を利用する前提で薦めることにしました。">
+RestTemplateBuilderに関する覚書 ところで、現時点で RestTemplate は既に maintenance mode なので、新規実装に用いるのは忍びないなあ、と思い、 WebClient を利用する前提で薦めることにしました。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -32,15 +23,14 @@ RestTemplateBuilderに関する覚書
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="`WebClient` の 覚書">
   <meta name="twitter:description" content="RestTemplateBuilder の Bean がsingleton-socpeかつちょっと変態的なインスタンス生成を行っていたので驚いた、というエントリを昔書きました:
-RestTemplateBuilderに関する覚書
-ところで、現時点で RestTemplate は既に maintenance mode なので、新規実装に用いるのは忍びないなあ、と思い、 WebClient を利用する前提で薦めることにしました。">
+RestTemplateBuilderに関する覚書 ところで、現時点で RestTemplate は既に maintenance mode なので、新規実装に用いるのは忍びないなあ、と思い、 WebClient を利用する前提で薦めることにしました。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -57,9 +47,17 @@ RestTemplateBuilderに関する覚書
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -76,30 +74,17 @@ RestTemplateBuilderに関する覚書
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p><code>RestTemplateBuilder</code> の <code>Bean</code> がsingleton-socpeかつちょっと変態的なインスタンス生成を行っていたので驚いた、というエントリを昔書きました:</p>
-</div>
-<div class="ulist">
+          <p><code>RestTemplateBuilder</code> の <code>Bean</code> がsingleton-socpeかつちょっと変態的なインスタンス生成を行っていたので驚いた、というエントリを昔書きました:</p>
 <ul>
-<li>
-<p><a href="https://yukihane.github.io/posts/201912/10/resttemplatebuilder/">RestTemplateBuilderに関する覚書</a></p>
-</li>
+<li><a href="https://yukihane.github.io/posts/201912/10/resttemplatebuilder/">RestTemplateBuilderに関する覚書</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>ところで、現時点で <a href="https://docs.spring.io/spring-framework/docs/5.2.7.RELEASE/javadoc-api/org/springframework/web/client/RestTemplate.html"><code>RestTemplate</code> は既に maintenance mode</a> なので、新規実装に用いるのは忍びないなあ、と思い、 <code>WebClient</code> を利用する前提で薦めることにしました。</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p>利用するには <code>spring-boot-starter-webflux</code> を依存関係に追加する。(<a href="https://docs.spring.io/spring-boot/docs/2.3.1.RELEASE/reference/htmlsingle/#boot-features-webclient-runtime">4.16.1. WebClient Runtime</a>)</p>
-<div class="ulist">
 <ul>
-<li>
-<p>なお、Spring MVC と Spring WebFlux が同居する場合、デフォルトで Spring MVC が有効化されるhttps://docs.spring.io/spring-boot/docs/2.3.1.RELEASE/reference/htmlsingle/#boot-features-web-environment[4.1.8. Web Environment])。</p>
-</li>
+<li>なお、Spring MVC と Spring WebFlux が同居する場合、デフォルトで Spring MVC が有効化されるhttps://docs.spring.io/spring-boot/docs/2.3.1.RELEASE/reference/htmlsingle/#boot-features-web-environment[4.1.8. Web Environment])。</li>
 </ul>
-</div>
 </li>
 <li>
 <p><code>RestTemplateBuildr</code> と異なり <code>WebClient.Builder</code> クラスは Spring Boot所属のクラスではない</p>
@@ -108,10 +93,7 @@ RestTemplateBuilderに関する覚書
 <p><code>WebClientAutoConfiguration</code> によってインジェクトされる <code>Builder</code> は prototype-scope。</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p><code>RestTemplateBuilder</code> は singlton-scopeで何か設定を与える度にインスタンスを生成し直して…みたいな歪な感じになっていたのに対し、こちらは素直なものになっているようです。</p>
-</div>
 
         </section>
         <div class="post-tags">
@@ -120,7 +102,7 @@ RestTemplateBuilderに関する覚書
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/spring-boot">spring-boot</a></li>
+              <li><a href="/tags/spring-boot/">spring-boot</a></li>
               
             </ul>
           </nav>
@@ -137,10 +119,10 @@ RestTemplateBuilderに関する覚書
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

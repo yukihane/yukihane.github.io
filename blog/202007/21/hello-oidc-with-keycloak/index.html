@@ -2,16 +2,10 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-はじめに
-
-
+	<meta name="description" content="はじめに
 Spring Boot で Spring Security OAuth 2.0 Login / Client を利用する手順をまとめます。
-
-
-また、認可サーバ(IdP)にはローカルで立てたKeycloakを用いますのでそちらのセットアップ手順も記載します。
-" />
-	<meta property="og:image" content=""/>
+また、認可サーバ(IdP)にはローカルで立てたKeycloakを用いますのでそちらのセットアップ手順も記載します。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる">
@@ -36,8 +30,8 @@ Spring Boot で Spring Security OAuth 2.0 Login / Client を利用する手順�
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -54,9 +48,17 @@ Spring Boot で Spring Security OAuth 2.0 Login / Client を利用する手順�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -73,319 +75,227 @@ Spring Boot で Spring Security OAuth 2.0 Login / Client を利用する手順�
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="paragraph">
+          <h1 id="はじめに">はじめに</h1>
 <p>Spring Boot で Spring Security OAuth 2.0 <a href="https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#oauth2login">Login</a> / <a href="https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#oauth2client">Client</a> を利用する手順をまとめます。</p>
-</div>
-<div class="paragraph">
 <p>また、認可サーバ(IdP)にはローカルで立てたKeycloakを用いますのでそちらのセットアップ手順も記載します。</p>
-</div>
-<div class="paragraph">
-<p>補足事項: Keycloakは <a href="https://www.keycloak.org/docs/latest/securing_apps/#java-adapters">クライアントライブラリ</a>も提供しており(Spring系のもので言うと、Spring Securityを利用しないもの、Spring Securityを利用するもの、の2種があるようです。詳細は <a href="https://github.com/keycloak/keycloak-quickstarts">実装サンプル</a>にあります)、Keycloakを利用するのであればそちらを使うのが良さそうです。
-ただし、今回は、最終的にKeycloakをIdPとして使うわけではなく、仮に利用しているだけなので、それらは用いず、Spring Securityの汎用機能 <a href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#oauth2client">Spring Security OAuth 2.0 Client</a> を利用します。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_keycloakセットアップ">Keycloakセットアップ</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<p>補足事項: Keycloakは <a href="https://www.keycloak.org/docs/latest/securing_apps/#java-adapters">クライアントライブラリ</a>も提供しており(Spring系のもので言うと、Spring Securityを利用しないもの、Spring Securityを利用するもの、の2種があるようです。詳細は <a href="https://github.com/keycloak/keycloak-quickstarts">実装サンプル</a>にあります)、Keycloakを利用するのであればそちらを使うのが良さそうです。 ただし、今回は、最終的にKeycloakをIdPとして使うわけではなく、仮に利用しているだけなので、それらは用いず、Spring Securityの汎用機能 <a href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#oauth2client">Spring Security OAuth 2.0 Client</a> を利用します。</p>
+<h1 id="keycloakセットアップ">Keycloakセットアップ</h1>
 <p>参考: <a href="https://www.keycloak.org/getting-started">Getting Started</a> &gt; <a href="https://www.keycloak.org/getting-started/getting-started-zip">Keycloak on OpenJDK</a></p>
-</div>
-<div class="sect2">
-<h3 id="_ダウンロードと展開">ダウンロードと展開</h3>
-<div class="paragraph">
-<p><a href="https://www.keycloak.org/downloads" class="bare">https://www.keycloak.org/downloads</a> からスタンドアロンサーバをダウンロードして展開します(これはWildFlyベースのサーバのようです)。本エントリ記載時点では <a href="https://downloads.jboss.org/keycloak/10.0.2/keycloak-10.0.2.tar.gz" class="bare">https://downloads.jboss.org/keycloak/10.0.2/keycloak-10.0.2.tar.gz</a> です。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_keycloak起動">Keycloak起動</h3>
-<div class="paragraph">
+<h2 id="ダウンロードと展開">ダウンロードと展開</h2>
+<p><a href="https://www.keycloak.org/downloads">https://www.keycloak.org/downloads</a> からスタンドアロンサーバをダウンロードして展開します(これはWildFlyベースのサーバのようです)。本エントリ記載時点では <a href="https://downloads.jboss.org/keycloak/10.0.2/keycloak-10.0.2.tar.gz">https://downloads.jboss.org/keycloak/10.0.2/keycloak-10.0.2.tar.gz</a> です。</p>
+<h2 id="keycloak起動">Keycloak起動</h2>
 <p>続いて、Keycloakを起動します(この起動方法がまさにWildFlyですね)。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./bin/standalone.sh -Djboss.socket.binding.port-offset<span class="o">=</span><span class="m">1</span>
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">./bin/standalone.sh -Djboss.socket.binding.port-offset=1</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_admin_ユーザ作成">admin ユーザ作成</h3>
-<div class="paragraph">
-<p>adminユーザ未作成状態で <a href="http://localhost:8081/auth/" class="bare">http://localhost:8081/auth/</a> へアクセスすると、adminユーザのユーザ名とパスワード入力を促されます。</p>
-</div>
-<div class="paragraph">
+</div><h2 id="admin-ユーザ作成">admin ユーザ作成</h2>
+<p>adminユーザ未作成状態で <a href="http://localhost:8081/auth/">http://localhost:8081/auth/</a> へアクセスすると、adminユーザのユーザ名とパスワード入力を促されます。</p>
 <p>ここではユーザ名、パスワードとも <code>admin</code> とすることにします。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;"/>
-<col style="width: 50%;"/>
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Username</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">admin</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Password</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">admin</p></td>
-</tr>
-</tbody>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Username</td>
+          <td>admin</td>
+      </tr>
+      <tr>
+          <td>Password</td>
+          <td>admin</td>
+      </tr>
+  </tbody>
 </table>
-<div class="paragraph">
 <p><strong>Create</strong> ボタンを押すと上記で入力したadminユーザが作成されます。</p>
-</div>
-<div class="paragraph">
 <p><a href="http://localhost:8081/auth/admin/">Administration Console</a> リンクを押して次の画面に進みます。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_realm作成">realm作成</h3>
-<div class="paragraph">
-<p>Administration Console を開くと、左上に &#34;Master&#34; というプルダウンメニューのようなものがあると思います。</p>
-</div>
-<div class="paragraph">
-<p>ここにマウスカーソルを合わせると &#34;Add realm&#34; というボタンが表れるのでそれを押します。そうすると <a href="http://localhost:8081/auth/admin/master/console/#/create/realm" class="bare">http://localhost:8081/auth/admin/master/console/#/create/realm</a> へ遷移します。</p>
-</div>
-<div class="paragraph">
+<h2 id="realm作成">realm作成</h2>
+<p>Administration Console を開くと、左上に &ldquo;Master&rdquo; というプルダウンメニューのようなものがあると思います。</p>
+<p>ここにマウスカーソルを合わせると &ldquo;Add realm&rdquo; というボタンが表れるのでそれを押します。そうすると <a href="http://localhost:8081/auth/admin/master/console/#/create/realm">http://localhost:8081/auth/admin/master/console/#/create/realm</a> へ遷移します。</p>
 <p>Nameに <code>myrealm</code> と入力ｋし、 Create ボタンを押します。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;"/>
-<col style="width: 50%;"/>
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">myrealm</p></td>
-</tr>
-</tbody>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Name</td>
+          <td>myrealm</td>
+      </tr>
+  </tbody>
 </table>
-<div class="paragraph">
-<p>作成が完了すると Administration Console 画面に戻ります。
-このとき、左上のrealm名画先ほど作成した &#34;Myrealm&#34; になっていると思います。</p>
-</div>
-<div class="paragraph">
+<p>作成が完了すると Administration Console 画面に戻ります。 このとき、左上のrealm名画先ほど作成した &ldquo;Myrealm&rdquo; になっていると思います。</p>
 <p>続いてこの画面からユーザを作成します。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_ユーザ作成">ユーザ作成</h3>
-<div class="paragraph">
-<p>画面左のメニュー <a href="http://localhost:8081/auth/admin/master/console/#/realms/myrealm/users">Users</a> を選択し、 &#34;Add user&#34; ボタンを押します。</p>
-</div>
-<div class="paragraph">
-<p>Usernameに <code>myuser</code> を、それ以外の項目も適当に埋め &#34;Save&#34; ボタンを押します。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;"/>
-<col style="width: 50%;"/>
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Username</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">myuser</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Email</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">myuser@example.com</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">First Name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">my-firstname</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Last Name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">my-lastname</p></td>
-</tr>
-</tbody>
+<h2 id="ユーザ作成">ユーザ作成</h2>
+<p>画面左のメニュー <a href="http://localhost:8081/auth/admin/master/console/#/realms/myrealm/users">Users</a> を選択し、 &ldquo;Add user&rdquo; ボタンを押します。</p>
+<p>Usernameに <code>myuser</code> を、それ以外の項目も適当に埋め &ldquo;Save&rdquo; ボタンを押します。</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Username</td>
+          <td>myuser</td>
+      </tr>
+      <tr>
+          <td>Email</td>
+          <td><a href="mailto:myuser@example.com">myuser@example.com</a></td>
+      </tr>
+      <tr>
+          <td>First Name</td>
+          <td>my-firstname</td>
+      </tr>
+      <tr>
+          <td>Last Name</td>
+          <td>my-lastname</td>
+      </tr>
+  </tbody>
 </table>
-<div class="paragraph">
-<p>ユーザ作成が完了したら、続いてパスワード設定を行います。
-画面上部の &#34;Credentials&#34; タブをクリックして開き、パスワードを設定します。ここではユーザ名と同じ <code>myuser</code> としました。
-また、&#34;Temporary&#34;を <code>OFF</code> にしておきます(ONだと初回ログイン時パスワード変更を求められます)。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;"/>
-<col style="width: 50%;"/>
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Password</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">myuser</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Password Confirmation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">myuser</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Temporary</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">OFF</p></td>
-</tr>
-</tbody>
+<p>ユーザ作成が完了したら、続いてパスワード設定を行います。 画面上部の &ldquo;Credentials&rdquo; タブをクリックして開き、パスワードを設定します。ここではユーザ名と同じ <code>myuser</code> としました。 また、&ldquo;Temporary&quot;を <code>OFF</code> にしておきます(ONだと初回ログイン時パスワード変更を求められます)。</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Password</td>
+          <td>myuser</td>
+      </tr>
+      <tr>
+          <td>Password Confirmation</td>
+          <td>myuser</td>
+      </tr>
+      <tr>
+          <td>Temporary</td>
+          <td>OFF</td>
+      </tr>
+  </tbody>
 </table>
-<div class="paragraph">
-<p>そして、 &#34;Set Password&#34; ボタンを押しパスワード設定完了です。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_クライアント登録">クライアント登録</h3>
-<div class="paragraph">
-<p>ここでいう &#34;クライアント&#34; というのはOAuth2.0でいうところの認可クライアント、OIDCでいうところのRPです。</p>
-</div>
-<div class="paragraph">
+<p>そして、 &ldquo;Set Password&rdquo; ボタンを押しパスワード設定完了です。</p>
+<h2 id="クライアント登録">クライアント登録</h2>
+<p>ここでいう &ldquo;クライアント&rdquo; というのはOAuth2.0でいうところの認可クライアント、OIDCでいうところのRPです。</p>
 <p>画面左のメニュー <a href="http://localhost:8081/auth/admin/master/console/#/realms/myrealm/clients">Clients</a> をクリックします。</p>
-</div>
-<div class="paragraph">
 <p>続いて画面右の <a href="http://localhost:8081/auth/admin/master/console/#/create/client/myrealm">Create</a>ボタンを押します。</p>
-</div>
-<div class="paragraph">
-<p>この画面で次のように入力して、 &#34;Save&#34; ボタンを押します。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;"/>
-<col style="width: 50%;"/>
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Client ID</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">myclient</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Client Protocol</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">openid-connect (デフォルトのまま)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Root URL</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">(空のままでOK)</p></td>
-</tr>
-</tbody>
+<p>この画面で次のように入力して、 &ldquo;Save&rdquo; ボタンを押します。</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Client ID</td>
+          <td>myclient</td>
+      </tr>
+      <tr>
+          <td>Client Protocol</td>
+          <td>openid-connect (デフォルトのまま)</td>
+      </tr>
+      <tr>
+          <td>Root URL</td>
+          <td>(空のままでOK)</td>
+      </tr>
+  </tbody>
 </table>
-<div class="paragraph">
-<p>クライアント作成が完了したら続いてこのクライアント設定画面で 次の通り設定変更し &#34;Save&#34; ボタンを押します。</p>
-</div>
-<div class="paragraph">
-<p>( <code>myspring</code> というのは、後でSpring Bootに設定する <code>registration-id</code> です。詳細は <a href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#oauth2login-sample-redirect-uri">Spring Security リファレンス</a>を &#34;/login/oauth2/code&#34; で検索してみてください)</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;"/>
-<col style="width: 50%;"/>
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Access Type</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">confidential</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Valid Redirect URL</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">http://localhost:8080/login/oauth2/code/myspring</p></td>
-</tr>
-</tbody>
+<p>クライアント作成が完了したら続いてこのクライアント設定画面で 次の通り設定変更し &ldquo;Save&rdquo; ボタンを押します。</p>
+<p>( <code>myspring</code> というのは、後でSpring Bootに設定する <code>registration-id</code> です。詳細は <a href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#oauth2login-sample-redirect-uri">Spring Security リファレンス</a>を &ldquo;/login/oauth2/code&rdquo; で検索してみてください)</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Access Type</td>
+          <td>confidential</td>
+      </tr>
+      <tr>
+          <td>Valid Redirect URL</td>
+          <td>http://localhost:8080/login/oauth2/code/myspring</td>
+      </tr>
+  </tbody>
 </table>
-<div class="paragraph">
-<p>上記の通り Access Type を <code>confidential</code> に設定すると、この画面上部に &#34;Credentials&#34; タブが表示されます。
-このタブで client-secret を確認できます。</p>
-</div>
-<div class="paragraph">
+<p>上記の通り Access Type を <code>confidential</code> に設定すると、この画面上部に &ldquo;Credentials&rdquo; タブが表示されます。 このタブで client-secret を確認できます。</p>
 <p>これで認可サーバであるKeycloak側の設定は終了です。</p>
-</div>
-<div class="paragraph">
 <p>続いて、この認可サーバを利用するクライアントをSpring Bootで作っていきます。</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_クライアントspring_boot設定">クライアント(Spring Boot)設定</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="クライアントspring-boot設定">クライアント(Spring Boot)設定</h1>
 <p>コードはこちらになります。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/yukihane/hello-java/tree/master/spring/oidc-example" class="bare">https://github.com/yukihane/hello-java/tree/master/spring/oidc-example</a></p>
-</li>
+<li><a href="https://github.com/yukihane/hello-java/tree/master/spring/oidc-example">https://github.com/yukihane/hello-java/tree/master/spring/oidc-example</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>はじめに、で記載した通り、 Spring Securityの機能を利用します。</p>
-</div>
-<div class="paragraph">
-<p>Spring Boot では、 <a href="https://start.spring.io/" class="bare">https://start.spring.io/</a> で &#34;OAuth 2.0 Client&#34; を選ぶことで追加される <a href="https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-starters/spring-boot-starter-oauth2-client/build.gradle"><code>spring-boot-starter-oauth2-client</code></a> を用いることになります。</p>
-</div>
-<div class="paragraph">
+<p>Spring Boot では、 <a href="https://start.spring.io/">https://start.spring.io/</a> で &ldquo;OAuth 2.0 Client&rdquo; を選ぶことで追加される <a href="https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-starters/spring-boot-starter-oauth2-client/build.gradle"><code>spring-boot-starter-oauth2-client</code></a> を用いることになります。</p>
 <p>余談ですが(&amp;結構何回も書いてきていますが)、 <a href="https://spring.io/projects/spring-security-oauth"><code>spring-security-auth2</code></a> と、今回利用する <code>spring-security-oauth2-client</code> は名前が似ているだけで別系統のライブラリです(そして前者はdeprecatedです)。</p>
-</div>
-<div class="sect2">
-<h3 id="_spring_boot_starter_oauth2_client_依存関係追加">spring-boot-starter-oauth2-client 依存関係追加</h3>
-<div class="paragraph">
+<h2 id="spring-boot-starter-oauth2-client-依存関係追加">spring-boot-starter-oauth2-client 依存関係追加</h2>
 <p>Spring Boot で auto-configuration を効かせてOAuth 2.0 Login/Clientを利用するには <code>spring-boot-starter-oauth2-client</code> を用います。</p>
+<div class="formalpara-title">
+<p><strong><a href="https://github.com/yukihane/hello-java/blob/0d49734/spring/oidc-example/pom.xml#L22-L25">pom.xml</a></strong></p>
 </div>
-<div class="listingblock">
-<div class="title"><a href="https://github.com/yukihane/hello-java/blob/0d49734/spring/oidc-example/pom.xml#L22-L25">pom.xml</a></div>
-<div class="content">
-<pre>    &lt;dependency&gt;
+<pre><code>    &lt;dependency&gt;
       &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
       &lt;artifactId&gt;spring-boot-starter-oauth2-client&lt;/artifactId&gt;
-    &lt;/dependency&gt;</pre>
+    &lt;/dependency&gt;
+</code></pre>
+<h2 id="security-config-設定">security config 設定</h2>
+<p><a href="/blog/202007/20/spring-security-oauth-2.0-client/">Spring Security OAuth 2.0 Client の auto-configuration</a> で記載した通り、 <code>OAuth2WebSecurityConfiguration</code> で次のような自動設定が為されていますので、 <strong>特に何も行う必要はありません</strong> 。</p>
+<div class="formalpara-title">
+<p><strong>(参考)<a href="https://github.com/spring-projects/spring-boot/blob/v2.3.2.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2WebSecurityConfiguration.java">OAuth2WebSecurityConfiguration.java</a></strong></p>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_security_config_設定">security config 設定</h3>
-<div class="paragraph">
-<p><a href="/blog/202007/20/spring-security-oauth-2.0-client/">Spring Security OAuth 2.0 Client の auto-configuration</a> で記載した通り、
-<code>OAuth2WebSecurityConfiguration</code> で次のような自動設定が為されていますので、 <strong>特に何も行う必要はありません</strong> 。</p>
-</div>
-<div class="listingblock">
-<div class="title">(参考)<a href="https://github.com/spring-projects/spring-boot/blob/v2.3.2.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2WebSecurityConfiguration.java">OAuth2WebSecurityConfiguration.java</a></div>
-<div class="content">
-<pre>class OAuth2WebSecurityConfiguration {
+<pre><code>class OAuth2WebSecurityConfiguration {
 
-	@Bean
-	@ConditionalOnMissingBean
-	OAuth2AuthorizedClientService authorizedClientService(ClientRegistrationRepository clientRegistrationRepository) {
-		return new InMemoryOAuth2AuthorizedClientService(clientRegistrationRepository);
-	}
+    @Bean
+    @ConditionalOnMissingBean
+    OAuth2AuthorizedClientService authorizedClientService(ClientRegistrationRepository clientRegistrationRepository) {
+        return new InMemoryOAuth2AuthorizedClientService(clientRegistrationRepository);
+    }
 
-	@Bean
-	@ConditionalOnMissingBean
-	OAuth2AuthorizedClientRepository authorizedClientRepository(OAuth2AuthorizedClientService authorizedClientService) {
-		return new AuthenticatedPrincipalOAuth2AuthorizedClientRepository(authorizedClientService);
-	}
+    @Bean
+    @ConditionalOnMissingBean
+    OAuth2AuthorizedClientRepository authorizedClientRepository(OAuth2AuthorizedClientService authorizedClientService) {
+        return new AuthenticatedPrincipalOAuth2AuthorizedClientRepository(authorizedClientService);
+    }
 
-	@Configuration(proxyBeanMethods = false)
-	@ConditionalOnMissingBean(WebSecurityConfigurerAdapter.class)
-	static class OAuth2WebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
+    @Configuration(proxyBeanMethods = false)
+    @ConditionalOnMissingBean(WebSecurityConfigurerAdapter.class)
+    static class OAuth2WebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
 
-		@Override
-		protected void configure(HttpSecurity http) throws Exception {
-			http.authorizeRequests((requests) -&gt; requests.anyRequest().authenticated());
-			http.oauth2Login(Customizer.withDefaults());
-			http.oauth2Client();
-		}
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+            http.authorizeRequests((requests) -&gt; requests.anyRequest().authenticated());
+            http.oauth2Login(Customizer.withDefaults());
+            http.oauth2Client();
+        }
 
-	}
+    }
 
-}</pre>
+}
+</code></pre>
+<h2 id="プロパティ">プロパティ</h2>
+<div class="formalpara-title">
+<p><strong><a href="https://github.com/yukihane/hello-java/blob/0d49734ccc5758e05a2acc9d472f1acd43b0e6a3/spring/oidc-example/src/main/resources/application.yml">application.yml</a></strong></p>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_プロパティ">プロパティ</h3>
-<div class="listingblock">
-<div class="title"><a href="https://github.com/yukihane/hello-java/blob/0d49734ccc5758e05a2acc9d472f1acd43b0e6a3/spring/oidc-example/src/main/resources/application.yml">application.yml</a></div>
-<div class="content">
-<pre>spring:
+<pre><code>spring:
   security:
     oauth2:
       client:
@@ -404,10 +314,8 @@ Spring Boot で Spring Security OAuth 2.0 Login / Client を利用する手順�
             # keycloakに登録したidと対応するsecret
             # http://localhost:8081/auth/admin/master/console/#/realms/myrealm/clients
             client-id: myclient
-            client-secret: e3b8886b-5b6e-49a7-91c2-c28caadf0a2b</pre>
-</div>
-</div>
-<div class="ulist">
+            client-secret: e3b8886b-5b6e-49a7-91c2-c28caadf0a2b
+</code></pre>
 <ul>
 <li>
 <p>client-secret は、実際にはKeycloakの設定画面で表示されているもので差し替える必要があります。</p>
@@ -416,22 +324,12 @@ Spring Boot で Spring Security OAuth 2.0 Login / Client を利用する手順�
 <p>いくつかのサンプルと見ているとエンドポイント(<code>authorization-uri</code> など)をそれぞれ設定していましたが、 <code>issuer-uri</code> だけ設定すれば後はそこから自動設定できるようです。</p>
 </li>
 <li>
-<p><code>user-name-attribute</code> は、<a href="https://www.keycloak.org/docs/11.0/securing_apps/index.html">リファレンス</a>の &#34;principal-attibute&#34; からそれっぽいものを選びました。</p>
+<p><code>user-name-attribute</code> は、<a href="https://www.keycloak.org/docs/11.0/securing_apps/index.html">リファレンス</a>の &ldquo;principal-attibute&rdquo; からそれっぽいものを選びました。</p>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_コントローラを作成してアクセスしてみる">コントローラを作成してアクセスしてみる</h3>
-<div class="paragraph">
-<p><a href="https://github.com/yukihane/hello-java/blob/0d49734ccc5758e05a2acc9d472f1acd43b0e6a3/spring/oidc-example/src/main/java/com/example/oidcexample/HelloController.java">適当にコントローラを作成</a>して <a href="http://localhost:8080/" class="bare">http://localhost:8080/</a> へアクセスしてみます。</p>
-</div>
-<div class="paragraph">
+<h2 id="コントローラを作成してアクセスしてみる">コントローラを作成してアクセスしてみる</h2>
+<p><a href="https://github.com/yukihane/hello-java/blob/0d49734ccc5758e05a2acc9d472f1acd43b0e6a3/spring/oidc-example/src/main/java/com/example/oidcexample/HelloController.java">適当にコントローラを作成</a>して <a href="http://localhost:8080/">http://localhost:8080/</a> へアクセスしてみます。</p>
 <p>Keycloakのログイン画面へリダイレクトされるので、事前に作成したユーザのid, password(myuser, myuser)を入力すれば、コントローラが結果を返してくれます。</p>
-</div>
-</div>
-</div>
-</div>
 
         </section>
         <div class="post-tags">
@@ -440,13 +338,13 @@ Spring Boot で Spring Security OAuth 2.0 Login / Client を利用する手順�
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/spring-boot">spring-boot</a></li>
+              <li><a href="/tags/spring-boot/">spring-boot</a></li>
               
-              <li><a href="/tags/spring-security">spring-security</a></li>
+              <li><a href="/tags/spring-security/">spring-security</a></li>
               
-              <li><a href="/tags/oauth">oauth</a></li>
+              <li><a href="/tags/oauth/">oauth</a></li>
               
-              <li><a href="/tags/oidc">oidc</a></li>
+              <li><a href="/tags/oidc/">oidc</a></li>
               
             </ul>
           </nav>
@@ -463,10 +361,10 @@ Spring Boot で Spring Security OAuth 2.0 Login / Client を利用する手順�
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

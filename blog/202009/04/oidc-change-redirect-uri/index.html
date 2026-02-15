@@ -2,40 +2,22 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Spring Security: OIDC の redirect_uri を変更する - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-はじめに
-
-
+	<meta name="description" content="はじめに
 KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる で作成したコードに対して、 カスタム redirect_uri の設定を行ってみます。
-
-
 今回のコードはこちら:
-
-
-
 
 https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redirect-uri
 
-
-
-
-
-
 変更手順
-
-
 KeyCloak 登録情報の変更
-
-前回のページ を参考に、 &#34;Valid Redirect URIs&#34; の値を今回変更するURL http://localhost:8080/my_redirect_uri に更新します。
-" />
-	<meta property="og:image" content=""/>
+前回のページ を参考に、 &ldquo;Valid Redirect URIs&rdquo; の値を今回変更するURL http://localhost:8080/my_redirect_uri に更新します。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202009/04/oidc-change-redirect-uri/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Spring Security: OIDC の redirect_uri を変更する">
   <meta property="og:description" content="はじめに KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる で作成したコードに対して、 カスタム redirect_uri の設定を行ってみます。
 今回のコードはこちら:
-https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redirect-uri
-変更手順 KeyCloak 登録情報の変更 前回のページ を参考に、 &#34;Valid Redirect URIs&#34; の値を今回変更するURL http://localhost:8080/my_redirect_uri に更新します。">
+https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redirect-uri 変更手順 KeyCloak 登録情報の変更 前回のページ を参考に、 “Valid Redirect URIs” の値を今回変更するURL http://localhost:8080/my_redirect_uri に更新します。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -49,15 +31,14 @@ https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redir
   <meta name="twitter:title" content="Spring Security: OIDC の redirect_uri を変更する">
   <meta name="twitter:description" content="はじめに KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる で作成したコードに対して、 カスタム redirect_uri の設定を行ってみます。
 今回のコードはこちら:
-https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redirect-uri
-変更手順 KeyCloak 登録情報の変更 前回のページ を参考に、 &#34;Valid Redirect URIs&#34; の値を今回変更するURL http://localhost:8080/my_redirect_uri に更新します。">
+https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redirect-uri 変更手順 KeyCloak 登録情報の変更 前回のページ を参考に、 “Valid Redirect URIs” の値を今回変更するURL http://localhost:8080/my_redirect_uri に更新します。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -74,9 +55,17 @@ https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redir
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -93,81 +82,66 @@ https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redir
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="paragraph">
+          <h1 id="はじめに">はじめに</h1>
 <p><a href="/blog/202007/21/hello-oidc-with-keycloak/">KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる</a> で作成したコードに対して、 カスタム <code>redirect_uri</code> の設定を行ってみます。</p>
-</div>
-<div class="paragraph">
 <p>今回のコードはこちら:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redirect-uri" class="bare">https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redirect-uri</a></p>
-</li>
+<li><a href="https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redirect-uri">https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redirect-uri</a></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_変更手順">変更手順</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_keycloak_登録情報の変更">KeyCloak 登録情報の変更</h3>
-<div class="paragraph">
-<p><a href="/blog/202007/21/hello-oidc-with-keycloak/">前回のページ</a> を参考に、 &#34;Valid Redirect URIs&#34; の値を今回変更するURL <strong>http://localhost:8080/my_redirect_uri</strong> に更新します。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_spring_boot_側の修正">Spring Boot 側の修正</h3>
-
-</div>
-<div class="sect2">
-<h3 id="_registration_情報更新">registration 情報更新</h3>
-<div class="paragraph">
+<h1 id="変更手順">変更手順</h1>
+<h2 id="keycloak-登録情報の変更">KeyCloak 登録情報の変更</h2>
+<p><a href="/blog/202007/21/hello-oidc-with-keycloak/">前回のページ</a> を参考に、 &ldquo;Valid Redirect URIs&rdquo; の値を今回変更するURL <strong>http://localhost:8080/my_redirect_uri</strong> に更新します。</p>
+<h2 id="spring-boot-側の修正">Spring Boot 側の修正</h2>
+<h2 id="registration-情報更新">registration 情報更新</h2>
 <p><code>application.yml</code> に registration 情報を登録していますが、今回変更するURLに更新します。</p>
+<div class="formalpara-title">
+<p><strong>application.yml</strong></p>
 </div>
-<div class="listingblock">
-<div class="title">application.yml</div>
-<div class="content">
-<pre class="highlight"><code class="language-yml" data-lang="yml">        registration:
-          myspring:
-            redirect-uri: &#34;{baseUrl}/my_redirect_uri&#34;</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="w">        </span><span class="nt">registration</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">myspring</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">redirect-uri</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{baseUrl}/my_redirect_uri&#34;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_security_config">security config</h4>
-<div class="paragraph">
+</div><h3 id="security-config">security config</h3>
 <p>前回のコードでは security config はデフォルト(<a href="https://github.com/spring-projects/spring-boot/blob/v2.3.3.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2WebSecurityConfiguration.java#L54-L65"><code>OAuth2WebSecurityConfigurerAdapter</code></a>)のままで良かったので何も書きませんでした。</p>
-</div>
-<div class="paragraph">
 <p>今回は設定を追加する必要があるので、 <code>OAuth2WebSecurityConfigurerAdapter</code> 実装をコピーした上で、必要な設定を追加します。</p>
+<div class="formalpara-title">
+<p><strong>MyOAuth2WebSecurityConfiguration.java</strong></p>
 </div>
-<div class="listingblock">
-<div class="title">MyOAuth2WebSecurityConfiguration.java</div>
-<div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">@EnableWebSecurity
-public class MyOAuth2WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
-    @Override
-    protected void configure(final HttpSecurity http) throws Exception {
-        http.authorizeRequests((requests) -&gt; requests.anyRequest().authenticated());
-        http.oauth2Login()
-            .loginProcessingUrl(&#34;/my_redirect_uri&#34;); // 今回追加した部分
-        http.oauth2Client();
-    }
-}</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@EnableWebSecurity</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyOAuth2WebSecurityConfiguration</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">WebSecurityConfigurerAdapter</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">configure</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">HttpSecurity</span><span class="w"> </span><span class="n">http</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">http</span><span class="p">.</span><span class="na">authorizeRequests</span><span class="p">((</span><span class="n">requests</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">requests</span><span class="p">.</span><span class="na">anyRequest</span><span class="p">().</span><span class="na">authenticated</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">http</span><span class="p">.</span><span class="na">oauth2Login</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">loginProcessingUrl</span><span class="p">(</span><span class="s">&#34;/my_redirect_uri&#34;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 今回追加した部分</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">http</span><span class="p">.</span><span class="na">oauth2Client</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-</div>
-<div class="paragraph">
-<p>以上です。結果だけ見ると簡単なんですが、どうやってみんなこの結論にたどり着いているのか疑問です…
-(自分はデバッガで追ったりSpring Securityのコードをcloneしてきてgrepしたりした。リファレンスにも書いてないよね…)</p>
-</div>
-</div>
-</div>
-</div>
-</div>
+</div><p>以上です。結果だけ見ると簡単なんですが、どうやってみんなこの結論にたどり着いているのか疑問です… (自分はデバッガで追ったりSpring Securityのコードをcloneしてきてgrepしたりした。リファレンスにも書いてないよね…)</p>
 
         </section>
         <div class="post-tags">
@@ -176,11 +150,11 @@ public class MyOAuth2WebSecurityConfiguration extends WebSecurityConfigurerAdapt
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/oidc">oidc</a></li>
+              <li><a href="/tags/oidc/">oidc</a></li>
               
-              <li><a href="/tags/spring-boot">spring-boot</a></li>
+              <li><a href="/tags/spring-boot/">spring-boot</a></li>
               
-              <li><a href="/tags/spring-security">spring-security</a></li>
+              <li><a href="/tags/spring-security/">spring-security</a></li>
               
             </ul>
           </nav>
@@ -197,10 +171,10 @@ public class MyOAuth2WebSecurityConfiguration extends WebSecurityConfigurerAdapt
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

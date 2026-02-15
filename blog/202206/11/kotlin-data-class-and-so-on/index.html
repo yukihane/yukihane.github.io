@@ -2,13 +2,9 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Kotlin の似たようなクラス - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-(昔書きかけて完成していないっぽいですが、置いておいても忘れるだけなのでcommitしてしまいます)
-
-
-value object のことを調べていたら、 Kotlin にぱっと見似たような異なるクラス定義方法があることに気付いたので、それらについてまとめておきます。
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="(昔書きかけて完成していないっぽいですが、置いておいても忘れるだけなのでcommitしてしまいます)
+value object のことを調べていたら、 Kotlin にぱっと見似たような異なるクラス定義方法があることに気付いたので、それらについてまとめておきます。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202206/11/kotlin-data-class-and-so-on/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Kotlin の似たようなクラス">
@@ -30,8 +26,8 @@ value object のことを調べていたら、 Kotlin にぱっと見似たよ�
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -48,9 +44,17 @@ value object のことを調べていたら、 Kotlin にぱっと見似たよ�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -67,77 +71,35 @@ value object のことを調べていたら、 Kotlin にぱっと見似たよ�
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>(昔書きかけて完成していないっぽいですが、置いておいても忘れるだけなのでcommitしてしまいます)</p>
-</div>
-<div class="paragraph">
+          <p>(昔書きかけて完成していないっぽいですが、置いておいても忘れるだけなのでcommitしてしまいます)</p>
 <p><a href="/blog/202206/11/value-object/">value object</a> のことを調べていたら、 Kotlin にぱっと見似たような異なるクラス定義方法があることに気付いたので、それらについてまとめておきます。</p>
-</div>
-<div class="sect1">
-<h2 id="_data_classes">data classes</h2>
-<div class="sectionbody">
-<div class="ulist">
+<h1 id="data-classes">data classes</h1>
 <ul>
-<li>
-<p><a href="https://kotlinlang.org/docs/data-classes.html" class="bare">https://kotlinlang.org/docs/data-classes.html</a></p>
-</li>
+<li><a href="https://kotlinlang.org/docs/data-classes.html">https://kotlinlang.org/docs/data-classes.html</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>Kotlin プログラマなら馴染みのあるクラスだと思うのでここで詳しく説明する必要はないでしょう。</p>
-</div>
-<div class="paragraph">
 <p><code>equals()</code>(及び <code>hashCode()</code>)を自動生成する性質などを鑑みると、(更に言うと、 <code>copy()</code> を備えていることから immutable な) value object(<a href="https://ja.wikipedia.org/wiki/Value_object">Wikopedia</a>) を構築するためのクラスと見做して差し支えないと考えます(もちろん <code>var</code> でプロパティを宣言することもできますし、 <code>equals()</code> もオーバーライドできはしますが)。</p>
-</div>
-<div class="paragraph">
 <p>Java の <a href="https://docs.oracle.com/javase/specs/jls/se17/html/jls-8.html#jls-8.10"><code>record classes</code></a> や、 Lombok の <a href="https://projectlombok.org/features/Value"><code>@Value</code></a> (+ <a href="https://projectlombok.org/features/With">@With</a>) と同じ方向性のクラスですね。</p>
-</div>
-<div class="paragraph">
 <p>(ちなみに <code>data class</code> に <a href="https://youtrack.jetbrains.com/issue/KT-42430"><code>@JvmRecord</code> アノテーションを付与すると Java の <code>record</code> としてコンパイルされる</a>みたいですね。)</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_inline_classes">inline classes</h2>
-<div class="sectionbody">
-<div class="ulist">
+<h1 id="inline-classes">inline classes</h1>
 <ul>
 <li>
-<p><a href="https://kotlinlang.org/docs/inline-classes.html" class="bare">https://kotlinlang.org/docs/inline-classes.html</a></p>
+<p><a href="https://kotlinlang.org/docs/inline-classes.html">https://kotlinlang.org/docs/inline-classes.html</a></p>
 </li>
 <li>
-<p><a href="https://github.com/Kotlin/KEEP/blob/master/proposals/inline-classes.md" class="bare">https://github.com/Kotlin/KEEP/blob/master/proposals/inline-classes.md</a></p>
+<p><a href="https://github.com/Kotlin/KEEP/blob/master/proposals/inline-classes.md">https://github.com/Kotlin/KEEP/blob/master/proposals/inline-classes.md</a></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>1.5.0 から正式導入されました(ので、 Kotlin in Action で入門した私は知らなかった…​)。
-次節で説明する value-based classes のサブセット。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>@JvmInline
-value class Password(val s: String)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>のように書きます。<br/>
+<p>1.5.0 から正式導入されました(ので、 Kotlin in Action で入門した私は知らなかった…​)。 次節で説明する value-based classes のサブセット。</p>
+<pre><code>@JvmInline
+value class Password(val s: String)
+</code></pre>
+<p>のように書きます。<br />
 (value-based classes のサブセットである inline classes 、なのに <code>value</code> というキーワードで定義するのが混乱を招きそう…​)</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_value_classes_value_based_classes">value classes (value-based classes)</h2>
-<div class="sectionbody">
-<div class="ulist">
+<h1 id="value-classes-value-based-classes">value classes (value-based classes)</h1>
 <ul>
-<li>
-<p><a href="https://github.com/Kotlin/KEEP/blob/master/notes/value-classes.md" class="bare">https://github.com/Kotlin/KEEP/blob/master/notes/value-classes.md</a></p>
-</li>
+<li><a href="https://github.com/Kotlin/KEEP/blob/master/notes/value-classes.md">https://github.com/Kotlin/KEEP/blob/master/notes/value-classes.md</a></li>
 </ul>
-</div>
-</div>
-</div>
 
         </section>
         <div class="post-tags">
@@ -146,7 +108,7 @@ value class Password(val s: String)</code></pre>
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/kotlin">kotlin</a></li>
+              <li><a href="/tags/kotlin/">kotlin</a></li>
               
             </ul>
           </nav>
@@ -163,10 +125,10 @@ value class Password(val s: String)</code></pre>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

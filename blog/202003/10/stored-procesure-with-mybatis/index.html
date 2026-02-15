@@ -2,13 +2,9 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>MyBatisでストアドプロシージャを実行する - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-(もしかしたら以前どこかで書いたかも…)
-
-
-MyBatisでストアドプロシージャを実行する必要に迫られたことがありましたが、オフィシャルリファレンスを見てもどこにもストアドプロシージャについて記述がないので困った記憶をふと思い出しました。
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="(もしかしたら以前どこかで書いたかも…)
+MyBatisでストアドプロシージャを実行する必要に迫られたことがありましたが、オフィシャルリファレンスを見てもどこにもストアドプロシージャについて記述がないので困った記憶をふと思い出しました。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202003/10/stored-procesure-with-mybatis/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="MyBatisでストアドプロシージャを実行する">
@@ -30,8 +26,8 @@ MyBatisでストアドプロシージャを実行する必要に迫られたこ�
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -48,9 +44,17 @@ MyBatisでストアドプロシージャを実行する必要に迫られたこ�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -67,19 +71,13 @@ MyBatisでストアドプロシージャを実行する必要に迫られたこ�
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>(もしかしたら以前どこかで書いたかも…)</p>
-</div>
-<div class="paragraph">
+          <p>(もしかしたら以前どこかで書いたかも…)</p>
 <p>MyBatisでストアドプロシージャを実行する必要に迫られたことがありましたが、オフィシャルリファレンスを見てもどこにもストアドプロシージャについて記述がないので困った記憶をふと思い出しました。</p>
-</div>
-<div class="paragraph">
 <p>実際には、MyBatisのテストケースにストアドプロシージャは登場します。</p>
+<div class="formalpara-title">
+<p><strong><a href="https://github.com/mybatis/mybatis-3/blob/mybatis-3.5.4/src/test/java/org/apache/ibatis/submitted/sptests/SPMapper.xml#L53">src/test/java/org/apache/ibatis/submitted/sptests/SPMapper.xml</a></strong></p>
 </div>
-<div class="listingblock">
-<div class="title"><a href="https://github.com/mybatis/mybatis-3/blob/mybatis-3.5.4/src/test/java/org/apache/ibatis/submitted/sptests/SPMapper.xml#L53">src/test/java/org/apache/ibatis/submitted/sptests/SPMapper.xml</a></div>
-<div class="content">
-<pre>  &lt;!-- Important things for stored procedures:
+<pre><code>  &lt;!-- Important things for stored procedures:
     1. Must set the statement type to CALLABLE
     2. Must use the JDBC standard escape sequence for stored procedures:
        {call xxx (parm1, parm2)}
@@ -96,16 +94,15 @@ MyBatisでストアドプロシージャを実行する必要に迫られたこ�
        and/or resultType is usually not used.
    --&gt;
 
-  &lt;select id=&#34;adderAsSelect&#34; parameterType=&#34;org.apache.ibatis.submitted.sptests.Parameter&#34; statementType=&#34;CALLABLE&#34;&gt;
+  &lt;select id=&quot;adderAsSelect&quot; parameterType=&quot;org.apache.ibatis.submitted.sptests.Parameter&quot; statementType=&quot;CALLABLE&quot;&gt;
     {call sptest.adder(
       #{addend1,jdbcType=INTEGER,mode=IN},
       #{addend2,jdbcType=INTEGER,mode=IN},
       #{sum,jdbcType=INTEGER,mode=OUT}
     )}
   &lt;/select&gt;
-(後略)</pre>
-</div>
-</div>
+(後略)
+</code></pre>
 
         </section>
         <div class="post-tags">
@@ -114,7 +111,7 @@ MyBatisでストアドプロシージャを実行する必要に迫られたこ�
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/mybatis">mybatis</a></li>
+              <li><a href="/tags/mybatis/">mybatis</a></li>
               
             </ul>
           </nav>
@@ -131,10 +128,10 @@ MyBatisでストアドプロシージャを実行する必要に迫られたこ�
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

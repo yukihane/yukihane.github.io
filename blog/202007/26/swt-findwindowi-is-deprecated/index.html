@@ -2,26 +2,17 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>SWTのFindWindowはもはや存在しない - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-元ネタ:
-
-
-
+	<meta name="description" content="元ネタ:
 
 古い Eclipse の起動時に UnsatisfiedLinkError が発生する - スタック・オーバーフロー
 
-
-
-
-いにしえのJava世界では、Win32APIにアクセスするためにSWTを利用していたそうです(リンク先のエントリは2005年のもの。私がJava始めるまえの話だ…)。
-" />
-	<meta property="og:image" content=""/>
+いにしえのJava世界では、Win32APIにアクセスするためにSWTを利用していたそうです(リンク先のエントリは2005年のもの。私がJava始めるまえの話だ…)。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202007/26/swt-findwindowi-is-deprecated/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="SWTのFindWindowはもはや存在しない">
   <meta property="og:description" content="元ネタ:
-古い Eclipse の起動時に UnsatisfiedLinkError が発生する - スタック・オーバーフロー
-いにしえのJava世界では、Win32APIにアクセスするためにSWTを利用していたそうです(リンク先のエントリは2005年のもの。私がJava始めるまえの話だ…)。">
+古い Eclipse の起動時に UnsatisfiedLinkError が発生する - スタック・オーバーフロー いにしえのJava世界では、Win32APIにアクセスするためにSWTを利用していたそうです(リンク先のエントリは2005年のもの。私がJava始めるまえの話だ…)。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -32,15 +23,14 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="SWTのFindWindowはもはや存在しない">
   <meta name="twitter:description" content="元ネタ:
-古い Eclipse の起動時に UnsatisfiedLinkError が発生する - スタック・オーバーフロー
-いにしえのJava世界では、Win32APIにアクセスするためにSWTを利用していたそうです(リンク先のエントリは2005年のもの。私がJava始めるまえの話だ…)。">
+古い Eclipse の起動時に UnsatisfiedLinkError が発生する - スタック・オーバーフロー いにしえのJava世界では、Win32APIにアクセスするためにSWTを利用していたそうです(リンク先のエントリは2005年のもの。私がJava始めるまえの話だ…)。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -57,9 +47,17 @@
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -76,42 +74,22 @@
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>元ネタ:</p>
-</div>
-<div class="ulist">
+          <p>元ネタ:</p>
 <ul>
-<li>
-<p><a href="https://ja.stackoverflow.com/q/68951/2808">古い Eclipse の起動時に UnsatisfiedLinkError が発生する - スタック・オーバーフロー</a></p>
-</li>
+<li><a href="https://ja.stackoverflow.com/q/68951/2808">古い Eclipse の起動時に UnsatisfiedLinkError が発生する - スタック・オーバーフロー</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>いにしえのJava世界では、Win32APIにアクセスするためにSWTを利用していたそうです(リンク先のエントリは2005年のもの。私がJava始めるまえの話だ…)。</p>
-</div>
-<div class="paragraph">
 <p>冒頭リンク先で触れられている <code>org.eclipse.swt.internal.win32.OS.FindWindow</code> というメソッドもそういったもののひとつで、 <a href="https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-findwindowa"><code>FindWindow</code></a> を呼び出すのに昔は利用されていたようです。</p>
-</div>
-<div class="paragraph">
 <p>しかし、このSWTのメソッドは2018年に削除されており、もはや現代では利用することはできません。下記のissue/commitで削除されています。</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=531097">Bug 531097 - [Win32] Remove support for Windows versions older than Vista</a></p>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/eclipse/eclipse.platform.swt/commit/36a2cde49563bc13e65b5b03e811641de522f240#diff-bb4584995e162b851fafacf3b046cc35">コード差分</a></p>
+<li><a href="https://github.com/eclipse/eclipse.platform.swt/commit/36a2cde49563bc13e65b5b03e811641de522f240#diff-bb4584995e162b851fafacf3b046cc35">コード差分</a></li>
+</ul>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
 <p>現代では、Win32APIを利用したい場合の定番は <a href="https://github.com/java-native-access/jna">JNA</a>(<a href="https://ja.wikipedia.org/wiki/Java_Native_Access">Wikipedia</a>)であり、私は利用したことがありませんが、 <code>FindWindow</code> も<a href="https://github.com/java-native-access/jna/blob/5.6.0/contrib/platform/src/com/sun/jna/platform/win32/User32.java#L135">確かに存在しています</a>のでこちらを使えば良いのではないでしょうか。</p>
-</div>
 
         </section>
         <div class="post-tags">
@@ -120,7 +98,7 @@
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/java">java</a></li>
+              <li><a href="/tags/java/">java</a></li>
               
             </ul>
           </nav>
@@ -137,10 +115,10 @@
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

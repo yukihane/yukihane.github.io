@@ -6,7 +6,7 @@
     <description>Recent content in Jpa on 発火後忘失</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <copyright>© Yukihane, All Rights Reserved</copyright>
     <lastBuildDate>Mon, 05 May 2025 13:35:57 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/jpa/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -21,14 +21,14 @@
       <link>https://yukihane.github.io/blog/202203/12/kotlin-jpa-definition/</link>
       <pubDate>Sat, 12 Mar 2022 20:39:32 +0900</pubDate>
       <guid>https://yukihane.github.io/blog/202203/12/kotlin-jpa-definition/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Kotlin で JPA エンティティを実装しようと思って調べた結果をまとめた記事です。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;まとめ:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;プロジェクト構成について&lt;/p&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://kotlinlang.org/docs/no-arg-plugin.html#jpa-support&#34;&gt;&lt;code&gt;kotlin-jpa&lt;/code&gt;&lt;/a&gt; compiler plugin を適用する&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://kotlinlang.org/docs/all-open-plugin.html&#34;&gt;&lt;code&gt;all-open&lt;/code&gt;&lt;/a&gt; compiler plugin を適用し、 &lt;code&gt;@Entity&lt;/code&gt;, &lt;code&gt;@Embeddable&lt;/code&gt;, &lt;code&gt;@MappedSuperclass&lt;/code&gt; を対象に設定する&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;Kotlin で JPA エンティティを実装しようと思って調べた結果をまとめた記事です。&lt;/p&gt;&#xA;&lt;p&gt;まとめ:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;プロジェクト構成について&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://kotlinlang.org/docs/no-arg-plugin.html#jpa-support&#34;&gt;&lt;code&gt;kotlin-jpa&lt;/code&gt;&lt;/a&gt; compiler plugin を適用する&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://kotlinlang.org/docs/all-open-plugin.html&#34;&gt;&lt;code&gt;all-open&lt;/code&gt;&lt;/a&gt; compiler plugin を適用し、 &lt;code&gt;@Entity&lt;/code&gt;, &lt;code&gt;@Embeddable&lt;/code&gt;, &lt;code&gt;@MappedSuperclass&lt;/code&gt; を対象に設定する&lt;/p&gt;</description>
     </item>
     <item>
       <title>JPA Entity には Lombok の @Data(@EqualsAndHashCode) を使用すべきでない</title>
       <link>https://yukihane.github.io/blog/202107/31/dont-use-lombok-with-jpa/</link>
       <pubDate>Fri, 30 Jul 2021 17:57:08 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202107/31/dont-use-lombok-with-jpa/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;問題になりそうなキーワード:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;lazy loading&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;collection&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;循環参照&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;mutability&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;@Data&lt;/code&gt;(&lt;code&gt;@EqualsAndHashCode&lt;/code&gt;) を付与すると &lt;code&gt;hashCode()&lt;/code&gt; は自動で算出されるようになりますが、JPA &lt;code&gt;@Entity&lt;/code&gt; では上記のような理由で、ハッシュ値が計算できなかったり要件を満たせなくなったりします。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;問題になりそうなキーワード:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;lazy loading&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;collection&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;循環参照&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;mutability&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;code&gt;@Data&lt;/code&gt;(&lt;code&gt;@EqualsAndHashCode&lt;/code&gt;) を付与すると &lt;code&gt;hashCode()&lt;/code&gt; は自動で算出されるようになりますが、JPA &lt;code&gt;@Entity&lt;/code&gt; では上記のような理由で、ハッシュ値が計算できなかったり要件を満たせなくなったりします。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

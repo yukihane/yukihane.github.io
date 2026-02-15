@@ -2,35 +2,19 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>確定申告 - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-初めて青色申告、はやめにやっておくこと
-
-
+	<meta name="description" content="初めて青色申告、はやめにやっておくこと
 
 
 確定申告に使うサービスの初期セットアップ
 
 
-
-自分は当初http://www.yayoi-kk.co.jp/products/aoiro/index.html[やよいの青色申告]を使っていてその後https://www.freee.co.jp/[freee]に乗り換え。
-
-
-今からならWebサービスの方が良いでしょう。パッケージソフトのライセンス管理とか、Windowsでしか動かないとかは今やどうかと。(ちなみにやよいの青色申告もhttp://www.yayoi-kk.co.jp/products/aoiro_ol/index.html[オンライン版]がある模様。
-
-
-それ以外だと Money Forwardの
-MFクラウド確定申告が有名なのかな？
-
-
-" />
-	<meta property="og:image" content=""/>
+自分は当初http://www.yayoi-kk.co.jp/products/aoiro/index.html[やよいの青色申告]を使っていてその後https://www.freee.co.jp/[freee]に乗り換え。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/biz/report/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="確定申告">
   <meta property="og:description" content="初めて青色申告、はやめにやっておくこと 確定申告に使うサービスの初期セットアップ
-自分は当初http://www.yayoi-kk.co.jp/products/aoiro/index.html[やよいの青色申告]を使っていてその後https://www.freee.co.jp/[freee]に乗り換え。
-今からならWebサービスの方が良いでしょう。パッケージソフトのライセンス管理とか、Windowsでしか動かないとかは今やどうかと。(ちなみにやよいの青色申告もhttp://www.yayoi-kk.co.jp/products/aoiro_ol/index.html[オンライン版]がある模様。
-それ以外だと Money Forwardの MFクラウド確定申告が有名なのかな？">
+自分は当初http://www.yayoi-kk.co.jp/products/aoiro/index.html[やよいの青色申告]を使っていてその後https://www.freee.co.jp/[freee]に乗り換え。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -40,16 +24,14 @@ MFクラウド確定申告が有名なのかな？
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="確定申告">
   <meta name="twitter:description" content="初めて青色申告、はやめにやっておくこと 確定申告に使うサービスの初期セットアップ
-自分は当初http://www.yayoi-kk.co.jp/products/aoiro/index.html[やよいの青色申告]を使っていてその後https://www.freee.co.jp/[freee]に乗り換え。
-今からならWebサービスの方が良いでしょう。パッケージソフトのライセンス管理とか、Windowsでしか動かないとかは今やどうかと。(ちなみにやよいの青色申告もhttp://www.yayoi-kk.co.jp/products/aoiro_ol/index.html[オンライン版]がある模様。
-それ以外だと Money Forwardの MFクラウド確定申告が有名なのかな？">
+自分は当初http://www.yayoi-kk.co.jp/products/aoiro/index.html[やよいの青色申告]を使っていてその後https://www.freee.co.jp/[freee]に乗り換え。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -66,9 +48,17 @@ MFクラウド確定申告が有名なのかな？
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -85,14 +75,10 @@ MFクラウド確定申告が有名なのかな？
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_初めて青色申告はやめにやっておくこと">初めて青色申告、はやめにやっておくこと</h2>
-<div class="sectionbody">
-<div class="ulist">
+          <h1 id="初めて青色申告はやめにやっておくこと">初めて青色申告、はやめにやっておくこと</h1>
 <ul>
 <li>
 <p>確定申告に使うサービスの初期セットアップ</p>
-<div class="ulist">
 <ul>
 <li>
 <p>自分は当初http://www.yayoi-kk.co.jp/products/aoiro/index.html[やよいの青色申告]を使っていてその後https://www.freee.co.jp/[freee]に乗り換え。</p>
@@ -101,15 +87,12 @@ MFクラウド確定申告が有名なのかな？
 <p>今からならWebサービスの方が良いでしょう。パッケージソフトのライセンス管理とか、Windowsでしか動かないとかは今やどうかと。(ちなみにやよいの青色申告もhttp://www.yayoi-kk.co.jp/products/aoiro_ol/index.html[オンライン版]がある模様。</p>
 </li>
 <li>
-<p>それ以外だと Money Forwardの
-<a href="https://biz.moneyforward.com/tax_return">MFクラウド確定申告</a>が有名なのかな？</p>
+<p>それ以外だと Money Forwardの <a href="https://biz.moneyforward.com/tax_return">MFクラウド確定申告</a>が有名なのかな？</p>
 </li>
 </ul>
-</div>
 </li>
 <li>
 <p>定期的な支払いを口座引落カード引き落としなどにしておく</p>
-<div class="ulist">
 <ul>
 <li>
 <p>記録に残るようにしておかないと領収書を補完するのが非常に面倒</p>
@@ -118,24 +101,18 @@ MFクラウド確定申告が有名なのかな？
 <p>自動引き落としにしておくと、上記のサービスと自動連携できる</p>
 </li>
 </ul>
-</div>
 </li>
 <li>
 <p>銀行通帳記帳を合算しない申請(以下はみずほ銀行の場合)</p>
-<div class="ulist">
 <ul>
 <li>
 <p>通帳の取引明細は、確定申告の際のチェック用にあると非常に助かる。</p>
 </li>
 <li>
 <p>通常だと、「一定の件数、期間を超える取引（未記帳取引）は、取引ごとの明細を通帳に記入せず、まとめての記帳となります。(未記帳分合算)」ということで、こまめに記帳しないと明細が記録されなくなる。(<a href="https://www.faq.mizuhobank.co.jp/faq/show/49">参考</a>)</p>
-<div class="ulist">
 <ul>
-<li>
-<p>窓口で「取引明細証明書」を取り寄せれば明細は分かる。ただし即座発行は不可能で日数がかかる。</p>
-</li>
+<li>窓口で「取引明細証明書」を取り寄せれば明細は分かる。ただし即座発行は不可能で日数がかかる。</li>
 </ul>
-</div>
 </li>
 <li>
 <p>窓口で申請すれば、通帳に「未記帳分合算」をせずに取引を全部記帳するようにできた。</p>
@@ -144,11 +121,9 @@ MFクラウド確定申告が有名なのかな？
 <p>ただ、例えば住信SBIネット銀行だとネットで明細7年間分みられるなど、基本スペックがそもそも違う。今から始めるならそういう銀行にしておく方が良いかも。</p>
 </li>
 </ul>
-</div>
 </li>
 <li>
-<p><strong class="line-through">クレジットカード明細の紙での送付</strong></p>
-<div class="ulist">
+<p><strong><span class="line-through">クレジットカード明細の紙での送付</span></strong></p>
 <ul>
 <li>
 <p>三井住友VISAカードを利用しているが、オンライン明細だと数ヶ月しか残っていないので保存するのを忘れると失われてしまう。</p>
@@ -157,24 +132,11 @@ MFクラウド確定申告が有名なのかな？
 <p>と思ったら今はhttps://www.smbc-card.com/mem/oshiharai/wm_mail_top.jsp[15ヶ月前まで見られる]<a href="https://www.smbc-card.com/company/koe/koe0000107.jsp">ようになっていた</a>。Web明細に戻そう…</p>
 </li>
 </ul>
-</div>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_12月届く書類をちゃんとしまっておく">12月届く書類をちゃんとしまっておく</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>確定申告するのに用いる書類のうち、年末に届くものがいくつかあります。
-確定申告(2月-3月)までにしばらく間が開くので、よくどこに言ったか忘れてしまう。
-ちゃんと保管しておきましょう。</p>
-</div>
-<div class="paragraph">
+<h1 id="12月届く書類をちゃんとしまっておく">12月届く書類をちゃんとしまっておく</h1>
+<p>確定申告するのに用いる書類のうち、年末に届くものがいくつかあります。 確定申告(2月-3月)までにしばらく間が開くので、よくどこに言ったか忘れてしまう。 ちゃんと保管しておきましょう。</p>
 <p>確定申告書と一緒に提出する必要があります。</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p>社会保険料(国民年金保険料)控除証明書</p>
@@ -183,66 +145,25 @@ MFクラウド確定申告が有名なのかな？
 <p>生命保険料控除証明書</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>国民健康保険に関しては、添付する書類はないですが、収めた金額を記入する必要があります(自動引き落としにしておくと通帳等で確認できます)。
-なお、国民健康保険料通知書に書かれている年間の支払い料金は、確定申告の期間とは異なるので注意が必要です。
-(確定申告に記載するのは1-12月で払った合計、通知書に書かれているのは6月からの1年分。)</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_シーズン到来">シーズン到来</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>自分が今シーズン行った作業メモ。
-前述の通り、freeeを利用しているのでそれが前提となります。</p>
-</div>
-<div class="paragraph">
+<p>国民健康保険に関しては、添付する書類はないですが、収めた金額を記入する必要があります(自動引き落としにしておくと通帳等で確認できます)。 なお、国民健康保険料通知書に書かれている年間の支払い料金は、確定申告の期間とは異なるので注意が必要です。 (確定申告に記載するのは1-12月で払った合計、通知書に書かれているのは6月からの1年分。)</p>
+<h1 id="シーズン到来">シーズン到来</h1>
+<p>自分が今シーズン行った作業メモ。 前述の通り、freeeを利用しているのでそれが前提となります。</p>
 <p>別に確定申告期間でなくとも、事前にやっておけば良いことも多いと思いますが…</p>
-</div>
-<div class="sect2">
-<h3 id="_amazon履歴pdf化印刷">Amazon履歴PDF化、印刷</h3>
-<div class="paragraph">
+<h2 id="amazon履歴pdf化印刷">Amazon履歴PDF化、印刷</h2>
 <p>freeeに登録されている取引と突合チェック用。自分の場合個人用と事業用で分けていないのでどちら用のものか判別する必要があります。</p>
-</div>
-<div class="paragraph">
-<p><a href="https://www.amazon.co.jp/gp/css/order-history/" class="bare">https://www.amazon.co.jp/gp/css/order-history/</a>
-から。対象年で絞り込んで印刷。一応前後も確認しておく。</p>
-</div>
-<div class="paragraph">
+<p><a href="https://www.amazon.co.jp/gp/css/order-history/">https://www.amazon.co.jp/gp/css/order-history/</a> から。対象年で絞り込んで印刷。一応前後も確認しておく。</p>
 <p>Amazonの履歴を1ページごとにPDF化していくと大量になるのでまとめて連結して保存、印刷することにしています。</p>
-</div>
-<div class="paragraph">
-<p>PDF連結には <a href="https://www.cube-soft.jp/cubepdfutility/" class="bare">https://www.cube-soft.jp/cubepdfutility/</a>
-を使用したはず(WINアプリ)。</p>
-</div>
-<div class="paragraph">
+<p>PDF連結には <a href="https://www.cube-soft.jp/cubepdfutility/">https://www.cube-soft.jp/cubepdfutility/</a> を使用したはず(WINアプリ)。</p>
 <p>履歴をスクレイピングするスクリプトも有るようですし、自分用に作ろうかとも思っていますが頓挫中。</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
-<p><a href="http://furyu.hatenablog.com/entry/amzOrderHistoryFilter">【アマゾン注文履歴フィルタ】確定申告にも便利かも？！
-Kindle
-等のデジタルコンテンツの領収書をまとめて表示する拡張機能／アドオン／ユーザースクリプト</a></p>
-<div class="ulist">
+<p><a href="http://furyu.hatenablog.com/entry/amzOrderHistoryFilter">【アマゾン注文履歴フィルタ】確定申告にも便利かも？！ Kindle 等のデジタルコンテンツの領収書をまとめて表示する拡張機能／アドオン／ユーザースクリプト</a></p>
 <ul>
-<li>
-<p><a href="https://forest.watch.impress.co.jp/docs/review/1106752.html" class="bare">https://forest.watch.impress.co.jp/docs/review/1106752.html</a></p>
+<li><a href="https://forest.watch.impress.co.jp/docs/review/1106752.html">https://forest.watch.impress.co.jp/docs/review/1106752.html</a></li>
+</ul>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_クレジットカード履歴pdf化印刷">クレジットカード履歴PDF化、印刷</h3>
-
-</div>
-</div>
-</div>
+<h2 id="クレジットカード履歴pdf化印刷">クレジットカード履歴PDF化、印刷</h2>
 
         </section>
         <div class="post-tags">
@@ -260,10 +181,10 @@ Kindle
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

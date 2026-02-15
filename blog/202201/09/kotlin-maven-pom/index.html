@@ -2,35 +2,22 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Kotolin のプロジェクトを Maven で作成する - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-入門書を一通り読み終えたのでサンプルプロジェクトを作成しようと思いました。
-
-
+	<meta name="description" content="入門書を一通り読み終えたのでサンプルプロジェクトを作成しようと思いました。
 JetBrains がメンテナンスしている archetype が利用できそうです。
-
-
-
 
 https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-archetype-jvm
 
 
-
-
-
 mvn archetype:generate -DarchetypeGroupId=org.jetbrains.kotlin -DarchetypeArtifactId=kotlin-archetype-jvm
 
-
-
-IntelliJ IDEA から作成した場合も似た感じの pom.xml が作成されるかなと思います。
-" />
-	<meta property="og:image" content=""/>
+IntelliJ IDEA から作成した場合も似た感じの pom.xml が作成されるかなと思います。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202201/09/kotlin-maven-pom/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Kotolin のプロジェクトを Maven で作成する">
   <meta property="og:description" content="入門書を一通り読み終えたのでサンプルプロジェクトを作成しようと思いました。
 JetBrains がメンテナンスしている archetype が利用できそうです。
-https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-archetype-jvm
-mvn archetype:generate -DarchetypeGroupId=org.jetbrains.kotlin -DarchetypeArtifactId=kotlin-archetype-jvm IntelliJ IDEA から作成した場合も似た感じの pom.xml が作成されるかなと思います。">
+https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-archetype-jvm mvn archetype:generate -DarchetypeGroupId=org.jetbrains.kotlin -DarchetypeArtifactId=kotlin-archetype-jvm IntelliJ IDEA から作成した場合も似た感じの pom.xml が作成されるかなと思います。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -42,15 +29,14 @@ mvn archetype:generate -DarchetypeGroupId=org.jetbrains.kotlin -DarchetypeArtifa
   <meta name="twitter:title" content="Kotolin のプロジェクトを Maven で作成する">
   <meta name="twitter:description" content="入門書を一通り読み終えたのでサンプルプロジェクトを作成しようと思いました。
 JetBrains がメンテナンスしている archetype が利用できそうです。
-https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-archetype-jvm
-mvn archetype:generate -DarchetypeGroupId=org.jetbrains.kotlin -DarchetypeArtifactId=kotlin-archetype-jvm IntelliJ IDEA から作成した場合も似た感じの pom.xml が作成されるかなと思います。">
+https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-archetype-jvm mvn archetype:generate -DarchetypeGroupId=org.jetbrains.kotlin -DarchetypeArtifactId=kotlin-archetype-jvm IntelliJ IDEA から作成した場合も似た感じの pom.xml が作成されるかなと思います。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -67,9 +53,17 @@ mvn archetype:generate -DarchetypeGroupId=org.jetbrains.kotlin -DarchetypeArtifa
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -86,45 +80,23 @@ mvn archetype:generate -DarchetypeGroupId=org.jetbrains.kotlin -DarchetypeArtifa
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>入門書を一通り読み終えたのでサンプルプロジェクトを作成しようと思いました。</p>
-</div>
-<div class="paragraph">
+          <p>入門書を一通り読み終えたのでサンプルプロジェクトを作成しようと思いました。</p>
 <p>JetBrains がメンテナンスしている archetype が利用できそうです。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-archetype-jvm" class="bare">https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-archetype-jvm</a></p>
-</li>
+<li><a href="https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-archetype-jvm">https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-archetype-jvm</a></li>
 </ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>mvn archetype:generate -DarchetypeGroupId=org.jetbrains.kotlin -DarchetypeArtifactId=kotlin-archetype-jvm</code></pre>
-</div>
-</div>
-<div class="paragraph">
+<!-- -->
+<pre><code>mvn archetype:generate -DarchetypeGroupId=org.jetbrains.kotlin -DarchetypeArtifactId=kotlin-archetype-jvm
+</code></pre>
 <p>IntelliJ IDEA から作成した場合も似た感じの <code>pom.xml</code> が作成されるかなと思います。</p>
-</div>
-<div class="paragraph">
 <p>Java と併存する場合は、公式リファレンスの記述が参考になります:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://kotlinlang.org/docs/maven.html#compile-kotlin-and-java-sources">Maven &gt; Compile Kotlin and Java sources</a></p>
-</li>
+<li><a href="https://kotlinlang.org/docs/maven.html#compile-kotlin-and-java-sources">Maven &gt; Compile Kotlin and Java sources</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>JDK17を利用して開発する場合、次の設定変更を <code>pom.xml</code> 対して行います:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
+<ol>
 <li>
 <p><a href="https://maven.apache.org/plugins/maven-compiler-plugin/"><code>maven-compiler-plugin</code></a> のバージョンを最新版に上げます。</p>
-<div class="ulist">
 <ul>
 <li>
 <p>この記事を書いた時点の最新バージョンは <code>3.10.1</code> でした</p>
@@ -133,25 +105,19 @@ mvn archetype:generate -DarchetypeGroupId=org.jetbrains.kotlin -DarchetypeArtifa
 <p>前述Kotlin公式サイトに書かれているサンプルは <code>3.5.1</code> とかなり古く、 Java17 に対応していません</p>
 </li>
 </ul>
-</div>
 </li>
 <li>
 <p><code>properties</code> セクションに次を追記します。</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>&lt;properties&gt;
+<pre><code>&lt;properties&gt;
     &lt;java.version&gt;17&lt;/java.version&gt;
     &lt;maven.compiler.target&gt;${java.version}&lt;/maven.compiler.target&gt;
     &lt;maven.compiler.source&gt;${java.version}&lt;/maven.compiler.source&gt;
     &lt;kotlin.compiler.jvmTarget&gt;${java.version}&lt;/kotlin.compiler.jvmTarget&gt;
-&lt;/properties&gt;</code></pre>
-</div>
-</div>
-<div class="ulist">
+&lt;/properties&gt;
+</code></pre>
 <ul>
 <li>
 <p>参考</p>
-<div class="ulist">
 <ul>
 <li>
 <p><a href="https://stackoverflow.com/a/59607812/4506703">IntelliJ: Error:java: error: release version 5 not supported</a></p>
@@ -160,32 +126,18 @@ mvn archetype:generate -DarchetypeGroupId=org.jetbrains.kotlin -DarchetypeArtifa
 <p><a href="https://kotlinlang.org/docs/maven.html#attributes-specific-to-jvm">Attributes specific to JVM</a></p>
 </li>
 </ul>
-</div>
 </li>
 </ul>
-</div>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p>また、 <a href="https://start.spring.io/">Spring Initializr</a> の Kotlin 用プロジェクト雛形も参考になります。
-次のリンク先に解説もあります:</p>
-</div>
-<div class="ulist">
+<p>また、 <a href="https://start.spring.io/">Spring Initializr</a> の Kotlin 用プロジェクト雛形も参考になります。 次のリンク先に解説もあります:</p>
 <ul>
-<li>
-<p><a href="https://spring.io/guides/tutorials/spring-boot-kotlin/">Building web applications with Spring Boot and Kotlin</a></p>
-</li>
+<li><a href="https://spring.io/guides/tutorials/spring-boot-kotlin/">Building web applications with Spring Boot and Kotlin</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>書いてあることを要約すると:</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p>Kotlin クラスをデフォルトで 非 <code>final</code> にする (<a href="https://kotlinlang.org/docs/all-open-plugin.html">all-open compiler plugin</a>)</p>
-<div class="ulist">
 <ul>
 <li>
 <p>クラスのプロキシ化するのには継承可能でなければいけない。 AOP や mocking で必要。</p>
@@ -194,7 +146,6 @@ mvn archetype:generate -DarchetypeGroupId=org.jetbrains.kotlin -DarchetypeArtifa
 <p>test のときだけ mocking 用に非 <code>final</code> にする、みたいな使い方はできなさそう…？</p>
 </li>
 </ul>
-</div>
 </li>
 <li>
 <p>特定のアノテーション(例えば JPA の <code>@Entity</code>)が付与されたクラスに引数なしコンストラクタを生成する(<a href="https://kotlinlang.org/docs/no-arg-plugin.html">no-arg compiler plugin</a>)</p>
@@ -206,7 +157,6 @@ mvn archetype:generate -DarchetypeGroupId=org.jetbrains.kotlin -DarchetypeArtifa
 <p>Kotlin 用の Mockito ライクなライブラリ <a href="https://github.com/Ninja-Squad/springmockk/">SpringMockK</a> というものがあり、 Spring ではこれを推している(※ Spring 公式ライブラリではない)</p>
 </li>
 </ul>
-</div>
 
         </section>
         <div class="post-tags">
@@ -215,7 +165,7 @@ mvn archetype:generate -DarchetypeGroupId=org.jetbrains.kotlin -DarchetypeArtifa
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/kotlin">kotlin</a></li>
+              <li><a href="/tags/kotlin/">kotlin</a></li>
               
             </ul>
           </nav>
@@ -232,10 +182,10 @@ mvn archetype:generate -DarchetypeGroupId=org.jetbrains.kotlin -DarchetypeArtifa
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

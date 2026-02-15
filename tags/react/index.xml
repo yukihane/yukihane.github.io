@@ -6,7 +6,7 @@
     <description>Recent content in React on 発火後忘失</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <copyright>© Yukihane, All Rights Reserved</copyright>
     <lastBuildDate>Sun, 03 Oct 2021 08:20:21 +0000</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/react/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,7 +14,7 @@
       <link>https://yukihane.github.io/blog/202110/03/hello-tauri/</link>
       <pubDate>Sun, 03 Oct 2021 08:20:21 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202110/03/hello-tauri/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://tauri.studio/&#34;&gt;Tauri&lt;/a&gt; という、 WebView を利用して GUI を実現する Rust 製フレームワークを試してみました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Rust も React も入門書から陸続きで書き始められるので、余計なことに気を取られずに済みそうです(ただし、 JS - Rust 間のデータ受け渡しに利用する JSON オブジェクトのシリアライズ/デシリアライズに利用する &lt;a href=&#34;https://serde.rs/&#34;&gt;Serde&lt;/a&gt; についての知識は少し必要になりそうでした)。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://tauri.studio/&#34;&gt;Tauri&lt;/a&gt; という、 WebView を利用して GUI を実現する Rust 製フレームワークを試してみました。&lt;/p&gt;&#xA;&lt;p&gt;Rust も React も入門書から陸続きで書き始められるので、余計なことに気を取られずに済みそうです(ただし、 JS - Rust 間のデータ受け渡しに利用する JSON オブジェクトのシリアライズ/デシリアライズに利用する &lt;a href=&#34;https://serde.rs/&#34;&gt;Serde&lt;/a&gt; についての知識は少し必要になりそうでした)。&lt;/p&gt;</description>
     </item>
     <item>
       <title>redux-devtools-extension をTypeScriptで使う</title>

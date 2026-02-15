@@ -6,7 +6,7 @@
     <description>Recent content in Wasm on 発火後忘失</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <copyright>© Yukihane, All Rights Reserved</copyright>
     <lastBuildDate>Thu, 09 Apr 2020 20:52:10 +0000</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/wasm/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -21,7 +21,7 @@
       <link>https://yukihane.github.io/blog/202004/08/hello-wasm-with-rust/</link>
       <pubDate>Tue, 07 Apr 2020 22:39:49 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202004/08/hello-wasm-with-rust/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;wasmに挑戦してみようとHello, worldをやってみようとしました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;公式っぽいドキュメントとしてはググると次のものが見つかりました:&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;wasmに挑戦してみようとHello, worldをやってみようとしました。&lt;/p&gt;&#xA;&lt;p&gt;公式っぽいドキュメントとしてはググると次のものが見つかりました:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://rustwasm.github.io/docs/book/&#34;&gt;The Rust and WebAssembly Book&lt;/a&gt; (&lt;a href=&#34;https://github.com/rustwasm/book&#34;&gt;GitHub repo&lt;/a&gt;)&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -6,7 +6,7 @@
     <description>Recent content in Lombok on 発火後忘失</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <copyright>© Yukihane, All Rights Reserved</copyright>
     <lastBuildDate>Fri, 30 Jul 2021 17:57:08 +0000</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/lombok/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,28 +14,28 @@
       <link>https://yukihane.github.io/blog/202107/31/dont-use-lombok-with-jpa/</link>
       <pubDate>Fri, 30 Jul 2021 17:57:08 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202107/31/dont-use-lombok-with-jpa/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;問題になりそうなキーワード:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;lazy loading&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;collection&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;循環参照&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;mutability&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;@Data&lt;/code&gt;(&lt;code&gt;@EqualsAndHashCode&lt;/code&gt;) を付与すると &lt;code&gt;hashCode()&lt;/code&gt; は自動で算出されるようになりますが、JPA &lt;code&gt;@Entity&lt;/code&gt; では上記のような理由で、ハッシュ値が計算できなかったり要件を満たせなくなったりします。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;問題になりそうなキーワード:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;lazy loading&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;collection&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;循環参照&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;mutability&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;code&gt;@Data&lt;/code&gt;(&lt;code&gt;@EqualsAndHashCode&lt;/code&gt;) を付与すると &lt;code&gt;hashCode()&lt;/code&gt; は自動で算出されるようになりますが、JPA &lt;code&gt;@Entity&lt;/code&gt; では上記のような理由で、ハッシュ値が計算できなかったり要件を満たせなくなったりします。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Spring Boot 2.3.5 で MapStruct を利用しているプロジェクトのビルドが失敗した</title>
       <link>https://yukihane.github.io/blog/202011/14/mapstruct-with-spring-boot-2.3.5/</link>
       <pubDate>Sat, 14 Nov 2020 07:41:01 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202011/14/mapstruct-with-spring-boot-2.3.5/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;調査したところSpring Bootの問題と言うよりは、Lombokのバージョンが &lt;code&gt;1.18.12&lt;/code&gt; から &lt;code&gt;1.18.16&lt;/code&gt; に上がったことによる非互換性の問題でした。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Lombokのchangelogに説明があります:&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;調査したところSpring Bootの問題と言うよりは、Lombokのバージョンが &lt;code&gt;1.18.12&lt;/code&gt; から &lt;code&gt;1.18.16&lt;/code&gt; に上がったことによる非互換性の問題でした。&lt;/p&gt;&#xA;&lt;p&gt;Lombokのchangelogに説明があります:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Spring BootプロジェクトにLombokとMapStructを追加する(Eclipse &amp; Maven/Gradle)</title>
       <link>https://yukihane.github.io/blog/202008/23/spring-lombok-mapstruct/</link>
       <pubDate>Sun, 23 Aug 2020 03:23:31 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202008/23/spring-lombok-mapstruct/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;(2021-10-16 更新)&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Spring Boot プロジェクトにLombokとMapStructを追加し、かつ Eclipse で開発を行う場合の設定です。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;同じようなことを何回か書いてきた気がするのですが、結局どうすれば良いの？というのをまとめて書いたものが無いっぽいので改めて記事に起こしました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;(2021-10-16 更新)&lt;/p&gt;&#xA;&lt;p&gt;Spring Boot プロジェクトにLombokとMapStructを追加し、かつ Eclipse で開発を行う場合の設定です。&lt;/p&gt;&#xA;&lt;p&gt;同じようなことを何回か書いてきた気がするのですが、結局どうすれば良いの？というのをまとめて書いたものが無いっぽいので改めて記事に起こしました。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Lombokプラグインを入れているEclipseでMapStruct自動生成が機能しない</title>
       <link>https://yukihane.github.io/blog/201908/eclipse-lombok-mapstruct/</link>
       <pubDate>Sun, 18 Aug 2019 00:00:00 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/201908/eclipse-lombok-mapstruct/</guid>
-      <description>&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;サンプルコード: &lt;a href=&#34;https://github.com/yukihane/hello-java/tree/master/mapstruct/hello-mapstruct&#34; class=&#34;bare&#34;&gt;https://github.com/yukihane/hello-java/tree/master/mapstruct/hello-mapstruct&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;上記のコードのようにLombokとMapStructを併用しているプロジェクトを、 &lt;a href=&#34;https://projectlombok.org/setup/eclipse&#34;&gt;Lombokプラグインを適用したEclipse&lt;/a&gt;で読み込ませるとMapStructのコードが自動生成されません。&#xA;そのため、Eclipse上でJUnitテストを実行すると次のように &lt;code&gt;java.lang.ClassNotFoundException: Cannot find implementation&lt;/code&gt; というエラーになります。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;サンプルコード: &lt;a href=&#34;https://github.com/yukihane/hello-java/tree/master/mapstruct/hello-mapstruct&#34;&gt;https://github.com/yukihane/hello-java/tree/master/mapstruct/hello-mapstruct&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;上記のコードのようにLombokとMapStructを併用しているプロジェクトを、 &lt;a href=&#34;https://projectlombok.org/setup/eclipse&#34;&gt;Lombokプラグインを適用したEclipse&lt;/a&gt;で読み込ませるとMapStructのコードが自動生成されません。 そのため、Eclipse上でJUnitテストを実行すると次のように &lt;code&gt;java.lang.ClassNotFoundException: Cannot find implementation&lt;/code&gt; というエラーになります。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -2,13 +2,9 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Gradleでintegration testを作成するも実行できない(JUnit5) - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-Gradle で integration-test 用にテストディレクトリを分けようとして リファレンス を参考に build.gradle を編集しました。
-
-
-しかし、コンパイル対象には入っているようですがこのテストが実行されている気配がありません。
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="Gradle で integration-test 用にテストディレクトリを分けようとして リファレンス を参考に build.gradle を編集しました。
+しかし、コンパイル対象には入っているようですがこのテストが実行されている気配がありません。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202008/16/gradle-test-not-working/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Gradleでintegration testを作成するも実行できない(JUnit5)">
@@ -30,8 +26,8 @@ Gradle で integration-test 用にテストディレクトリを分けようと�
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -48,9 +44,17 @@ Gradle で integration-test 用にテストディレクトリを分けようと�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -67,50 +71,32 @@ Gradle で integration-test 用にテストディレクトリを分けようと�
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>Gradle で integration-test 用にテストディレクトリを分けようとして <a href="https://docs.gradle.org/current/userguide/java_testing.html#sec:configuring_java_integration_tests">リファレンス</a> を参考に <code>build.gradle</code> を編集しました。</p>
-</div>
-<div class="paragraph">
+          <p>Gradle で integration-test 用にテストディレクトリを分けようとして <a href="https://docs.gradle.org/current/userguide/java_testing.html#sec:configuring_java_integration_tests">リファレンス</a> を参考に <code>build.gradle</code> を編集しました。</p>
 <p>しかし、コンパイル対象には入っているようですがこのテストが実行されている気配がありません。</p>
-</div>
-<div class="paragraph">
 <p>仕方なくデバッグログを出力してみたところ、次のようなログが出力されているのに気づきました:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>2020-08-16T23:10:21.737+0900 [DEBUG] [TestEventLogger] Gradle Test Run :integrationTest STARTED
+<pre><code>2020-08-16T23:10:21.737+0900 [DEBUG] [TestEventLogger] Gradle Test Run :integrationTest STARTED
 2020-08-16T23:10:21.746+0900 [DEBUG] [org.gradle.api.internal.tasks.testing.detection.AbstractTestFrameworkDetector] test-class-scan : failed to scan parent class java/lang/Object, could not find the class file
 2020-08-16T23:10:21.747+0900 [DEBUG] [TestEventLogger]-
-2020-08-16T23:10:21.747+0900 [DEBUG] [TestEventLogger] Gradle Test Run :integrationTest PASSED</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>&#34;failed to scan parent class java/lang/Object, could not find the class file&#34; でググったところ、次のエントリがヒットしました:</p>
-</div>
-<div class="ulist">
+2020-08-16T23:10:21.747+0900 [DEBUG] [TestEventLogger] Gradle Test Run :integrationTest PASSED
+</code></pre>
+<p>&ldquo;failed to scan parent class java/lang/Object, could not find the class file&rdquo; でググったところ、次のエントリがヒットしました:</p>
 <ul>
-<li>
-<p><a href="https://stackoverflow.com/a/51382241/4506703">Gradle integration test building but not running - Stack Overflow</a></p>
-</li>
+<li><a href="https://stackoverflow.com/a/51382241/4506703">Gradle integration test building but not running - Stack Overflow</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>というわけで、JUnit5を利用する場合、 <a href="https://docs.gradle.org/current/userguide/java_testing.html#sec:configuring_java_integration_tests">冒頭でリンクしたリファレンスの記述</a>だけでは不十分で、実際には <code>useJUnitPlatform()</code> も必要で、次のように記述する必要がありました:</p>
+<div class="formalpara-title">
+<p><strong>build.groovy</strong></p>
 </div>
-<div class="listingblock">
-<div class="title">build.groovy</div>
-<div class="content">
-<pre>task integrationTest(type: Test) {
+<pre><code>task integrationTest(type: Test) {
     useJUnitPlatform() // これを追加！
-    description = &#39;Runs integration tests.&#39;
-    group = &#39;verification&#39;
+    description = 'Runs integration tests.'
+    group = 'verification'
 
     testClassesDirs = sourceSets.intTest.output.classesDirs
     classpath = sourceSets.intTest.runtimeClasspath
     shouldRunAfter test
-}</pre>
-</div>
-</div>
+}
+</code></pre>
 
         </section>
         <div class="post-tags">
@@ -119,7 +105,7 @@ Gradle で integration-test 用にテストディレクトリを分けようと�
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/gradle">gradle</a></li>
+              <li><a href="/tags/gradle/">gradle</a></li>
               
             </ul>
           </nav>
@@ -136,10 +122,10 @@ Gradle で integration-test 用にテストディレクトリを分けようと�
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

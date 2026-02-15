@@ -2,15 +2,10 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Javaのソースファイルはpackageに対応したディレクトリ階層に置かなくても良い？ - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-https://twitter.com/hishidama/status/1266176675768745984
+	<meta name="description" content="https://twitter.com/hishidama/status/1266176675768745984
 
-
-
-
-packageの宣言と実際のディレクトリが一致していなくてもmvn compile（やjavac）が成功するんですが、そういうもんでしたっけ？
-" />
-	<meta property="og:image" content=""/>
+packageの宣言と実際のディレクトリが一致していなくてもmvn compile（やjavac）が成功するんですが、そういうもんでしたっけ？" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202005/29/java-source-location/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Javaのソースファイルはpackageに対応したディレクトリ階層に置かなくても良い？">
@@ -32,8 +27,8 @@ packageの宣言と実際のディレクトリが一致していなくてもmvn 
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -50,9 +45,17 @@ packageの宣言と実際のディレクトリが一致していなくてもmvn 
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -69,58 +72,22 @@ packageの宣言と実際のディレクトリが一致していなくてもmvn 
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p><a href="https://twitter.com/hishidama/status/1266176675768745984" class="bare">https://twitter.com/hishidama/status/1266176675768745984</a></p>
-</div>
-<div class="quoteblock">
+          <p><a href="https://twitter.com/hishidama/status/1266176675768745984">https://twitter.com/hishidama/status/1266176675768745984</a></p>
 <blockquote>
-<div class="paragraph">
-<p>packageの宣言と実際のディレクトリが一致していなくてもmvn compile（やjavac）が成功するんですが、そういうもんでしたっけ？</p>
-</div>
-</blockquote>
-</div>
-<div class="quoteblock">
+<p>packageの宣言と実際のディレクトリが一致していなくてもmvn compile（やjavac）が成功するんですが、そういうもんでしたっけ？</p></blockquote>
 <blockquote>
-<div class="paragraph">
-<p>classファイルのパッケージと実際のディレクトリーは対応させないといけないんですけど、ソースファイルについてはそういう制限は無いんですよね。でもけっこう勘違いされているような＾＾；</p>
-</div>
-</blockquote>
-</div>
-<div class="paragraph">
+<p>classファイルのパッケージと実際のディレクトリーは対応させないといけないんですけど、ソースファイルについてはそういう制限は無いんですよね。でもけっこう勘違いされているような＾＾；</p></blockquote>
 <p>この辺の話が正当かどうか、という話です。</p>
-</div>
-<div class="paragraph">
 <p><code>javac</code> のリファレンス、 <a href="https://docs.oracle.com/en/java/javase/14/docs/specs/man/javac.html#arrangement-of-source-code">Arrangement of Source Code</a> セクションには次のように書かれています:</p>
-</div>
-<div class="quoteblock">
 <blockquote>
-<div class="paragraph">
-<p>In the Java language, classes and interfaces can be organized into packages, and packages can be organized into modules. javac expects that the physical arrangement of source files in directories of the file system will mirror the organization of classes into packages, and packages into modules.</p>
-</div>
-</blockquote>
-</div>
-<div class="paragraph">
+<p>In the Java language, classes and interfaces can be organized into packages, and packages can be organized into modules. javac expects that the physical arrangement of source files in directories of the file system will mirror the organization of classes into packages, and packages into modules.</p></blockquote>
 <p>また、 <a href="https://docs.oracle.com/javase/tutorial/java/package/managingfiles.html">The Java™ Tutorials &gt; Managing Source and Class Files</a> では、</p>
-</div>
-<div class="quoteblock">
 <blockquote>
-<div class="paragraph">
-<p>Many implementations of the Java platform rely on hierarchical file systems to manage source and class files, although The Java Language Specification does not require this.</p>
-</div>
-</blockquote>
-</div>
-<div class="paragraph">
+<p>Many implementations of the Java platform rely on hierarchical file systems to manage source and class files, although The Java Language Specification does not require this.</p></blockquote>
 <p>ちゃんと読んでないですが The Java® Language Specification だと <a href="https://docs.oracle.com/javase/specs/jls/se14/html/jls-7.html#jls-7.2">7.2. Host Support for Modules and Packages</a> 辺りが該当するのでしょうか。</p>
-</div>
-<div class="paragraph">
 <p>そんなわけで、(ソースファイルだけでなく)クラスファイルもディレクトリ階層とパッケージを対応付けているのは仕様に拠るものではない、ただし各種実装はそのようにファイルが配置されていることを期待しているのでそれに従いましょう、ということですね。</p>
-</div>
-<div class="paragraph">
 <p>ソースファイルがどうでもよくてクラスファイルは従わなくてはならないのは「たまたま実装がそうなっているから」だ、ということのようです。</p>
-</div>
-<div class="paragraph">
 <p>ちなみに <code>java</code> コマンドの <a href="https://docs.oracle.com/en/java/javase/14/docs/specs/man/java.html#using-source-file-mode-to-launch-single-file-source-code-programs">source-file mode</a> については、ディレクトリ階層は関係ないぜ、ってのが例から読み取れますね。</p>
-</div>
 
         </section>
         <div class="post-tags">
@@ -129,7 +96,7 @@ packageの宣言と実際のディレクトリが一致していなくてもmvn 
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/java">java</a></li>
+              <li><a href="/tags/java/">java</a></li>
               
             </ul>
           </nav>
@@ -146,10 +113,10 @@ packageの宣言と実際のディレクトリが一致していなくてもmvn 
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

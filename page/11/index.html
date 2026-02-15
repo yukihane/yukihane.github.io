@@ -4,7 +4,7 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>発火後忘失 | Home </title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Fire and Forget blog" />
-	<meta property="og:image" content=""/>
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<link rel="alternate" type="application/rss+xml" href="https://yukihane.github.io/index.xml" title="発火後忘失" />
 	<meta property="og:url" content="https://yukihane.github.io/">
   <meta property="og:site_name" content="発火後忘失">
@@ -21,8 +21,8 @@
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 
 	<body>
@@ -41,9 +41,17 @@
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -56,16 +64,41 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202006/15/spring-boot-debugging/">Spring BootのGradleでのデバッグ実行方法</a></h1>
+					<time>2020/06/15</time>
+					<br><div class="description">
+	
+	<pre><code>gradle bootRun --debug-jvm
+</code></pre>
+<p>というように、<code>--debug-jvm</code> オプションを付与すれば良いようです。 これで、デバッガ接続の待受状態で起動します。</p>
+<p><a href="https://docs.spring.io/spring-boot/docs/current/gradle-plugin/api/org/springframework/boot/gradle/tasks/run/BootRun.html"><code>BootRun</code></a> は <a href="https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/JavaExec.html"><code>JavaExec</code></a> を継承していますが、この <code>--debug-jvm</code> は後者のリファレンスで言及されています。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202006/15/spring-boot-debugging/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202006/13/userdetailsservice-samples-considered-harmful-for-biginners/">So many UserDetailsService samples considered harmful for beginners</a></h1>
+					<time>2020/06/13</time>
+					<br><div class="description">
+	
+	<p>やっぱり一発目の Spring Security やってみたで UserDetailsService 使うのは止めようず。So many UserDetailsService samples considered harmful for beginners.</p>
+<h1 id="はじめに">はじめに</h1>
+<p><a href="https://qiita.com/yukihane/items/865db9e7279cf0e588a7">ちょっと待って！その UserDetails、本当に必要ですか？</a>で書いたことの繰り返しなんですけども。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202006/13/userdetailsservice-samples-considered-harmful-for-biginners/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202006/13/list-contains-null/">List#contains(null)は使わないほうが良い</a></h1>
 					<time>2020/06/13</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p><code>List</code>(などのコレクション)が要素に <code>null</code> を含むかどうかの判定に、 <code>contains(null)</code> を利用すると <code>NullPointerException</code> が発生することがあります。</p>
-</div>
-<div class="paragraph">
+	<p><code>List</code>(などのコレクション)が要素に <code>null</code> を含むかどうかの判定に、 <code>contains(null)</code> を利用すると <code>NullPointerException</code> が発生することがあります。</p>
 <p>リファレンスには次のようにあります:</p>
-</div>&hellip;
+<blockquote>
+<p><code>NullPointerException</code> - 指定された要素が <code>null</code> で、このリストが <code>null</code> 要素を許可しない場合(オプション)</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202006/13/list-contains-null/">Read more ⟶</a>
@@ -76,9 +109,7 @@
 					<time>2020/06/12</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>サンプルコード等だけを見ていると <code>UserDetailsService</code> を利用することがSpring Securityの唯一の認証処理実現方法だと誤解しがちですが、 <code>UserDetailsService</code> はむしろユーティリティライブラリくらいの立ち位置で、別に利用しなくても実現可能です。</p>
-</div>&hellip;
+	<p>サンプルコード等だけを見ていると <code>UserDetailsService</code> を利用することがSpring Securityの唯一の認証処理実現方法だと誤解しがちですが、 <code>UserDetailsService</code> はむしろユーティリティライブラリくらいの立ち位置で、別に利用しなくても実現可能です。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202006/12/userdetailsservice-conidered-harmful/">Read more ⟶</a>
@@ -89,10 +120,7 @@
 					<time>2020/06/10</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>…と少し思い返していました。といっても思い出せたのは次の2つなのですが。</p>
-</div>
-<div class="ulist">
+	<p>…と少し思い返していました。といっても思い出せたのは次の2つなのですが。</p>
 <ul>
 <li>
 <p><a href="https://ja.stackoverflow.com/q/66812/2808">alpine Linuxへのawscliインストール</a></p>
@@ -101,10 +129,7 @@
 <p><a href="https://ja.stackoverflow.com/q/67494/2808">alpineでgitがcolorにならない</a></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>Alpine特有の問題については、「取り敢えずglibc/GNU版コマンドをインストールしてみろ」ってのが最初に採ってみる方策としてアリなのかも。</p>
-</div>&hellip;
+<p>Alpine特有の問題については、「取り敢えずglibc/GNU版コマンドをインストールしてみろ」ってのが最初に採ってみる方策としてアリなのかも。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202006/10/alpine-and-glibc-problems/">Read more ⟶</a>
@@ -115,12 +140,8 @@
 					<time>2020/06/02</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p><code>CompletableFuture</code> の一連の非同期処理 <code>ほげAsync</code> は、デフォルトでは <a href="https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/util/concurrent/ForkJoinPool.html#commonPool()"><code>ForkJoinPool.commonPool()</code></a> という <code>ExecutorService</code> で実行されます。</p>
-</div>
-<div class="paragraph">
-<p>そしてこの <code>ExecutorService</code> のワーカスレッドはデーモンスレッドであるため、非デーモンスレッドが無くなると(≒ メインスレッドが終了すると)プール内の処理を完了させること無くプロセスが終了します。</p>
-</div>&hellip;
+	<p><code>CompletableFuture</code> の一連の非同期処理 <code>ほげAsync</code> は、デフォルトでは <a href="https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/util/concurrent/ForkJoinPool.html#commonPool%28%29"><code>ForkJoinPool.commonPool()</code></a> という <code>ExecutorService</code> で実行されます。</p>
+<p>そしてこの <code>ExecutorService</code> のワーカスレッドはデーモンスレッドであるため、非デーモンスレッドが無くなると(≒ メインスレッドが終了すると)プール内の処理を完了させること無くプロセスが終了します。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202006/02/note-of-completablefuture/">Read more ⟶</a>
@@ -131,14 +152,9 @@
 					<time>2020/05/29</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p><a href="https://twitter.com/hishidama/status/1266176675768745984" class="bare">https://twitter.com/hishidama/status/1266176675768745984</a></p>
-</div>
-<div class="quoteblock">
+	<p><a href="https://twitter.com/hishidama/status/1266176675768745984">https://twitter.com/hishidama/status/1266176675768745984</a></p>
 <blockquote>
-<div class="paragraph">
-<p>packageの宣言と実際のディレクトリが一致していなくてもmvn compile（やjavac）が成功するんですが、そういうもんでしたっけ？</p>
-</div>&hellip;
+<p>packageの宣言と実際のディレクトリが一致していなくてもmvn compile（やjavac）が成功するんですが、そういうもんでしたっけ？</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202005/29/java-source-location/">Read more ⟶</a>
@@ -149,17 +165,12 @@
 					<time>2020/05/26</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>kubernetesの試験を受けるに当たって、最小限の <code>.vimrc</code> を覚えておくためのメモ:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>set autoindent
+	<p>kubernetesの試験を受けるに当たって、最小限の <code>.vimrc</code> を覚えておくためのメモ:</p>
+<pre><code>set autoindent
 set expandtab
 set tabstop=2
-set shiftwidth=2</code></pre>
-</div>
-</div>&hellip;
+set shiftwidth=2
+</code></pre>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202005/27/minimal-vimrc/">Read more ⟶</a>
@@ -190,12 +201,8 @@ set shiftwidth=2</code></pre>
 					<time>2020/04/26</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>Kubernetes入門の書籍やドキュメントの中には、Kubernetes環境が既に手元にある前提で書かれているものも多いです。</p>
-</div>
-<div class="paragraph">
-<p>そういう場合、どうやってKubernetes環境を調達して良いのかわからず、一つの手段として自前で環境を作る <a href="https://yukihane.github.io/posts/202004/26/kubernetes-the-hard-way-v1.18.2/">Kubernetes the hard way</a> をやってみたのですが、一旦環境を作ってしまうとインスタンスを起動させ続けねばならず(作り直すの面倒だし)、財布に優しくないので断念しました。</p>
-</div>&hellip;
+	<p>Kubernetes入門の書籍やドキュメントの中には、Kubernetes環境が既に手元にある前提で書かれているものも多いです。</p>
+<p>そういう場合、どうやってKubernetes環境を調達して良いのかわからず、一つの手段として自前で環境を作る <a href="https://yukihane.github.io/posts/202004/26/kubernetes-the-hard-way-v1.18.2/">Kubernetes the hard way</a> をやってみたのですが、一旦環境を作ってしまうとインスタンスを起動させ続けねばならず(作り直すの面倒だし)、財布に優しくないので断念しました。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202004/26/gke-getting-started/">Read more ⟶</a>
@@ -206,20 +213,10 @@ set shiftwidth=2</code></pre>
 					<time>2020/04/26</time>
 					<br><div class="description">
 	
-	<div class="sect1">
-<h2 id="_要約">要約</h2>
-<div class="sectionbody">
-<div class="paragraph">
+	<h1 id="要約">要約</h1>
 <p><code>kube-apiserver</code> の起動引数を <code>--runtime-config=api/all=true</code> に修正すれば v1.18.2 でも記述どおりで動作する。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_本文">本文</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>現時点で本家 <a href="https://github.com/kelseyhightower/kubernetes-the-hard-way">Kubernetes The Hard Way</a> は1.15.3をターゲットにして構築を行っていますが、せっかくなので最新版である v1.18.2 でやってみることにしました。</p>
-</div>&hellip;
+<h1 id="本文">本文</h1>
+<p>現時点で本家 <a href="https://github.com/kelseyhightower/kubernetes-the-hard-way">Kubernetes The Hard Way</a> は1.15.3をターゲットにして構築を行っていますが、せっかくなので最新版である v1.18.2 でやってみることにしました。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202004/26/kubernetes-the-hard-way-v1.18.2/">Read more ⟶</a>
@@ -230,12 +227,8 @@ set shiftwidth=2</code></pre>
 					<time>2020/04/25</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p><a href="https://github.com/yukihane/kubernetes-the-hard-way">Kubernetes the hard wayをやる</a>のに`tmux`の操作を覚えておくのが良さそうだったので使いそうなものを記載しておくことにしました。</p>
-</div>
-<div class="paragraph">
-<p><code>Ctrl</code> キーと <code>b</code> キーの同時押しを <code>^b</code> と表記しています。</p>
-</div>&hellip;
+	<p><a href="https://github.com/yukihane/kubernetes-the-hard-way">Kubernetes the hard wayをやる</a>のに`tmux`の操作を覚えておくのが良さそうだったので使いそうなものを記載しておくことにしました。</p>
+<p><code>Ctrl</code> キーと <code>b</code> キーの同時押しを <code>^b</code> と表記しています。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202004/25/tmux/">Read more ⟶</a>
@@ -259,37 +252,6 @@ set shiftwidth=2</code></pre>
 					<a class="readmore" href="/blog/202004/24/redux-devtools-extension-with-typescript/">Read more ⟶</a>
 				</section>
 				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202004/22/electron-fileio/">Electronでfs(File IO)</a></h1>
-					<time>2020/04/22</time>
-					<br><div class="description">
-	
-	<ul>
-<li><a href="https://qiita.com/zaburo/items/eb525138b88890c5357c">Electron で File の Open と Save - Qiita</a></li>
-</ul>
-<p>を写経させてもらっていますが、、、動かない。<br />
-リンク先では Electron v4.x を利用していますが現在の最新版は <a href="https://www.electronjs.org/releases/stable#release-notes-for-v823">v8.2.3</a>。このバージョン差異が原因のようでした。</p>
-<h1 id="問題">問題</h1>
-<h2 id="1-uncaught-referenceerror-require-is-not-defined">1. Uncaught ReferenceError: require is not defined</h2>
-<p>v8.2.3 でそのまま実行すると、表題のエラーが出ています。<br />
-<a href="https://www.electronjs.org/releases/stable?version=5&amp;page=3#release-notes-for-v500">v5.0.0</a>(<a href="https://github.com/electron/electron/pull/16235">#16235</a>)より <code>nodeIntegration</code> 設定のデフォルト値が <code>false</code> に変わったためのようです。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202004/22/electron-fileio/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202004/15/redux-basic-tutorial/">ReduxのBasic TutorialにTypeScriptで型を付けただけ</a></h1>
-					<time>2020/04/15</time>
-					<br><div class="description">
-	
-	<p>Redux 多分使わないけど理解のため写経。</p>
-<p>答え合わせに他の方が似たようなことやってないかググったけれども プラスアルファ要素(Redux Toolkit を使う、feature folders 流派でフォルダ分け、etc)が付いてたりして 1 対 1 で突き合わせて確認できるものが見つからなかった。ので自分が書いたものをリンクしておく:</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202004/15/redux-basic-tutorial/">Read more ⟶</a>
-				</section>
-				
 				
 
 <ul class="pagination">
@@ -309,10 +271,10 @@ set shiftwidth=2</code></pre>
 			</main>
 			<footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

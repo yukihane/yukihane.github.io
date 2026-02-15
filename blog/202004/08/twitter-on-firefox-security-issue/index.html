@@ -3,21 +3,14 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>TwitterをFirefoxで利用した際のセキュリティ問題 - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="
-
-
 &gt;Mozilla Firefoxに保存されているTwitterデータのキャッシュについて
 
-
-
-
-というリリースが先日出されましたが、具体的にどういう問題なのかが書かれていないので調べてみました。
-" />
-	<meta property="og:image" content=""/>
+というリリースが先日出されましたが、具体的にどういう問題なのかが書かれていないので調べてみました。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202004/08/twitter-on-firefox-security-issue/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="TwitterをFirefoxで利用した際のセキュリティ問題">
-  <meta property="og:description" content="&gt;Mozilla Firefoxに保存されているTwitterデータのキャッシュについて
-というリリースが先日出されましたが、具体的にどういう問題なのかが書かれていないので調べてみました。">
+  <meta property="og:description" content="&gt;Mozilla Firefoxに保存されているTwitterデータのキャッシュについて というリリースが先日出されましたが、具体的にどういう問題なのかが書かれていないので調べてみました。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -27,15 +20,14 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="TwitterをFirefoxで利用した際のセキュリティ問題">
-  <meta name="twitter:description" content="&gt;Mozilla Firefoxに保存されているTwitterデータのキャッシュについて
-というリリースが先日出されましたが、具体的にどういう問題なのかが書かれていないので調べてみました。">
+  <meta name="twitter:description" content="&gt;Mozilla Firefoxに保存されているTwitterデータのキャッシュについて というリリースが先日出されましたが、具体的にどういう問題なのかが書かれていないので調べてみました。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -52,9 +44,17 @@
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -71,82 +71,39 @@
         </div>
         
         <section class="body">
-          <div class="ulist">
-<ul>
-<li>
-<p><a href="https://privacy.twitter.com/ja/blog/2020/data-cache-firefox">&gt;Mozilla Firefoxに保存されているTwitterデータのキャッシュについて</a></p>
-</li>
+          <ul>
+<li><a href="https://privacy.twitter.com/ja/blog/2020/data-cache-firefox">&gt;Mozilla Firefoxに保存されているTwitterデータのキャッシュについて</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>というリリースが先日出されましたが、具体的にどういう問題なのかが書かれていないので調べてみました。</p>
-</div>
-<div class="paragraph">
 <p>The Mozilla Blog から詳細を辿れました。</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p><a href="https://blog.mozilla.org/blog/2020/04/03/what-you-need-to-know-about-twitter-on-firefox/">What you need to know about Twitter on Firefox - The Mozilla Blog</a></p>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://hacks.mozilla.org/2020/04/twitter-direct-message-caching-and-firefox/">Twitter Direct Message Caching and Firefox - Mozilla Hacks - the Web developer blog</a></p>
+<li><a href="https://hacks.mozilla.org/2020/04/twitter-direct-message-caching-and-firefox/">Twitter Direct Message Caching and Firefox - Mozilla Hacks - the Web developer blog</a></li>
+</ul>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
 <p>発生している(た)事象:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p>ダイレクトメッセージがローカルキャッシュに保存されたままになるため、他者が(Twitterにログインしなくとも)ダイレクトメッセージを読み取れてしまう状況になる</p>
-</li>
+<li>ダイレクトメッセージがローカルキャッシュに保存されたままになるため、他者が(Twitterにログインしなくとも)ダイレクトメッセージを読み取れてしまう状況になる</li>
 </ul>
-</div>
-<div class="paragraph">
 <p>原因:</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p>キャッシュしないようにする指示が不適切だった(Web標準に則っておらず、一部ブラウザでのみ効果のある設定( <code>Pragma: no-cache</code> )を行っていた)。</p>
-<div class="ulist">
 <ul>
-<li>
-<p>今回のような場合は <code>Cache-Control: no-store</code> を指定しなければならない。</p>
+<li>今回のような場合は <code>Cache-Control: no-store</code> を指定しなければならない。</li>
+</ul>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a href="https://developer.mozilla.org/ja/docs/Web/HTTP/Headers/Cache-Control#Cacheability">Cache-Control の&#34;キャッシュ可能性&#34;</a>の節に説明がありますが、</p>
-</div>
-<div class="quoteblock">
+<p><a href="https://developer.mozilla.org/ja/docs/Web/HTTP/Headers/Cache-Control#Cacheability">Cache-Control の&quot;キャッシュ可能性&quot;</a>の節に説明がありますが、</p>
 <blockquote>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">no-cache</dt>
-<dd>
-<p>キャッシュコピーをリリースする前に、検証のために元のサーバーへリクエストを送ることをキャッシュに強制します。</p>
-</dd>
-<dt class="hdlist1">no-store</dt>
-<dd>
-<p>クライアントのリクエストであるかサーバーのレスポンスであるかにかかわらず、キャッシュを格納してはいけません。</p>
-</dd>
-</dl>
-</div>
-</blockquote>
-</div>
-<div class="paragraph">
+<p>no-cache<br />
+キャッシュコピーをリリースする前に、検証のために元のサーバーへリクエストを送ることをキャッシュに強制します。</p>
+<p>no-store<br />
+クライアントのリクエストであるかサーバーのレスポンスであるかにかかわらず、キャッシュを格納してはいけません。</p></blockquote>
 <p><code>no-cache</code> は <strong>リクエストのみ</strong> をキャッシュしない指示に対し(ただしレスポンスもキャッシュしなくなるブラウザも存在する)、 <code>no-store</code> は <strong>リクエストもレスポンスも</strong> キャッシュしない指示なので後者を用いるべきだ、ということのようです。</p>
-</div>
 
         </section>
         <div class="post-tags">
@@ -155,7 +112,7 @@
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/security">security</a></li>
+              <li><a href="/tags/security/">security</a></li>
               
             </ul>
           </nav>
@@ -172,10 +129,10 @@
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

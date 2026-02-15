@@ -2,16 +2,10 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle) - Polyfillも必要とする場合 - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-はじめに
-
-
+	<meta name="description" content="はじめに
 前回 は ts-loader を用いて TypeScript をビルドしました。
-
-
-簡潔にセットアップできたのは良いのですが、実際にはPolyfillを行いたいので babel-loader をベースに再構築することにします。また、自動テスト( jest )も導入します。
-" />
-	<meta property="og:image" content=""/>
+簡潔にセットアップできたのは良いのですが、実際にはPolyfillを行いたいので babel-loader をベースに再構築することにします。また、自動テスト( jest )も導入します。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202107/11/spring-boot-with-babel/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle) - Polyfillも必要とする場合">
@@ -34,8 +28,8 @@
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -52,9 +46,17 @@
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -71,357 +73,290 @@
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="paragraph">
+          <h1 id="はじめに">はじめに</h1>
 <p><a href="/blog/202107/10/spring-boot-with-typescript/">前回</a> は <code>ts-loader</code> を用いて TypeScript をビルドしました。</p>
-</div>
-<div class="paragraph">
 <p>簡潔にセットアップできたのは良いのですが、実際にはPolyfillを行いたいので <code>babel-loader</code> をベースに再構築することにします。また、自動テスト( <code>jest</code> )も導入します。</p>
-</div>
-<div class="paragraph">
 <p>今回の実証コードはこちらです:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/yukihane/hello-java/tree/master/spring/with-ts-babel" class="bare">https://github.com/yukihane/hello-java/tree/master/spring/with-ts-babel</a></p>
-</li>
+<li><a href="https://github.com/yukihane/hello-java/tree/master/spring/with-ts-babel">https://github.com/yukihane/hello-java/tree/master/spring/with-ts-babel</a></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_手順">手順</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_spring_boot_プロジェクトを構成する">Spring Boot プロジェクトを構成する</h3>
-<div class="paragraph">
+<h1 id="手順">手順</h1>
+<h2 id="spring-boot-プロジェクトを構成する">Spring Boot プロジェクトを構成する</h2>
 <p><a href="/blog/202107/10/spring-boot-with-typescript/">前回</a> と同じです。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_yarn_プロジェクトを構成する">Yarn プロジェクトを構成する</h3>
-<div class="paragraph">
-<p>今回は <code>webpack init</code> コマンドを利用せず、必要なものを明示的に導入します。
-次のコマンドで dependencies を追加します:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>yarn init -y
+<h2 id="yarn-プロジェクトを構成する">Yarn プロジェクトを構成する</h2>
+<p>今回は <code>webpack init</code> コマンドを利用せず、必要なものを明示的に導入します。 次のコマンドで dependencies を追加します:</p>
+<pre><code>yarn init -y
 yarn add --dev typescript webpack webpack-cli babel-loader @babel/core @babel/plugin-proposal-class-properties @babel/preset-env @babel/preset-typescript
-yarn add core-js</code></pre>
-</div>
-</div>
-<div class="paragraph">
+yarn add core-js
+</code></pre>
 <p><code>package.json</code> に前回自動で追加された <code>scripts</code> セクションを手動で追加します:</p>
+<div class="formalpara-title">
+<p><strong>package.json</strong></p>
 </div>
-<div class="listingblock">
-<div class="title">package.json</div>
-<div class="content">
-<pre class="highlight"><code>&#34;scripts&#34;: {
-    &#34;build&#34;: &#34;webpack --mode=production --node-env=production&#34;,
-    &#34;build:dev&#34;: &#34;webpack --mode=development&#34;,
-    &#34;build:prod&#34;: &#34;webpack --mode=production --node-env=production&#34;,
-    &#34;watch&#34;: &#34;webpack --watch&#34;
-  }</code></pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>&quot;scripts&quot;: {
+    &quot;build&quot;: &quot;webpack --mode=production --node-env=production&quot;,
+    &quot;build:dev&quot;: &quot;webpack --mode=development&quot;,
+    &quot;build:prod&quot;: &quot;webpack --mode=production --node-env=production&quot;,
+    &quot;watch&quot;: &quot;webpack --watch&quot;
+  }
+</code></pre>
 <p><code>webpack.config.js</code>, <code>tsconfig.json</code> は <a href="/blog/202107/10/spring-boot-with-typescript/">前回</a> のものをコピーしてきます。</p>
-</div>
-<div class="paragraph">
 <p>その上で、 <code>webpack.config.js</code> に記述されている <code>ts-loader</code> 部分を <code>babel-loader</code> に書き換え、 <code>@babel/preset-env</code> の設定を追記します。</p>
+<div class="formalpara-title">
+<p><strong>webpack.config.js</strong></p>
 </div>
-<div class="listingblock">
-<div class="title">webpack.config.js</div>
-<div class="content">
-<pre class="highlight"><code class="language-javascript" data-lang="javascript">...
-      {
-        loader: &#34;babel-loader&#34;,
-        options: {
-          exclude: [
-            // \\ for Windows, \/ for Mac OS and Linux
-            /node_modules[\\\/]core-js/,
-            /node_modules[\\\/]webpack[\\\/]buildin/,
-          ],
-          presets: [
-            [
-              &#34;@babel/preset-env&#34;,
-              {
-                useBuiltIns: &#34;usage&#34;,
-                corejs: &#34;3&#34;,
-                shippedProposals: true,
-              },
-            ],
-            &#34;@babel/preset-typescript&#34;,
-          ],
-          plugins: [&#34;@babel/plugin-proposal-class-properties&#34;],
-        },
-      },
-...</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="p">...</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">loader</span><span class="o">:</span> <span class="s2">&#34;babel-loader&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">exclude</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// \\ for Windows, \/ for Mac OS and Linux
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="sr">/node_modules[\\\/]core-js/</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="sr">/node_modules[\\\/]webpack[\\\/]buildin/</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="p">],</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">presets</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">[</span>
+</span></span><span class="line"><span class="cl">              <span class="s2">&#34;@babel/preset-env&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">useBuiltIns</span><span class="o">:</span> <span class="s2">&#34;usage&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">corejs</span><span class="o">:</span> <span class="s2">&#34;3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">shippedProposals</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;@babel/preset-typescript&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="p">],</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;@babel/plugin-proposal-class-properties&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">...</span>
+</span></span></code></pre></td></tr></table>
 </div>
+</div><p>更に、 <code>package.json</code> へ <code>browserslist</code> の設定を追記します。</p>
+<div class="formalpara-title">
+<p><strong>package.json</strong></p>
 </div>
-<div class="paragraph">
-<p>更に、 <code>package.json</code> へ <code>browserslist</code> の設定を追記します。</p>
-</div>
-<div class="listingblock">
-<div class="title">package.json</div>
-<div class="content">
-<pre class="highlight"><code>  &#34;browserslist&#34;: [
-    &#34;defaults&#34;
-  ]</code></pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_補足">補足</h4>
-<div class="paragraph">
+<pre><code>  &quot;browserslist&quot;: [
+    &quot;defaults&quot;
+  ]
+</code></pre>
+<h3 id="補足">補足</h3>
 <p>必要な dependencies は次を参照しました:</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p><a href="https://webpack.js.org/loaders/babel-loader/">babel-loader | webpack</a></p>
 </li>
 <li>
-<p><a href="https://github.com/microsoft/TypeScript-Babel-Starter">microsoft
-/
-TypeScript-Babel-Starter - GitHub</a></p>
+<p><a href="https://github.com/microsoft/TypeScript-Babel-Starter">microsoft / TypeScript-Babel-Starter - GitHub</a></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p><code>browserslist</code> など、 <code>@babel/preset-env</code> の設定は次を参考にしました:</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p><a href="https://babeljs.io/docs/en/babel-preset-env#browserslist-integration">@babel/preset-env &gt; Browserslist Integration · Babel</a></p>
 </li>
 <li>
-<p><a href="https://github.com/browserslist/browserslist#browserslist-">browserslist
-/
-browserslist - GitHub</a></p>
+<p><a href="https://github.com/browserslist/browserslist#browserslist-">browserslist / browserslist - GitHub</a></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><code>browserslist</code> で設定する値は <a href="https://github.com/browserslist/browserslist#full-list">公式のFull List</a>に記載されています。
-また、設定値が具体的にどのブラウザを対象にしているかは、次のコマンドで確認できます:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>npx browserslist &#34;defaults&#34;</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_yarn_を_gradle_に統合する">Yarn を Gradle に統合する</h3>
-<div class="paragraph">
+<p><code>browserslist</code> で設定する値は <a href="https://github.com/browserslist/browserslist#full-list">公式のFull List</a>に記載されています。 また、設定値が具体的にどのブラウザを対象にしているかは、次のコマンドで確認できます:</p>
+<pre><code>npx browserslist &quot;defaults&quot;
+</code></pre>
+<h2 id="yarn-を-gradle-に統合する">Yarn を Gradle に統合する</h2>
 <p><a href="/blog/202107/10/spring-boot-with-typescript/">前回</a> と同じです。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_ビルドしてみる">ビルドしてみる</h3>
-<div class="paragraph">
+<h2 id="ビルドしてみる">ビルドしてみる</h2>
 <p><a href="/blog/202107/10/spring-boot-with-typescript/">前回</a> と同じく、 <code>UAParser.js</code> をインストールし、同じサンプルコードを追加します。</p>
-</div>
-<div class="paragraph">
 <p>加えて、 <code>babel-loader</code> の設定で、 <code>ua-parser-js</code> を除外するよう設定します。</p>
+<div class="formalpara-title">
+<p><strong>webpack.config.js</strong></p>
 </div>
-<div class="listingblock">
-<div class="title">webpack.config.js</div>
-<div class="content">
-<pre class="highlight"><code class="language-javascript" data-lang="javascript">...
-  module: {
-    rules: [
-      {
-        loader: &#34;babel-loader&#34;,
-        options: {
-          exclude: [
-            ...
-            /node_modules[\\\/]ua-parser-js/,
-          ],
-...</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">module</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">rules</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">loader</span><span class="o">:</span> <span class="s2">&#34;babel-loader&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">exclude</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">...</span>
+</span></span><span class="line"><span class="cl">            <span class="o">/</span><span class="nx">node_modules</span><span class="p">[</span><span class="err">\\\</span><span class="o">/</span><span class="p">]</span><span class="nx">ua</span><span class="o">-</span><span class="nx">parser</span><span class="o">-</span><span class="nx">js</span><span class="o">/</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">...</span>
+</span></span></code></pre></td></tr></table>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_補足_2">補足</h4>
-<div class="paragraph">
+</div><h3 id="補足-1">補足</h3>
 <p>上記の設定追加を行わない場合、コンパイル時に次の警告</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>WARNING in ./src/main/js/index.ts 3:19-27
-export &#39;UAParser&#39; (imported as &#39;UAParser&#39;) was not found in &#39;ua-parser-js&#39; (module has no exports)</code></pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>WARNING in ./src/main/js/index.ts 3:19-27
+export 'UAParser' (imported as 'UAParser') was not found in 'ua-parser-js' (module has no exports)
+</code></pre>
 <p>及び実行時に次のエラー</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>Uncaught TypeError: ua_parser_js__WEBPACK_IMPORTED_MODULE_0__.UAParser is not a constructor</code></pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>Uncaught TypeError: ua_parser_js__WEBPACK_IMPORTED_MODULE_0__.UAParser is not a constructor
+</code></pre>
 <p>が発生します。</p>
-</div>
-<div class="paragraph">
 <p>この件に関して詳細は次を参照してみてください:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://ja.stackoverflow.com/q/78174/2808">UAParser.js をインポートできない - スタック・オーバーフロー</a></p>
-</li>
+<li><a href="https://ja.stackoverflow.com/q/78174/2808">UAParser.js をインポートできない - スタック・オーバーフロー</a></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_spring_boot_プロセスにデバッガeclipseをアタッチする">Spring Boot プロセスにデバッガ(Eclipse)をアタッチする</h3>
-<div class="paragraph">
+<h2 id="spring-boot-プロセスにデバッガeclipseをアタッチする">Spring Boot プロセスにデバッガ(Eclipse)をアタッチする</h2>
 <p>同じく <a href="/blog/202107/10/spring-boot-with-typescript/">前回</a> を参照してください。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_自動テストを実行するjest">自動テストを実行する(Jest)</h3>
-<div class="paragraph">
+<h2 id="自動テストを実行するjest">自動テストを実行する(Jest)</h2>
 <p>いくつかやり方はあるようですが、今回は <code>ts-jest</code> を利用します。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>yarn add --dev jest @types/jest ts-jest</code></pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>yarn add --dev jest @types/jest ts-jest
+</code></pre>
 <p><code>package.json</code> に <code>jest</code> セクションを追加します:</p>
+<div class="formalpara-title">
+<p><strong>package.json</strong></p>
 </div>
-<div class="listingblock">
-<div class="title">package.json</div>
-<div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">  &#34;jest&#34;: {
-    &#34;roots&#34;: [
-      &#34;&lt;rootDir&gt;/src/main/js&#34;
-    ],
-    &#34;transform&#34;: {
-      &#34;^.+\\.tsx?$&#34;: &#34;ts-jest&#34;
-    },
-    &#34;testRegex&#34;: &#34;(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$&#34;,
-    &#34;moduleFileExtensions&#34;: [
-      &#34;ts&#34;,
-      &#34;tsx&#34;,
-      &#34;js&#34;,
-      &#34;json&#34;,
-      &#34;jsx&#34;
-    ]
-  }</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">  <span class="s2">&#34;jest&#34;</span><span class="err">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;roots&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;&lt;rootDir&gt;/src/main/js&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;transform&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;^.+\\.tsx?$&#34;</span><span class="p">:</span> <span class="s2">&#34;ts-jest&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;testRegex&#34;</span><span class="p">:</span> <span class="s2">&#34;(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;moduleFileExtensions&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;ts&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;tsx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;js&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;json&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;jsx&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
+</div><p><code>script</code> セクションを編集し、testを組み込みます。</p>
+<div class="formalpara-title">
+<p><strong>package.json</strong></p>
 </div>
-<div class="paragraph">
-<p><code>script</code> セクションを編集し、testを組み込みます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">  <span class="s2">&#34;scripts&#34;</span><span class="err">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;build&#34;</span><span class="p">:</span> <span class="s2">&#34;yarn run test &amp;&amp; webpack --mode=production --node-env=production&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="err">...</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;test&#34;</span><span class="p">:</span> <span class="s2">&#34;jest&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span><span class="err">,</span>
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="title">package.json</div>
-<div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">  &#34;scripts&#34;: {
-    &#34;build&#34;: &#34;yarn run test &amp;&amp; webpack --mode=production --node-env=production&#34;,
-    ...
-    &#34;test&#34;: &#34;jest&#34;
-  },</code></pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_補足_3">補足</h4>
-<div class="paragraph">
+</div><h3 id="補足-2">補足</h3>
 <p>Jest の設定は次を参考にしています:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://typescript-jp.gitbook.io/deep-dive/intro-1/jest">Jest - TypeScript Deep Dive 日本語版</a></p>
-</li>
+<li><a href="https://typescript-jp.gitbook.io/deep-dive/intro-1/jest">Jest - TypeScript Deep Dive 日本語版</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>Jest の公式ドキュメントでは、別の実現手段として、Babel経由でテストする設定が説明されています:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://jestjs.io/ja/docs/getting-started#typescript-%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">はじめましょう &gt; TypeScript を使用する · Jest</a></p>
-</li>
+<li><a href="https://jestjs.io/ja/docs/getting-started#typescript-%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">はじめましょう &gt; TypeScript を使用する · Jest</a></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_型チェックを行う">型チェックを行う</h3>
-<div class="paragraph">
+<h2 id="型チェックを行う">型チェックを行う</h2>
 <p><code>@babel/preset-typescript</code> は <a href="https://github.com/babel/babel/issues/9028">型チェックを行ってくれない</a> ので、別途チェックする必要が有ります。これは <code>tsc</code> で実現します。</p>
-</div>
-<div class="paragraph">
 <p>そのために <code>tsconfig.json</code> を再編集します。</p>
+<div class="formalpara-title">
+<p><strong>tsconfig.json</strong></p>
 </div>
-<div class="listingblock">
-<div class="title">tsconfig.json</div>
-<div class="content">
-<pre class="highlight"><code>{
-  &#34;include&#34;: [&#34;src/main/js/**/*&#34;],
-  &#34;compilerOptions&#34;: {
-    &#34;strict&#34;: true,
-    &#34;module&#34;: &#34;es6&#34;,
-    &#34;target&#34;: &#34;es5&#34;,
-    &#34;moduleResolution&#34;: &#34;Node&#34;,
-    &#34;noEmit&#34;: true
+<pre><code>{
+  &quot;include&quot;: [&quot;src/main/js/**/*&quot;],
+  &quot;compilerOptions&quot;: {
+    &quot;strict&quot;: true,
+    &quot;module&quot;: &quot;es6&quot;,
+    &quot;target&quot;: &quot;es5&quot;,
+    &quot;moduleResolution&quot;: &quot;Node&quot;,
+    &quot;noEmit&quot;: true
   }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
+}
+</code></pre>
 <p><code>package.json</code> の <code>script</code> セクションを書き換え、型チェックも行うようにします:</p>
+<div class="formalpara-title">
+<p><strong>package.json</strong></p>
 </div>
-<div class="listingblock">
-<div class="title">package.json</div>
-<div class="content">
-<pre class="highlight"><code>  &#34;scripts&#34;: {
-    &#34;build&#34;: &#34;yarn run test &amp;&amp; webpack --mode=production --node-env=production&#34;,
-    &#34;build:dev&#34;: &#34;webpack --mode=development&#34;,
-    &#34;build:prod&#34;: &#34;webpack --mode=production --node-env=production&#34;,
-    &#34;watch&#34;: &#34;webpack --watch&#34;,
-    &#34;test&#34;: &#34;tsc &amp;&amp; jest&#34;
-  },</code></pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_補足_4">補足</h4>
-<div class="paragraph">
+<pre><code>  &quot;scripts&quot;: {
+    &quot;build&quot;: &quot;yarn run test &amp;&amp; webpack --mode=production --node-env=production&quot;,
+    &quot;build:dev&quot;: &quot;webpack --mode=development&quot;,
+    &quot;build:prod&quot;: &quot;webpack --mode=production --node-env=production&quot;,
+    &quot;watch&quot;: &quot;webpack --watch&quot;,
+    &quot;test&quot;: &quot;tsc &amp;&amp; jest&quot;
+  },
+</code></pre>
+<h3 id="補足-3">補足</h3>
 <p><code>tsconfig.json</code> の設定については下記を参考にしました:</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p><a href="https://www.typescriptlang.org/docs/handbook/babel-with-typescript.html">TypeScript: Documentation - Using Babel with TypeScript</a></p>
 </li>
 <li>
 <p><a href="https://stackoverflow.com/a/43019209/4506703">Producing ES6-module output from TypeScript, with Jest installed, without producing errors - Stack Overflow</a></p>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://stackoverflow.com/a/43019209/4506703">Typescript cannot find redux - Stack Overflow</a></p>
+<li><a href="https://stackoverflow.com/a/43019209/4506703">Typescript cannot find redux - Stack Overflow</a></li>
+</ul>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
 
         </section>
         <div class="post-tags">
@@ -430,9 +365,9 @@ export &#39;UAParser&#39; (imported as &#39;UAParser&#39;) was not found in &#39
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/spring-boot">spring-boot</a></li>
+              <li><a href="/tags/spring-boot/">spring-boot</a></li>
               
-              <li><a href="/tags/javascript">javascript</a></li>
+              <li><a href="/tags/javascript/">javascript</a></li>
               
             </ul>
           </nav>
@@ -449,10 +384,10 @@ export &#39;UAParser&#39; (imported as &#39;UAParser&#39;) was not found in &#39
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

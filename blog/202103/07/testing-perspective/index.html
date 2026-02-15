@@ -2,10 +2,8 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>メモ: テスト観点 - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-書籍「ソフトウェアテストの教科書 - 品質を決定づけるテスト構成の基本と実践」第4章 ブラックボックステスト 表4-4 分類の基準として利用できる指標の一例 より。
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="書籍「ソフトウェアテストの教科書 - 品質を決定づけるテスト構成の基本と実践」第4章 ブラックボックステスト 表4-4 分類の基準として利用できる指標の一例 より。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202103/07/testing-perspective/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="メモ: テスト観点">
@@ -25,8 +23,8 @@
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -43,9 +41,17 @@
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -62,39 +68,28 @@
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>書籍「ソフトウェアテストの教科書 - 品質を決定づけるテスト構成の基本と実践」第4章 ブラックボックステスト 表4-4 分類の基準として利用できる指標の一例 より。</p>
-</div>
-<div class="ulist">
+          <p>書籍「ソフトウェアテストの教科書 - 品質を決定づけるテスト構成の基本と実践」第4章 ブラックボックステスト 表4-4 分類の基準として利用できる指標の一例 より。</p>
 <ul>
 <li>
 <p><a href="https://ja.wikipedia.org/wiki/ISO/IEC_9126">ISO/IEC 9126</a></p>
-<div class="ulist">
 <ul>
 <li>
 <p>機能性、信頼性、使用性、効率性、保守性、移植性、</p>
 </li>
 <li>
-<p><a href="https://www.meti.go.jp/policy/it_policy/softseibi/metrics/product_metrics.pdf" class="bare">https://www.meti.go.jp/policy/it_policy/softseibi/metrics/product_metrics.pdf</a> p.14 表1-3</p>
+<p><a href="https://www.meti.go.jp/policy/it_policy/softseibi/metrics/product_metrics.pdf">https://www.meti.go.jp/policy/it_policy/softseibi/metrics/product_metrics.pdf</a> p.14 表1-3</p>
 </li>
 </ul>
-</div>
 </li>
 <li>
-<p><a href="https://qiita.com/taumax/items/b70e29ef525b2e561568" class="bare">https://qiita.com/taumax/items/b70e29ef525b2e561568</a></p>
+<p><a href="https://qiita.com/taumax/items/b70e29ef525b2e561568">https://qiita.com/taumax/items/b70e29ef525b2e561568</a></p>
 </li>
 <li>
-<p><a href="https://www.ipa.go.jp/files/000005144.pdf" class="bare">https://www.ipa.go.jp/files/000005144.pdf</a> p.150 6.2.1. テスト観点</p>
+<p><a href="https://www.ipa.go.jp/files/000005144.pdf">https://www.ipa.go.jp/files/000005144.pdf</a> p.150 6.2.1. テスト観点</p>
 </li>
 </ul>
-</div>
-<div class="quoteblock">
 <blockquote>
-<div class="paragraph">
-<p>テストにおける基本的な観点には、テスト観点 1 からテスト観点 4 まで、大きく 4 つのタイプがあることが判明しました。テスト観点 1 は基本構造を組み立てるもの。テスト観点 2 は基本構造から派生構造を作り出すもの。テスト観点 3 は組み合わせ。テスト観点 4 は期待結果の網羅性の観点です。</p>
-</div>
-</blockquote>
-</div>
+<p>テストにおける基本的な観点には、テスト観点 1 からテスト観点 4 まで、大きく 4 つのタイプがあることが判明しました。テスト観点 1 は基本構造を組み立てるもの。テスト観点 2 は基本構造から派生構造を作り出すもの。テスト観点 3 は組み合わせ。テスト観点 4 は期待結果の網羅性の観点です。</p></blockquote>
 
         </section>
         <div class="post-tags">
@@ -103,7 +98,7 @@
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/testing">testing</a></li>
+              <li><a href="/tags/testing/">testing</a></li>
               
             </ul>
           </nav>
@@ -120,10 +115,10 @@
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

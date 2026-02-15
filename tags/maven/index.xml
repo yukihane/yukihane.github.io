@@ -6,7 +6,7 @@
     <description>Recent content in Maven on 発火後忘失</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <copyright>© Yukihane, All Rights Reserved</copyright>
     <lastBuildDate>Sat, 11 Jun 2022 10:36:51 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/maven/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,21 +14,21 @@
       <link>https://yukihane.github.io/blog/202206/11/maven-wrapper/</link>
       <pubDate>Sat, 11 Jun 2022 10:36:51 +0900</pubDate>
       <guid>https://yukihane.github.io/blog/202206/11/maven-wrapper/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Gradle には &lt;a href=&#34;https://docs.gradle.org/current/userguide/gradle_wrapper.html&#34;&gt;Gradle Wrapper&lt;/a&gt; といって、 ビルドするためのツールである Gradle の該当バージョンがローカルにインストールされていない場合でも、自動で取得してビルド環境をセットアップしてくれる仕組みがあります。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;Gradle には &lt;a href=&#34;https://docs.gradle.org/current/userguide/gradle_wrapper.html&#34;&gt;Gradle Wrapper&lt;/a&gt; といって、 ビルドするためのツールである Gradle の該当バージョンがローカルにインストールされていない場合でも、自動で取得してビルド環境をセットアップしてくれる仕組みがあります。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Spring BootプロジェクトにLombokとMapStructを追加する(Eclipse &amp; Maven/Gradle)</title>
       <link>https://yukihane.github.io/blog/202008/23/spring-lombok-mapstruct/</link>
       <pubDate>Sun, 23 Aug 2020 03:23:31 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202008/23/spring-lombok-mapstruct/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;(2021-10-16 更新)&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Spring Boot プロジェクトにLombokとMapStructを追加し、かつ Eclipse で開発を行う場合の設定です。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;同じようなことを何回か書いてきた気がするのですが、結局どうすれば良いの？というのをまとめて書いたものが無いっぽいので改めて記事に起こしました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;(2021-10-16 更新)&lt;/p&gt;&#xA;&lt;p&gt;Spring Boot プロジェクトにLombokとMapStructを追加し、かつ Eclipse で開発を行う場合の設定です。&lt;/p&gt;&#xA;&lt;p&gt;同じようなことを何回か書いてきた気がするのですが、結局どうすれば良いの？というのをまとめて書いたものが無いっぽいので改めて記事に起こしました。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Maven Enforcer Pluginの実行をスキップする</title>
       <link>https://yukihane.github.io/blog/202003/30/skip-maven-enforcer-plugin/</link>
       <pubDate>Mon, 30 Mar 2020 05:37:45 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202003/30/skip-maven-enforcer-plugin/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;とあるMavenプロジェクトを &lt;code&gt;mvn clean install&lt;/code&gt; しようとしたところ、次のエラーになり正常終了しませんでした。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;literalblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre&gt;[WARNING] Rule 0: org.apache.maven.plugins.enforcer.BannedRepositories failed with message:&#xA;Current maven session contains banned repository urls, please double check your pom or settings.xml:&#xA;central - http://my.internal.repo/xxx&#xA;snapshots - http://my.internal.repo/yyy&lt;/pre&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;とあるMavenプロジェクトを &lt;code&gt;mvn clean install&lt;/code&gt; しようとしたところ、次のエラーになり正常終了しませんでした。&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;[WARNING] Rule 0: org.apache.maven.plugins.enforcer.BannedRepositories failed with message:&#xA;Current maven session contains banned repository urls, please double check your pom or settings.xml:&#xA;central - http://my.internal.repo/xxx&#xA;snapshots - http://my.internal.repo/yyy&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;原因は &lt;code&gt;mvn help:effective-pom&lt;/code&gt; 実行結果を見て理解したのですが、どうも &lt;code&gt;http://&lt;/code&gt; だとエラーになるようで、 &lt;code&gt;https://&lt;/code&gt; を使え、ということのようです。 公式リファレンスで該当するのはこれでしょうか:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

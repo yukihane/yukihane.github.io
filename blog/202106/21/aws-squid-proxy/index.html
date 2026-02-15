@@ -2,13 +2,9 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>AWS EC2 で squid プロキシサーバを立てる - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-はじめに
-
-
-SteamのDLC等をダウンロードしようとしたとき、IPアドレスによるアクセス制限が課されている場合があり、それを回避する必要が出る状況がたまにあります。
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="はじめに
+SteamのDLC等をダウンロードしようとしたとき、IPアドレスによるアクセス制限が課されている場合があり、それを回避する必要が出る状況がたまにあります。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202106/21/aws-squid-proxy/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="AWS EC2 で squid プロキシサーバを立てる">
@@ -28,8 +24,8 @@ SteamのDLC等をダウンロードしようとしたとき、IPアドレスに�
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -46,9 +42,17 @@ SteamのDLC等をダウンロードしようとしたとき、IPアドレスに�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -65,27 +69,12 @@ SteamのDLC等をダウンロードしようとしたとき、IPアドレスに�
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="paragraph">
+          <h1 id="はじめに">はじめに</h1>
 <p>SteamのDLC等をダウンロードしようとしたとき、IPアドレスによるアクセス制限が課されている場合があり、それを回避する必要が出る状況がたまにあります。</p>
-</div>
-<div class="paragraph">
 <p>VPNを利用したりする方法が解説されていることもありますが、VPN方式だとPCに別途アプリをインストールしたりする必要があるので煩雑です。</p>
-</div>
-<div class="paragraph">
 <p>私はそのような用途に、AWS EC2 経由でのアクセスを行っているのですが、毎回やり方を思い出すのに時間がかかったりするのでメモを残しておきます。</p>
-</div>
-<div class="paragraph">
 <p>Windowsから設定する前提です。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_前提知識">前提知識</h2>
-<div class="sectionbody">
-<div class="ulist">
+<h1 id="前提知識">前提知識</h1>
 <ul>
 <li>
 <p>EC2基礎操作</p>
@@ -94,64 +83,40 @@ SteamのDLC等をダウンロードしようとしたとき、IPアドレスに�
 <p>Linuxの基本操作</p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_セットアップ">セットアップ</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="セットアップ">セットアップ</h1>
 <p>EC2 インスタンを起動します。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;"/>
-<col style="width: 33.3333%;"/>
-<col style="width: 33.3334%;"/>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">項目名</th>
-<th class="tableblock halign-left valign-top">値</th>
-<th class="tableblock halign-left valign-top">備考</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">リージョン</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1">バージニア北部</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">必要に応じて変更</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AMI</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon Linux 2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">無料枠対象になっているやつです</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">セキュリティグループ</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SSHに加えて、ポート範囲: <code>3128</code>, ソース: <code>(自分のIPv4アドレス)/32</code> を追加</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3128</code> が squid のデフォルトリッスンポートです</p></td>
-</tr>
-</tbody>
+<table>
+  <thead>
+      <tr>
+          <th>項目名</th>
+          <th>値</th>
+          <th>備考</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>リージョン</td>
+          <td><a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1">バージニア北部</a></td>
+          <td>必要に応じて変更</td>
+      </tr>
+      <tr>
+          <td>AMI</td>
+          <td>Amazon Linux 2</td>
+          <td>無料枠対象になっているやつです</td>
+      </tr>
+      <tr>
+          <td>セキュリティグループ</td>
+          <td>SSHに加えて、ポート範囲: <code>3128</code>, ソース: <code>(自分のIPv4アドレス)/32</code> を追加</td>
+          <td><code>3128</code> が squid のデフォルトリッスンポートです</td>
+      </tr>
+  </tbody>
 </table>
-<div class="paragraph">
-<p>上記でセットアップしたEC2インスタンスにsshでログインします。
-その後、次の操作を行います。</p>
-</div>
-<div class="paragraph">
+<p>上記でセットアップしたEC2インスタンスにsshでログインします。 その後、次の操作を行います。</p>
 <p>squidをインストールします:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>sudo yum -y install squid</code></pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>sudo yum -y install squid
+</code></pre>
 <p><code>/etc/squid/squid.conf</code> を編集して、自分のPCからの接続を許可します:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>$ sudo diff -c /etc/squid/squid.conf{.orig,}
+<pre><code>$ sudo diff -c /etc/squid/squid.conf{.orig,}
 *** /etc/squid/squid.conf.orig  2021-06-21 00:00:12.999196705 +0000
 --- /etc/squid/squid.conf       2021-06-21 00:01:11.786605896 +0000
 ***************
@@ -173,26 +138,13 @@ SteamのDLC等をダウンロードしようとしたとき、IPアドレスに�
 + http_access allow mypc
 
   # And finally deny all other access to this proxy
-  http_access deny all</code></pre>
-</div>
-</div>
-<div class="paragraph">
+  http_access deny all
+</code></pre>
 <p>squidを起動します:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>sudo systemctl start squid</code></pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>sudo systemctl start squid
+</code></pre>
 <p>あとは、AWS EC2 コンソールでこの EC インスタンスの <strong>パブリック IPv4 アドレス</strong> を調べて、ブラウザのプロキシ設定に、サーバ名にはこのパブリック IPv4 アドレスを、ポート番号に <code>3128</code> を設定すれば完了です。</p>
-</div>
-<div class="paragraph">
-<p>Firefox であれば、システムの設定を変更せずに、ブラウザに閉じたプロキシ設定ができます。
-Google Chrome は OS(Windows) の設定と統合されているようでした(ので今回の用途には不便です)。</p>
-</div>
-</div>
-</div>
+<p>Firefox であれば、システムの設定を変更せずに、ブラウザに閉じたプロキシ設定ができます。 Google Chrome は OS(Windows) の設定と統合されているようでした(ので今回の用途には不便です)。</p>
 
         </section>
         <div class="post-tags">
@@ -201,7 +153,7 @@ Google Chrome は OS(Windows) の設定と統合されているようでした(�
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/diary">diary</a></li>
+              <li><a href="/tags/diary/">diary</a></li>
               
             </ul>
           </nav>
@@ -218,10 +170,10 @@ Google Chrome は OS(Windows) の設定と統合されているようでした(�
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

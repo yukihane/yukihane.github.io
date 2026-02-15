@@ -4,7 +4,7 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>発火後忘失 | Home </title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Fire and Forget blog" />
-	<meta property="og:image" content=""/>
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<link rel="alternate" type="application/rss+xml" href="https://yukihane.github.io/index.xml" title="発火後忘失" />
 	<meta property="og:url" content="https://yukihane.github.io/">
   <meta property="og:site_name" content="発火後忘失">
@@ -21,8 +21,8 @@
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 
 	<body>
@@ -41,9 +41,17 @@
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -56,19 +64,36 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202011/14/mapstruct-with-spring-boot-2.3.5/">Spring Boot 2.3.5 で MapStruct を利用しているプロジェクトのビルドが失敗した</a></h1>
+					<time>2020/11/14</time>
+					<br><div class="description">
+	
+	<p>調査したところSpring Bootの問題と言うよりは、Lombokのバージョンが <code>1.18.12</code> から <code>1.18.16</code> に上がったことによる非互換性の問題でした。</p>
+<p>Lombokのchangelogに説明があります:</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202011/14/mapstruct-with-spring-boot-2.3.5/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202009/12/oidc-userinfo-not-fetched-for-custom-claims/">Spring SecurityのOAuth 2.0 Login でログインしても UserInfo Endpoint にアクセスしてくれない</a></h1>
+					<time>2020/09/12</time>
+					<br><div class="description">
+	
+	<p>Spring Security <a href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#oauth2login">OAuth 2.0 Login</a> を利用してログインしたのですが、通常ログイン後 UserInfo Endpoint へアクセスしてくれるはずなのにこの処理がスキップされてしまうような事象に出会いました。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202009/12/oidc-userinfo-not-fetched-for-custom-claims/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202009/12/gradle-resource-encoding/">WindowsでGradleが扱うリソースのファイルエンコーディング設定</a></h1>
 					<time>2020/09/12</time>
 					<br><div class="description">
 	
-	<div class="sect1">
-<h2 id="_問題">問題</h2>
-<div class="sectionbody">
-<div class="paragraph">
+	<h1 id="問題">問題</h1>
 <p>Spring Bootの自動テストで <a href="https://docs.spring.io/spring-boot/docs/2.3.3.RELEASE/reference/htmlsingle/#howto-initialize-a-database-using-spring-jdbc"><code>data.sql</code></a> を作成しているのですが、 <code>gradle check</code> でテストを実行すると、失敗してしまう。</p>
-</div>
-<div class="paragraph">
-<p>原因を調べたのですが、どうも日本語のカラムを比較しているところで失敗しているようで、出力を見る感じ <code>data.sql</code> のファイルエンコーディングが <code>MS932</code> で扱われてしまっているようでした。</p>
-</div>&hellip;
+<p>原因を調べたのですが、どうも日本語のカラムを比較しているところで失敗しているようで、出力を見る感じ <code>data.sql</code> のファイルエンコーディングが <code>MS932</code> で扱われてしまっているようでした。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202009/12/gradle-resource-encoding/">Read more ⟶</a>
@@ -79,15 +104,9 @@
 					<time>2020/09/03</time>
 					<br><div class="description">
 	
-	<div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="paragraph">
+	<h1 id="はじめに">はじめに</h1>
 <p>Keycloak上で新しいclaimと、それを取得できる新しいscopeを定義し、Spring Securityを使って参照してみます。</p>
-</div>
-<div class="paragraph">
-<p><a href="/blog/202007/21/hello-oidc-with-keycloak/">KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる</a> で作成したコードをベースにしています。</p>
-</div>&hellip;
+<p><a href="/blog/202007/21/hello-oidc-with-keycloak/">KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる</a> で作成したコードをベースにしています。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202009/04/oidc-add-claim-and-scope/">Read more ⟶</a>
@@ -98,32 +117,15 @@
 					<time>2020/09/03</time>
 					<br><div class="description">
 	
-	<div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="paragraph">
+	<h1 id="はじめに">はじめに</h1>
 <p><a href="/blog/202007/21/hello-oidc-with-keycloak/">KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる</a> で作成したコードに対して、 カスタム <code>redirect_uri</code> の設定を行ってみます。</p>
-</div>
-<div class="paragraph">
 <p>今回のコードはこちら:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redirect-uri" class="bare">https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redirect-uri</a></p>
-</li>
+<li><a href="https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redirect-uri">https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redirect-uri</a></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_変更手順">変更手順</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_keycloak_登録情報の変更">KeyCloak 登録情報の変更</h3>
-<div class="paragraph">
-<p><a href="/blog/202007/21/hello-oidc-with-keycloak/">前回のページ</a> を参考に、 &#34;Valid Redirect URIs&#34; の値を今回変更するURL <strong>http://localhost:8080/my_redirect_uri</strong> に更新します。</p>
-</div>&hellip;
+<h1 id="変更手順">変更手順</h1>
+<h2 id="keycloak-登録情報の変更">KeyCloak 登録情報の変更</h2>
+<p><a href="/blog/202007/21/hello-oidc-with-keycloak/">前回のページ</a> を参考に、 &ldquo;Valid Redirect URIs&rdquo; の値を今回変更するURL <strong>http://localhost:8080/my_redirect_uri</strong> に更新します。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202009/04/oidc-change-redirect-uri/">Read more ⟶</a>
@@ -134,12 +136,8 @@
 					<time>2020/09/01</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>Spring Boot開発中、再起動するとsessionは消失すると思いこんでいたのですが、どうも引き継がれているように見えて混乱しました。</p>
-</div>
-<div class="paragraph">
-<p>その後、調査してみると <code>server.servlet.session.persistent</code> プロパティで再起動時セッションを破棄するか保持するかを設定できることがわかりました。ただし、デフォルト値は <code>false</code> で、もちろんデフォルトからは変更していません(存在を知らなかったので)。</p>
-</div>&hellip;
+	<p>Spring Boot開発中、再起動するとsessionは消失すると思いこんでいたのですが、どうも引き継がれているように見えて混乱しました。</p>
+<p>その後、調査してみると <code>server.servlet.session.persistent</code> プロパティで再起動時セッションを破棄するか保持するかを設定できることがわかりました。ただし、デフォルト値は <code>false</code> で、もちろんデフォルトからは変更していません(存在を知らなかったので)。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202009/02/spring-boot-session-take-over-on-restart-with-devtools/">Read more ⟶</a>
@@ -150,8 +148,7 @@
 					<time>2020/09/01</time>
 					<br><div class="description">
 	
-	<div class="ulist">
-<ul>
+	<ul>
 <li>
 <p><a href="https://ja.stackoverflow.com/a/70025/2808">CentOS6 上で rails new できません - スタック・オーバーフロー</a></p>
 </li>
@@ -159,10 +156,7 @@
 <p><a href="https://ja.stackoverflow.com/a/66035/2808">VagrantとCentOS7環境下でRuby及びRailsをインストールしたい。 - スタック・オーバーフロー</a></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>でそれぞれ、 CentOS6 + Rails6, CentOS7 + Rails6 の Vagrant Box を作成しました。ググってみたけれど、あまり無いものなんですね。</p>
-</div>&hellip;
+<p>でそれぞれ、 CentOS6 + Rails6, CentOS7 + Rails6 の Vagrant Box を作成しました。ググってみたけれど、あまり無いものなんですね。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202009/02/ruby-on-rails-on-centos6-centos7/">Read more ⟶</a>
@@ -173,33 +167,20 @@
 					<time>2020/08/30</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>ビルド作業は次のページを参考にしました:</p>
-</div>
-<div class="ulist">
+	<p>ビルド作業は次のページを参考にしました:</p>
 <ul>
-<li>
-<p><a href="https://aulta.co.jp/archives/7554">gcc-10.1.0をCentOS7にソースインストール | 株式会社オルタ</a></p>
-</li>
+<li><a href="https://aulta.co.jp/archives/7554">gcc-10.1.0をCentOS7にソースインストール | 株式会社オルタ</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>環境は <a href="https://yukihane.github.io/blog/202008/30/gcc-compilation-time/">こちら</a> に記載したものです。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>curl -L -O http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/gcc-10.2.0/gcc-10.2.0.tar.xz
+<pre><code>curl -L -O http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/gcc-10.2.0/gcc-10.2.0.tar.xz
 tar xf gcc-10.2.0.tar.xz
 cd gcc-10.2.0
 ./contrib/download_prerequisites
 ./configure --enable-languages=c,c++ --prefix=/opt/gcc-10.2.0 --disable-bootstrap --disable-multilib
 make -j 5
-sudo make install</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>つづいて <code>ldoconfig</code> での登録ですが、そのまま行うとエラーが出たので <a href="https://qiita.com/knutpb1205/items/4a9b39bf69f1788ef69c#%E3%82%A8%E3%83%A9%E3%83%BC%E5%AF%BE%E7%AD%96">こちら</a> を参照にして事前に1つのファイルをリネームしておきました:</p>
-</div>&hellip;
+sudo make install
+</code></pre>
+<p>つづいて <code>ldoconfig</code> での登録ですが、そのまま行うとエラーが出たので <a href="https://qiita.com/knutpb1205/items/4a9b39bf69f1788ef69c#%E3%82%A8%E3%83%A9%E3%83%BC%E5%AF%BE%E7%AD%96">こちら</a> を参照にして事前に1つのファイルをリネームしておきました:</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202008/31/gcc-installation/">Read more ⟶</a>
@@ -210,9 +191,7 @@ sudo make install</code></pre>
 					<time>2020/08/30</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>gccをビルドしようと思ったのですが、結構時間がかかるイメージがあって、先にどれくらいかかるのか調べたかったのだけれど検索しても見つかりませんでした。</p>
-</div>&hellip;
+	<p>gccをビルドしようと思ったのですが、結構時間がかかるイメージがあって、先にどれくらいかかるのか調べたかったのだけれど検索しても見つかりませんでした。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202008/30/gcc-compilation-time/">Read more ⟶</a>
@@ -223,20 +202,11 @@ sudo make install</code></pre>
 					<time>2020/08/29</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p><code>gradle bootRun</code> を実行する際にアクティブ化するプロファイルの指定を行いたかったのですが、ぱっと思いつかなかったのでメモ。</p>
-</div>
-<div class="paragraph">
+	<p><code>gradle bootRun</code> を実行する際にアクティブ化するプロファイルの指定を行いたかったのですが、ぱっと思いつかなかったのでメモ。</p>
 <p>まず、</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>gradle bootRun -Dprofiles.active=myproile</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>はうまくいきません。`profiles.active`システムプロパティは (アプリケーションでなく) Gradle に渡されるためです。</p>
-</div>&hellip;
+<pre><code>gradle bootRun -Dprofiles.active=myproile
+</code></pre>
+<p>はうまくいきません。`profiles.active`システムプロパティは (アプリケーションでなく) Gradle に渡されるためです。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202008/30/gradle-bootrun-parameter/">Read more ⟶</a>
@@ -247,15 +217,9 @@ sudo make install</code></pre>
 					<time>2020/08/29</time>
 					<br><div class="description">
 	
-	<div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="paragraph">
+	<h1 id="はじめに">はじめに</h1>
 <p><a href="https://yukihane.github.io/blog/202008/23/openapi-generator/">openapi generator を Spring Boot で利用してみる</a> で openapi-generator を用いて Spring MVC のコントローラ(のインタフェース)を自動生成してみました。</p>
-</div>
-<div class="paragraph">
-<p>その後、これを実際に利用してみて気づいたのですが、ハンドラ(controllerのメソッド)に独自の引数を生やしたいことが多く、このままだと非常に不便です。</p>
-</div>&hellip;
+<p>その後、これを実際に利用してみて気づいたのですが、ハンドラ(controllerのメソッド)に独自の引数を生やしたいことが多く、このままだと非常に不便です。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202008/30/openapi-spring-mvc-handler-args/">Read more ⟶</a>
@@ -266,14 +230,9 @@ sudo make install</code></pre>
 					<time>2020/08/23</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>特に結論はなく、情報収集です。</p>
-</div>
-<div class="quoteblock">
+	<p>特に結論はなく、情報収集です。</p>
 <blockquote>
-<div class="paragraph">
-<p>Google の検索 URI「http://www.google.com/search?q=jellyfish」について考えてみよう。Google Web アプリケーションがパス変数を使用していたならば、この URI はアルゴリズムの実行結果というよりも、ディレクトリのようになっていただろう（http://www.google.com/search/jellyfish）。</p>
-</div>&hellip;
+<p>Google の検索 URI「http://www.google.com/search?q=jellyfish」について考えてみよう。Google Web アプリケーションがパス変数を使用していたならば、この URI はアルゴリズムの実行結果というよりも、ディレクトリのようになっていただろう（http://www.google.com/search/jellyfish）。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202008/24/rest-path-or-query/">Read more ⟶</a>
@@ -284,24 +243,12 @@ sudo make install</code></pre>
 					<time>2020/08/23</time>
 					<br><div class="description">
 	
-	<div class="sect1">
-<h2 id="_今回の成果物">今回の成果物</h2>
-<div class="sectionbody">
-<div class="ulist">
+	<h1 id="今回の成果物">今回の成果物</h1>
 <ul>
-<li>
-<p><a href="https://github.com/yukihane/hello-java/tree/master/spring/openapi-sample" class="bare">https://github.com/yukihane/hello-java/tree/master/spring/openapi-sample</a></p>
-</li>
+<li><a href="https://github.com/yukihane/hello-java/tree/master/spring/openapi-sample">https://github.com/yukihane/hello-java/tree/master/spring/openapi-sample</a></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_設定">設定</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_build_gradle">build.gradle</h3>
-<div class="ulist">
+<h1 id="設定">設定</h1>
+<h2 id="buildgradle">build.gradle</h2>
 <ul>
 <li>
 <p><a href="https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator-gradle-plugin">openapi-generator-gradle-plugin</a></p>
@@ -310,84 +257,85 @@ sudo make install</code></pre>
 <p><a href="https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators/spring.md">spring generator</a></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p>辺りを参考にしています。</p>
+<div class="formalpara-title">
+<p><strong>build.gradle</strong></p>
 </div>
-<div class="listingblock">
-<div class="title">build.gradle</div>
-<div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy">plugins {
-    id &#39;eclipse&#39;
-    id &#39;org.openapi.generator&#39; version &#39;4.3.1&#39;
-}
-
-ext {
-    openApiOutputDir = &#34;$rootDir/build/generated/openapi&#34;
-}
-
-sourceSets.main.java.srcDirs += [&#34;$openApiOutputDir/src/main/java&#34;]
-
-dependencies {
-    // これらは自動生成クラスが import しているので必要
-    implementation &#39;org.springframework.boot:spring-boot-starter-validation&#39;
-    implementation &#39;org.openapitools:jackson-databind-nullable:0.2.1&#39;
-    compileOnly &#39;io.swagger:swagger-annotations:1.6.2&#39;
-}
-
-openApiGenerate {
-    generatorName = &#39;spring&#39;
-    inputSpec = &#34;$rootDir/specs/test.yml&#34;
-    outputDir = &#34;$openApiOutputDir&#34;
-    apiPackage = &#39;org.openapi.example.api&#39;
-    modelPackage = &#39;org.openapi.example.model&#39;
-    configOptions = [
-        dateLibrary: &#39;java8&#39;,
-        interfaceOnly: &#39;true&#39;,
-        skipDefaultInterface: &#39;true&#39;,
-    ]
-}
-
-compileJava.dependsOn tasks.openApiGenerate</code></pre>
-</div>&hellip;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="line"><span class="cl"><span class="n">plugins</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">id</span> <span class="s1">&#39;eclipse&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">id</span> <span class="s1">&#39;org.openapi.generator&#39;</span> <span class="n">version</span> <span class="s1">&#39;4.3.1&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">ext</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">openApiOutputDir</span> <span class="o">=</span> <span class="s2">&#34;$rootDir/build/generated/openapi&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">sourceSets</span><span class="o">.</span><span class="na">main</span><span class="o">.</span><span class="na">java</span><span class="o">.</span><span class="na">srcDirs</span> <span class="o">+=</span> <span class="o">[</span><span class="s2">&#34;$openApiOutputDir/src/main/java&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">dependencies</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// これらは自動生成クラスが import しているので必要
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">implementation</span> <span class="s1">&#39;org.springframework.boot:spring-boot-starter-validation&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">implementation</span> <span class="s1">&#39;org.openapitools:jackson-databind-nullable:0.2.1&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">compileOnly</span> <span class="s1">&#39;io.swagger:swagger-annotations:1.6.2&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">openApiGenerate</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">generatorName</span> <span class="o">=</span> <span class="s1">&#39;spring&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inputSpec</span> <span class="o">=</span> <span class="s2">&#34;$rootDir/specs/test.yml&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">outputDir</span> <span class="o">=</span> <span class="s2">&#34;$openApiOutputDir&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">apiPackage</span> <span class="o">=</span> <span class="s1">&#39;org.openapi.example.api&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">modelPackage</span> <span class="o">=</span> <span class="s1">&#39;org.openapi.example.model&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">configOptions</span> <span class="o">=</span> <span class="o">[</span>
+</span></span><span class="line"><span class="cl">        <span class="nl">dateLibrary:</span> <span class="s1">&#39;java8&#39;</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nl">interfaceOnly:</span> <span class="s1">&#39;true&#39;</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nl">skipDefaultInterface:</span> <span class="s1">&#39;true&#39;</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">compileJava</span><span class="o">.</span><span class="na">dependsOn</span> <span class="n">tasks</span><span class="o">.</span><span class="na">openApiGenerate</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="specstestyml">specs/test.yml</h2>
+<p>上の <code>build.gradle</code> で指定している、今回の OpenAPI spec ファイルです。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202008/23/openapi-generator/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202008/23/spring-lombok-mapstruct/">Spring BootプロジェクトにLombokとMapStructを追加する(Eclipse &amp; Maven/Gradle)</a></h1>
-					<time>2020/08/23</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p>(2021-10-16 更新)</p>
-</div>
-<div class="paragraph">
-<p>Spring Boot プロジェクトにLombokとMapStructを追加し、かつ Eclipse で開発を行う場合の設定です。</p>
-</div>
-<div class="paragraph">
-<p>同じようなことを何回か書いてきた気がするのですが、結局どうすれば良いの？というのをまとめて書いたものが無いっぽいので改めて記事に起こしました。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202008/23/spring-lombok-mapstruct/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202008/16/gradle-test-not-working/">Gradleでintegration testを作成するも実行できない(JUnit5)</a></h1>
-					<time>2020/08/16</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p>Gradle で integration-test 用にテストディレクトリを分けようとして <a href="https://docs.gradle.org/current/userguide/java_testing.html#sec:configuring_java_integration_tests">リファレンス</a> を参考に <code>build.gradle</code> を編集しました。</p>
-</div>
-<div class="paragraph">
-<p>しかし、コンパイル対象には入っているようですがこのテストが実行されている気配がありません。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202008/16/gradle-test-not-working/">Read more ⟶</a>
 				</section>
 				
 				
@@ -409,10 +357,10 @@ compileJava.dependsOn tasks.openApiGenerate</code></pre>
 			</main>
 			<footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

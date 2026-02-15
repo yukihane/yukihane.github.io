@@ -2,10 +2,8 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Spring Security OAuth 2.0 Client(OAuth 2.0 Login)でトークンの管理をしているのはOAuth2AuthorizedClientService - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-私も今回の質問(本文末参照)を見たとき少しの間勘違いしてしまったのですが、OAuth2.0のクライアントがどこで各リソースオーナーのトークンを管理しているかと言うと、アプリケーションコンテキストであって、ユーザのセッションコンテキストなわけが無いですよね…
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="私も今回の質問(本文末参照)を見たとき少しの間勘違いしてしまったのですが、OAuth2.0のクライアントがどこで各リソースオーナーのトークンを管理しているかと言うと、アプリケーションコンテキストであって、ユーザのセッションコンテキストなわけが無いですよね…" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202006/17/oauth2authorizedclientservice/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Spring Security OAuth 2.0 Client(OAuth 2.0 Login)でトークンの管理をしているのはOAuth2AuthorizedClientService">
@@ -27,8 +25,8 @@
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -45,9 +43,17 @@
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -64,29 +70,15 @@
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>私も今回の質問(本文末参照)を見たとき少しの間勘違いしてしまったのですが、OAuth2.0のクライアントがどこで各リソースオーナーのトークンを管理しているかと言うと、アプリケーションコンテキストであって、ユーザのセッションコンテキストなわけが無いですよね…</p>
-</div>
-<div class="ulist">
+          <p>私も今回の質問(本文末参照)を見たとき少しの間勘違いしてしまったのですが、OAuth2.0のクライアントがどこで各リソースオーナーのトークンを管理しているかと言うと、アプリケーションコンテキストであって、ユーザのセッションコンテキストなわけが無いですよね…</p>
 <ul>
-<li>
-<p><a href="https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#oauth2Client-authorized-repo-service">OAuth2AuthorizedClientRepository / OAuth2AuthorizedClientService</a></p>
-</li>
+<li><a href="https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#oauth2Client-authorized-repo-service">OAuth2AuthorizedClientRepository / OAuth2AuthorizedClientService</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>クライアントからユーザがログアウトすると、たしかにそのセッションとOAuth2.0の認可情報のひも付きは解除されます。ただしそれはクライアントから認可情報が除去されることを意味しません。なぜなら、そもそもOAuth2.0は、ユーザがクライアントに対してログイン状態のときのみクライアントがリソースにアクセスできるようになる、というような性質のものではないからです。</p>
-</div>
-<div class="paragraph">
 <p>関連リンク:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://ja.stackoverflow.com/q/67716/2808">SpringBoot Oauth2でクライアント認証をする際、sessionが破棄と同時に認証サーバー側のトークンをrevokeする方法について</a></p>
-</li>
+<li><a href="https://ja.stackoverflow.com/q/67716/2808">SpringBoot Oauth2でクライアント認証をする際、sessionが破棄と同時に認証サーバー側のトークンをrevokeする方法について</a></li>
 </ul>
-</div>
 
         </section>
         <div class="post-tags">
@@ -95,11 +87,11 @@
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/spring-boot">spring-boot</a></li>
+              <li><a href="/tags/spring-boot/">spring-boot</a></li>
               
-              <li><a href="/tags/spring-security">spring-security</a></li>
+              <li><a href="/tags/spring-security/">spring-security</a></li>
               
-              <li><a href="/tags/oauth">oauth</a></li>
+              <li><a href="/tags/oauth/">oauth</a></li>
               
             </ul>
           </nav>
@@ -116,10 +108,10 @@
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

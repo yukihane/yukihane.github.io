@@ -2,39 +2,17 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Git - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-オンラインマニュアル
-
-
+	<meta name="description" content="オンラインマニュアル
 https://git-scm.com/docs
-
-
-
-
 password記憶
-
-
-
 git config --global credential.helper &#39;cache --timeout=21600&#39;
 
-
-
 21600秒(6時間)デーモンがパスワードを保持する。
-
-
-
-
 単語単位diff
+git config --global alias.diffw &quot;diff --word-diff-regex=.&quot;
 
-
-
-git config --global alias.diffw &#34;diff --word-diff-regex=.&#34;
-
-
-
-上記で日本語が文字化けする場合は、代わりに以下の設定でいける、はず。
-" />
-	<meta property="og:image" content=""/>
+上記で日本語が文字化けする場合は、代わりに以下の設定でいける、はず。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/git/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Git">
@@ -57,8 +35,8 @@ password記憶 git config --global credential.helper &#39;cache --timeout=21600&
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -75,9 +53,17 @@ password記憶 git config --global credential.helper &#39;cache --timeout=21600&
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -94,197 +80,83 @@ password記憶 git config --global credential.helper &#39;cache --timeout=21600&
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_オンラインマニュアル">オンラインマニュアル</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><a href="https://git-scm.com/docs" class="bare">https://git-scm.com/docs</a></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_password記憶">password記憶</h2>
-<div class="sectionbody">
-<div class="literalblock">
-<div class="content">
-<pre>git config --global credential.helper &#39;cache --timeout=21600&#39;</pre>
-</div>
-</div>
-<div class="paragraph">
+          <h1 id="オンラインマニュアル">オンラインマニュアル</h1>
+<p><a href="https://git-scm.com/docs">https://git-scm.com/docs</a></p>
+<h1 id="password記憶">password記憶</h1>
+<pre><code>git config --global credential.helper 'cache --timeout=21600'
+</code></pre>
 <p>21600秒(6時間)デーモンがパスワードを保持する。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_単語単位diff">単語単位diff</h2>
-<div class="sectionbody">
-<div class="literalblock">
-<div class="content">
-<pre>git config --global alias.diffw &#34;diff --word-diff-regex=.&#34;</pre>
-</div>
-</div>
-<div class="paragraph">
+<h1 id="単語単位diff">単語単位diff</h1>
+<pre><code>git config --global alias.diffw &quot;diff --word-diff-regex=.&quot;
+</code></pre>
 <p>上記で日本語が文字化けする場合は、代わりに以下の設定でいける、はず。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>git config --global diff.wordRegex $&#39;[^\x80-\xbf][\x80-\xbf]*&#39;
-git config --global alias.diffw &#34;diff --word-diff&#34;</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>参考:
-<a href="https://qiita.com/skoji/items/28f1d6582cf81638cd3f">Gitで日本語長文のdiffをとる方法
-- Qiita</a></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_logの1行簡易なカスタム表示">logの1行簡易なカスタム表示</h2>
-<div class="sectionbody">
-<div class="literalblock">
-<div class="content">
-<pre>git config --global alias.logshort &#39;log --pretty=format:&#34;%h %an %ai %s&#34;&#39;</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_枝分けを行った最初のポイントを見つける">枝分けを行った最初のポイントを見つける</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>`zsh`があることが前提になっているので、例えばWindowsのgit
-bash環境などでは動かない。
-その場合は後述の同名節記載のコマンドで代替すれば良い。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>git config --global alias.oldest-ancestor &#39;!zsh -c &#39;\&#39;&#39;diff -u &lt;(git rev-list --first-parent &#34;${1:-master}&#34;) &lt;(git rev-list --first-parent &#34;${2:-HEAD}&#34;) | sed -ne &#34;s/^ //p&#34; | head -1&#39;\&#39;&#39; -&#39;</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="枝分けを行った最初のポイントを見つける_1">枝分けを行った最初のポイントを見つける</h2>
-<div class="sectionbody">
-<div class="literalblock">
-<div class="content">
-<pre>diff -u &lt;(git rev-list --first-parent topic) \
+<pre><code>git config --global diff.wordRegex $'[^\x80-\xbf][\x80-\xbf]*'
+git config --global alias.diffw &quot;diff --word-diff&quot;
+</code></pre>
+<p>参考: <a href="https://qiita.com/skoji/items/28f1d6582cf81638cd3f">Gitで日本語長文のdiffをとる方法 - Qiita</a></p>
+<h1 id="logの1行簡易なカスタム表示">logの1行簡易なカスタム表示</h1>
+<pre><code>git config --global alias.logshort 'log --pretty=format:&quot;%h %an %ai %s&quot;'
+</code></pre>
+<h1 id="枝分けを行った最初のポイントを見つける">枝分けを行った最初のポイントを見つける</h1>
+<p>`zsh`があることが前提になっているので、例えばWindowsのgit bash環境などでは動かない。 その場合は後述の同名節記載のコマンドで代替すれば良い。</p>
+<pre><code>git config --global alias.oldest-ancestor '!zsh -c '\''diff -u &lt;(git rev-list --first-parent &quot;${1:-master}&quot;) &lt;(git rev-list --first-parent &quot;${2:-HEAD}&quot;) | sed -ne &quot;s/^ //p&quot; | head -1'\'' -'
+</code></pre>
+<h1 id="枝分けを行った最初のポイントを見つける-1">枝分けを行った最初のポイントを見つける</h1>
+<pre><code>diff -u &lt;(git rev-list --first-parent topic) \
              &lt;(git rev-list --first-parent master) | \
-     sed -ne &#39;s/^ //p&#39; | head -1</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>ちなみに`&lt;(…​)`という書き方はProcess
-Substitution<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>という。</p>
-</div>
-<div class="ulist">
+     sed -ne 's/^ //p' | head -1
+</code></pre>
+<p>ちなみに`&lt;(…​)`という書き方はProcess Substitution<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>という。</p>
 <ul>
-<li>
-<p><a href="http://stackoverflow.com/questions/1527234/finding-a-branch-point-with-git">Finding
-a branch point with Git? - Stack Overflow</a></p>
-</li>
+<li><a href="http://stackoverflow.com/questions/1527234/finding-a-branch-point-with-git">Finding a branch point with Git? - Stack Overflow</a></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_stats">stats</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><a href="https://github.com/arzzen/git-quick-stats" class="bare">https://github.com/arzzen/git-quick-stats</a></p>
-</div>
-<div class="paragraph">
+<h1 id="stats">stats</h1>
+<p><a href="https://github.com/arzzen/git-quick-stats">https://github.com/arzzen/git-quick-stats</a></p>
 <p>実行例</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>_GIT_SINCE=today.0:00am git quick-stats detailedGitStats</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="excel_の_diff_をとる">excel の diff をとる</h2>
-<div class="sectionbody">
-<div class="ulist">
+<pre><code>_GIT_SINCE=today.0:00am git quick-stats detailedGitStats
+</code></pre>
+<h1 id="excel-の-diff-をとる">excel の diff をとる</h1>
 <ul>
 <li>
-<p><a href="http://qiita.com/shuhei/items/6a18d968051378d7ac1a" class="bare">http://qiita.com/shuhei/items/6a18d968051378d7ac1a</a></p>
+<p><a href="http://qiita.com/shuhei/items/6a18d968051378d7ac1a">http://qiita.com/shuhei/items/6a18d968051378d7ac1a</a></p>
 </li>
 <li>
-<p><a href="https://git-scm.com/book/ja/v2/Git-%E3%81%AE%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA-Git-%E3%81%AE%E5%B1%9E%E6%80%A7" class="bare">https://git-scm.com/book/ja/v2/Git-%E3%81%AE%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA-Git-%E3%81%AE%E5%B1%9E%E6%80%A7</a></p>
+<p><a href="https://git-scm.com/book/ja/v2/Git-%E3%81%AE%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA-Git-%E3%81%AE%E5%B1%9E%E6%80%A7">https://git-scm.com/book/ja/v2/Git-%E3%81%AE%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA-Git-%E3%81%AE%E5%B1%9E%E6%80%A7</a></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p><a href="https://tika.apache.org/">Apache Tika</a>を利用する。</p>
-</div>
-<div class="paragraph">
 <p>tikaコマンドをpathの通った場所にインストールする:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>brew install tika</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>brew install tika
+</code></pre>
 <p>リポジトリ内の`.gitattributes`ファイル(他者と共有してしまって良い場合)、あるいは`YOUR_REPO/.git/info/attributes`(設定するのは自分だけなので共有してはまずい場合)に次のように記述する:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>*.xlsx diff=excel</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>*.xlsx diff=excel
+</code></pre>
 <p><code>~/bin/</code>(等、パスの通った場所)に次のように記述したファイル`tika-text`を作成する。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>#!/bin/bash
-tika -t &#34;$1&#34;</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>#!/bin/bash
+tika -t &quot;$1&quot;
+</code></pre>
 <p>また、上記ファイルに実行権限を付与する。</p>
-</div>
-<div class="paragraph">
 <p>次のコマンドを実行し、`~/.gitconfig`ファイルに設定を追記する:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>git config --global diff.excel.textconv tika-text</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>git config --global diff.excel.textconv tika-text
+</code></pre>
 <p>補足:</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
-<p>tikaをhomebrewでインストールしない場合は、tika-app-x.x.jar
-をダウンロードして <code>tika -t &#34;$1&#34;</code> の代わりに <code>java -jar tika-app-x.x.jar -t &#34;$1&#34;</code> とすれば良いはず。</p>
+<p>tikaをhomebrewでインストールしない場合は、tika-app-x.x.jar をダウンロードして <code>tika -t &quot;$1&quot;</code> の代わりに <code>java -jar tika-app-x.x.jar -t &quot;$1&quot;</code> とすれば良いはず。</p>
 </li>
 <li>
-<p>gitattributes ファイルの置き場所について - <a href="https://stackoverflow.com/questions/28026767/where-should-i-place-my-global-gitattributes-file/">git - Where should I place my global &#39;gitattributes&#39; file? - Stack Overflow</a></p>
+<p>gitattributes ファイルの置き場所について - <a href="https://stackoverflow.com/questions/28026767/where-should-i-place-my-global-gitattributes-file/">git - Where should I place my global &lsquo;gitattributes&rsquo; file? - Stack Overflow</a></p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="author_を書き換える">author を書き換える</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><a href="https://help.github.com/articles/changing-author-info/" class="bare">https://help.github.com/articles/changing-author-info/</a></p>
-</div>
-</div>
-</div>
-<div id="footnotes">
-<hr/>
-<div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. <a href="https://www.gnu.org/software/bash/manual/html_node/Process-Substitution.html" class="bare">https://www.gnu.org/software/bash/manual/html_node/Process-Substitution.html</a>
-</div>
+<h1 id="author-を書き換える">author を書き換える</h1>
+<p><a href="https://help.github.com/articles/changing-author-info/">https://help.github.com/articles/changing-author-info/</a></p>
+<div class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://www.gnu.org/software/bash/manual/html_node/Process-Substitution.html">https://www.gnu.org/software/bash/manual/html_node/Process-Substitution.html</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
 </div>
 
         </section>
@@ -303,10 +175,10 @@ tika -t &#34;$1&#34;</pre>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

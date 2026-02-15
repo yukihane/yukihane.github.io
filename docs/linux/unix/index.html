@@ -2,16 +2,10 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Unix - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-ログインシェル変更
-
-
+	<meta name="description" content="ログインシェル変更
 さくらレンタルサーバのデフォルトログインシェルは`/bin/csh`なのでLinuxユーザにはちょっと馴染みがない…
-
-
-/etc/shells に利用可能なシェル一覧がある。
-" />
-	<meta property="og:image" content=""/>
+/etc/shells に利用可能なシェル一覧がある。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/linux/unix/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Unix">
@@ -32,8 +26,8 @@
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -50,9 +44,17 @@
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -69,146 +71,74 @@
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_ログインシェル変更">ログインシェル変更</h2>
-<div class="sectionbody">
-<div class="paragraph">
+          <h1 id="ログインシェル変更">ログインシェル変更</h1>
 <p>さくらレンタルサーバのデフォルトログインシェルは`/bin/csh`なのでLinuxユーザにはちょっと馴染みがない…</p>
-</div>
-<div class="paragraph">
 <p><code>/etc/shells</code> に利用可能なシェル一覧がある。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>/bin/sh
+<pre><code>/bin/sh
 /bin/csh
 /bin/tcsh
 /usr/local/bin/zsh
 /usr/local/bin/rzsh
 /usr/bin/passwd
 /usr/local/bin/bash
-/usr/local/bin/rbash</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><code>chsh -s <em>newshell</em></code> で新しいシェルに変更できる。間違えるとログインできなくなるので注意。</p>
-</div>
-<div class="paragraph">
+/usr/local/bin/rbash
+</code></pre>
+<p><code>chsh -s newshell</code> で新しいシェルに変更できる。間違えるとログインできなくなるので注意。</p>
 <p>今回は <code>zsh</code> を使ってみるので <code>chsh -s /usr/local/bin/zsh</code></p>
-</div>
-<div class="paragraph">
-<p><code>.zshrc</code> は
-<a href="http://mollifier.hatenablog.com/entry/2013/02/22/025415">こちら</a> で紹介されている
-<a href="https://gist.github.com/mollifier/4979906" class="bare">https://gist.github.com/mollifier/4979906</a> を採用。</p>
-</div>
-<div class="paragraph">
+<p><code>.zshrc</code> は <a href="http://mollifier.hatenablog.com/entry/2013/02/22/025415">こちら</a> で紹介されている <a href="https://gist.github.com/mollifier/4979906">https://gist.github.com/mollifier/4979906</a> を採用。</p>
 <p>追加で <a href="http://d.hatena.ne.jp/littlebuddha/20090216/1234785251">さくらの共有サーバーでシェルを zsh に変更してから、zsh: permission denied: /var/mail/youraccount と怒られないようにする - make world</a> の設定も行う。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">% vi ~/.zshrc
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">MAILCHECK</span><span class="o">=</span><span class="m">0</span>
+</span></span><span class="line"><span class="cl">% <span class="nb">source</span> ~/.zshrc
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">% vi ~/.zshrc
-export MAILCHECK=0
-% source ~/.zshrc</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="ubuntuのbashdashには_bash_source_はない">Ubuntuのbash(dash)には BASH_SOURCE はない</h2>
-<div class="sectionbody">
-<div class="paragraph">
+</div><h1 id="ubuntuのbashdashには-bash_source-はない">Ubuntuのbash(dash)には BASH_SOURCE はない</h1>
 <p>Bad substitution などと言われてしまう。</p>
-</div>
-<div class="paragraph">
-<p><a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html">5.2
-BBash Reference Manual: Bash Variables</a>:</p>
-</div>
-<div class="quoteblock">
+<p><a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html">5.2 BBash Reference Manual: Bash Variables</a>:</p>
 <blockquote>
-<div class="paragraph">
 <p>BASH_SOURCE</p>
-</div>
-<div class="paragraph">
-<p>::
-  An array variable whose members are the source filenames where the
-  corresponding shell function names in the FUNCNAME array variable are
-  defined. The shell function $\{FUNCNAME[$i]} is defined in the file
-  $\{BASH_SOURCE[$i]} and called from $\{BASH_SOURCE[$i+1]}</p>
-</div>
-</blockquote>
-</div>
-<div class="paragraph">
-<p>この <code>BASH_SOURCE</code> は <code>sh</code> (<code>dash</code>)にはない模様。
-<code>/bin/bash hoge.sh</code> というように、明示的に`bash`を指定してやれば良い。</p>
-</div>
-<div class="ulist">
+<p>:: An array variable whose members are the source filenames where the corresponding shell function names in the FUNCNAME array variable are defined. The shell function $\FUNCNAME[$i]} is defined in the file $\BASH_SOURCE[$i]} and called from $\BASH_SOURCE[$i+1]}</p></blockquote>
+<p>この <code>BASH_SOURCE</code> は <code>sh</code> (<code>dash</code>)にはない模様。 <code>/bin/bash hoge.sh</code> というように、明示的に`bash`を指定してやれば良い。</p>
 <ul>
-<li>
-<p><a href="http://stackoverflow.com/a/15542250/4506703">bash - SCRIPT_PATH=&#34;${BASH_SOURCE[0]}&#34; Bad substitution - Stack Overflow</a></p>
-</li>
+<li><a href="http://stackoverflow.com/a/15542250/4506703">bash - SCRIPT_PATH=&quot;${BASH_SOURCE[0]}&quot; Bad substitution - Stack Overflow</a></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_フォント">フォント</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_インストール">インストール</h3>
-<div class="paragraph">
-<p><code>/usr/share/fonts</code>, あるいは <code>~/.fonts</code> に <code>ttc</code>,
-`ttf`ファイルを置けばよい。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_フォント一覧">フォント一覧</h3>
-<div class="literalblock">
-<div class="content">
-<pre>fc-list</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_ハードディスク関係">ハードディスク関係</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>参考:
-<a href="http://d.hatena.ne.jp/kanonji/20081220/1229787169">Linux機に接続されているHDDを把握する方法
-- kanonjiの日記</a></p>
-</div>
-<div class="paragraph">
+<h1 id="フォント">フォント</h1>
+<h2 id="インストール">インストール</h2>
+<p><code>/usr/share/fonts</code>, あるいは <code>~/.fonts</code> に <code>ttc</code>, `ttf`ファイルを置けばよい。</p>
+<h2 id="フォント一覧">フォント一覧</h2>
+<pre><code>fc-list
+</code></pre>
+<h1 id="ハードディスク関係">ハードディスク関係</h1>
+<p>参考: <a href="http://d.hatena.ne.jp/kanonji/20081220/1229787169">Linux機に接続されているHDDを把握する方法 - kanonjiの日記</a></p>
 <p>実行コマンド:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>dmesg | grep -B 5 sd</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>dmesg | grep -B 5 sd
+</code></pre>
 <p>結果抜粋:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>[    2.492857] scsi 0:0:0:0: Direct-Access     ATA      INTEL SSDSC2CT24 335s PQ: 0 ANSI: 5
+<pre><code>[    2.492857] scsi 0:0:0:0: Direct-Access     ATA      INTEL SSDSC2CT24 335s PQ: 0 ANSI: 5
 [    2.493181] sd 0:0:0:0: Attached scsi generic sg0 type 0
 [    2.493421] sd 0:0:0:0: [sda] 468862128 512-byte logical blocks: (240 GB/224 GiB)
 [    2.493461] sd 0:0:0:0: [sda] Write Protect is off
 [    2.493463] sd 0:0:0:0: [sda] Mode Sense: 00 3a 00 00
 [    2.493478] scsi 1:0:0:0: Direct-Access     ATA      Hitachi HDP72505 A50E PQ: 0 ANSI: 5
-[    2.493548] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn&#39;t support DPO or FUA
+[    2.493548] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
 [    2.493704] sd 1:0:0:0: Attached scsi generic sg1 type 0
 [    2.493757] sd 1:0:0:0: [sdb] 976773168 512-byte logical blocks: (500 GB/466 GiB)
 [    2.493766] sd 1:0:0:0: [sdb] Write Protect is off
 [    2.493767] sd 1:0:0:0: [sdb] Mode Sense: 00 3a 00 00
-[    2.493781] sd 1:0:0:0: [sdb] Write cache: enabled, read cache: enabled, doesn&#39;t support DPO or FUA
+[    2.493781] sd 1:0:0:0: [sdb] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
 [    2.493805] scsi 2:0:0:0: Direct-Access     ATA      SAMSUNG HD154UI  1118 PQ: 0 ANSI: 5
 [    2.493899] sd 2:0:0:0: Attached scsi generic sg2 type 0
 [    2.493951] sd 2:0:0:0: [sdc] 2930277168 512-byte logical blocks: (1.50 TB/1.36 TiB)
 [    2.493959] sd 2:0:0:0: [sdc] Write Protect is off
 [    2.493960] sd 2:0:0:0: [sdc] Mode Sense: 00 3a 00 00
-[    2.493987] sd 2:0:0:0: [sdc] Write cache: enabled, read cache: enabled, doesn&#39;t support DPO or FUA
+[    2.493987] sd 2:0:0:0: [sdc] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
 [    2.494557]  sda: sda1 sda2 sda3 sda4 sda5 sda6 sda7 sda8
 [    2.494846] sd 0:0:0:0: [sda] Attached SCSI disk
 [    2.541827]  sdb: sdb1 sdb2
@@ -220,15 +150,10 @@ BBash Reference Manual: Bash Variables</a>:</p>
 [    3.210448] usb 6-3: Manufacturer: Oculus VR
 [    3.210450] usb 6-3: SerialNumber: WMTD305P400QJ1
 [    3.262858]  sdc: sdc1 sdc2
-[    3.263624] sd 2:0:0:0: [sdc] Attached SCSI disk</pre>
-</div>
-</div>
-<div class="paragraph">
+[    3.263624] sd 2:0:0:0: [sdc] Attached SCSI disk
+</code></pre>
 <p>fdisk結果;</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ sudo /sbin/fdisk -l /dev/sda
+<pre><code>$ sudo /sbin/fdisk -l /dev/sda
 ディスク /dev/sda: 223.6 GiB, 240057409536 バイト, 468862128 セクタ
 単位: セクタ (1 * 512 = 512 バイト)
 セクタサイズ (論理 / 物理): 512 バイト / 512 バイト
@@ -244,12 +169,9 @@ I/O サイズ (最小 / 推奨): 512 バイト / 512 バイト
 /dev/sda5  230961152 232564735   1603584   783M Windows リカバリ環境
 /dev/sda6  233504768 234426367    921600   450M Windows リカバリ環境
 /dev/sda7  234426368 435130367 200704000  95.7G Microsoft 基本データ
-/dev/sda8  435130368 468860927  33730560  16.1G Linux スワップ</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ sudo /sbin/fdisk -l /dev/sda
+/dev/sda8  435130368 468860927  33730560  16.1G Linux スワップ
+
+$ sudo /sbin/fdisk -l /dev/sda
 ディスク /dev/sda: 223.6 GiB, 240057409536 バイト, 468862128 セクタ
 単位: セクタ (1 * 512 = 512 バイト)
 セクタサイズ (論理 / 物理): 512 バイト / 512 バイト
@@ -265,12 +187,9 @@ I/O サイズ (最小 / 推奨): 512 バイト / 512 バイト
 /dev/sda5  230961152 232564735   1603584   783M Windows リカバリ環境
 /dev/sda6  233504768 234426367    921600   450M Windows リカバリ環境
 /dev/sda7  234426368 435130367 200704000  95.7G Microsoft 基本データ
-/dev/sda8  435130368 468860927  33730560  16.1G Linux スワップ</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ sudo /sbin/fdisk -l /dev/sdb
+/dev/sda8  435130368 468860927  33730560  16.1G Linux スワップ
+
+$ sudo /sbin/fdisk -l /dev/sdb
 ディスク /dev/sdb: 465.8 GiB, 500107862016 バイト, 976773168 セクタ
 単位: セクタ (1 * 512 = 512 バイト)
 セクタサイズ (論理 / 物理): 512 バイト / 512 バイト
@@ -280,12 +199,9 @@ I/O サイズ (最小 / 推奨): 512 バイト / 512 バイト
 
 デバイス   開始位置  最後から    セクタ サイズ タイプ
 /dev/sdb1        34    262177    262144   128M Microsoft 予約領域
-/dev/sdb2    264192 976771071 976506880 465.7G Microsoft 基本データ</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ sudo /sbin/fdisk -l /dev/sdc
+/dev/sdb2    264192 976771071 976506880 465.7G Microsoft 基本データ
+
+$ sudo /sbin/fdisk -l /dev/sdc
 ディスク /dev/sdc: 1.4 TiB, 1500301910016 バイト, 2930277168 セクタ
 単位: セクタ (1 * 512 = 512 バイト)
 セクタサイズ (論理 / 物理): 512 バイト / 512 バイト
@@ -295,28 +211,13 @@ I/O サイズ (最小 / 推奨): 512 バイト / 512 バイト
 
 デバイス     開始位置   最後から     セクタ サイズ タイプ
 /dev/sdc1        2048 1465139199 1465137152 698.6G Microsoft 基本データ
-/dev/sdc2  1465139200 2930276351 1465137152 698.6G Microsoft 基本データ</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_コマンドなど">コマンドなど</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="crlf___lf_変換">CRLF → LF 変換</h3>
-<div class="literalblock">
-<div class="content">
-<pre> find . -type f | xargs sed -i -e &#39;s/^M//g&#39;</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><code>sed</code> はgnu版sed。 <code>^M</code> は、 <code>C-v C-m</code> で入力できる。
-Macだと`nkf`を使う例がよく検索でヒットするが、円マークなど、想定していない箇所の文字コードも変わってしまった。</p>
-</div>
-</div>
-</div>
-</div>
+/dev/sdc2  1465139200 2930276351 1465137152 698.6G Microsoft 基本データ
+</code></pre>
+<h1 id="コマンドなど">コマンドなど</h1>
+<h2 id="crlf--lf-変換">CRLF → LF 変換</h2>
+<pre><code> find . -type f | xargs sed -i -e 's/^M//g'
+</code></pre>
+<p><code>sed</code> はgnu版sed。 <code>^M</code> は、 <code>C-v C-m</code> で入力できる。 Macだと`nkf`を使う例がよく検索でヒットするが、円マークなど、想定していない箇所の文字コードも変わってしまった。</p>
 
         </section>
         <div class="post-tags">
@@ -334,10 +235,10 @@ Macだと`nkf`を使う例がよく検索でヒットするが、円マークな
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

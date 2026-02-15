@@ -2,34 +2,20 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>git worktree を利用していると git-commit-id-maven-plugin でエラー - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-…​になりました。
-
-
-
+	<meta name="description" content="…​になりました。
 
 Support of git worktree option (for JGIT) · Issue #215 · git-commit-id/git-commit-id-maven-plugin · GitHub
 
-
-
-
 コマンドライン引数でスキップさせるには、 #278 で導入された maven.gitcommitid.skip オプション(現時点最新版の該当コードリンク)を利用して、
-
-
-
 mvn -Dmaven.gitcommitid.skip package
 
-
-
-などとすれば良さそうです。
-" />
-	<meta property="og:image" content=""/>
+などとすれば良さそうです。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202201/24/git-commit-id-maven-plugin-on-worktree/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="git worktree を利用していると git-commit-id-maven-plugin でエラー">
   <meta property="og:description" content="…​になりました。
-Support of git worktree option (for JGIT) · Issue #215 · git-commit-id/git-commit-id-maven-plugin · GitHub
-コマンドライン引数でスキップさせるには、 #278 で導入された maven.gitcommitid.skip オプション(現時点最新版の該当コードリンク)を利用して、
+Support of git worktree option (for JGIT) · Issue #215 · git-commit-id/git-commit-id-maven-plugin · GitHub コマンドライン引数でスキップさせるには、 #278 で導入された maven.gitcommitid.skip オプション(現時点最新版の該当コードリンク)を利用して、
 mvn -Dmaven.gitcommitid.skip package などとすれば良さそうです。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
@@ -41,16 +27,15 @@ mvn -Dmaven.gitcommitid.skip package などとすれば良さそうです。">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="git worktree を利用していると git-commit-id-maven-plugin でエラー">
   <meta name="twitter:description" content="…​になりました。
-Support of git worktree option (for JGIT) · Issue #215 · git-commit-id/git-commit-id-maven-plugin · GitHub
-コマンドライン引数でスキップさせるには、 #278 で導入された maven.gitcommitid.skip オプション(現時点最新版の該当コードリンク)を利用して、
+Support of git worktree option (for JGIT) · Issue #215 · git-commit-id/git-commit-id-maven-plugin · GitHub コマンドライン引数でスキップさせるには、 #278 で導入された maven.gitcommitid.skip オプション(現時点最新版の該当コードリンク)を利用して、
 mvn -Dmaven.gitcommitid.skip package などとすれば良さそうです。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -67,9 +52,17 @@ mvn -Dmaven.gitcommitid.skip package などとすれば良さそうです。">
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -86,27 +79,14 @@ mvn -Dmaven.gitcommitid.skip package などとすれば良さそうです。">
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>…​になりました。</p>
-</div>
-<div class="ulist">
+          <p>…​になりました。</p>
 <ul>
-<li>
-<p><a href="https://github.com/git-commit-id/git-commit-id-maven-plugin/issues/215">Support of git worktree option (for JGIT) · Issue #215 · git-commit-id/git-commit-id-maven-plugin · GitHub</a></p>
-</li>
+<li><a href="https://github.com/git-commit-id/git-commit-id-maven-plugin/issues/215">Support of git worktree option (for JGIT) · Issue #215 · git-commit-id/git-commit-id-maven-plugin · GitHub</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>コマンドライン引数でスキップさせるには、 <a href="https://github.com/git-commit-id/git-commit-id-maven-plugin/pull/278">#278</a> で導入された <code>maven.gitcommitid.skip</code> オプション(<a href="https://github.com/git-commit-id/git-commit-id-maven-plugin/blob/v5.0.0/src/main/java/pl/project13/maven/git/GitCommitIdMojo.java#L241-L251">現時点最新版の該当コードリンク</a>)を利用して、</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>mvn -Dmaven.gitcommitid.skip package</code></pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>mvn -Dmaven.gitcommitid.skip package
+</code></pre>
 <p>などとすれば良さそうです。</p>
-</div>
 
         </section>
         <div class="post-tags">
@@ -115,7 +95,7 @@ mvn -Dmaven.gitcommitid.skip package などとすれば良さそうです。">
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/git">git</a></li>
+              <li><a href="/tags/git/">git</a></li>
               
             </ul>
           </nav>
@@ -132,10 +112,10 @@ mvn -Dmaven.gitcommitid.skip package などとすれば良さそうです。">
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

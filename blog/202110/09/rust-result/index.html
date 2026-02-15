@@ -2,17 +2,13 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Rust の Result を良い感じにまとめるには - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-…というのを検索する用語が &#34;エラーハンドリング(error handling)&#34; だということに気付くまでにも時間がかかるくらいの初級者です。
-
-
-Rust でのエラーハンドリングについては歴史的変遷があるようで、ググると結局今はどうやったらええねん、という新たな疑問が湧いてきます。
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="…というのを検索する用語が &ldquo;エラーハンドリング(error handling)&rdquo; だということに気付くまでにも時間がかかるくらいの初級者です。
+Rust でのエラーハンドリングについては歴史的変遷があるようで、ググると結局今はどうやったらええねん、という新たな疑問が湧いてきます。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202110/09/rust-result/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Rust の Result を良い感じにまとめるには">
-  <meta property="og:description" content="…というのを検索する用語が &#34;エラーハンドリング(error handling)&#34; だということに気付くまでにも時間がかかるくらいの初級者です。
+  <meta property="og:description" content="…というのを検索する用語が “エラーハンドリング(error handling)” だということに気付くまでにも時間がかかるくらいの初級者です。
 Rust でのエラーハンドリングについては歴史的変遷があるようで、ググると結局今はどうやったらええねん、という新たな疑問が湧いてきます。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
@@ -23,15 +19,15 @@ Rust でのエラーハンドリングについては歴史的変遷があるよ
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Rust の Result を良い感じにまとめるには">
-  <meta name="twitter:description" content="…というのを検索する用語が &#34;エラーハンドリング(error handling)&#34; だということに気付くまでにも時間がかかるくらいの初級者です。
+  <meta name="twitter:description" content="…というのを検索する用語が “エラーハンドリング(error handling)” だということに気付くまでにも時間がかかるくらいの初級者です。
 Rust でのエラーハンドリングについては歴史的変遷があるようで、ググると結局今はどうやったらええねん、という新たな疑問が湧いてきます。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -48,9 +44,17 @@ Rust でのエラーハンドリングについては歴史的変遷があるよ
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -67,49 +71,58 @@ Rust でのエラーハンドリングについては歴史的変遷があるよ
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>…というのを検索する用語が &#34;エラーハンドリング(error handling)&#34; だということに気付くまでにも時間がかかるくらいの初級者です。</p>
-</div>
-<div class="paragraph">
+          <p>…というのを検索する用語が &ldquo;エラーハンドリング(error handling)&rdquo; だということに気付くまでにも時間がかかるくらいの初級者です。</p>
 <p>Rust でのエラーハンドリングについては歴史的変遷があるようで、ググると結局今はどうやったらええねん、という新たな疑問が湧いてきます。</p>
-</div>
-<div class="paragraph">
 <p><strong>取り敢えず 2021/10 現在は、 <code>anyhow</code>(+ 自分でエラー定義する場合は <code>thiserror</code>) を利用するのが良さそうです。</strong> この辺りは README に書きました。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/yukihane/hello-rust/tree/master/error-handling" class="bare">https://github.com/yukihane/hello-rust/tree/master/error-handling</a></p>
-</li>
+<li><a href="https://github.com/yukihane/hello-rust/tree/master/error-handling">https://github.com/yukihane/hello-rust/tree/master/error-handling</a></li>
 </ul>
+<div class="formalpara-title">
+<p><strong>src/bin/gear07.rs</strong></p>
 </div>
-<div class="listingblock">
-<div class="title">src/bin/gear07.rs</div>
-<div class="content">
-<pre class="highlight"><code class="language-rust" data-lang="rust">use anyhow::Result;
-
-fn get_int_from_file() -&gt; Result&lt;i32&gt; {
-    let path = &#34;number.txt&#34;;
-
-    let num_str = std::fs::read_to_string(path)?;
-
-    let num = num_str.trim().parse::&lt;i32&gt;().map(|t| t * 2)?;
-
-    Ok(num)
-}
-
-fn main() {
-    match get_int_from_file() {
-        Ok(x) =&gt; println!(&#34;{}&#34;, x),
-        Err(e) =&gt; println!(&#34;{:#?}&#34;, e),
-    }
-}</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">use</span><span class="w"> </span><span class="n">anyhow</span>::<span class="nb">Result</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">fn</span> <span class="nf">get_int_from_file</span><span class="p">()</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;number.txt&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">num_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span>::<span class="n">fs</span>::<span class="n">read_to_string</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">?</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num_str</span><span class="p">.</span><span class="n">trim</span><span class="p">().</span><span class="n">parse</span>::<span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">().</span><span class="n">map</span><span class="p">(</span><span class="o">|</span><span class="n">t</span><span class="o">|</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="o">?</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="n">num</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="n">get_int_from_file</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nb">Ok</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&#34;</span><span class="si">{}</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nb">Err</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&#34;</span><span class="si">{:#?}</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-</div>
-<div class="paragraph">
-<p>それ以外、外部クレートを利用しない方式としては、</p>
-</div>
-<div class="ulist">
+</div><p>それ以外、外部クレートを利用しない方式としては、</p>
 <ul>
 <li>
 <p><a href="https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html">The Rust Programming Language &gt; 9.2. Recoverable Errors with Result</a> (※ <a href="https://doc.rust-jp.rs/book-ja/ch09-02-recoverable-errors-with-result.html">日本語版</a>にはまだ反映されていないようです)</p>
@@ -118,36 +131,53 @@ fn main() {
 <p><a href="https://doc.rust-jp.rs/rust-by-example-ja/error/multiple_error_types/boxing_errors.html">Rust By Example 日本語版 &gt; 18.4.3. エラーをBoxする</a> (<a href="https://doc.rust-lang.org/rust-by-example/error/multiple_error_types/boxing_errors.html">原文</a>)</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p>にあるような <code>Box</code> 化して取り扱う方式があるようです。</p>
+<div class="formalpara-title">
+<p><strong>src/bin/rust-book.rs</strong></p>
 </div>
-<div class="listingblock">
-<div class="title">src/bin/rust-book.rs</div>
-<div class="content">
-<pre class="highlight"><code class="language-rust" data-lang="rust">use std::error::Error;
-
-fn get_int_from_file() -&gt; Result&lt;i32, Box&lt;dyn Error&gt;&gt; {
-    let path = &#34;number.txt&#34;;
-
-    let num_str = std::fs::read_to_string(path)?;
-
-    let res = num_str.trim().parse::&lt;i32&gt;().map(|t| t * 2)?;
-
-    Ok(res)
-}
-
-fn main() {
-    match get_int_from_file() {
-        Ok(x) =&gt; println!(&#34;{}&#34;, x),
-        Err(e) =&gt; println!(&#34;{}&#34;, e),
-    }
-}</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">error</span>::<span class="n">Error</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">fn</span> <span class="nf">get_int_from_file</span><span class="p">()</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="nb">Box</span><span class="o">&lt;</span><span class="k">dyn</span><span class="w"> </span><span class="n">Error</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;number.txt&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">num_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span>::<span class="n">fs</span>::<span class="n">read_to_string</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">?</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num_str</span><span class="p">.</span><span class="n">trim</span><span class="p">().</span><span class="n">parse</span>::<span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">().</span><span class="n">map</span><span class="p">(</span><span class="o">|</span><span class="n">t</span><span class="o">|</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="o">?</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="n">get_int_from_file</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nb">Ok</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&#34;</span><span class="si">{}</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nb">Err</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&#34;</span><span class="si">{}</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-</div>
-<div class="paragraph">
-<p>あるいは別の方法として 自前のエラー型でラップする(<a href="https://doc.rust-jp.rs/rust-by-example-ja/error/multiple_error_types/wrap_error.html">18.4.5. エラーをラップする</a>, <a href="https://doc.rust-lang.org/rust-by-example/error/multiple_error_types/wrap_error.html">原文</a>)方法も解説がありました(<a href="https://github.com/yukihane/hello-rust/blob/master/error-handling/src/bin/gear03.rs"><code>src/bin/gear03.rs</code></a>)。</p>
-</div>
+</div><p>あるいは別の方法として 自前のエラー型でラップする(<a href="https://doc.rust-jp.rs/rust-by-example-ja/error/multiple_error_types/wrap_error.html">18.4.5. エラーをラップする</a>, <a href="https://doc.rust-lang.org/rust-by-example/error/multiple_error_types/wrap_error.html">原文</a>)方法も解説がありました(<a href="https://github.com/yukihane/hello-rust/blob/master/error-handling/src/bin/gear03.rs"><code>src/bin/gear03.rs</code></a>)。</p>
 
         </section>
         <div class="post-tags">
@@ -156,7 +186,7 @@ fn main() {
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/rust">rust</a></li>
+              <li><a href="/tags/rust/">rust</a></li>
               
             </ul>
           </nav>
@@ -173,10 +203,10 @@ fn main() {
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

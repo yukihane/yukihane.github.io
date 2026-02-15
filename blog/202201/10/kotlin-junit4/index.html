@@ -4,7 +4,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Kotlin で JUnit4 のテストケースを書く - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="
 
-
 JUnit4 / Parameterized
 
 
@@ -14,38 +13,15 @@ Mockito 利用
 テスト対象が Lombok, MapStruct 使用
 
 
-
-
 な状況で Kotlin でテストコードを書きます。
 
-
-
-
 成果物: https://github.com/yukihane/hello-kotlin/tree/main/junit4-mockito-example
-
-
-
 
 先にまとめを書いておきます。
 
 
-
-
-(IntelliJ で Java のコードを .kt にペーストすると Kotlin コードに変換してくれるが、コレジャナイ感溢れるコードになったのであまり自動変換コードを信用するのは危険かも)
-
-
-@Mock や @InjectMocks を付与したフィールドは lateinit var
-
-
-static メソッドを書きたい場合は companion object で囲って @JvmStatic アノテーションを付与する
-
-
-
-今回の場合は JUnit4 のパラメータ供給メソッド(@Parameters)が該当
-
-
-" />
-	<meta property="og:image" content=""/>
+(IntelliJ で Java のコードを .kt にペーストすると Kotlin コードに変換してくれるが、コレジャナイ感溢れるコードになったのであまり自動変換コードを信用するのは危険かも)" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202201/10/kotlin-junit4/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Kotlin で JUnit4 のテストケースを書く">
@@ -53,12 +29,8 @@ static メソッドを書きたい場合は companion object で囲って @JvmSt
 Mockito 利用
 テスト対象が Lombok, MapStruct 使用
 な状況で Kotlin でテストコードを書きます。
-成果物: https://github.com/yukihane/hello-kotlin/tree/main/junit4-mockito-example
-先にまとめを書いておきます。
-(IntelliJ で Java のコードを .kt にペーストすると Kotlin コードに変換してくれるが、コレジャナイ感溢れるコードになったのであまり自動変換コードを信用するのは危険かも)
-@Mock や @InjectMocks を付与したフィールドは lateinit var
-static メソッドを書きたい場合は companion object で囲って @JvmStatic アノテーションを付与する
-今回の場合は JUnit4 のパラメータ供給メソッド(@Parameters)が該当">
+成果物: https://github.com/yukihane/hello-kotlin/tree/main/junit4-mockito-example 先にまとめを書いておきます。
+(IntelliJ で Java のコードを .kt にペーストすると Kotlin コードに変換してくれるが、コレジャナイ感溢れるコードになったのであまり自動変換コードを信用するのは危険かも)">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -72,19 +44,15 @@ static メソッドを書きたい場合は companion object で囲って @JvmSt
 Mockito 利用
 テスト対象が Lombok, MapStruct 使用
 な状況で Kotlin でテストコードを書きます。
-成果物: https://github.com/yukihane/hello-kotlin/tree/main/junit4-mockito-example
-先にまとめを書いておきます。
-(IntelliJ で Java のコードを .kt にペーストすると Kotlin コードに変換してくれるが、コレジャナイ感溢れるコードになったのであまり自動変換コードを信用するのは危険かも)
-@Mock や @InjectMocks を付与したフィールドは lateinit var
-static メソッドを書きたい場合は companion object で囲って @JvmStatic アノテーションを付与する
-今回の場合は JUnit4 のパラメータ供給メソッド(@Parameters)が該当">
+成果物: https://github.com/yukihane/hello-kotlin/tree/main/junit4-mockito-example 先にまとめを書いておきます。
+(IntelliJ で Java のコードを .kt にペーストすると Kotlin コードに変換してくれるが、コレジャナイ感溢れるコードになったのであまり自動変換コードを信用するのは危険かも)">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -101,9 +69,17 @@ static メソッドを書きたい場合は companion object で囲って @JvmSt
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -120,8 +96,7 @@ static メソッドを書きたい場合は companion object で囲って @JvmSt
         </div>
         
         <section class="body">
-          <div class="ulist">
-<ul>
+          <ul>
 <li>
 <p>JUnit4 / Parameterized</p>
 </li>
@@ -132,21 +107,11 @@ static メソッドを書きたい場合は companion object で囲って @JvmSt
 <p>テスト対象が Lombok, MapStruct 使用</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p>な状況で Kotlin でテストコードを書きます。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p>成果物: <a href="https://github.com/yukihane/hello-kotlin/tree/main/junit4-mockito-example" class="bare">https://github.com/yukihane/hello-kotlin/tree/main/junit4-mockito-example</a></p>
-</li>
+<li>成果物: <a href="https://github.com/yukihane/hello-kotlin/tree/main/junit4-mockito-example">https://github.com/yukihane/hello-kotlin/tree/main/junit4-mockito-example</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>先にまとめを書いておきます。</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p>(IntelliJ で Java のコードを <code>.kt</code> にペーストすると Kotlin コードに変換してくれるが、コレジャナイ感溢れるコードになったのであまり自動変換コードを信用するのは危険かも)</p>
@@ -156,20 +121,15 @@ static メソッドを書きたい場合は companion object で囲って @JvmSt
 </li>
 <li>
 <p><code>static</code> メソッドを書きたい場合は <code>companion object</code> で囲って <code>@JvmStatic</code> アノテーションを付与する</p>
-<div class="ulist">
 <ul>
-<li>
-<p>今回の場合は JUnit4 のパラメータ供給メソッド(<code>@Parameters</code>)が該当</p>
-</li>
+<li>今回の場合は JUnit4 のパラメータ供給メソッド(<code>@Parameters</code>)が該当</li>
 </ul>
-</div>
 </li>
 <li>
 <p>Kotlin では <code>when</code> は予約語なのでバッククオートで囲う必要がある</p>
 </li>
 <li>
-<p>Kotlin で Mockito の <code>any()</code> を利用すると &#34;ArgumentMatchers.any(mViewModel.CountSubscriber::class.java) must not be null&#34; みたいなエラーになる</p>
-<div class="ulist">
+<p>Kotlin で Mockito の <code>any()</code> を利用すると &ldquo;ArgumentMatchers.any(mViewModel.CountSubscriber::class.java) must not be null&rdquo; みたいなエラーになる</p>
 <ul>
 <li>
 <p>…​らしいが今回のコードでは再現しなかった</p>
@@ -178,162 +138,297 @@ static メソッドを書きたい場合は companion object で囲って @JvmSt
 <p>対処法は、 <a href="https://stackoverflow.com/a/61746568/4506703"><code>any()</code> を定義し直し</a>たり <a href="https://github.com/mockito/mockito/issues/2200"><code>mockito-kotlin</code></a> を利用したりする方法がある</p>
 </li>
 </ul>
-</div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p>Javaでテストを書くとこんな感じになります(テストの中身は適当です。今回の検証はテストを実行できるようにするのが目的なので):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.github.yukihane.example</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">lombok.RequiredArgsConstructor</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.junit.Before</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.junit.Test</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.junit.runner.RunWith</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.junit.runners.Parameterized</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.mockito.InjectMocks</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.mockito.Mock</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.mockito.MockitoAnnotations</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import static</span><span class="w"> </span><span class="nn">org.assertj.core.api.Assertions.assertThat</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import static</span><span class="w"> </span><span class="nn">org.mockito.ArgumentMatchers.any</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import static</span><span class="w"> </span><span class="nn">org.mockito.Mockito.mock</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import static</span><span class="w"> </span><span class="nn">org.mockito.Mockito.when</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@RunWith</span><span class="p">(</span><span class="n">Parameterized</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@RequiredArgsConstructor</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyControllerJavaTest</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Param</span><span class="w"> </span><span class="n">param</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Mock</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">MyService</span><span class="w"> </span><span class="n">service</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Mock</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">MyParamMapper</span><span class="w"> </span><span class="n">paramMapper</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@InjectMocks</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">MyController</span><span class="w"> </span><span class="n">sut</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">Param</span><span class="p">(</span><span class="n">MyParamDTO</span><span class="w"> </span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">MyParamDTO</span><span class="w"> </span><span class="n">expected</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Parameterized.Parameters</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Param</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">provide</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Param</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">MyParamDTO</span><span class="p">(</span><span class="s">&#34;alice&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">16</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyParamDTO</span><span class="p">(</span><span class="s">&#34;alice&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">17</span><span class="p">)),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">Param</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">MyParamDTO</span><span class="p">(</span><span class="s">&#34;bob&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">32</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyParamDTO</span><span class="p">(</span><span class="s">&#34;bob&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">33</span><span class="p">)));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Before</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setUp</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">MockitoAnnotations</span><span class="p">.</span><span class="na">openMocks</span><span class="p">(</span><span class="k">this</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">normal</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">MyService</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyServiceImpl</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">MyController</span><span class="w"> </span><span class="n">controller</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyController</span><span class="p">(</span><span class="n">service</span><span class="p">,</span><span class="w"> </span><span class="n">MyParamMapper</span><span class="p">.</span><span class="na">INSTANCE</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">MyParamDTO</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">controller</span><span class="p">.</span><span class="na">index</span><span class="p">(</span><span class="n">param</span><span class="p">.</span><span class="na">input</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">assertThat</span><span class="p">(</span><span class="n">res</span><span class="p">).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="n">param</span><span class="p">.</span><span class="na">expected</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">mocking</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">when</span><span class="p">(</span><span class="n">paramMapper</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="n">any</span><span class="p">(</span><span class="n">MyParamDTO</span><span class="p">.</span><span class="na">class</span><span class="p">))).</span><span class="na">thenReturn</span><span class="p">(</span><span class="n">mock</span><span class="p">(</span><span class="n">MyParam</span><span class="p">.</span><span class="na">class</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">when</span><span class="p">(</span><span class="n">service</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">any</span><span class="p">())).</span><span class="na">thenReturn</span><span class="p">((</span><span class="n">mock</span><span class="p">(</span><span class="n">MyParam</span><span class="p">.</span><span class="na">class</span><span class="p">)));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">MyParamDTO</span><span class="w"> </span><span class="n">exp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mock</span><span class="p">(</span><span class="n">MyParamDTO</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">when</span><span class="p">(</span><span class="n">paramMapper</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="n">any</span><span class="p">(</span><span class="n">MyParam</span><span class="p">.</span><span class="na">class</span><span class="p">))).</span><span class="na">thenReturn</span><span class="p">(</span><span class="n">exp</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">MyParamDTO</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sut</span><span class="p">.</span><span class="na">index</span><span class="p">(</span><span class="n">param</span><span class="p">.</span><span class="na">input</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">assertThat</span><span class="p">(</span><span class="n">res</span><span class="p">).</span><span class="na">isSameAs</span><span class="p">(</span><span class="n">exp</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">package com.github.yukihane.example;
-
-import lombok.RequiredArgsConstructor;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
-@RunWith(Parameterized.class)
-@RequiredArgsConstructor
-public class MyControllerJavaTest {
-
-    private final Param param;
-
-    @Mock
-    private MyService service;
-    @Mock
-    private MyParamMapper paramMapper;
-
-    @InjectMocks
-    private MyController sut;
-
-    public record Param(MyParamDTO input, MyParamDTO expected) {
-    }
-
-    @Parameterized.Parameters
-    public static List&lt;Param&gt; provide() {
-        return List.of(new Param(new MyParamDTO(&#34;alice&#34;, 16), new MyParamDTO(&#34;alice&#34;, 17)),
-                new Param(new MyParamDTO(&#34;bob&#34;, 32), new MyParamDTO(&#34;bob&#34;, 33)));
-    }
-
-    @Before
-    public void setUp() {
-        MockitoAnnotations.openMocks(this);
-    }
-
-    @Test
-    public void normal() {
-        MyService service = new MyServiceImpl();
-
-        MyController controller = new MyController(service, MyParamMapper.INSTANCE);
-
-        MyParamDTO res = controller.index(param.input);
-
-        assertThat(res).isEqualTo(param.expected);
-    }
-
-    @Test
-    public void mocking() {
-        when(paramMapper.convert(any(MyParamDTO.class))).thenReturn(mock(MyParam.class));
-        when(service.execute(any())).thenReturn((mock(MyParam.class)));
-        MyParamDTO exp = mock(MyParamDTO.class);
-        when(paramMapper.convert(any(MyParam.class))).thenReturn(exp);
-
-        MyParamDTO res = sut.index(param.input);
-        assertThat(res).isSameAs(exp);
-    }
-}</code></pre>
+</div><p>これを Kotlin で書くと次のようになります:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="k">package</span> <span class="nn">com.github.yukihane.example</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">org.assertj.core.api.Assertions.assertThat</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">org.junit.Before</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">org.junit.Test</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">org.junit.runner.RunWith</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">org.junit.runners.Parameterized</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">org.mockito.ArgumentMatchers.any</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">org.mockito.InjectMocks</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">org.mockito.Mock</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">org.mockito.Mockito.`when`</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">org.mockito.Mockito.mock</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">org.mockito.MockitoAnnotations</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@RunWith</span><span class="p">(</span><span class="n">Parameterized</span><span class="o">::</span><span class="k">class</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MyControllerKtTest</span><span class="p">(</span><span class="k">private</span> <span class="k">val</span> <span class="py">param</span><span class="p">:</span> <span class="n">Param</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Mock</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">lateinit</span> <span class="k">var</span> <span class="py">service</span><span class="p">:</span> <span class="n">MyService</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Mock</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">lateinit</span> <span class="k">var</span> <span class="py">outputMapper</span><span class="p">:</span> <span class="n">MyParamMapper</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@InjectMocks</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">lateinit</span> <span class="k">var</span> <span class="py">sut</span><span class="p">:</span> <span class="n">MyController</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">data</span> <span class="k">class</span> <span class="nc">Param</span><span class="p">(</span><span class="k">val</span> <span class="py">input</span><span class="p">:</span> <span class="n">MyParamDTO</span><span class="p">,</span> <span class="k">val</span> <span class="py">expected</span><span class="p">:</span> <span class="n">MyParamDTO</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">companion</span> <span class="k">object</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nd">@JvmStatic</span>
+</span></span><span class="line"><span class="cl">        <span class="nd">@Parameterized</span><span class="p">.</span><span class="n">Parameters</span>
+</span></span><span class="line"><span class="cl">        <span class="k">fun</span> <span class="nf">provide</span><span class="p">():</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Param</span><span class="p">&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">listOf</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="n">Param</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">MyParamDTO</span><span class="p">(</span><span class="s2">&#34;alice&#34;</span><span class="p">,</span> <span class="m">16</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">MyParamDTO</span><span class="p">(</span><span class="s2">&#34;alice&#34;</span><span class="p">,</span> <span class="m">17</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">),</span>
+</span></span><span class="line"><span class="cl">                <span class="n">Param</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">MyParamDTO</span><span class="p">(</span><span class="s2">&#34;bob&#34;</span><span class="p">,</span> <span class="m">32</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">MyParamDTO</span><span class="p">(</span><span class="s2">&#34;bob&#34;</span><span class="p">,</span> <span class="m">33</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Before</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">setUp</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nc">MockitoAnnotations</span><span class="p">.</span><span class="n">initMocks</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Test</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">normal</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">val</span> <span class="py">service</span><span class="p">:</span> <span class="n">MyService</span> <span class="p">=</span> <span class="n">MyServiceImpl</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">val</span> <span class="py">controller</span> <span class="p">=</span> <span class="n">MyController</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="nc">MyParamMapper</span><span class="p">.</span><span class="n">INSTANCE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">val</span> <span class="py">res</span> <span class="p">=</span> <span class="n">controller</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="k">param</span><span class="p">.</span><span class="n">input</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">assertThat</span><span class="p">(</span><span class="n">res</span><span class="p">).</span><span class="n">isEqualTo</span><span class="p">(</span><span class="k">param</span><span class="p">.</span><span class="n">expected</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Test</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">mocking</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">`when`</span><span class="p">(</span><span class="n">outputMapper</span><span class="p">.</span><span class="n">convert</span><span class="p">(</span><span class="n">any</span><span class="p">(</span><span class="n">MyParamDTO</span><span class="o">::</span><span class="k">class</span><span class="p">.</span><span class="n">java</span><span class="p">))).</span><span class="n">thenReturn</span><span class="p">(</span><span class="n">mock</span><span class="p">(</span><span class="n">MyParam</span><span class="o">::</span><span class="k">class</span><span class="p">.</span><span class="n">java</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">`when`</span><span class="p">(</span><span class="n">service</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">any</span><span class="p">())).</span><span class="n">thenReturn</span><span class="p">(</span><span class="n">mock</span><span class="p">(</span><span class="n">MyParam</span><span class="o">::</span><span class="k">class</span><span class="p">.</span><span class="n">java</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">val</span> <span class="py">exp</span> <span class="p">=</span> <span class="n">mock</span><span class="p">(</span><span class="n">MyParamDTO</span><span class="o">::</span><span class="k">class</span><span class="p">.</span><span class="n">java</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">`when`</span><span class="p">(</span><span class="n">outputMapper</span><span class="p">.</span><span class="n">convert</span><span class="p">(</span><span class="n">any</span><span class="p">(</span><span class="n">MyParam</span><span class="o">::</span><span class="k">class</span><span class="p">.</span><span class="n">java</span><span class="p">))).</span><span class="n">thenReturn</span><span class="p">(</span><span class="n">exp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">val</span> <span class="py">res</span> <span class="p">=</span> <span class="n">sut</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="k">param</span><span class="p">.</span><span class="n">input</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">assertThat</span><span class="p">(</span><span class="n">res</span><span class="p">).</span><span class="n">isSameAs</span><span class="p">(</span><span class="n">exp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
-<div class="paragraph">
-<p>これを Kotlin で書くと次のようになります:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">package com.github.yukihane.example
-
-import org.assertj.core.api.Assertions.assertThat
-import org.junit.Before
-import org.junit.Test
-import org.junit.runner.RunWith
-import org.junit.runners.Parameterized
-import org.mockito.ArgumentMatchers.any
-import org.mockito.InjectMocks
-import org.mockito.Mock
-import org.mockito.Mockito.`when`
-import org.mockito.Mockito.mock
-import org.mockito.MockitoAnnotations
-
-@RunWith(Parameterized::class)
-class MyControllerKtTest(private val param: Param) {
-
-    @Mock
-    private lateinit var service: MyService
-
-    @Mock
-    private lateinit var outputMapper: MyParamMapper
-
-    @InjectMocks
-    private lateinit var sut: MyController
-
-    data class Param(val input: MyParamDTO, val expected: MyParamDTO)
-
-    companion object {
-        @JvmStatic
-        @Parameterized.Parameters
-        fun provide(): List&lt;Param&gt; {
-            return listOf(
-                Param(
-                    MyParamDTO(&#34;alice&#34;, 16),
-                    MyParamDTO(&#34;alice&#34;, 17)
-                ),
-                Param(
-                    MyParamDTO(&#34;bob&#34;, 32),
-                    MyParamDTO(&#34;bob&#34;, 33)
-                )
-            )
-        }
-    }
-
-    @Before
-    fun setUp() {
-        MockitoAnnotations.initMocks(this)
-    }
-
-    @Test
-    fun normal() {
-        val service: MyService = MyServiceImpl()
-        val controller = MyController(service, MyParamMapper.INSTANCE)
-        val res = controller.index(param.input)
-        assertThat(res).isEqualTo(param.expected)
-    }
-
-    @Test
-    fun mocking() {
-        `when`(outputMapper.convert(any(MyParamDTO::class.java))).thenReturn(mock(MyParam::class.java))
-        `when`(service.execute(any())).thenReturn(mock(MyParam::class.java))
-        val exp = mock(MyParamDTO::class.java)
-        `when`(outputMapper.convert(any(MyParam::class.java))).thenReturn(exp)
-
-        val res = sut.index(param.input)
-        assertThat(res).isSameAs(exp)
-    }
-}</code></pre>
-</div>
-</div>
-
         </section>
         <div class="post-tags">
           
@@ -341,7 +436,7 @@ class MyControllerKtTest(private val param: Param) {
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/kotlin">kotlin</a></li>
+              <li><a href="/tags/kotlin/">kotlin</a></li>
               
             </ul>
           </nav>
@@ -358,10 +453,10 @@ class MyControllerKtTest(private val param: Param) {
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

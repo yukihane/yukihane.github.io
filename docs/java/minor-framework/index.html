@@ -2,29 +2,18 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Minor Framework - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-いわゆるオレオレフレームワークについて。
-
-
+	<meta name="description" content="いわゆるオレオレフレームワークについて。
 パターンについて
 
 
+(Java Servletコンテナを利用した)オレオレフレームワークパターン
 
 
-(Java
-Servletコンテナを利用した)オレオレフレームワークパターン
+オレオレフレームワークパターンの正体: Front Controller Pattern
 
 
-オレオレフレームワークパターンの正体:
-Front Controller Pattern
-
-
-
-
-上記のリンク先にまとめたが、Servletコンテナ上で動く、Front
-Controllerパターンで実装されたものがほとんではないか。
-" />
-	<meta property="og:image" content=""/>
+上記のリンク先にまとめたが、Servletコンテナ上で動く、Front Controllerパターンで実装されたものがほとんではないか。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/java/minor-framework/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Minor Framework">
@@ -49,8 +38,8 @@ Controllerパターンで実装されたものがほとんではないか。
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -67,9 +56,17 @@ Controllerパターンで実装されたものがほとんではないか。
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -86,58 +83,26 @@ Controllerパターンで実装されたものがほとんではないか。
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>いわゆるオレオレフレームワークについて。</p>
-</div>
-<div class="sect1">
-<h2 id="_パターンについて">パターンについて</h2>
-<div class="sectionbody">
-<div class="ulist">
+          <p>いわゆるオレオレフレームワークについて。</p>
+<h1 id="パターンについて">パターンについて</h1>
 <ul>
 <li>
-<p><a href="http://himeji-cs.jp/blog/2018/02/03/self-made-framework-pattern/">(Java
-Servletコンテナを利用した)オレオレフレームワークパターン</a></p>
+<p><a href="http://himeji-cs.jp/blog/2018/02/03/self-made-framework-pattern/">(Java Servletコンテナを利用した)オレオレフレームワークパターン</a></p>
 </li>
 <li>
-<p><a href="http://himeji-cs.jp/blog/2018/02/04/front-controller-pattern/">オレオレフレームワークパターンの正体:
-Front Controller Pattern</a></p>
+<p><a href="http://himeji-cs.jp/blog/2018/02/04/front-controller-pattern/">オレオレフレームワークパターンの正体: Front Controller Pattern</a></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>上記のリンク先にまとめたが、Servletコンテナ上で動く、Front
-Controllerパターンで実装されたものがほとんではないか。</p>
-</div>
-<div class="paragraph">
+<p>上記のリンク先にまとめたが、Servletコンテナ上で動く、Front Controllerパターンで実装されたものがほとんではないか。</p>
 <p>これには、StrutsやSpringなど、メジャーなフレームワークも含まれる。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_フレームワーク">フレームワーク</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_nablarch">Nablarch</h3>
-<div class="paragraph">
-<p>TIS社製OSS。 <a href="http://himeji-cs.jp/blog/2018/02/02/nablarch/">Nablarch
-所感</a> 参照。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_r2framework">r2framework</h3>
-<div class="paragraph">
+<h1 id="フレームワーク">フレームワーク</h1>
+<h2 id="nablarch">Nablarch</h2>
+<p>TIS社製OSS。 <a href="http://himeji-cs.jp/blog/2018/02/02/nablarch/">Nablarch 所感</a> 参照。</p>
+<h2 id="r2framework">r2framework</h2>
 <p>リクルート社内向けだと思われる。求人サイトにはこの名称が登場しているが、実際どんなものかわかるような情報は無い。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="http://himeji-cs.jp/blog/2018/02/02/r2framework/">メモ: r2framework</a></p>
-</li>
+<li><a href="http://himeji-cs.jp/blog/2018/02/02/r2framework/">メモ: r2framework</a></li>
 </ul>
-</div>
-</div>
-</div>
-</div>
 
         </section>
         <div class="post-tags">
@@ -155,10 +120,10 @@ Controllerパターンで実装されたものがほとんではないか。</p>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

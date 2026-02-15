@@ -2,29 +2,17 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>QuickJUnit - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-マニュアルなど
+	<meta name="description" content="マニュアルなど
 
 
-
-
-https://github.com/yukihane/quick-junit/blob/develop/ja/README.textile
-(英版にのみ書かれている情報も)
+https://github.com/yukihane/quick-junit/blob/develop/ja/README.textile (英版にのみ書かれている情報も)
 
 
 http://web.archive.org/web/20080422234145/www.morijp.com/masarl/homepage3.nifty.com/masarl/article/eclipse/quick-junit.html
 
 
-
-
-
-
 モジュール
-
-
 以下の種類のfeatureが`repository/target/repository/`以下に生成される:
-
-
 
 
 junit.extensions.eclipse.quick.feature
@@ -45,23 +33,11 @@ junit.extensions.eclipse.quick.process.feature
 junit.extensions.eclipse.quick.template.feature
 
 
-
-
 junit.extensions.eclipse.quick.feature
 
 
-
-Ctrl&#43;9: プロダクトコードとテストコード切り替え
-
-
-Ctrl&#43;0: テスト実行
-
-
-Ctrl&#43;Shift&#43;0: テストデバッグ実行
-
-
-" />
-	<meta property="og:image" content=""/>
+Ctrl&#43;9: プロダクトコードとテストコード切り替え" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/java/quick-junit/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="QuickJUnit">
@@ -74,9 +50,7 @@ junit.extensions.eclipse.quick.notifications.feature
 junit.extensions.eclipse.quick.pde.feature
 junit.extensions.eclipse.quick.process.feature
 junit.extensions.eclipse.quick.template.feature
-junit.extensions.eclipse.quick.feature Ctrl&#43;9: プロダクトコードとテストコード切り替え
-Ctrl&#43;0: テスト実行
-Ctrl&#43;Shift&#43;0: テストデバッグ実行">
+junit.extensions.eclipse.quick.feature Ctrl&#43;9: プロダクトコードとテストコード切り替え">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -94,16 +68,14 @@ junit.extensions.eclipse.quick.notifications.feature
 junit.extensions.eclipse.quick.pde.feature
 junit.extensions.eclipse.quick.process.feature
 junit.extensions.eclipse.quick.template.feature
-junit.extensions.eclipse.quick.feature Ctrl&#43;9: プロダクトコードとテストコード切り替え
-Ctrl&#43;0: テスト実行
-Ctrl&#43;Shift&#43;0: テストデバッグ実行">
+junit.extensions.eclipse.quick.feature Ctrl&#43;9: プロダクトコードとテストコード切り替え">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -120,9 +92,17 @@ Ctrl&#43;Shift&#43;0: テストデバッグ実行">
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -139,29 +119,17 @@ Ctrl&#43;Shift&#43;0: テストデバッグ実行">
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_マニュアルなど">マニュアルなど</h2>
-<div class="sectionbody">
-<div class="ulist">
+          <h1 id="マニュアルなど">マニュアルなど</h1>
 <ul>
 <li>
-<p><a href="https://github.com/yukihane/quick-junit/blob/develop/ja/README.textile" class="bare">https://github.com/yukihane/quick-junit/blob/develop/ja/README.textile</a>
-(<a href="https://github.com/yukihane/quick-junit/blob/develop/README.textile">英版</a>にのみ書かれている情報も)</p>
+<p><a href="https://github.com/yukihane/quick-junit/blob/develop/ja/README.textile">https://github.com/yukihane/quick-junit/blob/develop/ja/README.textile</a> (<a href="https://github.com/yukihane/quick-junit/blob/develop/README.textile">英版</a>にのみ書かれている情報も)</p>
 </li>
 <li>
-<p><a href="http://web.archive.org/web/20080422234145/www.morijp.com/masarl/homepage3.nifty.com/masarl/article/eclipse/quick-junit.html" class="bare">http://web.archive.org/web/20080422234145/www.morijp.com/masarl/homepage3.nifty.com/masarl/article/eclipse/quick-junit.html</a></p>
+<p><a href="http://web.archive.org/web/20080422234145/www.morijp.com/masarl/homepage3.nifty.com/masarl/article/eclipse/quick-junit.html">http://web.archive.org/web/20080422234145/www.morijp.com/masarl/homepage3.nifty.com/masarl/article/eclipse/quick-junit.html</a></p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_モジュール">モジュール</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="モジュール">モジュール</h1>
 <p>以下の種類のfeatureが`repository/target/repository/`以下に生成される:</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p>junit.extensions.eclipse.quick.feature</p>
@@ -182,10 +150,7 @@ Ctrl&#43;Shift&#43;0: テストデバッグ実行">
 <p>junit.extensions.eclipse.quick.template.feature</p>
 </li>
 </ul>
-</div>
-<div class="sect2">
-<h3 id="_junit_extensions_eclipse_quick_feature">junit.extensions.eclipse.quick.feature</h3>
-<div class="ulist">
+<h2 id="junitextensionseclipsequickfeature">junit.extensions.eclipse.quick.feature</h2>
 <ul>
 <li>
 <p><code>Ctrl+9</code>: プロダクトコードとテストコード切り替え</p>
@@ -197,30 +162,14 @@ Ctrl&#43;Shift&#43;0: テストデバッグ実行">
 <p><code>Ctrl+Shift+0</code>: テストデバッグ実行</p>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_mock">mock</h3>
-<div class="paragraph">
+<h2 id="mock">mock</h2>
 <p>Mockito Integration</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_notifications">notifications</h3>
-<div class="paragraph">
+<h2 id="notifications">notifications</h2>
 <p>テスト結果を通知する機能？</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="http://d.hatena.ne.jp/kompiro/20110626/1309093111" class="bare">http://d.hatena.ne.jp/kompiro/20110626/1309093111</a></p>
-</li>
+<li><a href="http://d.hatena.ne.jp/kompiro/20110626/1309093111">http://d.hatena.ne.jp/kompiro/20110626/1309093111</a></li>
 </ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_pde">pde</h3>
-<div class="ulist">
+<h2 id="pde">pde</h2>
 <ul>
 <li>
 <p><code>Ctrl+-</code>: PDEテスト実行</p>
@@ -229,77 +178,31 @@ Ctrl&#43;Shift&#43;0: テストデバッグ実行">
 <p><code>Ctrl+Shift+-</code>: PDEテストデバッグ実行</p>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_process">process</h3>
-<div class="quoteblock">
+<h2 id="process">process</h2>
 <blockquote>
-<div class="paragraph">
-<p>This plugin provides to launch a process when the test is ended.This
-feature’s main purpose is to notify test results.</p>
-</div>
-</blockquote>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_template">template</h3>
-<div class="paragraph">
+<p>This plugin provides to launch a process when the test is ended.This feature’s main purpose is to notify test results.</p></blockquote>
+<h2 id="template">template</h2>
 <p>コンテントアシストの追加</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="http://d.hatena.ne.jp/kompiro/20101119/1290179113" class="bare">http://d.hatena.ne.jp/kompiro/20101119/1290179113</a></p>
-</li>
+<li><a href="http://d.hatena.ne.jp/kompiro/20101119/1290179113">http://d.hatena.ne.jp/kompiro/20101119/1290179113</a></li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_開発">開発</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="開発">開発</h1>
 <p>次のようなエラーが出力される。現行バージョンのEclipseで動作させるためには変更が必要な模様。</p>
-</div>
-<div class="quoteblock">
 <blockquote>
-<div class="paragraph">
-<p>!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2017-01-23
-23:26:12.178 !MESSAGE Unable to acquire PluginConverter service during
-generation for:
-/Users/dewa/opt/raclipsemac1.2.0/Eclipse.app/Contents/Eclipse/dropins/quickjunit/eclipse/features/junit.extensions.eclipse.quick.feature-0.7.0-SNAPSHOT.jar.</p>
-</div>
-<div class="paragraph">
-<p>!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2017-01-23
-23:26:12.206 !MESSAGE Unable to acquire PluginConverter service during
-generation for:
-/Users/dewa/opt/raclipsemac1.2.0/Eclipse.app/Contents/Eclipse/dropins/quickjunit/eclipse/features/junit.extensions.eclipse.quick.feature-0.7.0-SNAPSHOT.jar.</p>
-</div>
-</blockquote>
-</div>
-<div class="ulist">
+<p>!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2017-01-23 23:26:12.178 !MESSAGE Unable to acquire PluginConverter service during generation for: /Users/dewa/opt/raclipsemac1.2.0/Eclipse.app/Contents/Eclipse/dropins/quickjunit/eclipse/features/junit.extensions.eclipse.quick.feature-0.7.0-SNAPSHOT.jar.</p>
+<p>!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2017-01-23 23:26:12.206 !MESSAGE Unable to acquire PluginConverter service during generation for: /Users/dewa/opt/raclipsemac1.2.0/Eclipse.app/Contents/Eclipse/dropins/quickjunit/eclipse/features/junit.extensions.eclipse.quick.feature-0.7.0-SNAPSHOT.jar.</p></blockquote>
 <ul>
-<li>
-<p><a href="http://stackoverflow.com/questions/24896960/in-eclipse-4-4-rcp-builds-the-service-plugin-converter-could-not-be-acquired" class="bare">http://stackoverflow.com/questions/24896960/in-eclipse-4-4-rcp-builds-the-service-plugin-converter-could-not-be-acquired</a></p>
-</li>
+<li><a href="http://stackoverflow.com/questions/24896960/in-eclipse-4-4-rcp-builds-the-service-plugin-converter-could-not-be-acquired">http://stackoverflow.com/questions/24896960/in-eclipse-4-4-rcp-builds-the-service-plugin-converter-could-not-be-acquired</a></li>
 </ul>
-</div>
-<div class="paragraph">
-<p>変更せずに使用するには <strong>Eclipse 2.0 Style Plugin Support</strong>
-プラグインを別途インストールする必要がある(4.4以降<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>)。</p>
-</div>
-<div class="paragraph">
+<p>変更せずに使用するには <strong>Eclipse 2.0 Style Plugin Support</strong> プラグインを別途インストールする必要がある(4.4以降<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>)。</p>
 <p>各Eclipseバージョンのアップデートサイトにアクセスすれば取得できる。URLはデフォルトで登録済みのはずなので、そこから選択すれば良い。</p>
-</div>
-</div>
-</div>
-<div id="footnotes">
-<hr/>
-<div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=407312">Bug 407312 – Remove support for 2.0 old style plugin support</a>
-</div>
+<div class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=407312">Bug 407312 – Remove support for 2.0 old style plugin support</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
 </div>
 
         </section>
@@ -318,10 +221,10 @@ generation for:
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

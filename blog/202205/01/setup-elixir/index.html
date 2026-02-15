@@ -2,16 +2,10 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Elixir 開発環境をセットアップする - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-はじめに
-
-
+	<meta name="description" content="はじめに
 改訂新版 Elixir/Phoenix 初級①: はじめの一歩 という書籍で Phoenix というウェブフレームワークの勉強をはじめました。
-
-
-Elixir という言語で実装していくことになりますが、本書籍は Elixir 言語入門としても優れているので、少なくとも本書を読み進めていくに当たって、言語仕様のことで困ることは無さそうです。
-" />
-	<meta property="og:image" content=""/>
+Elixir という言語で実装していくことになりますが、本書籍は Elixir 言語入門としても優れているので、少なくとも本書を読み進めていくに当たって、言語仕様のことで困ることは無さそうです。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202205/01/setup-elixir/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Elixir 開発環境をセットアップする">
@@ -33,8 +27,8 @@ Elixir という言語で実装していくことになりますが、本書籍�
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -51,9 +45,17 @@ Elixir という言語で実装していくことになりますが、本書籍�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -70,134 +72,50 @@ Elixir という言語で実装していくことになりますが、本書籍�
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="paragraph">
+          <h1 id="はじめに">はじめに</h1>
 <p><a href="https://www.amazon.co.jp/dp/4908829306/">改訂新版 Elixir/Phoenix 初級①: はじめの一歩</a> という書籍で Phoenix というウェブフレームワークの勉強をはじめました。</p>
-</div>
-<div class="paragraph">
 <p>Elixir という言語で実装していくことになりますが、本書籍は Elixir 言語入門としても優れているので、少なくとも本書を読み進めていくに当たって、言語仕様のことで困ることは無さそうです。</p>
-</div>
-<div class="paragraph">
 <p>さて、本書は Elixir 実行環境として Docker を用いるようになっており、これはこれですぐ始められて良いのですが、写経をしているとコード補完とかもしたくなり、ローカルに Elixir 開発&amp;実行環境をセットアップすることにしました。</p>
-</div>
-<div class="paragraph">
 <p>いくつかやり方はあるようなのですが、最もメジャーな方法だと思われる手順でセットアップします。</p>
-</div>
-<div class="paragraph">
 <p>本手順は Ubuntu 20.04 LTS で行ったものの記録ですが、記憶している限り、先立って行った WSL2 上のセットアップも同様の手順でOKでした。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_セットアップ手順">セットアップ手順</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_elixir_のセットアップ">Elixir のセットアップ</h3>
-<div class="paragraph">
+<h1 id="セットアップ手順">セットアップ手順</h1>
+<h2 id="elixir-のセットアップ">Elixir のセットアップ</h2>
 <p><a href="https://elixir-lang.org/install.html">公式サイト</a> にOSごとの説明があります。</p>
-</div>
-<div class="paragraph">
 <p><code>.deb</code> パッケージでインストールする方法もありますが、今回は <a href="https://github.com/asdf-vm/asdf"><code>asdf</code></a> を利用してインストールします。</p>
-</div>
-<div class="sect3">
-<h4 id="_asdf_本体インストール">asdf 本体インストール</h4>
-<div class="paragraph">
+<h3 id="asdf-本体インストール">asdf 本体インストール</h3>
 <p><a href="http://asdf-vm.com/guide/getting-started.html">Getting Started</a> の説明に従って進めれば良いです。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.0</code></pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.0
+</code></pre>
 <p>でダウンロードした後、(自分は <code>zsh</code> を利用しているので) <code>~/.zshrc</code> に次を追記します。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>. $HOME/.asdf/asdf.sh</code></pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>. $HOME/.asdf/asdf.sh
+</code></pre>
 <p>次の手順に進む前に、新しいターミナルを起動して上の設定を反映しておきます。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_必要な_asdf_プラグインインストール">必要な asdf プラグインインストール</h4>
-<div class="paragraph">
+<h3 id="必要な-asdf-プラグインインストール">必要な asdf プラグインインストール</h3>
 <p><code>erlang</code> と <code>elixir</code> のプラグインをインストールします。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>asdf plugin-add erlang
-asdf plugin-add elixir</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_erlang_と_elixir_のインストール">Erlang と Elixir のインストール</h4>
-<div class="paragraph">
-<p>まず、 <code>erlang</code> をビルドするのに必要なパッケージを先にインストールしておきます。
-<a href="https://github.com/asdf-vm/asdf-erlang#ubuntu-2004-lts">asdf-erlang の README</a> に記載があります。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>sudo apt-get install build-essential autoconf m4 libncurses5-dev libwxgtk3.0-gtk3-dev libwxgtk-webview3.0-gtk3-dev libgl1-mesa-dev libglu1-mesa-dev libpng-dev libssh-dev unixodbc-dev xsltproc fop libxml2-utils libncurses-dev openjdk-11-jdk</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>実際には JDK は必須ではないようです。
-ビルド時のオプションに <code>--without-javac</code> を加えることで該当機能を無効化した状態でビルドできます(具体的な方法は前述の README を参照してください)。</p>
-</div>
-<div class="paragraph">
+<pre><code>asdf plugin-add erlang
+asdf plugin-add elixir
+</code></pre>
+<h3 id="erlang-と-elixir-のインストール">Erlang と Elixir のインストール</h3>
+<p>まず、 <code>erlang</code> をビルドするのに必要なパッケージを先にインストールしておきます。 <a href="https://github.com/asdf-vm/asdf-erlang#ubuntu-2004-lts">asdf-erlang の README</a> に記載があります。</p>
+<pre><code>sudo apt-get install build-essential autoconf m4 libncurses5-dev libwxgtk3.0-gtk3-dev libwxgtk-webview3.0-gtk3-dev libgl1-mesa-dev libglu1-mesa-dev libpng-dev libssh-dev unixodbc-dev xsltproc fop libxml2-utils libncurses-dev openjdk-11-jdk
+</code></pre>
+<p>実際には JDK は必須ではないようです。 ビルド時のオプションに <code>--without-javac</code> を加えることで該当機能を無効化した状態でビルドできます(具体的な方法は前述の README を参照してください)。</p>
 <p>続いて <code>erlang</code> と <code>elixir</code> を実際にビルド、インストールします。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>asdf install erlang latest</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>asdf install elixir latest</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>上のコマンドは <code>latest</code> を指定して最新安定版をインストールしています。
-特定のバージョンをインストールしたい場合は代わりに <code>asdf install erlang &lt;version&gt;</code> のように指定します。
-このとき、指定できるバージョンは <code>asdf list-all erlang</code> コマンドで一覧できます。</p>
-</div>
-<div class="paragraph">
+<pre><code>asdf install erlang latest
+
+asdf install elixir latest
+</code></pre>
+<p>上のコマンドは <code>latest</code> を指定して最新安定版をインストールしています。 特定のバージョンをインストールしたい場合は代わりに <code>asdf install erlang &lt;version&gt;</code> のように指定します。 このとき、指定できるバージョンは <code>asdf list-all erlang</code> コマンドで一覧できます。</p>
 <p>続いて、今回インストールしたバージョンを利用するように設定します。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>asdf global erlang latest
-asdf global elixir latest</code></pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>asdf global erlang latest
+asdf global elixir latest
+</code></pre>
 <p>これで <code>elixir</code> 実行環境が整いました。</p>
-</div>
-<div class="paragraph">
 <p><code>elixirc</code> コマンドのパスが通っていることを確認して完了です。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>elixirc --version</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_vscode_のセットアップ">VSCode のセットアップ</h3>
-<div class="paragraph">
+<pre><code>elixirc --version
+</code></pre>
+<h2 id="vscode-のセットアップ">VSCode のセットアップ</h2>
 <p>marketplace で検索すると色々出てきますが、現時点では <a href="https://marketplace.visualstudio.com/items?itemName=JakeBecker.elixir-ls">ElixirLS</a> (LS は Language Server のことのようです)だけ入れておけば良さそうです。</p>
-</div>
-</div>
-</div>
-</div>
 
         </section>
         <div class="post-tags">
@@ -206,7 +124,7 @@ asdf global elixir latest</code></pre>
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/elixir">elixir</a></li>
+              <li><a href="/tags/elixir/">elixir</a></li>
               
             </ul>
           </nav>
@@ -223,10 +141,10 @@ asdf global elixir latest</code></pre>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

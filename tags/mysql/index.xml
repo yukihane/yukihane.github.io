@@ -6,7 +6,7 @@
     <description>Recent content in Mysql on 発火後忘失</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <copyright>© Yukihane, All Rights Reserved</copyright>
     <lastBuildDate>Wed, 28 Apr 2021 15:55:52 +0000</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,7 +14,7 @@
       <link>https://yukihane.github.io/blog/202104/29/mysql-connector-j-8.0.23/</link>
       <pubDate>Wed, 28 Apr 2021 15:55:52 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202104/29/mysql-connector-j-8.0.23/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;MySQL Connector/J &lt;code&gt;8.0.23&lt;/code&gt; でタイムゾーン変換のメカニズムが変わりました(Spring Boot では &lt;a href=&#34;https://docs.spring.io/spring-boot/docs/2.3.9.RELEASE/reference/html/appendix-dependency-versions.html#dependency-versions&#34;&gt;&lt;code&gt;2.3.9&lt;/code&gt;&lt;/a&gt;以降, &lt;a href=&#34;https://docs.spring.io/spring-boot/docs/2.4.3/reference/html/appendix-dependency-versions.html#dependency-versions&#34;&gt;&lt;code&gt;2.4.3&lt;/code&gt;&lt;/a&gt;以降でこれを採用しています)。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;quoteblock&#34;&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;strong&gt;Important Change&lt;/strong&gt;: A new mechanism has been introduced for users to configure how time zone conversions should occur when time instants are saved to or retrieved from a server by Connector/J.&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;div class=&#34;attribution&#34;&gt;&#xA;— &lt;a href=&#34;https://dev.mysql.com/doc/relnotes/connector-j/8.0/en/news-8-0-23.html&#34;&gt;MySQL :: MySQL Connector/J 8.0 Release Notes :: Changes in MySQL Connector/J 8.0.23 (2021-01-18, General Availability)&lt;/a&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;MySQL Connector/J &lt;code&gt;8.0.23&lt;/code&gt; でタイムゾーン変換のメカニズムが変わりました(Spring Boot では &lt;a href=&#34;https://docs.spring.io/spring-boot/docs/2.3.9.RELEASE/reference/html/appendix-dependency-versions.html#dependency-versions&#34;&gt;&lt;code&gt;2.3.9&lt;/code&gt;&lt;/a&gt;以降, &lt;a href=&#34;https://docs.spring.io/spring-boot/docs/2.4.3/reference/html/appendix-dependency-versions.html#dependency-versions&#34;&gt;&lt;code&gt;2.4.3&lt;/code&gt;&lt;/a&gt;以降でこれを採用しています)。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Important Change&lt;/strong&gt;: A new mechanism has been introduced for users to configure how time zone conversions should occur when time instants are saved to or retrieved from a server by Connector/J.&lt;/p&gt;&#xA;&lt;p&gt;—  &lt;a href=&#34;https://dev.mysql.com/doc/relnotes/connector-j/8.0/en/news-8-0-23.html&#34;&gt;MySQL :: MySQL Connector/J 8.0 Release Notes :: Changes in MySQL Connector/J 8.0.23 (2021-01-18, General Availability)&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

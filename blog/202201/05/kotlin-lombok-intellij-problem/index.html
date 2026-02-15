@@ -2,13 +2,9 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>IntelliJ 最新版(2021.3) で Kotlin と Lombok が共存できない - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-[追記 2022-01-17] 今回リリースされた 213-1.6.10-release-944-IJ6461.79 で修正されたようです(ただし .idea ディレクトリを削除してからインポートし直す必要がありました)。
-
-
-Kotlin 1.5.20 から Lombok compiler plugin というものが提供されるようになり、 Kotlin から自動生成される getter などにアクセスできるようになりました(※実験的機能なようですが)。
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="[追記 2022-01-17] 今回リリースされた 213-1.6.10-release-944-IJ6461.79 で修正されたようです(ただし .idea ディレクトリを削除してからインポートし直す必要がありました)。
+Kotlin 1.5.20 から Lombok compiler plugin というものが提供されるようになり、 Kotlin から自動生成される getter などにアクセスできるようになりました(※実験的機能なようですが)。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202201/05/kotlin-lombok-intellij-problem/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="IntelliJ 最新版(2021.3) で Kotlin と Lombok が共存できない">
@@ -30,8 +26,8 @@ Kotlin 1.5.20 から Lombok compiler plugin というものが提供されるよ
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -48,9 +44,17 @@ Kotlin 1.5.20 から Lombok compiler plugin というものが提供されるよ
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -67,50 +71,23 @@ Kotlin 1.5.20 から Lombok compiler plugin というものが提供されるよ
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>[追記 2022-01-17] 今回リリースされた <code>213-1.6.10-release-944-IJ6461.79</code> で修正されたようです(ただし <code>.idea</code> ディレクトリを削除してからインポートし直す必要がありました)。</p>
-</div>
-<div class="paragraph">
+          <p>[追記 2022-01-17] 今回リリースされた <code>213-1.6.10-release-944-IJ6461.79</code> で修正されたようです(ただし <code>.idea</code> ディレクトリを削除してからインポートし直す必要がありました)。</p>
 <p><a href="https://kotlinlang.org/docs/whatsnew1520.html">Kotlin 1.5.20</a> から <a href="https://kotlinlang.org/docs/lombok.html">Lombok compiler plugin</a> というものが提供されるようになり、 Kotlin から自動生成される getter などにアクセスできるようになりました(※実験的機能なようですが)。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://kotlinlang.org/docs/whatsnew1520.html#support-for-calling-java-s-lombok-generated-methods-within-modules-that-have-kotlin-and-java-code">Support for calling Java’s Lombok-generated methods within modules that have Kotlin and Java code</a></p>
-</li>
+<li><a href="https://kotlinlang.org/docs/whatsnew1520.html#support-for-calling-java-s-lombok-generated-methods-within-modules-that-have-kotlin-and-java-code">Support for calling Java’s Lombok-generated methods within modules that have Kotlin and Java code</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>IntelliJ の Kotlin プラグインもこの機能をサポートしているようですが、最新版の IntelliJ (2021.3) では現状うまく動作していないようです。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://youtrack.jetbrains.com/issue/KT-50013">KT-50013 Mixed Java-Kotlin Project with Lombok annotations on Java classes fails to compile.</a></p>
-</li>
+<li><a href="https://youtrack.jetbrains.com/issue/KT-50013">KT-50013 Mixed Java-Kotlin Project with Lombok annotations on Java classes fails to compile.</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>IntelliJ 上で実行すると次のようなエラーメッセージが出ます。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>Kotlin: Cannot access &#39;message&#39;: it is private in &#39;MyJavaClass&#39;</code></pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>Kotlin: Cannot access 'message': it is private in 'MyJavaClass'
+</code></pre>
 <p>回避策としては、ひとつ前のバージョンの IntelliJ を利用する、ということが挙げられていました。</p>
-</div>
-<div class="paragraph">
 <p>下のリンクから 2021.2 をダウンロードするか、 <a href="https://www.jetbrains.com/ja-jp/toolbox-app/">JetBrains Toolbox App</a> を利用すれば良さそうです。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://www.jetbrains.com/ja-jp/idea/download/other.html" class="bare">https://www.jetbrains.com/ja-jp/idea/download/other.html</a></p>
-</li>
+<li><a href="https://www.jetbrains.com/ja-jp/idea/download/other.html">https://www.jetbrains.com/ja-jp/idea/download/other.html</a></li>
 </ul>
-</div>
 
         </section>
         <div class="post-tags">
@@ -119,7 +96,7 @@ Kotlin 1.5.20 から Lombok compiler plugin というものが提供されるよ
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/kotlin">kotlin</a></li>
+              <li><a href="/tags/kotlin/">kotlin</a></li>
               
             </ul>
           </nav>
@@ -136,10 +113,10 @@ Kotlin 1.5.20 から Lombok compiler plugin というものが提供されるよ
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

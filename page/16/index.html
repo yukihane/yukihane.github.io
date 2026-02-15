@@ -4,7 +4,7 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>発火後忘失 | Home </title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Fire and Forget blog" />
-	<meta property="og:image" content=""/>
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<link rel="alternate" type="application/rss+xml" href="https://yukihane.github.io/index.xml" title="発火後忘失" />
 	<meta property="og:url" content="https://yukihane.github.io/">
   <meta property="og:site_name" content="発火後忘失">
@@ -21,8 +21,8 @@
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 
 	<body>
@@ -41,9 +41,17 @@
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -54,6 +62,42 @@
 				<div class="site-description"></div>
 				
 				
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201904/27/java-properties-is-not-utf8/">Java9以降.propertiesファイルをUTF-8で書けるようになった、は正しい？</a></h1>
+					<time>2019/04/27</time>
+					<br><div class="description">
+	
+	<h1 id="解答">解答</h1>
+<p>正しくない。</p>
+<ul>
+<li>Java9(<a href="https://bugs.java.com/bugdatabase/view_bug.do?bug_id=8043553">JEP226</a>)で変わったのはリソースバンドルの取り扱い(<a href="https://docs.oracle.com/javase/jp/9/docs/api/java/util/PropertyResourceBundle.html">PropertyResourceBundle</a>) であって プロパティファイル <code>.properties</code> 全般の話ではない。</li>
+<li>プロパティファイル<code>.properties</code>の文字エンコーディングについての取り決めはない。それを取り扱うプログラム次第であり<code>UTF-8</code>を正しく認識してくれるとは限らない。
+<ul>
+<li>標準 API で <code>UTF-8</code>として(読もうと思えば)読めるようになったのは <strong>1.6</strong> からであって <strong>9</strong> からではない。ちなみに 1.5 以前は <code>ISO 8859-1</code> 前提。</li>
+</ul>
+</li>
+</ul>
+<h1 id="背景">背景</h1>
+<p>私はうろ覚えで何となく、現在の Java では <code>.properties</code> ファイルを <code>UTF-8</code> で書ける、<code>ascii2native</code>は過去の遺物になった、のだと思いこんでいました。<br />
+ところが Spring Boot の <code>application.properties</code> に <code>UTF-8</code> で日本語を書いたところ文字化けしてしまい、あれ、もしかして自分の理解が間違っているのかと思い調べ直したのがこの記事です。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201904/27/java-properties-is-not-utf8/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201904/16/migration-to-junit5/">Testing the Web Layer のコードを JUnit Jupiter にマイグレーションしてみる</a></h1>
+					<time>2019/04/16</time>
+					<br><div class="description">
+	
+	<h1 id="概要">概要</h1>
+<p>(追記: ここで試したのは<code>2.1.4.RELEASE</code>時点のもの。<code>2.2.0.M3</code>以降では <a href="https://github.com/spring-projects/spring-boot/issues/14736">#14736</a>の通り JUnit5 がデフォルトになっている模様。)</p>
+<p>spring-boot-starter-test の JUnit5 対応はこちらの issue:</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201904/16/migration-to-junit5/">Read more ⟶</a>
+				</section>
 				
 				<section class="list-item">
 					<h1 class="title"><a href="/blog/201903/26/change-spring-validator-message/">Spring Validator(でラップされたBean Validation)のメッセージをi18nしたときの覚え書き</a></h1>
@@ -212,48 +256,6 @@ mklink /j vimfiles .vim
 					<a class="readmore" href="/blog/201807/27/set-git-commit-editor/">Read more ⟶</a>
 				</section>
 				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201807/25/not-required-m2_home/">M2_HOMEは不要</a></h1>
-					<time>2018/07/25</time>
-					<br><div class="description">
-	
-	<p><code>M2_HOME</code> は削除されました。</p>
-<ul>
-<li><a href="https://issues.apache.org/jira/browse/MNGSITE-283">MNGSITE-283 Remove M2_HOME from documentation</a></li>
-<li><a href="https://issues.apache.org/jira/browse/MNG-5607">MNG-5607 Don&rsquo;t use M2_HOME in mvn shell/command scripts anymore</a></li>
-<li><a href="https://maven.apache.org/docs/3.5.0/release-notes.html">3.5.0 リリースノート</a> &ldquo;Based on problems in using M2_HOME related to different Maven versions installed and to simplify things, the usage of M2_HOME has been removed and is not supported any more <a href="https://issues.apache.org/jira/browse/MNG-5823">MNG-5823</a>, <a href="https://issues.apache.org/jira/browse/MNG-5836">MNG-5836</a>, <a href="https://issues.apache.org/jira/browse/MNG-5607">MNG-5607</a>.&rdquo;</li>
-<li>(<a href="https://github.com/apache/maven/commit/065281c43d7435be204aa963e1f94d1128bb5351">変更 commit</a>)</li>
-</ul>
-<p>敢えて設定するのであれば、 上の変更 commit リンク先にある通り、<code>M2_HOME</code>でなく<code>MAVEN_HOME</code>にしましょう。<br />
-ただし、敢えて設定すべき状況は通常発生しないと思います。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201807/25/not-required-m2_home/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201807/13/zip-on-git-for-windows/">Git for Windowsでzipコマンドを再現する</a></h1>
-					<time>2018/07/13</time>
-					<br><div class="description">
-	
-	<p><a href="#ZgotmplZ"><code>git-archive</code></a>使えば何とかなることに気付きました。<br />
-ちなみに<code>unzip</code>コマンドは標準で使えます。</p>
-<pre><code>mkdir workrepo
-cd workrepo
-git init
-cp -r [target_file_or_dir] .
-git add .
-git commit -m commit
-git archive -o ../myarchive.zip @
-cd ..
-rm -rf workrepo
-</code></pre>
-<p>あんまり自信ないんですけどスクリプトファイルに落とすとこんな感じ？</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201807/13/zip-on-git-for-windows/">Read more ⟶</a>
-				</section>
-				
 				
 
 <ul class="pagination">
@@ -273,10 +275,10 @@ rm -rf workrepo
 			</main>
 			<footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

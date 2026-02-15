@@ -2,36 +2,20 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Jigsaw - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-参考リンク
-
-
+	<meta name="description" content="参考リンク
 Webサイト
 
 
-
-Project Jigsaw:
-Quick Start Guide - OpenJDKのページ
+Project Jigsaw: Quick Start Guide - OpenJDKのページ
 
 
-Java
-9のモジュール機能「Project Jigsaw」の基本を紹介
-(1/2)：CodeZine（コードジン）
-
-
-Java
-9 - Jigsaw - Apache Maven - Apache Software Foundation -
-MavenプラグインのJava9対応状況
-
-
-" />
-	<meta property="og:image" content=""/>
+Java 9のモジュール機能「Project Jigsaw」の基本を紹介 (1/2)：CodeZine（コードジン）" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/java/jigsaw/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Jigsaw">
   <meta property="og:description" content="参考リンク Webサイト Project Jigsaw: Quick Start Guide - OpenJDKのページ
-Java 9のモジュール機能「Project Jigsaw」の基本を紹介 (1/2)：CodeZine（コードジン）
-Java 9 - Jigsaw - Apache Maven - Apache Software Foundation - MavenプラグインのJava9対応状況">
+Java 9のモジュール機能「Project Jigsaw」の基本を紹介 (1/2)：CodeZine（コードジン）">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -41,15 +25,14 @@ Java 9 - Jigsaw - Apache Maven - Apache Software Foundation - Mavenプラグイ�
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Jigsaw">
   <meta name="twitter:description" content="参考リンク Webサイト Project Jigsaw: Quick Start Guide - OpenJDKのページ
-Java 9のモジュール機能「Project Jigsaw」の基本を紹介 (1/2)：CodeZine（コードジン）
-Java 9 - Jigsaw - Apache Maven - Apache Software Foundation - MavenプラグインのJava9対応状況">
+Java 9のモジュール機能「Project Jigsaw」の基本を紹介 (1/2)：CodeZine（コードジン）">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -66,9 +49,17 @@ Java 9 - Jigsaw - Apache Maven - Apache Software Foundation - Mavenプラグイ�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -85,170 +76,96 @@ Java 9 - Jigsaw - Apache Maven - Apache Software Foundation - Mavenプラグイ�
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_参考リンク">参考リンク</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_webサイト">Webサイト</h3>
-<div class="ulist">
+          <h1 id="参考リンク">参考リンク</h1>
+<h2 id="webサイト">Webサイト</h2>
 <ul>
 <li>
-<p><a href="http://openjdk.java.net/projects/jigsaw/quick-start">Project Jigsaw:
-Quick Start Guide</a> - OpenJDKのページ</p>
+<p><a href="http://openjdk.java.net/projects/jigsaw/quick-start">Project Jigsaw: Quick Start Guide</a> - OpenJDKのページ</p>
 </li>
 <li>
-<p><a href="https://codezine.jp/article/detail/10524">Java
-9のモジュール機能「Project Jigsaw」の基本を紹介
-(1/2)：CodeZine（コードジン）</a></p>
+<p><a href="https://codezine.jp/article/detail/10524">Java 9のモジュール機能「Project Jigsaw」の基本を紹介 (1/2)：CodeZine（コードジン）</a></p>
 </li>
 <li>
-<p><a href="https://cwiki.apache.org/confluence/display/MAVEN/Java+9+-+Jigsaw">Java
-9 - Jigsaw - Apache Maven - Apache Software Foundation</a> -
-MavenプラグインのJava9対応状況</p>
+<p><a href="https://cwiki.apache.org/confluence/display/MAVEN/Java&#43;9&#43;-&#43;Jigsaw">Java 9 - Jigsaw - Apache Maven - Apache Software Foundation</a> - MavenプラグインのJava9対応状況</p>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_書籍">書籍</h3>
-<div class="ulist">
+<h2 id="書籍">書籍</h2>
 <ul>
 <li>
-<p><a href="http://shop.oreilly.com/product/0636920049494.do">Java 9 Modularity</a> -
-Oreilly</p>
+<p><a href="http://shop.oreilly.com/product/0636920049494.do">Java 9 Modularity</a> - Oreilly</p>
 </li>
 <li>
-<p><a href="https://www.manning.com/books/the-java-module-system">The Java Module
-System</a> - Manning</p>
+<p><a href="https://www.manning.com/books/the-java-module-system">The Java Module System</a> - Manning</p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_自分が行った学習手順">自分が行った学習手順</h2>
-<div class="sectionbody">
-<div class="ulist">
+<h1 id="自分が行った学習手順">自分が行った学習手順</h1>
 <ul>
 <li>
-<p><a href="http://openjdk.java.net/projects/jigsaw/quick-start">前述OpenJDKサイトのQuick
-Startのページ</a>を見て概要をつかむ。</p>
-<div class="ulist">
+<p><a href="http://openjdk.java.net/projects/jigsaw/quick-start">前述OpenJDKサイトのQuick Startのページ</a>を見て概要をつかむ。</p>
 <ul>
-<li>
-<p>最初は <strong>Services</strong> 節くらいまで読めば良いように思う(実際のところ <strong>The
-linker</strong> (jlink)など使用する機会はそう無いのでは)。</p>
-</li>
+<li>最初は <strong>Services</strong> 節くらいまで読めば良いように思う(実際のところ <strong>The linker</strong> (jlink)など使用する機会はそう無いのでは)。</li>
 </ul>
-</div>
 </li>
 <li>
-<p>Mavenでの利用方法がわからなかったので書籍http://amzn.to/2CLmjCm[Java 9
-Modularity]の11章を流し読みする。従来と使用方法は変わらないようだった。</p>
-<div class="ulist">
+<p>Mavenでの利用方法がわからなかったので書籍http://amzn.to/2CLmjCm[Java 9 Modularity]の11章を流し読みする。従来と使用方法は変わらないようだった。</p>
 <ul>
-<li>
-<p>コードはhttps://github.com/java9-modularity/examples/tree/master/chapter11[こちら]にある。これだけ見ても概ね理解できるはず。</p>
+<li>コードはhttps://github.com/java9-modularity/examples/tree/master/chapter11[こちら]にある。これだけ見ても概ね理解できるはず。</li>
+</ul>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="module_info.java_内で使用するキーワード">module-info.java 内で使用するキーワード</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>JLS 7.7 Module Declarations
-(<a href="https://docs.oracle.com/javase/specs/jls/se9/html/jls-7.html#jls-7.7">HTML版</a>,
-<a href="http://cr.openjdk.java.net/~mr/jigsaw/spec/java-se-9-jls-diffs.pdf">PDF
-Jigsaw差分表記版</a>)より。</p>
-</div>
-<div class="paragraph">
+<h1 id="module-infojava-内で使用するキーワード">module-info.java 内で使用するキーワード</h1>
+<p>JLS 7.7 Module Declarations (<a href="https://docs.oracle.com/javase/specs/jls/se9/html/jls-7.html#jls-7.7">HTML版</a>, <a href="http://cr.openjdk.java.net/~mr/jigsaw/spec/java-se-9-jls-diffs.pdf">PDF Jigsaw差分表記版</a>)より。</p>
 <p>既に次のページに日本語解説があったのでそちらも参照のこと。</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
-<p><a href="https://qiita.com/skht777/items/81f00f1890a7311b9e07">Java9 Project
-Jigsawのモジュールがわからないので調べた - Qiita</a></p>
+<p><a href="https://qiita.com/skht777/items/81f00f1890a7311b9e07">Java9 Project Jigsawのモジュールがわからないので調べた - Qiita</a></p>
 </li>
 <li>
-<p><a href="http://www.torutk.com/projects/swe/wiki/Java%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0#%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E5%AE%9A%E7%BE%A9%E3%83%95%E3%82%A1%E3%82%A4%E3%83%ABmodule-infojava%E3%81%AE%E4%BB%95%E6%A7%98" class="bare">http://www.torutk.com/projects/swe/wiki/Java%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0#%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E5%AE%9A%E7%BE%A9%E3%83%95%E3%82%A1%E3%82%A4%E3%83%ABmodule-infojava%E3%81%AE%E4%BB%95%E6%A7%98</a>[Javaモジュールシステム</p>
-<div class="ulist">
+<p><a href="http://www.torutk.com/projects/swe/wiki/Java%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0#%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E5%AE%9A%E7%BE%A9%E3%83%95%E3%82%A1%E3%82%A4%E3%83%ABmodule-infojava%E3%81%AE%E4%BB%95%E6%A7%98">http://www.torutk.com/projects/swe/wiki/Java%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0#%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E5%AE%9A%E7%BE%A9%E3%83%95%E3%82%A1%E3%82%A4%E3%83%ABmodule-infojava%E3%81%AE%E4%BB%95%E6%A7%98</a>[Javaモジュールシステム</p>
 <ul>
-<li>
-<p>ソフトウェアエンジニアリング - Torutk]</p>
+<li>ソフトウェアエンジニアリング - Torutk]</li>
+</ul>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>ModuleDeclaration:
+<!-- -->
+<pre><code>ModuleDeclaration:
 {Annotation} [open] module Identifier {. Identifier}
-{ {ModuleDirective} }</pre>
-</div>
-</div>
-<div class="ulist">
+{ {ModuleDirective} }
+</code></pre>
 <ul>
 <li>
 <p>`open`を指定していない場合(ノーマルモジュールの場合)、コンパイル時、実行時ともに明示的にexportされたパッケージのみ参照を許可する。`open`を指定した場合(オープンモジュールの場合)、コンパイル時には明示的にexportされたパッケージのみ参照を許可する(この点はノーマルモジュールと同様)。実行時は、ノーマルモジュールと異なり、全パッケージの参照を許可する。</p>
-<div class="ulist">
 <ul>
 <li>
-<p>`open`はリフレクションによるアクセスを想定した仕様の模様。詳細はJLS
-7.7節参照。</p>
+<p>`open`はリフレクションによるアクセスを想定した仕様の模様。詳細はJLS 7.7節参照。</p>
 </li>
 <li>
 <p>後述の`opens`モジュールディレクティブはパッケージごとの指定だが、オープンモジュールにすれば全パッケージが対象になる、ということのようだ。</p>
 </li>
 </ul>
-</div>
 </li>
 </ul>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>ModuleDirective:
+<!-- -->
+<pre><code>ModuleDirective:
 requires {RequiresModifier} ModuleName ;
 exports PackageName [to ModuleName {, ModuleName}] ;
 opens PackageName [to ModuleName {, ModuleName}] ;
 uses TypeName ;
-provides TypeName with TypeName {, TypeName} ;</pre>
-</div>
-</div>
-<div class="ulist">
+provides TypeName with TypeName {, TypeName} ;
+</code></pre>
 <ul>
-<li>
-<p>モジュールディレクティブについては次節にまとめた。</p>
-</li>
+<li>モジュールディレクティブについては次節にまとめた。</li>
 </ul>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>RequiresModifier:
+<!-- -->
+<pre><code>RequiresModifier:
 (one of)
-transitive static</pre>
-</div>
-</div>
-<div class="ulist">
+transitive static
+</code></pre>
 <ul>
-<li>
-<p>後述の`requires`モジュールディレクティブ説明の中で言及。</p>
-</li>
+<li>後述の`requires`モジュールディレクティブ説明の中で言及。</li>
 </ul>
-</div>
-<div class="sect2">
-<h3 id="_モジュールディレクティブ">モジュールディレクティブ</h3>
-<div class="sect3">
-<h4 id="_requires">requires</h4>
-<div class="ulist">
+<h2 id="モジュールディレクティブ">モジュールディレクティブ</h2>
+<h3 id="requires">requires</h3>
 <ul>
 <li>
 <p>依存先(自身が参照しているモジュール)を指定するディレクティブ。</p>
@@ -257,75 +174,46 @@ transitive static</pre>
 <p>`java.base`は自動で設定されるので明記してはいけない。</p>
 </li>
 <li>
-<p><code>transitive</code>:
-自身をrequireしたモジュールは、`requires transitive`で指定しておいたモジュールもrequireしたことになる。つまり、`requires transitive`で指定したモジュールも暗黙的に使用可能になる。</p>
+<p><code>transitive</code>: 自身をrequireしたモジュールは、`requires transitive`で指定しておいたモジュールもrequireしたことになる。つまり、`requires transitive`で指定したモジュールも暗黙的に使用可能になる。</p>
 </li>
 <li>
-<p><code>static</code>:
-`requires static`は、コンパイル時には必要だが実行時には必ずしも必要でないモジュールに対して記述する。</p>
-<div class="ulist">
+<p><code>static</code>: `requires static`は、コンパイル時には必要だが実行時には必ずしも必要でないモジュールに対して記述する。</p>
 <ul>
-<li>
-<p>書籍「Java 9 Modularity」5.6.1節 &#34;Compile-Time Dependencies&#34;
-では、コンパイル時のアノテーションプロセッシング(のみ)に必要なモジュールを指定するような例が書かれていた。</p>
+<li>書籍「Java 9 Modularity」5.6.1節 &ldquo;Compile-Time Dependencies&rdquo; では、コンパイル時のアノテーションプロセッシング(のみ)に必要なモジュールを指定するような例が書かれていた。</li>
+</ul>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="exports_opens">exports, opens</h4>
-<div class="ulist">
+<h3 id="exports-opens">exports, opens</h3>
 <ul>
 <li>
 <p>`exports`にはコンパイル時及び実行時にアクセスを許可するパッケージを記述する。</p>
 </li>
 <li>
 <p>`opens`には実行時にアクセスを許可するパッケージを記述する。コンパイル時には許可しないのが`exports`と異なる。</p>
-<div class="ulist">
 <ul>
-<li>
-<p>前述の`open`によるオープンモジュール指定の、パッケージ個別指定版のようなものか。</p>
-</li>
+<li>前述の`open`によるオープンモジュール指定の、パッケージ個別指定版のようなものか。</li>
 </ul>
-</div>
 </li>
 <li>
-<p><code>exports</code>,
-`opens`ともに`to`で特定のモジュールに対してのみアクセスを許可するような設定が可能。</p>
+<p><code>exports</code>, `opens`ともに`to`で特定のモジュールに対してのみアクセスを許可するような設定が可能。</p>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_uses">uses</h4>
-<div class="ulist">
+<h3 id="uses">uses</h3>
 <ul>
 <li>
 <p>`java.util.ServiceLoader`を用いてロード可能なサービスの記述に用いる。</p>
 </li>
 <li>
-<p>こちらのサイトが詳しい:
-<a href="http://d.hatena.ne.jp/bitter_fox/20160720/1469042323" class="bare">http://d.hatena.ne.jp/bitter_fox/20160720/1469042323</a>[JigsawでSPIを使用する</p>
-<div class="ulist">
+<p>こちらのサイトが詳しい: <a href="http://d.hatena.ne.jp/bitter_fox/20160720/1469042323">http://d.hatena.ne.jp/bitter_fox/20160720/1469042323</a>[JigsawでSPIを使用する</p>
 <ul>
-<li>
-<p>きつねとJava！]</p>
-</li>
+<li>きつねとJava！]</li>
 </ul>
-</div>
 </li>
 <li>
 <p><a href="https://docs.oracle.com/javase/jp/9/docs/api/java/util/ServiceLoader.html">ServiceLoaderのJavaDoc</a>も参考になる。</p>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="provides_service_with_service_provider">provides <em>[service]</em> with <em>[service provider]</em></h4>
-<div class="ulist">
+<h3 id="provides-service-with-service-provider">provides <em>[service]</em> with <em>[service provider]</em></h3>
 <ul>
 <li>
 <p>サービスプロバイダの記述に用いる。</p>
@@ -337,33 +225,13 @@ transitive static</pre>
 <p>こちらについても`uses`節で記載したリンク先を読むべし。</p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_ビルドツール等の対応">ビルドツール等の対応</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="maven_compiler_plugin">Maven Compiler Plugin</h3>
-<div class="ulist">
+<h1 id="ビルドツール等の対応">ビルドツール等の対応</h1>
+<h2 id="maven-compiler-plugin">Maven Compiler Plugin</h2>
 <ul>
-<li>
-<p>configuration で <a href="https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html#release">release</a> (9のjavacコマンドで使用できるオプション。 <a href="http://vividcode.hatenablog.com/entry/java/javac-release-flag">参考</a>)
-が利用できるようになっている。</p>
-</li>
+<li>configuration で <a href="https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html#release">release</a> (9のjavacコマンドで使用できるオプション。 <a href="http://vividcode.hatenablog.com/entry/java/javac-release-flag">参考</a>) が利用できるようになっている。</li>
 </ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="exec_maven_plugin">Exec Maven Plugin</h3>
-<div class="paragraph">
+<h2 id="exec-maven-plugin">Exec Maven Plugin</h2>
 <p>java9に対応した <a href="http://www.mojohaus.org/exec-maven-plugin/examples/example-exec-for-java-programs.html#In_case_of_the_modules_as_supported_since_Java9_the_configuration_looks_like">modulepathの指定、実行クラスの指定</a>ができるようになっている。</p>
-</div>
-</div>
-</div>
-</div>
 
         </section>
         <div class="post-tags">
@@ -381,10 +249,10 @@ transitive static</pre>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

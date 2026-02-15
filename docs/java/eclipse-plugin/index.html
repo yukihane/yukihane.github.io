@@ -2,10 +2,7 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Eclipse Plugin - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-リソース
-
-
+	<meta name="description" content="リソース
 
 
 vogella社のチュートリアル のうちのいくつか
@@ -17,14 +14,19 @@ Packt社刊 Eclipse Plug-in Development: Beginner’s Guide - Second Edition
 Eclipse Plug-in と Eclipse RCP は技術スタックが同じっぽいので、 RCP の記事も参考になる…のだと思う
 
 
-" />
-	<meta property="og:image" content=""/>
+Eclipse Plug-in Development: Beginner’s Guide - Second Edition 写経時のハマりポイントメモ
+Chapter 2
+
+
+p.32: Plug-in Project 作成時の Plug-in with a view というテンプレートは無くなっている。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/java/eclipse-plugin/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Eclipse Plugin">
   <meta property="og:description" content="リソース vogella社のチュートリアル のうちのいくつか
 Packt社刊 Eclipse Plug-in Development: Beginner’s Guide - Second Edition
-Eclipse Plug-in と Eclipse RCP は技術スタックが同じっぽいので、 RCP の記事も参考になる…のだと思う">
+Eclipse Plug-in と Eclipse RCP は技術スタックが同じっぽいので、 RCP の記事も参考になる…のだと思う
+Eclipse Plug-in Development: Beginner’s Guide - Second Edition 写経時のハマりポイントメモ Chapter 2 p.32: Plug-in Project 作成時の Plug-in with a view というテンプレートは無くなっている。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -35,14 +37,15 @@ Eclipse Plug-in と Eclipse RCP は技術スタックが同じっぽいので、
   <meta name="twitter:title" content="Eclipse Plugin">
   <meta name="twitter:description" content="リソース vogella社のチュートリアル のうちのいくつか
 Packt社刊 Eclipse Plug-in Development: Beginner’s Guide - Second Edition
-Eclipse Plug-in と Eclipse RCP は技術スタックが同じっぽいので、 RCP の記事も参考になる…のだと思う">
+Eclipse Plug-in と Eclipse RCP は技術スタックが同じっぽいので、 RCP の記事も参考になる…のだと思う
+Eclipse Plug-in Development: Beginner’s Guide - Second Edition 写経時のハマりポイントメモ Chapter 2 p.32: Plug-in Project 作成時の Plug-in with a view というテンプレートは無くなっている。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -59,9 +62,17 @@ Eclipse Plug-in と Eclipse RCP は技術スタックが同じっぽいので、
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -78,10 +89,7 @@ Eclipse Plug-in と Eclipse RCP は技術スタックが同じっぽいので、
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_リソース">リソース</h2>
-<div class="sectionbody">
-<div class="ulist">
+          <h1 id="リソース">リソース</h1>
 <ul>
 <li>
 <p><a href="https://www.vogella.com/tutorials/eclipseplatform.html">vogella社のチュートリアル</a> のうちのいくつか</p>
@@ -93,124 +101,75 @@ Eclipse Plug-in と Eclipse RCP は技術スタックが同じっぽいので、
 <p>Eclipse Plug-in と Eclipse RCP は技術スタックが同じっぽいので、 RCP の記事も参考になる…のだと思う</p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_eclipse_plug_in_development_beginners_guide_second_edition_写経時のハマりポイントメモ"><a href="https://www.packtpub.com/product/eclipse-plug-in-development-beginner-s-guide-second-edition/9781783980697">Eclipse Plug-in Development: Beginner’s Guide - Second Edition</a> 写経時のハマりポイントメモ</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_chapter_2">Chapter 2</h3>
-<div class="ulist">
+<h1 id="eclipse-plug-in-development-beginners-guide---second-edition-写経時のハマりポイントメモ"><a href="https://www.packtpub.com/product/eclipse-plug-in-development-beginner-s-guide-second-edition/9781783980697">Eclipse Plug-in Development: Beginner’s Guide - Second Edition</a> 写経時のハマりポイントメモ</h1>
+<h2 id="chapter-2">Chapter 2</h2>
 <ul>
 <li>
 <p>p.32: Plug-in Project 作成時の <strong>Plug-in with a view</strong> というテンプレートは無くなっている。</p>
-<div class="ulist">
 <ul>
-<li>
-<p>おそらく <strong>View contribution using 3.x API</strong> が該当するものだと思う。</p>
-</li>
+<li>おそらく <strong>View contribution using 3.x API</strong> が該当するものだと思う。</li>
 </ul>
-</div>
 </li>
 <li>
 <p>p.33: ↑のテンプレートでプロジェクト生成するとコンパイルエラーが発生している。</p>
-<div class="ulist">
 <ul>
 <li>
 <p><code>ViewPart</code> 継承クラスから <code>workbench</code> フィールドが漏れている模様。 <a href="https://github.com/yukihane/com.packtpub.e4/commit/6eb5819e71a96a911f5d2aaa55b85a0216947302">対応差分</a></p>
-<div class="ulist">
 <ul>
-<li>
-<p>↑の対応策は、Extensions の追加から生成したときのファイルから類推した。</p>
+<li>↑の対応策は、Extensions の追加から生成したときのファイルから類推した。</li>
+</ul>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
 </li>
 <li>
 <p>p.52: ここに書かれているようなリークは発生していない。</p>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://javadoc.scijava.org/Eclipse/org/eclipse/swt/graphics/Color.html"><code>Color#dispose()</code> の Javadoc</a> には次のようにある: &#34;Colors do not need to be disposed, however to maintain compatibility with older code, disposing a Color is not an error.&#34;</p>
-</li>
+<li><a href="https://javadoc.scijava.org/Eclipse/org/eclipse/swt/graphics/Color.html"><code>Color#dispose()</code> の Javadoc</a> には次のようにある: &ldquo;Colors do not need to be disposed, however to maintain compatibility with older code, disposing a Color is not an error.&rdquo;</li>
 </ul>
-</div>
 </li>
 <li>
 <p>p.58: テンプレートに入っている画像ファイルは <code>gif</code> 形式でなく <code>png</code> 形式に変わっている。</p>
-<div class="ulist">
 <ul>
-<li>
-<p>Java コードに書くファイルパスも変える必要あり。</p>
-</li>
+<li>Java コードに書くファイルパスも変える必要あり。</li>
 </ul>
-</div>
 </li>
 <li>
 <p>p.58: Ubuntu 20.04 で実行しているが、システムトレイにアイコンが出ない。そもそもシステムトレイってどこのこと…？</p>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_chapter_3">Chapter 3</h3>
-<div class="ulist">
+<h2 id="chapter-3">Chapter 3</h2>
 <ul>
 <li>
 <p>p.73: <code>@PostConstruct</code> アノテーションは <code>javax.annotation</code> を Dependencies に追加する必要があるように変わっている模様。</p>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://stackoverflow.com/a/54592615" class="bare">https://stackoverflow.com/a/54592615</a></p>
-</li>
+<li><a href="https://stackoverflow.com/a/54592615">https://stackoverflow.com/a/54592615</a></li>
 </ul>
-</div>
 </li>
 <li>
 <p>p.78: <code>@Focus</code> を付けたメソッド、実行はされているのだが、このメソッドが何をしているのかがわからない(コメントアウトしても挙動が変わっているようには見えない)。</p>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_chapter_4">Chapter 4</h3>
-<div class="ulist">
+<h2 id="chapter-4">Chapter 4</h2>
 <ul>
 <li>
 <p>p.108: typo が2つ含まれているのでコピペすると間違う。 packtub (packtpub が正解), HleloHandler (HelloHandler が正解)</p>
 </li>
 <li>
 <p>p.109: メニュー作成のウィザード、説明が雑で抜けている。リポジトリのコードを見て補完する必要がある。</p>
-<div class="ulist">
 <ul>
-<li>
-<p>menuContribution の ID は <code>com.packtpub.e4.clock.ui.menucontribution.hello</code></p>
-</li>
+<li>menuContribution の ID は <code>com.packtpub.e4.clock.ui.menucontribution.hello</code></li>
 </ul>
-</div>
 </li>
 <li>
 <p>p.110: 11. の ID値、書籍では <code>Hello</code> だがリポジトリのコードは <code>hello</code> 。</p>
 </li>
 <li>
 <p>p.117: Dependencies に <code>org.eclipse.ui.services</code> を追加しろとあるが、存在しない。</p>
-<div class="ulist">
 <ul>
-<li>
-<p>リポジトリのコードにも追加されていないので無視する。</p>
+<li>リポジトリのコードにも追加されていないので無視する。</li>
+</ul>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 
         </section>
         <div class="post-tags">
@@ -228,10 +187,10 @@ Eclipse Plug-in と Eclipse RCP は技術スタックが同じっぽいので、
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

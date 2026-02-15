@@ -2,43 +2,24 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>フロントエンド基礎知識 - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-言語仕様
-
-
+	<meta name="description" content="言語仕様
 JavaScriptの「オブジェクト」
-
 
 
 JavaScriptのオブジェクトは、カッコ {…​} で表される。
 
 
-JavaScriptのオブジェクトは「プロパティ」の集合 [1]。
+JavaScriptのオブジェクトは「プロパティ」の集合 1。
 
 
-プロパティは、「データプロパティ」と「アクセサプロパティ」の2種類がある [2]。
-
-
-データプロパティは、よく見かける  key : value の形のもの。
-
-
-アクセサプロパティは get , set キーワードを使うgetter/setterのこと？
-
-
-プロパティ属性(Property Attributes) [3]というものがある。
-
-
-" />
-	<meta property="og:image" content=""/>
+プロパティは、「データプロパティ」と「アクセサプロパティ」の2種類がある 2。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/frontend/js-fundamentals/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="フロントエンド基礎知識">
   <meta property="og:description" content="言語仕様 JavaScriptの「オブジェクト」 JavaScriptのオブジェクトは、カッコ {…​} で表される。
-JavaScriptのオブジェクトは「プロパティ」の集合 [1]。
-プロパティは、「データプロパティ」と「アクセサプロパティ」の2種類がある [2]。
-データプロパティは、よく見かける key : value の形のもの。
-アクセサプロパティは get , set キーワードを使うgetter/setterのこと？
-プロパティ属性(Property Attributes) [3]というものがある。">
+JavaScriptのオブジェクトは「プロパティ」の集合 1。
+プロパティは、「データプロパティ」と「アクセサプロパティ」の2種類がある 2。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -48,18 +29,15 @@ JavaScriptのオブジェクトは「プロパティ」の集合 [1]。
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="フロントエンド基礎知識">
   <meta name="twitter:description" content="言語仕様 JavaScriptの「オブジェクト」 JavaScriptのオブジェクトは、カッコ {…​} で表される。
-JavaScriptのオブジェクトは「プロパティ」の集合 [1]。
-プロパティは、「データプロパティ」と「アクセサプロパティ」の2種類がある [2]。
-データプロパティは、よく見かける key : value の形のもの。
-アクセサプロパティは get , set キーワードを使うgetter/setterのこと？
-プロパティ属性(Property Attributes) [3]というものがある。">
+JavaScriptのオブジェクトは「プロパティ」の集合 1。
+プロパティは、「データプロパティ」と「アクセサプロパティ」の2種類がある 2。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -76,9 +54,17 @@ JavaScriptのオブジェクトは「プロパティ」の集合 [1]。
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -95,104 +81,97 @@ JavaScriptのオブジェクトは「プロパティ」の集合 [1]。
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_言語仕様">言語仕様</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_javascriptのオブジェクト">JavaScriptの「オブジェクト」</h3>
-<div class="ulist">
+          <h1 id="言語仕様">言語仕様</h1>
+<h2 id="javascriptのオブジェクト">JavaScriptの「オブジェクト」</h2>
 <ul>
 <li>
 <p>JavaScriptのオブジェクトは、カッコ <code>{…​}</code> で表される。</p>
 </li>
 <li>
-<p>JavaScriptのオブジェクトは「プロパティ」の集合 <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>。</p>
+<p>JavaScriptのオブジェクトは「プロパティ」の集合 <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。</p>
 </li>
 <li>
-<p>プロパティは、「データプロパティ」と「アクセサプロパティ」の2種類がある <sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>。</p>
+<p>プロパティは、「データプロパティ」と「アクセサプロパティ」の2種類がある <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。</p>
 </li>
 <li>
-<p>データプロパティは、よく見かける  <code>key : value</code> の形のもの。</p>
+<p>データプロパティは、よく見かける <code>key : value</code> の形のもの。</p>
 </li>
 <li>
 <p>アクセサプロパティは <code>get</code> , <code>set</code> キーワードを使うgetter/setterのこと？</p>
 </li>
 <li>
-<p>プロパティ属性(Property Attributes) <sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup>というものがある。</p>
+<p>プロパティ属性(Property Attributes) <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>というものがある。</p>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_プロパティ属性">プロパティ属性</h3>
-<div class="paragraph">
-<p><a href="https://javascript.g.hatena.ne.jp/edvakf/20091117/1258442026" class="bare">https://javascript.g.hatena.ne.jp/edvakf/20091117/1258442026</a></p>
-</div>
-<div class="paragraph">
+<h2 id="プロパティ属性">プロパティ属性</h2>
+<p><a href="https://javascript.g.hatena.ne.jp/edvakf/20091117/1258442026">https://javascript.g.hatena.ne.jp/edvakf/20091117/1258442026</a></p>
 <p>ES3 互換のオブジェクト定義。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">x</span> <span class="o">:</span> <span class="mi">1</span> <span class="p">};</span>
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-js" data-lang="js">var obj = { x : 1 };</code></pre>
+</div><p>これが以下と等価となる。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="nx">x</span> <span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">value</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">writable</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>     <span class="c1">// x の値が変更できる
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">enumerable</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>   <span class="c1">// for (var k in obj) で x を辿ることができる
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">configurable</span> <span class="o">:</span> <span class="kc">true</span>  <span class="c1">// 下に説明
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
+</div><h2 id="メソッド定義の簡略構文">メソッド定義の簡略構文</h2>
+<p><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Functions_and_function_scope/Method_definitions">https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Functions_and_function_scope/Method_definitions</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">foo</span><span class="p">()</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">bar</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="paragraph">
-<p>これが以下と等価となる。</p>
+</div><p>上のような構文はデータプロパティの形式( <code>キー : バリュー</code> )でないのでアクセサプロパティか？と思うが違う。 単に下のものを簡略した書式であり、データプロパティ。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">foo</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">bar</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-js" data-lang="js">var obj = Object.create(Object.prototype,
-  { x : {
-    value : 1,
-    writable : true,     // x の値が変更できる
-    enumerable : true,   // for (var k in obj) で x を辿ることができる
-    configurable : true  // 下に説明
-  }}
-)</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_メソッド定義の簡略構文">メソッド定義の簡略構文</h3>
-<div class="paragraph">
-<p><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Functions_and_function_scope/Method_definitions" class="bare">https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Functions_and_function_scope/Method_definitions</a></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-js" data-lang="js">var obj = {
-  foo() {},
-  bar() {}
-};</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>上のような構文はデータプロパティの形式( <code>キー : バリュー</code> )でないのでアクセサプロパティか？と思うが違う。
-単に下のものを簡略した書式であり、データプロパティ。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-js" data-lang="js">var obj = {
-  foo: function() {},
-  bar: function() {}
-};
-[source,js]</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_webブラウザ">Webブラウザ</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_windows8_1にはedgeはインストールできないie11まで">Windows8.1にはEdgeはインストールできない(IE11まで)</h3>
-<div class="paragraph">
+</div><h1 id="webブラウザ">Webブラウザ</h1>
+<h2 id="windows81にはedgeはインストールできないie11まで">Windows8.1にはEdgeはインストールできない(IE11まで)</h2>
 <p>MS Edgeをインストールできるのは現時点ではWindows10のみ。</p>
-</div>
-<div class="paragraph">
 <p>Windows8.1の延長サポート期限は <strong>2023年1月10日</strong> であり、このOSにインストールできるMS製ブラウザは <strong>IE11</strong> だけ。</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p><a href="http://www.atmarkit.co.jp/ait/articles/1405/30/news092.html">各Windows OSで利用できるIEのバージョンを知る：Tech TIPS - ＠IT</a></p>
@@ -201,31 +180,14 @@ JavaScriptのオブジェクトは「プロパティ」の集合 [1]。
 <p><a href="https://www.microsoft.com/ja-jp/atlife/article/windows10-portal/eos.aspx">ご存じですか? OS にはサポート期限があります! - Microsoft atLife</a></p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_html">HTML</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_htmlは他のhtmlをインクルードできない">HTMLは他のHTMLをインクルードできない</h3>
-<div class="paragraph">
-<p>(Webページの設計を行いたかったのでHTML解説書籍を見て回ったが参考になる記述が全く見つからなかった。
-なぜならばHTMLにそのような機能がなかったからだ、という話。)</p>
-</div>
-<div class="paragraph">
-<p>例えば複数のページ(htmlファイル)に共通ヘッダ(、共通フッタ、共通メニュー、等)を表示させたい場合、
-普通に考えればヘッダ部を別ファイルに書き、各ページではそのファイルをインクルードすれば良いが、そのような仕組みはHTML自体は持っていないと考えてよい(iframeを使えば実現可能だが、今回提示したような用途には向いていないようだ。あくまで「元々分離されたもの」を埋め込むのに使うべき？例えばSNSシェアボタンなど)。</p>
-</div>
-<div class="paragraph">
+<h1 id="html">HTML</h1>
+<h2 id="htmlは他のhtmlをインクルードできない">HTMLは他のHTMLをインクルードできない</h2>
+<p>(Webページの設計を行いたかったのでHTML解説書籍を見て回ったが参考になる記述が全く見つからなかった。 なぜならばHTMLにそのような機能がなかったからだ、という話。)</p>
+<p>例えば複数のページ(htmlファイル)に共通ヘッダ(、共通フッタ、共通メニュー、等)を表示させたい場合、 普通に考えればヘッダ部を別ファイルに書き、各ページではそのファイルをインクルードすれば良いが、そのような仕組みはHTML自体は持っていないと考えてよい(iframeを使えば実現可能だが、今回提示したような用途には向いていないようだ。あくまで「元々分離されたもの」を埋め込むのに使うべき？例えばSNSシェアボタンなど)。</p>
 <p>そのようにしたい場合、現在ではおおむね2種類の方法のどちらかで解決している。</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
 <p>サーバサイドインクルード(SSI; Server-Side Include)</p>
-<div class="ulist">
 <ul>
 <li>
 <p>WebサーバがあらかじめHTMLを結合した上でクライアントへ送信する。つまりWebサーバの機能。</p>
@@ -234,163 +196,91 @@ JavaScriptのオブジェクトは「プロパティ」の集合 [1]。
 <p>Webフレームワークが提供しているテンプレートエンジンの機能もサーバサイドという意味ではこちらか。</p>
 </li>
 </ul>
-</div>
 </li>
 <li>
 <p>JavaScriptでリクエストを投げ、その結果を結合する。</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>ただし、将来的には上記の話は正しくない。 <a href="http://w3c.github.io/webcomponents/spec/imports/">HTML Imports</a> という仕様が実装されればHTML自体がインクルード機能を持つようになるらしい(…という話だったが、実装は取りやめになる方向？)。
-現状はChromeのみ実装の模様(<a href="https://caniuse.com/#search=html%20imports">参考</a>)。</p>
-</div>
-<div class="ulist">
+<p>ただし、将来的には上記の話は正しくない。 <a href="http://w3c.github.io/webcomponents/spec/imports/">HTML Imports</a> という仕様が実装されればHTML自体がインクルード機能を持つようになるらしい(…という話だったが、実装は取りやめになる方向？)。 現状はChromeのみ実装の模様(<a href="https://caniuse.com/#search=html%20imports">参考</a>)。</p>
 <ul>
-<li>
-<p><a href="https://www.html5rocks.com/ja/tutorials/webcomponents/imports/">HTML Imports: ウェブのための #include - HTML5 Rocks</a></p>
-</li>
+<li><a href="https://www.html5rocks.com/ja/tutorials/webcomponents/imports/">HTML Imports: ウェブのための #include - HTML5 Rocks</a></li>
 </ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_webcomponents界隈の用語について">WebComponents界隈の用語について</h3>
-<div class="sect3">
-<h4 id="_webcomponents">WebComponents</h4>
-<div class="paragraph">
+<h2 id="webcomponents界隈の用語について">WebComponents界隈の用語について</h2>
+<h3 id="webcomponents">WebComponents</h3>
 <p>HTML仕様の一部。(※おそらくこれは正しい表現ではない)</p>
-</div>
-<div class="paragraph">
-<p>ブラウザ上で動作するUI(GUI)について、コンポーネント化できるようにする仕様の集合体。
-HTML importsもWebComponentsの一部。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_webcomponents_js"><a href="https://github.com/webcomponents/webcomponentsjs">webcomponents.js</a></h4>
-<div class="paragraph">
-<p>WebComponentsを様々なブラウザ(これらはそれぞれ実装が異なる)で動作するようにするライブラリの名前。
-単なる1ライブラリの名前に仕様名を冠するのはどうなの…？まぎらわしい。
-ただ提供ドメイン(<a href="https://www.webcomponents.org/polyfills/">webcomponents.org</a>)から想像するに、実質上のWebComponents標準ライブラリなのだろう。</p>
-</div>
-<div class="paragraph">
+<p>ブラウザ上で動作するUI(GUI)について、コンポーネント化できるようにする仕様の集合体。 HTML importsもWebComponentsの一部。</p>
+<h3 id="webcomponentsjs"><a href="https://github.com/webcomponents/webcomponentsjs">webcomponents.js</a></h3>
+<p>WebComponentsを様々なブラウザ(これらはそれぞれ実装が異なる)で動作するようにするライブラリの名前。 単なる1ライブラリの名前に仕様名を冠するのはどうなの…？まぎらわしい。 ただ提供ドメイン(<a href="https://www.webcomponents.org/polyfills/">webcomponents.org</a>)から想像するに、実質上のWebComponents標準ライブラリなのだろう。</p>
 <p>ちなみにこういったブラウザ間の差異を吸収してどのブラウザでも同じような機能をできるようにする実装のことをJS界隈ではpolyfillと呼ぶ。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_polymer"><a href="https://www.polymer-project.org/">polymer</a></h4>
-<div class="paragraph">
+<h3 id="polymer"><a href="https://www.polymer-project.org/">polymer</a></h3>
 <p>歴史的な前後関係を置いておくと、一言で言えば webcomponents.js のラッパー＋便利機能が付いたライブラリ。</p>
-</div>
-<div class="paragraph">
-<p>Googleの方が書かれた解説がわかりやすい(ただし古いので無くなったものもあるようだ)。
-文中のplatform.jsが現在のwebcomponents.js。</p>
-</div>
-<div class="paragraph">
+<p>Googleの方が書かれた解説がわかりやすい(ただし古いので無くなったものもあるようだ)。 文中のplatform.jsが現在のwebcomponents.js。</p>
 <p><a href="http://steps.dodgson.org/b/2013/05/19/polymer-and-web-components/">Polymer と Web Components - steps to phantasien</a></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_javascript">JavaScript</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_プロダクト名_js例えばvue_jsとか_の_js_の意味">&lt;プロダクト名&gt;.js(例えばVue.jsとか) の .js の意味</h3>
-<div class="paragraph">
+<h1 id="javascript">JavaScript</h1>
+<h2 id="プロダクト名js例えばvuejsとか-の-js-の意味">&lt;プロダクト名&gt;.js(例えばVue.jsとか) の .js の意味</h2>
 <p>単にJavaScript向けプロダクトという意味の符牒。別に1ファイルから成るとかいう意味ではない。</p>
-</div>
-<div class="paragraph">
-<p>Java向けプロダクトである Log4J や Twitter4J の &#39;&#39;&#39;4J&#39;&#39;&#39; と同じ意味合い。</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_webcomponents_polymer">WebComponents / Polymer</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_polymer_elements_の名前">Polymer Elements の名前</h3>
-<div class="paragraph">
+<p>Java向けプロダクトである Log4J や Twitter4J の &lsquo;&lsquo;&lsquo;4J&rsquo;&rsquo;&rsquo; と同じ意味合い。</p>
+<h1 id="webcomponents--polymer">WebComponents / Polymer</h1>
+<h2 id="polymer-elements-の名前">Polymer Elements の名前</h2>
 <p>旧来 <code>core-xxx</code> と呼んでいたものはv1かv2で <code>iron-xxx</code> という名前に変わった。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_polymer2_0はtype_extensionをサポートしない">Polymer2.0はtype-extensionをサポートしない</h3>
-<div class="ulist">
+<h2 id="polymer20はtype-extensionをサポートしない">Polymer2.0はtype-extensionをサポートしない</h2>
 <ul>
-<li>
-<p><a href="https://www.polymer-project.org/2.0/docs/about_20#type-extension" class="bare">https://www.polymer-project.org/2.0/docs/about_20#type-extension</a></p>
-</li>
+<li><a href="https://www.polymer-project.org/2.0/docs/about_20#type-extension">https://www.polymer-project.org/2.0/docs/about_20#type-extension</a></li>
 </ul>
+<p><a href="https://www.youtube.com/watch?v=qzh56Ja1eaw&amp;t=3h46m35s">https://www.youtube.com/watch?v=qzh56Ja1eaw&t=3h46m35s</a> で説明していた頃(v0.x)には存在していたようだが、現在はない。 ここで説明している</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">is</span><span class="o">=</span><span class="s">&#34;core-input&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;{{text}}&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="paragraph">
-<p><a href="https://www.youtube.com/watch?v=qzh56Ja1eaw&amp;t=3h46m35s" class="bare">https://www.youtube.com/watch?v=qzh56Ja1eaw&amp;t=3h46m35s</a> で説明していた頃(v0.x)には存在していたようだが、現在はない。
-ここで説明している</p>
+</div><p>は、</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">iron-input</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;{{text}}&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">iron-input</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-html" data-lang="html">&lt;input type=&#34;text&#34; is=&#34;core-input&#34; value=&#34;{{text}}&#34;&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>は、</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-html" data-lang="html">&lt;iron-input&gt;
-  &lt;input type=&#34;text&#34; value=&#34;{{text}}&#34;&gt;
-&lt;/iron-input&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>と書くようだ <sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup>。</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_bower">Bower</h2>
-<div class="sectionbody">
-<div class="ulist">
+</div><p>と書くようだ <sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>。</p>
+<h1 id="bower">Bower</h1>
 <ul>
-<li>
-<p><a href="https://bower.io/blog/" class="bare">https://bower.io/blog/</a></p>
-</li>
+<li><a href="https://bower.io/blog/">https://bower.io/blog/</a></li>
 </ul>
+<p>Bower自身がコミュニティからもはやdeprecatedとみなされている。 新規プロジェクトで仕様すべきでは無さそう。</p>
+<h2 id="bower-install">bower install</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bower install  PolymerElements/iron-list
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="paragraph">
-<p>Bower自身がコミュニティからもはやdeprecatedとみなされている。
-新規プロジェクトで仕様すべきでは無さそう。</p>
-</div>
-<div class="sect2">
-<h3 id="_bower_install">bower install</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">bower install  PolymerElements/iron-list</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>としたときの引数 <code>PolymerElements/iron-list</code> はgithub.comのリポジトリ名の模様。
-例えばこの例の場合だと <a href="https://github.com/PolymerElements/iron-list" class="bare">https://github.com/PolymerElements/iron-list</a> 。</p>
-</div>
-</div>
-</div>
-</div>
-<div id="footnotes">
-<hr/>
-<div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. <a href="https://www.ecma-international.org/ecma-262/6.0/#sec-object-type" class="bare">https://www.ecma-international.org/ecma-262/6.0/#sec-object-type</a>
-</div>
-<div class="footnote" id="_footnotedef_2">
-<a href="#_footnoteref_2">2</a>. <a href="http://numb86-tech.hatenablog.com/entry/2016/06/04/152912" class="bare">http://numb86-tech.hatenablog.com/entry/2016/06/04/152912</a>
-</div>
-<div class="footnote" id="_footnotedef_3">
-<a href="#_footnoteref_3">3</a>. <a href="https://www.ecma-international.org/ecma-262/6.0/#sec-property-attributes" class="bare">https://www.ecma-international.org/ecma-262/6.0/#sec-property-attributes</a>
-</div>
-<div class="footnote" id="_footnotedef_4">
-<a href="#_footnoteref_4">4</a>. <a href="https://www.webcomponents.org/element/PolymerElements/iron-input" class="bare">https://www.webcomponents.org/element/PolymerElements/iron-input</a>
-</div>
+</div><p>としたときの引数 <code>PolymerElements/iron-list</code> はgithub.comのリポジトリ名の模様。 例えばこの例の場合だと <a href="https://github.com/PolymerElements/iron-list">https://github.com/PolymerElements/iron-list</a> 。</p>
+<div class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-object-type">https://www.ecma-international.org/ecma-262/6.0/#sec-object-type</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="http://numb86-tech.hatenablog.com/entry/2016/06/04/152912">http://numb86-tech.hatenablog.com/entry/2016/06/04/152912</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-property-attributes">https://www.ecma-international.org/ecma-262/6.0/#sec-property-attributes</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="https://www.webcomponents.org/element/PolymerElements/iron-input">https://www.webcomponents.org/element/PolymerElements/iron-input</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
 </div>
 
         </section>
@@ -409,10 +299,10 @@ HTML importsもWebComponentsの一部。</p>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

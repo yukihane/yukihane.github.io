@@ -2,16 +2,10 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>VirtualBox - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-tips
-
-
+	<meta name="description" content="tips
 仮想ハードディスクのUUID変更
-
-仮想ハードディスクはVirtualBox上ではUUIDによって識別されています。
-このため、仮想ハードディスクファイルをコピーして別の仮想マシンに接続しようとした場合など、同一UUIDのものが存在する旨のエラーになります。
-" />
-	<meta property="og:image" content=""/>
+仮想ハードディスクはVirtualBox上ではUUIDによって識別されています。 このため、仮想ハードディスクファイルをコピーして別の仮想マシンに接続しようとした場合など、同一UUIDのものが存在する旨のエラーになります。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/virtualbox/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="VirtualBox">
@@ -30,8 +24,8 @@ tips
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -48,9 +42,17 @@ tips
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -67,63 +69,31 @@ tips
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_tips">tips</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_仮想ハードディスクのuuid変更">仮想ハードディスクのUUID変更</h3>
-<div class="paragraph">
-<p>仮想ハードディスクはVirtualBox上ではUUIDによって識別されています。
-このため、仮想ハードディスクファイルをコピーして別の仮想マシンに接続しようとした場合など、同一UUIDのものが存在する旨のエラーになります。</p>
-</div>
-<div class="paragraph">
-<p>既に不要となった仮想HDがまだVirtualBox管理上残っているのであれば、VirtualBoxのメニュー
-ファイル &gt; 仮想メディアマネージャー から削除すれば良いです。</p>
-</div>
-<div class="paragraph">
+          <h1 id="tips">tips</h1>
+<h2 id="仮想ハードディスクのuuid変更">仮想ハードディスクのUUID変更</h2>
+<p>仮想ハードディスクはVirtualBox上ではUUIDによって識別されています。 このため、仮想ハードディスクファイルをコピーして別の仮想マシンに接続しようとした場合など、同一UUIDのものが存在する旨のエラーになります。</p>
+<p>既に不要となった仮想HDがまだVirtualBox管理上残っているのであれば、VirtualBoxのメニュー ファイル &gt; 仮想メディアマネージャー から削除すれば良いです。</p>
 <p>双方とも残しておきたいのであれば、コピーして新しく生成した仮想HDのUUIDを変更すれば、別のものとして認識できるようになります。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>VBoxManage internalcommands sethduuid my-vhd.vdi</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_仮想ハードディスクのコンパクト化">仮想ハードディスクのコンパクト化</h3>
-<div class="paragraph">
+<pre><code>VBoxManage internalcommands sethduuid my-vhd.vdi
+</code></pre>
+<h2 id="仮想ハードディスクのコンパクト化">仮想ハードディスクのコンパクト化</h2>
 <p>キャッシュファイル等無駄ファイルを削除する。以下のコマンドは <code>yum</code> のキャッシュクリア。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>sudo yum clean all</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>ゲストOSにおいてddコマンドで未使用領域を0埋めする<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>sudo dd if=/dev/zero of=/bigemptyfile bs=4096k
-sudo rm -rf /bigemptyfile</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>sudo yum clean all
+</code></pre>
+<p>ゲストOSにおいてddコマンドで未使用領域を0埋めする<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。</p>
+<pre><code>sudo dd if=/dev/zero of=/bigemptyfile bs=4096k
+sudo rm -rf /bigemptyfile
+</code></pre>
 <p>ゲストOSをシャットダウンし、ホストOS上でコンパクト化コマンドを実行する。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre> VBoxManage modifyhd /path/to/thedisk.vdi --compact</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="footnotes">
-<hr/>
-<div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. <a href="http://superuser.com/questions/529149/how-to-compact-virtualboxs-vdi-file-size" class="bare">http://superuser.com/questions/529149/how-to-compact-virtualboxs-vdi-file-size</a>
-</div>
+<pre><code> VBoxManage modifyhd /path/to/thedisk.vdi --compact
+</code></pre>
+<div class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="http://superuser.com/questions/529149/how-to-compact-virtualboxs-vdi-file-size">http://superuser.com/questions/529149/how-to-compact-virtualboxs-vdi-file-size</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
 </div>
 
         </section>
@@ -142,10 +112,10 @@ sudo rm -rf /bigemptyfile</pre>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

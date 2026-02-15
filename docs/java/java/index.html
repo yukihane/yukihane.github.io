@@ -2,23 +2,11 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Java - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-Mavenで差分コンパイルできない
-
-
+	<meta name="description" content="Mavenで差分コンパイルできない
 常に
 
-
-
-
 [INFO] Changes detected - recompiling the module!
-
-
-
-
 というメッセージが出て全コンパイルが行われる事象。
-
-
 
 
 http://stackoverflow.com/a/19653164/4506703
@@ -27,13 +15,8 @@ http://stackoverflow.com/a/19653164/4506703
 http://stackoverflow.com/a/17948010/4506703
 
 
-
-
-false を設定することで、本来この機能に期待されている 賢い
-インクリメンタルコンパイルが行われなくなる。
-(この賢いインクリメンタルコンパイル機能がバグっているため、全ファイル変更されたと見なされているのが現状。)
-" />
-	<meta property="og:image" content=""/>
+false を設定することで、本来この機能に期待されている 賢い インクリメンタルコンパイルが行われなくなる。 (この賢いインクリメンタルコンパイル機能がバグっているため、全ファイル変更されたと見なされているのが現状。)" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/java/java/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Java">
@@ -62,8 +45,8 @@ false を設定することで、本来この機能に期待されている 賢�
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -80,9 +63,17 @@ false を設定することで、本来この機能に期待されている 賢�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -99,48 +90,22 @@ false を設定することで、本来この機能に期待されている 賢�
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_mavenで差分コンパイルできない">Mavenで差分コンパイルできない</h2>
-<div class="sectionbody">
-<div class="paragraph">
+          <h1 id="mavenで差分コンパイルできない">Mavenで差分コンパイルできない</h1>
 <p>常に</p>
-</div>
-<div class="quoteblock">
 <blockquote>
-<div class="paragraph">
-<p>[INFO] Changes detected - recompiling the module!</p>
-</div>
-</blockquote>
-</div>
-<div class="paragraph">
+<p>[INFO] Changes detected - recompiling the module!</p></blockquote>
 <p>というメッセージが出て全コンパイルが行われる事象。</p>
-</div>
-<div class="ulist">
 <ul>
 <li>
-<p><a href="http://stackoverflow.com/a/19653164/4506703" class="bare">http://stackoverflow.com/a/19653164/4506703</a></p>
+<p><a href="http://stackoverflow.com/a/19653164/4506703">http://stackoverflow.com/a/19653164/4506703</a></p>
 </li>
 <li>
-<p><a href="http://stackoverflow.com/a/17948010/4506703" class="bare">http://stackoverflow.com/a/17948010/4506703</a></p>
+<p><a href="http://stackoverflow.com/a/17948010/4506703">http://stackoverflow.com/a/17948010/4506703</a></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><code>false</code> を設定することで、本来この機能に期待されている <strong>賢い</strong>
-インクリメンタルコンパイルが行われなくなる。
-(この賢いインクリメンタルコンパイル機能がバグっているため、全ファイル変更されたと見なされているのが現状。)</p>
-</div>
-<div class="paragraph">
-<p>上記設定をfalseにすると、代わりに 通常の
-インクリメンタルコンパイルが行われる。
-この結果、大半の場合にはfalseにした方がコンパイル時間は短縮される。</p>
-</div>
-<div class="paragraph">
-<p>ただし、後者の 通常の
-インクリメンタルコンパイルは、ファイル間の依存関係などを考慮しない(、のだと思われる)。
-そのため、おそらく、変更したファイルのみが再コンパイル対象となり、例えば他ファイルが使用しているインタフェースが変わった場合、使用側は再コンパイルされないため実行時エラーになる(と思われる)。</p>
-</div>
-<div class="ulist">
+<p><code>false</code> を設定することで、本来この機能に期待されている <strong>賢い</strong> インクリメンタルコンパイルが行われなくなる。 (この賢いインクリメンタルコンパイル機能がバグっているため、全ファイル変更されたと見なされているのが現状。)</p>
+<p>上記設定をfalseにすると、代わりに 通常の インクリメンタルコンパイルが行われる。 この結果、大半の場合にはfalseにした方がコンパイル時間は短縮される。</p>
+<p>ただし、後者の 通常の インクリメンタルコンパイルは、ファイル間の依存関係などを考慮しない(、のだと思われる)。 そのため、おそらく、変更したファイルのみが再コンパイル対象となり、例えば他ファイルが使用しているインタフェースが変わった場合、使用側は再コンパイルされないため実行時エラーになる(と思われる)。</p>
 <ul>
 <li>
 <p>常に再コンパイルが走るよりはまし。上記のような場合には手動でcleanすればよい。</p>
@@ -149,62 +114,26 @@ false を設定することで、本来この機能に期待されている 賢�
 <p>CI環境ではcleanからビルドを始めるので影響はない。</p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="lombok_install">lombok install</h2>
-<div class="sectionbody">
-<div class="ulist">
+<h1 id="lombok-install">lombok install</h1>
 <ul>
-<li>
-<p><a href="http://qiita.com/satty3104/items/42fc67a7e9fca0f807a9" class="bare">http://qiita.com/satty3104/items/42fc67a7e9fca0f807a9</a></p>
-</li>
+<li><a href="http://qiita.com/satty3104/items/42fc67a7e9fca0f807a9">http://qiita.com/satty3104/items/42fc67a7e9fca0f807a9</a></li>
 </ul>
-</div>
-<div class="paragraph">
-<p>`java -jar lombok.jar`だとMacのEclipse
-Neonにインストールできなかった。手動インストールが必要。</p>
-</div>
-<div class="paragraph">
+<p>`java -jar lombok.jar`だとMacのEclipse Neonにインストールできなかった。手動インストールが必要。</p>
 <p>lombok.jarを所定の場所に配置:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>mv lombok.jar Eclipse.app/Contents/MacOS/</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>mv lombok.jar Eclipse.app/Contents/MacOS/
+</code></pre>
 <p><code>Eclipse.app/Contents/Eclipse/eclipse.ini`に</code>-vmargs`セクションがあるので、そこにの行を追記:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>-Xbootclasspath/a:lombok.jar
--javaagent:lombok.jar</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="maven_pom">Maven POM</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_javaバージョン指定">Javaバージョン指定</h3>
-<div class="literalblock">
-<div class="content">
-<pre>&lt;maven.compiler.target&gt;11&lt;/maven.compiler.target&gt;
-&lt;maven.compiler.source&gt;11&lt;/maven.compiler.source&gt;</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_formatter">formatter</h3>
-<div class="paragraph">
+<pre><code>-Xbootclasspath/a:lombok.jar
+-javaagent:lombok.jar
+</code></pre>
+<h1 id="maven-pom">Maven POM</h1>
+<h2 id="javaバージョン指定">Javaバージョン指定</h2>
+<pre><code>&lt;maven.compiler.target&gt;11&lt;/maven.compiler.target&gt;
+&lt;maven.compiler.source&gt;11&lt;/maven.compiler.source&gt;
+</code></pre>
+<h2 id="formatter">formatter</h2>
 <p><a href="https://github.com/revelc/formatter-maven-plugin">formatter-maven-plugin</a>を利用する。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>    &lt;build&gt;
+<pre><code>    &lt;build&gt;
         &lt;plugins&gt;
             &lt;plugin&gt;
                 &lt;groupId&gt;net.revelc.code.formatter&lt;/groupId&gt;
@@ -230,53 +159,38 @@ Neonにインストールできなかった。手動インストールが必要�
                         &lt;/goals&gt;
                     &lt;/execution&gt;
                 &lt;/executions&gt;
-            &lt;/plugin&gt;</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="apache_poi">Apache POI</h3>
-<div class="ulist">
+            &lt;/plugin&gt;
+</code></pre>
+<h2 id="apache-poi">Apache POI</h2>
 <ul>
 <li>
-<p><a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.apache.poi%22" class="bare">http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.apache.poi%22</a></p>
+<p><a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.apache.poi%22">http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.apache.poi%22</a></p>
 </li>
 <li>
-<p><a href="https://poi.apache.org/overview.html" class="bare">https://poi.apache.org/overview.html</a></p>
+<p><a href="https://poi.apache.org/overview.html">https://poi.apache.org/overview.html</a></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p>xlsxファイルを操作したい場合は`poi-ooxml`を追加すれば残りの必要なものは依存関係で自動で入る。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>&lt;dependency&gt;
+<pre><code>&lt;dependency&gt;
     &lt;groupId&gt;org.apache.poi&lt;/groupId&gt;
     &lt;artifactId&gt;poi-ooxml&lt;/artifactId&gt;
     &lt;version&gt;3.16-beta2&lt;/version&gt;
-&lt;/dependency&gt;</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_slf4j">slf4j</h3>
-<div class="ulist">
+&lt;/dependency&gt;
+</code></pre>
+<h2 id="slf4j">slf4j</h2>
 <ul>
 <li>
-<p><a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.slf4j%22" class="bare">http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.slf4j%22</a></p>
+<p><a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.slf4j%22">http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.slf4j%22</a></p>
 </li>
 <li>
-<p><a href="https://www.slf4j.org/manual.html#projectDep" class="bare">https://www.slf4j.org/manual.html#projectDep</a></p>
+<p><a href="https://www.slf4j.org/manual.html#projectDep">https://www.slf4j.org/manual.html#projectDep</a></p>
 </li>
 <li>
-<p><a href="https://www.slf4j.org/faq.html#maven2" class="bare">https://www.slf4j.org/faq.html#maven2</a></p>
+<p><a href="https://www.slf4j.org/faq.html#maven2">https://www.slf4j.org/faq.html#maven2</a></p>
 </li>
 </ul>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>&lt;dependency&gt;
+<!-- -->
+<pre><code>&lt;dependency&gt;
   &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
   &lt;artifactId&gt;slf4j-api&lt;/artifactId&gt;
   &lt;version&gt;1.7.23&lt;/version&gt;
@@ -285,34 +199,24 @@ Neonにインストールできなかった。手動インストールが必要�
   &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
   &lt;artifactId&gt;slf4j-simple&lt;/artifactId&gt;
   &lt;version&gt;1.7.23&lt;/version&gt;
-&lt;/dependency&gt;</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_lombok">lombok</h3>
-<div class="ulist">
+&lt;/dependency&gt;
+</code></pre>
+<h2 id="lombok">lombok</h2>
 <ul>
 <li>
-<p><a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.projectlombok%22" class="bare">http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.projectlombok%22</a></p>
+<p><a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.projectlombok%22">http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.projectlombok%22</a></p>
 </li>
 <li>
-<p><a href="https://projectlombok.org/mavenrepo/" class="bare">https://projectlombok.org/mavenrepo/</a></p>
+<p><a href="https://projectlombok.org/mavenrepo/">https://projectlombok.org/mavenrepo/</a></p>
 </li>
 </ul>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>&lt;dependency&gt;
+<!-- -->
+<pre><code>&lt;dependency&gt;
     &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
     &lt;artifactId&gt;lombok&lt;/artifactId&gt;
     &lt;version&gt;1.16.14&lt;/version&gt;
-&lt;/dependency&gt;</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
+&lt;/dependency&gt;
+</code></pre>
 
         </section>
         <div class="post-tags">
@@ -330,10 +234,10 @@ Neonにインストールできなかった。手動インストールが必要�
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

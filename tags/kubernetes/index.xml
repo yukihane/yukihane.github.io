@@ -6,7 +6,7 @@
     <description>Recent content in Kubernetes on 発火後忘失</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <copyright>© Yukihane, All Rights Reserved</copyright>
     <lastBuildDate>Tue, 26 May 2020 21:58:21 +0000</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,7 +14,7 @@
       <link>https://yukihane.github.io/blog/202005/27/minimal-vimrc/</link>
       <pubDate>Tue, 26 May 2020 21:58:21 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202005/27/minimal-vimrc/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;kubernetesの試験を受けるに当たって、最小限の &lt;code&gt;.vimrc&lt;/code&gt; を覚えておくためのメモ:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;listingblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre class=&#34;highlight&#34;&gt;&lt;code&gt;set autoindent&#xA;set expandtab&#xA;set tabstop=2&#xA;set shiftwidth=2&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;kubernetesの試験を受けるに当たって、最小限の &lt;code&gt;.vimrc&lt;/code&gt; を覚えておくためのメモ:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;set autoindent&#xA;set expandtab&#xA;set tabstop=2&#xA;set shiftwidth=2&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     <item>
       <title>DockerfileのENTRYPOINTに対応するのはcommand, CMDに対応するのがargs</title>
@@ -28,21 +28,21 @@
       <link>https://yukihane.github.io/blog/202004/26/gke-getting-started/</link>
       <pubDate>Sun, 26 Apr 2020 14:05:12 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202004/26/gke-getting-started/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Kubernetes入門の書籍やドキュメントの中には、Kubernetes環境が既に手元にある前提で書かれているものも多いです。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;そういう場合、どうやってKubernetes環境を調達して良いのかわからず、一つの手段として自前で環境を作る &lt;a href=&#34;https://yukihane.github.io/posts/202004/26/kubernetes-the-hard-way-v1.18.2/&#34;&gt;Kubernetes the hard way&lt;/a&gt; をやってみたのですが、一旦環境を作ってしまうとインスタンスを起動させ続けねばならず(作り直すの面倒だし)、財布に優しくないので断念しました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;Kubernetes入門の書籍やドキュメントの中には、Kubernetes環境が既に手元にある前提で書かれているものも多いです。&lt;/p&gt;&#xA;&lt;p&gt;そういう場合、どうやってKubernetes環境を調達して良いのかわからず、一つの手段として自前で環境を作る &lt;a href=&#34;https://yukihane.github.io/posts/202004/26/kubernetes-the-hard-way-v1.18.2/&#34;&gt;Kubernetes the hard way&lt;/a&gt; をやってみたのですが、一旦環境を作ってしまうとインスタンスを起動させ続けねばならず(作り直すの面倒だし)、財布に優しくないので断念しました。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Kubernetes the hard way を最新版の1.18.2でやってみた</title>
       <link>https://yukihane.github.io/blog/202004/26/kubernetes-the-hard-way-v1.18.2/</link>
       <pubDate>Sun, 26 Apr 2020 13:00:50 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202004/26/kubernetes-the-hard-way-v1.18.2/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_要約&#34;&gt;要約&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;kube-apiserver&lt;/code&gt; の起動引数を &lt;code&gt;--runtime-config=api/all=true&lt;/code&gt; に修正すれば v1.18.2 でも記述どおりで動作する。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_本文&#34;&gt;本文&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;現時点で本家 &lt;a href=&#34;https://github.com/kelseyhightower/kubernetes-the-hard-way&#34;&gt;Kubernetes The Hard Way&lt;/a&gt; は1.15.3をターゲットにして構築を行っていますが、せっかくなので最新版である v1.18.2 でやってみることにしました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;要約&#34;&gt;要約&lt;/h1&gt;&#xA;&lt;p&gt;&lt;code&gt;kube-apiserver&lt;/code&gt; の起動引数を &lt;code&gt;--runtime-config=api/all=true&lt;/code&gt; に修正すれば v1.18.2 でも記述どおりで動作する。&lt;/p&gt;&#xA;&lt;h1 id=&#34;本文&#34;&gt;本文&lt;/h1&gt;&#xA;&lt;p&gt;現時点で本家 &lt;a href=&#34;https://github.com/kelseyhightower/kubernetes-the-hard-way&#34;&gt;Kubernetes The Hard Way&lt;/a&gt; は1.15.3をターゲットにして構築を行っていますが、せっかくなので最新版である v1.18.2 でやってみることにしました。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Kubernetes the hard wayを試すためのtmux基礎知識</title>
       <link>https://yukihane.github.io/blog/202004/25/tmux/</link>
       <pubDate>Sat, 25 Apr 2020 02:43:13 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202004/25/tmux/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/yukihane/kubernetes-the-hard-way&#34;&gt;Kubernetes the hard wayをやる&lt;/a&gt;のに`tmux`の操作を覚えておくのが良さそうだったので使いそうなものを記載しておくことにしました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;Ctrl&lt;/code&gt; キーと &lt;code&gt;b&lt;/code&gt; キーの同時押しを &lt;code&gt;^b&lt;/code&gt; と表記しています。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/yukihane/kubernetes-the-hard-way&#34;&gt;Kubernetes the hard wayをやる&lt;/a&gt;のに`tmux`の操作を覚えておくのが良さそうだったので使いそうなものを記載しておくことにしました。&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;Ctrl&lt;/code&gt; キーと &lt;code&gt;b&lt;/code&gt; キーの同時押しを &lt;code&gt;^b&lt;/code&gt; と表記しています。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

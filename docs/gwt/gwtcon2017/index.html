@@ -2,19 +2,11 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>GwtCon2017 - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-スライド要旨
-
-
+	<meta name="description" content="スライド要旨
 GwtCon2017のスライドを簡単にまとめます。
-
-
 Present and Future of GWT from a developer perspective
-
-既に陳腐化した(使うべきでない)GWT要素技術の紹介。代替方法は何か。これからはどう作るべきか。
-20108/01時点で、最新の情報が反映され、まとまっている資料は他にはない。必読。
-" />
-	<meta property="og:image" content=""/>
+既に陳腐化した(使うべきでない)GWT要素技術の紹介。代替方法は何か。これからはどう作るべきか。 20108/01時点で、最新の情報が反映され、まとまっている資料は他にはない。必読。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/gwt/gwtcon2017/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="GwtCon2017">
@@ -35,8 +27,8 @@ Present and Future of GWT from a developer perspective 既に陳腐化した(使
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -53,9 +45,17 @@ Present and Future of GWT from a developer perspective 既に陳腐化した(使
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -72,59 +72,31 @@ Present and Future of GWT from a developer perspective 既に陳腐化した(使
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_スライド要旨">スライド要旨</h2>
-<div class="sectionbody">
-<div class="paragraph">
+          <h1 id="スライド要旨">スライド要旨</h1>
 <p><a href="http://www.gwtcon.org/#slides">GwtCon2017のスライド</a>を簡単にまとめます。</p>
-</div>
-<div class="sect2">
-<h3 id="present_and_future_of_gwt_from_a_developer_perspective"><a href="https://es.slideshare.net/dodotis/present-and-future-of-gwt-from-a-developer-perspective">Present and Future of GWT from a developer perspective</a></h3>
-<div class="paragraph">
-<p>既に陳腐化した(使うべきでない)GWT要素技術の紹介。代替方法は何か。これからはどう作るべきか。
-20108/01時点で、最新の情報が反映され、まとまっている資料は他にはない。必読。</p>
-</div>
-<div class="paragraph">
-<p>Generator, Widget, Element, JavaScriptObject, RPC, RequestFactory,
-AutoBeans, UiBinder(Widgetを使ったUiBinder方式のことと思われる), JSNI,
-Classic DevMode, Ant, Designer は Obsolate Stuff。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_古いの">古いの</h3>
-<div class="ulist">
+<h2 id="present-and-future-of-gwt-from-a-developer-perspective"><a href="https://es.slideshare.net/dodotis/present-and-future-of-gwt-from-a-developer-perspective">Present and Future of GWT from a developer perspective</a></h2>
+<p>既に陳腐化した(使うべきでない)GWT要素技術の紹介。代替方法は何か。これからはどう作るべきか。 20108/01時点で、最新の情報が反映され、まとまっている資料は他にはない。必読。</p>
+<p>Generator, Widget, Element, JavaScriptObject, RPC, RequestFactory, AutoBeans, UiBinder(Widgetを使ったUiBinder方式のことと思われる), JSNI, Classic DevMode, Ant, Designer は Obsolate Stuff。</p>
+<h2 id="古いの">古いの</h2>
 <ul>
 <li>
-<p><a href="https://www.slideshare.net/gwtcon/the-future-of-gwt-2x-by-colin-alworth">The
-future of GWT 2.x - By Colin Alworth</a></p>
-<div class="ulist">
+<p><a href="https://www.slideshare.net/gwtcon/the-future-of-gwt-2x-by-colin-alworth">The future of GWT 2.x - By Colin Alworth</a></p>
 <ul>
-<li>
-<p>GWT2.8.2, 2.9, 2.10, 3について</p>
-</li>
+<li>GWT2.8.2, 2.9, 2.10, 3について</li>
 </ul>
-</div>
 </li>
 <li>
-<p><a href="https://www.slideshare.net/gwtcon/diy-split-gwt-applications-using-turducken-approach-by-alberto-mancini">DIY:
-Split GWT Applications using TURDUCKEN approach By Alberto Mancini</a></p>
-<div class="ulist">
+<p><a href="https://www.slideshare.net/gwtcon/diy-split-gwt-applications-using-turducken-approach-by-alberto-mancini">DIY: Split GWT Applications using TURDUCKEN approach By Alberto Mancini</a></p>
 <ul>
 <li>
 <p>大きなアプリケーションは複数のGWTモジュールに分割する(この手法をhttps://www.slideshare.net/RobertKeane1/turducken-divide-and-conquer-large-gwt-apps-with-multiple-teams[TURDUCKEN]パターンと呼ぶ)。</p>
 </li>
 <li>
-<p>モジュール間のコミュニケーションについて、サービスメッセージはhttps://developer.mozilla.org/ja/docs/Web/API/Window/postMessage[window.postMessage]を、それ以外のビジネスメッセージなどはhttps://developer.mozilla.org/ja/docs/Web/API/MessageChannel[channel
-messaging]を使えばうまくいった。</p>
+<p>モジュール間のコミュニケーションについて、サービスメッセージはhttps://developer.mozilla.org/ja/docs/Web/API/Window/postMessage[window.postMessage]を、それ以外のビジネスメッセージなどはhttps://developer.mozilla.org/ja/docs/Web/API/MessageChannel[channel messaging]を使えばうまくいった。</p>
 </li>
 </ul>
-</div>
 </li>
 </ul>
-</div>
-</div>
-</div>
-</div>
 
         </section>
         <div class="post-tags">
@@ -142,10 +114,10 @@ messaging]を使えばうまくいった。</p>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

@@ -4,7 +4,7 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>発火後忘失 | Home </title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Fire and Forget blog" />
-	<meta property="og:image" content=""/>
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<link rel="alternate" type="application/rss+xml" href="https://yukihane.github.io/index.xml" title="発火後忘失" />
 	<meta property="og:url" content="https://yukihane.github.io/">
   <meta property="og:site_name" content="発火後忘失">
@@ -21,8 +21,8 @@
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 
 	<body>
@@ -41,9 +41,17 @@
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -56,13 +64,41 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202105/06/ling-login-202105/">LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6)</a></h1>
+					<time>2021/05/06</time>
+					<br><div class="description">
+	
+	<h1 id="はじめに">はじめに</h1>
+<ul>
+<li><a href="/blog/201908/line-login-sample/">LINEログイン機能を試してみる</a> – 発火後忘失</li>
+</ul>
+<p>で、 Spring Boot 2.1.7 (Spring Security 5.1.6) を利用してLINEログインを行ってみました。</p>
+<p>本ドキュメントは、このコードをそのまま Spring Boot 2.4.5 へアップグレードしたところ上手く動かなかったので修正を行った記録です。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202105/06/ling-login-202105/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202104/29/mysql-connector-j-8.0.23/">MySQL Connector/J 8.0.23 でタイムゾーン変換メカニズムが変更になった</a></h1>
+					<time>2021/04/28</time>
+					<br><div class="description">
+	
+	<p>MySQL Connector/J <code>8.0.23</code> でタイムゾーン変換のメカニズムが変わりました(Spring Boot では <a href="https://docs.spring.io/spring-boot/docs/2.3.9.RELEASE/reference/html/appendix-dependency-versions.html#dependency-versions"><code>2.3.9</code></a>以降, <a href="https://docs.spring.io/spring-boot/docs/2.4.3/reference/html/appendix-dependency-versions.html#dependency-versions"><code>2.4.3</code></a>以降でこれを採用しています)。</p>
+<blockquote>
+<p><strong>Important Change</strong>: A new mechanism has been introduced for users to configure how time zone conversions should occur when time instants are saved to or retrieved from a server by Connector/J.</p>
+<p>—  <a href="https://dev.mysql.com/doc/relnotes/connector-j/8.0/en/news-8-0-23.html">MySQL :: MySQL Connector/J 8.0 Release Notes :: Changes in MySQL Connector/J 8.0.23 (2021-01-18, General Availability)</a></p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202104/29/mysql-connector-j-8.0.23/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202103/21/implicit-submission/">formで(送信ボタンを押さずに)エンターキーで送信する</a></h1>
 					<time>2021/03/21</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>入力フォームに値を入力して、(送信ボタンを押すのではなく)入力フィールド内でエンターキーを押すと送信される機能、&#34;Implicit Submission&#34;(日本語にすると&#34;暗黙的送信&#34;ですかね？)というそうです。</p>
-</div>&hellip;
+	<p>入力フォームに値を入力して、(送信ボタンを押すのではなく)入力フィールド内でエンターキーを押すと送信される機能、&ldquo;Implicit Submission&rdquo;(日本語にすると&quot;暗黙的送信&quot;ですかね？)というそうです。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202103/21/implicit-submission/">Read more ⟶</a>
@@ -73,9 +109,7 @@
 					<time>2021/03/07</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>書籍「ソフトウェアテストの教科書 - 品質を決定づけるテスト構成の基本と実践」第4章 ブラックボックステスト 表4-4 分類の基準として利用できる指標の一例 より。</p>
-</div>&hellip;
+	<p>書籍「ソフトウェアテストの教科書 - 品質を決定づけるテスト構成の基本と実践」第4章 ブラックボックステスト 表4-4 分類の基準として利用できる指標の一例 より。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202103/07/testing-perspective/">Read more ⟶</a>
@@ -86,9 +120,7 @@
 					<time>2021/03/07</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>以前記載していたUbuntu16.04(及び18.04)用の Kindle for PC セットアップ手順だと起動時にネットワーク接続できず利用できなくなってしまっていた</p>
-</div>&hellip;
+	<p>以前記載していたUbuntu16.04(及び18.04)用の Kindle for PC セットアップ手順だと起動時にネットワーク接続できず利用できなくなってしまっていた</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202103/07/kindle-for-pc-on-ubuntu20.04/">Read more ⟶</a>
@@ -99,13 +131,8 @@
 					<time>2021/03/06</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>Ubuntuに初回セットアップしてから放置していたのですが、ずっとメニューが文字化け(豆腐表示)になっていたのが気になっていました。</p>
-</div>
-<div class="paragraph">
-<p>この度、目次を使い倒す必要ができたので、改めて調べ直し、UbuntuでKindle for PC使う場合でも文字化けせずに利用できるようになる方法がわかりました。
-次のリンクを参照してください。</p>
-</div>&hellip;
+	<p>Ubuntuに初回セットアップしてから放置していたのですが、ずっとメニューが文字化け(豆腐表示)になっていたのが気になっていました。</p>
+<p>この度、目次を使い倒す必要ができたので、改めて調べ直し、UbuntuでKindle for PC使う場合でも文字化けせずに利用できるようになる方法がわかりました。 次のリンクを参照してください。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202103/06/kindle-menu-tofu/">Read more ⟶</a>
@@ -116,9 +143,7 @@
 					<time>2021/02/01</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>SLF4J の <code>Logger</code> のメソッドを眺めていると、 <code>Throwable</code> を引数にとれるのは 他に <code>Marker</code> と <code>String</code> メッセージだけを持つものばかりで、プレースホルダを利用したい場合にはどうしたら良いのだろう…と思っていたら、普通にプレースホルダと併用できるようです。</p>
-</div>&hellip;
+	<p>SLF4J の <code>Logger</code> のメソッドを眺めていると、 <code>Throwable</code> を引数にとれるのは 他に <code>Marker</code> と <code>String</code> メッセージだけを持つものばかりで、プレースホルダを利用したい場合にはどうしたら良いのだろう…と思っていたら、普通にプレースホルダと併用できるようです。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202102/02/slf4j-placeholder-throwable/">Read more ⟶</a>
@@ -129,19 +154,11 @@
 					<time>2021/01/30</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>OIDCフローの調査などで本物でないOIDC IdP Mock Serverが欲しくなったので検索してみました。</p>
-</div>
-<div class="paragraph">
-<p><a href="https://www.google.com/search?q=oidc+mock+server">世に数多あるよう</a>に見えたのですが、結構真面目に認証処理してたりして、ちょっとオーバースペックだと感じたので自作することにしました。</p>
-</div>
-<div class="ulist">
+	<p>OIDCフローの調査などで本物でないOIDC IdP Mock Serverが欲しくなったので検索してみました。</p>
+<p><a href="https://www.google.com/search?q=oidc&#43;mock&#43;server">世に数多あるよう</a>に見えたのですが、結構真面目に認証処理してたりして、ちょっとオーバースペックだと感じたので自作することにしました。</p>
 <ul>
-<li>
-<p><a href="https://github.com/yukihane/gava-idp">gava-idp</a></p>
-</li>
-</ul>
-</div>&hellip;
+<li><a href="https://github.com/yukihane/gava-idp">gava-idp</a></li>
+</ul>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202101/30/gava-oidc-idp/">Read more ⟶</a>
@@ -152,16 +169,10 @@
 					<time>2021/01/24</time>
 					<br><div class="description">
 	
-	<div class="ulist">
-<ul>
-<li>
-<p><a href="https://stackoverflow.com/a/65867566/4506703">How to configure CORS in a Spring Boot + Spring Security application?</a> - Stack Overflow</p>
-</li>
+	<ul>
+<li><a href="https://stackoverflow.com/a/65867566/4506703">How to configure CORS in a Spring Boot + Spring Security application?</a> - Stack Overflow</li>
 </ul>
-</div>
-<div class="paragraph">
-<p>Spring Boot のリファレンス <a href="https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#boot-features-cors">4.7.1. The “Spring Web MVC Framework” &gt; CORS Support</a> を見ると、次のように設定すれば良いように見えます。</p>
-</div>&hellip;
+<p>Spring Boot のリファレンス <a href="https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#boot-features-cors">4.7.1. The “Spring Web MVC Framework” &gt; CORS Support</a> を見ると、次のように設定すれば良いように見えます。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202101/24/spring-boot-cors-permit-all/">Read more ⟶</a>
@@ -172,16 +183,10 @@
 					<time>2021/01/24</time>
 					<br><div class="description">
 	
-	<div class="ulist">
-<ul>
-<li>
-<p><a href="https://stackoverflow.com/q/48906697/4506703">What should be a replacement for StoreType.HASH_MAP in spring-boot 2</a></p>
-</li>
+	<ul>
+<li><a href="https://stackoverflow.com/q/48906697/4506703">What should be a replacement for StoreType.HASH_MAP in spring-boot 2</a></li>
 </ul>
-</div>
-<div class="paragraph">
-<p>昔は <code>spring.session.store-type</code> の選択肢に <code>hash_map</code> というものがあったようですが、現在は存在しません。(ちなみに <code>none</code> は Spring Session を利用しない、という意味になるようで、挙動が変わってしまいます( <code>JSESSIONID</code> と <code>SESSIONID</code> とか))</p>
-</div>&hellip;
+<p>昔は <code>spring.session.store-type</code> の選択肢に <code>hash_map</code> というものがあったようですが、現在は存在しません。(ちなみに <code>none</code> は Spring Session を利用しない、という意味になるようで、挙動が変わってしまいます( <code>JSESSIONID</code> と <code>SESSIONID</code> とか))</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202101/24/spring-session-in-memory/">Read more ⟶</a>
@@ -192,19 +197,11 @@
 					<time>2021/01/23</time>
 					<br><div class="description">
 	
-	<div class="ulist">
-<ul>
-<li>
-<p><a href="https://stackoverflow.com/q/65757377/4506703">Authentication handling in Spring boot 2.x with WebSecurityConfigurerAdapter</a> - Stack Overflow</p>
-</li>
+	<ul>
+<li><a href="https://stackoverflow.com/q/65757377/4506703">Authentication handling in Spring boot 2.x with WebSecurityConfigurerAdapter</a> - Stack Overflow</li>
 </ul>
-</div>
-<div class="paragraph">
 <p><a href="https://github.com/spring-projects/spring-security/blob/5.3.3.RELEASE/web/src/main/java/org/springframework/security/web/authentication/Http403ForbiddenEntryPoint.java#L38-L39"><code>Http403ForbiddenEntryPoint</code></a> がデフォルトで設定されているため、 <a href="https://github.com/spring-projects/spring-security/blob/5.3.3.RELEASE/web/src/main/java/org/springframework/security/web/access/ExceptionTranslationFilter.java#L51-L52"><code>ExceptionTranslationFilter</code></a> において <a href="https://github.com/spring-projects/spring-security/blob/5.3.3.RELEASE/web/src/main/java/org/springframework/security/web/access/ExceptionTranslationFilter.java#L169"><code>AuthenticationException</code> のサブクラス</a>は全て <code>403</code> になっている模様。</p>
-</div>
-<div class="paragraph">
-<p>認証通った上でunauthorizedってことはforbiddenなんだよな？ということでしょうか。…この言い方だと全然ニュアンス伝わらないか。</p>
-</div>&hellip;
+<p>認証通った上でunauthorizedってことはforbiddenなんだよな？ということでしょうか。…この言い方だと全然ニュアンス伝わらないか。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202101/23/throw-unauthorizedexception-in-controller/">Read more ⟶</a>
@@ -215,29 +212,17 @@
 					<time>2021/01/21</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>Spring Framework 5.3.3 で対応された</p>
-</div>
-<div class="ulist">
+	<p>Spring Framework 5.3.3 で対応された</p>
 <ul>
 <li>
 <p><a href="https://github.com/spring-projects/spring-framework/issues/26282">Update OncePerRequestFilter.isAsyncDispatch to use HttpServletRequest.getDispatcherType() #26282</a></p>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/spring-projects/spring-framework/commit/499be70a717b8d20c544bc2eac4fe5dacedc7f28#diff-62abb34de9b72d1c359ee169fb30164f7cc9e8759e5f2a46dbae111ecfa29c9cR148">コード差分</a></p>
+<li><a href="https://github.com/spring-projects/spring-framework/commit/499be70a717b8d20c544bc2eac4fe5dacedc7f28#diff-62abb34de9b72d1c359ee169fb30164f7cc9e8759e5f2a46dbae111ecfa29c9cR148">コード差分</a></li>
+</ul>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
 <p>の影響で、 <code>HttpServletRequest#getDispatcherType()</code> メソッドが呼ばれるようになっています。</p>
-</div>
-<div class="paragraph">
-<p>これにより、 <code>HttpServletRequest</code> をモック化して実行していたテストケースが(想定外のメソッド呼び出しで <code>null</code> を返すため)失敗するようになっていました。</p>
-</div>&hellip;
+<p>これにより、 <code>HttpServletRequest</code> をモック化して実行していたテストケースが(想定外のメソッド呼び出しで <code>null</code> を返すため)失敗するようになっていました。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202101/21/ploblem-in-springboot2.4.2/">Read more ⟶</a>
@@ -248,41 +233,10 @@
 					<time>2021/01/21</time>
 					<br><div class="description">
 	
-	<div class="paragraph">
-<p>さて2021年にもなったし、そろそろUbuntuアップグレードしても解消できない地雷は無くなっているだろう、と思い18.04からアップグレードを敢行しました。</p>
-</div>&hellip;
+	<p>さて2021年にもなったし、そろそろUbuntuアップグレードしても解消できない地雷は無くなっているだろう、と思い18.04からアップグレードを敢行しました。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202101/21/upgrade-to-ubuntu20.04/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202011/14/mapstruct-with-spring-boot-2.3.5/">Spring Boot 2.3.5 で MapStruct を利用しているプロジェクトのビルドが失敗した</a></h1>
-					<time>2020/11/14</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p>調査したところSpring Bootの問題と言うよりは、Lombokのバージョンが <code>1.18.12</code> から <code>1.18.16</code> に上がったことによる非互換性の問題でした。</p>
-</div>
-<div class="paragraph">
-<p>Lombokのchangelogに説明があります:</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202011/14/mapstruct-with-spring-boot-2.3.5/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202009/12/oidc-userinfo-not-fetched-for-custom-claims/">Spring SecurityのOAuth 2.0 Login でログインしても UserInfo Endpoint にアクセスしてくれない</a></h1>
-					<time>2020/09/12</time>
-					<br><div class="description">
-	
-	<div class="paragraph">
-<p>Spring Security <a href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#oauth2login">OAuth 2.0 Login</a> を利用してログインしたのですが、通常ログイン後 UserInfo Endpoint へアクセスしてくれるはずなのにこの処理がスキップされてしまうような事象に出会いました。</p>
-</div>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202009/12/oidc-userinfo-not-fetched-for-custom-claims/">Read more ⟶</a>
 				</section>
 				
 				
@@ -304,10 +258,10 @@
 			</main>
 			<footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

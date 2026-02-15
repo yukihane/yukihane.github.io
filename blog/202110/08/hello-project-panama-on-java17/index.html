@@ -2,28 +2,17 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Hello Project Panama, on Java17 - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-はじめに
-
-
-
+	<meta name="description" content="はじめに
 
 Hello Project Panama – 発火後忘失
 
-
-
-
 で、 Project Panama (リンク1, リンク2) の機能を利用して、 Java から Rust を呼び出してみました。
-
-
-当時(Java14)は Project Panama 用にビルドされた JDK を利用する必要がありましたが、 Java17 では incubator ではあるものの JEP 412: Foreign Function &amp; Memory API が標準 JDK に導入された
-" />
-	<meta property="og:image" content=""/>
+当時(Java14)は Project Panama 用にビルドされた JDK を利用する必要がありましたが、 Java17 では incubator ではあるものの JEP 412: Foreign Function &amp; Memory API が標準 JDK に導入された" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202110/08/hello-project-panama-on-java17/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Hello Project Panama, on Java17">
-  <meta property="og:description" content="はじめに Hello Project Panama – 発火後忘失
-で、 Project Panama (リンク1, リンク2) の機能を利用して、 Java から Rust を呼び出してみました。
+  <meta property="og:description" content="はじめに Hello Project Panama – 発火後忘失 で、 Project Panama (リンク1, リンク2) の機能を利用して、 Java から Rust を呼び出してみました。
 当時(Java14)は Project Panama 用にビルドされた JDK を利用する必要がありましたが、 Java17 では incubator ではあるものの JEP 412: Foreign Function &amp; Memory API が標準 JDK に導入された">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
@@ -35,16 +24,15 @@ Hello Project Panama – 発火後忘失
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Hello Project Panama, on Java17">
-  <meta name="twitter:description" content="はじめに Hello Project Panama – 発火後忘失
-で、 Project Panama (リンク1, リンク2) の機能を利用して、 Java から Rust を呼び出してみました。
+  <meta name="twitter:description" content="はじめに Hello Project Panama – 発火後忘失 で、 Project Panama (リンク1, リンク2) の機能を利用して、 Java から Rust を呼び出してみました。
 当時(Java14)は Project Panama 用にビルドされた JDK を利用する必要がありましたが、 Java17 では incubator ではあるものの JEP 412: Foreign Function &amp; Memory API が標準 JDK に導入された">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -61,9 +49,17 @@ Hello Project Panama – 発火後忘失
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -80,61 +76,28 @@ Hello Project Panama – 発火後忘失
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_はじめに">はじめに</h2>
-<div class="sectionbody">
-<div class="ulist">
+          <h1 id="はじめに">はじめに</h1>
 <ul>
-<li>
-<p><a href="https://yukihane.github.io/blog/202002/11/hello-project-panama/">Hello Project Panama – 発火後忘失</a></p>
-</li>
+<li><a href="https://yukihane.github.io/blog/202002/11/hello-project-panama/">Hello Project Panama – 発火後忘失</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>で、 Project Panama (<a href="https://openjdk.java.net/projects/panama/">リンク1</a>, <a href="https://jdk.java.net/panama/">リンク2</a>) の機能を利用して、 Java から Rust を呼び出してみました。</p>
-</div>
-<div class="paragraph">
 <p>当時(Java14)は Project Panama 用にビルドされた JDK を利用する必要がありましたが、 Java17 では incubator ではあるものの <a href="https://openjdk.java.net/jeps/412">JEP 412: Foreign Function &amp; Memory API</a> が標準 JDK に導入された</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://qiita.com/nowokay/items/ec58bf8f30d236a12acb">Java 17新機能まとめ - Qiita</a></p>
-</li>
+<li><a href="https://qiita.com/nowokay/items/ec58bf8f30d236a12acb">Java 17新機能まとめ - Qiita</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>ので、標準の JDK でも冒頭にリンクしたコード相当のものをビルド、実行できるようになりました(※ 後述の通り <a href="https://github.com/openjdk/panama-foreign/blob/foreign-jextract/doc/panama_jextract.md"><code>jextract</code> コマンド</a> は標準 JDK に含まれていないので別途取得する必要があります)。</p>
-</div>
-<div class="paragraph">
 <p>API, <code>jextract</code> コマンド引数など、 Java14 当時と結構変わっていましたので、改めて project Panama を使って Hello, world してみたいと思います。</p>
-</div>
-<div class="paragraph">
 <p>今回の成果物は次のリンク先にあります:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/yukihane/hello-java/tree/master/project-panama/java17" class="bare">https://github.com/yukihane/hello-java/tree/master/project-panama/java17</a></p>
-</li>
+<li><a href="https://github.com/yukihane/hello-java/tree/master/project-panama/java17">https://github.com/yukihane/hello-java/tree/master/project-panama/java17</a></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_環境">環境</h2>
-<div class="sectionbody">
-<div class="ulist">
+<h1 id="環境">環境</h1>
 <ul>
 <li>
 <p>Ubuntu 20.04</p>
-<div class="ulist">
 <ul>
-<li>
-<p>後で Windows10 上でも試してみましたが、こちらも上手く動作しました</p>
-</li>
+<li>後で Windows10 上でも試してみましたが、こちらも上手く動作しました</li>
 </ul>
-</div>
 </li>
 <li>
 <p>Java Corretto-17.0.0.35.1</p>
@@ -146,69 +109,83 @@ Hello Project Panama – 発火後忘失
 <p>rustc 1.55.0</p>
 </li>
 </ul>
+<h1 id="作成手順">作成手順</h1>
+<h2 id="rust-でダイナミックリンクライブラリ作成">Rust でダイナミックリンクライブラリ作成</h2>
+<p><code>greeter</code> という名前でプロジェクトを作成します。 プロジェクトルートディレクトリで次のコマンドを実行します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cargo new --lib greeter
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> greeter
+</span></span></code></pre></td></tr></table>
 </div>
+</div><p><a href="https://crates.io/crates/libc"><code>libc</code> クレート</a>を依存関係に追加します。 また、ダイナミックリンクライブラリを生成するように <code>crate-type</code> に <code>cdylib</code> を設定します。</p>
+<div class="formalpara-title">
+<p><strong>Cargo.toml</strong></p>
 </div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">dependencies</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">libc</span> <span class="p">=</span> <span class="s2">&#34;0.2.103&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">lib</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">crate-type</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;cdylib&#34;</span><span class="p">]</span>
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="sect1">
-<h2 id="_作成手順">作成手順</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_rust_でダイナミックリンクライブラリ作成">Rust でダイナミックリンクライブラリ作成</h3>
-<div class="paragraph">
-<p><code>greeter</code> という名前でプロジェクトを作成します。
-プロジェクトルートディレクトリで次のコマンドを実行します。</p>
+</div><p>Rust 側で行う処理を実装します。</p>
+<div class="formalpara-title">
+<p><strong>src/lib.rs</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-sh" data-lang="sh">cargo new --lib greeter
-cd greeter</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">use</span><span class="w"> </span><span class="n">libc</span>::<span class="n">size_t</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">ffi</span>::<span class="p">{</span><span class="n">CStr</span><span class="p">,</span><span class="w"> </span><span class="n">CString</span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">os</span>::<span class="n">raw</span>::<span class="n">c_char</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cp">#[no_mangle]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">pub</span><span class="w"> </span><span class="k">unsafe</span><span class="w"> </span><span class="k">extern</span><span class="w"> </span><span class="s">&#34;C&#34;</span><span class="w"> </span><span class="k">fn</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span>: <span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">c_char</span><span class="p">,</span><span class="w"> </span><span class="n">message</span>: <span class="o">*</span><span class="k">mut</span><span class="w"> </span><span class="n">c_char</span><span class="p">,</span><span class="w"> </span><span class="n">count</span>: <span class="nc">size_t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CStr</span>::<span class="n">from_ptr</span><span class="p">(</span><span class="n">name</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">.</span><span class="n">to_str</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">format!</span><span class="p">(</span><span class="s">&#34;こんにちは、</span><span class="si">{}</span><span class="s">！&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CString</span>::<span class="n">new</span><span class="p">(</span><span class="n">text</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">message</span><span class="p">.</span><span class="n">copy_from</span><span class="p">(</span><span class="n">text</span><span class="p">.</span><span class="n">as_ptr</span><span class="p">(),</span><span class="w"> </span><span class="n">count</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
+</div><p>ビルドします。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cargo build --release
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="paragraph">
-<p><a href="https://crates.io/crates/libc"><code>libc</code> クレート</a>を依存関係に追加します。
-また、ダイナミックリンクライブラリを生成するように <code>crate-type</code> に <code>cdylib</code> を設定します。</p>
-</div>
-<div class="listingblock">
-<div class="title">Cargo.toml</div>
-<div class="content">
-<pre class="highlight"><code class="language-toml" data-lang="toml">[dependencies]
-libc = &#34;0.2.103&#34;
-[lib]
-crate-type = [&#34;cdylib&#34;]</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Rust 側で行う処理を実装します。</p>
-</div>
-<div class="listingblock">
-<div class="title">src/lib.rs</div>
-<div class="content">
-<pre class="highlight"><code class="language-rust" data-lang="rust">use libc::size_t;
-use std::ffi::{CStr, CString};
-use std::os::raw::c_char;
-
-#[no_mangle]
-pub unsafe extern &#34;C&#34; fn greet(name: *const c_char, message: *mut c_char, count: size_t) {
-    let name = CStr::from_ptr(name);
-    let name = name.to_str().unwrap();
-    let text = format!(&#34;こんにちは、{}！&#34;, name);
-    let text = CString::new(text).unwrap();
-
-    message.copy_from(text.as_ptr(), count);
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>ビルドします。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-sh" data-lang="sh">cargo build --release</code></pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_参考">参考</h4>
-<div class="ulist">
+</div><h3 id="参考">参考</h3>
 <ul>
 <li>
 <p><a href="https://doc.rust-lang.org/cargo/reference/cargo-targets.html#the-crate-type-field">The Cargo Book &gt; 3.2.1. Cargo Targets &gt; The crate-type field</a></p>
@@ -217,237 +194,261 @@ pub unsafe extern &#34;C&#34; fn greet(name: *const c_char, message: *mut c_char
 <p><a href="https://doc.rust-lang.org/nomicon/ffi.html#calling-rust-code-from-c">The Rustonomicon &gt; 11. Foreign Function Interface &gt; Calling Rust code from C</a></p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_ダイナミックリンクライブラリの_c_ヘッダ自動生成">ダイナミックリンクライブラリの C ヘッダ自動生成</h3>
-<div class="paragraph">
+<h2 id="ダイナミックリンクライブラリの-c-ヘッダ自動生成">ダイナミックリンクライブラリの C ヘッダ自動生成</h2>
 <p>上で作成したライブラリのヘッダファイルを自動生成します。</p>
-</div>
-<div class="paragraph">
 <p><a href="https://github.com/eqrion/cbindgen"><code>cbindgen</code></a> コマンドをインストールします。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cargo install --force cbindgen
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-sh" data-lang="sh">cargo install --force cbindgen</code></pre>
+</div><p>プロジェクトルートディレクトリで次のコマンドを実行します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cbindgen -l c -o bridges/greeter.h greeter
+</span></span></code></pre></td></tr></table>
 </div>
+</div><p>上記コマンド実行により <code>bridges/greeter.h</code> ヘッダファイルが生成されます。</p>
+<div class="formalpara-title">
+<p><strong>bridges/greeter.h</strong></p>
 </div>
-<div class="paragraph">
-<p>プロジェクトルートディレクトリで次のコマンドを実行します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdarg.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdbool.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">greet</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">message</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">count</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-sh" data-lang="sh">cbindgen -l c -o bridges/greeter.h greeter</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>上記コマンド実行により <code>bridges/greeter.h</code> ヘッダファイルが生成されます。</p>
-</div>
-<div class="listingblock">
-<div class="title">bridges/greeter.h</div>
-<div class="content">
-<pre class="highlight"><code class="language-c" data-lang="c">#include &lt;stdarg.h&gt;
-#include &lt;stdbool.h&gt;
-#include &lt;stdint.h&gt;
-#include &lt;stdlib.h&gt;
-
-void greet(const char *name, char *message, size_t count);</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_c_ヘッダから_java_api_自動生成">C ヘッダから Java API 自動生成</h3>
-<div class="paragraph">
+</div><h2 id="c-ヘッダから-java-api-自動生成">C ヘッダから Java API 自動生成</h2>
 <p><code>jextract</code> コマンドを利用してヘッダファイルから Java API を自動生成します。</p>
-</div>
-<div class="paragraph">
 <p><code>jextract</code> コマンドは <a href="https://jdk.java.net/panama/">Project Panama の Early Access Build</a> をダウンロードし展開すると <code>bin</code> ディレクトリ下にあります。</p>
-</div>
-<div class="paragraph">
 <p>プロジェクトルートディレクトリで次のコマンドを実行します。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>/path/to/jextract \
+<pre><code>/path/to/jextract \
 -l greeter \
 -d classes \
 -t com.example \
-./bridges/greeter.h</pre>
-</div>
-</div>
-<div class="paragraph">
+./bridges/greeter.h
+</code></pre>
 <p>上記コマンドを実行すると <code>classes</code> ディレクトリ下にクラスファイルが生成されます。</p>
-</div>
-<div class="sect3">
-<h4 id="_補足参考">補足/参考</h4>
-<div class="ulist">
+<h3 id="補足参考">補足/参考</h3>
 <ul>
 <li>
-<p>上で自動生成した <code>bridges/greeter.h</code> は、実際には不必要なインクルードを含んでいます。
-これを削減し、 <code>#include &lt;stddef.h&gt;</code> (<code>size_t</code> を定義しているヘッダファイル) だけにすると、ここで自動生成されるファイルも減ります。</p>
+<p>上で自動生成した <code>bridges/greeter.h</code> は、実際には不必要なインクルードを含んでいます。 これを削減し、 <code>#include &lt;stddef.h&gt;</code> (<code>size_t</code> を定義しているヘッダファイル) だけにすると、ここで自動生成されるファイルも減ります。</p>
 </li>
 <li>
 <p><code>jextract</code> コマンドに <code>--source</code> オプションを付与すると、 <code>.class</code> ファイルでなく <code>.java</code> ファイルが生成されます。</p>
 </li>
 <li>
 <p><code>jextract</code> コマンドの詳細は次のリンク先を参照:</p>
-<div class="ulist">
 <ul>
 <li>
 <p><a href="https://github.com/openjdk/panama-foreign/blob/foreign-jextract/doc/panama_jextract.md">Using the jextract tool - openjdk/panama-foreign</a></p>
-<div class="ulist">
 <ul>
-<li>
-<p>同階層 <code>doc</code> ディレクトリには他にも参考になるドキュメントあり</p>
+<li>同階層 <code>doc</code> ディレクトリには他にも参考になるドキュメントあり</li>
+</ul>
 </li>
 </ul>
-</div>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_呼び出し側を_java_で実装">呼び出し側を Java で実装</h3>
-<div class="paragraph">
+<h2 id="呼び出し側を-java-で実装">呼び出し側を Java で実装</h2>
 <p><code>jdk.incubator.foreign</code> 機能を用いてメモリ領域を確保し、自動生成した API <code>com.example.greeter_h.greeter()</code> を呼ぶコードを実装します。</p>
+<div class="formalpara-title">
+<p><strong>src/Main.java</strong></p>
 </div>
-<div class="listingblock">
-<div class="title">src/Main.java</div>
-<div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">import static com.example.greeter_h.*;
-import static jdk.incubator.foreign.CLinker.*;
-
-import jdk.incubator.foreign.*;
-import java.awt.BorderLayout;
-import java.io.Serial;
-import java.nio.charset.StandardCharsets;
-import javax.swing.*;
-
-public class Main extends JFrame {
-
-    @Serial
-    private static final long serialVersionUID = 4648172894076113183L;
-
-    public Main() {
-        super(&#34;Rust GUI Frontend by Java Swing&#34;);
-        setLayout(new BorderLayout());
-
-        final JTextField nameField = new JTextField(20);
-
-        final JTextField outputField = new JTextField(30);
-        outputField.setEditable(false);
-
-        final JButton greetButton = new JButton(&#34;greet&#34;);
-        greetButton.addActionListener((e) -&gt; {
-            try (ResourceScope scope = ResourceScope.newConfinedScope()) {
-                final SegmentAllocator allocator = SegmentAllocator.ofScope(scope);
-                final MemorySegment name = toCString(nameField.getText(), scope);
-                final long size = 256;
-                final MemorySegment message = allocator.allocateArray(C_CHAR, size);
-
-                greet(name, message, size);
-
-                // Project PanamaのJDKには存在するが、通常のJDK17には無い
-                // final String retval = toJavaString(message, StandardCharsets.UTF_8);
-                final String retval = toJavaString(message);
-                outputField.setText(retval);
-            }
-        });
-
-        add(nameField, BorderLayout.WEST);
-        add(greetButton, BorderLayout.EAST);
-        add(outputField, BorderLayout.SOUTH);
-        pack();
-    }
-
-    public static void main(final String[] args) {
-        SwingUtilities.invokeLater(() -&gt; {
-            final Main app = new Main();
-            app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            app.setVisible(true);
-        });
-    }
-}</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">com.example.greeter_h.*</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import static</span><span class="w"> </span><span class="nn">jdk.incubator.foreign.CLinker.*</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">jdk.incubator.foreign.*</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.awt.BorderLayout</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.Serial</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.nio.charset.StandardCharsets</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">javax.swing.*</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">JFrame</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Serial</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">serialVersionUID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">4648172894076113183L</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="s">&#34;Rust GUI Frontend by Java Swing&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">setLayout</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BorderLayout</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">JTextField</span><span class="w"> </span><span class="n">nameField</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JTextField</span><span class="p">(</span><span class="n">20</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">JTextField</span><span class="w"> </span><span class="n">outputField</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JTextField</span><span class="p">(</span><span class="n">30</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">outputField</span><span class="p">.</span><span class="na">setEditable</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">JButton</span><span class="w"> </span><span class="n">greetButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JButton</span><span class="p">(</span><span class="s">&#34;greet&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">greetButton</span><span class="p">.</span><span class="na">addActionListener</span><span class="p">((</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">ResourceScope</span><span class="w"> </span><span class="n">scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ResourceScope</span><span class="p">.</span><span class="na">newConfinedScope</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="kd">final</span><span class="w"> </span><span class="n">SegmentAllocator</span><span class="w"> </span><span class="n">allocator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SegmentAllocator</span><span class="p">.</span><span class="na">ofScope</span><span class="p">(</span><span class="n">scope</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="kd">final</span><span class="w"> </span><span class="n">MemorySegment</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">toCString</span><span class="p">(</span><span class="n">nameField</span><span class="p">.</span><span class="na">getText</span><span class="p">(),</span><span class="w"> </span><span class="n">scope</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="kd">final</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">256</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="kd">final</span><span class="w"> </span><span class="n">MemorySegment</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">allocator</span><span class="p">.</span><span class="na">allocateArray</span><span class="p">(</span><span class="n">C_CHAR</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">greet</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="c1">// Project PanamaのJDKには存在するが、通常のJDK17には無い</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="c1">// final String retval = toJavaString(message, StandardCharsets.UTF_8);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">retval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">toJavaString</span><span class="p">(</span><span class="n">message</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">outputField</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">retval</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">});</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">add</span><span class="p">(</span><span class="n">nameField</span><span class="p">,</span><span class="w"> </span><span class="n">BorderLayout</span><span class="p">.</span><span class="na">WEST</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">add</span><span class="p">(</span><span class="n">greetButton</span><span class="p">,</span><span class="w"> </span><span class="n">BorderLayout</span><span class="p">.</span><span class="na">EAST</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">add</span><span class="p">(</span><span class="n">outputField</span><span class="p">,</span><span class="w"> </span><span class="n">BorderLayout</span><span class="p">.</span><span class="na">SOUTH</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">pack</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">SwingUtilities</span><span class="p">.</span><span class="na">invokeLater</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kd">final</span><span class="w"> </span><span class="n">Main</span><span class="w"> </span><span class="n">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Main</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">app</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">app</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">});</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_補足">補足</h4>
-<div class="ulist">
+</div><h3 id="補足">補足</h3>
 <ul>
 <li>
 <p>IDE を用いる場合、次のリンク先に IntelliJ の設定方法が説明されています。</p>
-<div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/carldea/panama4newbies/blob/main/README.md" class="bare">https://github.com/carldea/panama4newbies/blob/main/README.md</a></p>
-<div class="ulist">
+<p><a href="https://github.com/carldea/panama4newbies/blob/main/README.md">https://github.com/carldea/panama4newbies/blob/main/README.md</a></p>
 <ul>
-<li>
-<p>こちらのリンク、IDE の設定方法だけでなく、 Project Panama 全体の説明もわかりやすいと思います</p>
+<li>こちらのリンク、IDE の設定方法だけでなく、 Project Panama 全体の説明もわかりやすいと思います</li>
+</ul>
 </li>
 </ul>
-</div>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_java_コードビルド">Java コードビルド</h3>
-<div class="paragraph">
+<h2 id="java-コードビルド">Java コードビルド</h2>
 <p>上記のコードを JDK17 でビルドするには <code>--add-modules jdk.incubator.foreign</code> オプションを付与する必要があります。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">javac <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-encoding utf-8 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-d ./classes <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-cp ./classes <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--add-modules jdk.incubator.foreign <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>./src/Main.java
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-sh" data-lang="sh">javac \
--encoding utf-8 \
--d ./classes \
--cp ./classes \
---add-modules jdk.incubator.foreign \
-./src/Main.java</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_実行">実行</h3>
-<div class="paragraph">
+</div><h2 id="実行">実行</h2>
 <p><code>--enable-native-access=ALL-UNNAMED</code>, <code>--add-modules jdk.incubator.foreign</code> オプションが必要です。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>./greeter/target/release <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>java <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-Dfile.encoding<span class="o">=</span>utf-8 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--enable-native-access<span class="o">=</span>ALL-UNNAMED <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--add-modules jdk.incubator.foreign <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-cp ./classes Main
+</span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-sh" data-lang="sh">LD_LIBRARY_PATH=./greeter/target/release \
-java \
--Dfile.encoding=utf-8 \
---enable-native-access=ALL-UNNAMED \
---add-modules jdk.incubator.foreign \
--cp ./classes Main</code></pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_参考補足">参考/補足</h4>
-<div class="ulist">
+</div><h3 id="参考補足">参考/補足</h3>
 <ul>
 <li>
-<p>Windows で実行する場合、 <code>LD_LIBRARY_PATH</code> は機能しません。
-代わりに、 <code>./greeter/target/release/greeter.dll</code> をカレントディレクトリにコピーしてから上のコマンドを実行します。</p>
+<p>Windows で実行する場合、 <code>LD_LIBRARY_PATH</code> は機能しません。 代わりに、 <code>./greeter/target/release/greeter.dll</code> をカレントディレクトリにコピーしてから上のコマンドを実行します。</p>
 </li>
 <li>
 <p><a href="https://github.com/openjdk/panama-foreign/blob/foreign-jextract/doc/panama_jextract.md#running-the-java-code-that-invokes-helloworld">Using the jextract tool &gt; Running the Java code that invokes helloworld</a></p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-</div>
 
         </section>
         <div class="post-tags">
@@ -456,9 +457,9 @@ java \
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/java">java</a></li>
+              <li><a href="/tags/java/">java</a></li>
               
-              <li><a href="/tags/rust">rust</a></li>
+              <li><a href="/tags/rust/">rust</a></li>
               
             </ul>
           </nav>
@@ -475,10 +476,10 @@ java \
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

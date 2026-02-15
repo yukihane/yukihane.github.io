@@ -2,12 +2,16 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>asyncなライブラリー関数のテストを書く - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-今回解決したい問題
-
-
+	<meta name="description" content="今回解決したい問題
 reqwestのドキュメント の最初のサンプルをテスト実行することを考えます。
 
+
+1
+2
+3
+4
+5
+6
 
 
 let body = reqwest::get(&#34;https://www.rust-lang.org&#34;)
@@ -18,25 +22,18 @@ let body = reqwest::get(&#34;https://www.rust-lang.org&#34;)
 println!(&#34;body = {body:?}&#34;);
 
 
-
 まず Cargo.toml に依存関係を追加して、
-
-
-
 cargo new --lib test-async
 cd test-async
 cargo add reqwest
 
-
-
-冒頭のコードを実行する関数を作ります。
-" />
-	<meta property="og:image" content=""/>
+冒頭のコードを実行する関数を作ります。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202404/05/rust-test-async/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="asyncなライブラリー関数のテストを書く">
   <meta property="og:description" content="今回解決したい問題 reqwestのドキュメント の最初のサンプルをテスト実行することを考えます。
-let body = reqwest::get(&#34;https://www.rust-lang.org&#34;) .await? .text() .await?; println!(&#34;body = {body:?}&#34;); まず Cargo.toml に依存関係を追加して、
+1 2 3 4 5 6 let body = reqwest::get(&#34;https://www.rust-lang.org&#34;) .await? .text() .await?; println!(&#34;body = {body:?}&#34;); まず Cargo.toml に依存関係を追加して、
 cargo new --lib test-async cd test-async cargo add reqwest 冒頭のコードを実行する関数を作ります。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
@@ -48,15 +45,15 @@ cargo new --lib test-async cd test-async cargo add reqwest 冒頭のコードを
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="asyncなライブラリー関数のテストを書く">
   <meta name="twitter:description" content="今回解決したい問題 reqwestのドキュメント の最初のサンプルをテスト実行することを考えます。
-let body = reqwest::get(&#34;https://www.rust-lang.org&#34;) .await? .text() .await?; println!(&#34;body = {body:?}&#34;); まず Cargo.toml に依存関係を追加して、
+1 2 3 4 5 6 let body = reqwest::get(&#34;https://www.rust-lang.org&#34;) .await? .text() .await?; println!(&#34;body = {body:?}&#34;); まず Cargo.toml に依存関係を追加して、
 cargo new --lib test-async cd test-async cargo add reqwest 冒頭のコードを実行する関数を作ります。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -73,9 +70,17 @@ cargo new --lib test-async cd test-async cargo add reqwest 冒頭のコードを
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -92,265 +97,260 @@ cargo new --lib test-async cd test-async cargo add reqwest 冒頭のコードを
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_今回解決したい問題">今回解決したい問題</h2>
-<div class="sectionbody">
-<div class="paragraph">
+          <h1 id="今回解決したい問題">今回解決したい問題</h1>
 <p><a href="https://docs.rs/reqwest/0.12.2/reqwest/">reqwestのドキュメント</a> の最初のサンプルをテスト実行することを考えます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="kd">let</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reqwest</span>::<span class="n">get</span><span class="p">(</span><span class="s">&#34;https://www.rust-lang.org&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="k">await</span><span class="o">?</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="n">text</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="k">await</span><span class="o">?</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="fm">println!</span><span class="p">(</span><span class="s">&#34;body = </span><span class="si">{body:?}</span><span class="s">&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-rust" data-lang="rust">let body = reqwest::get(&#34;https://www.rust-lang.org&#34;)
-    .await?
-    .text()
-    .await?;
-
-println!(&#34;body = {body:?}&#34;);</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>まず <code>Cargo.toml</code> に依存関係を追加して、</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>cargo new --lib test-async
+</div><p>まず <code>Cargo.toml</code> に依存関係を追加して、</p>
+<pre><code>cargo new --lib test-async
 cd test-async
-cargo add reqwest</code></pre>
-</div>
-</div>
-<div class="paragraph">
+cargo add reqwest
+</code></pre>
 <p>冒頭のコードを実行する関数を作ります。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">fn</span> <span class="nf">my_func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reqwest</span>::<span class="n">get</span><span class="p">(</span><span class="s">&#34;https://www.rust-lang.org&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="k">await</span><span class="o">?</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">text</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="k">await</span><span class="o">?</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&#34;body = </span><span class="si">{body:?}</span><span class="s">&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-rust" data-lang="rust">fn my_func() {
-    let body = reqwest::get(&#34;https://www.rust-lang.org&#34;)
-        .await?
-        .text()
-        .await?;
-
-    println!(&#34;body = {body:?}&#34;);
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><code>cargo check</code> を実行すると次のエラーが出ます。</p>
-</div>
-<div class="quoteblock">
+</div><p><code>cargo check</code> を実行すると次のエラーが出ます。</p>
 <blockquote>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>only allowed inside `async` functions and blocks</code></pre>
-</div>
-</div>
-</blockquote>
-</div>
-<div class="paragraph">
+<pre><code>only allowed inside `async` functions and blocks
+</code></pre></blockquote>
 <p>関数を <code>async</code> で定義することでこのエラーを解消します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">async</span><span class="w"> </span><span class="k">fn</span> <span class="nf">my_func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// &lt;- 頭に async を付与
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reqwest</span>::<span class="n">get</span><span class="p">(</span><span class="s">&#34;https://www.rust-lang.org&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="k">await</span><span class="o">?</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">text</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="k">await</span><span class="o">?</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&#34;body = </span><span class="si">{body:?}</span><span class="s">&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-rust" data-lang="rust">async fn my_func() { // &lt;- 頭に async を付与
-    let body = reqwest::get(&#34;https://www.rust-lang.org&#34;)
-        .await?
-        .text()
-        .await?;
-
-    println!(&#34;body = {body:?}&#34;);
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>するとまた別のエラーが出ます。</p>
-</div>
-<div class="quoteblock">
+</div><p>するとまた別のエラーが出ます。</p>
 <blockquote>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>this function should return `Result` or `Option` to accept `?`</code></pre>
+<pre><code>this function should return `Result` or `Option` to accept `?`
+</code></pre></blockquote>
+<p>戻り値の型を <code>Result</code> (もしくは <code>Option</code>)にする必要があります。 ところで正常時の戻り値は自分で制御できますが、エラー時は <code>?</code> が制御しているので型がわかりません。とりあえず <code>()</code> でおいて修正します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">async</span><span class="w"> </span><span class="k">fn</span> <span class="nf">my_func</span><span class="p">()</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// &lt;- エラー時の方がわからないので () で仮置き
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reqwest</span>::<span class="n">get</span><span class="p">(</span><span class="s">&#34;https://www.rust-lang.org&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="k">await</span><span class="o">?</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">text</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="k">await</span><span class="o">?</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&#34;body = </span><span class="si">{body:?}</span><span class="s">&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="s">&#34;OK&#34;</span><span class="p">.</span><span class="n">to_string</span><span class="p">())</span><span class="w"> </span><span class="c1">// &lt;- 正常時は &#34;OK&#34; を返す
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-</div>
-</blockquote>
-</div>
-<div class="paragraph">
-<p>戻り値の型を <code>Result</code> (もしくは <code>Option</code>)にする必要があります。
-ところで正常時の戻り値は自分で制御できますが、エラー時は <code>?</code> が制御しているので型がわかりません。とりあえず <code>()</code> でおいて修正します。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-rust" data-lang="rust">async fn my_func() -&gt; Result&lt;String, ()&gt; {
-    // &lt;- エラー時の方がわからないので () で仮置き
-    let body = reqwest::get(&#34;https://www.rust-lang.org&#34;)
-        .await?
-        .text()
-        .await?;
-
-    println!(&#34;body = {body:?}&#34;);
-
-    Ok(&#34;OK&#34;.to_string()) // &lt;- 正常時は &#34;OK&#34; を返す
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>そうすると当然</p>
-</div>
-<div class="quoteblock">
+</div><p>そうすると当然</p>
 <blockquote>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>`?` couldn&#39;t convert the error to `()`</code></pre>
-</div>
-</div>
-</blockquote>
-</div>
-<div class="paragraph">
-<p>というエラーが出ます。
-そしてよく見るともう少し詳細な出力があります。</p>
-</div>
-<div class="quoteblock">
+<pre><code>`?` couldn't convert the error to `()`
+</code></pre></blockquote>
+<p>というエラーが出ます。 そしてよく見るともう少し詳細な出力があります。</p>
 <blockquote>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>the trait `From&lt;reqwest::Error&gt;` is not implemented for `()`, which is required by `Result&lt;(), ()&gt;: FromResidual&lt;Result&lt;Infallible, reqwest::Error&gt;&gt;`</code></pre>
-</div>
-</div>
-</blockquote>
-</div>
-<div class="paragraph">
+<pre><code>the trait `From&lt;reqwest::Error&gt;` is not implemented for `()`, which is required by `Result&lt;(), ()&gt;: FromResidual&lt;Result&lt;Infallible, reqwest::Error&gt;&gt;`
+</code></pre></blockquote>
 <p>このメッセージから察するに、どうもエラーの型は <code>reqwest::Error</code> っぽいです。これで書き換えてみます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">async</span><span class="w"> </span><span class="k">fn</span> <span class="nf">my_func</span><span class="p">()</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">reqwest</span>::<span class="n">Error</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// &lt;- エラーの型を reqwest::Error に書き換え
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reqwest</span>::<span class="n">get</span><span class="p">(</span><span class="s">&#34;https://www.rust-lang.org&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="k">await</span><span class="o">?</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">text</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="k">await</span><span class="o">?</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&#34;body = </span><span class="si">{body:?}</span><span class="s">&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="s">&#34;OK&#34;</span><span class="p">.</span><span class="n">to_string</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-rust" data-lang="rust">async fn my_func() -&gt; Result&lt;String, reqwest::Error&gt; {
-    // &lt;- エラーの型を reqwest::Error に書き換え
-    let body = reqwest::get(&#34;https://www.rust-lang.org&#34;)
-        .await?
-        .text()
-        .await?;
-
-    println!(&#34;body = {body:?}&#34;);
-
-    Ok(&#34;OK&#34;.to_string())
-}</code></pre>
+</div><p>これでやっとエラーがなくなりました。</p>
+<p>この関数に対してテストコードを書いていきましょう。 自動生成されていたテンプレートを書き換えてみます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="cp">#[cfg(test)]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">mod</span> <span class="nn">tests</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="k">super</span>::<span class="o">*</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cp">#[test]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">fn</span> <span class="nf">it_works</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// my_func() は Result&lt;String, reqwest::Error&gt; を返しているので unwrap() する
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_func</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;OK&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-</div>
-<div class="paragraph">
-<p>これでやっとエラーがなくなりました。</p>
-</div>
-<div class="paragraph">
-<p>この関数に対してテストコードを書いていきましょう。
-自動生成されていたテンプレートを書き換えてみます。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-rust" data-lang="rust">#[cfg(test)]
-mod tests {
-
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        // my_func() は Result&lt;String, reqwest::Error&gt; を返しているので unwrap() する
-        let result = my_func().unwrap();
-        assert_eq!(result, &#34;OK&#34;);
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><code>cargo test</code> を実行すると次のエラーメッセージ。</p>
-</div>
-<div class="quoteblock">
+</div><p><code>cargo test</code> を実行すると次のエラーメッセージ。</p>
 <blockquote>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>help: consider `await`ing on the `Future` and calling the method on its `Output`
+<pre><code>help: consider `await`ing on the `Future` and calling the method on its `Output`
 let result = my_func().await.unwrap();
-                    ++++++</code></pre>
-</div>
-</div>
-</blockquote>
-</div>
-<div class="paragraph">
+                    ++++++
+</code></pre></blockquote>
 <p>言われるまま <code>.await</code> を付けてみます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="cp">#[cfg(test)]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">mod</span> <span class="nn">tests</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="k">super</span>::<span class="o">*</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cp">#[test]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">fn</span> <span class="nf">it_works</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_func</span><span class="p">().</span><span class="k">await</span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span><span class="w"> </span><span class="c1">// &lt;- await
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;OK&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-rust" data-lang="rust">#[cfg(test)]
-mod tests {
-
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = my_func().await.unwrap(); // &lt;- await
-        assert_eq!(result, &#34;OK&#34;);
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>すると次はこんなエラーが。</p>
-</div>
-<div class="quoteblock">
+</div><p>すると次はこんなエラーが。</p>
 <blockquote>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>`await` is only allowed inside `async` functions and blocks</code></pre>
-</div>
-</div>
-</blockquote>
-</div>
-<div class="paragraph">
+<pre><code>`await` is only allowed inside `async` functions and blocks
+</code></pre></blockquote>
 <p><code>await</code> が使えるのは <code>async</code> な関数の中でだけ、と。</p>
-</div>
-<div class="paragraph">
 <p>じゃあ <code>async</code> 付ければ良いのか、と</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="cp">#[cfg(test)]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">mod</span> <span class="nn">tests</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="k">super</span>::<span class="o">*</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cp">#[test]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="k">fn</span> <span class="nf">it_works</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// &lt;- async を付与
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_func</span><span class="p">().</span><span class="k">await</span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;OK&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-rust" data-lang="rust">#[cfg(test)]
-mod tests {
-
-    use super::*;
-
-    #[test]
-    async fn it_works() { // &lt;- async を付与
-        let result = my_func().await.unwrap();
-        assert_eq!(result, &#34;OK&#34;);
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>すると、</p>
-</div>
-<div class="quoteblock">
+</div><p>すると、</p>
 <blockquote>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>async functions cannot be used for tests</code></pre>
-</div>
-</div>
-</blockquote>
-</div>
-<div class="paragraph">
+<pre><code>async functions cannot be used for tests
+</code></pre></blockquote>
 <p>テストの関数は <code>async</code> にできない、と。じゃあどうすれば良いんだというのがわからない、というのが今回の問題です。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_対応">対応</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="対応">対応</h1>
 <p>答えは、「テスト実行用に非同期ランタイムを導入する」ということのようです。</p>
-</div>
-<div class="paragraph">
-<p>今回は tokio を利用してみます。
-ドキュメントを読むとテスト用の説明が書いてあります。
-今回利用する tokio であればこのあたり:</p>
-</div>
-<div class="ulist">
+<p>今回は tokio を利用してみます。 ドキュメントを読むとテスト用の説明が書いてあります。 今回利用する tokio であればこのあたり:</p>
 <ul>
 <li>
 <p><a href="https://docs.rs/tokio/1.37.0/tokio/attr.test.html">Attribute Macro tokio::test</a></p>
@@ -359,48 +359,43 @@ mod tests {
 <p><a href="https://tokio.rs/tokio/topics/testing">Unit Testing | Tokio - An asynchronous Rust runtime</a></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p>というわけでやってみます。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>cargo add --dev tokio --features=&#39;macros&#39;</code></pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>cargo add --dev tokio --features='macros'
+</code></pre>
 <p>で <code>dev-dependencies</code> に tokio を追加し、テストコードを次のように書き換えます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="cp">#[cfg(test)]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">mod</span> <span class="nn">tests</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="k">super</span>::<span class="o">*</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cp">#[tokio::test]</span><span class="w"> </span><span class="c1">// &lt;- test から tokio::test に変更
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="k">fn</span> <span class="nf">it_works</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_func</span><span class="p">().</span><span class="k">await</span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;OK&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-rust" data-lang="rust">#[cfg(test)]
-mod tests {
-
-    use super::*;
-
-    #[tokio::test] // &lt;- test から tokio::test に変更
-    async fn it_works() {
-        let result = my_func().await.unwrap();
-        assert_eq!(result, &#34;OK&#34;);
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><code>cargo test</code> を実行すると…​テストが pass しました！</p>
-</div>
-<div class="paragraph">
+</div><p><code>cargo test</code> を実行すると…​テストが pass しました！</p>
 <p>今回のコード:</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://github.com/yukihane/hello-rust/tree/main/test-async" class="bare">https://github.com/yukihane/hello-rust/tree/main/test-async</a></p>
-</li>
+<li><a href="https://github.com/yukihane/hello-rust/tree/main/test-async">https://github.com/yukihane/hello-rust/tree/main/test-async</a></li>
 </ul>
-</div>
-</div>
-</div>
 
         </section>
         <div class="post-tags">
@@ -409,7 +404,7 @@ mod tests {
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/rust">rust</a></li>
+              <li><a href="/tags/rust/">rust</a></li>
               
             </ul>
           </nav>
@@ -426,10 +421,10 @@ mod tests {
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

@@ -6,7 +6,7 @@
     <description>Recent content in Fluentd on 発火後忘失</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <copyright>© Yukihane, All Rights Reserved</copyright>
     <lastBuildDate>Mon, 09 Mar 2020 07:54:53 +0000</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/fluentd/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,14 +14,14 @@
       <link>https://yukihane.github.io/blog/202003/09/td-agent-with-proxy/</link>
       <pubDate>Mon, 09 Mar 2020 07:54:53 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202003/09/td-agent-with-proxy/</guid>
-      <description>&lt;div class=&#34;listingblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo systemctl edit td-agent&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;で編集画面を開き、次を記述:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;listingblock&#34;&gt;&#xA;&lt;div class=&#34;content&#34;&gt;&#xA;&lt;pre&gt;[Service]&#xA;Environment=&amp;#34;HTTP_PROXY=http://myproxy.example.com:8080&amp;#34;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&#xA;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl edit td-agent&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;p&gt;で編集画面を開き、次を記述:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;[Service]&#xA;Environment=&amp;quot;HTTP_PROXY=http://myproxy.example.com:8080&amp;quot;&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     <item>
       <title>`fluent-plugin-bigquery` のパラメータ `request_timeout_sec` 、未設定の場合はどうなるの？</title>
       <link>https://yukihane.github.io/blog/202001/30/fluentd-request_timeout_sec-default/</link>
       <pubDate>Thu, 30 Jan 2020 02:17:02 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202001/30/fluentd-request_timeout_sec-default/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_要旨&#34;&gt;要旨&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;code&gt;fluent-plugin-bigquery&lt;/code&gt; の &lt;a href=&#34;https://github.com/fluent-plugins-nursery/fluent-plugin-bigquery/blob/v2.2.0/README.md&#34;&gt;README&lt;/a&gt; を読んでいると、 &lt;code&gt;request_timeout_sec&lt;/code&gt; のデフォルト値が &lt;code&gt;nil&lt;/code&gt; になっている(その下の &lt;code&gt;request_open_timeout_sec&lt;/code&gt; には &lt;code&gt;60&lt;/code&gt; が設定されているのに)のが気になりました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;結論としては、 &lt;code&gt;request_timeout_sec&lt;/code&gt; は最終的に &lt;code&gt;httpclient&lt;/code&gt; の &lt;code&gt;send_timeout&lt;/code&gt; 及び &lt;code&gt;receive_timeout&lt;/code&gt; パラメータとして利用され、未設定の場合は &lt;a href=&#34;https://github.com/nahi/httpclient/blob/v3.2.8/lib/httpclient/session.rb#L134-L135&#34;&gt;そこで指定されているデフォルト値&lt;/a&gt;である &lt;code&gt;send_timeout = 120&lt;/code&gt;, &lt;code&gt;receive_timeout = 60&lt;/code&gt; が採用されるようです。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;要旨&#34;&gt;要旨&lt;/h1&gt;&#xA;&lt;p&gt;&lt;code&gt;fluent-plugin-bigquery&lt;/code&gt; の &lt;a href=&#34;https://github.com/fluent-plugins-nursery/fluent-plugin-bigquery/blob/v2.2.0/README.md&#34;&gt;README&lt;/a&gt; を読んでいると、 &lt;code&gt;request_timeout_sec&lt;/code&gt; のデフォルト値が &lt;code&gt;nil&lt;/code&gt; になっている(その下の &lt;code&gt;request_open_timeout_sec&lt;/code&gt; には &lt;code&gt;60&lt;/code&gt; が設定されているのに)のが気になりました。&lt;/p&gt;&#xA;&lt;p&gt;結論としては、 &lt;code&gt;request_timeout_sec&lt;/code&gt; は最終的に &lt;code&gt;httpclient&lt;/code&gt; の &lt;code&gt;send_timeout&lt;/code&gt; 及び &lt;code&gt;receive_timeout&lt;/code&gt; パラメータとして利用され、未設定の場合は &lt;a href=&#34;https://github.com/nahi/httpclient/blob/v3.2.8/lib/httpclient/session.rb#L134-L135&#34;&gt;そこで指定されているデフォルト値&lt;/a&gt;である &lt;code&gt;send_timeout = 120&lt;/code&gt;, &lt;code&gt;receive_timeout = 60&lt;/code&gt; が採用されるようです。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

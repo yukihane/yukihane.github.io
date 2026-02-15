@@ -2,10 +2,8 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>gccをビルドするのにどれくらい時間がかかるの？(10分かからなかった)  - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-gccをビルドしようと思ったのですが、結構時間がかかるイメージがあって、先にどれくらいかかるのか調べたかったのだけれど検索しても見つかりませんでした。
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="gccをビルドしようと思ったのですが、結構時間がかかるイメージがあって、先にどれくらいかかるのか調べたかったのだけれど検索しても見つかりませんでした。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202008/30/gcc-compilation-time/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="gccをビルドするのにどれくらい時間がかかるの？(10分かからなかった) ">
@@ -25,8 +23,8 @@ gccをビルドしようと思ったのですが、結構時間がかかるイ�
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -43,9 +41,17 @@ gccをビルドしようと思ったのですが、結構時間がかかるイ�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -62,62 +68,48 @@ gccをビルドしようと思ったのですが、結構時間がかかるイ�
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>gccをビルドしようと思ったのですが、結構時間がかかるイメージがあって、先にどれくらいかかるのか調べたかったのだけれど検索しても見つかりませんでした。</p>
-</div>
-<div class="paragraph">
+          <p>gccをビルドしようと思ったのですが、結構時間がかかるイメージがあって、先にどれくらいかかるのか調べたかったのだけれど検索しても見つかりませんでした。</p>
 <p>ので、もしかしたら他の人の参考になるかと思い、自分の経験を記録しておくことにします。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;"/>
-<col style="width: 50%;"/>
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">実行日</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2020-08-30</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">実行環境</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Vagrant CentOS6</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CPU</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Intel® Core™ i5-8400 CPU @ 2.80GHz</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CPU情報補足</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2017年11月発売 6コア6スレッド</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Vagrantの cpus 数設定</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
-</tr>
-</tbody>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>実行日</td>
+          <td>2020-08-30</td>
+      </tr>
+      <tr>
+          <td>実行環境</td>
+          <td>Vagrant CentOS6</td>
+      </tr>
+      <tr>
+          <td>CPU</td>
+          <td>Intel® Core™ i5-8400 CPU @ 2.80GHz</td>
+      </tr>
+      <tr>
+          <td>CPU情報補足</td>
+          <td>2017年11月発売 6コア6スレッド</td>
+      </tr>
+      <tr>
+          <td>Vagrantの cpus 数設定</td>
+          <td>4</td>
+      </tr>
+  </tbody>
 </table>
-<div class="paragraph">
 <p>という環境で</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>./configure --enable-languages=c,c++ --prefix=/opt/gcc-10.2.0 --disable-bootstrap --disable-multilib
-time make -j 5</code></pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>./configure --enable-languages=c,c++ --prefix=/opt/gcc-10.2.0 --disable-bootstrap --disable-multilib
+time make -j 5
+</code></pre>
 <p>をした結果:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>real    8m44.430s
+<pre><code>real    8m44.430s
 user    21m3.701s
-sys     3m14.941s</code></pre>
-</div>
-</div>
-<div class="paragraph">
+sys     3m14.941s
+</code></pre>
 <p>もしかして数時間単位でかかるのか…？と不安だったのですが、思ったより全然時間はかからなかったです。</p>
-</div>
 
         </section>
         <div class="post-tags">
@@ -126,7 +118,7 @@ sys     3m14.941s</code></pre>
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/diary">diary</a></li>
+              <li><a href="/tags/diary/">diary</a></li>
               
             </ul>
           </nav>
@@ -143,10 +135,10 @@ sys     3m14.941s</code></pre>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

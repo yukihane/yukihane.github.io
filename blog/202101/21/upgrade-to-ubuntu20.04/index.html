@@ -2,10 +2,8 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Ubuntu 20.04 LTS にアップグレードして問題が発生した - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-さて2021年にもなったし、そろそろUbuntuアップグレードしても解消できない地雷は無くなっているだろう、と思い18.04からアップグレードを敢行しました。
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="さて2021年にもなったし、そろそろUbuntuアップグレードしても解消できない地雷は無くなっているだろう、と思い18.04からアップグレードを敢行しました。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202101/21/upgrade-to-ubuntu20.04/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="Ubuntu 20.04 LTS にアップグレードして問題が発生した">
@@ -25,8 +23,8 @@
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -43,9 +41,17 @@
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -62,14 +68,8 @@
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>さて2021年にもなったし、そろそろUbuntuアップグレードしても解消できない地雷は無くなっているだろう、と思い18.04からアップグレードを敢行しました。</p>
-</div>
-<div class="paragraph">
-<p>毎度のことですが、今回も一発ですんなりとはいかず、グラフィック関係で問題が発生しました。
-事象としては次のとおりです。</p>
-</div>
-<div class="ulist">
+          <p>さて2021年にもなったし、そろそろUbuntuアップグレードしても解消できない地雷は無くなっているだろう、と思い18.04からアップグレードを敢行しました。</p>
+<p>毎度のことですが、今回も一発ですんなりとはいかず、グラフィック関係で問題が発生しました。 事象としては次のとおりです。</p>
 <ul>
 <li>
 <p>背景壁紙がバグったような表示になる。また、右上に表示されているスピーカーやLANアイコンもおかしい。</p>
@@ -78,22 +78,13 @@
 <p>Steam clientが起動に失敗するようになった。</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
 <p>どうやらいずれも原因は同じだったようで、次のページの通り対処したところ、これらの問題は解消されました。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://askubuntu.com/a/1233403/460420">Fuzzy graphics after upgrading to Ubuntu 20.04</a> - Ask Ubuntu</p>
-</li>
+<li><a href="https://askubuntu.com/a/1233403/460420">Fuzzy graphics after upgrading to Ubuntu 20.04</a> - Ask Ubuntu</li>
 </ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>sudo apt purge xserver-xorg-video-intel</pre>
-</div>
-</div>
+<!-- -->
+<pre><code>sudo apt purge xserver-xorg-video-intel
+</code></pre>
 
         </section>
         <div class="post-tags">
@@ -102,7 +93,7 @@
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/ubuntu">ubuntu</a></li>
+              <li><a href="/tags/ubuntu/">ubuntu</a></li>
               
             </ul>
           </nav>
@@ -119,10 +110,10 @@
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

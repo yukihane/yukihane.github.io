@@ -6,7 +6,7 @@
     <description>Recent content in Oauth on 発火後忘失</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <copyright>© Yukihane, All Rights Reserved</copyright>
     <lastBuildDate>Tue, 04 Aug 2020 21:39:37 +0000</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/oauth/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,35 +14,35 @@
       <link>https://yukihane.github.io/blog/202008/05/spring-boot-oidc-testing/</link>
       <pubDate>Tue, 04 Aug 2020 21:39:37 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202008/05/spring-boot-oidc-testing/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/&#34;&gt;KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる&lt;/a&gt; で作成したプログラムの自動テスト方法です。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;今回のコードも前回と同じく次のディレクトリにあります:&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;ulist&#34;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/yukihane/hello-java/tree/master/spring/oidc-example&#34; class=&#34;bare&#34;&gt;https://github.com/yukihane/hello-java/tree/master/spring/oidc-example&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;まず結論なのですが、リファレンスに説明がありますのでここを参照しましょう、ということになります:&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/&#34;&gt;KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる&lt;/a&gt; で作成したプログラムの自動テスト方法です。&lt;/p&gt;&#xA;&lt;p&gt;今回のコードも前回と同じく次のディレクトリにあります:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/yukihane/hello-java/tree/master/spring/oidc-example&#34;&gt;https://github.com/yukihane/hello-java/tree/master/spring/oidc-example&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;まず結論なのですが、リファレンスに説明がありますのでここを参照しましょう、ということになります:&lt;/p&gt;</description>
     </item>
     <item>
       <title>KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる</title>
       <link>https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/</link>
       <pubDate>Mon, 20 Jul 2020 18:54:23 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Spring Boot で Spring Security OAuth 2.0 &lt;a href=&#34;https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#oauth2login&#34;&gt;Login&lt;/a&gt; / &lt;a href=&#34;https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#oauth2client&#34;&gt;Client&lt;/a&gt; を利用する手順をまとめます。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;また、認可サーバ(IdP)にはローカルで立てたKeycloakを用いますのでそちらのセットアップ手順も記載します。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;Spring Boot で Spring Security OAuth 2.0 &lt;a href=&#34;https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#oauth2login&#34;&gt;Login&lt;/a&gt; / &lt;a href=&#34;https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#oauth2client&#34;&gt;Client&lt;/a&gt; を利用する手順をまとめます。&lt;/p&gt;&#xA;&lt;p&gt;また、認可サーバ(IdP)にはローカルで立てたKeycloakを用いますのでそちらのセットアップ手順も記載します。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Spring Security から認可サーバサポートが無くなる、というのは取り敢えず見直されています</title>
       <link>https://yukihane.github.io/blog/202007/19/spring-security-authentication-server/</link>
       <pubDate>Sun, 19 Jul 2020 06:10:14 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202007/19/spring-security-authentication-server/</guid>
-      <description>&lt;div class=&#34;quoteblock&#34;&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;世の中に認可サーバー製品がたくさんあるので、Spring Securityではサポートしないことを決定しました&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;div class=&#34;attribution&#34;&gt;&#xA;— &lt;a href=&#34;https://qiita.com/suke_masa/items/4e68012e3b8c92822a9a&#34;&gt;Spring Security OAuth2はあと数年でサポート終了、その代替策 - Qiita&lt;/a&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;世の中に認可サーバー製品がたくさんあるので、Spring Securityではサポートしないことを決定しました&lt;/p&gt;&#xA;&lt;p&gt;—  &lt;a href=&#34;https://qiita.com/suke_masa/items/4e68012e3b8c92822a9a&#34;&gt;Spring Security OAuth2はあと数年でサポート終了、その代替策 - Qiita&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Spring SecurityのOAuth2.0関連の歴史を調査し実装してみた</title>
       <link>https://yukihane.github.io/blog/202007/15/history-of-spring-oauth2-libraries/</link>
       <pubDate>Tue, 14 Jul 2020 23:47:11 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202007/15/history-of-spring-oauth2-libraries/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;Qiita に昔(2019年中頃)書いていた資料を転記し忘れていたので構成を見直してアップロードし直します。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;2020年現在の状況はまた更新されています。次のURLを参照してください。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;Qiita に昔(2019年中頃)書いていた資料を転記し忘れていたので構成を見直してアップロードし直します。&lt;/p&gt;&#xA;&lt;p&gt;2020年現在の状況はまた更新されています。次のURLを参照してください。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Spring Security OAuth 2.0 Client(OAuth 2.0 Login)でトークンの管理をしているのはOAuth2AuthorizedClientService</title>
       <link>https://yukihane.github.io/blog/202006/17/oauth2authorizedclientservice/</link>
       <pubDate>Wed, 17 Jun 2020 09:24:57 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202006/17/oauth2authorizedclientservice/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;私も今回の質問(本文末参照)を見たとき少しの間勘違いしてしまったのですが、OAuth2.0のクライアントがどこで各リソースオーナーのトークンを管理しているかと言うと、アプリケーションコンテキストであって、ユーザのセッションコンテキストなわけが無いですよね…&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;私も今回の質問(本文末参照)を見たとき少しの間勘違いしてしまったのですが、OAuth2.0のクライアントがどこで各リソースオーナーのトークンを管理しているかと言うと、アプリケーションコンテキストであって、ユーザのセッションコンテキストなわけが無いですよね…&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

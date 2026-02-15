@@ -2,16 +2,10 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>`fluent-plugin-bigquery` のパラメータ `request_timeout_sec` 、未設定の場合はどうなるの？ - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-要旨
-
-
+	<meta name="description" content="要旨
 fluent-plugin-bigquery の README を読んでいると、 request_timeout_sec のデフォルト値が nil になっている(その下の request_open_timeout_sec には 60 が設定されているのに)のが気になりました。
-
-
-結論としては、 request_timeout_sec は最終的に httpclient の send_timeout 及び receive_timeout パラメータとして利用され、未設定の場合は そこで指定されているデフォルト値である send_timeout = 120, receive_timeout = 60 が採用されるようです。
-" />
-	<meta property="og:image" content=""/>
+結論としては、 request_timeout_sec は最終的に httpclient の send_timeout 及び receive_timeout パラメータとして利用され、未設定の場合は そこで指定されているデフォルト値である send_timeout = 120, receive_timeout = 60 が採用されるようです。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202001/30/fluentd-request_timeout_sec-default/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="`fluent-plugin-bigquery` のパラメータ `request_timeout_sec` 、未設定の場合はどうなるの？">
@@ -33,8 +27,8 @@ fluent-plugin-bigquery の README を読んでいると、 request_timeout_sec �
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -51,9 +45,17 @@ fluent-plugin-bigquery の README を読んでいると、 request_timeout_sec �
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -70,35 +72,14 @@ fluent-plugin-bigquery の README を読んでいると、 request_timeout_sec �
         </div>
         
         <section class="body">
-          <div class="sect1">
-<h2 id="_要旨">要旨</h2>
-<div class="sectionbody">
-<div class="paragraph">
+          <h1 id="要旨">要旨</h1>
 <p><code>fluent-plugin-bigquery</code> の <a href="https://github.com/fluent-plugins-nursery/fluent-plugin-bigquery/blob/v2.2.0/README.md">README</a> を読んでいると、 <code>request_timeout_sec</code> のデフォルト値が <code>nil</code> になっている(その下の <code>request_open_timeout_sec</code> には <code>60</code> が設定されているのに)のが気になりました。</p>
-</div>
-<div class="paragraph">
 <p>結論としては、 <code>request_timeout_sec</code> は最終的に <code>httpclient</code> の <code>send_timeout</code> 及び <code>receive_timeout</code> パラメータとして利用され、未設定の場合は <a href="https://github.com/nahi/httpclient/blob/v3.2.8/lib/httpclient/session.rb#L134-L135">そこで指定されているデフォルト値</a>である <code>send_timeout = 120</code>, <code>receive_timeout = 60</code> が採用されるようです。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_調査作業ログ">調査作業ログ</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<h1 id="調査作業ログ">調査作業ログ</h1>
 <p><code>request_timeout_sec</code> のデフォルト値が <code>nil</code> なので未設定だと無期限に待ち続けるのかと危惧し、実装を見てみることにしました。(ちなみに私はRuby経験は0ですので、これが妥当な調査手順かはわかりません。)</p>
-</div>
-<div class="paragraph">
 <p>とりあえずGitHub上で検索してみると <a href="https://github.com/fluent-plugins-nursery/fluent-plugin-bigquery/blob/v2.2.0/lib/fluent/plugin/out_bigquery_base.rb#L152"><code>out_bigquery_base.rb</code></a>で <code>Fluent::BigQuery::Writer.new</code> の引数として渡されていることがわかりました。</p>
-</div>
-<div class="paragraph">
 <p><code>Fluent::BigQuery::Writer</code> というのはおそらく <a href="https://github.com/fluent-plugins-nursery/fluent-plugin-bigquery/blob/v2.2.0/lib/fluent/plugin/bigquery/writer.rb"><code>bigquery/writer.rb</code></a>で定義されている <code>Writer</code> クラスのことだと当たりをつけました。また、Rubyの <code>new</code> は <code>initialize</code> メソッドを呼び出すように入門ページに書かれていたので <code>initialize</code> の処理を見てみると <a href="https://github.com/fluent-plugins-nursery/fluent-plugin-bigquery/blob/v2.2.0/lib/fluent/plugin/bigquery/writer.rb#L13"><code>Google::Apis::BigqueryV2::BigqueryService</code> を利用しているようなコード</a>がありました。 <code>read_timeout_sec</code> 及び <code>send_timeout_sec</code> フィールドに設定されているようです。</p>
-</div>
-<div class="paragraph">
-<p>この文字列でGoogle検索してみると <a href="https://github.com/googleapis/google-api-ruby-client/blob/0.36.4/lib/google/apis/core/base_service.rb#L413-L419"><code>google-api-ruby-client</code></a>がヒットしました。
-<code>client_options</code> の &#34;client&#34; とは、どうも <a href="https://github.com/googleapis/google-api-ruby-client/blob/0.36.4/lib/google/apis/core/base_service.rb#L401"><code>HTTPClient</code></a>のことっぽい、 <code>require</code> で <a href="https://github.com/googleapis/google-api-ruby-client/blob/0.36.4/lib/google/apis/core/base_service.rb#L24">階層なし</a> になっているということはRubyの標準モジュールなのか？と検索してみると <a href="https://stackoverflow.com/questions/20399534/whats-the-default-time-out-limitation-of-ruby-httpclient/20403808#20403808">StackOverflowの回答</a>から <a href="https://github.com/nahi/httpclient/blob/v3.2.8/lib/httpclient/session.rb#L134-L135">ここ</a>に行き当たりました。</p>
-</div>
-</div>
-</div>
+<p>この文字列でGoogle検索してみると <a href="https://github.com/googleapis/google-api-ruby-client/blob/0.36.4/lib/google/apis/core/base_service.rb#L413-L419"><code>google-api-ruby-client</code></a>がヒットしました。 <code>client_options</code> の &ldquo;client&rdquo; とは、どうも <a href="https://github.com/googleapis/google-api-ruby-client/blob/0.36.4/lib/google/apis/core/base_service.rb#L401"><code>HTTPClient</code></a>のことっぽい、 <code>require</code> で <a href="https://github.com/googleapis/google-api-ruby-client/blob/0.36.4/lib/google/apis/core/base_service.rb#L24">階層なし</a> になっているということはRubyの標準モジュールなのか？と検索してみると <a href="https://stackoverflow.com/questions/20399534/whats-the-default-time-out-limitation-of-ruby-httpclient/20403808#20403808">StackOverflowの回答</a>から <a href="https://github.com/nahi/httpclient/blob/v3.2.8/lib/httpclient/session.rb#L134-L135">ここ</a>に行き当たりました。</p>
 
         </section>
         <div class="post-tags">
@@ -107,7 +88,7 @@ fluent-plugin-bigquery の README を読んでいると、 request_timeout_sec �
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/fluentd">fluentd</a></li>
+              <li><a href="/tags/fluentd/">fluentd</a></li>
               
             </ul>
           </nav>
@@ -124,10 +105,10 @@ fluent-plugin-bigquery の README を読んでいると、 request_timeout_sec �
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

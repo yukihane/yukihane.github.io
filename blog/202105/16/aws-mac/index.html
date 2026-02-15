@@ -2,10 +2,7 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>AWS EC2 の Mac インスタンスを試してみた - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-最初に注意点:
-
-
+	<meta name="description" content="最初に注意点:
 
 
 初めての場合、使えるようになるまで17時間強かかる。
@@ -14,11 +11,8 @@
 最低割り当て時間は24時間。つまり1回利用すると最低 3,000円弱はかかる。
 
 
-インスタンスを終了すると、次のインスタンスを起動できるようになるまで1時間半程度かかる。
-
-
-" />
-	<meta property="og:image" content=""/>
+インスタンスを終了すると、次のインスタンスを起動できるようになるまで1時間半程度かかる。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202105/16/aws-mac/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="AWS EC2 の Mac インスタンスを試してみた">
@@ -44,8 +38,8 @@
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -62,9 +56,17 @@
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -81,10 +83,7 @@
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>最初に注意点:</p>
-</div>
-<div class="ulist">
+          <p>最初に注意点:</p>
 <ul>
 <li>
 <p>初めての場合、使えるようになるまで17時間強かかる。</p>
@@ -96,74 +95,30 @@
 <p>インスタンスを終了すると、次のインスタンスを起動できるようになるまで1時間半程度かかる。</p>
 </li>
 </ul>
-</div>
-<hr/>
-<div class="paragraph">
 <p>Mac上で検証を行う必要が出たので、AWS EC2 の Mac インスタンスで行うことにしました…が、思ったより使い勝手が悪かったです。</p>
-</div>
-<div class="paragraph">
 <p>概要は次のページに記載されています。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://aws.amazon.com/jp/ec2/instance-types/mac/" class="bare">https://aws.amazon.com/jp/ec2/instance-types/mac/</a></p>
-</li>
+<li><a href="https://aws.amazon.com/jp/ec2/instance-types/mac/">https://aws.amazon.com/jp/ec2/instance-types/mac/</a></li>
 </ul>
-</div>
-<div class="quoteblock">
 <blockquote>
-<div class="paragraph">
-<p>EC2 Mac インスタンスは、Apple の macOS ソフトウェアライセンス契約を遵守するために、24 時間を最小割当期間として、1 秒あたりで請求されます。</p>
-</div>
-</blockquote>
-</div>
-<div class="paragraph">
+<p>EC2 Mac インスタンスは、Apple の macOS ソフトウェアライセンス契約を遵守するために、24 時間を最小割当期間として、1 秒あたりで請求されます。</p></blockquote>
 <p>とあるとおり、最低でも24時間分の料金がかかります。</p>
-</div>
-<div class="paragraph">
 <p>まず、Macのインスタンスを動かすにはMac用の <code>mac1</code> というDedicated Hostを割り当ててもらう必要があります(自分用にMac mini筐体を借りるイメージですね)が、初期状態だとquotaで最大値が0となっています。つまり割り当てが行なえません。</p>
-</div>
-<div class="paragraph">
 <p>なので、初めての場合、このquotaの引き上げ申請を行う必要があります。これは下記のURLから行えました。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-A8448DC5" class="bare">https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-A8448DC5</a></p>
-</li>
+<li><a href="https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-A8448DC5">https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-A8448DC5</a></li>
 </ul>
-</div>
-<div class="paragraph">
 <p>(自分が利用するリージョンであることを確認してください)</p>
-</div>
-<div class="paragraph">
 <p>自分は昼の12時に申請して、翌5時に申請が通っていました。17時間程度掛かったことになります。</p>
-</div>
-<div class="paragraph">
-<p>その後の dedicated ホストの割り当て、インスタンス起動は次のページを参考にさせてもらい、この通りで上手くいきました。
-ただ、インスタンスを起動してからログインできるようになるまでの時間もLinuxやWindowsと比較してかなりかかりました(計っていないのですが10分程度？)。</p>
-</div>
-<div class="ulist">
+<p>その後の dedicated ホストの割り当て、インスタンス起動は次のページを参考にさせてもらい、この通りで上手くいきました。 ただ、インスタンスを起動してからログインできるようになるまでの時間もLinuxやWindowsと比較してかなりかかりました(計っていないのですが10分程度？)。</p>
 <ul>
-<li>
-<p><a href="https://writerman.hatenablog.jp/entry/2020/12/02/134905">mac EC2にWindows10環境からSSH・VNC接続してみた - 好奇心の赴くままに</a></p>
-</li>
+<li><a href="https://writerman.hatenablog.jp/entry/2020/12/02/134905">mac EC2にWindows10環境からSSH・VNC接続してみた - 好奇心の赴くままに</a></li>
 </ul>
-</div>
-<div class="paragraph">
-<p>起動したインスタンスを終了させると、hostの状態が&#34;Pending&#34;になるのですが、この状態だと次のインスタンスを生成できません。Pending状態が解除されるまで1時間半程度かかりました。</p>
-</div>
-<div class="paragraph">
+<p>起動したインスタンスを終了させると、hostの状態が&quot;Pending&quot;になるのですが、この状態だと次のインスタンスを生成できません。Pending状態が解除されるまで1時間半程度かかりました。</p>
 <p>同じような報告が Stack Overflow にもありましたので、そういうものだと考えておくべきなのでしょう。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://stackoverflow.com/q/65997347/4506703">My AWS Mac1 Dedicated Host is stuck in a Pending state and I can&#39;t create Mac instances - Stack Overflow</a></p>
-</li>
+<li><a href="https://stackoverflow.com/q/65997347/4506703">My AWS Mac1 Dedicated Host is stuck in a Pending state and I can&rsquo;t create Mac instances - Stack Overflow</a></li>
 </ul>
-</div>
 
         </section>
         <div class="post-tags">
@@ -172,7 +127,7 @@
           <nav class="nav tags">
             <ul class="tags">
               
-              <li><a href="/tags/aws">aws</a></li>
+              <li><a href="/tags/aws/">aws</a></li>
               
             </ul>
           </nav>
@@ -189,10 +144,10 @@
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>

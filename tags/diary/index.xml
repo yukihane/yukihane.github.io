@@ -6,7 +6,7 @@
     <description>Recent content in Diary on 発火後忘失</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <copyright>© Yukihane, All Rights Reserved</copyright>
     <lastBuildDate>Mon, 21 Jul 2025 11:17:36 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/diary/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -35,56 +35,56 @@
       <link>https://yukihane.github.io/blog/202404/06/buffalo-router/</link>
       <pubDate>Sat, 06 Apr 2024 17:28:51 +0900</pubDate>
       <guid>https://yukihane.github.io/blog/202404/06/buffalo-router/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;2023年2月上旬に WSR-6000AX8(&lt;a href=&#34;https://amzn.to/3PQLASI&#34;&gt;Amazon&lt;/a&gt;) というルーターを購入したのですが、高頻度で受信エラーが発生しました。&#xA;リモートワークを行っていますのでこのままだと仕事にならない、とサポートに連絡するも特に有効な情報は得られず。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;2023年2月上旬に WSR-6000AX8(&lt;a href=&#34;https://amzn.to/3PQLASI&#34;&gt;Amazon&lt;/a&gt;) というルーターを購入したのですが、高頻度で受信エラーが発生しました。 リモートワークを行っていますのでこのままだと仕事にならない、とサポートに連絡するも特に有効な情報は得られず。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Value Object(値オブジェクト)についての覚え書き</title>
       <link>https://yukihane.github.io/blog/202206/11/value-object/</link>
       <pubDate>Sat, 11 Jun 2022 04:01:31 +0900</pubDate>
       <guid>https://yukihane.github.io/blog/202206/11/value-object/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;2022年5月中旬から下旬にかけて Value Object(値オブジェクト) についての議論がさかんに行われていました。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;そのときに書き起こされた文章へのリンクを、(分かる範囲で)時系列順に残しておきます。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;2022年5月中旬から下旬にかけて Value Object(値オブジェクト) についての議論がさかんに行われていました。&lt;/p&gt;&#xA;&lt;p&gt;そのときに書き起こされた文章へのリンクを、(分かる範囲で)時系列順に残しておきます。&lt;/p&gt;</description>
     </item>
     <item>
       <title>AWS EC2 で squid プロキシサーバを立てる</title>
       <link>https://yukihane.github.io/blog/202106/21/aws-squid-proxy/</link>
       <pubDate>Sun, 20 Jun 2021 23:39:04 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202106/21/aws-squid-proxy/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;SteamのDLC等をダウンロードしようとしたとき、IPアドレスによるアクセス制限が課されている場合があり、それを回避する必要が出る状況がたまにあります。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;SteamのDLC等をダウンロードしようとしたとき、IPアドレスによるアクセス制限が課されている場合があり、それを回避する必要が出る状況がたまにあります。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Authorization(認可)リクエストヘッダに設定するのは認証(authentication)情報</title>
       <link>https://yukihane.github.io/blog/202105/15/authorization-authentication/</link>
       <pubDate>Sat, 15 May 2021 09:40:22 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202105/15/authorization-authentication/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;今日もOAuthは認証じゃなくて認可の仕組みだ云々という話題でソーシャルネットがもちきりですが、そんなことより表題の方がよっぽど気になりませんか…？&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;今日もOAuthは認証じゃなくて認可の仕組みだ云々という話題でソーシャルネットがもちきりですが、そんなことより表題の方がよっぽど気になりませんか…？&lt;/p&gt;</description>
     </item>
     <item>
       <title>gccをビルドするのにどれくらい時間がかかるの？(10分かからなかった) </title>
       <link>https://yukihane.github.io/blog/202008/30/gcc-compilation-time/</link>
       <pubDate>Sun, 30 Aug 2020 06:57:01 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202008/30/gcc-compilation-time/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;gccをビルドしようと思ったのですが、結構時間がかかるイメージがあって、先にどれくらいかかるのか調べたかったのだけれど検索しても見つかりませんでした。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;gccをビルドしようと思ったのですが、結構時間がかかるイメージがあって、先にどれくらいかかるのか調べたかったのだけれど検索しても見つかりませんでした。&lt;/p&gt;</description>
     </item>
     <item>
       <title>電子キーボードを買いました</title>
       <link>https://yukihane.github.io/blog/201908/begin-piano/</link>
       <pubDate>Sat, 31 Aug 2019 00:00:00 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/201908/begin-piano/</guid>
-      <description>&lt;div class=&#34;sect1&#34;&gt;&#xA;&lt;h2 id=&#34;_経緯&#34;&gt;経緯&lt;/h2&gt;&#xA;&lt;div class=&#34;sectionbody&#34;&gt;&#xA;&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;プログラミングとかビデオゲームとか、かなり目を酷使することばかりやっているので、そうではない趣味を持とうと考えた末、何か楽器を入門することにしました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;h1 id=&#34;経緯&#34;&gt;経緯&lt;/h1&gt;&#xA;&lt;p&gt;プログラミングとかビデオゲームとか、かなり目を酷使することばかりやっているので、そうではない趣味を持とうと考えた末、何か楽器を入門することにしました。&lt;/p&gt;</description>
     </item>
     <item>
       <title>JBakeのタグページが想定通り動いていない</title>
       <link>https://yukihane.github.io/blog/201908/jbake-tags/</link>
       <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/201908/jbake-tags/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://himeji-cs.jp/blog2/tags/index.html&#34;&gt;タグのindexページ&lt;/a&gt;は正しくタグを収集しているようですが、それぞれのタグ個別ページがちゃんと生成されていないですね…&#xA;テンプレートは &lt;a href=&#34;https://github.com/jbake-org/jbake-example-project-thymeleaf/blob/master/templates/tags.thyme&#34;&gt;標準のもの&lt;/a&gt;そのまま使っているはずなのだけれど。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://himeji-cs.jp/blog2/tags/index.html&#34;&gt;タグのindexページ&lt;/a&gt;は正しくタグを収集しているようですが、それぞれのタグ個別ページがちゃんと生成されていないですね… テンプレートは &lt;a href=&#34;https://github.com/jbake-org/jbake-example-project-thymeleaf/blob/master/templates/tags.thyme&#34;&gt;標準のもの&lt;/a&gt;そのまま使っているはずなのだけれど。&lt;/p&gt;</description>
     </item>
     <item>
       <title>JBakeはじめました</title>
       <link>https://yukihane.github.io/blog/201908/hello/</link>
       <pubDate>Sat, 03 Aug 2019 00:00:00 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/201908/hello/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;&#xA;&lt;p&gt;個人的にMarkDownはあまり好きではなく(標準だと表現力が弱いし方言が多い！)、ずっとblogをAsciiDocで書く方法を模索していました。&lt;/p&gt;&#xA;&lt;/div&gt;</description>
+      <description>&lt;p&gt;個人的にMarkDownはあまり好きではなく(標準だと表現力が弱いし方言が多い！)、ずっとblogをAsciiDocで書く方法を模索していました。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

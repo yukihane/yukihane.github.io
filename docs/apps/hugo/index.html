@@ -2,12 +2,8 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>hugo - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-AsciiDoc形式でblogを書くためにHugoをセットアップする。
-Hugo自体はGo言語製、またAsciiDocの処理にはAsciidoctorが必要で、こちらはRuby製。
-これらの環境をローカルで行いたくないのでDockerコンテナ上で実行させることにする。
-" />
-	<meta property="og:image" content=""/>
+	<meta name="description" content="AsciiDoc形式でblogを書くためにHugoをセットアップする。 Hugo自体はGo言語製、またAsciiDocの処理にはAsciidoctorが必要で、こちらはRuby製。 これらの環境をローカルで行いたくないのでDockerコンテナ上で実行させることにする。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/apps/hugo/">
   <meta property="og:site_name" content="発火後忘失">
   <meta property="og:title" content="hugo">
@@ -26,8 +22,8 @@ Hugo自体はGo言語製、またAsciiDocの処理にはAsciidoctorが必要で�
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
 </head>
 <body>
         <div class="content"><header>
@@ -44,9 +40,17 @@ Hugo自体はGo言語製、またAsciiDocの処理にはAsciidoctorが必要で�
 		
 		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
 		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#sun" />
-</svg></span>
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
 		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
 		
 	</nav>
@@ -63,89 +67,38 @@ Hugo自体はGo言語製、またAsciiDocの処理にはAsciidoctorが必要で�
         </div>
         
         <section class="body">
-          <div class="paragraph">
-<p>AsciiDoc形式でblogを書くためにHugoをセットアップする。
-Hugo自体はGo言語製、またAsciiDocの処理にはAsciidoctorが必要で、こちらはRuby製。
-これらの環境をローカルで行いたくないのでDockerコンテナ上で実行させることにする。</p>
-</div>
-<div class="paragraph">
+          <p>AsciiDoc形式でblogを書くためにHugoをセットアップする。 Hugo自体はGo言語製、またAsciiDocの処理にはAsciidoctorが必要で、こちらはRuby製。 これらの環境をローカルで行いたくないのでDockerコンテナ上で実行させることにする。</p>
 <p><a href="https://discourse.gohugo.io/t/klakeggs-wonderful-hugo-docker-image-update-thread/20347">klakeggさん？</a>のイメージを用いることにする。</p>
-</div>
-<div class="ulist">
 <ul>
-<li>
-<p><a href="https://hub.docker.com/r/klakegg/hugo/">dockerhub</a></p>
-</li>
+<li><a href="https://hub.docker.com/r/klakegg/hugo/">dockerhub</a></li>
 </ul>
-</div>
-<div class="sect1">
-<h2 id="_quickstart">quickstart</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>公式サイトの <a href="https://gohugo.io/getting-started/quick-start/">Quick Start</a>
-節を実行してみる。</p>
-</div>
-<div class="sect2">
-<h3 id="step_1_install_hugo">Step 1: Install Hugo</h3>
-<div class="paragraph">
+<h1 id="quickstart">quickstart</h1>
+<p>公式サイトの <a href="https://gohugo.io/getting-started/quick-start/">Quick Start</a> 節を実行してみる。</p>
+<h2 id="step-1-install-hugo">Step 1: Install Hugo</h2>
 <p>次の設定を`.bashrc`に設定する。ダブルクオートでなく、<strong>シングルクオートで囲う</strong>こと。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre># https://github.com/klakegg/docker-hugo
-alias hugo=&#39;docker run --rm -it -u $(id -u $USER) -v $(pwd):/src -v $(pwd)/output:/target klakegg/hugo:0.62.2-ext-asciidoctor&#39;
-alias hugo-server=&#39;docker run --rm -it -u $(id -u $USER) -v $(pwd):/src -v $(pwd)/output:/target klakegg/hugo:0.62.2-ext-asciidoctor server&#39;</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code># https://github.com/klakegg/docker-hugo
+alias hugo='docker run --rm -it -u $(id -u $USER) -v $(pwd):/src -v $(pwd)/output:/target klakegg/hugo:0.62.2-ext-asciidoctor'
+alias hugo-server='docker run --rm -it -u $(id -u $USER) -v $(pwd):/src -v $(pwd)/output:/target klakegg/hugo:0.62.2-ext-asciidoctor server'
+</code></pre>
 <p>これで、`hugo`をタイプすればDockerコンテナの中でhugoコマンドが実行される。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="step_2_create_a_new_site">Step 2: Create a New Site</h3>
-<div class="literalblock">
-<div class="content">
-<pre>hugo new site quickstart</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>を実行すると、カレントディレクトリに`quickstart`,
-`output`ディレクトリができる。</p>
-</div>
-<div class="paragraph">
+<h2 id="step-2-create-a-new-site">Step 2: Create a New Site</h2>
+<pre><code>hugo new site quickstart
+</code></pre>
+<p>を実行すると、カレントディレクトリに`quickstart`, `output`ディレクトリができる。</p>
 <p>`output`は不要なので削除する(alias設定したコマンド上、カレントディレクトリに、本来不要でも、常にできてしまう):</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>rmdir output</pre>
-</div>
-</div>
-<div class="paragraph">
+<pre><code>rmdir output
+</code></pre>
 <p>Step 3 以降は特に違いがなかったので省略。</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_初期設定">初期設定</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_参考リンク">参考リンク</h3>
-<div class="ulist">
+<h1 id="初期設定">初期設定</h1>
+<h2 id="参考リンク">参考リンク</h2>
 <ul>
 <li>
-<p><a href="https://gohugo.io/getting-started/configuration/">Configure Hugo</a> -
-config.toml の設定内容</p>
+<p><a href="https://gohugo.io/getting-started/configuration/">Configure Hugo</a> - config.toml の設定内容</p>
 </li>
 <li>
-<p><a href="https://gohugo.io/content-management/front-matter/">Front Matter</a> -
-postのヘッダに書く内容</p>
+<p><a href="https://gohugo.io/content-management/front-matter/">Front Matter</a> - postのヘッダに書く内容</p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-</div>
 
         </section>
         <div class="post-tags">
@@ -163,10 +116,10 @@ postのヘッダに書く内容</p>
 </main>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
-   <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
-</svg></a><a class="border"></a></div>
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
   <div class="footer-info">
-    2026  &amp;copy;{year}, All Rights Reserved |  <a
+    2026  © Yukihane, All Rights Reserved |  <a
       href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>
