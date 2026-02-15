@@ -7,49 +7,35 @@ tags:
   - spring-boot
 ---
 
-<div id="header">
 
-</div>
 
-<div id="content">
 
-<div class="paragraph">
 
 Kindle Unlimited でいくつかのSpring Framework/Spring Boot 本が読めることに気づきました。
 
-</div>
 
-<div class="paragraph">
 
 もし入門本として有用なものがあれば初心者の方に薦めていきたいなと考え、今回それらを呼んでみましたので感想を記録します。
 
-</div>
 
-<div class="sect1">
 
 ## [Spring Boot 2 入門: 基礎から実演まで Kindle版](https://www.amazon.co.jp/dp/B0893LQ5KY/) / 原田 けいと, 竹田 甘地, Robert Segawa
 
-<div class="sectionbody">
 
-<div class="paragraph">
 
 購入する場合の価格は780円。
 
-</div>
 
-<div class="ulist">
 
 - ○ 独自解釈(と捉えられそうな)の書き方は排除しようという意志が感じられる。ちゃんとオフィシャルの説明を根拠にして書こうとしている。
 
 - ☓ Hello, worldプログラムで\`PostMapping\`を使っている(そして正しくない使い方をしている)。 [オフィシャル](http://localhost:1313/posts/202007/15/spring-boot-books-review/) だとここは `GetMapping` 。
 
-  <div class="ulist">
 
   - 3.3.3節で `GetMapping` が登場するが、 `RequestMapping` との関係について特に言及がなく、唐突に感じる。( `RequestMapping` を使う必要が無かったのでは )
 
   - 3.4.4節 で `RequestMapping` についてちゃんと説明しているので著者が分かっていないわけではなく、書き方(や説明順)の問題。
 
-  </div>
 
 - \- MVCウェブフレームワークについての知識がゼロの人だと、唐突に説明なしで用語が登場して戸惑うかもしれない(例えば、人によっては「テンプレートエンジンって何？」「コントローラって何？」となるかもしれない)。ただそのレベルから本書で説明しろ、というのも酷だと思うので個人的には妥当だと思う。
 
@@ -73,11 +59,9 @@ Kindle Unlimited でいくつかのSpring Framework/Spring Boot 本が読める�
 
 - ○ Spring Data JPAをちゃんと評価している。日本の記事だと、某氏の影響からか、使いもせずにJPAディス(& MyBatisアゲ)のものが多い…
 
-  <div class="ulist">
 
   - ただ、Spring Data JDBC を誤解しているような気がします。JPAほど複雑さを持ち込まずSpring Data JPAっぽい自動クエリ生成ができるライブラリ、みたいな立ち位置ですよねこれ。(Spring Data JDBC の "JDBC" は "非JPA" みたいなニュアンスの命名。歴史的にも Spring Data JDBC の方が新しい、はず。)
 
-  </div>
 
 - ☓ 本書で解説し切ることはできないのは当然なので、JPAもしくはHibernateリファレンスへのリンクが欲しい。
 
@@ -89,20 +73,11 @@ Kindle Unlimited でいくつかのSpring Framework/Spring Boot 本が読める�
 
 - ☓ テスティングについての言及がない
 
-</div>
 
-</div>
 
-</div>
 
-</div>
 
-<div id="footer">
 
-<div id="footer-text">
 
-Last updated 2026-02-15 15:48:49 +0900
 
-</div>
 
-</div>
