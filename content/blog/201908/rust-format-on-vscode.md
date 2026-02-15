@@ -1,0 +1,17 @@
+---
+title: VSCodeでRustの整形ができない？
+date: 2019-08-18
+draft: false
+tags:
+  - rust
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: rust
+:idprefix:
+---
+
+- [Format not work \#534](https://github.com/rust-lang/rls-vscode/issues/534) - rust-lang/rls-vscode
+
+VSCodeでRustの勉強をしているのですが、現在、どうもコード整形機能が上手く働いていない…？
+
+代替策としては、 [`rustfmt`](https://github.com/rust-lang/rustfmt) を使って、 `cargo fmt` コマンドで整形すれば良さそう。

@@ -1,8 +1,0 @@
-= Spring Boot の自動テスト時のコネクション数は結構多い
-yukihane
-2019-08-03
-:jbake-type: post
-:jbake-status: draft
-:jbake-tags: spring
-:idprefix:
-

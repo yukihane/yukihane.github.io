@@ -1,7 +1,0 @@
----
-title: "Windows"
-date: 2020-07-26T02:51:24Z
-draft: false
-collapsible: true
----
-

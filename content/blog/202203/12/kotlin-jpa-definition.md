@@ -1,0 +1,76 @@
+---
+title: "Kotlin で JPA エンティティクラスを定義する"
+date: 2022-03-12T20:39:32+09:00
+draft: false
+tags:
+    - jpa
+    - kotlin
+---
+
+Kotlin で JPA エンティティを実装しようと思って調べた結果をまとめた記事です。
+
+まとめ:
+
+- プロジェクト構成について
+
+  - [`kotlin-jpa`](https://kotlinlang.org/docs/no-arg-plugin.html#jpa-support) compiler plugin を適用する
+
+  - [`all-open`](https://kotlinlang.org/docs/all-open-plugin.html) compiler plugin を適用し、 `@Entity`, `@Embeddable`, `@MappedSuperclass` を対象に設定する
+
+- エンティティ定義について
+
+  - (原則として) `data` class や `val` の利用は諦める
+
+    - Java で Lombok の `@Data` や `@Value` を付与したときと同じような問題がある([参考]({{< relref"/blog/202107/31/dont-use-lombok-with-jpa" >}}))
+
+参考になるリンクとしては:
+
+- [Best Practices and Common Pitfalls of Using JPA (Hibernate) with Kotlin](https://www.jpa-buddy.com/blog/best-practices-and-common-pitfalls/)
+
+  - IntelliJ [JPA Buddy プラグイン](https://plugins.jetbrains.com/plugin/15075-jpa-buddy) の公式ブログ
+
+  - 最後の "Conclusion" 節にまとまっています
+
+- [Building web applications with Spring Boot and Kotlin](https://spring.io/guides/tutorials/spring-boot-kotlin/)
+
+  - Spring Boot 公式チュートリアル
+
+どちらもサンプルコードが付属しているので、具体的にどう実装すれば良いかはそちらを見れば明確です。
+
+一応、自分のサンプルコードもリンクしておきます:
+
+- <https://github.com/yukihane/hello-kotlin/tree/main/jpa-example>
+
+上記以外の情報ソースとしては次のものがあるかと思います:
+
+- [上記 Spring Boot チュートリアルの issues](https://github.com/spring-guides/tut-spring-boot-kotlin/issues) を JPA 関連ワードで検索する
+
+- [JetBrains issue tracker](https://youtrack.jetbrains.com/issues/KT) を JPA 関連ワードで検索する
+
+ちなみに、上記したリンク先に書かれいることに反しているとうまく動かないのかと言うと、必ずしもそうではありません。 が、もしあなたが JPA に精通していないのであればそれらに従っておくのが無難かと考えます(問題が発生したとき、何が原因なのか突き止められない可能性があります)。
+
+例えば、次のエンティティは正常に永続化できますが、これは何故動作するのかを説明できるでしょうか(なぜ `id` は `val` なのに値が変わるのでしょうか)。
+
+``` kotlin
+@Entity
+data class MyData(
+    @Id
+    @GeneratedValue
+    val id :Int? = null,
+    val name: String,
+)
+```
+
+- JPA 仕様上は許されていません
+
+  - "No methods or persistent instance variables of the entity class may be final." ([2.1. The Entity Class](https://jakarta.ee/specifications/persistence/3.0/jakarta-persistence-spec-3.0.html#a18))
+
+- `val` (`final`) の値が変更できるのは、 Hibernate 実装においてリフレクションで値を設定しているからです。
+
+  - <https://stackoverflow.com/a/3683453/4506703>
+
+  - ただし、 Hibernate プロジェクトは今や JPA にかなり寄り添っているので、 JPA の仕様から反してはいるが Hibernate では合法、とも言えないでしょう。たまたま上手く動いているだけ、とみなすのが正しい認識かと考えます。
+
+こちらの動画でも似たような話題が挙がっていました:
+
+- [Getting the Most from JPA with Kotlin](https://youtu.be/a_6V8xwiv04?t=1031)

@@ -1,0 +1,32 @@
+---
+title: "List#contains(null)は使わないほうが良い"
+date: 2020-06-13T10:34:19Z
+draft: false
+tags:
+  - java
+---
+
+`List`(などのコレクション)が要素に `null` を含むかどうかの判定に、 `contains(null)` を利用すると `NullPointerException` が発生することがあります。
+
+リファレンスには次のようにあります:
+
+> `NullPointerException` - 指定された要素が `null` で、このリストが `null` 要素を許可しない場合(オプション)
+>
+> —  <https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/util/List.html#contains(java.lang.Object>)
+
+オプション、とあるが、そういう型は実際に存在するのか、というと、Java9から導入された `List.of()` メソッドで生成される [インスタンス(変更不能なリスト)](https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/util/List.html#unmodifiable)がそれです。 簡単に試せます:
+
+    List<String> list = List.of("hello");
+    list.contains(null);
+
+代わりに、例えば次のようなコードで実現できます:
+
+    list.stream().anyMatch(Objects::isNull);
+
+ただし、lambdaを使うとオーバヘッドがあるため、Spring Framework内部では利用しない方針のようで、Springプロジェクトでは [CollectionUtils.contains()](https://github.com/spring-projects/spring-framework/blob/v5.2.7.RELEASE/spring-core/src/main/java/org/springframework/util/CollectionUtils.java#L119-L135) というユーティリティメソッドが用意されていました。これを使うと次のようになります:
+
+    CollectionUtils.contains(list.iterator(), null);
+
+関連リンク:
+
+- [ProviderManager#checkState() throws NullPointerException \#8689](https://github.com/spring-projects/spring-security/issues/8689) - Spring Security issues

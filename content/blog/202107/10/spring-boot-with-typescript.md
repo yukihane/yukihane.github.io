@@ -1,0 +1,384 @@
+---
+title: "Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle)"
+date: 2021-07-09T22:54:04Z
+draft: false
+tags:
+  - spring-boot
+  - javascript
+---
+
+# はじめに
+
+Spring Boot で JavaScript を扱うときは素のJSをhtml(Thymeleafテンプレート)に `<script>` タグで埋め込む、というのが多分一般的で手っ取り早い方法かと思います。
+
+ただ、そろそろ素のJSを書くのをやめたい、という思いもあり、今回設定方法を考え、記録しました。
+
+私は普段はMavenを使っているのですが、今回は事情によりGradleプロジェクトの設定方法です。 (Mavenでも同じ方針で実現できると思います)
+
+今回の実証コードはこちらです:
+
+- <https://github.com/yukihane/hello-java/tree/master/spring/with-ts>
+
+# 手順
+
+## Spring Boot プロジェクトを構成する
+
+<https://start.spring.io/> で、Webアプリケーションを構成します。
+
+今回は次のdependenciesを追加しました。
+
+- Spring Boot DevTools
+
+- Lombok
+
+- Spring Configuration Processor
+
+- Spring Web
+
+- Thymeleaf
+
+Project は、冒頭に記載した通り今回は "Gradle Project" を選択します。
+
+`build.gradle` にデフォルトで導入するプラグインをセットアップします。
+
+<div class="formalpara-title">
+
+**build.gradle**
+
+</div>
+
+``` groovy
+plugins {
+    // ...
+    id 'eclipse'
+    id 'com.diffplug.eclipse.apt' version '3.30.0'
+    id 'com.dorongold.task-tree' version '2.1.0'
+}
+```
+
+Eclipseプロジェクトを構成します。
+
+    gradle build cleanEclipse eclipse
+
+Eclipse メニューの **File \> Import** を選択し、ダイアログの **General \> Existing Projects into Workspace** から今回のプロジェクトをインポートします。
+
+### 補足
+
+GradleプロジェクトをEclipse(Spring Tools 4 for Eclipse)にインポートする手順は次のエントリで説明しています。
+
+- [GradleでSpring Bootプロジェクトを作成してSTS(Eclipse)でインポートする手順]({{< relref"/blog/202007/26/spring-boot-gradle-eclipse" >}}) – 発火後忘失
+
+## Yarn プロジェクトを構成する
+
+上記で作成したGradleプロジェクトのルートディレクトリでYarnプロジェクトを生成します。
+
+    yarn init -y
+    yarn add --dev webpack webpack-cli
+    yarn webpack init
+
+`yarn webpack init` を実行するとインタラクティブにプロジェクトが構成されます。 それぞれの質問には次のように返答します:
+
+| 質問                                                                | 返答          |
+|---------------------------------------------------------------------|---------------|
+| Would you like to install '@webpack-cli/generators' package?        | Yes           |
+| Which of the following JS solutions do you want to use?             | Typescript    |
+| Do you want to use webpack-dev-server?                              | No            |
+| Do you want to simplify the creation of HTML files for your bundle? | No            |
+| Do you want to add PWA support?                                     | No            |
+| Which of the following CSS solutions do you want to use?            | none          |
+| Do you like to install prettier to format generated configuration?  | Yes           |
+| Overwrite package.json?                                             | y (overwrite) |
+
+続いて、不要なファイルが生成されているので削除します:
+
+    rm README.md index.html src/index.ts
+
+`tsconfig.json` を次のように書き換えます:
+
+<div class="formalpara-title">
+
+**tsconfig.json**
+
+</div>
+
+``` json
+{
+  "compilerOptions": {
+    "strict": true,
+    "module": "es6",
+    "target": "es5",
+  },
+}
+```
+
+`javascript` ファイルは `src/main/js` に、そして出力は `build/resources/main/static/static` に出力するよう設定します。 また、 `mylib` という名前のライブラリとして生成します。
+
+<div class="formalpara-title">
+
+**webpack.config.js**
+
+</div>
+
+``` javascript
+"use strict";
+// Generated using webpack-cli https://github.com/webpack/webpack-cli
+
+const path = require("path");
+
+const isProduction = process.env.NODE_ENV == "production";
+
+const config = {
+  // https://webpack.js.org/concepts/output/#multiple-entry-points
+  // https://webpack.js.org/configuration/output/#outputlibrary
+  entry: {
+    mylib: "./src/main/js/index.ts",
+  },
+  output: {
+    library: "[name]",
+    path: path.resolve(__dirname, "build/resources/main/static/static"),
+  },
+  plugins: [
+    // Add your plugins here
+    // Learn more about plugins from https://webpack.js.org/configuration/plugins/
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.(ts|tsx)$/i,
+        loader: "ts-loader",
+        exclude: ["/node_modules/"],
+      },
+
+      // Add your rules for custom modules here
+      // Learn more about loaders from https://webpack.js.org/loaders/
+    ],
+  },
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"],
+  },
+};
+
+module.exports = () => {
+  if (isProduction) {
+    config.mode = "production";
+  } else {
+    config.mode = "development";
+    config.devtool = "inline-source-map";
+  }
+  return config;
+};
+```
+
+### 補足
+
+`yarn add` の対象は次のページを参考にしました:
+
+- [Getting Started \| webpack](https://webpack.js.org/guides/getting-started/#basic-setup)
+
+`webpack.config.js` の設定は、 \`ts-loader\`のリファレンス中で ["simplest"](https://github.com/TypeStrong/ts-loader#examples) と表現されていた [こちらのサンプル](https://github.com/TypeStrong/ts-loader/tree/main/examples/vanilla) も参考にしています。
+
+また、次の説明も参考にしています:
+
+- [Output \> Multiple Entry Points \| webpack](https://webpack.js.org/concepts/output/#multiple-entry-points)
+
+- [Output \> output.library \| webpack](https://webpack.js.org/configuration/output/#outputlibrary)
+
+## Yarn を Gradle に統合する
+
+`gradle build` で ts のビルドも含めて実行できるようにします。
+
+[`gradle-node-plugin`](https://github.com/node-gradle/gradle-node-plugin) を導入し、 task の依存関係を設定します:
+
+<div class="formalpara-title">
+
+**build.gradle**
+
+</div>
+
+``` groovy
+plugins {
+    // ...
+    id 'com.github.node-gradle.node' version '3.1.0'
+}
+// ...
+
+yarn_build.dependsOn yarn_install
+processResources.dependsOn yarn_build
+```
+
+## ビルドしてみる
+
+設定はここまでで完了しました。 試しにサンプルコードをおいてビルドしてみます。
+
+なお、サンプルコードでは [`UAParser.js`](https://github.com/faisalman/ua-parser-js) を利用していますので、事前に
+
+    yarn add ua-parser-js
+    yarn add --dev @types/ua-parser-js
+
+を実行しています。
+
+以下、サンプルコード:
+
+<div class="formalpara-title">
+
+**src/main/java/com/github/yukihane/withts/MyController.java**
+
+</div>
+
+``` java
+@Controller
+@RequestMapping("")
+public class MyController {
+
+    @GetMapping
+    public String index(final Model model) {
+        model.addAttribute("now", new Date());
+        return "index";
+    }
+}
+```
+
+<div class="formalpara-title">
+
+**src/main/resources/templates/index.html**
+
+</div>
+
+``` html
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table,
+      td,
+      th {
+        border: 1px solid;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tbody>
+        <tr>
+          <td>サーバ時刻</td>
+          <td id="server"></td>
+        </tr>
+        <tr>
+          <td>ブラウザ</td>
+          <td id="client"></td>
+        </tr>
+      </tbody>
+    </table>
+    <script
+      type="text/javascript"
+      src="../../../../build/resources/main/static/static/mylib.js"
+      th:src="@{/static/mylib.js}"
+    ></script>
+    <script th:inline="javascript">
+      window.addEventListener("DOMContentLoaded", (event) => {
+        const serverTime = /*[[${now}]]*/ "2020-01-01T10:10:10.000+09:00";
+        const server = document.getElementById("server");
+        server.innerText = serverTime;
+
+        const clientTime = mylib.getOS();
+        const client = document.getElementById("client");
+        client.innerText = clientTime;
+      });
+    </script>
+  </body>
+</html>
+```
+
+<div class="formalpara-title">
+
+**src/main/js/index.ts**
+
+</div>
+
+``` javascript
+import { UAParser } from "ua-parser-js";
+
+export const getOS = (userAgent: string) => {
+  const parser = new UAParser(userAgent);
+  return JSON.stringify(parser.getOS());
+};
+```
+
+上記のソースを作成し終わったら、ビルドし、実行してみます:
+
+    gradle clean build
+    java -jar build/libs/with-ts-0.0.1-SNAPSHOT.jar
+
+<http://localhost:8080> にアクセスすると、サーバ側で取得した時刻がThymeleafによって挿入され、また、ブラウザ側で取得したOS情報が JavaScript によって挿入されているのが確認できます。
+
+## Hot Swapping する(コード変更を自動反映する)
+
+前述の方法は `jar` を作成して実行するものでしたが、これでは開発がやりにくいので、ソースを編集したらリアルタイムで反映してくれるように実行方法を工夫します。
+
+まず、TypeScriptの更新が行われたら自動でビルドするようにwatchします。
+
+    yarn watch
+
+Java側の変更を検知してビルドし直すようにgradleでwatchします。
+
+    gradle -t classes -x yarn_build
+
+サーバを起動します。
+
+    gradle bootRun -x yarn_build
+
+これで、TypeScript, Java 等のコードを修正し保存すると自動でSpring Bootが再起動し反映されるようになりました。
+
+## Spring Boot プロセスにデバッガ(Eclipse)をアタッチする
+
+はじめに、起動時に suspend する必要がなければ、次の設定を行っておきます:
+
+<div class="formalpara-title">
+
+**build.gradle**
+
+</div>
+
+``` groovy
+bootRun {
+    debugOptions {
+        suspend = false
+    }
+}
+```
+
+そして、前節で説明した最後のコマンド `gradle bootRun -x yarn_build` に、 `--debug-jvm` オプションを付けて実行します:
+
+    gradle bootRun -x yarn_build --debug-jvm
+
+これでデバッガをアタッチできるような状態でSpring Bootが起動しました。
+
+続いて、Eclipse側で設定を行いアタッチします。
+
+1.  メニューから **Run \> Debug Configurations** を選択します。
+
+2.  **Remote Java Application** を右クリックし、 **New Configuration** を選択します。
+
+3.  **Project** に今回のプロジェクトを設定します。 **Port** を `5005` に設定変更します。
+
+設定が完了したら、 Debug ボタンを押してデバッグを開始します。
+
+### 補足
+
+Eclipse をアタッチしている状態で Eclipse で Javaコードを編集した場合、デバッガ経由で変更が反映されるので `gradle -t classes -x yarn_build` は必要ありません。 (ただし、静的リソースファイルなどの更新は検知できなくなります)
+
+Grdleプロジェクトのデバッグオプションについてはこちらに記載しています:
+
+- [Spring BootのGradleでのデバッグ実行方法]({{< relref"/blog/202006/15/spring-boot-debugging" >}}) – 発火後忘失
+
+- [debug gradle bootRun having server=n](https://stackoverflow.com/a/62567812/4506703) - Stack Overflow
+
+## 自動テストを実行する(Jest)
+
+説明が前後してしまいますが、次の記事を参照してください。 次の記事はBabelを組み込む方法ですが、Jestに関しては同じ設定でいけるはずです。
+
+- [Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle) - Polyfillも必要とする場合]({{< relref"/blog/202107/11/spring-boot-with-babel" >}})

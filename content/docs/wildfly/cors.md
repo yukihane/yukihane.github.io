@@ -1,0 +1,62 @@
+---
+title: "CORS"
+date: 2020-07-24T01:45:25Z
+draft: false
+---
+
+RestyGwtを使用してWildFlyへクロスドメインのリクエストを投げたい場合の設定。
+
+下記のURLあたりを参考に。
+
+- [jboss - CORS: AngularJS  
+  Resteasy 3 + Wildfly - Stack Overflow](https://stackoverflow.com/a/39215400/4506703)
+
+- [jax rs - How to enable Cross domain requests on JAX-RS web services? - Stack Overflow](https://stackoverflow.com/a/23631475/4506703)
+
+RestyGwtはデフォルトで\`X-HTTP-Method-Override\`ヘッダが付くのでこれも許容するようにしなければならなかった。(なお、https://github.com/resty-gwt/resty-gwt/issues/245#ref-pullrequest-103108519\[設定で付与しないこともできる\]らしい)
+
+最終的には、\`Access-Control-Allow-Origin\`と\`Access-Control-Allow-Headers\`だけを適切に許容設定すれば良さそう。
+
+``` xml
+        <subsystem xmlns="urn:jboss:domain:undertow:3.1">
+            <buffer-cache name="default"/>
+            <server name="default-server">
+                <http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true"/>
+                <https-listener name="https" socket-binding="https" security-realm="ApplicationRealm" enable-http2="true"/>
+                <host name="default-host" alias="localhost">
+                    <location name="/" handler="welcome-content"/>
+                    <location name="/swagger" handler="swagger"/>
+                    <filter-ref name="server-header"/>
+                    <filter-ref name="x-powered-by-header"/>
+                    <filter-ref name="Access-Control-Allow-Origin"/>
+                    <filter-ref name="Access-Control-Allow-Headers"/>
+<!--
+                    <filter-ref name="Access-Control-Allow-Methods"/>
+                    <filter-ref name="Access-Control-Allow-Credentials"/>
+                    <filter-ref name="Access-Control-Max-Age"/>
+-->
+                </host>
+            </server>
+            <servlet-container name="default">
+                <jsp-config/>
+                <websockets/>
+            </servlet-container>
+            <handlers>
+                <file name="welcome-content" path="${jboss.home.dir}/welcome-content"/>
+                <file name="swagger" path="${jboss.home.dir}/swagger"/>
+            </handlers>
+            <filters>
+                <response-header name="server-header" header-name="Server" header-value="WildFly/10"/>
+                <response-header name="x-powered-by-header" header-name="X-Powered-By" header-value="Undertow/1"/>
+                <response-header name="Access-Control-Allow-Origin" header-name="Access-Control-Allow-Origin" header-value="*"/>
+                <response-header name="Access-Control-Allow-Methods" header-name="Access-Control-Allow-Methods" header-value="GET, POST, OPTIONS, PUT, DELETE"/>
+                <response-header name="Access-Control-Allow-Headers" header-name="Access-Control-Allow-Headers" header-value="accept, authorization,  content-type, x-requested-with, X-HTTP-Method-Override"/>
+                <response-header name="Access-Control-Allow-Credentials" header-name="Access-Control-Allow-Credentials" header-value="true"/>
+                <response-header name="Access-Control-Max-Age" header-name="Access-Control-Max-Age" header-value="1"/>
+            </filters>
+        </subsystem>
+```
+
+また、サーバ側では別途preflight request向けにOPTIONSを受け付けられるようにしなければならないらしい。
+
+- [Cross Site Requests With GWT, RestyGWT and HTML5 CORS - DZone Web Dev](https://dzone.com/articles/cross-site-requests-gwt)

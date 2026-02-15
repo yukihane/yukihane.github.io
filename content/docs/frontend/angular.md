@@ -1,0 +1,59 @@
+---
+title: "Angular"
+date: 2020-07-24T01:49:16Z
+draft: false
+---
+
+# 参考
+
+- [Angular2によるモダンWeb開発 TypeScriptを使った基本プログラミング](http://www.amazon.co.jp/o/ASIN/4822296539/feather0e-22/)
+
+  - [データダウンロードページ](http://ec.nikkeibp.co.jp/nsp/dl/09653/index.shtml)
+
+# 用語
+
+## コンポーネント(component)
+
+HTMLを出力する。3つの要素で構成されている。
+
+- 処理定義
+
+- HTMLテンプレート
+
+- CSS
+
+処理定義は実際にクラス内でメソッド定義しているが、HTMLテンプレートやCSSはデコレータで記述しているので、処理定義と他2つはちょっと色あいが異なる？
+
+## サービス(service)
+
+アプリの共通処理を行う。
+
+## デコレータ(decorator)
+
+TypeScriptの機能。 Javaでいうところのアノテーション？
+
+# Appendix: 問題
+
+## nvmを使うとbashの起動が遅い
+
+Angularのためにもろもろのセットアップを行ったらterminalの起動が遅くなった。
+
+`~/.bashrc`, `~/.profile` 双方の冒頭に
+
+``` bash
+set -x
+```
+
+を、最後尾に
+
+``` bash
+set +x
+```
+
+を追加する[^1]とデバッグ出力が行われるようになるのでどこに時間がかかっているか特定できる。
+
+結果として\`npm config --loglevel=warn get prefix\`という\`~/.nvm/nvm.sh\`内で実行している処理が遅いことがわかった。
+
+[NVM getting very slow on startup in Bash · Issue \#1277 · creationix/nvm](https://github.com/creationix/nvm/issues/1277)というIssueが登録されていた。 [NVM の nvm.sh を遅延ロードしてシェルの起動を高速化する - Qiita](http://qiita.com/uasi/items/80865646607b966aedc8)という記事もある。
+
+[^1]: [command line - Shell very slow to load - Ubuntu 14.04 - Ask Ubuntu](http://askubuntu.com/q/717961/460420)

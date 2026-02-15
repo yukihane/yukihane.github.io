@@ -1,0 +1,9 @@
+---
+title: "freee"
+date: 2020-07-23T17:07:53Z
+draft: false
+---
+
+# 売掛金
+
+- [未決済の取引を登録する・消し込む(売掛金・買掛金など) – freee ヘルプセンター](https://support.freee.co.jp/hc/ja/articles/203317600-%E6%9C%AA%E6%B1%BA%E6%B8%88%E3%81%AE%E5%8F%96%E5%BC%95%E3%82%92%E7%99%BB%E9%8C%B2%E3%81%99%E3%82%8B-%E6%B6%88%E3%81%97%E8%BE%BC%E3%82%80-%E5%A3%B2%E6%8E%9B%E9%87%91-%E8%B2%B7%E6%8E%9B%E9%87%91%E3%81%AA%E3%81%A9-)

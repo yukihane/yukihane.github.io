@@ -1,0 +1,8 @@
+---
+title: "WildFly"
+date: 2020-07-24T01:09:21Z
+draft: false
+collapsible: true
+---
+
+

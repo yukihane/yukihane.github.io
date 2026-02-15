@@ -1,0 +1,19 @@
+---
+title: "formで(送信ボタンを押さずに)エンターキーで送信する"
+date: 2021-03-21T09:54:35Z
+draft: false
+tags:
+  - javascript
+---
+
+入力フォームに値を入力して、(送信ボタンを押すのではなく)入力フィールド内でエンターキーを押すと送信される機能、"Implicit Submission"(日本語にすると"暗黙的送信"ですかね？)というそうです。
+
+この implicit submission ですが、有効になる条件があって、その条件を満たさない場合機能しません。 機能させるためには次のいずれかを満たす必要があるようです:
+
+- 送信フィールドが1つ
+
+- submitボタンを備えている
+
+> If the form has no submit button, then the implicit submission mechanism must do nothing if the form has more than one field that blocks implicit submission, (後略)
+>
+> —  HTML Living Standard — Last Updated 22 October 2020 \> [4.10.21.2 Implicit submission](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#implicit-submission)

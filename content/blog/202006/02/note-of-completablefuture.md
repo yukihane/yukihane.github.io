@@ -1,0 +1,21 @@
+---
+title: "CompletableFuture覚え書き"
+date: 2020-06-02T07:54:25Z
+draft: false
+tags:
+  - java
+---
+
+`CompletableFuture` の一連の非同期処理 `ほげAsync` は、デフォルトでは [`ForkJoinPool.commonPool()`](https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/util/concurrent/ForkJoinPool.html#commonPool()) という `ExecutorService` で実行されます。
+
+そしてこの `ExecutorService` のワーカスレッドはデーモンスレッドであるため、非デーモンスレッドが無くなると(≒ メインスレッドが終了すると)プール内の処理を完了させること無くプロセスが終了します。
+
+そのせいで、サンプルコードを走らせてみるとなぜか処理が想定通り行われていない、というような事象が発生することがあるようです。
+
+そういった場合は、 `main` メソッドの最後に `Thread.sleep()` を入れるなどして、少しの間メインスレッドが終了してしまうのを留まらせると期待した結果が得られるでしょう。
+
+関連リンク:
+
+- [非同期処理において結果が思ったように出ない理由を知りたい](https://ja.stackoverflow.com/q/67200/2808)
+
+- [CompletableFutureを使った非同期処理を理解したい](https://ja.stackoverflow.com/q/67862/2808)

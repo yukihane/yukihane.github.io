@@ -1,0 +1,34 @@
+---
+title: "NASを自動マウント"
+date: 2020-07-24T02:15:31Z
+draft: false
+---
+
+# 参考リンク
+
+- [Ubuntu 18.04: SMBクライアントのcifs-utilsをインストールする - Narrow Escape](https://www.hiroom2.com/2018/05/04/ubuntu-1804-cifs-utils-ja/)
+
+- [Ubuntu18.04でcifs mountが失敗する場合 - Qiita](https://qiita.com/devzooiiooz/items/2a0f8d748709b18a0901)
+
+# 設定
+
+マウントポイントを作成する。
+
+    sudo mkdir /mnt/nas
+
+クレデンシャルファイル作成。 \`/etc/samba/credentials\`ファイルを作成し次を記述。
+
+    username=xxxx
+    password=yyyyy
+
+その後パーミッションを編集。
+
+    sudo chmod 600 /etc/samba/credentials
+
+`/etc/fstab` に次を追記。
+
+    //nas.local/backup /mnt/nas cifs vers=1.0,credentials=/etc/samba/credentials,_netdev,x-systemd.automount 0 0
+
+マウント。
+
+    sudo mount -a

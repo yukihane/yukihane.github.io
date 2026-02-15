@@ -1,0 +1,112 @@
+---
+title: "Bazel"
+date: 2020-07-23T18:30:32Z
+draft: false
+---
+
+# Bazelとは
+
+ビルドシステム。Ant, Mavenなどと同系統。 ビルド対象はJavaに限らない。
+
+Google社内のJava/JavaScript境界辺りを開発している人たちが使っている形跡がある。 具体的には、GWT, J2CL, Closure Tools。
+
+比較されるその他のプロダクトには次のようなものがあるらしい。
+
+- [Bazel](https://github.com/bazelbuild/bazel) - Google社。社内で使用していたBlazeという名前のビルドシステムをオープンソース化したものらしい。
+
+- [Buck](https://github.com/facebook/buck) - Facebook社。元々Blazeクローンとして作られたらしい？[^1][^2]
+
+- [Pants Build System](https://github.com/pantsbuild) - Twitter社？
+
+# インストール
+
+- [Installing Bazel on Ubuntu - Bazel](https://docs.bazel.build/versions/master/install-ubuntu.html)
+
+Ubuntu16.04で行う。後述の通りインストールしたBazelバージョンは0.9.0だが、このバージョンではJDK8対応までで、JDK9は未対応の模様。
+
+本環境ではJDK9とJDK8をインストール済みで、デフォルトはJDK9を使うようにしている。
+
+    echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list
+    curl https://bazel.build/bazel-release.pub.gpg | sudo apt-key add -
+    sudo apt-get update && sudo apt-get install bazel
+
+1行目は\`sources.list\`の設定。書式については\`man sources.list\`コマンドで読める。
+
+なお <http://storage.googleapis.com/bazel-apt> にアクセスしてみたが1.9向けは存在しない模様なのでサンプルの通りjdk1.8としている。
+
+インストールが終了したら実行してみる。
+
+    bazel version
+
+JDK9環境では\`WARNING\`が多数出た。ちなみにJDK8で試すと警告は出ない。
+
+    WARNING: An illegal reflective access operation has occurred
+    WARNING: Illegal reflective access by com.google.protobuf.UnsafeUtil (file:/home/yuki/.cache/bazel/_bazel_yuki/install/754ae0b065b3dfe883541ff567ae8b5e/_embedded_binaries/A-server.jar) to field java.nio.Buffer.address
+    WARNING: Please consider reporting this to the maintainers of com.google.protobuf.UnsafeUtil
+    WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+    WARNING: All illegal access operations will be denied in a future release
+    Build label: 0.9.0
+    Build target: bazel-out/k8-fastbuild/bin/src/main/java/com/google/devtools/build/lib/bazel/BazelServer_deploy.jar
+    Build time: Tue Dec 19 09:31:58 2017 (1513675918)
+    Build timestamp: 1513675918
+    Build timestamp as int: 1513675918
+
+## お試しビルド
+
+[Get the sample project](https://docs.bazel.build/versions/master/tutorial/java.html#get-the-sample-project) にサンプルプロジェクトが用意されていたのでそれをそのまま用いることにする。
+
+    git clone https://github.com/bazelbuild/examples/
+    cd java-tutorial
+
+ビルドしてみる。
+
+    bazel build //:ProjectRunner
+
+エラーが出てビルド失敗する。
+
+    INFO: Analysed target //:ProjectRunner (0 packages loaded).
+    INFO: Found 1 target...
+    ERROR: missing input file '@local_jdk//:jre/lib/rt.jar'
+    ERROR: /home/yuki/programs/hello-bazel/examples/java-tutorial/BUILD:1:1: //:ProjectRunner: missing input file '@local_jdk//:jre/lib/rt.jar'
+    Target //:ProjectRunner failed to build
+    Use --verbose_failures to see the command lines of failed build steps.
+    ERROR: /home/yuki/programs/hello-bazel/examples/java-tutorial/BUILD:1:1 1 input file(s) do not exist
+    INFO: Elapsed time: 0.325s, Critical Path: 0.04s
+    FAILED: Build did NOT complete successfully
+
+どうやらBazelは初回起動時にサーバを起動し、以後そのサーバ経由で色々と処理を行っているように見える(処理高速化のための仕組みだろう)。
+
+このサーバはJDK8が前提になっているようなので、サーバ起動(=初回コマンド実行)はJDK8を用いなければならないようだ。
+
+一旦サーバをシャットダウンし、JDK8環境でサーバを起動する。
+
+    bazel shutdown
+    (JDK8にパスを通す)
+    bazel version
+
+この状態で、JDK9で再度ビルドコマンドを実行してみる。
+
+    bazel build //:ProjectRunner
+
+正常にビルドが完了した模様。
+
+    INFO: Analysed target //:ProjectRunner (13 packages loaded).
+    INFO: Found 1 target...
+    Target //:ProjectRunner up-to-date:
+      bazel-bin/ProjectRunner.jar
+      bazel-bin/ProjectRunner
+    INFO: Elapsed time: 3.934s, Critical Path: 0.29s
+    INFO: Build completed successfully, 4 total actions
+
+`` bazel-bin/ProjectRunner.jar`が生成されているので念のため `javap -v`コマンドで ``.class\`ファイルのバージョンを見てみる。
+
+      minor version: 0
+      major version: 52
+
+Java8バージョンのバイナリだった。サーバを動かしたJDKを使用しているのだろう(考えてみればそうなるのが自然か)。 結論として、JDK9にはまだ対応していないのだろう。
+
+- [Java 9 should be supported · Issue \#3410 · bazelbuild/bazel](https://github.com/bazelbuild/bazel/issues/3410)
+
+[^1]: <https://blog.ltgt.net/in-quest-of-the-ultimate-build-tool/>
+
+[^2]: <http://anemone.dodgson.org/2015/06/11/cover-songs/>

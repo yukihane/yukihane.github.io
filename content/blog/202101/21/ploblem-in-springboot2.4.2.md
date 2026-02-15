@@ -1,0 +1,17 @@
+---
+title: "Spring Boot 2.4.1->2.4.2アップグレードで発生した問題メモ"
+date: 2021-01-21T15:51:37Z
+draft: false
+tags:
+  - spring-boot
+---
+
+Spring Framework 5.3.3 で対応された
+
+- [Update OncePerRequestFilter.isAsyncDispatch to use HttpServletRequest.getDispatcherType() \#26282](https://github.com/spring-projects/spring-framework/issues/26282)
+
+  - [コード差分](https://github.com/spring-projects/spring-framework/commit/499be70a717b8d20c544bc2eac4fe5dacedc7f28#diff-62abb34de9b72d1c359ee169fb30164f7cc9e8759e5f2a46dbae111ecfa29c9cR148)
+
+の影響で、 `HttpServletRequest#getDispatcherType()` メソッドが呼ばれるようになっています。
+
+これにより、 `HttpServletRequest` をモック化して実行していたテストケースが(想定外のメソッド呼び出しで `null` を返すため)失敗するようになっていました。

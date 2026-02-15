@@ -1,0 +1,27 @@
+---
+title: "Android Firefox に addons をインストールする方法"
+date: 2021-10-15T15:27:00+09:00
+draft: false
+tags:
+  - android
+  - webextensions
+  - firefox
+---
+
+Firefox 69 以降かな？ Fenix というコードネームになってから Android Firefox にインストールできる Webextensions(addons) に制約ができ、公式がお薦めとしているものだけしか通常の手順ではインストールできなくなりました。
+
+[はてなブックマークオープナー](https://addons.mozilla.org/ja/firefox/addon/hatena-bookmark-opener/) という Android Firefox 向け Webextensions を作りっぱなしで長らく放置していたのですが、これを使いたくなったのでインストール方法を調べました。
+
+公式ドキュメントとしては次のリンクで言及されています。
+
+- [Android 版 Firefox でアドオンを検索してインストールするには \> Android 版 Firefox Nightly での拡張機能のサポート拡大](https://support.mozilla.org/ja/kb/find-and-install-add-ons-firefox-android#w_android-ban-firefox-nightly-denokuo-zhang-ji-neng-nosapotokuo-da)
+
+  - [Mozilla Add-ons Community Blog \> Expanded extension support in Firefox for Android Nightly](https://blog.mozilla.org/addons/2020/09/29/expanded-extension-support-in-firefox-for-android-nightly/)
+
+日本語で解説されている方がいらっしゃいましたので、こちらを見る方が分かりやすかもしれません。
+
+- [Aqua Ware つぶやきブログ \> Android版 Firefox (Fenix) で、任意のアドオンを使えるようにする](https://aquasoftware.net/blog/?p=1536)
+
+Android Firefox の Nightly 版であれば、少し手間がかかりますが過去動作していた addons を取り込むことができる、ということになります。
+
+さて、冒頭の自作 addons をインストールしてみたのですが、昔と比べて addons をタップするまでのステップが増えているので利便性は低下してしまっていますね…

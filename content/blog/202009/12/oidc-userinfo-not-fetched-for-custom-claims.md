@@ -1,0 +1,22 @@
+---
+title: "Spring SecurityのOAuth 2.0 Login でログインしても UserInfo Endpoint にアクセスしてくれない"
+date: 2020-09-12T12:56:30Z
+draft: false
+tags:
+  - oidc
+  - spring-security
+---
+
+Spring Security [OAuth 2.0 Login](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#oauth2login) を利用してログインしたのですが、通常ログイン後 UserInfo Endpoint へアクセスしてくれるはずなのにこの処理がスキップされてしまうような事象に出会いました。
+
+調査したところ次のissueも同じ事象を説明していて、解決策としては、 [`setAccessibleScopes()`](https://github.com/spring-projects/spring-security/commit/3f2108921e49fe3a751767b54615c3cd0d2c28bc#diff-8bce626c56885d855993084cde68ce1cR205) で自分が取得したいscopeを設定する、あるいは、空の設定を行う、ということでした。
+
+- [OpenID Connect Userinfo not fetched for custom claims \#6886](https://github.com/spring-projects/spring-security/issues/6886)
+
+この事象の解説も[上記issueに記載されている](https://github.com/spring-projects/spring-security/issues/6886#issuecomment-499091020)のですが、特に何もしなくてもUserInfo Endpointへアクセスする条件は
+
+- `profile`, `email`, `address`, `phone` scopeのいずれかをIdPが提供しており、かつ、取得できる権限を持っている
+
+場合のようです。
+
+この4scopeを置き換えるのが `setAccessibleScopes()` ということです。

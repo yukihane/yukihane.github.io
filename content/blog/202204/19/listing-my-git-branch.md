@@ -1,0 +1,21 @@
+---
+title: "自分の作成したGitブランチを表示する"
+date: 2022-04-19T12:55:29+09:00
+draft: false
+tags:
+  - git
+---
+
+リモートブランチに一時的なブランチ、テスト的に作ったブランチなどをpushしていたのを掃除したくなりました。
+
+複数人で共同作業するために利用しているので、どれが自分のブランチなのかをまずリスト化したかったので、どうすれば出力できるか調べました。
+
+結果、次のコマンドで所望の結果が得られるようでした。
+
+    git log --remotes --no-walk --author=yukihane
+
+これで、 author が `yukihane` であるようなリモートブランチ(の HEAD)一覧が出力できました。
+
+参考:
+
+- [how to filter git-branch by author](https://stackoverflow.com/q/71918409/4506703) - Stack Overflow

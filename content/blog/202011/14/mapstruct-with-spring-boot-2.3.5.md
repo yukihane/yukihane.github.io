@@ -1,0 +1,27 @@
+---
+title: "Spring Boot 2.3.5 で MapStruct を利用しているプロジェクトのビルドが失敗した"
+date: 2020-11-14T07:41:01Z
+draft: false
+tags:
+  - mapstruct
+  - lombok
+  - spring-boot
+---
+
+調査したところSpring Bootの問題と言うよりは、Lombokのバージョンが `1.18.12` から `1.18.16` に上がったことによる非互換性の問題でした。
+
+Lombokのchangelogに説明があります:
+
+> - BREAKING CHANGE: mapstruct users should now add a dependency to lombok-mapstruct-binding. This solves compiling modules with lombok (and mapstruct).
+>
+> —  <https://projectlombok.org/changelog>
+
+なお、上記引用文中にはdependencyに追加する、というような説明が為されていますが、正確にはアノテーションプロセッサとして `lombok-mapstruct-binding` を設定する必要があるようです。
+
+- <https://github.com/mapstruct/mapstruct/issues/2267#issuecomment-722233808>
+
+Gradle だと
+
+    annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.1.0'
+
+ということですね。

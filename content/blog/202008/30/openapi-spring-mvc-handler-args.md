@@ -1,0 +1,119 @@
+---
+title: "openapi-generaterで生成したcontrollerにカスタム引数を追加する"
+date: 2020-08-29T19:23:06Z
+draft: false
+tags:
+  - openapi
+  - spring-boot
+---
+
+# はじめに
+
+[openapi generator を Spring Boot で利用してみる]({{< ref"/blog/202008/23/openapi-generator" >}}) で openapi-generator を用いて Spring MVC のコントローラ(のインタフェース)を自動生成してみました。
+
+その後、これを実際に利用してみて気づいたのですが、ハンドラ(controllerのメソッド)に独自の引数を生やしたいことが多く、このままだと非常に不便です。
+
+Springを利用していると当然発生する欲求だと思ったのですが、検索してみても全然ヒットしません。
+
+仕方がないのでやり方を自分で考えてみました。
+
+成果物は、前回と同じディレクトリになります:
+
+- <https://github.com/yukihane/hello-java/tree/master/spring/openapi-sample>
+
+# 対応の概要
+
+[extension(vender extension)](https://swagger.io/docs/specification/2-0/swagger-extensions/) という仕様があり、これを用いればspecファイルに自分で属性を定義して値を付与することができます。
+
+そして、 [テンプレートをカスタマイズ](https://openapi-generator.tech/docs/templating/)し、この属性を見て自動生成時に引数を追加する、というようなことを行いました。
+
+ただ、ここで利用される [mustache](https://mustache.github.io/) というテンプレートエンジン、文法が簡易で学習コストが低いというのが売りなようですが、代わりに表現力が非常に低く、色々妥協しないと容易にスパゲッティ化しそうです(というか既存のテンプレートの時点でもはやスパゲッティ化していると言って差し支えなさそう…)。
+
+# 対応手順
+
+## デフォルトテンプレートをローカルにコピー
+
+参考:
+
+- [Using Templates](https://openapi-generator.tech/docs/templating/)
+
+上のページにある通り、最新版の5.0(現時点ではまだ正式リリースされておらずbeta版)と、それより古いバージョンではテンプレートの取得方法が異なるようです。
+
+今回は、5.0の方が簡単そうに見えたのでそちらの方法でダウンロードしました。
+
+- <https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/>
+
+から所望のバージョン([openapi-generator-cli-5.0.0-beta.jar](https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.0.0-beta/openapi-generator-cli-5.0.0-beta.jar))をダウンロードし、これを用いて `specs/template` へテンプレートを格納します。
+
+    java -jar openapi-generator-cli-5.0.0-beta.jar author template \
+    -g spring --library spring-boot -o specs/template
+
+つづいて、 `build.gradle` でこのローカルに格納したテンプレートを用いるよう設定を行います。
+
+<div class="formalpara-title">
+
+**build.gradle**
+
+</div>
+
+``` groovy
+ openApiGenerate {
+     templateDir = "$rootDir/specs/template"
+     // ...
+ }
+```
+
+extension機能を用い、次のようにハンドラの引数を宣言することとしました:
+
+<div class="formalpara-title">
+
+**specs/test.yml**
+
+</div>
+
+       /books:
+         get:
+           description: books listing
+           x-handler-args:
+             - arg: javax.servlet.http.HttpServletRequest request
+             - arg: org.springframework.web.util.UriComponentsBuilder builder
+
+ちなみに、デフォルトで `` UriComponentsBuilder builder, ` のように挿入されるのですが、最後のカンマが必要ない(他に引数がない)場合には次のように `last `` という属性を用いることにしました:
+
+<div class="formalpara-title">
+
+**specs/test.yml**
+
+</div>
+
+       /books:
+         get:
+           description: books listing
+           x-handler-args:
+             - arg: javax.servlet.http.HttpServletRequest request
+             - arg: org.springframework.web.util.UriComponentsBuilder builder
+               last: true
+
+そして最後に、上記 `x-handler-args` を参照して自動生成するようにテンプレートを編集しました:
+
+<div class="formalpara-title">
+
+**specs/template/api.mustache**
+
+</div>
+
+    ({{#vendorExtensions.x-handler-args}}{{{arg}}}{{^last}}, {{/last}}{{/vendorExtensions.x-handler-args}}
+
+# 備考
+
+この対応を行った後、
+
+- [\[REQ\] How to add Principal parameter to Spring interface method? \#4680](https://github.com/OpenAPITools/openapi-generator/issues/4680#issuecomment-656199687)
+
+というissueがあるのに気づきました。 しかし、ここに書かれている対応を行ってみたものの上手く行きませんでした。 ( `in: query` って指定しているから `@RequestParam` が付く、つまりクエリパラメータとみなされてしまう。リンク先のような出力にはならない、よね…？)
+
+そういえば、modelの方にもカスタムバリデーションのアノテーションとかも付与したくなるよな…と考えたのですが、こちらは既に行われている方がいらっしゃいました:
+
+- [Swagger Codegenにおけるカスタムバリデーションの追加 - GeekFactory](https://int128.hatenablog.com/entry/2017/08/14/014253)
+
+やっぱり同じように vendor extension を使ってなんとかするようです。

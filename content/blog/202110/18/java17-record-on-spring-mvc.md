@@ -1,0 +1,73 @@
+---
+title: "Spring MVC で Java17 record を試してみる"
+date: 2021-10-18T10:03:46+09:00
+draft: false
+tags:
+  - spring-boot
+  - java
+---
+
+(※ `record` は Java14 でプレビュー版が導入、 Java16 で正式版が導入されたので Java17 というのは不正確なようですが…)
+
+Java17 の `record` を今まで利用してきた POJO から置き換えられるのかを簡単に見てみました。
+
+- <https://github.com/yukihane/hello-java/tree/master/spring/record-spring-mvc>
+
+結果、 Jackson も Thymeleaf も MapStruct もちゃんと `record` を変換してくれてそうに見えます。
+
+ただ、現時点(STS 4.12.0(Eclipse 2021-09 (4.21)相当)に [Java17 support plugin](https://marketplace.eclipse.org/content/java-17-support-eclipse-2021-09-421)を導入したもの) では、 MapStruct のマッパーインタフェースでエラーが出ているのが少し気持ち悪いです。
+
+``` java
+@RestController
+@RequestMapping("/rest")
+@RequiredArgsConstructor
+@Slf4j
+public class MyRestController {
+
+    private final ConversionService conversionService;
+
+    @PostMapping
+    public ResponseData rest(@RequestBody final RequestData req) {
+        log.info("req: {}", req);
+        final ResponseData resp = conversionService.convert(req, ResponseData.class);
+        log.info("resp: {}", resp);
+        return resp;
+    }
+
+    public record RequestData(
+        String name,
+        int age,
+        LocalDate registrationDate) {
+    }
+
+    public record ResponseData(
+        String name,
+        int age,
+        LocalDate registrationDate) {
+    }
+
+    @Mapper
+    public interface RequestDataMapper extends Converter<RequestData, ResponseData> {
+        @Override
+        ResponseData convert(RequestData source);
+    }
+}
+```
+
+``` java
+@Controller
+public class MyHtmlController {
+
+    @PostMapping
+    public String index(@ModelAttribute final FormData form, final Model model) {
+        model.addAttribute("form", form);
+        return "index";
+    }
+
+    public record FormData(
+        String name,
+        int age,
+        @DateTimeFormat(pattern = "uuuu-MM-dd") LocalDate registrationDate) {
+    }
+}
+```

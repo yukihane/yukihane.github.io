@@ -1,0 +1,68 @@
+---
+title: "Spring Security: OIDC の redirect_uri を変更する"
+date: 2020-09-03T22:50:21Z
+draft: false
+tags:
+  - oidc
+  - spring-boot
+  - spring-security
+---
+
+# はじめに
+
+[KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる]({{< relref"/blog/202007/21/hello-oidc-with-keycloak" >}}) で作成したコードに対して、 カスタム `redirect_uri` の設定を行ってみます。
+
+今回のコードはこちら:
+
+- <https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redirect-uri>
+
+# 変更手順
+
+## KeyCloak 登録情報の変更
+
+[前回のページ]({{< relref"/blog/202007/21/hello-oidc-with-keycloak" >}}) を参考に、 "Valid Redirect URIs" の値を今回変更するURL **http://localhost:8080/my_redirect_uri** に更新します。
+
+## Spring Boot 側の修正
+
+## registration 情報更新
+
+`application.yml` に registration 情報を登録していますが、今回変更するURLに更新します。
+
+<div class="formalpara-title">
+
+**application.yml**
+
+</div>
+
+``` yml
+        registration:
+          myspring:
+            redirect-uri: "{baseUrl}/my_redirect_uri"
+```
+
+### security config
+
+前回のコードでは security config はデフォルト([`OAuth2WebSecurityConfigurerAdapter`](https://github.com/spring-projects/spring-boot/blob/v2.3.3.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2WebSecurityConfiguration.java#L54-L65))のままで良かったので何も書きませんでした。
+
+今回は設定を追加する必要があるので、 `OAuth2WebSecurityConfigurerAdapter` 実装をコピーした上で、必要な設定を追加します。
+
+<div class="formalpara-title">
+
+**MyOAuth2WebSecurityConfiguration.java**
+
+</div>
+
+``` java
+@EnableWebSecurity
+public class MyOAuth2WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
+    @Override
+    protected void configure(final HttpSecurity http) throws Exception {
+        http.authorizeRequests((requests) -> requests.anyRequest().authenticated());
+        http.oauth2Login()
+            .loginProcessingUrl("/my_redirect_uri"); // 今回追加した部分
+        http.oauth2Client();
+    }
+}
+```
+
+以上です。結果だけ見ると簡単なんですが、どうやってみんなこの結論にたどり着いているのか疑問です… (自分はデバッガで追ったりSpring Securityのコードをcloneしてきてgrepしたりした。リファレンスにも書いてないよね…)

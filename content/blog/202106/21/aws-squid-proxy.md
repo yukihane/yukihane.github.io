@@ -1,0 +1,73 @@
+---
+title: "AWS EC2 で squid プロキシサーバを立てる"
+date: 2021-06-20T23:39:04Z
+draft: false
+tags:
+  - diary
+---
+
+# はじめに
+
+SteamのDLC等をダウンロードしようとしたとき、IPアドレスによるアクセス制限が課されている場合があり、それを回避する必要が出る状況がたまにあります。
+
+VPNを利用したりする方法が解説されていることもありますが、VPN方式だとPCに別途アプリをインストールしたりする必要があるので煩雑です。
+
+私はそのような用途に、AWS EC2 経由でのアクセスを行っているのですが、毎回やり方を思い出すのに時間がかかったりするのでメモを残しておきます。
+
+Windowsから設定する前提です。
+
+# 前提知識
+
+- EC2基礎操作
+
+- Linuxの基本操作
+
+# セットアップ
+
+EC2 インスタンを起動します。
+
+| 項目名               | 値                                                                            | 備考                                           |
+|----------------------|-------------------------------------------------------------------------------|------------------------------------------------|
+| リージョン           | [バージニア北部](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1) | 必要に応じて変更                               |
+| AMI                  | Amazon Linux 2                                                                | 無料枠対象になっているやつです                 |
+| セキュリティグループ | SSHに加えて、ポート範囲: `3128`, ソース: `(自分のIPv4アドレス)/32` を追加     | `3128` が squid のデフォルトリッスンポートです |
+
+上記でセットアップしたEC2インスタンスにsshでログインします。 その後、次の操作を行います。
+
+squidをインストールします:
+
+    sudo yum -y install squid
+
+`/etc/squid/squid.conf` を編集して、自分のPCからの接続を許可します:
+
+    $ sudo diff -c /etc/squid/squid.conf{.orig,}
+    *** /etc/squid/squid.conf.orig  2021-06-21 00:00:12.999196705 +0000
+    --- /etc/squid/squid.conf       2021-06-21 00:01:11.786605896 +0000
+    ***************
+    *** 10,15 ****
+    --- 10,16 ----
+      acl localnet src 192.168.0.0/16       # RFC1918 possible internal network
+      acl localnet src fc00::/7       # RFC 4193 local private network range
+      acl localnet src fe80::/10      # RFC 4291 link-local (directly plugged) machines
+    + acl mypc src (自分のIPv4アドレス)/32 # セキュリティグループに設定したものと同じ
+
+      acl SSL_ports port 443
+      acl Safe_ports port 80                # http
+    ***************
+    *** 51,56 ****
+    --- 52,58 ----
+      # from where browsing should be allowed
+      http_access allow localnet
+      http_access allow localhost
+    + http_access allow mypc
+
+      # And finally deny all other access to this proxy
+      http_access deny all
+
+squidを起動します:
+
+    sudo systemctl start squid
+
+あとは、AWS EC2 コンソールでこの EC インスタンスの **パブリック IPv4 アドレス** を調べて、ブラウザのプロキシ設定に、サーバ名にはこのパブリック IPv4 アドレスを、ポート番号に `3128` を設定すれば完了です。
+
+Firefox であれば、システムの設定を変更せずに、ブラウザに閉じたプロキシ設定ができます。 Google Chrome は OS(Windows) の設定と統合されているようでした(ので今回の用途には不便です)。

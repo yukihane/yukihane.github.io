@@ -1,0 +1,27 @@
+---
+title: "Spring MVCにはJPA EntityのIDからエンティティオブジェクトに変換する機能がある(が、2.3.1では機能しない)"
+date: 2020-06-20T08:16:28Z
+draft: false
+tags:
+  - spring-boot
+---
+
+追記: 2020-07-24にリリースされた2.3.2, 2.2.9 でこの問題は修正されました。ただし、2.1.16では未修正のままのようでした。
+
+Spring Bootは [Spring Data Commons](https://docs.spring.io/spring-data/commons/docs/current/reference/html/) を利用して、Thymeleaf(など)からのリクエストからオブジェクトへ変換する際、Sprint Data JPAと連携して、IDからエンティティオブジェクトへマッピングする機能があります([3.2. Property population](https://docs.spring.io/spring-data/commons/docs/2.3.1.RELEASE/reference/html/#mapping.property-population))。
+
+こんな機能があるなんて知りませんでした…。というのも、JPA Entityをそのままリクエストやレスポンスに使うことはなくて、いわゆるDTOへ変換したものを常に使っていたからでした。
+
+この機能、ソースを追いかけてみると [`ToEntityConverter`](https://github.com/spring-projects/spring-data-commons/blob/2.3.1.RELEASE/src/main/java/org/springframework/data/repository/support/DomainClassConverter.java#L124-L130) が担っているようですが、Spring Boot 2.3.1, 2.2.8, 2.1.15(現時点での最新リリースバージョン)ではこのコンバータがコンテキストに登録されないというバグがあり、機能していません。
+
+前述の通り、私自身はこの機能について存在自体を知らなかったので影響はないのですが、使っている人にとってはかなり影響が大きいのではないかと思います。
+
+暫定対応としては、最新版のひとつ前のバージョン、つまり 2.3.0, 2.2.7, 2.1.5 を利用する、といったところでしょうか。
+
+関連リンク:
+
+- [Translation of URI segments and request parameters into aggregates broken](https://jira.spring.io/browse/DATACMNS-1743) (Spring Data Commons バグレポート)
+
+- [HTML form submit not working with Spring Boot 2.3.1](https://stackoverflow.com/q/62480677/4506703)
+
+- [Springboot JPAを使用しオブジェクト間の関連を設定。ブログにコメントが投稿できるようにしたい。](https://ja.stackoverflow.com/q/67679/2808)

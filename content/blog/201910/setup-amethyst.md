@@ -1,0 +1,106 @@
+---
+title: Intel iGPU環境でのAmethyst 開発環境セットアップ
+date: 2019-10-08
+draft: false
+tags:
+  - rust
+  - ubuntu
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: rust, ubuntu
+:idprefix:
+---
+
+# TL;DR
+
+Ubuntu18.04, Coffee Lake iGPU で vulkan での実行を可能にするには
+
+- `mesa-vulkan-drivers` パッケージインストール
+
+- `/etc/X11/xorg.conf.d/20-intel.conf` で DRI3 有効化
+
+の2点が必要。
+
+(おそらく実際には、実行に `libvulkan1` 、及び開発には加えて `libvulkan-dev` も必要と思われるが、最初からインストールされていた)
+
+# はじめに
+
+Ubuntu18.04, Intel i5-8400(Coffee Lake; [Wikipedia](https://ja.wikipedia.org/wiki/Intel_Core_i5#Coffee_Lake_%E4%B8%96%E4%BB%A3)によるとiGPUは **UHD Graphics 630** だそうだ)でRustで開発されたゲームエンジン [Amethyst](https://amethyst.rs/) を動かしてみようとしたところ次のエラーでクラッシュしたので解決を試みました。
+
+# 作業ログ
+
+## ソースのダウンロードと実行
+
+[amethyst-starter-2d](https://github.com/amethyst/amethyst-starter-2d) をダウンロードして `cargo run` してみたところ次のエラーとなりました。
+
+> thread 'main' panicked at 'Unable to create Vulkan instance: VkError(ERROR_INCOMPATIBLE_DRIVER)', src/libcore/result.rs:1084:5
+
+## リファレンスに書かれていた依存ライブラリのインストール
+
+[ガイド](https://book.amethyst.rs/stable/getting-started.html#required-dependencies)を読んでみると必要な依存関係が書かれていたので、この通りにインストールを行いました(ただし既に全てインストール済みのようでした)。
+
+    sudo apt install gcc pkg-config openssl libasound2-dev cmake build-essential python3 libfreetype6-dev libexpat1-dev libxcb-composite0-dev libssl-dev libx11-dev
+
+この後再度 `cargo run` するも当然ながら結果は変わらず。
+
+`vulkan-utils` パッケージの `vulkaninfo` コマンドで情報を表示できるようなのでインストールして実行してみました。
+
+    sudo apt install vulkan-utils
+    vulkaninfo
+
+> Vulkan Instance Version: 1.1.70
+>
+> Cannot create Vulkan instance. /build/vulkan-UL09PJ/vulkan-1.1.70+dfsg1/demos/vulkaninfo.c:768: failed with VK_ERROR_INCOMPATIBLE_DRIVER
+
+ということでやはり同じ(と思われる)エラーが出ました。
+
+## Mesaインストール
+
+Wikipediaの [VulkanのCompatibility](https://en.wikipedia.org/wiki/Vulkan_(API)#Compatibility)の項目を読むと、Mesaで対応しているようなので `` apt search "mesa vulkan"`コマンドを実行して見つかったパッケージ `mesa-vulkan-drivers `` をインストールしてみました(ちなみに、参考文献のリンク先はもはや陳腐化した記述になっていましたのでその記述通りにはセットアップできません [^1])。
+
+    sudo apt install mesa-vulkan-drivers
+
+この後、再び `amethyst-starter-2d` を `cargo run` してみたところ、前回とは異なるエラーが出るようになっていました。
+
+かなり長いメッセージが出ていますが、
+
+> vulkan: No DRI3 support detected - required for presentation Note: you can probably enable DRI3 in your Xorg config
+
+がキモのようです。
+
+前出の `vulkaninfo` コマンドは正常終了するようになりました。
+
+また、 `vulkan-utils` パッケージには `vulkan-smoketest` というコマンドも含まれているようなのでこれも実行してみます。結果:
+
+> vulkan: No DRI3 support detected - required for presentation  
+> Note: you can probably enable DRI3 in your Xorg config
+
+ということで、 DIR3 を有効にする、というのが解決策のように見えました。
+
+## DRI3 有効化
+
+- [Installing Vulkan :: Steam for Linux Intel Graphics Cards](https://steamcommunity.com/app/221410/discussions/6/1742227264188882438/)
+
+- [How to enable DRI3 on Ubuntu 16.04 - Ask Ubuntu](https://askubuntu.com/questions/817226/how-to-enable-dri3-on-ubuntu-16-04)
+
+上記の説明を参考にし、
+
+`/etc/X11/xorg.conf.d/20-intel.conf` ファイルの該当箇所に次の記述を追加しました。
+
+    Option      "DRI"    "3"
+
+元々の設定と合わせると、次のようなものになりました。
+
+    Section "Device"
+       Identifier  "Intel Graphics"
+       Driver      "intel"
+       Option      "TripleBuffer" "true"
+       Option      "TearFree"     "true"
+       Option      "DRI"     "3"
+    EndSection
+
+その後、再起動。
+
+再起動後、 `vulkan-smoketest` を実行すると正常に実行でき、また、 amethyst-starter-2d ディレクトリでの `cargo run` も実行できるようになりました。
+
+[^1]: 以前はIntelのグラフィックドライバはソースからインストールする必要があった(そのためPPAが作られた)ようですが、現在はカーネルに統合されているようです([参考](https://01.org/linuxgraphics/downloads/update-tool))。

@@ -1,0 +1,14 @@
+---
+title: "ミニマル `.vimrc`"
+date: 2020-05-26T21:58:21Z
+draft: false
+tags:
+  - kubernetes
+---
+
+kubernetesの試験を受けるに当たって、最小限の `.vimrc` を覚えておくためのメモ:
+
+    set autoindent
+    set expandtab
+    set tabstop=2
+    set shiftwidth=2

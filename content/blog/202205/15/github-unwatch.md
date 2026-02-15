@@ -1,0 +1,39 @@
+---
+title: "GitHub の通知をちゃんと使えるように設定する"
+date: 2022-05-15T19:54:13+09:00
+draft: false
+tags:
+  - github
+---
+
+# はじめに
+
+今回初めて仕事で GitHub ([GitHub Enterpsise Cloude](https://docs.github.com/ja/get-started/onboarding/getting-started-with-github-enterprise-cloud)) を使うことになりました。
+
+始める前は少しアコガレなんかも有ったりしたのですが、いざやってみると、思ったほど素敵では無いですね…​ これまでプライベートスペースだったところに仕事が入り込んでくる居心地の悪さよ。 後日、他の人に聞いてみたり見てみたりした感じ、(規約的にはまずそうですが)アカウントを使い分けている人もそれなりに居そうで、自分もそうすりゃ良かったかも、と思う始末です。
+
+さて、やってしまったものは仕方がないのでこのまま行くしか無いのですが、大きな問題が1つ。 通知が大量の仕事のもので溢れてしまって、役に立たなくなってしまいました。これをどうにかせねばなるまい、というのが今回の話です。
+
+# 通知抑止設定
+
+- [Configuring notifications](https://docs.github.com/ja/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)
+
+を読んで設定しましょう。
+
+一番効果があるのは、自動ウォッチを行わないように設定することです。
+
+<https://github.com/settings/notifications> を開き、 **Automatic watching** セクションのチェックを外します。
+
+# ウォッチしているリポジトリの一括アンウォッチ
+
+上記の設定を行うことで、新たに権限を与えられたリポジトリを自動でウォッチすることはなくなりました。
+
+ただし、既にウォッチしてしまっているリポジトリはそのままなので、それらのウォッチを解除する必要があります。
+
+少数であれば <https://github.com/watching> からひとつひとつ unwatch 設定していく、つまり **Participating and @mentions.** を選んでいけば良いのですが、大量にある場合それも大変です。
+
+そこで一括 unwatch 処理するスクリプトを作成しました。
+
+- <https://github.com/yukihane/github-unwatch-repositories>
+
+利用方法は [README](https://github.com/yukihane/github-unwatch-repositories/blob/main/README.ja.adoc) を参照してください。

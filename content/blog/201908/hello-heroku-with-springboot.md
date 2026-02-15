@@ -1,0 +1,104 @@
+---
+title: HerokuでSpringBootアプリを動かしてみる
+date: 2019-08-22
+draft: false
+tags:
+  - java
+  - spring-boot
+  - heroku
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: java,springboot,heroku
+:idprefix:
+---
+
+# 背景
+
+最終的にはLINE platformのAPIを理解したいのですが、 [リファレンス](https://developers.line.biz/ja/docs/)を読んでいるとサンプルプログラム(サンプルbot)をHerokuにデプロイして試してみる、というような説明が多数あったので、Herokuについて理解しておこう、と考えました。
+
+そういった考えで、今回、単純なSpringBoot hello-worldアプリをHerokuにデプロイして接続確認してみることにしました。
+
+# デプロイしてみる
+
+ローカルでビルドした `jar` をアップロードする方法と、コードをアップロードしてHerokuでビルド&デプロイする方法があるようでしたのでその2つを試してみます。
+
+# コードをアップロードしてHerokuでビルド&デプロイする方法
+
+- [Deploying Spring Boot Applications to Heroku](https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku)
+
+やってみようと思ったことは上記公式リファレンスでカバーされていました。
+
+ちなみにHeroku CLIコマンドのインストールは:
+
+- [The Heroku CLI \> Download and install](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
+
+<!-- -->
+
+    sudo snap install heroku --classic
+
+`heroku create` [^1] コマンドでHeroku側のリモートGitリポジトリが `heroku` という名前でaddされるので、そのリポジトリに `git push heroku [ブランチ]` コマンドでpushすることでビルドとデプロイが行われるようです。
+
+さて上記の通り `git add` してみたのですが失敗してしまいました。ログを見ると冒頭次の出力がありました。
+
+    remote: -----> Java app detected
+    remote: -----> Installing JDK 1.8... done
+    remote: -----> Installing Maven 3.3.9... done
+    remote: -----> Executing: mvn -DskipTests clean dependency:list install
+
+今回はJava11で作っていたにもかかわらずJava8でビルドしようとしたためにエラーになっているようです。
+
+Herokuが使用するJavaやMavenのバージョンを明示的にこちらで指定するには `system.properties` ファイルをGit管理ファイルに含めれば良いようです。ルート直下、つまり `pom.xml` と同じ階層に置いておけば良いようです。
+
+<div class="formalpara-title">
+
+**system.properties**
+
+</div>
+
+    java.runtime.version=11
+
+(MavenはHerokuが対応しているバージョンのうち最新のものが使われているようなのでここでは改めて設定しませんでした。)
+
+バージョンを明示的に指定していない場合、Javaのバージョンは再デプロイしたタイミングで更新されるようです(現在1.8のものが将来的に自動で11とかになるということだろうか…？)が、Mavenは最初に用いたバージョンを使い続けるようです[^2]。
+
+参考: [Specifying a Maven version](https://devcenter.heroku.com/articles/java-support#specifying-a-maven-version) - Heroku Java Support
+
+さて改めて `git push` コマンドを実行してみると、今度はbuild成功し、ログ出力されている `https://[app名].herokuapp.com/` にアクセスすると、デモで作成した出力が得られました。
+
+# ローカルでビルドした `jar` をデプロイする
+
+参考:
+
+- [Deploying Executable JAR Files](https://devcenter.heroku.com/articles/deploying-executable-jar-files)
+
+- [Setting the HTTP Port for Java Applications](https://devcenter.heroku.com/articles/setting-the-http-port-for-java-applications)
+
+- [Customizing your deployment](https://github.com/heroku/heroku-cli-deploy#customizing-your-deployment) - Heroku Deploy War/Jar
+
+- [63.2 Heroku](https://docs.spring.io/spring-boot/docs/2.1.7.RELEASE/reference/html/cloud-deployment.html#cloud-deployment-heroku) - Spring Boot reference
+
+`jar` をデプロイする場合には、 Heroku Java CLI plugin を追加でインストールしておく必要があるようです。
+
+    heroku plugins:install java
+
+また、Java11を使うためには上で行ったコードからでブロイする場合と同じように `system.properties` ファイルを用意し、これをカレントディレクトリ( `heroku` コマンドを実行しているディレクトリ)に置きます。 また、デプロイした `jar` を実行するためのコマンドを `Procfile` に書き、これもカレントディレクトリに置きます。
+
+さて、デプロイした `jar` がリッスンすべきポート番号はデプロイの度に変わるようで、アプリケーションには環境変数 `PORT` でポート番号が知らされます。 そのポートをリッスンするできるように実行コマンドや設定ファイルを作っておかなければなりません。 (コードベースのSpringBootアプリケーションデプロイでは、これは自動で行ってくれているのでしょう)
+
+今回はコマンドラインでポート指定することにしました。すなわち、　`Procfile` には次のように書きました:
+
+<div class="formalpara-title">
+
+**Procfile**
+
+</div>
+
+    web: java -Dserver.port=$PORT -jar target/hello-heroku-0.0.1-SNAPSHOT.jar
+
+これらの設定を行ったあと、デプロイします:
+
+    heroku deploy:jar target/hello-heroku-0.0.1-SNAPSHOT.jar
+
+[^1]: この場合app名は自動で命名される。app名を明示したい場合は `heroku create <app名>` 。
+
+[^2]: バージョンを変更するには `system.properties` で使用バージョンを明示しなければならない。

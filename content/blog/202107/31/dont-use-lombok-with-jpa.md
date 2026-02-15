@@ -1,0 +1,30 @@
+---
+title: "JPA Entity には Lombok の @Data(@EqualsAndHashCode) を使用すべきでない"
+date: 2021-07-30T17:57:08Z
+draft: false
+tags:
+  - jpa
+  - lombok
+---
+
+問題になりそうなキーワード:
+
+- lazy loading
+
+- collection
+
+- 循環参照
+
+- mutability
+
+`@Data`(`@EqualsAndHashCode`) を付与すると `hashCode()` は自動で算出されるようになりますが、JPA `@Entity` では上記のような理由で、ハッシュ値が計算できなかったり要件を満たせなくなったりします。
+
+次のリンク先により詳しく解説が有ります:
+
+- [Lombok and JPA: What Could Go Wrong?](https://dzone.com/articles/lombok-and-jpa-what-may-go-wrong)
+
+- [Lombok & Hibernate: How to Avoid Common Pitfalls](https://thorben-janssen.com/lombok-hibernate-how-to-avoid-common-pitfalls)
+
+`equals()` や `hashCode()` は、大抵の場合デフォルト状態で上手くいきます。考慮無くオーバライドしてしまうと逆に問題を発生させてしまう可能性もある、ということです。
+
+- [JPAのエンティティにはequalsとhashCodeを実装すべきか？](https://ja.stackoverflow.com/a/57151/2808) - スタック・オーバーフロー

@@ -1,0 +1,123 @@
+---
+title: Lombokプラグインを入れているEclipseでMapStruct自動生成が機能しない
+date: 2019-08-18
+draft: false
+tags:
+  - java
+  - lombok
+  - mapstruct
+  - eclipse
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: java,lombok,mapstruct,eclipse
+:idprefix:
+---
+
+- サンプルコード: <https://github.com/yukihane/hello-java/tree/master/mapstruct/hello-mapstruct>
+
+上記のコードのようにLombokとMapStructを併用しているプロジェクトを、 [Lombokプラグインを適用したEclipse](https://projectlombok.org/setup/eclipse)で読み込ませるとMapStructのコードが自動生成されません。 そのため、Eclipse上でJUnitテストを実行すると次のように `java.lang.ClassNotFoundException: Cannot find implementation` というエラーになります。
+
+    java.lang.ExceptionInInitializerError
+        at com.github.yukihane.hello_mapstruct.CarMapperTest.shouldMapCarToDto(CarMapperTest.java:15)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:498)
+        at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+        at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+        at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+        at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+        at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+        at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+        at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+        at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+        at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+        at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+        at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+        at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+        at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+        at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)
+        at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
+        at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541)
+        at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763)
+        at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463)
+        at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209)
+    Caused by: java.lang.RuntimeException: java.lang.ClassNotFoundException: Cannot find implementation for com.github.yukihane.hello_mapstruct.CarMapper
+        at org.mapstruct.factory.Mappers.getMapper(Mappers.java:61)
+        at com.github.yukihane.hello_mapstruct.CarMapper.<clinit>(CarMapper.java:9)
+        ... 24 more
+    Caused by: java.lang.ClassNotFoundException: Cannot find implementation for com.github.yukihane.hello_mapstruct.CarMapper
+        at org.mapstruct.factory.Mappers.getMapper(Mappers.java:75)
+        at org.mapstruct.factory.Mappers.getMapper(Mappers.java:58)
+        ... 25 more
+
+また、 `Error Log` ビューを見ると、次のエラーが出力されています。
+
+    java.lang.NoClassDefFoundError: org/mapstruct/ap/spi/AstModifyingAnnotationProcessor
+        at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+        at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1016)
+        at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:174)
+        at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:802)
+        at java.base/jdk.internal.loader.BuiltinClassLoader.findClassOnClassPathOrNull(BuiltinClassLoader.java:700)
+        at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:623)
+        at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
+        at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+        at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:575)
+        at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:575)
+        at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+        at java.base/java.lang.Class.forName0(Native Method)
+        at java.base/java.lang.Class.forName(Class.java:398)
+        at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.nextProviderClass(ServiceLoader.java:1209)
+        at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.hasNextService(ServiceLoader.java:1220)
+        at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.hasNext(ServiceLoader.java:1264)
+        at java.base/java.util.ServiceLoader$2.hasNext(ServiceLoader.java:1299)
+        at java.base/java.util.ServiceLoader$3.hasNext(ServiceLoader.java:1384)
+        at org.mapstruct.ap.internal.util.AnnotationProcessorContext.findAstModifyingAnnotationProcessors(AnnotationProcessorContext.java:91)
+        at org.mapstruct.ap.internal.util.AnnotationProcessorContext.<init>(AnnotationProcessorContext.java:45)
+        at org.mapstruct.ap.MappingProcessor.init(MappingProcessor.java:123)
+        at org.eclipse.jdt.internal.apt.pluggable.core.dispatch.IdeAnnotationProcessorManager.discoverNextProcessor(IdeAnnotationProcessorManager.java:97)
+        at org.eclipse.jdt.internal.compiler.apt.dispatch.RoundDispatcher.round(RoundDispatcher.java:119)
+        at org.eclipse.jdt.internal.compiler.apt.dispatch.BaseAnnotationProcessorManager.processAnnotations(BaseAnnotationProcessorManager.java:171)
+        at org.eclipse.jdt.internal.apt.pluggable.core.dispatch.IdeAnnotationProcessorManager.processAnnotations(IdeAnnotationProcessorManager.java:138)
+        at org.eclipse.jdt.internal.compiler.Compiler.processAnnotations(Compiler.java:940)
+        at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:450)
+        at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:426)
+        at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:386)
+        at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.compile(BatchImageBuilder.java:214)
+        at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:318)
+        at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:79)
+        at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:265)
+        at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:180)
+        at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:833)
+        at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+        at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:220)
+        at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:263)
+        at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:316)
+        at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+        at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:319)
+        at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:371)
+        at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:392)
+        at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:154)
+        at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:244)
+        at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+    Caused by: java.lang.ClassNotFoundException: org.mapstruct.ap.spi.AstModifyingAnnotationProcessor
+        at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:583)
+        at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+        at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+        ... 46 more
+
+この問題はMapStructオフィシャルのissueにも登録されており、そこに解決策(workaroundですが)が提示されています。
+
+- [Mapstruct, Lombok, Maven & Eclipse \#1159](https://github.com/mapstruct/mapstruct/issues/1159#issuecomment-374617404)
+
+曰く、このパッチされた `lombok.jar` をEclipseに登録すれば良い、というわけです。
+
+ただ、MapStructオフィシャル(あるいはLombokオフィシャル)で提供されているものではないし、少しこれを使うのは気持ち悪いかも、と思ったのでオフィシャル `jar` から自前で作成することにしました。
+
+- <https://raw.githubusercontent.com/yukihane/prefs/master/install/lombok-patch-for-mapstruct.sh>
+
+`Error Log` の通り、 `AstModifyingAnnotationProcessor` というクラスが見つからないのが原因ですが、実際には `lombok.jar` には含まれています。ただ、何らかの理由で標準のクラスパスには含められていないようです。 これを標準クラスパスに移してしまう、というのが上のスクリプトで行っていることです。
+
+制限事項としては、上のスクリプトで作成した `lombok.jar` を使う場合、 **Eclipseを動作させるJDKはバージョン9以上でなければなりません** (もしかすると、オフィシャル `jar` でクラスパスが別れているのはこれが理由かもしれません)。
+
+ちなみに、LombokとMapStructを同時に適用する場合の `pom.xml` は [こんな感じ](https://github.com/yukihane/hello-java/blob/master/mapstruct/hello-mapstruct/pom.xml) です。

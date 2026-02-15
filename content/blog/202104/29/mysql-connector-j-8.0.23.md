@@ -1,0 +1,22 @@
+---
+title: "MySQL Connector/J 8.0.23 でタイムゾーン変換メカニズムが変更になった"
+date: 2021-04-28T15:55:52Z
+draft: false
+tags:
+  - spring-boot
+  - mysql
+  - timezone
+  - datetime
+---
+
+MySQL Connector/J `8.0.23` でタイムゾーン変換のメカニズムが変わりました(Spring Boot では [`2.3.9`](https://docs.spring.io/spring-boot/docs/2.3.9.RELEASE/reference/html/appendix-dependency-versions.html#dependency-versions)以降, [`2.4.3`](https://docs.spring.io/spring-boot/docs/2.4.3/reference/html/appendix-dependency-versions.html#dependency-versions)以降でこれを採用しています)。
+
+> **Important Change**: A new mechanism has been introduced for users to configure how time zone conversions should occur when time instants are saved to or retrieved from a server by Connector/J.
+>
+> —  [MySQL :: MySQL Connector/J 8.0 Release Notes :: Changes in MySQL Connector/J 8.0.23 (2021-01-18, General Availability)](https://dev.mysql.com/doc/relnotes/connector-j/8.0/en/news-8-0-23.html)
+
+影響を受ける典型的な例としては、 **DBサーバとクライアントで異なるタイムゾーンで動いている場合** です。
+
+次のリンク先では、DBサーバが UTC, クライアント(`mysql-connector-java` を利用しているSpring Boot)が JST で動作している環境で検証を行いました。 具体的にどのような挙動になるのかを確認できます。
+
+- [MySQL Connector/J 8.0.23 でセッションタイムゾーンのデフォルト挙動が変わっている](https://github.com/yukihane/hello-java/tree/master/spring/mysql-timezone-example) - GitHub

@@ -1,7 +1,0 @@
----
-title: "仕事"
-date: 2020-07-23T17:06:52Z
-draft: false
-collapsible: true
----
-

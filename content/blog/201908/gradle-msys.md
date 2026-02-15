@@ -1,0 +1,64 @@
+---
+title: Gradleプロジェクトで生成した実行スクリプトがGitBash(MSYS環境)でうまく動かない
+date: 2019-08-23
+draft: false
+tags:
+  - java
+  - jbake
+  - gradle
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: java,jbake,gradle
+:idprefix:
+---
+
+GitBash環境でSDKMAN!を使ってJBakeをインストールしたのですが、 `jbake` コマンドを実行すると次のようなエラーが出てうまく動きませんでした。
+
+    エラー: メイン・クラスorg.jbake.launcher.Mainを検出およびロードできませんでした
+    原因: java.lang.ClassNotFoundException: org.jbake.launcher.Main
+
+実行スクリプトを調べてみると、クラスパス設定時にjarをワイルドカード指定している([参考](https://docs.oracle.com/javase/jp/8/docs/technotes/tools/windows/classpath.html#A1100762))のですが、そこで絶対パスの記述方式がMSYSのもの `/c/Users/yuki/…​/*` のような形になっているため `java` コマンドに想定通り受け付けられていないようでした。
+
+この `jbake` スクリプトファイルを見てみたところ、次のようにmsysを判定している処理は入っていました。 が、この `msys` 変数を以降の処理で全く参照していませんでした。
+
+<div class="formalpara-title">
+
+**jbake**
+
+</div>
+
+    # OS specific support (must be 'true' or 'false').
+    cygwin=false
+    msys=false
+    darwin=false
+    nonstop=false
+    case "`uname`" in
+      CYGWIN* )
+        cygwin=true
+        ;;
+      Darwin* )
+        darwin=true
+        ;;
+      MINGW* )
+        msys=true
+        ;;
+      NONSTOP* )
+        nonstop=true
+        ;;
+    esac
+
+Cygwinと同じ分岐に乗せればうまく動きそうに見えたので、そのように修正しようとしたのですが、いくらGitリポジトリを探してもみつからない。つまりバージョン管理対象ではなく自動生成しているようでした。
+
+ファイルをいろいろ見て回った結果、 `gradle/application.gradle` ファイル内の `startScripts` がそれっぽく見えたので検索してみたところ、やっとたどり着きました。
+
+- [The Application Plugin](https://docs.gradle.org/current/userguide/application_plugin.html)
+
+Gradleのコア機能だったようです。 これはGradleへの近トリビュートチャンスか？と思いIssuesを見てみたのですが、なんと、最新のバージョンである5.6で修正されていました…
+
+- [Fix start script to run in MingW shell properly \#8679](https://github.com/gradle/gradle/pull/8679)
+
+というわけで、JBakeがGitBashで実行できない問題は、gradlewが使用しているGradleのバージョンをアップグレードすれば解消されます。
+
+というわけでIssueを挙げました:
+
+- [jbake command does not work on MSYS(GitBash) \#612](https://github.com/jbake-org/jbake/issues/612)

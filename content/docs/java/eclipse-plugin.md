@@ -1,0 +1,59 @@
+---
+title: "Eclipse Plugin"
+date: 2020-07-26T02:46:12Z
+draft: false
+---
+
+# リソース
+
+- [vogella社のチュートリアル](https://www.vogella.com/tutorials/eclipseplatform.html) のうちのいくつか
+
+- Packt社刊 [Eclipse Plug-in Development: Beginner’s Guide - Second Edition](https://www.packtpub.com/product/eclipse-plug-in-development-beginner-s-guide-second-edition/9781783980697)
+
+- Eclipse Plug-in と Eclipse RCP は技術スタックが同じっぽいので、 RCP の記事も参考になる…のだと思う
+
+# [Eclipse Plug-in Development: Beginner’s Guide - Second Edition](https://www.packtpub.com/product/eclipse-plug-in-development-beginner-s-guide-second-edition/9781783980697) 写経時のハマりポイントメモ
+
+## Chapter 2
+
+- p.32: Plug-in Project 作成時の **Plug-in with a view** というテンプレートは無くなっている。
+
+  - おそらく **View contribution using 3.x API** が該当するものだと思う。
+
+- p.33: ↑のテンプレートでプロジェクト生成するとコンパイルエラーが発生している。
+
+  - `ViewPart` 継承クラスから `workbench` フィールドが漏れている模様。 [対応差分](https://github.com/yukihane/com.packtpub.e4/commit/6eb5819e71a96a911f5d2aaa55b85a0216947302)
+
+    - ↑の対応策は、Extensions の追加から生成したときのファイルから類推した。
+
+- p.52: ここに書かれているようなリークは発生していない。
+
+  - [`Color#dispose()` の Javadoc](https://javadoc.scijava.org/Eclipse/org/eclipse/swt/graphics/Color.html) には次のようにある: "Colors do not need to be disposed, however to maintain compatibility with older code, disposing a Color is not an error."
+
+- p.58: テンプレートに入っている画像ファイルは `gif` 形式でなく `png` 形式に変わっている。
+
+  - Java コードに書くファイルパスも変える必要あり。
+
+- p.58: Ubuntu 20.04 で実行しているが、システムトレイにアイコンが出ない。そもそもシステムトレイってどこのこと…？
+
+## Chapter 3
+
+- p.73: `@PostConstruct` アノテーションは `javax.annotation` を Dependencies に追加する必要があるように変わっている模様。
+
+  - <https://stackoverflow.com/a/54592615>
+
+- p.78: `@Focus` を付けたメソッド、実行はされているのだが、このメソッドが何をしているのかがわからない(コメントアウトしても挙動が変わっているようには見えない)。
+
+## Chapter 4
+
+- p.108: typo が2つ含まれているのでコピペすると間違う。 packtub (packtpub が正解), HleloHandler (HelloHandler が正解)
+
+- p.109: メニュー作成のウィザード、説明が雑で抜けている。リポジトリのコードを見て補完する必要がある。
+
+  - menuContribution の ID は `com.packtpub.e4.clock.ui.menucontribution.hello`
+
+- p.110: 11. の ID値、書籍では `Hello` だがリポジトリのコードは `hello` 。
+
+- p.117: Dependencies に `org.eclipse.ui.services` を追加しろとあるが、存在しない。
+
+  - リポジトリのコードにも追加されていないので無視する。

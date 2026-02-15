@@ -1,0 +1,7 @@
+---
+title: "シェルプログラミング"
+date: 2020-07-26T02:05:07Z
+draft: false
+---
+
+- [安全な一時ファイルの作成と削除の方法 - 拡張 POSIX シェルスクリプト Advent Calendar 2013 - ダメ出し Blog](https://fumiyas.github.io/2013/12/06/tempfile.sh-advent-calendar.html)
