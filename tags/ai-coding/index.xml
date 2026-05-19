@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Sun, 26 Oct 2025 13:29:34 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 20 May 2026 03:21:13 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/ai-coding/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AIコーディング近況</title>
+      <link>https://yukihane.github.io/blog/202605/20/current-ai-coding/</link>
+      <pubDate>Wed, 20 May 2026 03:21:13 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202605/20/current-ai-coding/</guid>
+      <description>&lt;p&gt;2025-10-26 に次の記事を書きました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202510/26/codex-cli-first-impression/&#34;&gt;これまでのAIコーディングの略歴、Codex Cli ファーストインプレッション&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;これは、私のAI利用略歴と、当時は主に Claude Code(仕事)と Codex CLI(プライベート)を使い分けていた、という内容でした。&lt;br /&gt;&#xA;本記事では、その後の近況を記録しておきます。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>これまでのAIコーディングの略歴、Codex Cli ファーストインプレッション</title>
       <link>https://yukihane.github.io/blog/202510/26/codex-cli-first-impression/</link>

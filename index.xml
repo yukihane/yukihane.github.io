@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Wed, 20 May 2026 03:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 20 May 2026 03:21:13 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AIコーディング近況</title>
+      <link>https://yukihane.github.io/blog/202605/20/current-ai-coding/</link>
+      <pubDate>Wed, 20 May 2026 03:21:13 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202605/20/current-ai-coding/</guid>
+      <description>&lt;p&gt;2025-10-26 に次の記事を書きました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202510/26/codex-cli-first-impression/&#34;&gt;これまでのAIコーディングの略歴、Codex Cli ファーストインプレッション&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;これは、私のAI利用略歴と、当時は主に Claude Code(仕事)と Codex CLI(プライベート)を使い分けていた、という内容でした。&lt;br /&gt;&#xA;本記事では、その後の近況を記録しておきます。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる話</title>
       <link>https://yukihane.github.io/blog/202605/20/kotlin-value-class-spring-mvc-binding/</link>
@@ -701,13 +708,6 @@
       <pubDate>Thu, 03 Sep 2020 22:50:21 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202009/04/oidc-change-redirect-uri/</guid>
       <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/&#34;&gt;KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる&lt;/a&gt; で作成したコードに対して、 カスタム &lt;code&gt;redirect_uri&lt;/code&gt; の設定を行ってみます。&lt;/p&gt;&#xA;&lt;p&gt;今回のコードはこちら:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redirect-uri&#34;&gt;https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redirect-uri&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;変更手順&#34;&gt;変更手順&lt;/h1&gt;&#xA;&lt;h2 id=&#34;keycloak-登録情報の変更&#34;&gt;KeyCloak 登録情報の変更&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/&#34;&gt;前回のページ&lt;/a&gt; を参考に、 &amp;ldquo;Valid Redirect URIs&amp;rdquo; の値を今回変更するURL &lt;strong&gt;http://localhost:8080/my_redirect_uri&lt;/strong&gt; に更新します。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>DevToolsを組み込んでいると再起動してもsessionが引き継がれる</title>
-      <link>https://yukihane.github.io/blog/202009/02/spring-boot-session-take-over-on-restart-with-devtools/</link>
-      <pubDate>Tue, 01 Sep 2020 18:46:13 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202009/02/spring-boot-session-take-over-on-restart-with-devtools/</guid>
-      <description>&lt;p&gt;Spring Boot開発中、再起動するとsessionは消失すると思いこんでいたのですが、どうも引き継がれているように見えて混乱しました。&lt;/p&gt;&#xA;&lt;p&gt;その後、調査してみると &lt;code&gt;server.servlet.session.persistent&lt;/code&gt; プロパティで再起動時セッションを破棄するか保持するかを設定できることがわかりました。ただし、デフォルト値は &lt;code&gt;false&lt;/code&gt; で、もちろんデフォルトからは変更していません(存在を知らなかったので)。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

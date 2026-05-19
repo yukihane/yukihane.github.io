@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Wed, 20 May 2026 03:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 20 May 2026 03:21:13 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ai-Coding</title>
+      <link>https://yukihane.github.io/tags/ai-coding/</link>
+      <pubDate>Wed, 20 May 2026 03:21:13 +0900</pubDate>
+      <guid>https://yukihane.github.io/tags/ai-coding/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Kotlin</title>
       <link>https://yukihane.github.io/tags/kotlin/</link>
@@ -70,13 +77,6 @@
       <link>https://yukihane.github.io/tags/autohotkey/</link>
       <pubDate>Mon, 03 Nov 2025 05:14:44 +0900</pubDate>
       <guid>https://yukihane.github.io/tags/autohotkey/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Ai-Coding</title>
-      <link>https://yukihane.github.io/tags/ai-coding/</link>
-      <pubDate>Sun, 26 Oct 2025 13:29:34 +0900</pubDate>
-      <guid>https://yukihane.github.io/tags/ai-coding/</guid>
       <description></description>
     </item>
     <item>

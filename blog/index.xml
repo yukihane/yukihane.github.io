@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Wed, 20 May 2026 03:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 20 May 2026 03:21:13 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AIコーディング近況</title>
+      <link>https://yukihane.github.io/blog/202605/20/current-ai-coding/</link>
+      <pubDate>Wed, 20 May 2026 03:21:13 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202605/20/current-ai-coding/</guid>
+      <description>&lt;p&gt;2025-10-26 に次の記事を書きました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202510/26/codex-cli-first-impression/&#34;&gt;これまでのAIコーディングの略歴、Codex Cli ファーストインプレッション&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;これは、私のAI利用略歴と、当時は主に Claude Code(仕事)と Codex CLI(プライベート)を使い分けていた、という内容でした。&lt;br /&gt;&#xA;本記事では、その後の近況を記録しておきます。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる話</title>
       <link>https://yukihane.github.io/blog/202605/20/kotlin-value-class-spring-mvc-binding/</link>
@@ -701,13 +708,6 @@
       <pubDate>Tue, 01 Sep 2020 18:46:13 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202009/02/spring-boot-session-take-over-on-restart-with-devtools/</guid>
       <description>&lt;p&gt;Spring Boot開発中、再起動するとsessionは消失すると思いこんでいたのですが、どうも引き継がれているように見えて混乱しました。&lt;/p&gt;&#xA;&lt;p&gt;その後、調査してみると &lt;code&gt;server.servlet.session.persistent&lt;/code&gt; プロパティで再起動時セッションを破棄するか保持するかを設定できることがわかりました。ただし、デフォルト値は &lt;code&gt;false&lt;/code&gt; で、もちろんデフォルトからは変更していません(存在を知らなかったので)。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Ruby on Rails 6 を Centos6 や Centos7 で動かす</title>
-      <link>https://yukihane.github.io/blog/202009/02/ruby-on-rails-on-centos6-centos7/</link>
-      <pubDate>Tue, 01 Sep 2020 15:12:18 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202009/02/ruby-on-rails-on-centos6-centos7/</guid>
-      <description>&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://ja.stackoverflow.com/a/70025/2808&#34;&gt;CentOS6 上で rails new できません - スタック・オーバーフロー&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://ja.stackoverflow.com/a/66035/2808&#34;&gt;VagrantとCentOS7環境下でRuby及びRailsをインストールしたい。 - スタック・オーバーフロー&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;でそれぞれ、 CentOS6 + Rails6, CentOS7 + Rails6 の Vagrant Box を作成しました。ググってみたけれど、あまり無いものなんですね。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
