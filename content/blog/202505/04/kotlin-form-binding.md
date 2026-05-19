@@ -196,3 +196,5 @@ Spring MVCのドキュメントには [constructor binding](https://docs.spring.
 Jacksonは積極的にKotlin対応してたはずですしね。
 
 追記: [Spring BootをKotlinで書いていてNon-Nullableなプロパティに対するJSONフィールドが無い場合の例外ハンドリング - Qiita](https://qiita.com/kazokmr/items/b4744e1318b097f601ef) では、データバインディングエラー時に発生する例外 `HttpMessageNotReadableException` を自前でハンドルする方法が書かれていました。
+
+追記(2026-05-20): その後、`@ModelAttribute` の Kotlin data class バインディングで別の壊れ方も踏みました。プロパティに `@JvmInline value class` を使うと `BeanInstantiationException` になる、というものです。詳細は [Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる話]({{< ref "blog/202605/20/kotlin-value-class-spring-mvc-binding/" >}}) に書きました。本記事末尾で予想した「`@RequestBody` / Jackson なら話が変わるはず」も、そちらの記事で裏付けが取れています。
