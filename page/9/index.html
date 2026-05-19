@@ -64,6 +64,119 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202008/24/rest-path-or-query/">Restful API, path を使うか query を使うか</a></h1>
+					<time>2020/08/23</time>
+					<br><div class="description">
+	
+	<p>特に結論はなく、情報収集です。</p>
+<blockquote>
+<p>Google の検索 URI「http://www.google.com/search?q=jellyfish」について考えてみよう。Google Web アプリケーションがパス変数を使用していたならば、この URI はアルゴリズムの実行結果というよりも、ディレクトリのようになっていただろう（http://www.google.com/search/jellyfish）。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202008/24/rest-path-or-query/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202008/23/openapi-generator/">openapi generator を Spring Boot で利用してみる</a></h1>
+					<time>2020/08/23</time>
+					<br><div class="description">
+	
+	<h1 id="今回の成果物">今回の成果物</h1>
+<ul>
+<li><a href="https://github.com/yukihane/hello-java/tree/master/spring/openapi-sample">https://github.com/yukihane/hello-java/tree/master/spring/openapi-sample</a></li>
+</ul>
+<h1 id="設定">設定</h1>
+<h2 id="buildgradle">build.gradle</h2>
+<ul>
+<li>
+<p><a href="https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator-gradle-plugin">openapi-generator-gradle-plugin</a></p>
+</li>
+<li>
+<p><a href="https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators/spring.md">spring generator</a></p>
+</li>
+</ul>
+<p>辺りを参考にしています。</p>
+<div class="formalpara-title">
+<p><strong>build.gradle</strong></p>
+</div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="line"><span class="cl"><span class="n">plugins</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">id</span> <span class="s1">&#39;eclipse&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">id</span> <span class="s1">&#39;org.openapi.generator&#39;</span> <span class="n">version</span> <span class="s1">&#39;4.3.1&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">ext</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">openApiOutputDir</span> <span class="o">=</span> <span class="s2">&#34;$rootDir/build/generated/openapi&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">sourceSets</span><span class="o">.</span><span class="na">main</span><span class="o">.</span><span class="na">java</span><span class="o">.</span><span class="na">srcDirs</span> <span class="o">+=</span> <span class="o">[</span><span class="s2">&#34;$openApiOutputDir/src/main/java&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">dependencies</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// これらは自動生成クラスが import しているので必要
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">implementation</span> <span class="s1">&#39;org.springframework.boot:spring-boot-starter-validation&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">implementation</span> <span class="s1">&#39;org.openapitools:jackson-databind-nullable:0.2.1&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">compileOnly</span> <span class="s1">&#39;io.swagger:swagger-annotations:1.6.2&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">openApiGenerate</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">generatorName</span> <span class="o">=</span> <span class="s1">&#39;spring&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inputSpec</span> <span class="o">=</span> <span class="s2">&#34;$rootDir/specs/test.yml&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">outputDir</span> <span class="o">=</span> <span class="s2">&#34;$openApiOutputDir&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">apiPackage</span> <span class="o">=</span> <span class="s1">&#39;org.openapi.example.api&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">modelPackage</span> <span class="o">=</span> <span class="s1">&#39;org.openapi.example.model&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">configOptions</span> <span class="o">=</span> <span class="o">[</span>
+</span></span><span class="line"><span class="cl">        <span class="nl">dateLibrary:</span> <span class="s1">&#39;java8&#39;</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nl">interfaceOnly:</span> <span class="s1">&#39;true&#39;</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nl">skipDefaultInterface:</span> <span class="s1">&#39;true&#39;</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">compileJava</span><span class="o">.</span><span class="na">dependsOn</span> <span class="n">tasks</span><span class="o">.</span><span class="na">openApiGenerate</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="specstestyml">specs/test.yml</h2>
+<p>上の <code>build.gradle</code> で指定している、今回の OpenAPI spec ファイルです。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202008/23/openapi-generator/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202008/23/spring-lombok-mapstruct/">Spring BootプロジェクトにLombokとMapStructを追加する(Eclipse &amp; Maven/Gradle)</a></h1>
 					<time>2020/08/23</time>
 					<br><div class="description">
@@ -237,32 +350,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/202007/20/webclientbuilder/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202007/19/cookies-and-same-origin-policy/">クッキーの挙動は Same Origin Policy に従う…わけではない</a></h1>
-					<time>2020/07/19</time>
-					<br><div class="description">
-	
-	<p>次のQiitaのコメントを見て、そうなんだ、となりました:</p>
-<ul>
-<li><a href="https://qiita.com/github0013@github/items/e57c452de28f3918bf05#comment-4df8a971cd5c8c2d0673">Auth TokenをlocalStorageに入れようが、cookieに入れようがどっちもXSS危険性には無防備（同ドメイン内なら …​）</a></li>
-</ul>
-<p>根拠を探してみたところ、同じくQiitaの記事</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202007/19/cookies-and-same-origin-policy/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202007/19/use-git-pull-ff-only/">`git config pull.ff only` を設定しておこう</a></h1>
-					<time>2020/07/19</time>
-					<br><div class="description">
-	
-	<p>私は普段全く <code>git pull</code> は使わず、 <code>git fetch</code> で賄ってきたのですが、今日たまたま <code>git pull</code> を行ったところ、いつの頃からか次のようなメッセージが出るようになっていることに気づきました:</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202007/19/use-git-pull-ff-only/">Read more ⟶</a>
 				</section>
 				
 				

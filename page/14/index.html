@@ -64,6 +64,47 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/201910/29/encoded-url-passing-to-mockmvc/">MockMvc でURLエンコード済みのpathを渡したいときは new URI(...) を引数にする</a></h1>
+					<time>2019/10/29</time>
+					<br><div class="description">
+	
+	<p>OAuth2.0 の <code>redirect_uri</code> をゴニョった実装をテストしたいときにハマった。</p>
+<pre><code>mockMvc.perform(get(new URI(&quot;/line/oauth/authorize?redirece_uri=https%3A%2F%2Fexample.com&quot;)
+</code></pre>
+<p>ってやらないと二重にエンコードされてしまう。</p>
+<h1 id="参考">参考</h1>
+<ul>
+<li><a href="https://github.com/spring-projects/spring-framework/issues/16067">MockMvc needs to accept prepared URI with encoded URI path variables [SPR-11441] #16067</a></li>
+<li><a href="https://github.com/spring-projects/spring-framework/blob/master/spring-test/src/test/java/org/springframework/test/web/servlet/samples/spr/EncodedUriTests.java">EncodedUriTests.java</a></li>
+</ul>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201910/29/encoded-url-passing-to-mockmvc/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201910/setup-amethyst/">Intel iGPU環境でのAmethyst 開発環境セットアップ</a></h1>
+					<time>2019/10/08</time>
+					<br><div class="description">
+	
+	<h1 id="tldr">TL;DR</h1>
+<p>Ubuntu18.04, Coffee Lake iGPU で vulkan での実行を可能にするには</p>
+<ul>
+<li>
+<p><code>mesa-vulkan-drivers</code> パッケージインストール</p>
+</li>
+<li>
+<p><code>/etc/X11/xorg.conf.d/20-intel.conf</code> で DRI3 有効化</p>
+</li>
+</ul>
+<p>の2点が必要。</p>
+<p>(おそらく実際には、実行に <code>libvulkan1</code> 、及び開発には加えて <code>libvulkan-dev</code> も必要と思われるが、最初からインストールされていた)</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201910/setup-amethyst/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/201909/rust-cago.lock/">Cargo.lock をバージョン管理するや否や</a></h1>
 					<time>2019/09/01</time>
 					<br><div class="description">
@@ -218,40 +259,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/201908/eclipse-lombok-mapstruct/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201908/rust-format-on-vscode/">VSCodeでRustの整形ができない？</a></h1>
-					<time>2019/08/18</time>
-					<br><div class="description">
-	
-	<ul>
-<li><a href="https://github.com/rust-lang/rls-vscode/issues/534">Format not work #534</a> - rust-lang/rls-vscode</li>
-</ul>
-<p>VSCodeでRustの勉強をしているのですが、現在、どうもコード整形機能が上手く働いていない…？</p>
-<p>代替策としては、 <a href="https://github.com/rust-lang/rustfmt"><code>rustfmt</code></a> を使って、 <code>cargo fmt</code> コマンドで整形すれば良さそう。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201908/rust-format-on-vscode/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201908/use-specific-rustc-version/">cargo build で特定のバージョンの rustc を利用する</a></h1>
-					<time>2019/08/03</time>
-					<br><div class="description">
-	
-	<pre><code>rustup run 1.15.1 cargo build
-</code></pre>
-<p>もちろん事前に使用するバージョンをインストールしておく必要がある:</p>
-<pre><code>rustup install 1.15.1
-</code></pre>
-<p>参考:</p>
-<ul>
-<li><a href="https://doc.rust-lang.org/edition-guide/rust-2018/rustup-for-managing-rust-versions.html">Rustup for managing Rust versions</a></li>
-</ul>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201908/use-specific-rustc-version/">Read more ⟶</a>
 				</section>
 				
 				

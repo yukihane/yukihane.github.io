@@ -7,8 +7,22 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Wed, 20 Aug 2025 19:48:29 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 20 May 2026 03:00:00 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/kotlin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる話</title>
+      <link>https://yukihane.github.io/blog/202605/20/kotlin-value-class-spring-mvc-binding/</link>
+      <pubDate>Wed, 20 May 2026 03:00:00 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202605/20/kotlin-value-class-spring-mvc-binding/</guid>
+      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Kotlin の &lt;code&gt;@JvmInline value class&lt;/code&gt; を &lt;code&gt;@ModelAttribute&lt;/code&gt; で受ける data class のプロパティに使うと、リクエスト時に &lt;code&gt;BeanInstantiationException&lt;/code&gt; が発生します。&lt;/li&gt;&#xA;&lt;li&gt;原因は Kotlin リフレクション API が value class のアンラップ済み型を正しく扱えないバグ（&lt;a href=&#34;https://youtrack.jetbrains.com/issue/KT-64097&#34;&gt;KT-64097&lt;/a&gt;）です。Spring Framework 6.1.0 以降のリフレクションベース（&lt;code&gt;KCallable#callBy&lt;/code&gt;）のパラメータ解決と噛み合って表面化します。&lt;/li&gt;&#xA;&lt;li&gt;Spring 側はこれを「Kotlin のバグ」として &lt;code&gt;NOT_PLANNED&lt;/code&gt; でクローズ済みです（&lt;a href=&#34;https://github.com/spring-projects/spring-framework/issues/31698&#34;&gt;spring-framework#31698&lt;/a&gt;）。フレームワークの修正は期待できません。&lt;/li&gt;&#xA;&lt;li&gt;回避策はバインディング方式によって異なります。&lt;code&gt;@ModelAttribute&lt;/code&gt; の data class では value class を使わず、&lt;code&gt;UUID&lt;/code&gt; 等の素の型で受けて Controller 内で value class に変換するのが安全です。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;value-class-とは&#34;&gt;value class とは&lt;/h2&gt;&#xA;&lt;p&gt;Kotlin の &lt;code&gt;@JvmInline value class&lt;/code&gt; は、1つの値を型安全にラップするための仕組みです。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる話</title>
+      <link>https://yukihane.github.io/blog/202605/20/kotlin-default-arg-spring-aop-npe/</link>
+      <pubDate>Wed, 20 May 2026 02:00:00 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202605/20/kotlin-default-arg-spring-aop-npe/</guid>
+      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;@Transactional&lt;/code&gt; 系のアノテーション（Spring AOP のクラスプロキシ）が掛かった Kotlin クラスで、&lt;strong&gt;メソッドのデフォルト引数式が注入フィールドを参照&lt;/strong&gt;していると &lt;code&gt;NullPointerException&lt;/code&gt; になることがあります。&lt;/li&gt;&#xA;&lt;li&gt;原因は「Kotlin のデフォルト引数は &lt;strong&gt;static な合成メソッド &lt;code&gt;xxx$default&lt;/code&gt;&lt;/strong&gt; に展開され、それが Spring AOP プロキシのインターセプトをすり抜ける」ためです。&lt;/li&gt;&#xA;&lt;li&gt;同じシグネチャでも &lt;strong&gt;引数を明示的に渡すと再現しません&lt;/strong&gt;。そのためテストやコードパスによって出たり出なかったりして気付きにくいです。&lt;/li&gt;&#xA;&lt;li&gt;対策はシンプルです。デフォルト引数で注入依存を参照しないこと。必要なら &lt;strong&gt;メソッド本体で &lt;code&gt;val&lt;/code&gt; 宣言&lt;/strong&gt; するか、オーバーロードで表現します。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;症状&#34;&gt;症状&lt;/h2&gt;&#xA;&lt;p&gt;ある UseCase をリファクタして、時刻取得を &lt;code&gt;Clock&lt;/code&gt; の DI 経由に変えました。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>IntelliJの自動整形でimportのwildcardを使わないようにする</title>
       <link>https://yukihane.github.io/blog/202508/20/no-use-wildcard-on-intellij/</link>

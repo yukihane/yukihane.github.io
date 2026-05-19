@@ -64,6 +64,29 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202006/20/spring-boot-thymeleaf-converts-id-to-entity/">Spring MVCにはJPA EntityのIDからエンティティオブジェクトに変換する機能がある(が、2.3.1では機能しない)</a></h1>
+					<time>2020/06/20</time>
+					<br><div class="description">
+	
+	<p>追記: 2020-07-24にリリースされた2.3.2, 2.2.9 でこの問題は修正されました。ただし、2.1.16では未修正のままのようでした。</p>
+<p>Spring Bootは <a href="https://docs.spring.io/spring-data/commons/docs/current/reference/html/">Spring Data Commons</a> を利用して、Thymeleaf(など)からのリクエストからオブジェクトへ変換する際、Sprint Data JPAと連携して、IDからエンティティオブジェクトへマッピングする機能があります(<a href="https://docs.spring.io/spring-data/commons/docs/2.3.1.RELEASE/reference/html/#mapping.property-population">3.2. Property population</a>)。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202006/20/spring-boot-thymeleaf-converts-id-to-entity/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202006/17/oauth2authorizedclientservice/">Spring Security OAuth 2.0 Client(OAuth 2.0 Login)でトークンの管理をしているのはOAuth2AuthorizedClientService</a></h1>
+					<time>2020/06/17</time>
+					<br><div class="description">
+	
+	<p>私も今回の質問(本文末参照)を見たとき少しの間勘違いしてしまったのですが、OAuth2.0のクライアントがどこで各リソースオーナーのトークンを管理しているかと言うと、アプリケーションコンテキストであって、ユーザのセッションコンテキストなわけが無いですよね…</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202006/17/oauth2authorizedclientservice/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202006/15/spring-boot-debugging/">Spring BootのGradleでのデバッグ実行方法</a></h1>
 					<time>2020/06/15</time>
 					<br><div class="description">
@@ -220,36 +243,6 @@ set shiftwidth=2
 	
 </div>
 					<a class="readmore" href="/blog/202004/26/kubernetes-the-hard-way-v1.18.2/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202004/25/tmux/">Kubernetes the hard wayを試すためのtmux基礎知識</a></h1>
-					<time>2020/04/25</time>
-					<br><div class="description">
-	
-	<p><a href="https://github.com/yukihane/kubernetes-the-hard-way">Kubernetes the hard wayをやる</a>のに`tmux`の操作を覚えておくのが良さそうだったので使いそうなものを記載しておくことにしました。</p>
-<p><code>Ctrl</code> キーと <code>b</code> キーの同時押しを <code>^b</code> と表記しています。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202004/25/tmux/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202004/24/redux-devtools-extension-with-typescript/">redux-devtools-extension をTypeScriptで使う</a></h1>
-					<time>2020/04/24</time>
-					<br><div class="description">
-	
-	<p><a href="https://github.com/zalmoxisus/redux-devtools-extension/blob/master/README.md#13-use-redux-devtools-extension-package-from-npm">https://github.com/zalmoxisus/redux-devtools-extension/blob/master/README.md#13-use-redux-devtools-extension-package-from-npm</a></p>
-<p>というわけで型付けされているので</p>
-<pre><code>const store = createStore(rootReducer, undefined, devToolsEnhancer({}));
-</code></pre>
-<p>で良い。</p>
-<p>何か Qiia の記事とかを見てると<a href="https://github.com/zalmoxisus/redux-devtools-extension/blob/master/docs/Recipes.md#using-in-a-typescript-project">こっちの方法</a>でばっかり書いてあるが。</p>
-<hr />
-<p>Electron から使う場合は<a href="https://www.electronjs.org/docs/tutorial/devtools-extension#how-to-load-a-devtools-extension">Electron 公式</a>からも<a href="https://github.com/zalmoxisus/redux-devtools-extension#3-for-electron">redux-devtools-extension 公式</a>からもリンクされている <a href="https://github.com/MarshallOfSound/electron-devtools-installer">electron-devtools-installer</a> が利用できた。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202004/24/redux-devtools-extension-with-typescript/">Read more ⟶</a>
 				</section>
 				
 				

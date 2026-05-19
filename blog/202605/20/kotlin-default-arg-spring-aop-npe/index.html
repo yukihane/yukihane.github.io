@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html><head lang="ja">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる話 - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="TL;DR
+
+@Transactional 系のアノテーション（Spring AOP のクラスプロキシ）が掛かった Kotlin クラスで、メソッドのデフォルト引数式が注入フィールドを参照していると NullPointerException になることがあります。
+原因は「Kotlin のデフォルト引数は static な合成メソッド xxx$default に展開され、それが Spring AOP プロキシのインターセプトをすり抜ける」ためです。
+同じシグネチャでも 引数を明示的に渡すと再現しません。そのためテストやコードパスによって出たり出なかったりして気付きにくいです。
+対策はシンプルです。デフォルト引数で注入依存を参照しないこと。必要なら メソッド本体で val 宣言 するか、オーバーロードで表現します。
+
+
+症状
+ある UseCase をリファクタして、時刻取得を Clock の DI 経由に変えました。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
+	<meta property="og:url" content="https://yukihane.github.io/blog/202605/20/kotlin-default-arg-spring-aop-npe/">
+  <meta property="og:site_name" content="発火後忘失">
+  <meta property="og:title" content="Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる話">
+  <meta property="og:description" content="TL;DR @Transactional 系のアノテーション（Spring AOP のクラスプロキシ）が掛かった Kotlin クラスで、メソッドのデフォルト引数式が注入フィールドを参照していると NullPointerException になることがあります。 原因は「Kotlin のデフォルト引数は static な合成メソッド xxx$default に展開され、それが Spring AOP プロキシのインターセプトをすり抜ける」ためです。 同じシグネチャでも 引数を明示的に渡すと再現しません。そのためテストやコードパスによって出たり出なかったりして気付きにくいです。 対策はシンプルです。デフォルト引数で注入依存を参照しないこと。必要なら メソッド本体で val 宣言 するか、オーバーロードで表現します。 症状 ある UseCase をリファクタして、時刻取得を Clock の DI 経由に変えました。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2026-05-20T02:00:00+09:00">
+    <meta property="article:modified_time" content="2026-05-20T02:00:00+09:00">
+    <meta property="article:tag" content="Kotlin">
+    <meta property="article:tag" content="Spring">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる話">
+  <meta name="twitter:description" content="TL;DR @Transactional 系のアノテーション（Spring AOP のクラスプロキシ）が掛かった Kotlin クラスで、メソッドのデフォルト引数式が注入フィールドを参照していると NullPointerException になることがあります。 原因は「Kotlin のデフォルト引数は static な合成メソッド xxx$default に展開され、それが Spring AOP プロキシのインターセプトをすり抜ける」ためです。 同じシグネチャでも 引数を明示的に渡すと再現しません。そのためテストやコードパスによって出たり出なかったりして気付きにくいです。 対策はシンプルです。デフォルト引数で注入依存を参照しないこと。必要なら メソッド本体で val 宣言 するか、オーバーロードで表現します。 症状 ある UseCase をリファクタして、時刻取得を Clock の DI 経由に変えました。">
+
+        <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://yukihane.github.io/">発火後忘失</a>
+	</div>
+	<nav>
+		
+		<a href="/blog">Blog</a>
+		
+		<a href="/docs">Docs</a>
+		
+		<a href="/tags">Tags</a>
+		
+		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
+		
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
+		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
+		
+	</nav>
+</header>
+
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        <div class="title">
+          <h1 class="title">Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる話</h1>
+          <div class="meta">Posted on 2026/05/20</div>
+        </div>
+        
+        <section class="body">
+          <h2 id="tldr">TL;DR</h2>
+<ul>
+<li><code>@Transactional</code> 系のアノテーション（Spring AOP のクラスプロキシ）が掛かった Kotlin クラスで、<strong>メソッドのデフォルト引数式が注入フィールドを参照</strong>していると <code>NullPointerException</code> になることがあります。</li>
+<li>原因は「Kotlin のデフォルト引数は <strong>static な合成メソッド <code>xxx$default</code></strong> に展開され、それが Spring AOP プロキシのインターセプトをすり抜ける」ためです。</li>
+<li>同じシグネチャでも <strong>引数を明示的に渡すと再現しません</strong>。そのためテストやコードパスによって出たり出なかったりして気付きにくいです。</li>
+<li>対策はシンプルです。デフォルト引数で注入依存を参照しないこと。必要なら <strong>メソッド本体で <code>val</code> 宣言</strong> するか、オーバーロードで表現します。</li>
+</ul>
+<hr />
+<h2 id="症状">症状</h2>
+<p>ある UseCase をリファクタして、時刻取得を <code>Clock</code> の DI 経由に変えました。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@Service</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ResumeDeliveryUseCase</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">val</span> <span class="py">repository</span><span class="p">:</span> <span class="n">SomeRepository</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">val</span> <span class="py">clock</span><span class="p">:</span> <span class="n">Clock</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@ExposedTransactional</span> <span class="c1">// 中身は Spring AOP のトランザクション境界
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">operator</span> <span class="k">fun</span> <span class="nf">invoke</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">projectId</span><span class="p">:</span> <span class="n">ProjectId</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">now</span><span class="p">:</span> <span class="n">OffsetDateTime</span> <span class="p">=</span> <span class="nc">OffsetDateTime</span><span class="p">.</span><span class="n">now</span><span class="p">(</span><span class="n">clock</span><span class="p">),</span> <span class="c1">// ← デフォルト引数で注入フィールドを参照
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">):</span> <span class="n">Result</span><span class="p">&lt;</span><span class="err">…</span><span class="p">&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// now を使った期限判定など
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>ユニットテストは大半が緑のままでした。ところが<strong>特定のテストだけ</strong> <code>NullPointerException</code> で落ちます。落ちるテストと落ちないテストの差を見ると、次のようになっていました。</p>
+<ul>
+<li>落ちるテスト: <code>useCase(projectId)</code> と <code>now</code> を<strong>省略</strong>して呼んでいる</li>
+<li>落ちないテスト: <code>useCase(projectId, now = fixedTime)</code> と <code>now</code> を<strong>明示的に渡している</strong></li>
+</ul>
+<p>ロジックは同じなのに、引数を省略したときだけ落ちます。なぜでしょうか。</p>
+<hr />
+<h2 id="前提知識1-kotlin-のデフォルト引数のコンパイル結果">前提知識1: Kotlin のデフォルト引数のコンパイル結果</h2>
+<p>Kotlin はデフォルト引数を持つ関数を、<strong>2つのメソッド</strong>にコンパイルします。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="k">fun</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">projectId</span><span class="p">:</span> <span class="n">ProjectId</span><span class="p">,</span> <span class="n">now</span><span class="p">:</span> <span class="n">OffsetDateTime</span> <span class="p">=</span> <span class="nc">OffsetDateTime</span><span class="p">.</span><span class="n">now</span><span class="p">(</span><span class="n">clock</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>がコンパイルされると、概念的には次の2つになります。</p>
+<ol>
+<li><strong>実体メソッド</strong> <code>invoke(projectId, now)</code> — 全引数を取る通常のインスタンスメソッド</li>
+<li><strong>合成ブリッジ</strong> <code>invoke$default(receiver, projectId, now, mask, marker)</code> — <strong><code>static</code> な synthetic メソッド</strong></li>
+</ol>
+<p>呼び出し側のコードは、引数を省略すると実体メソッドではなく <code>invoke$default(...)</code> を呼ぶようにコンパイルされます。<code>invoke$default</code> の中身はざっくり次のとおりです。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">static</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">invoke$default</span><span class="p">(</span><span class="n">ResumeDeliveryUseCase</span><span class="w"> </span><span class="n">receiver</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                             </span><span class="n">ProjectId</span><span class="w"> </span><span class="n">projectId</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                             </span><span class="n">OffsetDateTime</span><span class="w"> </span><span class="n">now</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                             </span><span class="kt">int</span><span class="w"> </span><span class="n">mask</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">marker</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">mask</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// now が省略された → デフォルト式を評価</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OffsetDateTime</span><span class="p">.</span><span class="na">now</span><span class="p">(</span><span class="n">receiver</span><span class="p">.</span><span class="na">clock</span><span class="p">);</span><span class="w"> </span><span class="c1">// ★ receiver のフィールドを直接読む</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">receiver</span><span class="p">.</span><span class="na">invoke</span><span class="p">(</span><span class="n">projectId</span><span class="p">,</span><span class="w"> </span><span class="n">now</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="static-な-synthetic-メソッドとは">「<code>static</code> な synthetic メソッド」とは</h3>
+<p><code>invoke$default</code> を理解する鍵は <strong><code>static</code></strong> と <strong>synthetic</strong> の2語にあります。</p>
+<p><strong><code>static</code>（静的）メソッド</strong> とは、特定のインスタンスではなく<strong>クラスそのものに属する</strong>メソッドのことです。インスタンスメソッドが暗黙の <code>this</code>（レシーバ）を持つのに対し、<code>static</code> メソッドには <code>this</code> が存在しません。そのため <code>invoke$default</code> は、本来 <code>this</code> だったはずのレシーバを<strong>第1引数 <code>receiver</code> として明示的に受け取る</strong>形になっています。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">static</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">invoke$default</span><span class="p">(</span><span class="n">ResumeDeliveryUseCase</span><span class="w"> </span><span class="n">receiver</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span><span class="w"> </span><span class="c1">// ← this の代わりに receiver を引数で受ける</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>この「インスタンスメソッドではなく static」という点が、後述する AOP プロキシすり抜けの核心になります。CGLIB はサブクラスでインスタンスメソッドを<strong>オーバーライド</strong>して横取りしますが、<code>static</code> メソッドはオーバーライドの対象外なので素通りしてしまいます。</p>
+<p><strong>synthetic（合成）メソッド</strong> とは、<strong>ソースコードには書かれていないのに、コンパイラが自動生成した</strong>メソッドのことです。バイトコード上では <code>ACC_SYNTHETIC</code> フラグが付きます。開発者は <code>now: OffsetDateTime = OffsetDateTime.now(clock)</code> というデフォルト引数付きの関数を1つ書いただけですが、コンパイラが裏で「引数省略時にデフォルト式を埋めて本体を呼ぶ」橋渡し役を勝手に作ります。それが <code>invoke$default</code> です。名前に含まれる <code>$</code> は、こうしたコンパイラ生成物であることを示す慣習的な目印になっています。</p>
+<p>まとめると、次のようになります。</p>
+<blockquote>
+<p><strong><code>static</code> な synthetic メソッド = 「コンパイラが裏で自動生成した（synthetic）、インスタンスに属さない（static）メソッド」</strong></p></blockquote>
+<p><code>static</code> だから AOP プロキシのインターセプト対象外で、しかも synthetic なのでソース上に現れず開発者の意識に上りにくい。この2つの性質の組み合わせが、本記事の NPE を「気付きにくいバグ」にしています。</p>
+<hr />
+<p>ここで重要なのは、<strong>デフォルト式 <code>OffsetDateTime.now(clock)</code> の <code>clock</code> は「<code>invoke$default</code> が受け取った receiver のフィールドを直接読む」コードに変換される</strong>ことです。そして <code>invoke$default</code> は <strong>static</strong> であることです。</p>
+<hr />
+<h2 id="前提知識2-spring-aop-のクラスプロキシcglibの構造">前提知識2: Spring AOP のクラスプロキシ（CGLIB）の構造</h2>
+<p><code>@Transactional</code>（やそれ相当の自前アノテーション）はトランザクション境界を張るため、Spring AOP が対象クラスをラップします。インターフェースを実装しない具象クラスの場合、<strong>CGLIB でサブクラスプロキシ</strong>を生成します。</p>
+<p>標準的なクラスプロキシでは、ざっくり次の構造になります。</p>
+<ul>
+<li>DI で他の Bean に注入される参照は <strong>プロキシ</strong>（CGLIB が生成したサブクラスのインスタンス）です</li>
+<li>プロキシは Objenesis 等で <strong>コンストラクタを通さずに生成</strong>されます。つまり<strong>プロキシ自身のフィールド（<code>clock</code> 含む）は初期化されず null</strong> です</li>
+<li>本来のロジックは「<strong>ターゲット</strong>」と呼ばれる別インスタンス（コンストラクタ注入済みで <code>clock</code> が入っている本物）が持ちます</li>
+<li>プロキシのメソッド呼び出しは AOP のアドバイス連鎖を経て、最終的に <code>proceed()</code> で <strong>ターゲット側</strong>に委譲されます</li>
+</ul>
+<p>通常のインスタンスメソッドを呼ぶ限り、アドバイスがターゲットに委譲してくれるので「プロキシのフィールドは空」という事実は表に出ません。<code>this.clock</code> を読むコードも、実行時の <code>this</code> はターゲットなので正しく動きます。</p>
+<hr />
+<h2 id="衝突-デフォルト引数だけがプロキシをすり抜ける">衝突: デフォルト引数だけがプロキシをすり抜ける</h2>
+<p>ここで2つの事実が噛み合います。</p>
+<blockquote>
+<p><strong>CGLIB がインターセプト（オーバーライド）できるのは「オーバーライド可能なインスタンスメソッド」だけです。<code>static</code> メソッドはインターセプトできません。</strong></p></blockquote>
+<p><code>invoke$default</code> は <strong>static synthetic</strong> メソッドです。したがって引数を省略した呼び出しでは、次のことが起きます。</p>
+<ol>
+<li>呼び出し側は、注入された参照（= <strong>プロキシ</strong>）を receiver として <code>invoke$default(proxy, …)</code> を呼びます</li>
+<li><code>invoke$default</code> は static なので <strong>アドバイスを通らず、ターゲットへの委譲も起きません</strong></li>
+<li>その中でデフォルト式が <code>proxy.clock</code> を<strong>直接</strong>読みます → <strong>プロキシのフィールドは未初期化なので null</strong> です</li>
+<li><code>OffsetDateTime.now(null)</code> 相当 → <strong>NPE</strong> になります</li>
+</ol>
+<p>一方、<code>now</code> を明示的に渡すと、コンパイル時に <code>invoke$default</code> ではなく<strong>実体メソッドの直呼び</strong>になります。実体メソッドは普通のインスタンスメソッドなので、プロキシ → アドバイス → ターゲット（<code>clock</code> 注入済み）と正しく流れ、NPE は起きません。</p>
+<p>これが「ロジックは同じなのに引数を省略したときだけ落ちる」の正体です。<strong>デフォルト引数の解決処理だけが AOP プロキシをすり抜けて、注入依存が入っていないプロキシ本体を参照してしまう</strong>のです。</p>
+<pre tabindex="0"><code>useCase(projectId)              → invoke$default(proxy, …)  → static, すり抜け → proxy.clock(null) → 💥 NPE
+useCase(projectId, now = t)     → proxy.invoke(projectId, t) → advise → target.invoke(…)            → ✅ OK
+</code></pre><hr />
+<h2 id="修正">修正</h2>
+<p>デフォルト引数で注入依存を参照するのをやめます。今回はデフォルト引数を撤去し、メソッド本体の先頭で <code>val</code> 宣言にしました。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@ExposedTransactional</span>
+</span></span><span class="line"><span class="cl"><span class="k">operator</span> <span class="k">fun</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">projectId</span><span class="p">:</span> <span class="n">ProjectId</span><span class="p">):</span> <span class="n">Result</span><span class="p">&lt;</span><span class="err">…</span><span class="p">&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">now</span> <span class="p">=</span> <span class="nc">OffsetDateTime</span><span class="p">.</span><span class="n">now</span><span class="p">(</span><span class="n">clock</span><span class="p">)</span> <span class="c1">// 本体内 → 実体メソッド経由 → target で評価される
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// …
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>これで <code>clock</code> の参照は <strong>実体メソッドの内部</strong>に移ります。実体メソッドはアドバイス経由でターゲット（<code>clock</code> 注入済み）上で実行されるため、<code>$default</code> 経路そのものが消えて NPE しなくなります。</p>
+<p>「テスト時に時刻を差し替えたい」という意図でデフォルト引数のシームを置いていた場合でも、<code>Clock</code> を DI して固定 <code>Clock</code> Bean に差し替える設計にしていれば、デフォルト引数のシームは不要になります。テストは固定 <code>Clock</code> を注入するだけで決定的になります。</p>
+<hr />
+<h2 id="一般化できる教訓">一般化できる教訓</h2>
+<blockquote>
+<p><strong>Spring AOP プロキシ（<code>@Transactional</code> 系）が掛かるクラスでは、メソッドのデフォルト引数式から注入フィールドやプロキシ対象メソッドを参照しないようにします。</strong><br />
+デフォルト値が必要なら、(a) メソッド本体で <code>val</code> 宣言する、(b) 明示的なオーバーロードで表現する、のどちらかにします。</p></blockquote>
+<p>見つけにくい理由も押さえておきたいところです。</p>
+<ul>
+<li><strong>引数を明示で渡すコードパスでは絶対に再現しない</strong>ので、テストの書き方次第で「通る／通らない」が分かれます。CI で特定テストだけ落ちる、という形で出やすいです。</li>
+<li>スタックトレースは <code>xxx$default</code> の中での NPE になり、一見すると「なぜここで？」となります。<code>$default</code> というシグネチャを見たら、この罠を思い出すとよいでしょう。</li>
+<li>同種の問題は <code>@Cacheable</code> / <code>@Async</code> / <code>@Validated</code> など <strong>Spring AOP プロキシ全般</strong>で起こりえます。<code>@Transactional</code> 固有ではありません。</li>
+</ul>
+<hr />
+<h2 id="まとめ">まとめ</h2>
+<ul>
+<li>Kotlin のデフォルト引数は <code>static</code> な合成メソッド <code>xxx$default</code> に展開されます。</li>
+<li>Spring AOP のクラスプロキシは「インターセプト対象のインスタンスメソッド」しか横取りできず、<code>static</code> の <code>$default</code> はすり抜けます。</li>
+<li>すり抜けた <code>$default</code> の中でデフォルト式が注入フィールドを参照すると、プロキシ本体（注入されていない）を読んで NPE になります。</li>
+<li>引数を明示で渡すと <code>$default</code> を通らないので再現しません。そのため発見が遅れがちです。</li>
+<li>対策は「デフォルト引数で注入依存を参照しない」ことです。本体 <code>val</code> 宣言かオーバーロードで回避します。</li>
+</ul>
+<p>小さなリファクタ（<code>OffsetDateTime.now()</code> を <code>Clock</code> DI に置換）が、フレームワークのプロキシ機構とコンパイラの脱糖の交差点で牙を剥いた一例でした。デフォルト引数は便利ですが、AOP プロキシ配下では「その式が実体メソッドの内側で評価されるのか、static ブリッジで評価されるのか」を意識する価値があります。</p>
+<hr />
+<p><em>補足（正確性のため）: 「プロキシのフィールドが null」になる細部は、Spring のプロキシ戦略（ターゲット分離型か same-instance 型か、<code>@Configuration</code> クラスか否か、<code>proxyTargetClass</code> 設定など）によって挙動差があります。確実に言えるのは「<code>$default</code> は static でアドバイス対象外であり、デフォルト式がプロキシをすり抜けて評価される。そこで注入依存を参照すると壊れうる」という構造であり、本記事の症状（省略呼び出し時のみ NPE／明示渡しで回避／本体移動で解消）はこの説明と整合します。</em></p>
+
+        </section>
+        <div class="post-tags">
+          
+          
+          <nav class="nav tags">
+            <ul class="tags">
+              
+              <li><a href="/tags/kotlin/">kotlin</a></li>
+              
+              <li><a href="/tags/spring/">spring</a></li>
+              
+            </ul>
+          </nav>
+          
+          
+        </div>
+      </div>
+
+      
+      
+    </div>
+
+    </article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
+  <div class="footer-info">
+    2026  © Yukihane, All Rights Reserved |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E9J8FN5B4Q');
+        }
+      </script>
+
+</div>
+    </body>
+</html>

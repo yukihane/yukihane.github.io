@@ -64,6 +64,40 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/201908/rust-format-on-vscode/">VSCodeでRustの整形ができない？</a></h1>
+					<time>2019/08/18</time>
+					<br><div class="description">
+	
+	<ul>
+<li><a href="https://github.com/rust-lang/rls-vscode/issues/534">Format not work #534</a> - rust-lang/rls-vscode</li>
+</ul>
+<p>VSCodeでRustの勉強をしているのですが、現在、どうもコード整形機能が上手く働いていない…？</p>
+<p>代替策としては、 <a href="https://github.com/rust-lang/rustfmt"><code>rustfmt</code></a> を使って、 <code>cargo fmt</code> コマンドで整形すれば良さそう。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201908/rust-format-on-vscode/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/201908/use-specific-rustc-version/">cargo build で特定のバージョンの rustc を利用する</a></h1>
+					<time>2019/08/03</time>
+					<br><div class="description">
+	
+	<pre><code>rustup run 1.15.1 cargo build
+</code></pre>
+<p>もちろん事前に使用するバージョンをインストールしておく必要がある:</p>
+<pre><code>rustup install 1.15.1
+</code></pre>
+<p>参考:</p>
+<ul>
+<li><a href="https://doc.rust-lang.org/edition-guide/rust-2018/rustup-for-managing-rust-versions.html">Rustup for managing Rust versions</a></li>
+</ul>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201908/use-specific-rustc-version/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/201908/hello/">JBakeはじめました</a></h1>
 					<time>2019/08/03</time>
 					<br><div class="description">
@@ -394,43 +428,6 @@ OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)
 	
 </div>
 					<a class="readmore" href="/blog/201906/01/spring-boot-component-out-of-container/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201905/31/spring-boot-bean-on-testing/">Spring Boot 2.1 でテスト時 @Bean を挿げ替えたかった</a></h1>
-					<time>2019/05/31</time>
-					<br><div class="description">
-	
-	<h1 id="動機">動機</h1>
-<p>ユニットテスト実行時に <a href="https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/time/Clock.html">java.time.Clock</a> を特定の時間に固定して再現性のあるテスト(現在の時刻に依存しないテスト)を作成したかった。</p>
-<h1 id="考え方方針">考え方/方針</h1>
-<p><code>@Configuration</code> で <code>@Bean</code> を定義して <code>Clock</code> をインジェクションできるようにし、実装ではそれを用いる。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201905/31/spring-boot-bean-on-testing/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201905/21/spring-boog-json-convert/">text/plain で JSON を投げつけてくるヤツに対処する</a></h1>
-					<time>2019/05/21</time>
-					<br><div class="description">
-	
-	<ul>
-<li><a href="https://qiita.com/masato_ka/items/aa5f158a94eca1fcc42d">RestTemplate でレスポンスの Content-Type を変更する。</a></li>
-</ul>
-<p>の別解。</p>
-<pre><code>@Autowired
-private RestTemplateBuilder builder;
-
-...
-    final MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
-    converter.setSupportedMediaTypes(Arrays.asList(MediaType.TEXT_PLAIN));
-    final RestTemplate restTemplate = builder.additionalMessageConverters(converter).build();
-</code></pre>
-<p>ちなみに上記のようにコンバータを明示的に設定しない場合だと次のような例外になる :</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201905/21/spring-boog-json-convert/">Read more ⟶</a>
 				</section>
 				
 				

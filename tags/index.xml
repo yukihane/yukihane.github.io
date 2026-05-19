@@ -7,8 +7,22 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Sun, 15 Feb 2026 18:29:09 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 20 May 2026 03:00:00 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kotlin</title>
+      <link>https://yukihane.github.io/tags/kotlin/</link>
+      <pubDate>Wed, 20 May 2026 03:00:00 +0900</pubDate>
+      <guid>https://yukihane.github.io/tags/kotlin/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Spring</title>
+      <link>https://yukihane.github.io/tags/spring/</link>
+      <pubDate>Wed, 20 May 2026 03:00:00 +0900</pubDate>
+      <guid>https://yukihane.github.io/tags/spring/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Book</title>
       <link>https://yukihane.github.io/tags/book/</link>
@@ -63,13 +77,6 @@
       <link>https://yukihane.github.io/tags/ai-coding/</link>
       <pubDate>Sun, 26 Oct 2025 13:29:34 +0900</pubDate>
       <guid>https://yukihane.github.io/tags/ai-coding/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Kotlin</title>
-      <link>https://yukihane.github.io/tags/kotlin/</link>
-      <pubDate>Wed, 20 Aug 2025 19:48:29 +0900</pubDate>
-      <guid>https://yukihane.github.io/tags/kotlin/</guid>
       <description></description>
     </item>
     <item>
@@ -546,13 +553,6 @@
       <link>https://yukihane.github.io/tags/jsf/</link>
       <pubDate>Mon, 06 Apr 2020 01:52:30 +0000</pubDate>
       <guid>https://yukihane.github.io/tags/jsf/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Spring</title>
-      <link>https://yukihane.github.io/tags/spring/</link>
-      <pubDate>Fri, 03 Apr 2020 02:44:22 +0000</pubDate>
-      <guid>https://yukihane.github.io/tags/spring/</guid>
       <description></description>
     </item>
     <item>

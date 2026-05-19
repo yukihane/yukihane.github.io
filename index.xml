@@ -7,8 +7,22 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Sun, 15 Feb 2026 18:29:09 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 20 May 2026 03:00:00 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる話</title>
+      <link>https://yukihane.github.io/blog/202605/20/kotlin-value-class-spring-mvc-binding/</link>
+      <pubDate>Wed, 20 May 2026 03:00:00 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202605/20/kotlin-value-class-spring-mvc-binding/</guid>
+      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Kotlin の &lt;code&gt;@JvmInline value class&lt;/code&gt; を &lt;code&gt;@ModelAttribute&lt;/code&gt; で受ける data class のプロパティに使うと、リクエスト時に &lt;code&gt;BeanInstantiationException&lt;/code&gt; が発生します。&lt;/li&gt;&#xA;&lt;li&gt;原因は Kotlin リフレクション API が value class のアンラップ済み型を正しく扱えないバグ（&lt;a href=&#34;https://youtrack.jetbrains.com/issue/KT-64097&#34;&gt;KT-64097&lt;/a&gt;）です。Spring Framework 6.1.0 以降のリフレクションベース（&lt;code&gt;KCallable#callBy&lt;/code&gt;）のパラメータ解決と噛み合って表面化します。&lt;/li&gt;&#xA;&lt;li&gt;Spring 側はこれを「Kotlin のバグ」として &lt;code&gt;NOT_PLANNED&lt;/code&gt; でクローズ済みです（&lt;a href=&#34;https://github.com/spring-projects/spring-framework/issues/31698&#34;&gt;spring-framework#31698&lt;/a&gt;）。フレームワークの修正は期待できません。&lt;/li&gt;&#xA;&lt;li&gt;回避策はバインディング方式によって異なります。&lt;code&gt;@ModelAttribute&lt;/code&gt; の data class では value class を使わず、&lt;code&gt;UUID&lt;/code&gt; 等の素の型で受けて Controller 内で value class に変換するのが安全です。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;value-class-とは&#34;&gt;value class とは&lt;/h2&gt;&#xA;&lt;p&gt;Kotlin の &lt;code&gt;@JvmInline value class&lt;/code&gt; は、1つの値を型安全にラップするための仕組みです。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる話</title>
+      <link>https://yukihane.github.io/blog/202605/20/kotlin-default-arg-spring-aop-npe/</link>
+      <pubDate>Wed, 20 May 2026 02:00:00 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202605/20/kotlin-default-arg-spring-aop-npe/</guid>
+      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;@Transactional&lt;/code&gt; 系のアノテーション（Spring AOP のクラスプロキシ）が掛かった Kotlin クラスで、&lt;strong&gt;メソッドのデフォルト引数式が注入フィールドを参照&lt;/strong&gt;していると &lt;code&gt;NullPointerException&lt;/code&gt; になることがあります。&lt;/li&gt;&#xA;&lt;li&gt;原因は「Kotlin のデフォルト引数は &lt;strong&gt;static な合成メソッド &lt;code&gt;xxx$default&lt;/code&gt;&lt;/strong&gt; に展開され、それが Spring AOP プロキシのインターセプトをすり抜ける」ためです。&lt;/li&gt;&#xA;&lt;li&gt;同じシグネチャでも &lt;strong&gt;引数を明示的に渡すと再現しません&lt;/strong&gt;。そのためテストやコードパスによって出たり出なかったりして気付きにくいです。&lt;/li&gt;&#xA;&lt;li&gt;対策はシンプルです。デフォルト引数で注入依存を参照しないこと。必要なら &lt;strong&gt;メソッド本体で &lt;code&gt;val&lt;/code&gt; 宣言&lt;/strong&gt; するか、オーバーロードで表現します。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;症状&#34;&gt;症状&lt;/h2&gt;&#xA;&lt;p&gt;ある UseCase をリファクタして、時刻取得を &lt;code&gt;Clock&lt;/code&gt; の DI 経由に変えました。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>江添亮の入門C&#43;&#43; PDF(フォント埋め込み)</title>
       <link>https://yukihane.github.io/blog/202602/15/cpp_intro/</link>
@@ -694,20 +708,6 @@
       <pubDate>Tue, 01 Sep 2020 18:46:13 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202009/02/spring-boot-session-take-over-on-restart-with-devtools/</guid>
       <description>&lt;p&gt;Spring Boot開発中、再起動するとsessionは消失すると思いこんでいたのですが、どうも引き継がれているように見えて混乱しました。&lt;/p&gt;&#xA;&lt;p&gt;その後、調査してみると &lt;code&gt;server.servlet.session.persistent&lt;/code&gt; プロパティで再起動時セッションを破棄するか保持するかを設定できることがわかりました。ただし、デフォルト値は &lt;code&gt;false&lt;/code&gt; で、もちろんデフォルトからは変更していません(存在を知らなかったので)。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Ruby on Rails 6 を Centos6 や Centos7 で動かす</title>
-      <link>https://yukihane.github.io/blog/202009/02/ruby-on-rails-on-centos6-centos7/</link>
-      <pubDate>Tue, 01 Sep 2020 15:12:18 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202009/02/ruby-on-rails-on-centos6-centos7/</guid>
-      <description>&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://ja.stackoverflow.com/a/70025/2808&#34;&gt;CentOS6 上で rails new できません - スタック・オーバーフロー&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://ja.stackoverflow.com/a/66035/2808&#34;&gt;VagrantとCentOS7環境下でRuby及びRailsをインストールしたい。 - スタック・オーバーフロー&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;でそれぞれ、 CentOS6 + Rails6, CentOS7 + Rails6 の Vagrant Box を作成しました。ググってみたけれど、あまり無いものなんですね。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>CentOS6にGCC10.2.0をインストールしたときのメモ</title>
-      <link>https://yukihane.github.io/blog/202008/31/gcc-installation/</link>
-      <pubDate>Sun, 30 Aug 2020 21:32:44 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202008/31/gcc-installation/</guid>
-      <description>&lt;p&gt;ビルド作業は次のページを参考にしました:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://aulta.co.jp/archives/7554&#34;&gt;gcc-10.1.0をCentOS7にソースインストール | 株式会社オルタ&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;環境は &lt;a href=&#34;https://yukihane.github.io/blog/202008/30/gcc-compilation-time/&#34;&gt;こちら&lt;/a&gt; に記載したものです。&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;curl -L -O http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/gcc-10.2.0/gcc-10.2.0.tar.xz&#xA;tar xf gcc-10.2.0.tar.xz&#xA;cd gcc-10.2.0&#xA;./contrib/download_prerequisites&#xA;./configure --enable-languages=c,c++ --prefix=/opt/gcc-10.2.0 --disable-bootstrap --disable-multilib&#xA;make -j 5&#xA;sudo make install&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;つづいて &lt;code&gt;ldoconfig&lt;/code&gt; での登録ですが、そのまま行うとエラーが出たので &lt;a href=&#34;https://qiita.com/knutpb1205/items/4a9b39bf69f1788ef69c#%E3%82%A8%E3%83%A9%E3%83%BC%E5%AF%BE%E7%AD%96&#34;&gt;こちら&lt;/a&gt; を参照にして事前に1つのファイルをリネームしておきました:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

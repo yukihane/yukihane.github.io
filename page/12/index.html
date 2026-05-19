@@ -64,6 +64,36 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202004/25/tmux/">Kubernetes the hard wayを試すためのtmux基礎知識</a></h1>
+					<time>2020/04/25</time>
+					<br><div class="description">
+	
+	<p><a href="https://github.com/yukihane/kubernetes-the-hard-way">Kubernetes the hard wayをやる</a>のに`tmux`の操作を覚えておくのが良さそうだったので使いそうなものを記載しておくことにしました。</p>
+<p><code>Ctrl</code> キーと <code>b</code> キーの同時押しを <code>^b</code> と表記しています。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202004/25/tmux/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202004/24/redux-devtools-extension-with-typescript/">redux-devtools-extension をTypeScriptで使う</a></h1>
+					<time>2020/04/24</time>
+					<br><div class="description">
+	
+	<p><a href="https://github.com/zalmoxisus/redux-devtools-extension/blob/master/README.md#13-use-redux-devtools-extension-package-from-npm">https://github.com/zalmoxisus/redux-devtools-extension/blob/master/README.md#13-use-redux-devtools-extension-package-from-npm</a></p>
+<p>というわけで型付けされているので</p>
+<pre><code>const store = createStore(rootReducer, undefined, devToolsEnhancer({}));
+</code></pre>
+<p>で良い。</p>
+<p>何か Qiia の記事とかを見てると<a href="https://github.com/zalmoxisus/redux-devtools-extension/blob/master/docs/Recipes.md#using-in-a-typescript-project">こっちの方法</a>でばっかり書いてあるが。</p>
+<hr />
+<p>Electron から使う場合は<a href="https://www.electronjs.org/docs/tutorial/devtools-extension#how-to-load-a-devtools-extension">Electron 公式</a>からも<a href="https://github.com/zalmoxisus/redux-devtools-extension#3-for-electron">redux-devtools-extension 公式</a>からもリンクされている <a href="https://github.com/MarshallOfSound/electron-devtools-installer">electron-devtools-installer</a> が利用できた。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202004/24/redux-devtools-extension-with-typescript/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202004/22/electron-fileio/">Electronでfs(File IO)</a></h1>
 					<time>2020/04/22</time>
 					<br><div class="description">
@@ -222,39 +252,6 @@ snapshots - http://my.internal.repo/yyy
 	
 </div>
 					<a class="readmore" href="/blog/202003/10/stored-procesure-with-mybatis/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202003/09/td-agent-with-proxy/">td-agentにプロキシを設定する</a></h1>
-					<time>2020/03/09</time>
-					<br><div class="description">
-	
-	<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo systemctl edit td-agent
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>で編集画面を開き、次を記述:</p>
-<pre><code>[Service]
-Environment=&quot;HTTP_PROXY=http://myproxy.example.com:8080&quot;
-</code></pre>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202003/09/td-agent-with-proxy/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202002/21/effectively-final-difference/">finalと実質finalの違い</a></h1>
-					<time>2020/02/21</time>
-					<br><div class="description">
-	
-	<p><a href="https://ja.stackoverflow.com/a/63099/2808">https://ja.stackoverflow.com/a/63099/2808</a> を見ていて気づいたのですが、 <code>実質final</code> というのは脳内(コンパイラ)で <code>final</code> を補完してくれる、というような処理が行われるわけではないのですね。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202002/21/effectively-final-difference/">Read more ⟶</a>
 				</section>
 				
 				

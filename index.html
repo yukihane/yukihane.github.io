@@ -64,6 +64,46 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202605/20/kotlin-value-class-spring-mvc-binding/">Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる話</a></h1>
+					<time>2026/05/20</time>
+					<br><div class="description">
+	
+	<h2 id="tldr">TL;DR</h2>
+<ul>
+<li>Kotlin の <code>@JvmInline value class</code> を <code>@ModelAttribute</code> で受ける data class のプロパティに使うと、リクエスト時に <code>BeanInstantiationException</code> が発生します。</li>
+<li>原因は Kotlin リフレクション API が value class のアンラップ済み型を正しく扱えないバグ（<a href="https://youtrack.jetbrains.com/issue/KT-64097">KT-64097</a>）です。Spring Framework 6.1.0 以降のリフレクションベース（<code>KCallable#callBy</code>）のパラメータ解決と噛み合って表面化します。</li>
+<li>Spring 側はこれを「Kotlin のバグ」として <code>NOT_PLANNED</code> でクローズ済みです（<a href="https://github.com/spring-projects/spring-framework/issues/31698">spring-framework#31698</a>）。フレームワークの修正は期待できません。</li>
+<li>回避策はバインディング方式によって異なります。<code>@ModelAttribute</code> の data class では value class を使わず、<code>UUID</code> 等の素の型で受けて Controller 内で value class に変換するのが安全です。</li>
+</ul>
+<hr />
+<h2 id="value-class-とは">value class とは</h2>
+<p>Kotlin の <code>@JvmInline value class</code> は、1つの値を型安全にラップするための仕組みです。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202605/20/kotlin-value-class-spring-mvc-binding/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202605/20/kotlin-default-arg-spring-aop-npe/">Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる話</a></h1>
+					<time>2026/05/20</time>
+					<br><div class="description">
+	
+	<h2 id="tldr">TL;DR</h2>
+<ul>
+<li><code>@Transactional</code> 系のアノテーション（Spring AOP のクラスプロキシ）が掛かった Kotlin クラスで、<strong>メソッドのデフォルト引数式が注入フィールドを参照</strong>していると <code>NullPointerException</code> になることがあります。</li>
+<li>原因は「Kotlin のデフォルト引数は <strong>static な合成メソッド <code>xxx$default</code></strong> に展開され、それが Spring AOP プロキシのインターセプトをすり抜ける」ためです。</li>
+<li>同じシグネチャでも <strong>引数を明示的に渡すと再現しません</strong>。そのためテストやコードパスによって出たり出なかったりして気付きにくいです。</li>
+<li>対策はシンプルです。デフォルト引数で注入依存を参照しないこと。必要なら <strong>メソッド本体で <code>val</code> 宣言</strong> するか、オーバーロードで表現します。</li>
+</ul>
+<hr />
+<h2 id="症状">症状</h2>
+<p>ある UseCase をリファクタして、時刻取得を <code>Clock</code> の DI 経由に変えました。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202605/20/kotlin-default-arg-spring-aop-npe/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202602/15/cpp_intro/">江添亮の入門C&#43;&#43; PDF(フォント埋め込み)</a></h1>
 					<time>2026/02/15</time>
 					<br><div class="description">
@@ -203,38 +243,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/202505/20/install-wslu-on-wsl2/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202505/05/not-recommend-using-jpa/">JPAを積極的に推奨することはやめようと思う</a></h1>
-					<time>2025/05/05</time>
-					<br><div class="description">
-	
-	<pre tabindex="0"><code>@Transactional
-public void updatePostTitle(Long postId, String postTitle) {
-⠀
-    Post post = postRepository.findById(postId).orElseThrow();
-⠀
-    post.setTitle(postTitle);
-⠀
-    postRepository.save(post);
-}
-</code></pre><p>これはHibernateのメインcontributorであるVlad Mihalceaさんのブログ記事 <a href="https://vladmihalcea.com/best-spring-data-jparepository/">The best Spring Data JpaRepository</a> で &ldquo;the save method anti-pattern&rdquo; という名前の <strong>アンチパターン</strong> として紹介されているコードですが、今まで携わってきたプロジェクトでこのコードが間違っていると指摘できるプロジェクトはひとつもありませんでした。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202505/05/not-recommend-using-jpa/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202505/05/form-cannot-bind-to-record/">Thymeleafのformのバインドにrecord classは使わない方が良さそう</a></h1>
-					<time>2025/05/05</time>
-					<br><div class="description">
-	
-	<p><a href="/blog/202505/04/kotlin-form-binding/">前回</a> のつづき。</p>
-<p>あれ、そういえばJavaのrecord classも似たような性質だな、ということはrecord classもform bindingには使えないのかな？でもあまりそんな話聞いたこと無いな、どうなんだろう…と思い検索してみたのですが、ヒットしたのは自分の記事でしたｗ</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202505/05/form-cannot-bind-to-record/">Read more ⟶</a>
 				</section>
 				
 				

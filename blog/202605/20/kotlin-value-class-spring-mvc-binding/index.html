@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html><head lang="ja">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる話 - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="TL;DR
+
+Kotlin の @JvmInline value class を @ModelAttribute で受ける data class のプロパティに使うと、リクエスト時に BeanInstantiationException が発生します。
+原因は Kotlin リフレクション API が value class のアンラップ済み型を正しく扱えないバグ（KT-64097）です。Spring Framework 6.1.0 以降のリフレクションベース（KCallable#callBy）のパラメータ解決と噛み合って表面化します。
+Spring 側はこれを「Kotlin のバグ」として NOT_PLANNED でクローズ済みです（spring-framework#31698）。フレームワークの修正は期待できません。
+回避策はバインディング方式によって異なります。@ModelAttribute の data class では value class を使わず、UUID 等の素の型で受けて Controller 内で value class に変換するのが安全です。
+
+
+value class とは
+Kotlin の @JvmInline value class は、1つの値を型安全にラップするための仕組みです。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
+	<meta property="og:url" content="https://yukihane.github.io/blog/202605/20/kotlin-value-class-spring-mvc-binding/">
+  <meta property="og:site_name" content="発火後忘失">
+  <meta property="og:title" content="Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる話">
+  <meta property="og:description" content="TL;DR Kotlin の @JvmInline value class を @ModelAttribute で受ける data class のプロパティに使うと、リクエスト時に BeanInstantiationException が発生します。 原因は Kotlin リフレクション API が value class のアンラップ済み型を正しく扱えないバグ（KT-64097）です。Spring Framework 6.1.0 以降のリフレクションベース（KCallable#callBy）のパラメータ解決と噛み合って表面化します。 Spring 側はこれを「Kotlin のバグ」として NOT_PLANNED でクローズ済みです（spring-framework#31698）。フレームワークの修正は期待できません。 回避策はバインディング方式によって異なります。@ModelAttribute の data class では value class を使わず、UUID 等の素の型で受けて Controller 内で value class に変換するのが安全です。 value class とは Kotlin の @JvmInline value class は、1つの値を型安全にラップするための仕組みです。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2026-05-20T03:00:00+09:00">
+    <meta property="article:modified_time" content="2026-05-20T03:00:00+09:00">
+    <meta property="article:tag" content="Kotlin">
+    <meta property="article:tag" content="Spring">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる話">
+  <meta name="twitter:description" content="TL;DR Kotlin の @JvmInline value class を @ModelAttribute で受ける data class のプロパティに使うと、リクエスト時に BeanInstantiationException が発生します。 原因は Kotlin リフレクション API が value class のアンラップ済み型を正しく扱えないバグ（KT-64097）です。Spring Framework 6.1.0 以降のリフレクションベース（KCallable#callBy）のパラメータ解決と噛み合って表面化します。 Spring 側はこれを「Kotlin のバグ」として NOT_PLANNED でクローズ済みです（spring-framework#31698）。フレームワークの修正は期待できません。 回避策はバインディング方式によって異なります。@ModelAttribute の data class では value class を使わず、UUID 等の素の型で受けて Controller 内で value class に変換するのが安全です。 value class とは Kotlin の @JvmInline value class は、1つの値を型安全にラップするための仕組みです。">
+
+        <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://yukihane.github.io/">発火後忘失</a>
+	</div>
+	<nav>
+		
+		<a href="/blog">Blog</a>
+		
+		<a href="/docs">Docs</a>
+		
+		<a href="/tags">Tags</a>
+		
+		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
+		
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
+		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
+		
+	</nav>
+</header>
+
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        <div class="title">
+          <h1 class="title">Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる話</h1>
+          <div class="meta">Posted on 2026/05/20</div>
+        </div>
+        
+        <section class="body">
+          <h2 id="tldr">TL;DR</h2>
+<ul>
+<li>Kotlin の <code>@JvmInline value class</code> を <code>@ModelAttribute</code> で受ける data class のプロパティに使うと、リクエスト時に <code>BeanInstantiationException</code> が発生します。</li>
+<li>原因は Kotlin リフレクション API が value class のアンラップ済み型を正しく扱えないバグ（<a href="https://youtrack.jetbrains.com/issue/KT-64097">KT-64097</a>）です。Spring Framework 6.1.0 以降のリフレクションベース（<code>KCallable#callBy</code>）のパラメータ解決と噛み合って表面化します。</li>
+<li>Spring 側はこれを「Kotlin のバグ」として <code>NOT_PLANNED</code> でクローズ済みです（<a href="https://github.com/spring-projects/spring-framework/issues/31698">spring-framework#31698</a>）。フレームワークの修正は期待できません。</li>
+<li>回避策はバインディング方式によって異なります。<code>@ModelAttribute</code> の data class では value class を使わず、<code>UUID</code> 等の素の型で受けて Controller 内で value class に変換するのが安全です。</li>
+</ul>
+<hr />
+<h2 id="value-class-とは">value class とは</h2>
+<p>Kotlin の <code>@JvmInline value class</code> は、1つの値を型安全にラップするための仕組みです。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@JvmInline</span>
+</span></span><span class="line"><span class="cl"><span class="k">value</span> <span class="k">class</span> <span class="nc">GroupId</span><span class="p">(</span><span class="k">val</span> <span class="py">value</span><span class="p">:</span> <span class="n">UUID</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>UUID</code> をそのまま引き回すと「どの ID なのか」が型で表現されず取り違えが起きやすくなります。<code>GroupId</code> のような value class でラップすると、コンパイラが型レベルで区別してくれます。しかも <strong>コンパイル時にラップ先の型（ここでは <code>UUID</code>）へ展開（アンボクシング）される</strong> ため、実行時のオブジェクト生成コストがほぼありません。型安全とゼロコストを両立できる、Kotlin らしい道具です。</p>
+<p>ところが、この「コンパイル時に別の型へ展開される」性質が、リフレクションを多用するフレームワークと相性が悪いのです。</p>
+<hr />
+<h2 id="症状">症状</h2>
+<p><code>@ModelAttribute</code> で受け取る data class のプロパティに value class を使うと、リクエスト時に <code>BeanInstantiationException</code> が発生します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="c1">// ❌ @ModelAttribute の data class に value class を使用 → BeanInstantiationException
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">data</span> <span class="k">class</span> <span class="nc">ListEmployeesRequest</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">groupId</span><span class="p">:</span> <span class="n">GroupId</span><span class="p">?,</span> <span class="c1">// Kotlin リフレクションが GroupId を正しく解決できない
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">val</span> <span class="py">keyword</span><span class="p">:</span> <span class="n">String</span><span class="p">?,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@GetMapping</span><span class="p">(</span><span class="s2">&#34;...&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">fun</span> <span class="nf">list</span><span class="p">(</span><span class="nd">@Valid</span> <span class="n">request</span><span class="p">:</span> <span class="n">ListEmployeesRequest</span><span class="p">)</span> <span class="c1">// 実行時エラー
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>コンパイルは通ります。テストの書き方やリクエストパラメータの有無によっては表面化しないこともあり、特定のエンドポイントだけ実行時に落ちる、という形で現れます。</p>
+<hr />
+<h2 id="原因-kotlin-リフレクションと-value-class-アンラップのズレ">原因: Kotlin リフレクションと value class アンラップのズレ</h2>
+<p>Spring Framework 6.1.0 以降、Kotlin の data class バインディングは Kotlin リフレクション（<code>KCallable#callBy</code>）ベースのパラメータ解決を使うようになりました。コンストラクタの引数を名前で解決し、リフレクション経由でインスタンスを生成する方式です。</p>
+<p>しかし、value class は前述のとおり <strong>コンパイル時にラップ先の型へアンボクシングされます</strong>。この「ソース上の型（<code>GroupId</code>）」と「実体の型（<code>UUID</code>）」のズレを、Kotlin リフレクション API が正しく橋渡しできないバグがあります（<a href="https://youtrack.jetbrains.com/issue/KT-64097">KT-64097</a>）。結果として、<code>callBy</code> でコンストラクタを呼ぼうとした時点で値を組み立てられず、Spring 側で <code>BeanInstantiationException</code> として表面化します。</p>
+<p>Spring プロジェクトはこの問題を Spring 自身のバグではなく <strong>Kotlin リフレクションのバグ</strong> と位置づけ、<a href="https://github.com/spring-projects/spring-framework/issues/31698">spring-framework#31698</a> を <code>NOT_PLANNED</code> でクローズしています。つまりフレームワーク側の修正で解決される見込みは薄く、利用側で避けるしかありません。</p>
+<hr />
+<h2 id="バインディング方式ごとの影響">バインディング方式ごとの影響</h2>
+<p>同じ value class でも、どのバインディング経路を通るかで挙動が変わります。</p>
+<table>
+  <thead>
+      <tr>
+          <th>バインディング方式</th>
+          <th>value class</th>
+          <th>備考</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>@ModelAttribute</code>（data class バインディング）</td>
+          <td>❌ 使用不可</td>
+          <td>Kotlin リフレクションのバグにより <code>BeanInstantiationException</code></td>
+      </tr>
+      <tr>
+          <td><code>@PathVariable</code> / <code>@RequestParam</code>（単独パラメータ）</td>
+          <td>⚠️ 要注意</td>
+          <td>基本的に動作するが、value class マングリングの影響を受ける場合がある</td>
+      </tr>
+      <tr>
+          <td><code>@RequestBody</code>（JSON）</td>
+          <td>✅ 使用可能</td>
+          <td>Jackson がデシリアライズを処理するため影響なし</td>
+      </tr>
+  </tbody>
+</table>
+<p>ポイントは「<strong>誰がインスタンスを組み立てるか</strong>」です。<code>@RequestBody</code> は Jackson がデシリアライズを担うのでこのバグの影響を受けません。一方 <code>@ModelAttribute</code> の data class バインディングは Kotlin リフレクション経由のため直撃します。</p>
+<blockquote>
+<p><strong>関連</strong>: <code>@ModelAttribute</code> の Kotlin data class バインディングが脆いのは value class に限った話ではありません。以前 <a href="https://yukihane.github.io/blog/202505/04/kotlin-form-binding/">KotlinでformバインディングするときもやっぱりJava Beansにした方が良さそう</a> で、non-null プロパティや primary constructor 宣言だと壊れ、<code>var</code> + nullable + body 宣言（≒ Java Bean 的な書き方）が必要になる挙動を確認しました。根っこは共通で「Kotlin の data class と、リフレクションでインスタンスを組み立てるフレームワークの相性問題」です。その記事の末尾では「<code>@RequestBody</code> / Jackson なら話が変わるはず」と予想していましたが、本記事の影響表（<code>@RequestBody</code> は ✅）がそれを裏付ける形になりました。</p></blockquote>
+<hr />
+<h2 id="回避策">回避策</h2>
+<p><code>@ModelAttribute</code> の data class では value class を使わず、<strong>素の型（<code>UUID</code> 等）で受け取り、Controller 内で value class に変換する</strong>のが確実です。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="c1">// ✅ UUID で受け取り、Controller で value class に変換
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s2">&#34;...&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">fun</span> <span class="nf">list</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@RequestParam</span><span class="p">(</span><span class="n">required</span> <span class="p">=</span> <span class="k">false</span><span class="p">)</span> <span class="n">groupId</span><span class="p">:</span> <span class="n">UUID</span><span class="p">?</span> <span class="p">=</span> <span class="k">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">query</span> <span class="p">=</span> <span class="n">EmployeeListQuery</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">filter</span> <span class="p">=</span> <span class="n">EmployeeFilter</span><span class="p">(</span><span class="n">groupId</span> <span class="p">=</span> <span class="n">groupId</span><span class="o">?.</span><span class="n">let</span> <span class="p">{</span> <span class="n">GroupId</span><span class="p">(</span><span class="k">it</span><span class="p">)</span> <span class="p">}),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>境界（Controller の引数）では素の型で受け、ドメイン層へ渡す手前で value class に包みます。型安全の恩恵はドメイン層で受けつつ、リフレクションの罠を避けられます。</p>
+<hr />
+<h2 id="まとめ">まとめ</h2>
+<ul>
+<li><code>@JvmInline value class</code> はコンパイル時にラップ先の型へアンボクシングされます。</li>
+<li>Spring 6.1.0 以降の Kotlin data class バインディングは Kotlin リフレクション（<code>callBy</code>）を使いますが、リフレクション API が value class のアンラップ済み型を正しく扱えません（KT-64097）。</li>
+<li>このため <code>@ModelAttribute</code> の data class プロパティに value class を使うと <code>BeanInstantiationException</code> になります。</li>
+<li>Spring 側は「Kotlin のバグ」として <code>NOT_PLANNED</code> クローズ済みです。フレームワーク修正は期待できません。</li>
+<li><code>@RequestBody</code>（JSON）は Jackson 経由なので影響ありません。<code>@ModelAttribute</code> では素の型で受けて Controller 内で value class に変換します。</li>
+</ul>
+<p>value class は型安全とゼロコストを両立する優れた道具ですが、「コンパイル時に別の型へ消える」という性質上、リフレクションを多用するフレームワークの境界では油断できません。どのバインディング経路が誰によってインスタンス化されるかを意識しておきたいところです。</p>
+<hr />
+<blockquote>
+<p><strong>参考</strong>: <a href="https://youtrack.jetbrains.com/issue/KT-64097">KT-64097</a>、<a href="https://github.com/spring-projects/spring-framework/issues/31698">spring-framework#31698</a>、<a href="https://github.com/spring-projects/spring-framework/issues/28638">spring-framework#28638</a></p></blockquote>
+
+        </section>
+        <div class="post-tags">
+          
+          
+          <nav class="nav tags">
+            <ul class="tags">
+              
+              <li><a href="/tags/kotlin/">kotlin</a></li>
+              
+              <li><a href="/tags/spring/">spring</a></li>
+              
+            </ul>
+          </nav>
+          
+          
+        </div>
+      </div>
+
+      
+      
+    </div>
+
+    </article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
+  <div class="footer-info">
+    2026  © Yukihane, All Rights Reserved |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E9J8FN5B4Q');
+        }
+      </script>
+
+</div>
+    </body>
+</html>
