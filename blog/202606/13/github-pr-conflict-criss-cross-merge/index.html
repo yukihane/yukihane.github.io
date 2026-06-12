@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html><head lang="ja">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>GitHub PR が「コンフリクトあり」と言うのにローカルではマージできる - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="TL;DR
+
+GitHub の Pull Request が &ldquo;This branch has conflicts&rdquo; と表示するのに、ローカルで git merge すると何事もなく成功する、ということがあります。
+原因は criss-cross merge（交差マージ）で merge-base が複数存在する状態です。
+ローカルの git（ort / recursive ストラテジー）は複数の merge-base を仮想ベースに統合して賢く解決しますが、GitHub のマージエンジンは同じ状況をうまく処理できないことがあります。
+解決策は git rebase で履歴を線形化することです。
+
+
+状況
+スタックド PR（PR-A の上に PR-B を積む運用）をしていて、次のようなことが起きました。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
+	<meta property="og:url" content="https://yukihane.github.io/blog/202606/13/github-pr-conflict-criss-cross-merge/">
+  <meta property="og:site_name" content="発火後忘失">
+  <meta property="og:title" content="GitHub PR が「コンフリクトあり」と言うのにローカルではマージできる">
+  <meta property="og:description" content="TL;DR GitHub の Pull Request が “This branch has conflicts” と表示するのに、ローカルで git merge すると何事もなく成功する、ということがあります。 原因は criss-cross merge（交差マージ）で merge-base が複数存在する状態です。 ローカルの git（ort / recursive ストラテジー）は複数の merge-base を仮想ベースに統合して賢く解決しますが、GitHub のマージエンジンは同じ状況をうまく処理できないことがあります。 解決策は git rebase で履歴を線形化することです。 状況 スタックド PR（PR-A の上に PR-B を積む運用）をしていて、次のようなことが起きました。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2026-06-13T00:00:00+09:00">
+    <meta property="article:modified_time" content="2026-06-13T00:00:00+09:00">
+    <meta property="article:tag" content="Git">
+    <meta property="article:tag" content="Github">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="GitHub PR が「コンフリクトあり」と言うのにローカルではマージできる">
+  <meta name="twitter:description" content="TL;DR GitHub の Pull Request が “This branch has conflicts” と表示するのに、ローカルで git merge すると何事もなく成功する、ということがあります。 原因は criss-cross merge（交差マージ）で merge-base が複数存在する状態です。 ローカルの git（ort / recursive ストラテジー）は複数の merge-base を仮想ベースに統合して賢く解決しますが、GitHub のマージエンジンは同じ状況をうまく処理できないことがあります。 解決策は git rebase で履歴を線形化することです。 状況 スタックド PR（PR-A の上に PR-B を積む運用）をしていて、次のようなことが起きました。">
+
+        <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://yukihane.github.io/">発火後忘失</a>
+	</div>
+	<nav>
+		
+		<a href="/blog">Blog</a>
+		
+		<a href="/docs">Docs</a>
+		
+		<a href="/tags">Tags</a>
+		
+		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
+		
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
+		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
+		
+	</nav>
+</header>
+
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        <div class="title">
+          <h1 class="title">GitHub PR が「コンフリクトあり」と言うのにローカルではマージできる</h1>
+          <div class="meta">Posted on 2026/06/13</div>
+        </div>
+        
+        <section class="body">
+          <h2 id="tldr">TL;DR</h2>
+<ul>
+<li>GitHub の Pull Request が &ldquo;This branch has conflicts&rdquo; と表示するのに、ローカルで <code>git merge</code> すると何事もなく成功する、ということがあります。</li>
+<li>原因は <strong>criss-cross merge</strong>（交差マージ）で <code>merge-base</code> が複数存在する状態です。</li>
+<li>ローカルの git（<code>ort</code> / <code>recursive</code> ストラテジー）は複数の merge-base を仮想ベースに統合して賢く解決しますが、GitHub のマージエンジンは同じ状況をうまく処理できないことがあります。</li>
+<li>解決策は <code>git rebase</code> で履歴を線形化することです。</li>
+</ul>
+<hr />
+<h2 id="状況">状況</h2>
+<p>スタックド PR（PR-A の上に PR-B を積む運用）をしていて、次のようなことが起きました。</p>
+<ol>
+<li><code>feature-a</code> ブランチから <code>feature-b</code> ブランチを切って作業</li>
+<li>途中で別ブランチ <code>feature-c</code> の変更も <code>feature-b</code> にマージ（<code>feature-c</code> の修正が <code>feature-b</code> の作業に必要だった）</li>
+<li><code>feature-a</code> と <code>feature-c</code> がそれぞれ main にマージされた</li>
+<li><code>feature-b</code> の PR の base が main に切り替わった</li>
+</ol>
+<p>この時点で GitHub が &ldquo;This branch has conflicts that must be resolved&rdquo; と表示します。ところが手元で試すと：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span> git fetch origin main
+</span></span><span class="line"><span class="cl"><span class="gp">$</span> git merge --no-commit --no-ff origin/main
+</span></span><span class="line"><span class="cl"><span class="go">Automatic merge went well; stopped before committing as requested
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>問題なくマージできてしまいます。</p>
+<hr />
+<h2 id="再現手順">再現手順</h2>
+<p>以下のスクリプトでこの状態を手元で再現できます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nb">set</span> -e
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 準備</span>
+</span></span><span class="line"><span class="cl">mkdir criss-cross-demo <span class="o">&amp;&amp;</span> <span class="nb">cd</span> criss-cross-demo
+</span></span><span class="line"><span class="cl">git init
+</span></span><span class="line"><span class="cl">git config user.name <span class="s2">&#34;demo&#34;</span>
+</span></span><span class="line"><span class="cl">git config user.email <span class="s2">&#34;demo@example.com&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 初期コミット: 2つのファイル</span>
+</span></span><span class="line"><span class="cl"><span class="nb">printf</span> <span class="s1">&#39;function greet() {\n  return &#34;hello&#34;\n}\n&#39;</span> &gt; greet.js
+</span></span><span class="line"><span class="cl"><span class="nb">printf</span> <span class="s1">&#39;function farewell() {\n  return &#34;bye&#34;\n}\n&#39;</span> &gt; farewell.js
+</span></span><span class="line"><span class="cl">git add . <span class="o">&amp;&amp;</span> git commit -m <span class="s2">&#34;initial&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># feature-a: greet.js を変更</span>
+</span></span><span class="line"><span class="cl">git checkout -b feature-a
+</span></span><span class="line"><span class="cl"><span class="nb">printf</span> <span class="s1">&#39;function greet() {\n  const name = getName()\n  return &#34;hello, &#34; + name\n}\n&#39;</span> &gt; greet.js
+</span></span><span class="line"><span class="cl">git commit -am <span class="s2">&#34;feature-a: greet with name&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># feature-c: farewell.js を変更（main から分岐）</span>
+</span></span><span class="line"><span class="cl">git checkout main
+</span></span><span class="line"><span class="cl">git checkout -b feature-c
+</span></span><span class="line"><span class="cl"><span class="nb">printf</span> <span class="s1">&#39;function farewell() {\n  const name = getName()\n  return &#34;bye, &#34; + name\n}\n&#39;</span> &gt; farewell.js
+</span></span><span class="line"><span class="cl">git commit -am <span class="s2">&#34;feature-c: farewell with name&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># feature-b: feature-a の上に作り、feature-c もマージ</span>
+</span></span><span class="line"><span class="cl">git checkout feature-a
+</span></span><span class="line"><span class="cl">git checkout -b feature-b
+</span></span><span class="line"><span class="cl"><span class="nb">printf</span> <span class="s1">&#39;function greet() {\n  const name = getName()\n  return &#34;hello, &#34; + name + &#34;!&#34;\n}\n&#39;</span> &gt; greet.js
+</span></span><span class="line"><span class="cl">git commit -am <span class="s2">&#34;feature-b: add exclamation&#34;</span>
+</span></span><span class="line"><span class="cl">git merge feature-c -m <span class="s2">&#34;merge feature-c into feature-b&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># main に feature-a と feature-c を順番にマージ（PR マージに相当）</span>
+</span></span><span class="line"><span class="cl">git checkout main
+</span></span><span class="line"><span class="cl">git merge feature-a -m <span class="s2">&#34;merge feature-a into main&#34;</span>
+</span></span><span class="line"><span class="cl">git merge feature-c -m <span class="s2">&#34;merge feature-c into main&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>ここまで実行すると、次のようなコミットグラフになります。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span> git log --oneline --all --graph
+</span></span><span class="line"><span class="cl"><span class="go">*   0fe9585 merge feature-c into main
+</span></span></span><span class="line"><span class="cl"><span class="go">|\
+</span></span></span><span class="line"><span class="cl"><span class="go">| | *   cfd8223 merge feature-c into feature-b
+</span></span></span><span class="line"><span class="cl"><span class="go">| | |\
+</span></span></span><span class="line"><span class="cl"><span class="go">| | |/
+</span></span></span><span class="line"><span class="cl"><span class="go">| |/|
+</span></span></span><span class="line"><span class="cl"><span class="go">| * | 831f6a0 feature-c: farewell with name
+</span></span></span><span class="line"><span class="cl"><span class="go">| | * 86034d8 feature-b: add exclamation
+</span></span></span><span class="line"><span class="cl"><span class="go">| |/
+</span></span></span><span class="line"><span class="cl"><span class="go">|/|
+</span></span></span><span class="line"><span class="cl"><span class="go">* | ea6a724 feature-a: greet with name
+</span></span></span><span class="line"><span class="cl"><span class="go">|/
+</span></span></span><span class="line"><span class="cl"><span class="go">* ea3e8d0 initial
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>feature-b</code> と <code>main</code> の merge-base を調べると、2つ返ってきます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span> git merge-base --all main feature-b
+</span></span><span class="line"><span class="cl"><span class="go">ea6a724...  # feature-a のコミット
+</span></span></span><span class="line"><span class="cl"><span class="go">831f6a0...  # feature-c のコミット
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>この2つは互いに祖先関係にありません。これが criss-cross merge です。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span> git merge-base --is-ancestor ea6a724 831f6a0<span class="p">;</span> <span class="nb">echo</span> <span class="nv">$?</span>
+</span></span><span class="line"><span class="cl"><span class="go">1    # 祖先ではない
+</span></span></span><span class="line"><span class="cl"><span class="go"></span><span class="gp">$</span> git merge-base --is-ancestor 831f6a0 ea6a724<span class="p">;</span> <span class="nb">echo</span> <span class="nv">$?</span>
+</span></span><span class="line"><span class="cl"><span class="go">1    # こちらも祖先ではない
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>そしてローカルでのマージは成功します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span> git checkout feature-b
+</span></span><span class="line"><span class="cl"><span class="gp">$</span> git merge --no-commit --no-ff main
+</span></span><span class="line"><span class="cl"><span class="go">Automatic merge went well; stopped before committing as requested
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>この状態で GitHub に push して PR を作ると、GitHub 側では &ldquo;This branch has conflicts&rdquo; と表示されうるわけです。</p>
+<hr />
+<h2 id="原因-criss-cross-merge-とは">原因: criss-cross merge とは</h2>
+<p>通常の 3-way merge では、2つのブランチの共通祖先（merge-base）が <strong>1つに定まります</strong>。しかし上のケースでは、<code>feature-b</code> に <code>feature-a</code> と <code>feature-c</code> が <strong>それぞれ独立に取り込まれ</strong>、main にも <strong>それぞれ独立にマージされている</strong> ため、最近共通祖先が2つ存在します。</p>
+<pre tabindex="0"><code>        main
+         │
+    ┌────┴────┐
+    │         │
+ feature-a  feature-c    ← 両方とも main と feature-b の両方に入っている
+    │         │
+    └────┬────┘
+         │
+      feature-b
+</code></pre><p>このように、DAG 上で同等な merge-base が複数存在する状態を criss-cross merge と呼びます。</p>
+<hr />
+<h2 id="ローカル-git-と-github-で結果が異なる理由">ローカル git と GitHub で結果が異なる理由</h2>
+<h3 id="ローカルの-gitort--recursive-ストラテジー">ローカルの git（<code>ort</code> / <code>recursive</code> ストラテジー）</h3>
+<p>git のデフォルトマージストラテジーは、merge-base が複数ある場合に <strong>仮想的なマージベースを生成</strong> します。複数の merge-base 同士を再帰的にマージして1つの仮想コミットを作り、それを base として 3-way merge を行います。この「再帰マージ」の賢さによって、criss-cross でも多くのケースで自動解決できます。</p>
+<h3 id="github-のマージエンジン">GitHub のマージエンジン</h3>
+<p>GitHub がサーバー側でどのマージアルゴリズムを使っているかは公開されていません。しかし実際の挙動として、criss-cross merge の状況で「ローカルでは解決できるのに GitHub では conflict と判定される」ケースが存在します。</p>
+<hr />
+<h2 id="解決策-rebase-で線形化する">解決策: rebase で線形化する</h2>
+<p><code>feature-b</code> を main の上に rebase すると、criss-cross 構造が解消されて merge-base が一意になります。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span> git rebase main  <span class="c1"># （リモートなら origin/main）</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>rebase 中にコンフリクトが出る場合がありますが、これは git が正直に示してくれるコンフリクトなので、通常どおり解決して <code>git rebase --continue</code> すれば OK です。</p>
+<p>rebase 後は merge-base が1つになっていることを確認できます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span> git merge-base --all main feature-b
+</span></span><span class="line"><span class="cl"><span class="go">（1つだけ返る）
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>rebase 後に force push すれば、GitHub のコンフリクト表示も解消されます。</p>
+<hr />
+<h2 id="まとめ">まとめ</h2>
+<ul>
+<li><strong>スタックド PR + 複数ブランチの交差取り込み</strong> で criss-cross merge が発生しやすいです。</li>
+<li>ローカルの git は merge-base が複数あっても仮想ベースで解決できますが、GitHub のマージ判定は同じ状況に対応できないことがあります。</li>
+<li>「ローカルでマージできるのに GitHub が conflict と言う」場合は、<code>git merge-base --all</code> を確認してみてください。2つ以上返ってきたら criss-cross merge です。</li>
+<li><code>git rebase</code> で履歴を線形化すれば解決します。</li>
+</ul>
+
+        </section>
+        <div class="post-tags">
+          
+          
+          <nav class="nav tags">
+            <ul class="tags">
+              
+              <li><a href="/tags/git/">git</a></li>
+              
+              <li><a href="/tags/github/">github</a></li>
+              
+            </ul>
+          </nav>
+          
+          
+        </div>
+      </div>
+
+      
+      
+    </div>
+
+    </article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
+  <div class="footer-info">
+    2026  © Yukihane, All Rights Reserved |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E9J8FN5B4Q');
+        }
+      </script>
+
+</div>
+    </body>
+</html>

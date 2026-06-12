@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html><head lang="ja">
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる話 - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="TL;DR
 
 Kotlin の @JvmInline value class を @ModelAttribute で受ける data class のプロパティに使うと、リクエスト時に BeanInstantiationException が発生します。
@@ -15,7 +15,7 @@ Kotlin の @JvmInline value class は、1つの値を型安全にラップする
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202605/20/kotlin-value-class-spring-mvc-binding/">
   <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる話">
+  <meta property="og:title" content="Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる">
   <meta property="og:description" content="TL;DR Kotlin の @JvmInline value class を @ModelAttribute で受ける data class のプロパティに使うと、リクエスト時に BeanInstantiationException が発生します。 原因は Kotlin リフレクション API が value class のアンラップ済み型を正しく扱えないバグ（KT-64097）です。Spring Framework 6.1.0 以降のリフレクションベース（KCallable#callBy）のパラメータ解決と噛み合って表面化します。 Spring 側はこれを「Kotlin のバグ」として NOT_PLANNED でクローズ済みです（spring-framework#31698）。フレームワークの修正は期待できません。 回避策はバインディング方式によって異なります。@ModelAttribute の data class では value class を使わず、UUID 等の素の型で受けて Controller 内で value class に変換するのが安全です。 value class とは Kotlin の @JvmInline value class は、1つの値を型安全にラップするための仕組みです。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
@@ -26,7 +26,7 @@ Kotlin の @JvmInline value class は、1つの値を型安全にラップする
     <meta property="article:tag" content="Spring">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる話">
+  <meta name="twitter:title" content="Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる">
   <meta name="twitter:description" content="TL;DR Kotlin の @JvmInline value class を @ModelAttribute で受ける data class のプロパティに使うと、リクエスト時に BeanInstantiationException が発生します。 原因は Kotlin リフレクション API が value class のアンラップ済み型を正しく扱えないバグ（KT-64097）です。Spring Framework 6.1.0 以降のリフレクションベース（KCallable#callBy）のパラメータ解決と噛み合って表面化します。 Spring 側はこれを「Kotlin のバグ」として NOT_PLANNED でクローズ済みです（spring-framework#31698）。フレームワークの修正は期待できません。 回避策はバインディング方式によって異なります。@ModelAttribute の data class では value class を使わず、UUID 等の素の型で受けて Controller 内で value class に変換するのが安全です。 value class とは Kotlin の @JvmInline value class は、1つの値を型安全にラップするための仕組みです。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -73,7 +73,7 @@ Kotlin の @JvmInline value class は、1つの値を型安全にラップする
       
       <div class="post-content">
         <div class="title">
-          <h1 class="title">Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる話</h1>
+          <h1 class="title">Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる</h1>
           <div class="meta">Posted on 2026/05/20</div>
         </div>
         

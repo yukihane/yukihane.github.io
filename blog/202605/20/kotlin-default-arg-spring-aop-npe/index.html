@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html><head lang="ja">
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる話 - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="TL;DR
 
 @Transactional 系のアノテーション（Spring AOP のクラスプロキシ）が掛かった Kotlin クラスで、メソッドのデフォルト引数式が注入フィールドを参照していると NullPointerException になることがあります。
@@ -15,7 +15,7 @@
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202605/20/kotlin-default-arg-spring-aop-npe/">
   <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる話">
+  <meta property="og:title" content="Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる">
   <meta property="og:description" content="TL;DR @Transactional 系のアノテーション（Spring AOP のクラスプロキシ）が掛かった Kotlin クラスで、メソッドのデフォルト引数式が注入フィールドを参照していると NullPointerException になることがあります。 原因は「Kotlin のデフォルト引数は static な合成メソッド xxx$default に展開され、それが Spring AOP プロキシのインターセプトをすり抜ける」ためです。 同じシグネチャでも 引数を明示的に渡すと再現しません。そのためテストやコードパスによって出たり出なかったりして気付きにくいです。 対策はシンプルです。デフォルト引数で注入依存を参照しないこと。必要なら メソッド本体で val 宣言 するか、オーバーロードで表現します。 症状 ある UseCase をリファクタして、時刻取得を Clock の DI 経由に変えました。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
@@ -26,7 +26,7 @@
     <meta property="article:tag" content="Spring">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる話">
+  <meta name="twitter:title" content="Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる">
   <meta name="twitter:description" content="TL;DR @Transactional 系のアノテーション（Spring AOP のクラスプロキシ）が掛かった Kotlin クラスで、メソッドのデフォルト引数式が注入フィールドを参照していると NullPointerException になることがあります。 原因は「Kotlin のデフォルト引数は static な合成メソッド xxx$default に展開され、それが Spring AOP プロキシのインターセプトをすり抜ける」ためです。 同じシグネチャでも 引数を明示的に渡すと再現しません。そのためテストやコードパスによって出たり出なかったりして気付きにくいです。 対策はシンプルです。デフォルト引数で注入依存を参照しないこと。必要なら メソッド本体で val 宣言 するか、オーバーロードで表現します。 症状 ある UseCase をリファクタして、時刻取得を Clock の DI 経由に変えました。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -73,7 +73,7 @@
       
       <div class="post-content">
         <div class="title">
-          <h1 class="title">Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる話</h1>
+          <h1 class="title">Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる</h1>
           <div class="meta">Posted on 2026/05/20</div>
         </div>
         

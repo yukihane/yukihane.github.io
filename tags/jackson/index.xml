@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Sat, 12 Mar 2022 14:12:33 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/jackson/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jackson &#43; Kotlin の nullable な value class が {&#34;value&#34;:&#34;...&#34;} で出力される</title>
+      <link>https://yukihane.github.io/blog/202606/13/kotlin-nullable-value-class-jackson-boxing/</link>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202606/13/kotlin-nullable-value-class-jackson-boxing/</guid>
+      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Kotlin の &lt;code&gt;@JvmInline value class&lt;/code&gt; を &lt;strong&gt;nullable&lt;/strong&gt; なプロパティとして持つ data class を &lt;code&gt;jackson-module-kotlin&lt;/code&gt; でシリアライズすると、auto-unwrap が効かず &lt;code&gt;{&amp;quot;value&amp;quot;:&amp;quot;...&amp;quot;}&lt;/code&gt; の boxed object として出力されることがあります。&lt;/li&gt;&#xA;&lt;li&gt;Jackson 2.17 で value class サポートは正式に入りましたが、公式 docs は &lt;strong&gt;&amp;ldquo;there are many edge cases for the &lt;code&gt;value class&lt;/code&gt; that wraps nullable&amp;rdquo;&lt;/strong&gt; と明記しており、完全解決ではありません。&lt;/li&gt;&#xA;&lt;li&gt;推奨される回避策は value class 側の underlying プロパティに &lt;code&gt;@get:JsonValue&lt;/code&gt; を付与することです。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;何が起きたか&#34;&gt;何が起きたか&lt;/h2&gt;&#xA;&lt;p&gt;Kotlin で ID 系の型安全性を担保するために、こういう value class を定義しているプロジェクトは多いと思います。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Jacksonでコンストラクタを利用してデシリアライズ</title>
       <link>https://yukihane.github.io/blog/202203/12/jackson-deserialize-by-constructor/</link>

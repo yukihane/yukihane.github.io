@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html><head lang="ja">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>CI の flaky test を追ったら JDK の HashMap が壊れていた - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="TL;DR
+
+Kotlin &#43; Exposed ORM のプロジェクトで、CI の並列テスト実行時に ClassCastException: LinkedHashMap$Entry cannot be cast to HashMap$TreeNode が散発的に発生しました。
+原因は Exposed 内部の IdentifierManagerApi が 非スレッドセーフな LinkedHashMap を識別子キャッシュに使っており、Kotest の並列実行で同時書き込みが起きて HashMap の内部構造が壊れるためです。
+これは Exposed #1704 として報告済みの既知バグで、Exposed 1.3.0 で修正されています。
+ローカルの単独テスト実行では再現しません。CI のテストレポート（HTML アーティファクト）を取得して初めて完全なスタックトレースが得られ、原因を特定できました。
+
+
+症状: 無関係な2テストが同じ例外で落ちる
+ある PR の CI で、7,000 件超のテスト中 2 件だけが失敗しました。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
+	<meta property="og:url" content="https://yukihane.github.io/blog/202606/13/exposed-flaky-test-hashmap-corruption/">
+  <meta property="og:site_name" content="発火後忘失">
+  <meta property="og:title" content="CI の flaky test を追ったら JDK の HashMap が壊れていた">
+  <meta property="og:description" content="TL;DR Kotlin &#43; Exposed ORM のプロジェクトで、CI の並列テスト実行時に ClassCastException: LinkedHashMap$Entry cannot be cast to HashMap$TreeNode が散発的に発生しました。 原因は Exposed 内部の IdentifierManagerApi が 非スレッドセーフな LinkedHashMap を識別子キャッシュに使っており、Kotest の並列実行で同時書き込みが起きて HashMap の内部構造が壊れるためです。 これは Exposed #1704 として報告済みの既知バグで、Exposed 1.3.0 で修正されています。 ローカルの単独テスト実行では再現しません。CI のテストレポート（HTML アーティファクト）を取得して初めて完全なスタックトレースが得られ、原因を特定できました。 症状: 無関係な2テストが同じ例外で落ちる ある PR の CI で、7,000 件超のテスト中 2 件だけが失敗しました。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2026-06-13T00:00:00+09:00">
+    <meta property="article:modified_time" content="2026-06-13T00:00:00+09:00">
+    <meta property="article:tag" content="Kotlin">
+    <meta property="article:tag" content="Exposed">
+    <meta property="article:tag" content="Testing">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CI の flaky test を追ったら JDK の HashMap が壊れていた">
+  <meta name="twitter:description" content="TL;DR Kotlin &#43; Exposed ORM のプロジェクトで、CI の並列テスト実行時に ClassCastException: LinkedHashMap$Entry cannot be cast to HashMap$TreeNode が散発的に発生しました。 原因は Exposed 内部の IdentifierManagerApi が 非スレッドセーフな LinkedHashMap を識別子キャッシュに使っており、Kotest の並列実行で同時書き込みが起きて HashMap の内部構造が壊れるためです。 これは Exposed #1704 として報告済みの既知バグで、Exposed 1.3.0 で修正されています。 ローカルの単独テスト実行では再現しません。CI のテストレポート（HTML アーティファクト）を取得して初めて完全なスタックトレースが得られ、原因を特定できました。 症状: 無関係な2テストが同じ例外で落ちる ある PR の CI で、7,000 件超のテスト中 2 件だけが失敗しました。">
+
+        <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://yukihane.github.io/">発火後忘失</a>
+	</div>
+	<nav>
+		
+		<a href="/blog">Blog</a>
+		
+		<a href="/docs">Docs</a>
+		
+		<a href="/tags">Tags</a>
+		
+		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
+		
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
+		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
+		
+	</nav>
+</header>
+
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        <div class="title">
+          <h1 class="title">CI の flaky test を追ったら JDK の HashMap が壊れていた</h1>
+          <div class="meta">Posted on 2026/06/13</div>
+        </div>
+        
+        <section class="body">
+          <h2 id="tldr">TL;DR</h2>
+<ul>
+<li>Kotlin + Exposed ORM のプロジェクトで、CI の並列テスト実行時に <code>ClassCastException: LinkedHashMap$Entry cannot be cast to HashMap$TreeNode</code> が散発的に発生しました。</li>
+<li>原因は Exposed 内部の <code>IdentifierManagerApi</code> が <strong>非スレッドセーフな <code>LinkedHashMap</code></strong> を識別子キャッシュに使っており、Kotest の並列実行で同時書き込みが起きて HashMap の内部構造が壊れるためです。</li>
+<li>これは <a href="https://github.com/JetBrains/Exposed/issues/1704">Exposed #1704</a> として報告済みの既知バグで、<a href="https://github.com/JetBrains/Exposed/releases/tag/1.3.0">Exposed 1.3.0</a> で修正されています。</li>
+<li>ローカルの単独テスト実行では再現しません。CI のテストレポート（HTML アーティファクト）を取得して初めて完全なスタックトレースが得られ、原因を特定できました。</li>
+</ul>
+<hr />
+<h2 id="症状-無関係な2テストが同じ例外で落ちる">症状: 無関係な2テストが同じ例外で落ちる</h2>
+<p>ある PR の CI で、7,000 件超のテスト中 2 件だけが失敗しました。</p>
+<pre tabindex="0"><code>SomeQueryServiceImplTest — ClassCastException
+AnotherUseCaseTest       — ClassCastException
+</code></pre><p>奇妙なのは、この2つがまったく異なるドメインのコードであることです。一方は集計クエリの QueryService テスト、もう一方はマスターデータ取得の UseCase テスト。PR の変更は前者のドメインに閉じたリファクタリングが中心で、後者には一切触れていません。</p>
+<p>さらに、どちらのテストもローカルで単独実行すると問題なく PASS します。</p>
+<hr />
+<h2 id="最初に疑ったこと-pr-の変更が原因">最初に疑ったこと: PR の変更が原因？</h2>
+<p>PR にはドメインモデルのリファクタリングが含まれていました。enum のリネーム、フィールド削除、テーブル定義の更新など、それなりに大きな変更です。Exposed の <code>customEnumeration</code> で定義した DB の enum 型と Kotlin の enum クラスの齟齬が出ているのでは、と疑いました。</p>
+<p>ところが調べていくと:</p>
+<ul>
+<li>テストコード自体は変更されていない</li>
+<li>もう一方のテストは変更対象のドメインと一切関係がない</li>
+<li>Flyway マイグレーションにも enum 型の不整合はない</li>
+<li><code>origin/main</code> との差分を見ても、共通基盤の変更は入っていない</li>
+</ul>
+<p>コード変更が原因ではないようです。</p>
+<hr />
+<h2 id="転機-テストレポートの完全なスタックトレース">転機: テストレポートの完全なスタックトレース</h2>
+<p>CI のコンソールログでは、スタックトレースが 1 行しか表示されていませんでした。</p>
+<pre tabindex="0"><code>java.lang.ClassCastException at SomeQueryServiceImplTest.kt:59
+    Caused by: java.lang.ClassCastException at SomeQueryServiceImplTest.kt:59
+</code></pre><p>これだけでは何もわかりません。CI がアップロードしているテストレポートの HTML アーティファクトをダウンロードして、初めて完全なスタックトレースを確認できました。</p>
+<pre tabindex="0"><code>java.lang.ClassCastException:
+  class java.util.LinkedHashMap$Entry cannot be cast to
+  class java.util.HashMap$TreeNode
+
+at java.base/java.util.HashMap$TreeNode.moveRootToFront(HashMap.java:1986)
+at java.base/java.util.HashMap$TreeNode.treeify(HashMap.java:2102)
+at java.base/java.util.HashMap.treeifyBin(HashMap.java:770)
+at java.base/java.util.HashMap.putVal(HashMap.java:642)
+at java.base/java.util.HashMap.put(HashMap.java:610)
+at o.j.exposed.sql.statements.api.IdentifierManagerApi.needQuotes(...)
+</code></pre><p><strong><code>LinkedHashMap$Entry</code> を <code>HashMap$TreeNode</code> にキャストしようとして失敗している</strong>——これはアプリケーションコードの型エラーではありません。JDK の <code>HashMap</code> 内部構造が壊れていることを示すシグナルです。</p>
+<hr />
+<h2 id="背景-hashmap-はなぜ壊れるのか">背景: HashMap はなぜ「壊れる」のか</h2>
+<p>Java の <code>HashMap</code> は、同一バケットに 8 個以上のエントリが溜まると、連結リスト（<code>LinkedHashMap$Entry</code>）から赤黒木（<code>TreeNode</code>）に変換します（treeify）。この変換処理はバケット内のノード型が <code>Entry</code> であることを前提としています。</p>
+<p>しかし <strong>複数スレッドが同時に <code>put</code> を呼ぶと、あるスレッドが treeify を開始した時点で、別スレッドが同じバケットに <code>Entry</code> ノードを挿入してしまいます</strong>。結果、treeify が <code>Entry</code> を <code>TreeNode</code> として読もうとして <code>ClassCastException</code> が発生します。</p>
+<pre tabindex="0"><code>スレッド A: put → バケット内 8 件超 → treeify 開始
+スレッド B: put → 同じバケットに Entry を追加
+スレッド A: treeify 中に Entry を TreeNode として読もうとする → 💥 ClassCastException
+</code></pre><p>これは <a href="https://bugs.openjdk.org/browse/JDK-8173671">JDK-8173671</a> として報告されている既知の挙動です。<code>HashMap</code> がスレッドセーフでないことの帰結ですが、多くの人が想像する <code>ConcurrentModificationException</code> ではなく <code>ClassCastException</code> として現れる点が厄介です。</p>
+<hr />
+<h2 id="原因-exposed-の識別子キャッシュが非スレッドセーフだった">原因: Exposed の識別子キャッシュが非スレッドセーフだった</h2>
+<p>スタックトレースを遡ると、壊れた <code>HashMap</code> の出所は Exposed ORM の <code>IdentifierManagerApi.needQuotes()</code> でした。</p>
+<p>Exposed はテーブル名やカラム名をクォートする際、結果を <code>LinkedHashMap</code>（LRU キャッシュ、上限 1,000 エントリ）にキャッシュします。この <code>IdentifierManagerApi</code> は <strong>DB の URL ごとに 1 インスタンスが生成され、全トランザクションで共有されます</strong>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="c1">// Exposed 内部（簡略化）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">IdentifierManagerApi</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// ⚠️ スレッドセーフではない
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">private</span> <span class="k">val</span> <span class="py">cache</span> <span class="p">=</span> <span class="n">LinkedHashMap</span><span class="p">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Boolean</span><span class="p">&gt;(</span><span class="m">1000</span><span class="p">,</span> <span class="m">0.75f</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">needQuotes</span><span class="p">(</span><span class="n">identifier</span><span class="p">:</span> <span class="n">String</span><span class="p">):</span> <span class="n">Boolean</span> <span class="p">=</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cache</span><span class="p">.</span><span class="n">getOrPut</span><span class="p">(</span><span class="n">identifier</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* クォートが必要か判定 */</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>LinkedHashMap</code> はスレッドセーフではありません。このプロジェクトでは Kotest の <code>parallelism = 3</code> 設定で 3 つのテストスペックが同一 JVM 内で並列実行されるため、共有キャッシュへの同時書き込みが発生し、HashMap の内部構造が破壊されていたのです。</p>
+<p>2つの無関係なテストが同じ例外で落ちた理由もこれで説明がつきます。どちらのテストも Exposed を通じて SQL を組み立てる際に同じ <code>IdentifierManagerApi</code> を経由しており、壊れた HashMap を引き当てたに過ぎません。</p>
+<hr />
+<h2 id="なぜローカルでは再現しないのか">なぜローカルでは再現しないのか</h2>
+<p>この問題がローカルで再現しにくい理由は複数あります。</p>
+<ul>
+<li><strong>単独テスト実行</strong>: 1 つのスペックだけ実行すればスレッド競合は起きません</li>
+<li><strong>CPU コア数の違い</strong>: CI の 2 コアランナーではコンテキストスイッチが頻繁に発生し、競合が顕在化しやすくなります。ローカルの多コアマシンではスレッド切り替えが滑らかで、タイミングが合いにくいです</li>
+<li><strong>キャッシュの暖まり具合</strong>: 全テストスイートの実行順序によっては、キャッシュが十分暖まった状態でテストが走り、<code>put</code> が発生しません。単独実行では他のテストが先にキャッシュを埋めてくれることがないため、逆説的に「毎回 <code>put</code> が走るのに競合相手がいない」状態になります</li>
+</ul>
+<hr />
+<h2 id="修正の所在">修正の所在</h2>
+<p>この問題は <a href="https://github.com/JetBrains/Exposed/issues/1704">Exposed #1704</a> として報告されており、<a href="https://github.com/JetBrains/Exposed/pull/2783">PR #2783</a> で修正されました。修正内容は <code>LinkedHashMap</code> を <code>Collections.synchronizedMap</code> でラップし、<code>getOrPut</code> をアトミックに行うようにするものです。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="c1">// 修正後（概念）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">private</span> <span class="k">val</span> <span class="py">delegate</span><span class="p">:</span> <span class="n">MutableMap</span><span class="p">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">V</span><span class="p">&gt;</span> <span class="p">=</span>
+</span></span><span class="line"><span class="cl">    <span class="nc">Collections</span><span class="p">.</span><span class="n">synchronizedMap</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="k">object</span> <span class="err">: </span><span class="nc">LinkedHashMap</span><span class="p">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">V</span><span class="p">&gt;(</span><span class="n">cacheSize</span><span class="p">,</span> <span class="m">0.75f</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">override</span> <span class="k">fun</span> <span class="nf">removeEldestEntry</span><span class="p">(</span><span class="n">eldest</span><span class="p">:</span> <span class="nc">Map</span><span class="p">.</span><span class="n">Entry</span><span class="p">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">V</span><span class="p">&gt;):</span> <span class="n">Boolean</span> <span class="p">=</span>
+</span></span><span class="line"><span class="cl">                <span class="n">size</span> <span class="o">&gt;=</span> <span class="n">cacheSize</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>この修正は <strong>Exposed 1.3.0</strong>（2026 年 5 月リリース）に含まれています。</p>
+<hr />
+<h2 id="production-は大丈夫なのか">Production は大丈夫なのか</h2>
+<p>テスト環境で顕在化しやすい問題ですが、Production でもリスクはゼロではありません。</p>
+<ul>
+<li><strong>定常状態</strong>: キャッシュが暖まれば読み取りのみになるため、ほぼ安全です</li>
+<li><strong>デプロイ直後</strong>: キャッシュが空の状態で複数リクエストが並行に来ると、未キャッシュの識別子に対して同時 <code>put</code> が発生し得ます</li>
+<li><strong>影響</strong>: SQL の組み立てフェーズ（<code>prepareSQL</code>）でクラッシュし、トランザクションが失敗します</li>
+</ul>
+<p>デプロイ直後のコールドスタートは日常的に起きるイベントなので、「CI の flaky test」で済まない可能性がある点は押さえておきたいところです。</p>
+<hr />
+<h2 id="一般化できる教訓">一般化できる教訓</h2>
+<ul>
+<li><strong>「無関係なテストが同じ例外で落ちる」は共有リソースの破壊を疑います。</strong> ドメインが違うのに同じ例外クラスで落ちる場合、原因はアプリケーション層ではなくインフラ層にある可能性が高いです。</li>
+<li><strong>スタックトレースは最後まで読みます。</strong> CI のコンソール出力は省略されていることが多いです。テストレポートのアーティファクトをダウンロードして完全なスタックトレースを確認する手間を惜しまないようにします。</li>
+<li><strong><code>ClassCastException</code> は型の間違いとは限りません。</strong> JDK の内部クラス間のキャストエラー（<code>LinkedHashMap$Entry</code> → <code>HashMap$TreeNode</code> 等）は、ほぼ確実にスレッドセーフ違反による構造破壊を示しています。HashMap の並行アクセスは <code>ConcurrentModificationException</code> だけでなく、<code>ClassCastException</code>、<code>NullPointerException</code>、無限ループなど、予測困難な形で壊れます。</li>
+</ul>
+<hr />
+<h2 id="まとめ">まとめ</h2>
+<ul>
+<li>CI の flaky test の正体は、Exposed ORM の <code>IdentifierManagerApi</code> 内部キャッシュ（非スレッドセーフな <code>LinkedHashMap</code>）の並行アクセスによる HashMap 構造破壊でした。</li>
+<li><a href="https://github.com/JetBrains/Exposed/issues/1704">Exposed #1704</a> として報告済みで、1.3.0 で修正されています。</li>
+<li>ローカルの単独テストでは再現しません。CI のテストレポート HTML をダウンロードして完全なスタックトレースを得たことが原因特定の転機でした。</li>
+<li>Production でもデプロイ直後のコールドスタート時に発生しうるリスクがあります。「CI だけの問題」と片付けず、ライブラリのアップグレードで根本解消するのが望ましいです。</li>
+</ul>
+<p>一見して PR と無関係な flaky test でしたが、追ってみると JDK の HashMap 内部構造 → Exposed ORM のキャッシュ設計 → OpenJDK の既知バグレポートへと繋がりました。「Re-run で通るから」と見過ごさなかったことで、Production リスクの存在にも気づけた一件でした。</p>
+<hr />
+<blockquote>
+<p><strong>参考</strong>: <a href="https://github.com/JetBrains/Exposed/issues/1704">Exposed #1704</a>、<a href="https://github.com/JetBrains/Exposed/pull/2783">Exposed PR #2783</a>、<a href="https://bugs.openjdk.org/browse/JDK-8173671">JDK-8173671</a></p></blockquote>
+
+        </section>
+        <div class="post-tags">
+          
+          
+          <nav class="nav tags">
+            <ul class="tags">
+              
+              <li><a href="/tags/kotlin/">kotlin</a></li>
+              
+              <li><a href="/tags/exposed/">exposed</a></li>
+              
+              <li><a href="/tags/testing/">testing</a></li>
+              
+            </ul>
+          </nav>
+          
+          
+        </div>
+      </div>
+
+      
+      
+    </div>
+
+    </article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
+  <div class="footer-info">
+    2026  © Yukihane, All Rights Reserved |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E9J8FN5B4Q');
+        }
+      </script>
+
+</div>
+    </body>
+</html>

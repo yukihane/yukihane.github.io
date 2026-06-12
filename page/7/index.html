@@ -64,6 +64,62 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202106/12/spring-boot-tomcat-metrics/">Spring Boot で Tomcat のメトリクスを出力する</a></h1>
+					<time>2021/06/12</time>
+					<br><div class="description">
+	
+	<p>Spring Boot アプリケーションの性能評価を行っているのですが、実装したアプリケーション部分ではなく、webサーバかどこかがパフォーマンスボトルネックになっているように思われる事象に直面し、その原因を調べたいと思っています。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202106/12/spring-boot-tomcat-metrics/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202106/06/hello-github-actions/">GitHub Actions を使って GitHub Pages を定期更新する</a></h1>
+					<time>2021/06/06</time>
+					<br><div class="description">
+	
+	<p>これまで GitHub Actions を使ったことがなかったのですが、</p>
+<ul>
+<li><a href="https://ja.stackoverflow.com/q/76279/2808">GitHub Pagesの更新を自動化したい - スタック・オーバーフロー</a></li>
+</ul>
+<p>という質問を見かけ、丁度よいお題だと思ったのでこれを実現してみることにしました。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202106/06/hello-github-actions/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202105/21/spring-boot-avoid-tomcat-error-page/">Spring BootでTomcatのデフォルトエラーページが出るのを抑止する</a></h1>
+					<time>2021/05/20</time>
+					<br><div class="description">
+	
+	<p>Spring Boot を実行していると、Tomcatのデフォルトエラーページが表示されるような事象に遭遇することがあります。</p>
+<ul>
+<li><a href="https://github.com/spring-projects/spring-boot/issues/21257">Tomcat invokes ErrorReportValve directly for malformed URLs · Issue #21257 · spring-projects/spring-boot</a></li>
+</ul>
+<p>このページのカスタマイズ方法は、上記issueにありますが、現状Spring Boot フレームワークでは提供されておらず少しトリッキーです。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202105/21/spring-boot-avoid-tomcat-error-page/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202105/19/git-merge-risk/">Git の merge も思いの外危険</a></h1>
+					<time>2021/05/18</time>
+					<br><div class="description">
+	
+	<p>次のblogエントリがバズっていました:</p>
+<ul>
+<li><a href="https://songmu.jp/riji/entry/2021-05-19-my-git-workflow.html">Gitのワークフローについての私のスタンス | おそらくはそれさえも平凡な日々</a></li>
+</ul>
+<p>大局としては同意なのですが、ミクロな点では、 <code>rebase</code> 恐怖症というか、 <code>merge</code> を信頼し過ぎているというか、少し私とは意見が異なると感じました。 そして、上記のblogのような意見が多数派ではないかと思いますので、改めて <code>merge</code> の怖いところを具体例で示したいと思います。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202105/19/git-merge-risk/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202105/19/url-amp/">script src に設定する URL の &amp; はどう書けば良い？</a></h1>
 					<time>2021/05/18</time>
 					<br><div class="description">
@@ -179,60 +235,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/202103/06/kindle-menu-tofu/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202102/02/slf4j-placeholder-throwable/">SLF4Jでplaceholderも使いつつstacktraceも出力したい</a></h1>
-					<time>2021/02/01</time>
-					<br><div class="description">
-	
-	<p>SLF4J の <code>Logger</code> のメソッドを眺めていると、 <code>Throwable</code> を引数にとれるのは 他に <code>Marker</code> と <code>String</code> メッセージだけを持つものばかりで、プレースホルダを利用したい場合にはどうしたら良いのだろう…と思っていたら、普通にプレースホルダと併用できるようです。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202102/02/slf4j-placeholder-throwable/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202101/30/gava-oidc-idp/">ガバガバOIDCモックサーバを作る</a></h1>
-					<time>2021/01/30</time>
-					<br><div class="description">
-	
-	<p>OIDCフローの調査などで本物でないOIDC IdP Mock Serverが欲しくなったので検索してみました。</p>
-<p><a href="https://www.google.com/search?q=oidc&#43;mock&#43;server">世に数多あるよう</a>に見えたのですが、結構真面目に認証処理してたりして、ちょっとオーバースペックだと感じたので自作することにしました。</p>
-<ul>
-<li><a href="https://github.com/yukihane/gava-idp">gava-idp</a></li>
-</ul>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202101/30/gava-oidc-idp/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202101/24/spring-boot-cors-permit-all/">Spring Boot の CORS 設定を全許可する</a></h1>
-					<time>2021/01/24</time>
-					<br><div class="description">
-	
-	<ul>
-<li><a href="https://stackoverflow.com/a/65867566/4506703">How to configure CORS in a Spring Boot + Spring Security application?</a> - Stack Overflow</li>
-</ul>
-<p>Spring Boot のリファレンス <a href="https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#boot-features-cors">4.7.1. The “Spring Web MVC Framework” &gt; CORS Support</a> を見ると、次のように設定すれば良いように見えます。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202101/24/spring-boot-cors-permit-all/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202101/24/spring-session-in-memory/">Spring Sessionをインメモリで利用する</a></h1>
-					<time>2021/01/24</time>
-					<br><div class="description">
-	
-	<ul>
-<li><a href="https://stackoverflow.com/q/48906697/4506703">What should be a replacement for StoreType.HASH_MAP in spring-boot 2</a></li>
-</ul>
-<p>昔は <code>spring.session.store-type</code> の選択肢に <code>hash_map</code> というものがあったようですが、現在は存在しません。(ちなみに <code>none</code> は Spring Session を利用しない、という意味になるようで、挙動が変わってしまいます( <code>JSESSIONID</code> と <code>SESSIONID</code> とか))</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202101/24/spring-session-in-memory/">Read more ⟶</a>
 				</section>
 				
 				

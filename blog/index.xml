@@ -7,8 +7,36 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Wed, 20 May 2026 03:21:13 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CI の flaky test を追ったら JDK の HashMap が壊れていた</title>
+      <link>https://yukihane.github.io/blog/202606/13/exposed-flaky-test-hashmap-corruption/</link>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202606/13/exposed-flaky-test-hashmap-corruption/</guid>
+      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Kotlin + Exposed ORM のプロジェクトで、CI の並列テスト実行時に &lt;code&gt;ClassCastException: LinkedHashMap$Entry cannot be cast to HashMap$TreeNode&lt;/code&gt; が散発的に発生しました。&lt;/li&gt;&#xA;&lt;li&gt;原因は Exposed 内部の &lt;code&gt;IdentifierManagerApi&lt;/code&gt; が &lt;strong&gt;非スレッドセーフな &lt;code&gt;LinkedHashMap&lt;/code&gt;&lt;/strong&gt; を識別子キャッシュに使っており、Kotest の並列実行で同時書き込みが起きて HashMap の内部構造が壊れるためです。&lt;/li&gt;&#xA;&lt;li&gt;これは &lt;a href=&#34;https://github.com/JetBrains/Exposed/issues/1704&#34;&gt;Exposed #1704&lt;/a&gt; として報告済みの既知バグで、&lt;a href=&#34;https://github.com/JetBrains/Exposed/releases/tag/1.3.0&#34;&gt;Exposed 1.3.0&lt;/a&gt; で修正されています。&lt;/li&gt;&#xA;&lt;li&gt;ローカルの単独テスト実行では再現しません。CI のテストレポート（HTML アーティファクト）を取得して初めて完全なスタックトレースが得られ、原因を特定できました。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;症状-無関係な2テストが同じ例外で落ちる&#34;&gt;症状: 無関係な2テストが同じ例外で落ちる&lt;/h2&gt;&#xA;&lt;p&gt;ある PR の CI で、7,000 件超のテスト中 2 件だけが失敗しました。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>GitHub PR が「コンフリクトあり」と言うのにローカルではマージできる</title>
+      <link>https://yukihane.github.io/blog/202606/13/github-pr-conflict-criss-cross-merge/</link>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202606/13/github-pr-conflict-criss-cross-merge/</guid>
+      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;GitHub の Pull Request が &amp;ldquo;This branch has conflicts&amp;rdquo; と表示するのに、ローカルで &lt;code&gt;git merge&lt;/code&gt; すると何事もなく成功する、ということがあります。&lt;/li&gt;&#xA;&lt;li&gt;原因は &lt;strong&gt;criss-cross merge&lt;/strong&gt;（交差マージ）で &lt;code&gt;merge-base&lt;/code&gt; が複数存在する状態です。&lt;/li&gt;&#xA;&lt;li&gt;ローカルの git（&lt;code&gt;ort&lt;/code&gt; / &lt;code&gt;recursive&lt;/code&gt; ストラテジー）は複数の merge-base を仮想ベースに統合して賢く解決しますが、GitHub のマージエンジンは同じ状況をうまく処理できないことがあります。&lt;/li&gt;&#xA;&lt;li&gt;解決策は &lt;code&gt;git rebase&lt;/code&gt; で履歴を線形化することです。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;状況&#34;&gt;状況&lt;/h2&gt;&#xA;&lt;p&gt;スタックド PR（PR-A の上に PR-B を積む運用）をしていて、次のようなことが起きました。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Jackson &#43; Kotlin の nullable な value class が {&#34;value&#34;:&#34;...&#34;} で出力される</title>
+      <link>https://yukihane.github.io/blog/202606/13/kotlin-nullable-value-class-jackson-boxing/</link>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202606/13/kotlin-nullable-value-class-jackson-boxing/</guid>
+      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Kotlin の &lt;code&gt;@JvmInline value class&lt;/code&gt; を &lt;strong&gt;nullable&lt;/strong&gt; なプロパティとして持つ data class を &lt;code&gt;jackson-module-kotlin&lt;/code&gt; でシリアライズすると、auto-unwrap が効かず &lt;code&gt;{&amp;quot;value&amp;quot;:&amp;quot;...&amp;quot;}&lt;/code&gt; の boxed object として出力されることがあります。&lt;/li&gt;&#xA;&lt;li&gt;Jackson 2.17 で value class サポートは正式に入りましたが、公式 docs は &lt;strong&gt;&amp;ldquo;there are many edge cases for the &lt;code&gt;value class&lt;/code&gt; that wraps nullable&amp;rdquo;&lt;/strong&gt; と明記しており、完全解決ではありません。&lt;/li&gt;&#xA;&lt;li&gt;推奨される回避策は value class 側の underlying プロパティに &lt;code&gt;@get:JsonValue&lt;/code&gt; を付与することです。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;何が起きたか&#34;&gt;何が起きたか&lt;/h2&gt;&#xA;&lt;p&gt;Kotlin で ID 系の型安全性を担保するために、こういう value class を定義しているプロジェクトは多いと思います。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>react-select の AsyncSelect が IME 確定後に検索を再実行しない</title>
+      <link>https://yukihane.github.io/blog/202606/13/react-select-async-ime-composition/</link>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202606/13/react-select-async-ime-composition/</guid>
+      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;react-select の &lt;code&gt;AsyncSelect&lt;/code&gt; は、IME（日本語入力）で文字を確定した後に &lt;code&gt;loadOptions&lt;/code&gt; を再呼び出ししないケースがあります。&lt;/li&gt;&#xA;&lt;li&gt;原因は &lt;code&gt;compositionEnd&lt;/code&gt; 後に &lt;code&gt;inputValue&lt;/code&gt; が内部的に「変化なし」と判定され、検索が再トリガーされないことです。&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;AsyncSelect&lt;/code&gt; の &lt;code&gt;loadOptions&lt;/code&gt; パターンをやめ、通常の &lt;code&gt;Select&lt;/code&gt; + controlled &lt;code&gt;inputValue&lt;/code&gt; + &lt;code&gt;useEffect&lt;/code&gt; による自前検索に切り替えることで解決しました。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;症状&#34;&gt;症状&lt;/h2&gt;&#xA;&lt;p&gt;非同期検索付きのセレクトボックスを &lt;code&gt;react-select&lt;/code&gt; の &lt;code&gt;AsyncSelect&lt;/code&gt; で実装していました。ユーザーがキーワードを入力すると API を呼んで候補を表示する、よくあるパターンです。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>AIコーディング近況</title>
       <link>https://yukihane.github.io/blog/202605/20/current-ai-coding/</link>
@@ -17,14 +45,14 @@
       <description>&lt;p&gt;2025-10-26 に次の記事を書きました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202510/26/codex-cli-first-impression/&#34;&gt;これまでのAIコーディングの略歴、Codex Cli ファーストインプレッション&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;これは、私のAI利用略歴と、当時は主に Claude Code(仕事)と Codex CLI(プライベート)を使い分けていた、という内容でした。&lt;br /&gt;&#xA;本記事では、その後の近況を記録しておきます。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる話</title>
+      <title>Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる</title>
       <link>https://yukihane.github.io/blog/202605/20/kotlin-value-class-spring-mvc-binding/</link>
       <pubDate>Wed, 20 May 2026 03:00:00 +0900</pubDate>
       <guid>https://yukihane.github.io/blog/202605/20/kotlin-value-class-spring-mvc-binding/</guid>
       <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Kotlin の &lt;code&gt;@JvmInline value class&lt;/code&gt; を &lt;code&gt;@ModelAttribute&lt;/code&gt; で受ける data class のプロパティに使うと、リクエスト時に &lt;code&gt;BeanInstantiationException&lt;/code&gt; が発生します。&lt;/li&gt;&#xA;&lt;li&gt;原因は Kotlin リフレクション API が value class のアンラップ済み型を正しく扱えないバグ（&lt;a href=&#34;https://youtrack.jetbrains.com/issue/KT-64097&#34;&gt;KT-64097&lt;/a&gt;）です。Spring Framework 6.1.0 以降のリフレクションベース（&lt;code&gt;KCallable#callBy&lt;/code&gt;）のパラメータ解決と噛み合って表面化します。&lt;/li&gt;&#xA;&lt;li&gt;Spring 側はこれを「Kotlin のバグ」として &lt;code&gt;NOT_PLANNED&lt;/code&gt; でクローズ済みです（&lt;a href=&#34;https://github.com/spring-projects/spring-framework/issues/31698&#34;&gt;spring-framework#31698&lt;/a&gt;）。フレームワークの修正は期待できません。&lt;/li&gt;&#xA;&lt;li&gt;回避策はバインディング方式によって異なります。&lt;code&gt;@ModelAttribute&lt;/code&gt; の data class では value class を使わず、&lt;code&gt;UUID&lt;/code&gt; 等の素の型で受けて Controller 内で value class に変換するのが安全です。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;value-class-とは&#34;&gt;value class とは&lt;/h2&gt;&#xA;&lt;p&gt;Kotlin の &lt;code&gt;@JvmInline value class&lt;/code&gt; は、1つの値を型安全にラップするための仕組みです。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる話</title>
+      <title>Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる</title>
       <link>https://yukihane.github.io/blog/202605/20/kotlin-default-arg-spring-aop-npe/</link>
       <pubDate>Wed, 20 May 2026 02:00:00 +0900</pubDate>
       <guid>https://yukihane.github.io/blog/202605/20/kotlin-default-arg-spring-aop-npe/</guid>
@@ -680,34 +708,6 @@
       <pubDate>Sat, 12 Sep 2020 12:56:30 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202009/12/oidc-userinfo-not-fetched-for-custom-claims/</guid>
       <description>&lt;p&gt;Spring Security &lt;a href=&#34;https://docs.spring.io/spring-security/site/docs/current/reference/html5/#oauth2login&#34;&gt;OAuth 2.0 Login&lt;/a&gt; を利用してログインしたのですが、通常ログイン後 UserInfo Endpoint へアクセスしてくれるはずなのにこの処理がスキップされてしまうような事象に出会いました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>WindowsでGradleが扱うリソースのファイルエンコーディング設定</title>
-      <link>https://yukihane.github.io/blog/202009/12/gradle-resource-encoding/</link>
-      <pubDate>Sat, 12 Sep 2020 12:26:22 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202009/12/gradle-resource-encoding/</guid>
-      <description>&lt;h1 id=&#34;問題&#34;&gt;問題&lt;/h1&gt;&#xA;&lt;p&gt;Spring Bootの自動テストで &lt;a href=&#34;https://docs.spring.io/spring-boot/docs/2.3.3.RELEASE/reference/htmlsingle/#howto-initialize-a-database-using-spring-jdbc&#34;&gt;&lt;code&gt;data.sql&lt;/code&gt;&lt;/a&gt; を作成しているのですが、 &lt;code&gt;gradle check&lt;/code&gt; でテストを実行すると、失敗してしまう。&lt;/p&gt;&#xA;&lt;p&gt;原因を調べたのですが、どうも日本語のカラムを比較しているところで失敗しているようで、出力を見る感じ &lt;code&gt;data.sql&lt;/code&gt; のファイルエンコーディングが &lt;code&gt;MS932&lt;/code&gt; で扱われてしまっているようでした。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>claimとscopeを追加して取得してみる</title>
-      <link>https://yukihane.github.io/blog/202009/04/oidc-add-claim-and-scope/</link>
-      <pubDate>Thu, 03 Sep 2020 23:24:39 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202009/04/oidc-add-claim-and-scope/</guid>
-      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;Keycloak上で新しいclaimと、それを取得できる新しいscopeを定義し、Spring Securityを使って参照してみます。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/&#34;&gt;KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる&lt;/a&gt; で作成したコードをベースにしています。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Spring Security: OIDC の redirect_uri を変更する</title>
-      <link>https://yukihane.github.io/blog/202009/04/oidc-change-redirect-uri/</link>
-      <pubDate>Thu, 03 Sep 2020 22:50:21 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202009/04/oidc-change-redirect-uri/</guid>
-      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/&#34;&gt;KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる&lt;/a&gt; で作成したコードに対して、 カスタム &lt;code&gt;redirect_uri&lt;/code&gt; の設定を行ってみます。&lt;/p&gt;&#xA;&lt;p&gt;今回のコードはこちら:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redirect-uri&#34;&gt;https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redirect-uri&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;変更手順&#34;&gt;変更手順&lt;/h1&gt;&#xA;&lt;h2 id=&#34;keycloak-登録情報の変更&#34;&gt;KeyCloak 登録情報の変更&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/&#34;&gt;前回のページ&lt;/a&gt; を参考に、 &amp;ldquo;Valid Redirect URIs&amp;rdquo; の値を今回変更するURL &lt;strong&gt;http://localhost:8080/my_redirect_uri&lt;/strong&gt; に更新します。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>DevToolsを組み込んでいると再起動してもsessionが引き継がれる</title>
-      <link>https://yukihane.github.io/blog/202009/02/spring-boot-session-take-over-on-restart-with-devtools/</link>
-      <pubDate>Tue, 01 Sep 2020 18:46:13 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202009/02/spring-boot-session-take-over-on-restart-with-devtools/</guid>
-      <description>&lt;p&gt;Spring Boot開発中、再起動するとsessionは消失すると思いこんでいたのですが、どうも引き継がれているように見えて混乱しました。&lt;/p&gt;&#xA;&lt;p&gt;その後、調査してみると &lt;code&gt;server.servlet.session.persistent&lt;/code&gt; プロパティで再起動時セッションを破棄するか保持するかを設定できることがわかりました。ただし、デフォルト値は &lt;code&gt;false&lt;/code&gt; で、もちろんデフォルトからは変更していません(存在を知らなかったので)。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

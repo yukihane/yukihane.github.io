@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Sun, 15 May 2022 19:54:13 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GitHub PR が「コンフリクトあり」と言うのにローカルではマージできる</title>
+      <link>https://yukihane.github.io/blog/202606/13/github-pr-conflict-criss-cross-merge/</link>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202606/13/github-pr-conflict-criss-cross-merge/</guid>
+      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;GitHub の Pull Request が &amp;ldquo;This branch has conflicts&amp;rdquo; と表示するのに、ローカルで &lt;code&gt;git merge&lt;/code&gt; すると何事もなく成功する、ということがあります。&lt;/li&gt;&#xA;&lt;li&gt;原因は &lt;strong&gt;criss-cross merge&lt;/strong&gt;（交差マージ）で &lt;code&gt;merge-base&lt;/code&gt; が複数存在する状態です。&lt;/li&gt;&#xA;&lt;li&gt;ローカルの git（&lt;code&gt;ort&lt;/code&gt; / &lt;code&gt;recursive&lt;/code&gt; ストラテジー）は複数の merge-base を仮想ベースに統合して賢く解決しますが、GitHub のマージエンジンは同じ状況をうまく処理できないことがあります。&lt;/li&gt;&#xA;&lt;li&gt;解決策は &lt;code&gt;git rebase&lt;/code&gt; で履歴を線形化することです。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;状況&#34;&gt;状況&lt;/h2&gt;&#xA;&lt;p&gt;スタックド PR（PR-A の上に PR-B を積む運用）をしていて、次のようなことが起きました。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>GitHub の通知をちゃんと使えるように設定する</title>
       <link>https://yukihane.github.io/blog/202205/15/github-unwatch/</link>

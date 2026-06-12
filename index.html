@@ -64,6 +64,84 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202606/13/exposed-flaky-test-hashmap-corruption/">CI の flaky test を追ったら JDK の HashMap が壊れていた</a></h1>
+					<time>2026/06/13</time>
+					<br><div class="description">
+	
+	<h2 id="tldr">TL;DR</h2>
+<ul>
+<li>Kotlin + Exposed ORM のプロジェクトで、CI の並列テスト実行時に <code>ClassCastException: LinkedHashMap$Entry cannot be cast to HashMap$TreeNode</code> が散発的に発生しました。</li>
+<li>原因は Exposed 内部の <code>IdentifierManagerApi</code> が <strong>非スレッドセーフな <code>LinkedHashMap</code></strong> を識別子キャッシュに使っており、Kotest の並列実行で同時書き込みが起きて HashMap の内部構造が壊れるためです。</li>
+<li>これは <a href="https://github.com/JetBrains/Exposed/issues/1704">Exposed #1704</a> として報告済みの既知バグで、<a href="https://github.com/JetBrains/Exposed/releases/tag/1.3.0">Exposed 1.3.0</a> で修正されています。</li>
+<li>ローカルの単独テスト実行では再現しません。CI のテストレポート（HTML アーティファクト）を取得して初めて完全なスタックトレースが得られ、原因を特定できました。</li>
+</ul>
+<hr />
+<h2 id="症状-無関係な2テストが同じ例外で落ちる">症状: 無関係な2テストが同じ例外で落ちる</h2>
+<p>ある PR の CI で、7,000 件超のテスト中 2 件だけが失敗しました。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202606/13/exposed-flaky-test-hashmap-corruption/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202606/13/github-pr-conflict-criss-cross-merge/">GitHub PR が「コンフリクトあり」と言うのにローカルではマージできる</a></h1>
+					<time>2026/06/13</time>
+					<br><div class="description">
+	
+	<h2 id="tldr">TL;DR</h2>
+<ul>
+<li>GitHub の Pull Request が &ldquo;This branch has conflicts&rdquo; と表示するのに、ローカルで <code>git merge</code> すると何事もなく成功する、ということがあります。</li>
+<li>原因は <strong>criss-cross merge</strong>（交差マージ）で <code>merge-base</code> が複数存在する状態です。</li>
+<li>ローカルの git（<code>ort</code> / <code>recursive</code> ストラテジー）は複数の merge-base を仮想ベースに統合して賢く解決しますが、GitHub のマージエンジンは同じ状況をうまく処理できないことがあります。</li>
+<li>解決策は <code>git rebase</code> で履歴を線形化することです。</li>
+</ul>
+<hr />
+<h2 id="状況">状況</h2>
+<p>スタックド PR（PR-A の上に PR-B を積む運用）をしていて、次のようなことが起きました。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202606/13/github-pr-conflict-criss-cross-merge/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202606/13/kotlin-nullable-value-class-jackson-boxing/">Jackson &#43; Kotlin の nullable な value class が {&#34;value&#34;:&#34;...&#34;} で出力される</a></h1>
+					<time>2026/06/13</time>
+					<br><div class="description">
+	
+	<h2 id="tldr">TL;DR</h2>
+<ul>
+<li>Kotlin の <code>@JvmInline value class</code> を <strong>nullable</strong> なプロパティとして持つ data class を <code>jackson-module-kotlin</code> でシリアライズすると、auto-unwrap が効かず <code>{&quot;value&quot;:&quot;...&quot;}</code> の boxed object として出力されることがあります。</li>
+<li>Jackson 2.17 で value class サポートは正式に入りましたが、公式 docs は <strong>&ldquo;there are many edge cases for the <code>value class</code> that wraps nullable&rdquo;</strong> と明記しており、完全解決ではありません。</li>
+<li>推奨される回避策は value class 側の underlying プロパティに <code>@get:JsonValue</code> を付与することです。</li>
+</ul>
+<hr />
+<h2 id="何が起きたか">何が起きたか</h2>
+<p>Kotlin で ID 系の型安全性を担保するために、こういう value class を定義しているプロジェクトは多いと思います。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202606/13/kotlin-nullable-value-class-jackson-boxing/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202606/13/react-select-async-ime-composition/">react-select の AsyncSelect が IME 確定後に検索を再実行しない</a></h1>
+					<time>2026/06/13</time>
+					<br><div class="description">
+	
+	<h2 id="tldr">TL;DR</h2>
+<ul>
+<li>react-select の <code>AsyncSelect</code> は、IME（日本語入力）で文字を確定した後に <code>loadOptions</code> を再呼び出ししないケースがあります。</li>
+<li>原因は <code>compositionEnd</code> 後に <code>inputValue</code> が内部的に「変化なし」と判定され、検索が再トリガーされないことです。</li>
+<li><code>AsyncSelect</code> の <code>loadOptions</code> パターンをやめ、通常の <code>Select</code> + controlled <code>inputValue</code> + <code>useEffect</code> による自前検索に切り替えることで解決しました。</li>
+</ul>
+<hr />
+<h2 id="症状">症状</h2>
+<p>非同期検索付きのセレクトボックスを <code>react-select</code> の <code>AsyncSelect</code> で実装していました。ユーザーがキーワードを入力すると API を呼んで候補を表示する、よくあるパターンです。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202606/13/react-select-async-ime-composition/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202605/20/current-ai-coding/">AIコーディング近況</a></h1>
 					<time>2026/05/20</time>
 					<br><div class="description">
@@ -80,7 +158,7 @@
 				</section>
 				
 				<section class="list-item">
-					<h1 class="title"><a href="/blog/202605/20/kotlin-value-class-spring-mvc-binding/">Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる話</a></h1>
+					<h1 class="title"><a href="/blog/202605/20/kotlin-value-class-spring-mvc-binding/">Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる</a></h1>
 					<time>2026/05/20</time>
 					<br><div class="description">
 	
@@ -100,7 +178,7 @@
 				</section>
 				
 				<section class="list-item">
-					<h1 class="title"><a href="/blog/202605/20/kotlin-default-arg-spring-aop-npe/">Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる話</a></h1>
+					<h1 class="title"><a href="/blog/202605/20/kotlin-default-arg-spring-aop-npe/">Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる</a></h1>
 					<time>2026/05/20</time>
 					<br><div class="description">
 	
@@ -195,57 +273,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/202510/26/codex-cli-first-impression/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202508/20/no-use-wildcard-on-intellij/">IntelliJの自動整形でimportのwildcardを使わないようにする</a></h1>
-					<time>2025/08/20</time>
-					<br><div class="description">
-	
-	<p><a href="/blog/202507/21/status-report/">前回のエントリー</a> では休職について記載しましたが、現在、無事職に着くことができています。</p>
-<p>さて、そのプロジェクトでの話ですが、CIでKotlinコードに対して<a href="https://pinterest.github.io/ktlint/latest/">ktlint</a>でソースコードのチェックを行っています。<br />
-ルールは(ほぼ)デフォルト設定を用いているのですが、このデフォルト設定とIntelliJ IDEAのデフォルト設定が競合するルールがあります。<br />
-つまり、IntelliJ IDEAの設定でフォーマットをかけると、CIが失敗してしまいます。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202508/20/no-use-wildcard-on-intellij/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202507/21/keyboard-majestouch-xacro-m10sp/">キーボードを買い替えた: Majestouch Xacro M10SP</a></h1>
-					<time>2025/07/21</time>
-					<br><div class="description">
-	
-	<p>これまで、 <a href="https://archisite.co.jp/products/mistel/eol/barocco-md600-en/">Mistel Barocco MD600</a> という左右分離式キーボードを利用していたのですが、USBケーブル接続端子の調子が悪くなったのか、タイピングを認識しなくなることが頻繁に発生するようになり、買い換えることにしました。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202507/21/keyboard-majestouch-xacro-m10sp/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202507/21/status-report/">近況報告と求職(準委任契約)について</a></h1>
-					<time>2025/07/21</time>
-					<br><div class="description">
-	
-	<h2 id="近況報告">近況報告</h2>
-<p>4月末で前回の仕事の契約が終わり、時間ができたので歯医者に行ったり健康診断に行ったりしていたところ、健康診断で血糖値(正確にはHbA1c)が正常値よりかなり高くなっていることがわかり、1ヶ月入院していました。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202507/21/status-report/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202506/01/anime-face-detection-on-docker/">「簡単アニメキャラ抜き出しアプリ」をWSL2 Docker環境で動かす</a></h1>
-					<time>2025/06/01</time>
-					<br><div class="description">
-	
-	<ul>
-<li><a href="https://trap.jp/post/1362/">【夏休み自由研究】実例で学ぶ画像処理【Python】 | 東京科学大学デジタル創作同好会tra</a></li>
-</ul>
-<p>という記事をたまたま読み、「そういえばひと昔前、アニメ絵の顔検出流行ってたなあ。今どうなってるんだろう」というのが気になって少し調べてみました。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202506/01/anime-face-detection-on-docker/">Read more ⟶</a>
 				</section>
 				
 				

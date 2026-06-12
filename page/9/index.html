@@ -64,6 +64,75 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202009/02/ruby-on-rails-on-centos6-centos7/">Ruby on Rails 6 を Centos6 や Centos7 で動かす</a></h1>
+					<time>2020/09/01</time>
+					<br><div class="description">
+	
+	<ul>
+<li>
+<p><a href="https://ja.stackoverflow.com/a/70025/2808">CentOS6 上で rails new できません - スタック・オーバーフロー</a></p>
+</li>
+<li>
+<p><a href="https://ja.stackoverflow.com/a/66035/2808">VagrantとCentOS7環境下でRuby及びRailsをインストールしたい。 - スタック・オーバーフロー</a></p>
+</li>
+</ul>
+<p>でそれぞれ、 CentOS6 + Rails6, CentOS7 + Rails6 の Vagrant Box を作成しました。ググってみたけれど、あまり無いものなんですね。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202009/02/ruby-on-rails-on-centos6-centos7/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202008/31/gcc-installation/">CentOS6にGCC10.2.0をインストールしたときのメモ</a></h1>
+					<time>2020/08/30</time>
+					<br><div class="description">
+	
+	<p>ビルド作業は次のページを参考にしました:</p>
+<ul>
+<li><a href="https://aulta.co.jp/archives/7554">gcc-10.1.0をCentOS7にソースインストール | 株式会社オルタ</a></li>
+</ul>
+<p>環境は <a href="https://yukihane.github.io/blog/202008/30/gcc-compilation-time/">こちら</a> に記載したものです。</p>
+<pre><code>curl -L -O http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/gcc-10.2.0/gcc-10.2.0.tar.xz
+tar xf gcc-10.2.0.tar.xz
+cd gcc-10.2.0
+./contrib/download_prerequisites
+./configure --enable-languages=c,c++ --prefix=/opt/gcc-10.2.0 --disable-bootstrap --disable-multilib
+make -j 5
+sudo make install
+</code></pre>
+<p>つづいて <code>ldoconfig</code> での登録ですが、そのまま行うとエラーが出たので <a href="https://qiita.com/knutpb1205/items/4a9b39bf69f1788ef69c#%E3%82%A8%E3%83%A9%E3%83%BC%E5%AF%BE%E7%AD%96">こちら</a> を参照にして事前に1つのファイルをリネームしておきました:</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202008/31/gcc-installation/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202008/30/gcc-compilation-time/">gccをビルドするのにどれくらい時間がかかるの？(10分かからなかった) </a></h1>
+					<time>2020/08/30</time>
+					<br><div class="description">
+	
+	<p>gccをビルドしようと思ったのですが、結構時間がかかるイメージがあって、先にどれくらいかかるのか調べたかったのだけれど検索しても見つかりませんでした。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202008/30/gcc-compilation-time/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202008/30/gradle-bootrun-parameter/">gradle bootRun でプロファイルを指定するには？</a></h1>
+					<time>2020/08/29</time>
+					<br><div class="description">
+	
+	<p><code>gradle bootRun</code> を実行する際にアクティブ化するプロファイルの指定を行いたかったのですが、ぱっと思いつかなかったのでメモ。</p>
+<p>まず、</p>
+<pre><code>gradle bootRun -Dprofiles.active=myproile
+</code></pre>
+<p>はうまくいきません。`profiles.active`システムプロパティは (アプリケーションでなく) Gradle に渡されるためです。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202008/30/gradle-bootrun-parameter/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202008/30/openapi-spring-mvc-handler-args/">openapi-generaterで生成したcontrollerにカスタム引数を追加する</a></h1>
 					<time>2020/08/29</time>
 					<br><div class="description">
@@ -266,88 +335,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/202007/26/swt-findwindowi-is-deprecated/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202007/26/spring-boot-gradle-eclipse/">GradleでSpring Bootプロジェクトを作成してSTS(Eclipse)でインポートする手順</a></h1>
-					<time>2020/07/25</time>
-					<br><div class="description">
-	
-	<h1 id="はじめに">はじめに</h1>
-<p><a href="https://start.spring.io/">Spring Initializr</a>を使ってGradle形式でプロジェクトを作成した場合、どうやってSTS(Eclipse)へインポートするのか逡巡しました。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202007/26/spring-boot-gradle-eclipse/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202007/21/hello-oidc-with-keycloak/">KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる</a></h1>
-					<time>2020/07/20</time>
-					<br><div class="description">
-	
-	<h1 id="はじめに">はじめに</h1>
-<p>Spring Boot で Spring Security OAuth 2.0 <a href="https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#oauth2login">Login</a> / <a href="https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#oauth2client">Client</a> を利用する手順をまとめます。</p>
-<p>また、認可サーバ(IdP)にはローカルで立てたKeycloakを用いますのでそちらのセットアップ手順も記載します。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202007/21/hello-oidc-with-keycloak/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202007/21/why-git-branching-is-difficult/">いつもGitブランチ運用でこまること、考慮すべきポイントのまとめ</a></h1>
-					<time>2020/07/20</time>
-					<br><div class="description">
-	
-	<p>現在、新しいプロジェクトに参画してGitのブランチ戦略を考えています。</p>
-<p>何回かブランチ戦略を考え、そして運用してきたのですが、思うところを書いてみます。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202007/21/why-git-branching-is-difficult/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202007/20/spring-security-oauth-2.0-client/">Spring Security OAuth 2.0 Client の auto-configuration</a></h1>
-					<time>2020/07/20</time>
-					<br><div class="description">
-	
-	<ul>
-<li><a href="https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2ClientAutoConfiguration.java"><code>OAuth2ClientAutoConfiguration</code></a></li>
-</ul>
-<p>上記のクラスが <code>Import</code> しているもの(など):</p>
-<ul>
-<li>
-<p><a href="https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2ClientRegistrationRepositoryConfiguration.java"><code>OAuth2ClientRegistrationRepositoryConfiguration</code></a></p>
-<ul>
-<li>
-<p><code>ClientRegistrationRepository</code> bean 定義。</p>
-<ul>
-<li><a href="https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/OAuth2ClientProperties.java"><code>OAuth2ClientProperties</code></a>(<code>spring.security.oauth2.client</code>)プロパティから定義を取得して生成するインメモリレジストリを生成。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p><a href="https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2WebSecurityConfiguration.java"><code>OAuth2WebSecurityConfiguration</code></a></p>
-<ul>
-<li>
-<p><a href="https://github.com/spring-projects/spring-security/blob/5.3.3.RELEASE/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/OAuth2AuthorizedClientService.java"><code>OAuth2AuthorizedClientService</code></a> bean 定義。</p>
-</li>
-<li>
-<p><a href="https://github.com/spring-projects/spring-security/blob/5.3.3.RELEASE/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/web/OAuth2AuthorizedClientRepository.java"><code>OAuth2AuthorizedClientRepository</code></a> bean 定義。</p>
-</li>
-<li>
-<p><code>WebSecurityConfigurerAdapter</code> デフォルト実装。</p>
-<ul>
-<li>全てのリクエストに authenticated を要求する。 oauth2Login, oauth2Client 有効化。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>リファレンスリンク:</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202007/20/spring-security-oauth-2.0-client/">Read more ⟶</a>
 				</section>
 				
 				

@@ -64,6 +64,60 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202208/26/hello-jooq/">jOOQ で Hello, world</a></h1>
+					<time>2022/08/26</time>
+					<br><div class="description">
+	
+	<p>jOOQ の挙動を確認する必要が出たので、実行環境を作りました。</p>
+<ul>
+<li><a href="https://github.com/yukihane/hello-java/tree/main/jooq/hello-jooq">https://github.com/yukihane/hello-java/tree/main/jooq/hello-jooq</a></li>
+</ul>
+<p>使い方はリンク先の README を参照してください。</p>
+<p>余談: jOO公式リポジトリに <a href="https://github.com/jOOQ/jOOQ/tree/main/jOOQ-examples"><code>jOOQ-examples</code></a> というディレクトリがあって参考になりそうだったのですが、解説がどこにあるかわからず断念しました…​</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202208/26/hello-jooq/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202206/12/java-value-based-class/">Java における value objects</a></h1>
+					<time>2022/06/12</time>
+					<br><div class="description">
+	
+	<p>Java 標準 API のドキュメントには、 &ldquo;値ベース・クラス&rdquo; というページがあります:</p>
+<ul>
+<li><a href="https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/ValueBased.html">https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/ValueBased.html</a></li>
+</ul>
+<p>機械翻訳っぽくて分かりづらい箇所もあるので、併せて <a href="https://docs.oracle.com/javase/jp/8/docs/api/java/lang/doc-files/ValueBased.html">Java8 版</a> や <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/doc-files/ValueBased.html">英語版</a> も見てみると良いかもです。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202206/12/java-value-based-class/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202206/11/kotlin-data-class-and-so-on/">Kotlin の似たようなクラス</a></h1>
+					<time>2022/06/11</time>
+					<br><div class="description">
+	
+	<p>(昔書きかけて完成していないっぽいですが、置いておいても忘れるだけなのでcommitしてしまいます)</p>
+<p><a href="/blog/202206/11/value-object/">value object</a> のことを調べていたら、 Kotlin にぱっと見似たような異なるクラス定義方法があることに気付いたので、それらについてまとめておきます。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202206/11/kotlin-data-class-and-so-on/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202206/11/maven-wrapper/">Maven Wrapper が Maven3 に正式導入された</a></h1>
+					<time>2022/06/11</time>
+					<br><div class="description">
+	
+	<p>Gradle には <a href="https://docs.gradle.org/current/userguide/gradle_wrapper.html">Gradle Wrapper</a> といって、 ビルドするためのツールである Gradle の該当バージョンがローカルにインストールされていない場合でも、自動で取得してビルド環境をセットアップしてくれる仕組みがあります。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202206/11/maven-wrapper/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202206/11/value-object/">Value Object(値オブジェクト)についての覚え書き</a></h1>
 					<time>2022/06/11</time>
 					<br><div class="description">
@@ -199,81 +253,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/202201/24/git-commit-id-maven-plugin-on-worktree/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202201/12/kotlin-kotest-mockk/">JUnit &#43; Mockito テストケースを Kotest &#43; MockK に書き換える</a></h1>
-					<time>2022/01/12</time>
-					<br><div class="description">
-	
-	<p>Kotest + MockK の組み合わせは Kotlin ではメジャー…​かと思いきや検索してみても公式の</p>
-<ul>
-<li><a href="https://kotest.io/docs/framework/integrations/mocking.html">Mocking and Kotest</a></li>
-</ul>
-<p>にあるような例しか見つかりませんでした。 Mockito で言うところの <code>@Mock</code> や <code>@InjectMocks</code> を使ってモックを差し込みたいんじゃい！ ということでサンプルです。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202201/12/kotlin-kotest-mockk/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202201/10/kotlin-junit4/">Kotlin で JUnit4 のテストケースを書く</a></h1>
-					<time>2022/01/10</time>
-					<br><div class="description">
-	
-	<ul>
-<li>
-<p>JUnit4 / Parameterized</p>
-</li>
-<li>
-<p>Mockito 利用</p>
-</li>
-<li>
-<p>テスト対象が Lombok, MapStruct 使用</p>
-</li>
-</ul>
-<p>な状況で Kotlin でテストコードを書きます。</p>
-<ul>
-<li>成果物: <a href="https://github.com/yukihane/hello-kotlin/tree/main/junit4-mockito-example">https://github.com/yukihane/hello-kotlin/tree/main/junit4-mockito-example</a></li>
-</ul>
-<p>先にまとめを書いておきます。</p>
-<ul>
-<li>
-<p>(IntelliJ で Java のコードを <code>.kt</code> にペーストすると Kotlin コードに変換してくれるが、コレジャナイ感溢れるコードになったのであまり自動変換コードを信用するのは危険かも)</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202201/10/kotlin-junit4/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202201/09/kotlin-maven-pom/">Kotolin のプロジェクトを Maven で作成する</a></h1>
-					<time>2022/01/09</time>
-					<br><div class="description">
-	
-	<p>入門書を一通り読み終えたのでサンプルプロジェクトを作成しようと思いました。</p>
-<p>JetBrains がメンテナンスしている archetype が利用できそうです。</p>
-<ul>
-<li><a href="https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-archetype-jvm">https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-archetype-jvm</a></li>
-</ul>
-<!-- -->
-<pre><code>mvn archetype:generate -DarchetypeGroupId=org.jetbrains.kotlin -DarchetypeArtifactId=kotlin-archetype-jvm
-</code></pre>
-<p>IntelliJ IDEA から作成した場合も似た感じの <code>pom.xml</code> が作成されるかなと思います。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202201/09/kotlin-maven-pom/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202201/05/kotlin-lombok-intellij-problem/">IntelliJ 最新版(2021.3) で Kotlin と Lombok が共存できない</a></h1>
-					<time>2022/01/05</time>
-					<br><div class="description">
-	
-	<p>[追記 2022-01-17] 今回リリースされた <code>213-1.6.10-release-944-IJ6461.79</code> で修正されたようです(ただし <code>.idea</code> ディレクトリを削除してからインポートし直す必要がありました)。</p>
-<p><a href="https://kotlinlang.org/docs/whatsnew1520.html">Kotlin 1.5.20</a> から <a href="https://kotlinlang.org/docs/lombok.html">Lombok compiler plugin</a> というものが提供されるようになり、 Kotlin から自動生成される getter などにアクセスできるようになりました(※実験的機能なようですが)。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202201/05/kotlin-lombok-intellij-problem/">Read more ⟶</a>
 				</section>
 				
 				

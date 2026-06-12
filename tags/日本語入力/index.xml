@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>日本語入力 on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%85%A5%E5%8A%9B/</link>
+    <description>Recent content in 日本語入力 on 発火後忘失</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <copyright>© Yukihane, All Rights Reserved</copyright>
+    <lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0900</lastBuildDate>
+    <atom:link href="https://yukihane.github.io/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%85%A5%E5%8A%9B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>react-select の AsyncSelect が IME 確定後に検索を再実行しない</title>
+      <link>https://yukihane.github.io/blog/202606/13/react-select-async-ime-composition/</link>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202606/13/react-select-async-ime-composition/</guid>
+      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;react-select の &lt;code&gt;AsyncSelect&lt;/code&gt; は、IME（日本語入力）で文字を確定した後に &lt;code&gt;loadOptions&lt;/code&gt; を再呼び出ししないケースがあります。&lt;/li&gt;&#xA;&lt;li&gt;原因は &lt;code&gt;compositionEnd&lt;/code&gt; 後に &lt;code&gt;inputValue&lt;/code&gt; が内部的に「変化なし」と判定され、検索が再トリガーされないことです。&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;AsyncSelect&lt;/code&gt; の &lt;code&gt;loadOptions&lt;/code&gt; パターンをやめ、通常の &lt;code&gt;Select&lt;/code&gt; + controlled &lt;code&gt;inputValue&lt;/code&gt; + &lt;code&gt;useEffect&lt;/code&gt; による自前検索に切り替えることで解決しました。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;症状&#34;&gt;症状&lt;/h2&gt;&#xA;&lt;p&gt;非同期検索付きのセレクトボックスを &lt;code&gt;react-select&lt;/code&gt; の &lt;code&gt;AsyncSelect&lt;/code&gt; で実装していました。ユーザーがキーワードを入力すると API を呼んで候補を表示する、よくあるパターンです。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

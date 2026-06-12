@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html><head lang="ja">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>react-select の AsyncSelect が IME 確定後に検索を再実行しない - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="TL;DR
+
+react-select の AsyncSelect は、IME（日本語入力）で文字を確定した後に loadOptions を再呼び出ししないケースがあります。
+原因は compositionEnd 後に inputValue が内部的に「変化なし」と判定され、検索が再トリガーされないことです。
+AsyncSelect の loadOptions パターンをやめ、通常の Select &#43; controlled inputValue &#43; useEffect による自前検索に切り替えることで解決しました。
+
+
+症状
+非同期検索付きのセレクトボックスを react-select の AsyncSelect で実装していました。ユーザーがキーワードを入力すると API を呼んで候補を表示する、よくあるパターンです。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
+	<meta property="og:url" content="https://yukihane.github.io/blog/202606/13/react-select-async-ime-composition/">
+  <meta property="og:site_name" content="発火後忘失">
+  <meta property="og:title" content="react-select の AsyncSelect が IME 確定後に検索を再実行しない">
+  <meta property="og:description" content="TL;DR react-select の AsyncSelect は、IME（日本語入力）で文字を確定した後に loadOptions を再呼び出ししないケースがあります。 原因は compositionEnd 後に inputValue が内部的に「変化なし」と判定され、検索が再トリガーされないことです。 AsyncSelect の loadOptions パターンをやめ、通常の Select &#43; controlled inputValue &#43; useEffect による自前検索に切り替えることで解決しました。 症状 非同期検索付きのセレクトボックスを react-select の AsyncSelect で実装していました。ユーザーがキーワードを入力すると API を呼んで候補を表示する、よくあるパターンです。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2026-06-13T00:00:00+09:00">
+    <meta property="article:modified_time" content="2026-06-13T00:00:00+09:00">
+    <meta property="article:tag" content="React">
+    <meta property="article:tag" content="React-Select">
+    <meta property="article:tag" content="IME">
+    <meta property="article:tag" content="日本語入力">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="react-select の AsyncSelect が IME 確定後に検索を再実行しない">
+  <meta name="twitter:description" content="TL;DR react-select の AsyncSelect は、IME（日本語入力）で文字を確定した後に loadOptions を再呼び出ししないケースがあります。 原因は compositionEnd 後に inputValue が内部的に「変化なし」と判定され、検索が再トリガーされないことです。 AsyncSelect の loadOptions パターンをやめ、通常の Select &#43; controlled inputValue &#43; useEffect による自前検索に切り替えることで解決しました。 症状 非同期検索付きのセレクトボックスを react-select の AsyncSelect で実装していました。ユーザーがキーワードを入力すると API を呼んで候補を表示する、よくあるパターンです。">
+
+        <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://yukihane.github.io/">発火後忘失</a>
+	</div>
+	<nav>
+		
+		<a href="/blog">Blog</a>
+		
+		<a href="/docs">Docs</a>
+		
+		<a href="/tags">Tags</a>
+		
+		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
+		
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
+		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
+		
+	</nav>
+</header>
+
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        <div class="title">
+          <h1 class="title">react-select の AsyncSelect が IME 確定後に検索を再実行しない</h1>
+          <div class="meta">Posted on 2026/06/13</div>
+        </div>
+        
+        <section class="body">
+          <h2 id="tldr">TL;DR</h2>
+<ul>
+<li>react-select の <code>AsyncSelect</code> は、IME（日本語入力）で文字を確定した後に <code>loadOptions</code> を再呼び出ししないケースがあります。</li>
+<li>原因は <code>compositionEnd</code> 後に <code>inputValue</code> が内部的に「変化なし」と判定され、検索が再トリガーされないことです。</li>
+<li><code>AsyncSelect</code> の <code>loadOptions</code> パターンをやめ、通常の <code>Select</code> + controlled <code>inputValue</code> + <code>useEffect</code> による自前検索に切り替えることで解決しました。</li>
+</ul>
+<hr />
+<h2 id="症状">症状</h2>
+<p>非同期検索付きのセレクトボックスを <code>react-select</code> の <code>AsyncSelect</code> で実装していました。ユーザーがキーワードを入力すると API を呼んで候補を表示する、よくあるパターンです。</p>
+<p>英字入力では問題なく動作するのですが、日本語入力で以下の現象が起きます:</p>
+<ul>
+<li>「高」と入力 → 「高木」「高橋」などの候補が表示される ✅</li>
+<li>「高木」と入力 → <strong>候補が何も表示されない</strong> ❌</li>
+</ul>
+<p>1文字なら動きます。2文字以上の日本語キーワードで候補が出ません。</p>
+<hr />
+<h2 id="前提-asyncselect-の検索メカニズム">前提: AsyncSelect の検索メカニズム</h2>
+<p><code>AsyncSelect</code> は <code>loadOptions</code> という callback を受け取り、ユーザーの入力が変わるたびにこれを呼び出します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">AsyncSelect</span>
+</span></span><span class="line"><span class="cl">  <span class="na">loadOptions</span><span class="o">=</span><span class="p">{(</span><span class="nx">inputValue</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// inputValue が変わるたびに呼ばれる
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">fetch</span><span class="p">(</span><span class="sb">`/api/search?q=</span><span class="si">${</span><span class="nx">inputValue</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="nx">callback</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>内部的には <code>inputValue</code> の state が変わったタイミングで <code>loadOptions</code> が発火します。</p>
+<hr />
+<h2 id="衝突-ime-の-composition-イベントと-react-select-の内部状態">衝突: IME の composition イベントと react-select の内部状態</h2>
+<p>日本語入力では、ブラウザが以下の順序でイベントを発火します:</p>
+<ol>
+<li><code>compositionStart</code> — IME 変換開始（「た」「たか」「たかぎ」&hellip;）</li>
+<li><code>input</code> / <code>change</code> — 変換中の中間文字列がフィールドに反映</li>
+<li><code>compositionEnd</code> — 確定（「高木」）</li>
+<li>最終的な <code>change</code> イベント</li>
+</ol>
+<p>問題は <strong>ステップ 2 の時点で react-select の内部 <code>inputValue</code> が中間文字列で更新されてしまう</strong> ことです。</p>
+<p>IME 変換中の不要な検索を防ぐため、<code>compositionStart</code>/<code>compositionEnd</code> をフックして <code>isComposing</code> フラグを管理し、変換中は <code>loadOptions</code> 内で <code>callback([])</code> して即 return する実装にしていました:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">isComposingRef</span> <span class="o">=</span> <span class="nx">useRef</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">selectComponents</span> <span class="o">=</span> <span class="nx">useMemo</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Input</span><span class="o">:</span> <span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">components.Input</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span><span class="na">...props</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="na">onCompositionStart</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">isComposingRef</span><span class="p">.</span><span class="nx">current</span> <span class="o">=</span> <span class="kc">true</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">      <span class="na">onCompositionEnd</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">isComposingRef</span><span class="p">.</span><span class="nx">current</span> <span class="o">=</span> <span class="kc">false</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">),</span>
+</span></span><span class="line"><span class="cl"><span class="p">}),</span> <span class="p">[])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">loadOptions</span> <span class="o">=</span> <span class="nx">useCallback</span><span class="p">((</span><span class="nx">inputValue</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">isComposingRef</span><span class="p">.</span><span class="nx">current</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">callback</span><span class="p">([])</span>  <span class="c1">// ← 変換中は検索しない
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// ... API 呼び出し
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">},</span> <span class="p">[])</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>一見合理的ですが、ここに落とし穴があります。</p>
+<hr />
+<h2 id="compositionend-後に-loadoptions-が呼ばれない"><code>compositionEnd</code> 後に <code>loadOptions</code> が呼ばれない</h2>
+<p><code>compositionEnd</code> で <code>isComposingRef.current = false</code> にしても、<strong><code>AsyncSelect</code> が <code>loadOptions</code> を再呼び出ししません</strong>。</p>
+<p>なぜか。<code>AsyncSelect</code> は <code>inputValue</code> の<strong>変更</strong>をトリガーに <code>loadOptions</code> を呼びます。IME 変換中のステップ 2 で既に <code>inputValue</code> が「高木」相当の値に更新されているため、<code>compositionEnd</code> 後に改めて <code>inputValue</code> が変わりません。変わらないから <code>loadOptions</code> も呼ばれません。</p>
+<p>結果として:</p>
+<ul>
+<li><code>isComposing = true</code> の間に <code>loadOptions</code> が呼ばれた → <code>callback([])</code> で空を返した</li>
+<li><code>isComposing = false</code> になった → でも <code>loadOptions</code> はもう呼ばれない</li>
+<li><strong>候補が空のまま</strong></li>
+</ul>
+<p>これは react-select の既知課題です:</p>
+<ul>
+<li><a href="https://github.com/JedWatson/react-select/issues/3561">#3561: Need to support IME composition in Select</a></li>
+<li><a href="https://github.com/JedWatson/react-select/issues/1578">#1578: onInputChange event fires too many times when inputting Chinese characters</a></li>
+</ul>
+<hr />
+<h2 id="試して失敗したアプローチ">試して失敗したアプローチ</h2>
+<h3 id="1-iscomposing-チェックを-debounce-の内側に移動">1. <code>isComposing</code> チェックを debounce の内側に移動</h3>
+<p><code>loadOptions</code> の先頭で即 return する代わりに、300ms の debounce 後にチェックすれば <code>compositionEnd</code> が間に合うのでは、と考えました。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="nx">debounceTimerRef</span><span class="p">.</span><span class="nx">current</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="kr">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">isComposingRef</span><span class="p">.</span><span class="nx">current</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// ← debounce 後にチェック
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">callback</span><span class="p">([])</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// ... API 呼び出し
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">},</span> <span class="mi">300</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>結果: 効果なし。</strong> そもそも <code>loadOptions</code> 自体が再呼び出しされないため、debounce の内外は関係ありませんでした。</p>
+<h3 id="2-compositionend-で-key-をインクリメントして再マウント">2. <code>compositionEnd</code> で <code>key</code> をインクリメントして再マウント</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">selectKey</span><span class="p">,</span> <span class="nx">setSelectKey</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// compositionEnd で key を変える → コンポーネント再マウント
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">onCompositionEnd</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">isComposingRef</span><span class="p">.</span><span class="nx">current</span> <span class="o">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">setSelectKey</span><span class="p">(</span><span class="nx">k</span> <span class="o">=&gt;</span> <span class="nx">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1">// ← 再マウントを強制
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">AsyncSelect</span> <span class="na">key</span><span class="o">=</span><span class="p">{</span><span class="nx">selectKey</span><span class="p">}</span> <span class="na">...</span> <span class="p">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>結果: 症状悪化。</strong> 再マウントで入力中のテキストが消え、ユーザー体験が壊れました。</p>
+<hr />
+<h2 id="修正-asyncselect-をやめて-select--controlled-inputvalue--useeffect">修正: <code>AsyncSelect</code> をやめて <code>Select</code> + controlled <code>inputValue</code> + <code>useEffect</code></h2>
+<p><code>AsyncSelect</code> の <code>loadOptions</code> callback パターンに頼ること自体が問題でした。<code>inputValue</code> の変更検知を react-select の内部に任せるのではなく、自分で制御します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">Select</span> <span class="kr">from</span> <span class="s1">&#39;react-select&#39;</span>  <span class="c1">// ← AsyncSelect ではない
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">inputValue</span><span class="p">,</span> <span class="nx">setInputValue</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">isComposing</span><span class="p">,</span> <span class="nx">setIsComposing</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">options</span><span class="p">,</span> <span class="nx">setOptions</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">([])</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">isLoading</span><span class="p">,</span> <span class="nx">setIsLoading</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// compositionEnd で inputValue を明示的に更新
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">selectComponents</span> <span class="o">=</span> <span class="nx">useMemo</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Input</span><span class="o">:</span> <span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">components.Input</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span><span class="na">...props</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="na">onCompositionStart</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="nx">setIsComposing</span><span class="p">(</span><span class="kc">true</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl">      <span class="na">onCompositionEnd</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">setIsComposing</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">setInputValue</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>  <span class="c1">// ← ここがポイント
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">),</span>
+</span></span><span class="line"><span class="cl"><span class="p">}),</span> <span class="p">[])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// inputValue の変更を useEffect で検知して検索
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">isComposing</span> <span class="o">||</span> <span class="o">!</span><span class="nx">inputValue</span><span class="p">.</span><span class="nx">trim</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">setOptions</span><span class="p">([])</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">timer</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="kr">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">setIsLoading</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">searchApi</span><span class="p">(</span><span class="nx">inputValue</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">setOptions</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">setIsLoading</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span> <span class="mi">300</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">timer</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">},</span> <span class="p">[</span><span class="nx">inputValue</span><span class="p">,</span> <span class="nx">isComposing</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">Select</span>
+</span></span><span class="line"><span class="cl">    <span class="na">options</span><span class="o">=</span><span class="p">{</span><span class="nx">options</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="na">isLoading</span><span class="o">=</span><span class="p">{</span><span class="nx">isLoading</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="na">inputValue</span><span class="o">=</span><span class="p">{</span><span class="nx">inputValue</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="na">onInputChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">newValue</span><span class="p">,</span> <span class="p">{</span> <span class="nx">action</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="nx">action</span> <span class="o">===</span> <span class="s1">&#39;input-change&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">setInputValue</span><span class="p">(</span><span class="nx">newValue</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="na">filterOption</span><span class="o">=</span><span class="p">{</span><span class="kc">null</span><span class="p">}</span>  <span class="c1">// ← サーバーサイド検索なのでクライアントフィルタ無効
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="na">...</span>
+</span></span><span class="line"><span class="cl">  <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>ポイントは3つです。</p>
+<ol>
+<li><strong><code>inputValue</code> を controlled state で管理</strong> — react-select の内部状態に依存しません</li>
+<li><strong><code>compositionEnd</code> で <code>setInputValue(e.currentTarget.value)</code> を明示呼び出し</strong> — IME 確定後に state が変わることが保証されます</li>
+<li><strong><code>useEffect</code> が <code>inputValue</code> の変更を検知して検索を発火</strong> — <code>loadOptions</code> の再トリガー問題から完全に解放されます</li>
+</ol>
+<p><code>filterOption={null}</code> は、通常の <code>Select</code> がデフォルトでクライアントサイドフィルタリングを行うため、それを無効化してサーバーサイド検索の結果をそのまま表示させるために必要です。</p>
+<hr />
+<h2 id="落とし穴-oninputchange-の-action-を正しく処理する">落とし穴: <code>onInputChange</code> の action を正しく処理する</h2>
+<p>上記の修正だけだと、<strong>候補を選択した後に選択された人名が表示されない</strong>という問題が起きました。</p>
+<p>react-select は <code>onInputChange</code> を複数の <code>action</code> で呼び出します:</p>
+<ul>
+<li><code>'input-change'</code> — ユーザーがキーボードで入力した</li>
+<li><code>'set-value'</code> — 候補を選択した（このとき <code>inputValue</code> を空にリセットしたい）</li>
+<li><code>'input-blur'</code> — フォーカスが外れた</li>
+<li><code>'menu-close'</code> — メニューが閉じた</li>
+</ul>
+<p><code>action === 'input-change'</code> のみで <code>setInputValue</code> していると、<code>set-value</code> 時のリセット（空文字への変更）が反映されず、古い検索キーワードが <code>inputValue</code> に残り続けます。結果として <code>value</code>（選択済みの値）のラベルが表示されず、検索テキストが表示されます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="nx">onInputChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">newValue</span><span class="p">,</span> <span class="p">{</span> <span class="nx">action</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">action</span> <span class="o">===</span> <span class="s1">&#39;input-change&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">setInputValue</span><span class="p">(</span><span class="nx">newValue</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">action</span> <span class="o">===</span> <span class="s1">&#39;set-value&#39;</span> <span class="o">||</span> <span class="nx">action</span> <span class="o">===</span> <span class="s1">&#39;menu-close&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">setInputValue</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>  <span class="c1">// ← これが必要
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr />
+<h2 id="さらなる改善-react-query-への移行">さらなる改善: React Query への移行</h2>
+<p><code>useEffect</code> + 直接 API 呼び出しパターンには別の問題もあります:</p>
+<ul>
+<li><strong>stale response 競合</strong>: ユーザーが素早く入力を変更すると、先行リクエストの古いレスポンスが後発の結果を上書きする</li>
+<li><strong>状態管理の肥大化</strong>: <code>options</code>, <code>isLoading</code>, <code>isError</code> をコンポーネント内で個別に <code>useState</code> 管理</li>
+</ul>
+<p>React Query (<code>useQuery</code>) に移行するとこれらが自動的に解決されます:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="c1">// カスタムフック
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">export</span> <span class="kr">const</span> <span class="nx">useSearchTargetCandidates</span> <span class="o">=</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">projectId</span>: <span class="kt">string</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">keyword</span>: <span class="kt">string</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">enabled</span>: <span class="kt">boolean</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">useQuery</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">queryKey</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;target-candidates&#39;</span><span class="p">,</span> <span class="nx">projectId</span><span class="p">,</span> <span class="nx">keyword</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">queryFn</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">searchApi</span><span class="p">(</span><span class="nx">projectId</span><span class="p">,</span> <span class="nx">keyword</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">enabled</span>: <span class="kt">enabled</span> <span class="o">&amp;&amp;</span> <span class="o">!!</span><span class="nx">keyword</span><span class="p">.</span><span class="nx">trim</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">staleTime</span>: <span class="kt">30_000</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// コンポーネント
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="p">[</span><span class="nx">debouncedKeyword</span><span class="p">,</span> <span class="nx">setDebouncedKeyword</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">timer</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">setDebouncedKeyword</span><span class="p">(</span><span class="nx">inputValue</span><span class="p">),</span> <span class="mi">300</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">timer</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">},</span> <span class="p">[</span><span class="nx">inputValue</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">{</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">isLoading</span><span class="p">,</span> <span class="nx">isError</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">useSearchTargetCandidates</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">projectId</span><span class="p">,</span> <span class="nx">debouncedKeyword</span><span class="p">,</span> <span class="o">!</span><span class="nx">isComposing</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>queryKey</code> が変わると React Query が古いリクエストの結果を自動破棄するため、stale response 競合は構造的に起きません。<code>enabled</code> フラグで IME 変換中の検索抑止も統一的に制御できます。</p>
+<hr />
+<h2 id="まとめ">まとめ</h2>
+<table>
+  <thead>
+      <tr>
+          <th>アプローチ</th>
+          <th>結果</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>isComposing</code> チェックを debounce 内に移動</td>
+          <td>❌ <code>loadOptions</code> 自体が呼ばれない</td>
+      </tr>
+      <tr>
+          <td><code>key</code> 変更で再マウント</td>
+          <td>❌ 入力テキストが消える</td>
+      </tr>
+      <tr>
+          <td><code>Select</code> + controlled <code>inputValue</code> + <code>useEffect</code></td>
+          <td>✅ IME 確定後に確実に検索</td>
+      </tr>
+      <tr>
+          <td>+ <code>onInputChange</code> の <code>set-value</code> 対応</td>
+          <td>✅ 候補選択後の値表示を修正</td>
+      </tr>
+      <tr>
+          <td>+ React Query (<code>useQuery</code>) への移行</td>
+          <td>✅ stale response 解消 + 状態管理簡素化</td>
+      </tr>
+  </tbody>
+</table>
+<p><code>AsyncSelect</code> の <code>loadOptions</code> は便利ですが、IME 入力との相性が悪いです。日本語・中国語・韓国語など CJK 入力を扱うプロジェクトでは、<code>Select</code> + 自前の非同期検索（できれば React Query）に切り替えることを推奨します。</p>
+<hr />
+<blockquote>
+<p><em>補足: この問題は react-select v5 系で確認しています。react-select の GitHub Issues（<a href="https://github.com/JedWatson/react-select/issues/3561">#3561</a>, <a href="https://github.com/JedWatson/react-select/issues/1578">#1578</a>）では 2018 年頃から報告されていますが、2026 年現在も根本修正はされていません。</em></p></blockquote>
+
+        </section>
+        <div class="post-tags">
+          
+          
+          <nav class="nav tags">
+            <ul class="tags">
+              
+              <li><a href="/tags/react/">react</a></li>
+              
+              <li><a href="/tags/react-select/">react-select</a></li>
+              
+              <li><a href="/tags/ime/">IME</a></li>
+              
+              <li><a href="/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%85%A5%E5%8A%9B/">日本語入力</a></li>
+              
+            </ul>
+          </nav>
+          
+          
+        </div>
+      </div>
+
+      
+      
+    </div>
+
+    </article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
+  <div class="footer-info">
+    2026  © Yukihane, All Rights Reserved |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E9J8FN5B4Q');
+        }
+      </script>
+
+</div>
+    </body>
+</html>

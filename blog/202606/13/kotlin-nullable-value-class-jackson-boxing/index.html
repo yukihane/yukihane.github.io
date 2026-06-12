@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html><head lang="ja">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Jackson &#43; Kotlin の nullable な value class が {&#34;value&#34;:&#34;...&#34;} で出力される - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="TL;DR
+
+Kotlin の @JvmInline value class を nullable なプロパティとして持つ data class を jackson-module-kotlin でシリアライズすると、auto-unwrap が効かず {&quot;value&quot;:&quot;...&quot;} の boxed object として出力されることがあります。
+Jackson 2.17 で value class サポートは正式に入りましたが、公式 docs は &ldquo;there are many edge cases for the value class that wraps nullable&rdquo; と明記しており、完全解決ではありません。
+推奨される回避策は value class 側の underlying プロパティに @get:JsonValue を付与することです。
+
+
+何が起きたか
+Kotlin で ID 系の型安全性を担保するために、こういう value class を定義しているプロジェクトは多いと思います。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
+	<meta property="og:url" content="https://yukihane.github.io/blog/202606/13/kotlin-nullable-value-class-jackson-boxing/">
+  <meta property="og:site_name" content="発火後忘失">
+  <meta property="og:title" content="Jackson &#43; Kotlin の nullable な value class が {&#34;value&#34;:&#34;...&#34;} で出力される">
+  <meta property="og:description" content="TL;DR Kotlin の @JvmInline value class を nullable なプロパティとして持つ data class を jackson-module-kotlin でシリアライズすると、auto-unwrap が効かず {&#34;value&#34;:&#34;...&#34;} の boxed object として出力されることがあります。 Jackson 2.17 で value class サポートは正式に入りましたが、公式 docs は “there are many edge cases for the value class that wraps nullable” と明記しており、完全解決ではありません。 推奨される回避策は value class 側の underlying プロパティに @get:JsonValue を付与することです。 何が起きたか Kotlin で ID 系の型安全性を担保するために、こういう value class を定義しているプロジェクトは多いと思います。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2026-06-13T00:00:00+09:00">
+    <meta property="article:modified_time" content="2026-06-13T00:00:00+09:00">
+    <meta property="article:tag" content="Kotlin">
+    <meta property="article:tag" content="Jackson">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Jackson &#43; Kotlin の nullable な value class が {&#34;value&#34;:&#34;...&#34;} で出力される">
+  <meta name="twitter:description" content="TL;DR Kotlin の @JvmInline value class を nullable なプロパティとして持つ data class を jackson-module-kotlin でシリアライズすると、auto-unwrap が効かず {&#34;value&#34;:&#34;...&#34;} の boxed object として出力されることがあります。 Jackson 2.17 で value class サポートは正式に入りましたが、公式 docs は “there are many edge cases for the value class that wraps nullable” と明記しており、完全解決ではありません。 推奨される回避策は value class 側の underlying プロパティに @get:JsonValue を付与することです。 何が起きたか Kotlin で ID 系の型安全性を担保するために、こういう value class を定義しているプロジェクトは多いと思います。">
+
+        <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://yukihane.github.io/">発火後忘失</a>
+	</div>
+	<nav>
+		
+		<a href="/blog">Blog</a>
+		
+		<a href="/docs">Docs</a>
+		
+		<a href="/tags">Tags</a>
+		
+		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
+		
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
+		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
+		
+	</nav>
+</header>
+
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        <div class="title">
+          <h1 class="title">Jackson &#43; Kotlin の nullable な value class が {&#34;value&#34;:&#34;...&#34;} で出力される</h1>
+          <div class="meta">Posted on 2026/06/13</div>
+        </div>
+        
+        <section class="body">
+          <h2 id="tldr">TL;DR</h2>
+<ul>
+<li>Kotlin の <code>@JvmInline value class</code> を <strong>nullable</strong> なプロパティとして持つ data class を <code>jackson-module-kotlin</code> でシリアライズすると、auto-unwrap が効かず <code>{&quot;value&quot;:&quot;...&quot;}</code> の boxed object として出力されることがあります。</li>
+<li>Jackson 2.17 で value class サポートは正式に入りましたが、公式 docs は <strong>&ldquo;there are many edge cases for the <code>value class</code> that wraps nullable&rdquo;</strong> と明記しており、完全解決ではありません。</li>
+<li>推奨される回避策は value class 側の underlying プロパティに <code>@get:JsonValue</code> を付与することです。</li>
+</ul>
+<hr />
+<h2 id="何が起きたか">何が起きたか</h2>
+<p>Kotlin で ID 系の型安全性を担保するために、こういう value class を定義しているプロジェクトは多いと思います。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@JvmInline</span>
+</span></span><span class="line"><span class="cl"><span class="k">value</span> <span class="k">class</span> <span class="nc">UserId</span><span class="p">(</span><span class="k">private</span> <span class="k">val</span> <span class="py">value</span><span class="p">:</span> <span class="n">UUID</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">override</span> <span class="k">fun</span> <span class="nf">toString</span><span class="p">()</span> <span class="p">=</span> <span class="k">value</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>これを REST API の Response model でそのまま露出します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="k">data</span> <span class="k">class</span> <span class="nc">UserResponse</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">userId</span><span class="p">:</span> <span class="n">UserId</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>jackson-module-kotlin</code> の <code>registerKotlinModule()</code> を効かせていれば、<code>@JvmInline value class</code> は auto-unwrap されて中身の値だけで serialize されます。<code>userId</code> は <code>&quot;01HW...UUID...&quot;</code> の文字列で出ます。ここまでは想定通りです。</p>
+<p>ところがプロパティを <strong>nullable</strong> にした瞬間、挙動が変わります。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="k">data</span> <span class="k">class</span> <span class="nc">CommentResponse</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">commentId</span><span class="p">:</span> <span class="n">CommentId</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">replyToId</span><span class="p">:</span> <span class="n">CommentId</span><span class="p">?,</span> <span class="c1">// ← nullable
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>replyToId</code> が non-null のとき、期待していたのは:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span> <span class="nt">&#34;commentId&#34;</span><span class="p">:</span> <span class="s2">&#34;01HW...&#34;</span><span class="p">,</span> <span class="nt">&#34;replyToId&#34;</span><span class="p">:</span> <span class="s2">&#34;01HX...&#34;</span> <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>実際に出るのは:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span> <span class="nt">&#34;commentId&#34;</span><span class="p">:</span> <span class="s2">&#34;01HW...&#34;</span><span class="p">,</span> <span class="nt">&#34;replyToId&#34;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="s2">&#34;01HX...&#34;</span> <span class="p">}</span> <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>フロントエンド側で <code>z.string().nullish()</code> のような Zod schema を当てていると、当然 parse に失敗します。</p>
+<hr />
+<h2 id="なぜ起きるか">なぜ起きるか</h2>
+<p>Kotlin の inline / value class は、コンパイル後に「可能なら」underlying value 1個に展開されます。ただしこれは <strong>non-null 文脈に限った最適化</strong> で、nullable にした瞬間に Kotlin コンパイラは実行時に wrapper object として box する必要があります（null と underlying value の <code>0</code> を区別できないため）。</p>
+<p>Jackson はその box された wrapper object を「普通の POJO」として認識し、内部プロパティ名 <code>value</code> をそのまま JSON のキーとして書き出してしまいます。これが <code>{&quot;value&quot;:&quot;...&quot;}</code> の正体です。</p>
+<hr />
+<h2 id="issue-の状態">Issue の状態</h2>
+<p>関連する jackson-module-kotlin の issue は全部 closed になっています。</p>
+<ul>
+<li><a href="https://github.com/FasterXML/jackson-module-kotlin/issues/199">#199 — Support for inline classes</a></li>
+<li><a href="https://github.com/FasterXML/jackson-module-kotlin/issues/462">#462 — invalid field names from value classes</a></li>
+<li><a href="https://github.com/FasterXML/jackson-module-kotlin/issues/563">#563 — Nullable value class properties included even with JsonInclude.NON_NULL</a></li>
+<li><a href="https://github.com/FasterXML/jackson-module-kotlin/issues/650">#650 — Supports deserialization of value class</a></li>
+</ul>
+<p>これらは <a href="https://github.com/FasterXML/jackson-module-kotlin/pull/768">PR #768</a> で取り込まれ、<strong>Jackson 2.17.0</strong> (2024-03) でリリースされました。opt-in flag はなく、<code>registerKotlinModule()</code> するだけでデフォルト有効です。</p>
+<p>ただし「全解決」ではありません。公式 docs <a href="https://github.com/FasterXML/jackson-module-kotlin/blob/2.18/docs/value-class-support.md"><code>docs/value-class-support.md</code></a> には明確にこう書かれています。</p>
+<blockquote>
+<p>there are many edge cases for the <code>value class</code> that wraps nullable</p></blockquote>
+<p>特に nullable を含むケースでは、<code>@JsonSerialize(using = ...)</code> を当てても意図通り効かない、といった既知の制約が残っています。</p>
+<hr />
+<h2 id="推奨される回避策-getjsonvalue">推奨される回避策: <code>@get:JsonValue</code></h2>
+<p>公式 docs もワークアラウンドとして案内しているのが <code>@JsonValue</code> の付与です。value class の underlying プロパティに付けます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">com.fasterxml.jackson.annotation.JsonValue</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@JvmInline</span>
+</span></span><span class="line"><span class="cl"><span class="k">value</span> <span class="k">class</span> <span class="nc">UserId</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@get</span><span class="p">:</span><span class="n">JsonValue</span> <span class="k">private</span> <span class="k">val</span> <span class="py">value</span><span class="p">:</span> <span class="n">UUID</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">override</span> <span class="k">fun</span> <span class="nf">toString</span><span class="p">()</span> <span class="p">=</span> <span class="k">value</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>ポイントは2つです。</p>
+<ol>
+<li><strong><code>@get:</code> 接頭辞が必須</strong> — value class の primary constructor プロパティに直接 <code>@JsonValue</code> を付けても getter には伝播しません。<code>@get:</code> で明示的に getter にアノテーションを付ける必要があります。</li>
+<li><code>@JsonValue</code> は「このクラスを serialize するときは、このプロパティ単体の値で表現する」と Jackson に伝えるアノテーションです。auto-unwrap の有無に関わらず、nullable / non-null 問わず一貫して中の値だけが出ます。</li>
+</ol>
+<p>これで <code>replyToId: UserId?</code> でも期待通り <code>&quot;replyToId&quot;: &quot;01HX...&quot;</code> または <code>&quot;replyToId&quot;: null</code> で出力されます。</p>
+<hr />
+<h2 id="他の選択肢と比較">他の選択肢と比較</h2>
+<table>
+  <thead>
+      <tr>
+          <th>方針</th>
+          <th>影響範囲</th>
+          <th>規約維持</th>
+          <th>横展開コスト</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Response の型を <code>String?</code> に降格</td>
+          <td>当該エンドポイントのみ</td>
+          <td>×</td>
+          <td>nullable VO ごとに個別対応</td>
+      </tr>
+      <tr>
+          <td>カスタム <code>JsonSerializer&lt;T&gt;</code> を <code>SimpleModule</code> に登録</td>
+          <td>全 Response</td>
+          <td>○</td>
+          <td>VO ごとに serializer 実装</td>
+      </tr>
+      <tr>
+          <td><strong>value class に <code>@get:JsonValue</code> を付与</strong></td>
+          <td>全 Response</td>
+          <td>○</td>
+          <td>VO 一箇所のみ</td>
+      </tr>
+  </tbody>
+</table>
+<p>「Domain 層の value class に Jackson アノテーションを付けるのは Presentation 都合を Domain に持ち込んでいる」という DDD 観点の議論はあります。ただし value class を Response model にそのまま露出するという設計をすでに採用しているなら、その境界は元々曖昧で、<code>@get:JsonValue</code> で局所的に整合させるのが現実解になります。</p>
+<hr />
+<h2 id="デシリアライズ側について">デシリアライズ側について</h2>
+<p>Jackson 2.17+ で value class の deserialization もサポートされましたが、Request body で受ける用途があるなら <code>@JsonCreator</code> を value class に付けておくとより堅いです。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@JvmInline</span>
+</span></span><span class="line"><span class="cl"><span class="k">value</span> <span class="k">class</span> <span class="nc">UserId</span> <span class="nd">@JsonCreator</span><span class="p">(</span><span class="n">mode</span> <span class="p">=</span> <span class="nc">JsonCreator</span><span class="p">.</span><span class="nc">Mode</span><span class="p">.</span><span class="n">DELEGATING</span><span class="p">)</span> <span class="k">constructor</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@get</span><span class="p">:</span><span class="n">JsonValue</span> <span class="k">private</span> <span class="k">val</span> <span class="py">value</span><span class="p">:</span> <span class="n">UUID</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr />
+<h2 id="まとめ">まとめ</h2>
+<ul>
+<li>nullable な <code>@JvmInline value class</code> プロパティは Jackson の auto-unwrap が効かず <code>{&quot;value&quot;:&quot;...&quot;}</code> として box されます。</li>
+<li>Issue は closed ですが、公式 docs が &ldquo;many edge cases&rdquo; の残存を認めています。</li>
+<li>Response model で value class を露出する設計を採るなら、value class 側に <code>@get:JsonValue</code> を付ける運用が現実的です。</li>
+<li>単一エンドポイントで <code>String?</code> 降格してその場しのぎするより、value class 一箇所修正で全 Response が一貫します。</li>
+</ul>
+<p>型安全性のために導入した value class が serialize 層で破綻するというのはかなり罠で、API contract テスト（実際の <code>ObjectMapper</code> で JSON 化して <code>isTextual</code> / <code>isObject</code> を assert する）を入れておくと回帰検知できます。</p>
+<blockquote>
+<p><strong>関連</strong>: <a href="https://yukihane.github.io/blog/202605/20/kotlin-value-class-spring-mvc-binding/">Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる</a> — 同じ value class が Spring MVC のリフレクションベースバインディングでも問題を起こすケースです。</p></blockquote>
+<hr />
+<blockquote>
+<p><strong>参考</strong>: <a href="https://github.com/FasterXML/jackson-module-kotlin/blob/2.18/docs/value-class-support.md">jackson-module-kotlin — docs/value-class-support.md</a>、<a href="https://github.com/FasterXML/jackson-module-kotlin/pull/768">jackson-module-kotlin PR #768</a>、<a href="https://kotlinlang.org/docs/inline-classes.html">Kotlin — Inline value classes</a></p></blockquote>
+
+        </section>
+        <div class="post-tags">
+          
+          
+          <nav class="nav tags">
+            <ul class="tags">
+              
+              <li><a href="/tags/kotlin/">kotlin</a></li>
+              
+              <li><a href="/tags/jackson/">jackson</a></li>
+              
+            </ul>
+          </nav>
+          
+          
+        </div>
+      </div>
+
+      
+      
+    </div>
+
+    </article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
+  <div class="footer-info">
+    2026  © Yukihane, All Rights Reserved |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E9J8FN5B4Q');
+        }
+      </script>
+
+</div>
+    </body>
+</html>

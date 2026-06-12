@@ -7,17 +7,31 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Wed, 20 May 2026 03:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/kotlin/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる話</title>
+      <title>CI の flaky test を追ったら JDK の HashMap が壊れていた</title>
+      <link>https://yukihane.github.io/blog/202606/13/exposed-flaky-test-hashmap-corruption/</link>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202606/13/exposed-flaky-test-hashmap-corruption/</guid>
+      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Kotlin + Exposed ORM のプロジェクトで、CI の並列テスト実行時に &lt;code&gt;ClassCastException: LinkedHashMap$Entry cannot be cast to HashMap$TreeNode&lt;/code&gt; が散発的に発生しました。&lt;/li&gt;&#xA;&lt;li&gt;原因は Exposed 内部の &lt;code&gt;IdentifierManagerApi&lt;/code&gt; が &lt;strong&gt;非スレッドセーフな &lt;code&gt;LinkedHashMap&lt;/code&gt;&lt;/strong&gt; を識別子キャッシュに使っており、Kotest の並列実行で同時書き込みが起きて HashMap の内部構造が壊れるためです。&lt;/li&gt;&#xA;&lt;li&gt;これは &lt;a href=&#34;https://github.com/JetBrains/Exposed/issues/1704&#34;&gt;Exposed #1704&lt;/a&gt; として報告済みの既知バグで、&lt;a href=&#34;https://github.com/JetBrains/Exposed/releases/tag/1.3.0&#34;&gt;Exposed 1.3.0&lt;/a&gt; で修正されています。&lt;/li&gt;&#xA;&lt;li&gt;ローカルの単独テスト実行では再現しません。CI のテストレポート（HTML アーティファクト）を取得して初めて完全なスタックトレースが得られ、原因を特定できました。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;症状-無関係な2テストが同じ例外で落ちる&#34;&gt;症状: 無関係な2テストが同じ例外で落ちる&lt;/h2&gt;&#xA;&lt;p&gt;ある PR の CI で、7,000 件超のテスト中 2 件だけが失敗しました。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Jackson &#43; Kotlin の nullable な value class が {&#34;value&#34;:&#34;...&#34;} で出力される</title>
+      <link>https://yukihane.github.io/blog/202606/13/kotlin-nullable-value-class-jackson-boxing/</link>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202606/13/kotlin-nullable-value-class-jackson-boxing/</guid>
+      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Kotlin の &lt;code&gt;@JvmInline value class&lt;/code&gt; を &lt;strong&gt;nullable&lt;/strong&gt; なプロパティとして持つ data class を &lt;code&gt;jackson-module-kotlin&lt;/code&gt; でシリアライズすると、auto-unwrap が効かず &lt;code&gt;{&amp;quot;value&amp;quot;:&amp;quot;...&amp;quot;}&lt;/code&gt; の boxed object として出力されることがあります。&lt;/li&gt;&#xA;&lt;li&gt;Jackson 2.17 で value class サポートは正式に入りましたが、公式 docs は &lt;strong&gt;&amp;ldquo;there are many edge cases for the &lt;code&gt;value class&lt;/code&gt; that wraps nullable&amp;rdquo;&lt;/strong&gt; と明記しており、完全解決ではありません。&lt;/li&gt;&#xA;&lt;li&gt;推奨される回避策は value class 側の underlying プロパティに &lt;code&gt;@get:JsonValue&lt;/code&gt; を付与することです。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;何が起きたか&#34;&gt;何が起きたか&lt;/h2&gt;&#xA;&lt;p&gt;Kotlin で ID 系の型安全性を担保するために、こういう value class を定義しているプロジェクトは多いと思います。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる</title>
       <link>https://yukihane.github.io/blog/202605/20/kotlin-value-class-spring-mvc-binding/</link>
       <pubDate>Wed, 20 May 2026 03:00:00 +0900</pubDate>
       <guid>https://yukihane.github.io/blog/202605/20/kotlin-value-class-spring-mvc-binding/</guid>
       <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Kotlin の &lt;code&gt;@JvmInline value class&lt;/code&gt; を &lt;code&gt;@ModelAttribute&lt;/code&gt; で受ける data class のプロパティに使うと、リクエスト時に &lt;code&gt;BeanInstantiationException&lt;/code&gt; が発生します。&lt;/li&gt;&#xA;&lt;li&gt;原因は Kotlin リフレクション API が value class のアンラップ済み型を正しく扱えないバグ（&lt;a href=&#34;https://youtrack.jetbrains.com/issue/KT-64097&#34;&gt;KT-64097&lt;/a&gt;）です。Spring Framework 6.1.0 以降のリフレクションベース（&lt;code&gt;KCallable#callBy&lt;/code&gt;）のパラメータ解決と噛み合って表面化します。&lt;/li&gt;&#xA;&lt;li&gt;Spring 側はこれを「Kotlin のバグ」として &lt;code&gt;NOT_PLANNED&lt;/code&gt; でクローズ済みです（&lt;a href=&#34;https://github.com/spring-projects/spring-framework/issues/31698&#34;&gt;spring-framework#31698&lt;/a&gt;）。フレームワークの修正は期待できません。&lt;/li&gt;&#xA;&lt;li&gt;回避策はバインディング方式によって異なります。&lt;code&gt;@ModelAttribute&lt;/code&gt; の data class では value class を使わず、&lt;code&gt;UUID&lt;/code&gt; 等の素の型で受けて Controller 内で value class に変換するのが安全です。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;value-class-とは&#34;&gt;value class とは&lt;/h2&gt;&#xA;&lt;p&gt;Kotlin の &lt;code&gt;@JvmInline value class&lt;/code&gt; は、1つの値を型安全にラップするための仕組みです。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる話</title>
+      <title>Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる</title>
       <link>https://yukihane.github.io/blog/202605/20/kotlin-default-arg-spring-aop-npe/</link>
       <pubDate>Wed, 20 May 2026 02:00:00 +0900</pubDate>
       <guid>https://yukihane.github.io/blog/202605/20/kotlin-default-arg-spring-aop-npe/</guid>

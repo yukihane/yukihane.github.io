@@ -64,6 +64,60 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202102/02/slf4j-placeholder-throwable/">SLF4Jでplaceholderも使いつつstacktraceも出力したい</a></h1>
+					<time>2021/02/01</time>
+					<br><div class="description">
+	
+	<p>SLF4J の <code>Logger</code> のメソッドを眺めていると、 <code>Throwable</code> を引数にとれるのは 他に <code>Marker</code> と <code>String</code> メッセージだけを持つものばかりで、プレースホルダを利用したい場合にはどうしたら良いのだろう…と思っていたら、普通にプレースホルダと併用できるようです。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202102/02/slf4j-placeholder-throwable/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202101/30/gava-oidc-idp/">ガバガバOIDCモックサーバを作る</a></h1>
+					<time>2021/01/30</time>
+					<br><div class="description">
+	
+	<p>OIDCフローの調査などで本物でないOIDC IdP Mock Serverが欲しくなったので検索してみました。</p>
+<p><a href="https://www.google.com/search?q=oidc&#43;mock&#43;server">世に数多あるよう</a>に見えたのですが、結構真面目に認証処理してたりして、ちょっとオーバースペックだと感じたので自作することにしました。</p>
+<ul>
+<li><a href="https://github.com/yukihane/gava-idp">gava-idp</a></li>
+</ul>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202101/30/gava-oidc-idp/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202101/24/spring-boot-cors-permit-all/">Spring Boot の CORS 設定を全許可する</a></h1>
+					<time>2021/01/24</time>
+					<br><div class="description">
+	
+	<ul>
+<li><a href="https://stackoverflow.com/a/65867566/4506703">How to configure CORS in a Spring Boot + Spring Security application?</a> - Stack Overflow</li>
+</ul>
+<p>Spring Boot のリファレンス <a href="https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#boot-features-cors">4.7.1. The “Spring Web MVC Framework” &gt; CORS Support</a> を見ると、次のように設定すれば良いように見えます。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202101/24/spring-boot-cors-permit-all/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202101/24/spring-session-in-memory/">Spring Sessionをインメモリで利用する</a></h1>
+					<time>2021/01/24</time>
+					<br><div class="description">
+	
+	<ul>
+<li><a href="https://stackoverflow.com/q/48906697/4506703">What should be a replacement for StoreType.HASH_MAP in spring-boot 2</a></li>
+</ul>
+<p>昔は <code>spring.session.store-type</code> の選択肢に <code>hash_map</code> というものがあったようですが、現在は存在しません。(ちなみに <code>none</code> は Spring Session を利用しない、という意味になるようで、挙動が変わってしまいます( <code>JSESSIONID</code> と <code>SESSIONID</code> とか))</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202101/24/spring-session-in-memory/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202101/23/throw-unauthorizedexception-in-controller/">ControllerでUnauthorizedExceptionを投げると401でなく403になる</a></h1>
 					<time>2021/01/23</time>
 					<br><div class="description">
@@ -188,75 +242,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/202009/02/spring-boot-session-take-over-on-restart-with-devtools/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202009/02/ruby-on-rails-on-centos6-centos7/">Ruby on Rails 6 を Centos6 や Centos7 で動かす</a></h1>
-					<time>2020/09/01</time>
-					<br><div class="description">
-	
-	<ul>
-<li>
-<p><a href="https://ja.stackoverflow.com/a/70025/2808">CentOS6 上で rails new できません - スタック・オーバーフロー</a></p>
-</li>
-<li>
-<p><a href="https://ja.stackoverflow.com/a/66035/2808">VagrantとCentOS7環境下でRuby及びRailsをインストールしたい。 - スタック・オーバーフロー</a></p>
-</li>
-</ul>
-<p>でそれぞれ、 CentOS6 + Rails6, CentOS7 + Rails6 の Vagrant Box を作成しました。ググってみたけれど、あまり無いものなんですね。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202009/02/ruby-on-rails-on-centos6-centos7/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202008/31/gcc-installation/">CentOS6にGCC10.2.0をインストールしたときのメモ</a></h1>
-					<time>2020/08/30</time>
-					<br><div class="description">
-	
-	<p>ビルド作業は次のページを参考にしました:</p>
-<ul>
-<li><a href="https://aulta.co.jp/archives/7554">gcc-10.1.0をCentOS7にソースインストール | 株式会社オルタ</a></li>
-</ul>
-<p>環境は <a href="https://yukihane.github.io/blog/202008/30/gcc-compilation-time/">こちら</a> に記載したものです。</p>
-<pre><code>curl -L -O http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/gcc-10.2.0/gcc-10.2.0.tar.xz
-tar xf gcc-10.2.0.tar.xz
-cd gcc-10.2.0
-./contrib/download_prerequisites
-./configure --enable-languages=c,c++ --prefix=/opt/gcc-10.2.0 --disable-bootstrap --disable-multilib
-make -j 5
-sudo make install
-</code></pre>
-<p>つづいて <code>ldoconfig</code> での登録ですが、そのまま行うとエラーが出たので <a href="https://qiita.com/knutpb1205/items/4a9b39bf69f1788ef69c#%E3%82%A8%E3%83%A9%E3%83%BC%E5%AF%BE%E7%AD%96">こちら</a> を参照にして事前に1つのファイルをリネームしておきました:</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202008/31/gcc-installation/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202008/30/gcc-compilation-time/">gccをビルドするのにどれくらい時間がかかるの？(10分かからなかった) </a></h1>
-					<time>2020/08/30</time>
-					<br><div class="description">
-	
-	<p>gccをビルドしようと思ったのですが、結構時間がかかるイメージがあって、先にどれくらいかかるのか調べたかったのだけれど検索しても見つかりませんでした。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202008/30/gcc-compilation-time/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202008/30/gradle-bootrun-parameter/">gradle bootRun でプロファイルを指定するには？</a></h1>
-					<time>2020/08/29</time>
-					<br><div class="description">
-	
-	<p><code>gradle bootRun</code> を実行する際にアクティブ化するプロファイルの指定を行いたかったのですが、ぱっと思いつかなかったのでメモ。</p>
-<p>まず、</p>
-<pre><code>gradle bootRun -Dprofiles.active=myproile
-</code></pre>
-<p>はうまくいきません。`profiles.active`システムプロパティは (アプリケーションでなく) Gradle に渡されるためです。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202008/30/gradle-bootrun-parameter/">Read more ⟶</a>
 				</section>
 				
 				

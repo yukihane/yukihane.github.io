@@ -2,20 +2,59 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://yukihane.github.io/blog/</loc>
+    <lastmod>2026-06-13T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/blog/202606/13/exposed-flaky-test-hashmap-corruption/</loc>
+    <lastmod>2026-06-13T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/exposed/</loc>
+    <lastmod>2026-06-13T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/git/</loc>
+    <lastmod>2026-06-13T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/github/</loc>
+    <lastmod>2026-06-13T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/blog/202606/13/github-pr-conflict-criss-cross-merge/</loc>
+    <lastmod>2026-06-13T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/ime/</loc>
+    <lastmod>2026-06-13T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/jackson/</loc>
+    <lastmod>2026-06-13T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/blog/202606/13/kotlin-nullable-value-class-jackson-boxing/</loc>
+    <lastmod>2026-06-13T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/kotlin/</loc>
+    <lastmod>2026-06-13T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/react/</loc>
+    <lastmod>2026-06-13T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/react-select/</loc>
+    <lastmod>2026-06-13T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/blog/202606/13/react-select-async-ime-composition/</loc>
+    <lastmod>2026-06-13T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/</loc>
+    <lastmod>2026-06-13T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/testing/</loc>
+    <lastmod>2026-06-13T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%85%A5%E5%8A%9B/</loc>
+    <lastmod>2026-06-13T00:00:00+09:00</lastmod>
+  </url><url>
     <loc>https://yukihane.github.io/tags/ai-coding/</loc>
     <lastmod>2026-05-20T03:21:13+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/blog/202605/20/current-ai-coding/</loc>
     <lastmod>2026-05-20T03:21:13+09:00</lastmod>
-  </url><url>
-    <loc>https://yukihane.github.io/blog/</loc>
-    <lastmod>2026-05-20T03:21:13+09:00</lastmod>
-  </url><url>
-    <loc>https://yukihane.github.io/tags/</loc>
-    <lastmod>2026-05-20T03:21:13+09:00</lastmod>
-  </url><url>
-    <loc>https://yukihane.github.io/tags/kotlin/</loc>
-    <lastmod>2026-05-20T03:00:00+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/blog/202605/20/kotlin-value-class-spring-mvc-binding/</loc>
     <lastmod>2026-05-20T03:00:00+09:00</lastmod>
@@ -227,9 +266,6 @@
     <loc>https://yukihane.github.io/blog/202206/11/value-object/</loc>
     <lastmod>2022-06-11T04:01:31+09:00</lastmod>
   </url><url>
-    <loc>https://yukihane.github.io/tags/github/</loc>
-    <lastmod>2022-05-15T19:54:13+09:00</lastmod>
-  </url><url>
     <loc>https://yukihane.github.io/blog/202205/15/github-unwatch/</loc>
     <lastmod>2022-05-15T19:54:13+09:00</lastmod>
   </url><url>
@@ -238,9 +274,6 @@
   </url><url>
     <loc>https://yukihane.github.io/blog/202205/01/setup-elixir/</loc>
     <lastmod>2022-05-01T12:47:31+09:00</lastmod>
-  </url><url>
-    <loc>https://yukihane.github.io/tags/git/</loc>
-    <lastmod>2022-04-19T12:55:29+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/blog/202204/19/listing-my-git-branch/</loc>
     <lastmod>2022-04-19T12:55:29+09:00</lastmod>
@@ -259,9 +292,6 @@
   </url><url>
     <loc>https://yukihane.github.io/blog/202203/12/kotlin-jpa-definition/</loc>
     <lastmod>2022-03-12T20:39:32+09:00</lastmod>
-  </url><url>
-    <loc>https://yukihane.github.io/tags/jackson/</loc>
-    <lastmod>2022-03-12T14:12:33+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/blog/202203/12/jackson-deserialize-by-constructor/</loc>
     <lastmod>2022-03-12T14:12:33+09:00</lastmod>
@@ -340,9 +370,6 @@
   </url><url>
     <loc>https://yukihane.github.io/blog/202110/08/hello-project-panama-on-java17/</loc>
     <lastmod>2021-10-08T04:49:30+00:00</lastmod>
-  </url><url>
-    <loc>https://yukihane.github.io/tags/react/</loc>
-    <lastmod>2021-10-03T08:20:21+00:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/blog/202110/03/hello-tauri/</loc>
     <lastmod>2021-10-03T08:20:21+00:00</lastmod>
@@ -430,9 +457,6 @@
   </url><url>
     <loc>https://yukihane.github.io/blog/202103/21/implicit-submission/</loc>
     <lastmod>2021-03-21T09:54:35+00:00</lastmod>
-  </url><url>
-    <loc>https://yukihane.github.io/tags/testing/</loc>
-    <lastmod>2021-03-07T20:21:25+00:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/blog/202103/07/testing-perspective/</loc>
     <lastmod>2021-03-07T20:21:25+00:00</lastmod>

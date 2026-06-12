@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Testing on 発火後忘失</title>
-    <link>https://yukihane.github.io/tags/testing/</link>
-    <description>Recent content in Testing on 発火後忘失</description>
+    <title>Exposed on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/exposed/</link>
+    <description>Recent content in Exposed on 発火後忘失</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>© Yukihane, All Rights Reserved</copyright>
     <lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0900</lastBuildDate>
-    <atom:link href="https://yukihane.github.io/tags/testing/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://yukihane.github.io/tags/exposed/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CI の flaky test を追ったら JDK の HashMap が壊れていた</title>
       <link>https://yukihane.github.io/blog/202606/13/exposed-flaky-test-hashmap-corruption/</link>
       <pubDate>Sat, 13 Jun 2026 00:00:00 +0900</pubDate>
       <guid>https://yukihane.github.io/blog/202606/13/exposed-flaky-test-hashmap-corruption/</guid>
       <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Kotlin + Exposed ORM のプロジェクトで、CI の並列テスト実行時に &lt;code&gt;ClassCastException: LinkedHashMap$Entry cannot be cast to HashMap$TreeNode&lt;/code&gt; が散発的に発生しました。&lt;/li&gt;&#xA;&lt;li&gt;原因は Exposed 内部の &lt;code&gt;IdentifierManagerApi&lt;/code&gt; が &lt;strong&gt;非スレッドセーフな &lt;code&gt;LinkedHashMap&lt;/code&gt;&lt;/strong&gt; を識別子キャッシュに使っており、Kotest の並列実行で同時書き込みが起きて HashMap の内部構造が壊れるためです。&lt;/li&gt;&#xA;&lt;li&gt;これは &lt;a href=&#34;https://github.com/JetBrains/Exposed/issues/1704&#34;&gt;Exposed #1704&lt;/a&gt; として報告済みの既知バグで、&lt;a href=&#34;https://github.com/JetBrains/Exposed/releases/tag/1.3.0&#34;&gt;Exposed 1.3.0&lt;/a&gt; で修正されています。&lt;/li&gt;&#xA;&lt;li&gt;ローカルの単独テスト実行では再現しません。CI のテストレポート（HTML アーティファクト）を取得して初めて完全なスタックトレースが得られ、原因を特定できました。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;症状-無関係な2テストが同じ例外で落ちる&#34;&gt;症状: 無関係な2テストが同じ例外で落ちる&lt;/h2&gt;&#xA;&lt;p&gt;ある PR の CI で、7,000 件超のテスト中 2 件だけが失敗しました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>メモ: テスト観点</title>
-      <link>https://yukihane.github.io/blog/202103/07/testing-perspective/</link>
-      <pubDate>Sun, 07 Mar 2021 20:21:25 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202103/07/testing-perspective/</guid>
-      <description>&lt;p&gt;書籍「ソフトウェアテストの教科書 - 品質を決定づけるテスト構成の基本と実践」第4章 ブラックボックステスト 表4-4 分類の基準として利用できる指標の一例 より。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
