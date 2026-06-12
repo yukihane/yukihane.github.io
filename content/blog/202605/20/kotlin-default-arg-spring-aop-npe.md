@@ -1,5 +1,5 @@
 ---
-title: "Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる話"
+title: "Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる"
 date: 2026-05-20T02:00:00+09:00
 tags: ["kotlin", "spring"]
 draft: false

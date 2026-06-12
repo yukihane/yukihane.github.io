@@ -1,5 +1,5 @@
 ---
-title: "Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる話"
+title: "Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる"
 date: 2026-05-20T03:00:00+09:00
 tags: ["kotlin", "spring"]
 draft: false
