@@ -64,6 +64,35 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202007/11/same-class-controller-and-repository/">Spring Boot で Controller と Repositoryを同じクラスで併用する</a></h1>
+					<time>2020/07/11</time>
+					<br><div class="description">
+	
+	<p>…なんてことができたんですね。こんなコード:</p>
+<pre><code>@RestController
+@Repository
+public interface VehicleInterface extends JpaRepository&lt;vehicle, Long&gt; {
+
+    @Query(&quot;select u from vehicle u where u.year = :year&quot;)
+    @RequestMapping(value = &quot;/vehicles&quot;, method = RequestMethod.GET)
+    List&lt;vehicle&gt; findByYearEquals(@Param(&quot;year&quot;) Integer year);
+}
+</code></pre>
+<p><a href="http://localhost:8080/vehicles?year=2010">http://localhost:8080/vehicles?year=2010</a> 的なURLでアクセスします。</p>
+<ul>
+<li>
+<p><a href="https://github.com/yukihane/stackoverflow-qa/tree/master/so62843109">サンプルコード</a></p>
+</li>
+<li>
+<p><a href="https://stackoverflow.com/q/62843109/4506703">ネタ元</a></p>
+</li>
+</ul>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202007/11/same-class-controller-and-repository/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202007/11/jsp-on-springboot/">Spring-BootでJSPを使う</a></h1>
 					<time>2020/07/10</time>
 					<br><div class="description">
@@ -380,18 +409,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/202006/10/alpine-and-glibc-problems/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202006/02/note-of-completablefuture/">CompletableFuture覚え書き</a></h1>
-					<time>2020/06/02</time>
-					<br><div class="description">
-	
-	<p><code>CompletableFuture</code> の一連の非同期処理 <code>ほげAsync</code> は、デフォルトでは <a href="https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/util/concurrent/ForkJoinPool.html#commonPool%28%29"><code>ForkJoinPool.commonPool()</code></a> という <code>ExecutorService</code> で実行されます。</p>
-<p>そしてこの <code>ExecutorService</code> のワーカスレッドはデーモンスレッドであるため、非デーモンスレッドが無くなると(≒ メインスレッドが終了すると)プール内の処理を完了させること無くプロセスが終了します。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202006/02/note-of-completablefuture/">Read more ⟶</a>
 				</section>
 				
 				

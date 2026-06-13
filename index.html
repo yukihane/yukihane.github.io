@@ -64,6 +64,30 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202606/13/git-three-dots/">git log と git diff での ... (三点ドット) の意味の違い</a></h1>
+					<time>2026/06/13</time>
+					<br><div class="description">
+	
+	<h2 id="tldr">TL;DR</h2>
+<ul>
+<li><code>git log A...B</code> と <code>git diff A...B</code> は、どちらも <code>...</code>（三点ドット）を使いますが、意味がまったく異なります</li>
+<li><code>git log A...B</code> は <strong>対称差（symmetric difference）</strong> で、「A にだけあるコミット」と「B にだけあるコミット」の両方を表示します</li>
+<li><code>git diff A...B</code> は <strong>A と B のマージベース（共通祖先）から B までの差分</strong> を表示します。つまり「B ブランチで何が変わったか」を見るためのものです</li>
+<li>GitHub の Pull Request 画面で表示される差分は <code>git diff A...B</code> 相当です
+<ul>
+<li>つまり、みんなが普段欲しい diff は <code>..</code> でなく <code>...</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="手元で試すためのセットアップ">手元で試すためのセットアップ</h2>
+<p>以下のスクリプトで、本記事の図と同じブランチ構造を持つリポジトリを作れます。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202606/13/git-three-dots/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202606/13/exposed-flaky-test-hashmap-corruption/">CI の flaky test を追ったら JDK の HashMap が壊れていた</a></h1>
 					<time>2026/06/13</time>
 					<br><div class="description">
@@ -261,18 +285,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/202511/03/windows-terminal-crash/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202510/26/codex-cli-first-impression/">これまでのAIコーディングの略歴、Codex Cli ファーストインプレッション</a></h1>
-					<time>2025/10/26</time>
-					<br><div class="description">
-	
-	<p>最近はもっぱらAIを利用してコーディングしています。<br />
-が、blogにそういったことをまだ書いたことがなかったなあということで、記録を残そうと思った次第です。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202510/26/codex-cli-first-impression/">Read more ⟶</a>
 				</section>
 				
 				

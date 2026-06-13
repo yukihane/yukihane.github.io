@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2026 22:08:20 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>git log と git diff での ... (三点ドット) の意味の違い</title>
+      <link>https://yukihane.github.io/blog/202606/13/git-three-dots/</link>
+      <pubDate>Sat, 13 Jun 2026 22:08:20 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202606/13/git-three-dots/</guid>
+      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;git log A...B&lt;/code&gt; と &lt;code&gt;git diff A...B&lt;/code&gt; は、どちらも &lt;code&gt;...&lt;/code&gt;（三点ドット）を使いますが、意味がまったく異なります&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;git log A...B&lt;/code&gt; は &lt;strong&gt;対称差（symmetric difference）&lt;/strong&gt; で、「A にだけあるコミット」と「B にだけあるコミット」の両方を表示します&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;git diff A...B&lt;/code&gt; は &lt;strong&gt;A と B のマージベース（共通祖先）から B までの差分&lt;/strong&gt; を表示します。つまり「B ブランチで何が変わったか」を見るためのものです&lt;/li&gt;&#xA;&lt;li&gt;GitHub の Pull Request 画面で表示される差分は &lt;code&gt;git diff A...B&lt;/code&gt; 相当です&#xA;&lt;ul&gt;&#xA;&lt;li&gt;つまり、みんなが普段欲しい diff は &lt;code&gt;..&lt;/code&gt; でなく &lt;code&gt;...&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;手元で試すためのセットアップ&#34;&gt;手元で試すためのセットアップ&lt;/h2&gt;&#xA;&lt;p&gt;以下のスクリプトで、本記事の図と同じブランチ構造を持つリポジトリを作れます。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>CI の flaky test を追ったら JDK の HashMap が壊れていた</title>
       <link>https://yukihane.github.io/blog/202606/13/exposed-flaky-test-hashmap-corruption/</link>
@@ -701,13 +708,6 @@
       <pubDate>Thu, 21 Jan 2021 14:55:11 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202101/21/upgrade-to-ubuntu20.04/</guid>
       <description>&lt;p&gt;さて2021年にもなったし、そろそろUbuntuアップグレードしても解消できない地雷は無くなっているだろう、と思い18.04からアップグレードを敢行しました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Spring Boot 2.3.5 で MapStruct を利用しているプロジェクトのビルドが失敗した</title>
-      <link>https://yukihane.github.io/blog/202011/14/mapstruct-with-spring-boot-2.3.5/</link>
-      <pubDate>Sat, 14 Nov 2020 07:41:01 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202011/14/mapstruct-with-spring-boot-2.3.5/</guid>
-      <description>&lt;p&gt;調査したところSpring Bootの問題と言うよりは、Lombokのバージョンが &lt;code&gt;1.18.12&lt;/code&gt; から &lt;code&gt;1.18.16&lt;/code&gt; に上がったことによる非互換性の問題でした。&lt;/p&gt;&#xA;&lt;p&gt;Lombokのchangelogに説明があります:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

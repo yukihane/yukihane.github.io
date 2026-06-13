@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html><head lang="ja">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>git log と git diff での ... (三点ドット) の意味の違い - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="TL;DR
+
+git log A...B と git diff A...B は、どちらも ...（三点ドット）を使いますが、意味がまったく異なります
+git log A...B は 対称差（symmetric difference） で、「A にだけあるコミット」と「B にだけあるコミット」の両方を表示します
+git diff A...B は A と B のマージベース（共通祖先）から B までの差分 を表示します。つまり「B ブランチで何が変わったか」を見るためのものです
+GitHub の Pull Request 画面で表示される差分は git diff A...B 相当です
+
+つまり、みんなが普段欲しい diff は .. でなく ...
+
+
+
+
+手元で試すためのセットアップ
+以下のスクリプトで、本記事の図と同じブランチ構造を持つリポジトリを作れます。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
+	<meta property="og:url" content="https://yukihane.github.io/blog/202606/13/git-three-dots/">
+  <meta property="og:site_name" content="発火後忘失">
+  <meta property="og:title" content="git log と git diff での ... (三点ドット) の意味の違い">
+  <meta property="og:description" content="TL;DR git log A...B と git diff A...B は、どちらも ...（三点ドット）を使いますが、意味がまったく異なります git log A...B は 対称差（symmetric difference） で、「A にだけあるコミット」と「B にだけあるコミット」の両方を表示します git diff A...B は A と B のマージベース（共通祖先）から B までの差分 を表示します。つまり「B ブランチで何が変わったか」を見るためのものです GitHub の Pull Request 画面で表示される差分は git diff A...B 相当です つまり、みんなが普段欲しい diff は .. でなく ... 手元で試すためのセットアップ 以下のスクリプトで、本記事の図と同じブランチ構造を持つリポジトリを作れます。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2026-06-13T22:08:20+09:00">
+    <meta property="article:modified_time" content="2026-06-13T22:08:20+09:00">
+    <meta property="article:tag" content="Git">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="git log と git diff での ... (三点ドット) の意味の違い">
+  <meta name="twitter:description" content="TL;DR git log A...B と git diff A...B は、どちらも ...（三点ドット）を使いますが、意味がまったく異なります git log A...B は 対称差（symmetric difference） で、「A にだけあるコミット」と「B にだけあるコミット」の両方を表示します git diff A...B は A と B のマージベース（共通祖先）から B までの差分 を表示します。つまり「B ブランチで何が変わったか」を見るためのものです GitHub の Pull Request 画面で表示される差分は git diff A...B 相当です つまり、みんなが普段欲しい diff は .. でなく ... 手元で試すためのセットアップ 以下のスクリプトで、本記事の図と同じブランチ構造を持つリポジトリを作れます。">
+
+        <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://yukihane.github.io/">発火後忘失</a>
+	</div>
+	<nav>
+		
+		<a href="/blog">Blog</a>
+		
+		<a href="/docs">Docs</a>
+		
+		<a href="/tags">Tags</a>
+		
+		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
+		
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
+		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
+		
+	</nav>
+</header>
+
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        <div class="title">
+          <h1 class="title">git log と git diff での ... (三点ドット) の意味の違い</h1>
+          <div class="meta">Posted on 2026/06/13</div>
+        </div>
+        
+        <section class="body">
+          <h2 id="tldr">TL;DR</h2>
+<ul>
+<li><code>git log A...B</code> と <code>git diff A...B</code> は、どちらも <code>...</code>（三点ドット）を使いますが、意味がまったく異なります</li>
+<li><code>git log A...B</code> は <strong>対称差（symmetric difference）</strong> で、「A にだけあるコミット」と「B にだけあるコミット」の両方を表示します</li>
+<li><code>git diff A...B</code> は <strong>A と B のマージベース（共通祖先）から B までの差分</strong> を表示します。つまり「B ブランチで何が変わったか」を見るためのものです</li>
+<li>GitHub の Pull Request 画面で表示される差分は <code>git diff A...B</code> 相当です
+<ul>
+<li>つまり、みんなが普段欲しい diff は <code>..</code> でなく <code>...</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="手元で試すためのセットアップ">手元で試すためのセットアップ</h2>
+<p>以下のスクリプトで、本記事の図と同じブランチ構造を持つリポジトリを作れます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nb">set</span> -e
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 一時ディレクトリにリポジトリを作成</span>
+</span></span><span class="line"><span class="cl"><span class="nv">dir</span><span class="o">=</span><span class="k">$(</span>mktemp -d<span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;リポジトリを作成: </span><span class="nv">$dir</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> <span class="s2">&#34;</span><span class="nv">$dir</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">git init
+</span></span><span class="line"><span class="cl">git checkout -b main
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 共通の履歴: A, B</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;file A&#34;</span> &gt; file.txt
+</span></span><span class="line"><span class="cl">git add file.txt <span class="o">&amp;&amp;</span> git commit -m <span class="s2">&#34;A: initial&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;file B&#34;</span> &gt;&gt; file.txt
+</span></span><span class="line"><span class="cl">git add file.txt <span class="o">&amp;&amp;</span> git commit -m <span class="s2">&#34;B: shared base&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># feature ブランチ: C, D, E</span>
+</span></span><span class="line"><span class="cl">git checkout -b feature
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;feature C&#34;</span> &gt;&gt; feature.txt
+</span></span><span class="line"><span class="cl">git add feature.txt <span class="o">&amp;&amp;</span> git commit -m <span class="s2">&#34;C: feature start&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;feature D&#34;</span> &gt;&gt; feature.txt
+</span></span><span class="line"><span class="cl">git add feature.txt <span class="o">&amp;&amp;</span> git commit -m <span class="s2">&#34;D: feature middle&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;feature E&#34;</span> &gt;&gt; feature.txt
+</span></span><span class="line"><span class="cl">git add feature.txt <span class="o">&amp;&amp;</span> git commit -m <span class="s2">&#34;E: feature done&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># main ブランチ: F, G</span>
+</span></span><span class="line"><span class="cl">git checkout main
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;main F&#34;</span> &gt;&gt; main.txt
+</span></span><span class="line"><span class="cl">git add main.txt <span class="o">&amp;&amp;</span> git commit -m <span class="s2">&#34;F: main progress&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;main G&#34;</span> &gt;&gt; main.txt
+</span></span><span class="line"><span class="cl">git add main.txt <span class="o">&amp;&amp;</span> git commit -m <span class="s2">&#34;G: main latest&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#      C---D---E  (feature)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     /</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># A---B---F---G    (main)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;=== git log main..feature (差集合: feature にだけあるコミット) ===&#34;</span>
+</span></span><span class="line"><span class="cl">git log --oneline main..feature
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;=== git log main...feature (対称差: 片方にしかないコミット) ===&#34;</span>
+</span></span><span class="line"><span class="cl">git log --oneline --left-right main...feature
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;=== git diff main..feature (G と E の単純な差分) ===&#34;</span>
+</span></span><span class="line"><span class="cl">git diff --stat main..feature
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;=== git diff main...feature (マージベース B と E の差分 = feature の変更だけ) ===&#34;</span>
+</span></span><span class="line"><span class="cl">git diff --stat main...feature
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;リポジトリのパス: </span><span class="nv">$dir</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;cd </span><span class="nv">$dir</span><span class="s2"> で移動して自由に試せます&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>実行すると、各コマンドの出力の違いが一目でわかります。特に <code>git diff</code> の <code>--stat</code> 出力を見比べると、<code>..</code> では <code>main.txt</code> の変更が含まれるのに対し、<code>...</code> では <code>feature.txt</code> の変更だけが表示されるのが確認できます。</p>
+<hr />
+<h2 id="二点ドット--のおさらい">二点ドット <code>..</code> のおさらい</h2>
+<p>三点ドットの前に、まず二点ドット <code>..</code> の挙動を確認しておきます。</p>
+<h3 id="git-log-ab">git log A..B</h3>
+<p><code>A..B</code> は「A からは到達できないが B からは到達できるコミット」を返します。言い換えると「B にあって A にないコミット」です。</p>
+<pre tabindex="0"><code>      C---D---E  (feature)
+     /
+A---B---F---G    (main)
+</code></pre><p>この状態で <code>git log main..feature</code> は <code>C, D, E</code> を返します。<code>feature</code> にあって <code>main</code> にないコミットです。</p>
+<h3 id="git-diff-ab">git diff A..B</h3>
+<p><code>git diff A..B</code> は単純に <strong>A と B のスナップショット間の差分</strong> です。<code>git diff A B</code> とまったく同じです。<code>..</code> に特別な意味はありません。</p>
+<hr />
+<h2 id="三点ドット--の挙動">三点ドット <code>...</code> の挙動</h2>
+<p>ここからが本題です。同じ <code>...</code> 記法ですが、<code>log</code> と <code>diff</code> で意味が異なります。</p>
+<h3 id="git-log-ab--対称差">git log A&hellip;B — 対称差</h3>
+<p><code>git log A...B</code> は <strong>対称差</strong> を返します。「A にだけあるコミット」と「B にだけあるコミット」の両方です。言い換えると、どちらか片方からしか到達できないコミットの集合です。</p>
+<pre tabindex="0"><code>      C---D---E  (feature)
+     /
+A---B---F---G    (main)
+</code></pre><p><code>git log main...feature</code> は <code>C, D, E, F, G</code> を返します。<code>main</code> にだけあるコミット（<code>F, G</code>）と <code>feature</code> にだけあるコミット（<code>C, D, E</code>）の和集合です。</p>
+<p><code>--left-right</code> オプションをつけると、各コミットがどちら側のものかを <code>&lt;</code> <code>&gt;</code> で表示してくれるので、理解しやすくなります。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git log --oneline --left-right main...feature
+</span></span><span class="line"><span class="cl">&lt; G ...
+</span></span><span class="line"><span class="cl">&lt; F ...
+</span></span><span class="line"><span class="cl">&gt; E ...
+</span></span><span class="line"><span class="cl">&gt; D ...
+</span></span><span class="line"><span class="cl">&gt; C ...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="git-diff-ab--マージベースとの差分">git diff A&hellip;B — マージベースとの差分</h3>
+<p><code>git diff A...B</code> は <strong>A と B のマージベース（共通祖先）と B の差分</strong> を返します。</p>
+<pre tabindex="0"><code>      C---D---E  (feature)
+     /
+A---B---F---G    (main)
+</code></pre><p><code>git diff main...feature</code> は、<code>main</code> と <code>feature</code> のマージベースである <code>B</code> と、<code>feature</code> の先頭 <code>E</code> との差分を表示します。つまり <strong>feature ブランチで加えた変更だけ</strong> が見えます。<code>main</code> 側で進んだ <code>F, G</code> の変更は含まれません。</p>
+<p>これは <code>git diff $(git merge-base main feature) feature</code> と同等です。</p>
+<hr />
+<h2 id="なぜ-diff-だけ違う意味なのか">なぜ diff だけ違う意味なのか</h2>
+<p><code>git log</code> はコミットの集合を扱うコマンドなので、集合演算（差集合・対称差）との相性が自然です。<code>..</code> が差集合、<code>...</code> が対称差、と一貫した集合演算になっています。</p>
+<p>一方 <code>git diff</code> はコミットの集合ではなく <strong>2つのツリーの差分</strong> を出すコマンドです。対称差という集合演算はそのまま使えません。代わりに <code>...</code> には「マージベースからの差分」という、ブランチレビューで最も頻繁に使いたい操作が割り当てられています。</p>
+<p>意味は違いますが、どちらも「ブランチの分岐を意識した操作」であることは共通しています。</p>
+<hr />
+<h2 id="実務で効いてくる場面">実務で効いてくる場面</h2>
+<h3 id="pull-request-の差分">Pull Request の差分</h3>
+<p>GitHub の PR 画面に表示される差分は <code>git diff main...feature</code> 相当（マージベースとの差分）です。ベースブランチが先に進んでも、PR の差分にはそのブランチで加えた変更だけが表示されます。</p>
+<p>ローカルで PR と同じ差分を確認したいときは、<code>git diff main...feature</code> を使います。<code>git diff main feature</code>（二点ドット、あるいはドットなし）だと main 側の変更も混ざるので、PR 画面と一致しません。</p>
+<h3 id="ブランチ間で変わったコミットの確認">ブランチ間で変わったコミットの確認</h3>
+<p><code>git log main...feature --left-right</code> は、main と feature が互いにどれだけ乖離しているかを俯瞰するのに便利です。rebase するかマージするかを判断する材料にもなります。</p>
+<hr />
+<h2 id="まとめ">まとめ</h2>
+<table>
+  <thead>
+      <tr>
+          <th>コマンド</th>
+          <th><code>..</code>（二点）</th>
+          <th><code>...</code>（三点）</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>git log</code></td>
+          <td>A にない B のコミット（差集合）</td>
+          <td>どちらか片方にしかないコミット（対称差）</td>
+      </tr>
+      <tr>
+          <td><code>git diff</code></td>
+          <td>A と B の単純な差分（<code>git diff A B</code> と同じ）</td>
+          <td>マージベースと B の差分</td>
+      </tr>
+  </tbody>
+</table>
+<p><code>...</code> は同じ記号ですが、<code>log</code> と <code>diff</code> で意味が異なるというのがポイントです。特に <code>git diff A...B</code> の「マージベースからの差分」は PR レビューの文脈で頻出するので、覚えておくと役立ちます。</p>
+<hr />
+<blockquote>
+<p><strong>参考</strong>: <a href="https://git-scm.com/docs/git-log">git-log</a>、<a href="https://git-scm.com/docs/git-diff">git-diff</a>、<a href="https://git-scm.com/docs/gitrevisions">gitrevisions</a></p></blockquote>
+
+        </section>
+        <div class="post-tags">
+          
+          
+          <nav class="nav tags">
+            <ul class="tags">
+              
+              <li><a href="/tags/git/">git</a></li>
+              
+            </ul>
+          </nav>
+          
+          
+        </div>
+      </div>
+
+      
+      
+    </div>
+
+    </article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
+  <div class="footer-info">
+    2026  © Yukihane, All Rights Reserved |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E9J8FN5B4Q');
+        }
+      </script>
+
+</div>
+    </body>
+</html>

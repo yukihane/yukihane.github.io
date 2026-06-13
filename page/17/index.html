@@ -64,6 +64,20 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/201901/16/set-jvm-to-eclipse-on-mac/">Eclipseの起動に使用するJDKを指定する（Mac）</a></h1>
+					<time>2019/01/16</time>
+					<br><div class="description">
+	
+	<p>最新の JDK をインストールしたが、古いバージョンの Eclipse も利用したい(が最新のバージョンでは起動できない)ような場合に必要となる設定です。</p>
+<h1 id="設定するファイルと設定方法">設定するファイルと設定方法</h1>
+<p><code>Eclipse.app/Contents/Eclipse</code>　にある <code>eclipse.ini</code> に、所望のバージョンの <code>java</code> コマンドが入っているディレクトリを指定します。<br />
+<code>/usr/libexec/java_home -V</code> で <code>JAVA_HOME</code> 候補一覧が参照できますので、このディレクトリ + <code>/bin</code> を指定することになります。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201901/16/set-jvm-to-eclipse-on-mac/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/201811/10/ubuntu-mute-tab-sound/">Ubuntu18.04 端末の不快なエラー音 消す方法</a></h1>
 					<time>2018/11/10</time>
 					<br><div class="description">
@@ -249,24 +263,6 @@ rm -rf workrepo
 	
 </div>
 					<a class="readmore" href="/blog/201807/07/jsf-on-tomcat/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201805/19/building-java-project/">Building Java Project</a></h1>
-					<time>2018/05/19</time>
-					<br><div class="description">
-	
-	<h2 id="はじめに">はじめに</h2>
-<ul>
-<li>他者が作成したプログラムにちょっと変更を加えて使いたい</li>
-<li>その言語は未経験だけれど、コードの変更自体は検索したり周辺コードのコピペで何とかなりそう</li>
-<li>しかし、変更したコードをどうやってビルドすれば良いんだ…？</li>
-</ul>
-<p>なんてことがたまにあります。<br />
-そんな時に参考になるようなドキュメントを目指して記述しました。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201805/19/building-java-project/">Read more ⟶</a>
 				</section>
 				
 				
