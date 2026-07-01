@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Claude-Code on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/claude-code/</link>
+    <description>Recent content in Claude-Code on 発火後忘失</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <copyright>© Yukihane, All Rights Reserved</copyright>
+    <lastBuildDate>Wed, 01 Jul 2026 09:39:21 +0900</lastBuildDate>
+    <atom:link href="https://yukihane.github.io/tags/claude-code/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Claude Code &#43; Opus 4.8 で tool call が壊れるバグがいつまで経っても直らない</title>
+      <link>https://yukihane.github.io/blog/202607/01/claude-code-opus-4.8-bug/</link>
+      <pubDate>Wed, 01 Jul 2026 09:39:21 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202607/01/claude-code-opus-4.8-bug/</guid>
+      <description>&lt;p&gt;Claude Code で Opus 4.8 (1M context) を使っていると、ツールコールが壊れて処理が止まるバグに頻繁に遭遇します。&lt;/p&gt;&#xA;&lt;p&gt;この問題は 2026 年 5 月末から報告され始め、7 月に入った現在もまだ修正されていません。自分も何度も遭遇しているので、関連 issue をまとめておきます。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -64,6 +64,42 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202404/05/rust-test-async/">asyncなライブラリー関数のテストを書く</a></h1>
+					<time>2024/04/05</time>
+					<br><div class="description">
+	
+	<h1 id="今回解決したい問題">今回解決したい問題</h1>
+<p><a href="https://docs.rs/reqwest/0.12.2/reqwest/">reqwestのドキュメント</a> の最初のサンプルをテスト実行することを考えます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="kd">let</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reqwest</span>::<span class="n">get</span><span class="p">(</span><span class="s">&#34;https://www.rust-lang.org&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="k">await</span><span class="o">?</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="n">text</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="k">await</span><span class="o">?</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="fm">println!</span><span class="p">(</span><span class="s">&#34;body = </span><span class="si">{body:?}</span><span class="s">&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>まず <code>Cargo.toml</code> に依存関係を追加して、</p>
+<pre><code>cargo new --lib test-async
+cd test-async
+cargo add reqwest
+</code></pre>
+<p>冒頭のコードを実行する関数を作ります。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202404/05/rust-test-async/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202209/03/language-implementation-patterns/">言語実装パターン レビュー</a></h1>
 					<time>2022/09/03</time>
 					<br><div class="description">
@@ -229,23 +265,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/202203/12/kotlin-jpa-definition/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202203/12/jackson-deserialize-by-constructor/">Jacksonでコンストラクタを利用してデシリアライズ</a></h1>
-					<time>2022/03/12</time>
-					<br><div class="description">
-	
-	<ul>
-<li>今回のコード: <a href="https://github.com/yukihane/hello-java/tree/main/jackson/jackson-deserialize-by-constructor">https://github.com/yukihane/hello-java/tree/main/jackson/jackson-deserialize-by-constructor</a></li>
-</ul>
-<p>Jackson は引数なしコンストラクタが必要、というblogを目にしましたが、正しくありません。</p>
-<ul>
-<li>
-<p><code>@JsonCreator</code> を付与することでそのコンストラクタを使ってデシリアライズするように指示できます。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202203/12/jackson-deserialize-by-constructor/">Read more ⟶</a>
 				</section>
 				
 				

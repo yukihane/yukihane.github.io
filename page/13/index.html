@@ -64,6 +64,22 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202004/08/hello-wasm-with-rust/">Hello, Wasm with Rust</a></h1>
+					<time>2020/04/07</time>
+					<br><div class="description">
+	
+	<h1 id="はじめに">はじめに</h1>
+<p>wasmに挑戦してみようとHello, worldをやってみようとしました。</p>
+<p>公式っぽいドキュメントとしてはググると次のものが見つかりました:</p>
+<ul>
+<li>
+<p><a href="https://rustwasm.github.io/docs/book/">The Rust and WebAssembly Book</a> (<a href="https://github.com/rustwasm/book">GitHub repo</a>)</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202004/08/hello-wasm-with-rust/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202004/08/twitter-on-firefox-security-issue/">TwitterをFirefoxで利用した際のセキュリティ問題</a></h1>
 					<time>2020/04/07</time>
 					<br><div class="description">
@@ -231,24 +247,6 @@ Environment=&quot;HTTP_PROXY=http://myproxy.example.com:8080&quot;
 	
 </div>
 					<a class="readmore" href="/blog/202001/30/fluentd-request_timeout_sec-default/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202001/26/resttemplate-with-illformed-json/">Spring BootのRestTemplateで text/plain;Windows-31J なRESTレスポンスを処理する</a></h1>
-					<time>2020/01/26</time>
-					<br><div class="description">
-	
-	<h1 id="要旨">要旨</h1>
-<p>JSONを返してくるのだけれどMIME typeが <code>text/plain;charset=Windows-31J</code> なレスポンスを、RestTemplateで扱いたい。</p>
-<pre><code>@GetMapping(produces = &quot;text/plain;charset=Windows-31J&quot;)
-public String response() {
-    return &quot;{\&quot;text\&quot;: \&quot;こんにちは世界\&quot; }&quot;;
-}
-</code></pre>
-<p>対応としては、 <code>JSonFactory#createParser(InputStream)</code> をオーバライドして <code>InputStreamReader</code> 用のパーサが利用されるようにすれば良い。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202001/26/resttemplate-with-illformed-json/">Read more ⟶</a>
 				</section>
 				
 				

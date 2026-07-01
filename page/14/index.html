@@ -64,6 +64,24 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202001/26/resttemplate-with-illformed-json/">Spring BootのRestTemplateで text/plain;Windows-31J なRESTレスポンスを処理する</a></h1>
+					<time>2020/01/26</time>
+					<br><div class="description">
+	
+	<h1 id="要旨">要旨</h1>
+<p>JSONを返してくるのだけれどMIME typeが <code>text/plain;charset=Windows-31J</code> なレスポンスを、RestTemplateで扱いたい。</p>
+<pre><code>@GetMapping(produces = &quot;text/plain;charset=Windows-31J&quot;)
+public String response() {
+    return &quot;{\&quot;text\&quot;: \&quot;こんにちは世界\&quot; }&quot;;
+}
+</code></pre>
+<p>対応としては、 <code>JSonFactory#createParser(InputStream)</code> をオーバライドして <code>InputStreamReader</code> 用のパーサが利用されるようにすれば良い。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202001/26/resttemplate-with-illformed-json/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202001/01/rust-reqwest/">reqwest使おうとしたけどよくわからん</a></h1>
 					<time>2020/01/01</time>
 					<br><div class="description">
@@ -287,20 +305,6 @@ spring.JPA.database_platform=mysql
 	
 </div>
 					<a class="readmore" href="/blog/201908/line-richmenu-sample/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201908/line-login-sample/">LINEログイン機能を試してみる(Spring Boot 2.1.7/Spring Security 5.1.6)</a></h1>
-					<time>2019/08/25</time>
-					<br><div class="description">
-	
-	<div class="important">
-<p>本ページは Spring Boot 2.1.7 の頃のものですが、後続として 2.4.5 対応版があります: <a href="/blog/202105/06/ling-login-202105/">LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6)</a> – 発火後忘失</p>
-</div>
-<p>Spring SecurityのOAuth実装は <a href="https://qiita.com/yukihane/items/fc97f888ecb6a6850ea7">こちらに書いたとおり</a> 歴史的経緯により複数存在しますが、 <a href="https://start.spring.io/">https://start.spring.io/</a> の Dependencies で &ldquo;OAuth2 Client&rdquo; を選択した場合に追加されるものは一番新しいSpring Securityの <a href="https://docs.spring.io/spring-security/site/docs/5.1.6.RELEASE/reference/html/modules.html#spring-security-oauth2-client"><code>spring-security-oauth2-client</code></a> (及び <code>spring-security-oauth2-jose</code>)でした。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201908/line-login-sample/">Read more ⟶</a>
 				</section>
 				
 				

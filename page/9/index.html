@@ -64,6 +64,25 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202009/04/oidc-change-redirect-uri/">Spring Security: OIDC の redirect_uri を変更する</a></h1>
+					<time>2020/09/03</time>
+					<br><div class="description">
+	
+	<h1 id="はじめに">はじめに</h1>
+<p><a href="/blog/202007/21/hello-oidc-with-keycloak/">KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる</a> で作成したコードに対して、 カスタム <code>redirect_uri</code> の設定を行ってみます。</p>
+<p>今回のコードはこちら:</p>
+<ul>
+<li><a href="https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redirect-uri">https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redirect-uri</a></li>
+</ul>
+<h1 id="変更手順">変更手順</h1>
+<h2 id="keycloak-登録情報の変更">KeyCloak 登録情報の変更</h2>
+<p><a href="/blog/202007/21/hello-oidc-with-keycloak/">前回のページ</a> を参考に、 &ldquo;Valid Redirect URIs&rdquo; の値を今回変更するURL <strong>http://localhost:8080/my_redirect_uri</strong> に更新します。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202009/04/oidc-change-redirect-uri/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202009/02/spring-boot-session-take-over-on-restart-with-devtools/">DevToolsを組み込んでいると再起動してもsessionが引き継がれる</a></h1>
 					<time>2020/09/01</time>
 					<br><div class="description">
@@ -321,17 +340,6 @@ sudo make install
 	
 </div>
 					<a class="readmore" href="/blog/202008/05/spring-boot-oidc-testing/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202007/28/lombok-and-mapstruct-problem-is-fixed/">LombokとMapStructをEclipseで併用しようとした際の不具合がMapStruct1.4.0で解消されていた</a></h1>
-					<time>2020/07/28</time>
-					<br><div class="description">
-	
-	<p>これまで、LombokとMapStructを併用しようとした場合、そのままだと不具合(MapStructのアノテーションプロセッシングが動作しない)があり、ちょっとひと手間かけてその不具合を回避する必要がありました。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202007/28/lombok-and-mapstruct-problem-is-fixed/">Read more ⟶</a>
 				</section>
 				
 				

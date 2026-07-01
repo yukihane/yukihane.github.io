@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Sat, 13 Jun 2026 22:08:20 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2026 09:39:21 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Claude Code &#43; Opus 4.8 で tool call が壊れるバグがいつまで経っても直らない</title>
+      <link>https://yukihane.github.io/blog/202607/01/claude-code-opus-4.8-bug/</link>
+      <pubDate>Wed, 01 Jul 2026 09:39:21 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202607/01/claude-code-opus-4.8-bug/</guid>
+      <description>&lt;p&gt;Claude Code で Opus 4.8 (1M context) を使っていると、ツールコールが壊れて処理が止まるバグに頻繁に遭遇します。&lt;/p&gt;&#xA;&lt;p&gt;この問題は 2026 年 5 月末から報告され始め、7 月に入った現在もまだ修正されていません。自分も何度も遭遇しているので、関連 issue をまとめておきます。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>git log と git diff での ... (三点ドット) の意味の違い</title>
       <link>https://yukihane.github.io/blog/202606/13/git-three-dots/</link>
@@ -701,13 +708,6 @@
       <pubDate>Thu, 21 Jan 2021 14:55:11 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202101/21/upgrade-to-ubuntu20.04/</guid>
       <description>&lt;p&gt;さて2021年にもなったし、そろそろUbuntuアップグレードしても解消できない地雷は無くなっているだろう、と思い18.04からアップグレードを敢行しました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Spring Boot 2.3.5 で MapStruct を利用しているプロジェクトのビルドが失敗した</title>
-      <link>https://yukihane.github.io/blog/202011/14/mapstruct-with-spring-boot-2.3.5/</link>
-      <pubDate>Sat, 14 Nov 2020 07:41:01 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202011/14/mapstruct-with-spring-boot-2.3.5/</guid>
-      <description>&lt;p&gt;調査したところSpring Bootの問題と言うよりは、Lombokのバージョンが &lt;code&gt;1.18.12&lt;/code&gt; から &lt;code&gt;1.18.16&lt;/code&gt; に上がったことによる非互換性の問題でした。&lt;/p&gt;&#xA;&lt;p&gt;Lombokのchangelogに説明があります:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

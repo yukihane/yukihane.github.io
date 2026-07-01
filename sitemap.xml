@@ -2,16 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://yukihane.github.io/tags/ai-coding/</loc>
+    <lastmod>2026-07-01T09:39:21+09:00</lastmod>
+  </url><url>
     <loc>https://yukihane.github.io/blog/</loc>
-    <lastmod>2026-06-13T22:08:20+09:00</lastmod>
+    <lastmod>2026-07-01T09:39:21+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/blog/202607/01/claude-code-opus-4.8-bug/</loc>
+    <lastmod>2026-07-01T09:39:21+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/claude-code/</loc>
+    <lastmod>2026-07-01T09:39:21+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/</loc>
+    <lastmod>2026-07-01T09:39:21+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/tags/git/</loc>
     <lastmod>2026-06-13T22:08:20+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/blog/202606/13/git-three-dots/</loc>
-    <lastmod>2026-06-13T22:08:20+09:00</lastmod>
-  </url><url>
-    <loc>https://yukihane.github.io/tags/</loc>
     <lastmod>2026-06-13T22:08:20+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/blog/202606/13/exposed-flaky-test-hashmap-corruption/</loc>
@@ -52,9 +61,6 @@
   </url><url>
     <loc>https://yukihane.github.io/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%85%A5%E5%8A%9B/</loc>
     <lastmod>2026-06-13T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://yukihane.github.io/tags/ai-coding/</loc>
-    <lastmod>2026-05-20T03:21:13+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/blog/202605/20/current-ai-coding/</loc>
     <lastmod>2026-05-20T03:21:13+09:00</lastmod>
