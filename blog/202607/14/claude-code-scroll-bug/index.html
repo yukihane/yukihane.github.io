@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html><head lang="ja">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Claude Code スクロールの不具合とワークアラウンド - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Claude Code の plan mode で実装計画（plan）の承認ダイアログが表示されると、plan の部分しかスクロールできず、それより前の会話に遡れない という問題があります。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
+	<meta property="og:url" content="https://yukihane.github.io/blog/202607/14/claude-code-scroll-bug/">
+  <meta property="og:site_name" content="発火後忘失">
+  <meta property="og:title" content="Claude Code スクロールの不具合とワークアラウンド">
+  <meta property="og:description" content="Claude Code の plan mode で実装計画（plan）の承認ダイアログが表示されると、plan の部分しかスクロールできず、それより前の会話に遡れない という問題があります。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2026-07-14T23:11:13+09:00">
+    <meta property="article:modified_time" content="2026-07-14T23:11:13+09:00">
+    <meta property="article:tag" content="Ai-Coding">
+    <meta property="article:tag" content="Claude-Code">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Claude Code スクロールの不具合とワークアラウンド">
+  <meta name="twitter:description" content="Claude Code の plan mode で実装計画（plan）の承認ダイアログが表示されると、plan の部分しかスクロールできず、それより前の会話に遡れない という問題があります。">
+
+        <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://yukihane.github.io/">発火後忘失</a>
+	</div>
+	<nav>
+		
+		<a href="/blog">Blog</a>
+		
+		<a href="/docs">Docs</a>
+		
+		<a href="/tags">Tags</a>
+		
+		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
+		
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
+		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
+		
+	</nav>
+</header>
+
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        <div class="title">
+          <h1 class="title">Claude Code スクロールの不具合とワークアラウンド</h1>
+          <div class="meta">Posted on 2026/07/14</div>
+        </div>
+        
+        <section class="body">
+          <p>Claude Code の plan mode で実装計画（plan）の承認ダイアログが表示されると、<strong>plan の部分しかスクロールできず、それより前の会話に遡れない</strong> という問題があります。</p>
+<p>plan を承認するかどうか判断するには「そこに至るまでの調査結果や会話」を見返したいことが多いのに、肝心のその部分が見られない、というかなりストレスの溜まる挙動です。自分も頻繁に遭遇しているので、調べた内容と回避策をまとめておきます。</p>
+<h2 id="症状">症状</h2>
+<p>plan mode で Claude に計画を立てさせると、最後に ExitPlanMode の承認ダイアログが表示されます。このとき、</p>
+<ul>
+<li>PageUp / PageDown やマウスホイールでスクロールしても、<strong>plan の中身だけ</strong> がスクロールする</li>
+<li>plan より前にある Claude の調査過程や会話履歴には遡れない</li>
+<li>ダイアログを操作している限り、フォーカスが plan コンテナから外れない</li>
+</ul>
+<p>という状態になります。plan が長い場合は plan 自体をスクロールできるのはよいのですが、その外側に出る手段がありません。</p>
+<h2 id="原因">原因</h2>
+<p>plan 承認ダイアログが「内部スクロール可能なコンテナ」として実装されており、ダイアログ表示中はスクロール系のキー入力・ホイール操作をすべてこのコンテナがキャプチャするためです。</p>
+<p>Claude Code の TUI は、ダイアログ表示中はダイアログがキー入力を独占するモーダル設計になっています。スクロールキーも例外ではなく plan コンテナに吸われるため、外側の会話履歴には届きません。</p>
+<p>この挙動は <a href="https://github.com/anthropics/claude-code/issues/66026">#66026</a> (Plan mode scrolling broken) として報告されています。また、ダイアログが overflow した場合のスクロール操作がドキュメントに記載されていない問題も <a href="https://github.com/anthropics/claude-code/issues/54162">#54162</a> で指摘されています。</p>
+<h2 id="関連-issue-一覧">関連 issue 一覧</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Issue</th>
+          <th>タイトル</th>
+          <th>状態</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><a href="https://github.com/anthropics/claude-code/issues/66026">#66026</a></td>
+          <td>Plan mode scrolling broken — plan がフォーカスを保持し前の会話に遡れない</td>
+          <td>Open</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/anthropics/claude-code/issues/54162">#54162</a></td>
+          <td>ダイアログ overflow 時のスクロール操作がドキュメントに未記載</td>
+          <td>Open</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="回避策">回避策</h2>
+<h3 id="ctrlo-でトランスクリプトモードに切り替える">Ctrl+O でトランスクリプトモードに切り替える</h3>
+<p>最も手軽な回避策です。Ctrl+O を押すと less 形式のトランスクリプトモードに切り替わり、会話全体を <code>/</code> で検索、<code>n</code> / <code>N</code> で前後移動しながら確認できます。ダイアログのモーダル層とは別画面なので、plan コンテナにキーを吸われません。確認が終わったらもう一度 Ctrl+O で戻れば、承認ダイアログの操作に戻れます。</p>
+<h3 id="esc-でダイアログを一旦抜ける">Esc でダイアログを一旦抜ける</h3>
+<p>承認を保留してダイアログを閉じれば通常の会話表示に戻るので、前の部分を普通にスクロールして確認できます。plan の内容自体は失われないので、確認後に「さっきの plan で進めて」と伝えれば再度承認に進めます。</p>
+<h3 id="plan-をファイルに書かせる">plan をファイルに書かせる</h3>
+<p>長い plan を精読したい場合はこれが確実です。plan mode で作業させる際に「plan を <code>tmp/plan.md</code> にも保存して」と頼んでおけば、ダイアログの表示に依存せず、別ウィンドウやエディタで plan と経緯をまとめて確認できます。</p>
+<h2 id="所感">所感</h2>
+<p>plan の承認は「Claude がこれから何をするか」を人間がレビューする重要なチェックポイントなので、その判断材料である直前の会話が見られないのは設計として本末転倒に感じます。</p>
+<p>ダイアログがキー入力を独占するモーダル設計自体は理解できるのですが、せめてトランスクリプトモードへの切り替えがダイアログ上に案内されていれば、ここまで迷うことはないはずです。<a href="https://github.com/anthropics/claude-code/issues/54162">#54162</a> の通りドキュメントにも記載がないため、回避策の存在自体に気づきにくいのが現状です。</p>
+<p>根本修正は <a href="https://github.com/anthropics/claude-code/issues/66026">#66026</a> の対応待ちということになります。</p>
+
+        </section>
+        <div class="post-tags">
+          
+          
+          <nav class="nav tags">
+            <ul class="tags">
+              
+              <li><a href="/tags/ai-coding/">ai-coding</a></li>
+              
+              <li><a href="/tags/claude-code/">claude-code</a></li>
+              
+            </ul>
+          </nav>
+          
+          
+        </div>
+      </div>
+
+      
+      
+    </div>
+
+    </article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
+  <div class="footer-info">
+    2026  © Yukihane, All Rights Reserved |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E9J8FN5B4Q');
+        }
+      </script>
+
+</div>
+    </body>
+</html>

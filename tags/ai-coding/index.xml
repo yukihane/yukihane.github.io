@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Wed, 01 Jul 2026 09:39:21 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 14 Jul 2026 23:11:13 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/ai-coding/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Claude Code スクロールの不具合とワークアラウンド</title>
+      <link>https://yukihane.github.io/blog/202607/14/claude-code-scroll-bug/</link>
+      <pubDate>Tue, 14 Jul 2026 23:11:13 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202607/14/claude-code-scroll-bug/</guid>
+      <description>&lt;p&gt;Claude Code の plan mode で実装計画（plan）の承認ダイアログが表示されると、&lt;strong&gt;plan の部分しかスクロールできず、それより前の会話に遡れない&lt;/strong&gt; という問題があります。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Claude Code &#43; Opus 4.8 で tool call が壊れるバグがいつまで経っても直らない</title>
       <link>https://yukihane.github.io/blog/202607/01/claude-code-opus-4.8-bug/</link>
