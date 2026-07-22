@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Tue, 14 Jul 2026 23:11:13 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jul 2026 03:25:24 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/ai-coding/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Claude Code に Plan Mode 時質問をしても回答が出力されない(Fableで頻発)</title>
+      <link>https://yukihane.github.io/blog/202607/23/claude-code-cannot-display-answer/</link>
+      <pubDate>Thu, 23 Jul 2026 03:25:24 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202607/23/claude-code-cannot-display-answer/</guid>
+      <description>&lt;p&gt;Claude Code の plan mode で方針を確認させると、AskUserQuestion の選択ダイアログだけが表示され、&lt;strong&gt;その直前にあるはずの説明テキストが画面に一切出ない&lt;/strong&gt; ことがあります。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Claude Code スクロールの不具合とワークアラウンド</title>
       <link>https://yukihane.github.io/blog/202607/14/claude-code-scroll-bug/</link>

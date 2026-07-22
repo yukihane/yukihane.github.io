@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Tue, 14 Jul 2026 23:11:13 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jul 2026 03:25:24 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Claude Code に Plan Mode 時質問をしても回答が出力されない(Fableで頻発)</title>
+      <link>https://yukihane.github.io/blog/202607/23/claude-code-cannot-display-answer/</link>
+      <pubDate>Thu, 23 Jul 2026 03:25:24 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202607/23/claude-code-cannot-display-answer/</guid>
+      <description>&lt;p&gt;Claude Code の plan mode で方針を確認させると、AskUserQuestion の選択ダイアログだけが表示され、&lt;strong&gt;その直前にあるはずの説明テキストが画面に一切出ない&lt;/strong&gt; ことがあります。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Claude Code スクロールの不具合とワークアラウンド</title>
       <link>https://yukihane.github.io/blog/202607/14/claude-code-scroll-bug/</link>
@@ -701,13 +708,6 @@
       <pubDate>Sun, 24 Jan 2021 13:31:55 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202101/24/spring-session-in-memory/</guid>
       <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/q/48906697/4506703&#34;&gt;What should be a replacement for StoreType.HASH_MAP in spring-boot 2&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;昔は &lt;code&gt;spring.session.store-type&lt;/code&gt; の選択肢に &lt;code&gt;hash_map&lt;/code&gt; というものがあったようですが、現在は存在しません。(ちなみに &lt;code&gt;none&lt;/code&gt; は Spring Session を利用しない、という意味になるようで、挙動が変わってしまいます( &lt;code&gt;JSESSIONID&lt;/code&gt; と &lt;code&gt;SESSIONID&lt;/code&gt; とか))&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>ControllerでUnauthorizedExceptionを投げると401でなく403になる</title>
-      <link>https://yukihane.github.io/blog/202101/23/throw-unauthorizedexception-in-controller/</link>
-      <pubDate>Sat, 23 Jan 2021 14:14:04 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202101/23/throw-unauthorizedexception-in-controller/</guid>
-      <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/q/65757377/4506703&#34;&gt;Authentication handling in Spring boot 2.x with WebSecurityConfigurerAdapter&lt;/a&gt; - Stack Overflow&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/spring-projects/spring-security/blob/5.3.3.RELEASE/web/src/main/java/org/springframework/security/web/authentication/Http403ForbiddenEntryPoint.java#L38-L39&#34;&gt;&lt;code&gt;Http403ForbiddenEntryPoint&lt;/code&gt;&lt;/a&gt; がデフォルトで設定されているため、 &lt;a href=&#34;https://github.com/spring-projects/spring-security/blob/5.3.3.RELEASE/web/src/main/java/org/springframework/security/web/access/ExceptionTranslationFilter.java#L51-L52&#34;&gt;&lt;code&gt;ExceptionTranslationFilter&lt;/code&gt;&lt;/a&gt; において &lt;a href=&#34;https://github.com/spring-projects/spring-security/blob/5.3.3.RELEASE/web/src/main/java/org/springframework/security/web/access/ExceptionTranslationFilter.java#L169&#34;&gt;&lt;code&gt;AuthenticationException&lt;/code&gt; のサブクラス&lt;/a&gt;は全て &lt;code&gt;403&lt;/code&gt; になっている模様。&lt;/p&gt;&#xA;&lt;p&gt;認証通った上でunauthorizedってことはforbiddenなんだよな？ということでしょうか。…この言い方だと全然ニュアンス伝わらないか。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
