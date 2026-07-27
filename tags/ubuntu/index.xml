@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Fri, 07 Feb 2025 05:47:10 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jul 2026 11:42:47 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu26.04でlsコマンドの不具合。GNU版を入れ直す</title>
+      <link>https://yukihane.github.io/blog/202607/27/gnu-coreutils-to-ubuntu2604/</link>
+      <pubDate>Mon, 27 Jul 2026 11:42:47 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202607/27/gnu-coreutils-to-ubuntu2604/</guid>
+      <description>&lt;p&gt;Ubuntu 26.04 で &lt;code&gt;ls&lt;/code&gt; を実行したところ、日本語のファイル名がまともに表示されませんでした。&lt;/p&gt;&#xA;&lt;p&gt;原因を調べたところ、Ubuntu 26.04 の &lt;code&gt;ls&lt;/code&gt; は GNU coreutils ではなく &lt;strong&gt;Rust 実装の &lt;a href=&#34;https://github.com/uutils/coreutils&#34;&gt;uutils/coreutils&lt;/a&gt;&lt;/strong&gt; に置き換わっており、そのロケール判定にバグがあることが分かりました。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>WSLは /etc/environment を読まない</title>
       <link>https://yukihane.github.io/blog/202502/07/etc-environment-wsl/</link>

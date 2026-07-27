@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Thu, 23 Jul 2026 03:25:24 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jul 2026 11:42:47 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu26.04でlsコマンドの不具合。GNU版を入れ直す</title>
+      <link>https://yukihane.github.io/blog/202607/27/gnu-coreutils-to-ubuntu2604/</link>
+      <pubDate>Mon, 27 Jul 2026 11:42:47 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202607/27/gnu-coreutils-to-ubuntu2604/</guid>
+      <description>&lt;p&gt;Ubuntu 26.04 で &lt;code&gt;ls&lt;/code&gt; を実行したところ、日本語のファイル名がまともに表示されませんでした。&lt;/p&gt;&#xA;&lt;p&gt;原因を調べたところ、Ubuntu 26.04 の &lt;code&gt;ls&lt;/code&gt; は GNU coreutils ではなく &lt;strong&gt;Rust 実装の &lt;a href=&#34;https://github.com/uutils/coreutils&#34;&gt;uutils/coreutils&lt;/a&gt;&lt;/strong&gt; に置き換わっており、そのロケール判定にバグがあることが分かりました。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Claude Code に Plan Mode 時質問をしても回答が出力されない(Fableで頻発)</title>
       <link>https://yukihane.github.io/blog/202607/23/claude-code-cannot-display-answer/</link>
@@ -701,13 +708,6 @@
       <pubDate>Sun, 24 Jan 2021 13:59:39 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202101/24/spring-boot-cors-permit-all/</guid>
       <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/a/65867566/4506703&#34;&gt;How to configure CORS in a Spring Boot + Spring Security application?&lt;/a&gt; - Stack Overflow&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Spring Boot のリファレンス &lt;a href=&#34;https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#boot-features-cors&#34;&gt;4.7.1. The “Spring Web MVC Framework” &amp;gt; CORS Support&lt;/a&gt; を見ると、次のように設定すれば良いように見えます。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Spring Sessionをインメモリで利用する</title>
-      <link>https://yukihane.github.io/blog/202101/24/spring-session-in-memory/</link>
-      <pubDate>Sun, 24 Jan 2021 13:31:55 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202101/24/spring-session-in-memory/</guid>
-      <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/q/48906697/4506703&#34;&gt;What should be a replacement for StoreType.HASH_MAP in spring-boot 2&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;昔は &lt;code&gt;spring.session.store-type&lt;/code&gt; の選択肢に &lt;code&gt;hash_map&lt;/code&gt; というものがあったようですが、現在は存在しません。(ちなみに &lt;code&gt;none&lt;/code&gt; は Spring Session を利用しない、という意味になるようで、挙動が変わってしまいます( &lt;code&gt;JSESSIONID&lt;/code&gt; と &lt;code&gt;SESSIONID&lt;/code&gt; とか))&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

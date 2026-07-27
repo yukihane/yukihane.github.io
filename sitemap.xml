@@ -2,19 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://yukihane.github.io/tags/ai-coding/</loc>
-    <lastmod>2026-07-23T03:25:24+09:00</lastmod>
-  </url><url>
     <loc>https://yukihane.github.io/blog/</loc>
+    <lastmod>2026-07-27T11:42:47+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/linux/</loc>
+    <lastmod>2026-07-27T11:42:47+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/</loc>
+    <lastmod>2026-07-27T11:42:47+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/ubuntu/</loc>
+    <lastmod>2026-07-27T11:42:47+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/blog/202607/27/gnu-coreutils-to-ubuntu2604/</loc>
+    <lastmod>2026-07-27T11:42:47+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/ai-coding/</loc>
     <lastmod>2026-07-23T03:25:24+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/blog/202607/23/claude-code-cannot-display-answer/</loc>
     <lastmod>2026-07-23T03:25:24+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/tags/claude-code/</loc>
-    <lastmod>2026-07-23T03:25:24+09:00</lastmod>
-  </url><url>
-    <loc>https://yukihane.github.io/tags/</loc>
     <lastmod>2026-07-23T03:25:24+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/blog/202607/14/claude-code-scroll-bug/</loc>
@@ -185,9 +194,6 @@
     <loc>https://yukihane.github.io/blog/202503/20/tax/</loc>
     <lastmod>2025-03-20T12:58:42+09:00</lastmod>
   </url><url>
-    <loc>https://yukihane.github.io/tags/ubuntu/</loc>
-    <lastmod>2025-02-07T05:47:10+09:00</lastmod>
-  </url><url>
     <loc>https://yukihane.github.io/blog/202502/07/etc-environment-wsl/</loc>
     <lastmod>2025-02-07T05:47:10+09:00</lastmod>
   </url><url>
@@ -207,9 +213,6 @@
     <lastmod>2024-11-23T19:19:20+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/blog/202411/17/centos7-homebrew/</loc>
-    <lastmod>2024-11-16T12:09:03+09:00</lastmod>
-  </url><url>
-    <loc>https://yukihane.github.io/tags/linux/</loc>
     <lastmod>2024-11-16T12:09:03+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/blog/202411/16/centos7-environment/</loc>

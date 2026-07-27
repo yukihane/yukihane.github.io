@@ -64,6 +64,18 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202110/18/spring-inject-in-validator/">Spring Boot でカスタム validator に injection する</a></h1>
+					<time>2021/10/18</time>
+					<br><div class="description">
+	
+	<h1 id="はじめに">はじめに</h1>
+<p>Spring Boot で JPA Validator にインジェクションしようとしたけどできなかった、という話を何度か聞いてその度に調べていたので、次回に備えてまとめておきます。 サンプルコードはこちら:</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202110/18/spring-inject-in-validator/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202110/18/java17-record-on-spring-mvc/">Spring MVC で Java17 record を試してみる</a></h1>
 					<time>2021/10/18</time>
 					<br><div class="description">
@@ -233,27 +245,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/202107/31/dont-use-lombok-with-jpa/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202107/25/resttemplate-impl-order/">RestTemplateが採用するHTTPクライアント実装の順序</a></h1>
-					<time>2021/07/24</time>
-					<br><div class="description">
-	
-	<blockquote>
-<p>By default the built RestTemplate will attempt to use the most suitable ClientHttpRequestFactory</p>
-<p>—  <a href="https://docs.spring.io/spring-boot/docs/2.5.3/api/org/springframework/boot/web/client/RestTemplateBuilder.html">RestTemplateBuilder JavaDoc</a></p></blockquote>
-<p>とありますが、具体的にどうやって決めているの？という話です。</p>
-<p><a href="https://github.com/spring-projects/spring-boot/blob/v2.5.3/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/web/client/ClientHttpRequestFactorySupplier.java"><code>ClientHttpRequestFactorySupplier</code></a>をみると一目瞭然ですが、</p>
-<ol>
-<li>
-<p>Apache HttpClient (<code>org.apache.http.client.HttpClient</code>) がクラスパスに存在すればそれを採用する</p>
-</li>
-<li>
-<p>OkHttp (<code>okhttp3.OkHttpClient</code>) がクラスパスに存在すればそれを採用する</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202107/25/resttemplate-impl-order/">Read more ⟶</a>
 				</section>
 				
 				

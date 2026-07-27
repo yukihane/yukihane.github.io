@@ -64,6 +64,29 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/201807/13/zip-on-git-for-windows/">Git for Windowsでzipコマンドを再現する</a></h1>
+					<time>2018/07/13</time>
+					<br><div class="description">
+	
+	<p><a href="#ZgotmplZ"><code>git-archive</code></a>使えば何とかなることに気付きました。<br />
+ちなみに<code>unzip</code>コマンドは標準で使えます。</p>
+<pre><code>mkdir workrepo
+cd workrepo
+git init
+cp -r [target_file_or_dir] .
+git add .
+git commit -m commit
+git archive -o ../myarchive.zip @
+cd ..
+rm -rf workrepo
+</code></pre>
+<p>あんまり自信ないんですけどスクリプトファイルに落とすとこんな感じ？</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201807/13/zip-on-git-for-windows/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/201807/08/jsf-on-undertow/">Undertow上でJSF実現</a></h1>
 					<time>2018/07/08</time>
 					<br><div class="description">
@@ -292,17 +315,6 @@ www_attr:
 					<a class="readmore" href="/blog/201908/spring-postconstruct-deadlock/">Read more ⟶</a>
 				</section>
 				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201908/spring-test-number-of-context/"></a></h1>
-					<time>1/01/01</time>
-					<br><div class="description">
-	
-	&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201908/spring-test-number-of-context/">Read more ⟶</a>
-				</section>
-				
 				
 
 <ul class="pagination">
@@ -312,6 +324,8 @@ www_attr:
 	
 	</span>
 	<span class="page-item page-next">
+	
+    <a href="/page/19/" class="page-link" aria-label="Next"><span aria-hidden="true">Next →</span></a>
 	
 	</span>
 </ul>

@@ -64,6 +64,22 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/201907/18/spring-boot-filter-bean/">Spring Bootは、セキュリティフィルタBeanを作っている分だけ、無料で認証できちまうんだ</a></h1>
+					<time>2019/07/18</time>
+					<br><div class="description">
+	
+	<h1 id="要約">要約</h1>
+<p><a href="https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/html/howto-embedded-web-servers.html#howto-add-a-servlet-filter-or-listener">78.10 Add a Servlet, Filter, or Listener to an Application</a>曰く。</p>
+<blockquote>
+<p>any <code>Servlet</code> or <code>Filter</code> beans are registered with the servlet container automatically.</p></blockquote>
+<p>Spring Security 使った自前の認証フィルタを <code>@Component</code> 付けて作ったりなんかした際に意図しない URL path にも認証がかかってしまう。<br />
+んゴ。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201907/18/spring-boot-filter-bean/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/201907/12/h2-console-on-spring-boot/">h2-consoleとspring-boot-starter-securityと私</a></h1>
 					<time>2019/07/12</time>
 					<br><div class="description">
@@ -427,19 +443,6 @@ private RestTemplateBuilder builder;
 	
 </div>
 					<a class="readmore" href="/blog/201904/27/java-properties-is-not-utf8/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201904/16/migration-to-junit5/">Testing the Web Layer のコードを JUnit Jupiter にマイグレーションしてみる</a></h1>
-					<time>2019/04/16</time>
-					<br><div class="description">
-	
-	<h1 id="概要">概要</h1>
-<p>(追記: ここで試したのは<code>2.1.4.RELEASE</code>時点のもの。<code>2.2.0.M3</code>以降では <a href="https://github.com/spring-projects/spring-boot/issues/14736">#14736</a>の通り JUnit5 がデフォルトになっている模様。)</p>
-<p>spring-boot-starter-test の JUnit5 対応はこちらの issue:</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201904/16/migration-to-junit5/">Read more ⟶</a>
 				</section>
 				
 				

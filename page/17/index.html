@@ -64,6 +64,19 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/201904/16/migration-to-junit5/">Testing the Web Layer のコードを JUnit Jupiter にマイグレーションしてみる</a></h1>
+					<time>2019/04/16</time>
+					<br><div class="description">
+	
+	<h1 id="概要">概要</h1>
+<p>(追記: ここで試したのは<code>2.1.4.RELEASE</code>時点のもの。<code>2.2.0.M3</code>以降では <a href="https://github.com/spring-projects/spring-boot/issues/14736">#14736</a>の通り JUnit5 がデフォルトになっている模様。)</p>
+<p>spring-boot-starter-test の JUnit5 対応はこちらの issue:</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201904/16/migration-to-junit5/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/201903/26/change-spring-validator-message/">Spring Validator(でラップされたBean Validation)のメッセージをi18nしたときの覚え書き</a></h1>
 					<time>2019/03/26</time>
 					<br><div class="description">
@@ -237,29 +250,6 @@ mklink /j vimfiles .vim
 	
 </div>
 					<a class="readmore" href="/blog/201807/25/not-required-m2_home/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201807/13/zip-on-git-for-windows/">Git for Windowsでzipコマンドを再現する</a></h1>
-					<time>2018/07/13</time>
-					<br><div class="description">
-	
-	<p><a href="#ZgotmplZ"><code>git-archive</code></a>使えば何とかなることに気付きました。<br />
-ちなみに<code>unzip</code>コマンドは標準で使えます。</p>
-<pre><code>mkdir workrepo
-cd workrepo
-git init
-cp -r [target_file_or_dir] .
-git add .
-git commit -m commit
-git archive -o ../myarchive.zip @
-cd ..
-rm -rf workrepo
-</code></pre>
-<p>あんまり自信ないんですけどスクリプトファイルに落とすとこんな感じ？</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201807/13/zip-on-git-for-windows/">Read more ⟶</a>
 				</section>
 				
 				

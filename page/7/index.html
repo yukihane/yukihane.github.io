@@ -64,6 +64,27 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202107/25/resttemplate-impl-order/">RestTemplateが採用するHTTPクライアント実装の順序</a></h1>
+					<time>2021/07/24</time>
+					<br><div class="description">
+	
+	<blockquote>
+<p>By default the built RestTemplate will attempt to use the most suitable ClientHttpRequestFactory</p>
+<p>—  <a href="https://docs.spring.io/spring-boot/docs/2.5.3/api/org/springframework/boot/web/client/RestTemplateBuilder.html">RestTemplateBuilder JavaDoc</a></p></blockquote>
+<p>とありますが、具体的にどうやって決めているの？という話です。</p>
+<p><a href="https://github.com/spring-projects/spring-boot/blob/v2.5.3/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/web/client/ClientHttpRequestFactorySupplier.java"><code>ClientHttpRequestFactorySupplier</code></a>をみると一目瞭然ですが、</p>
+<ol>
+<li>
+<p>Apache HttpClient (<code>org.apache.http.client.HttpClient</code>) がクラスパスに存在すればそれを採用する</p>
+</li>
+<li>
+<p>OkHttp (<code>okhttp3.OkHttpClient</code>) がクラスパスに存在すればそれを採用する</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202107/25/resttemplate-impl-order/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202107/11/spring-boot-with-babel/">Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle) - Polyfillも必要とする場合</a></h1>
 					<time>2021/07/10</time>
 					<br><div class="description">
@@ -234,20 +255,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/202105/06/ling-login-202105/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202104/29/mysql-connector-j-8.0.23/">MySQL Connector/J 8.0.23 でタイムゾーン変換メカニズムが変更になった</a></h1>
-					<time>2021/04/28</time>
-					<br><div class="description">
-	
-	<p>MySQL Connector/J <code>8.0.23</code> でタイムゾーン変換のメカニズムが変わりました(Spring Boot では <a href="https://docs.spring.io/spring-boot/docs/2.3.9.RELEASE/reference/html/appendix-dependency-versions.html#dependency-versions"><code>2.3.9</code></a>以降, <a href="https://docs.spring.io/spring-boot/docs/2.4.3/reference/html/appendix-dependency-versions.html#dependency-versions"><code>2.4.3</code></a>以降でこれを採用しています)。</p>
-<blockquote>
-<p><strong>Important Change</strong>: A new mechanism has been introduced for users to configure how time zone conversions should occur when time instants are saved to or retrieved from a server by Connector/J.</p>
-<p>—  <a href="https://dev.mysql.com/doc/relnotes/connector-j/8.0/en/news-8-0-23.html">MySQL :: MySQL Connector/J 8.0 Release Notes :: Changes in MySQL Connector/J 8.0.23 (2021-01-18, General Availability)</a></p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202104/29/mysql-connector-j-8.0.23/">Read more ⟶</a>
 				</section>
 				
 				
