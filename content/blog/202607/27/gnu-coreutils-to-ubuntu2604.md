@@ -1,7 +1,7 @@
 ---
 title: "Ubuntu26.04でlsコマンドの不具合。GNU版を入れ直す"
 date: 2026-07-27T11:42:47+09:00
-tags: ["ubuntu", "linux"]
+tags: ["wsl", "ubuntu", "linux"]
 draft: false
 ---
 
