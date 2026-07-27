@@ -86,7 +86,52 @@ URL をウェブブラウザーで開くのに open というクレートがあ�
 <ul>
 <li><a href="https://github.com/wslutilities/wslu">https://github.com/wslutilities/wslu</a></li>
 </ul>
-
+<h2 id="追記2026-07-27-ubuntu-2604-では-apt-でインストールできない">追記(2026-07-27): Ubuntu 26.04 では apt でインストールできない</h2>
+<p>上記のとおり wslu は上流の開発が終了しており、GitHub リポジトリーも 2025-03-01 にアーカイブされています。</p>
+<p>その影響で、<strong>Ubuntu 26.04 では wslu が公式 APT リポジトリーから削除されました</strong>。</p>
+<pre tabindex="0"><code>sudo apt install wslu
+</code></pre><p>としてもインストールできません。</p>
+<p>また、PPA リポジトリー</p>
+<ul>
+<li><a href="https://launchpad.net/~wslutilities/&#43;archive/ubuntu/wslu">https://launchpad.net/~wslutilities/+archive/ubuntu/wslu</a></li>
+</ul>
+<p>を追加すればよい、という記事も見かけましたが、こちらも 26.04 向けのパッケージが用意されておらず駄目でした。</p>
+<h3 id="自前でビルドする">自前でビルドする</h3>
+<p>こちらの記事で紹介されているとおり、アーカイブされた GitHub リポジトリーから clone してビルドすれば、引き続き <code>wslview</code> を利用できます。</p>
+<ul>
+<li><a href="https://zenn.dev/tazzae999jp/articles/f0c2dd85136303">WSL2のCLIからWindows側のブラウザ起動を解決する記事。「Ubuntu-26.04」以降もwsluのwslviewを使う</a></li>
+</ul>
+<pre tabindex="0"><code>cd /tmp
+rm -rf wslu
+git clone https://github.com/wslutilities/wslu.git
+cd wslu
+make
+sudo make install
+</code></pre><p><code>/usr/bin/wslview</code> が配置されるので、動作確認します。</p>
+<pre tabindex="0"><code>which wslview
+wslview https://www.google.co.jp
+</code></pre><p>Windows 側の既定ブラウザーが開けば OK です。</p>
+<h3 id="xdg-open-経由でも呼べるようにする">xdg-open 経由でも呼べるようにする</h3>
+<p>CLI ツールによっては <code>wslview</code> を直接呼ぶのではなく、<code>xdg-open</code> や <code>BROWSER</code> 環境変数を見にいくものがあります。そのため、以下も設定しておくとよいです。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># ~/.bashrc</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">BROWSER</span><span class="o">=</span><span class="s2">&#34;/usr/bin/wslview&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><pre tabindex="0"><code>sudo ln -sf /usr/bin/wslview /usr/local/bin/xdg-open
+</code></pre><p>さらに古い CLI やライブラリーは <code>x-www-browser</code> / <code>www-browser</code> を参照することがあるので、必要に応じて <code>update-alternatives</code> にも登録します。</p>
+<pre tabindex="0"><code>sudo update-alternatives --install /usr/bin/x-www-browser x-www-browser /usr/bin/wslview 1
+sudo update-alternatives --install /usr/bin/www-browser www-browser /usr/bin/wslview 1
+</code></pre><p>なお、この方法は APT 管理下ではなく、保守終了した upstream ソースからの手動インストールです。将来リポジトリーが削除される可能性を考えると、自分の GitHub アカウントへミラーしておくと安心です。</p>
+<pre tabindex="0"><code>git clone --bare https://github.com/wslutilities/wslu.git
+cd wslu.git
+git push --mirror https://github.com/&lt;your-github-account&gt;/my_wslu.git
+</code></pre>
         </section>
         <div class="post-tags">
           
