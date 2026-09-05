@@ -75,36 +75,14 @@ herdrをpwshで利用しているのですが、JSONをcatしたときに日本�
         <section class="body">
           <p>最近WSLでなくWindowsネイティブでcodexなどを使うようになりました。<br />
 herdrをpwshで利用しているのですが、JSONをcatしたときに日本語が文字化けしているのに気づきました。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-pwsh" data-lang="pwsh"><span class="line"><span class="cl"><span class="nv">$PSVersionTable</span><span class="p">.</span><span class="py">PSVersion</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>を実行してみたところ <code>5.1</code> 系。古いな…？<br />
+<pre tabindex="0"><code>$PSVersionTable.PSVersion
+</code></pre><p>を実行してみたところ <code>5.1</code> 系。古いな…？<br />
 と思い検索してみたところ、シェルを明示する必要があったようです。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-pwsh" data-lang="pwsh"><span class="line"><span class="cl"><span class="n">notepad</span> <span class="nv">$env:APPDATA</span><span class="p">\</span><span class="n">herdr</span><span class="p">\</span><span class="n">config</span><span class="p">.</span><span class="py">toml</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>で設定ファイルを開き、</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">terminal</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="nx">default_shell</span> <span class="p">=</span> <span class="s2">&#34;pwsh.exe&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>を追記。<br />
+<pre tabindex="0"><code>notepad $env:APPDATA\herdr\config.toml
+</code></pre><p>で設定ファイルを開き、</p>
+<pre tabindex="0"><code>[terminal]
+default_shell = &#34;pwsh.exe&#34;
+</code></pre><p>を追記。<br />
 (なおpwsh自体はscoopでインストール済みでした)</p>
 <p>そして一旦 <code>herdr server stop</code> で終了させた後、再度herdrを起動して上記のバージョン出力を試すと無事 <code>7.6</code> が表示されました。<br />
 <code>cat hoge.json</code> 実行すると無事日本語が正常に出力されました。</p>
