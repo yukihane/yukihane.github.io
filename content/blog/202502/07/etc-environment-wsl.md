@@ -2,7 +2,7 @@
 title: "WSLは /etc/environment を読まない"
 date: 2025-02-07T05:47:10+09:00
 draft: false
-tags: ["ubuntu", "wsl", "windows"]
+tags: ["ubuntu", "wsl", "windows", "snap", "hugo"]
 ---
 
 このエントリーを書くためにWSL2に[Hugoをsnapで](https://gohugo.io/installation/linux/#snap)インストールしました。
@@ -15,4 +15,10 @@ PATHが通っていないからかな？と思い `/etc/environment` ファイ�
 
 WSL2特有の事情で `/etc/environment` が読まれないそうです。
 
-色々workaroundが提示されていたりもしますが、素直に `.bashrc` などでPATHを追加すれば良いでしょう。
+色々workaroundが提示されていたりもしますが、素直に `.bashrc` などでPATHを追加すれば良いでしょう。たとえばsnapのコマンドを使いたい場合は、`~/.bashrc` の末尾に次のように追記します:
+
+```bash
+export PATH="/snap/bin:$PATH"
+```
+
+追記したら、新しいシェルを開くか、現在のシェルで `source ~/.bashrc` を実行すれば反映されます。
