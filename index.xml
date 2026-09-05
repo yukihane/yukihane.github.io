@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Mon, 27 Jul 2026 11:42:47 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 20:38:28 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>herdrをWindowsで使う場合にはdefault_shellの設定をしよう</title>
+      <link>https://yukihane.github.io/blog/202609/05/herdr-with-pwsh/</link>
+      <pubDate>Sat, 05 Sep 2026 20:38:28 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202609/05/herdr-with-pwsh/</guid>
+      <description>&lt;p&gt;最近WSLでなくWindowsネイティブでcodexなどを使うようになりました。&lt;br /&gt;&#xA;herdrをpwshで利用しているのですが、JSONをcatしたときに日本語が文字化けしているのに気づきました。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Ubuntu26.04でlsコマンドの不具合。GNU版を入れ直す</title>
       <link>https://yukihane.github.io/blog/202607/27/gnu-coreutils-to-ubuntu2604/</link>
@@ -701,13 +708,6 @@
       <pubDate>Sat, 30 Jan 2021 06:29:06 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202101/30/gava-oidc-idp/</guid>
       <description>&lt;p&gt;OIDCフローの調査などで本物でないOIDC IdP Mock Serverが欲しくなったので検索してみました。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.google.com/search?q=oidc&amp;#43;mock&amp;#43;server&#34;&gt;世に数多あるよう&lt;/a&gt;に見えたのですが、結構真面目に認証処理してたりして、ちょっとオーバースペックだと感じたので自作することにしました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/yukihane/gava-idp&#34;&gt;gava-idp&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
-    </item>
-    <item>
-      <title>Spring Boot の CORS 設定を全許可する</title>
-      <link>https://yukihane.github.io/blog/202101/24/spring-boot-cors-permit-all/</link>
-      <pubDate>Sun, 24 Jan 2021 13:59:39 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202101/24/spring-boot-cors-permit-all/</guid>
-      <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/a/65867566/4506703&#34;&gt;How to configure CORS in a Spring Boot + Spring Security application?&lt;/a&gt; - Stack Overflow&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Spring Boot のリファレンス &lt;a href=&#34;https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#boot-features-cors&#34;&gt;4.7.1. The “Spring Web MVC Framework” &amp;gt; CORS Support&lt;/a&gt; を見ると、次のように設定すれば良いように見えます。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

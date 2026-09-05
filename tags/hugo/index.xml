@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on 発火後忘失</title>
+    <link>https://yukihane.github.io/tags/hugo/</link>
+    <description>Recent content in Hugo on 発火後忘失</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <copyright>© Yukihane, All Rights Reserved</copyright>
+    <lastBuildDate>Fri, 07 Feb 2025 05:47:10 +0900</lastBuildDate>
+    <atom:link href="https://yukihane.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WSLは /etc/environment を読まない</title>
+      <link>https://yukihane.github.io/blog/202502/07/etc-environment-wsl/</link>
+      <pubDate>Fri, 07 Feb 2025 05:47:10 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202502/07/etc-environment-wsl/</guid>
+      <description>&lt;p&gt;このエントリーを書くためにWSL2に&lt;a href=&#34;https://gohugo.io/installation/linux/#snap&#34;&gt;Hugoをsnapで&lt;/a&gt;インストールしました。&lt;/p&gt;&#xA;&lt;p&gt;そして &lt;code&gt;hugo&lt;/code&gt; コマンドを実行すると&amp;hellip;そんなものはないと言われてしまいました。&lt;br /&gt;&#xA;PATHが通っていないからかな？と思い &lt;code&gt;/etc/environment&lt;/code&gt; ファイルを見て見たのですが &lt;code&gt;/snap/bin&lt;/code&gt; は初めから設定されている。むむむと思いググったところ次のような記事がヒットしました:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

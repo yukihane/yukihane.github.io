@@ -3,12 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://yukihane.github.io/blog/</loc>
-    <lastmod>2026-07-27T11:42:47+09:00</lastmod>
+    <lastmod>2026-09-05T20:38:28+09:00</lastmod>
   </url><url>
-    <loc>https://yukihane.github.io/tags/linux/</loc>
-    <lastmod>2026-07-27T11:42:47+09:00</lastmod>
+    <loc>https://yukihane.github.io/tags/herdr/</loc>
+    <lastmod>2026-09-05T20:38:28+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/blog/202609/05/herdr-with-pwsh/</loc>
+    <lastmod>2026-09-05T20:38:28+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/pwsh/</loc>
+    <lastmod>2026-09-05T20:38:28+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/tags/</loc>
+    <lastmod>2026-09-05T20:38:28+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/windows/</loc>
+    <lastmod>2026-09-05T20:38:28+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/linux/</loc>
     <lastmod>2026-07-27T11:42:47+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/tags/ubuntu/</loc>
@@ -101,9 +113,6 @@
     <loc>https://yukihane.github.io/blog/202602/15/cpp_intro/</loc>
     <lastmod>2026-02-15T18:29:09+09:00</lastmod>
   </url><url>
-    <loc>https://yukihane.github.io/tags/windows/</loc>
-    <lastmod>2026-02-15T15:27:13+09:00</lastmod>
-  </url><url>
     <loc>https://yukihane.github.io/blog/202602/15/wsl-ime-crash/</loc>
     <lastmod>2026-02-15T15:27:13+09:00</lastmod>
   </url><url>
@@ -193,6 +202,12 @@
   </url><url>
     <loc>https://yukihane.github.io/blog/202503/20/tax/</loc>
     <lastmod>2025-03-20T12:58:42+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/hugo/</loc>
+    <lastmod>2025-02-07T05:47:10+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/snap/</loc>
+    <lastmod>2025-02-07T05:47:10+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/blog/202502/07/etc-environment-wsl/</loc>
     <lastmod>2025-02-07T05:47:10+09:00</lastmod>
@@ -1179,9 +1194,6 @@
     <lastmod>2018-09-29T19:51:56+00:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/blog/201809/08/pwsh-progress-silent/</loc>
-    <lastmod>2018-09-08T19:50:04+00:00</lastmod>
-  </url><url>
-    <loc>https://yukihane.github.io/tags/pwsh/</loc>
     <lastmod>2018-09-08T19:50:04+00:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/blog/201808/22/windows-rsync-unavailable/</loc>

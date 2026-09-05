@@ -20,6 +20,8 @@ PATHが通っていないからかな？と思い /etc/environment ファイル�
     <meta property="article:tag" content="Ubuntu">
     <meta property="article:tag" content="Wsl">
     <meta property="article:tag" content="Windows">
+    <meta property="article:tag" content="Snap">
+    <meta property="article:tag" content="Hugo">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="WSLは /etc/environment を読まない">
@@ -84,7 +86,16 @@ PATHが通っていないからかな？と思い <code>/etc/environment</code> 
 <li><a href="https://github.com/Microsoft/WSL/issues/1405">bash not picking up /etc/environment #1405</a></li>
 </ul>
 <p>WSL2特有の事情で <code>/etc/environment</code> が読まれないそうです。</p>
-<p>色々workaroundが提示されていたりもしますが、素直に <code>.bashrc</code> などでPATHを追加すれば良いでしょう。</p>
+<p>色々workaroundが提示されていたりもしますが、素直に <code>.bashrc</code> などでPATHを追加すれば良いでしょう。たとえばsnapのコマンドを使いたい場合は、<code>~/.bashrc</code> の末尾に次のように追記します:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;/snap/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>追記したら、新しいシェルを開くか、現在のシェルで <code>source ~/.bashrc</code> を実行すれば反映されます。</p>
 
         </section>
         <div class="post-tags">
@@ -98,6 +109,10 @@ PATHが通っていないからかな？と思い <code>/etc/environment</code> 
               <li><a href="/tags/wsl/">wsl</a></li>
               
               <li><a href="/tags/windows/">windows</a></li>
+              
+              <li><a href="/tags/snap/">snap</a></li>
+              
+              <li><a href="/tags/hugo/">hugo</a></li>
               
             </ul>
           </nav>
