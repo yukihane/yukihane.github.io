@@ -8,20 +8,20 @@ draft: false
 最近WSLでなくWindowsネイティブでcodexなどを使うようになりました。
 herdrをpwshで利用しているのですが、JSONをcatしたときに日本語が文字化けしているのに気づきました。
 
-```pwsh
+```
 $PSVersionTable.PSVersion
 ```
 
 を実行してみたところ `5.1` 系。古いな…？
 と思い検索してみたところ、シェルを明示する必要があったようです。
 
-```pwsh
+```
 notepad $env:APPDATA\herdr\config.toml
 ```
 
 で設定ファイルを開き、
 
-```toml
+```
 [terminal]
 default_shell = "pwsh.exe"
 ```
