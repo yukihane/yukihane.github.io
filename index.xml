@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Sat, 05 Sep 2026 20:38:28 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 17 Sep 2026 23:36:33 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WindowsのpwshからCodexを更新するとGet-FileHashで失敗する</title>
+      <link>https://yukihane.github.io/blog/202609/17/codex-update-error-on-win/</link>
+      <pubDate>Thu, 17 Sep 2026 23:36:33 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202609/17/codex-update-error-on-win/</guid>
+      <description>&lt;p&gt;Windows ネイティブで Codex を使っていて &lt;code&gt;codex update&lt;/code&gt; を実行したところ、次のように失敗しました。&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;iex : 用語 &amp;#39;Get-FileHash&amp;#39; は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前として認識されません。&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;更新処理は &lt;code&gt;powershell -ExecutionPolicy Bypass -c &#39;...&#39;&lt;/code&gt; を実行しており、Codex CLI のダウンロード後に SHA-256 を検証するため &lt;code&gt;Get-FileHash&lt;/code&gt; を呼び出しています。このため、これはダウンロード元への一時的な接続エラーそのものではなく、検証コマンドを実行できず更新を中断したエラーです。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>herdrをWindowsで使う場合にはdefault_shellの設定をしよう</title>
       <link>https://yukihane.github.io/blog/202609/05/herdr-with-pwsh/</link>
@@ -701,13 +708,6 @@
       <pubDate>Mon, 01 Feb 2021 16:38:42 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202102/02/slf4j-placeholder-throwable/</guid>
       <description>&lt;p&gt;SLF4J の &lt;code&gt;Logger&lt;/code&gt; のメソッドを眺めていると、 &lt;code&gt;Throwable&lt;/code&gt; を引数にとれるのは 他に &lt;code&gt;Marker&lt;/code&gt; と &lt;code&gt;String&lt;/code&gt; メッセージだけを持つものばかりで、プレースホルダを利用したい場合にはどうしたら良いのだろう…と思っていたら、普通にプレースホルダと併用できるようです。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>ガバガバOIDCモックサーバを作る</title>
-      <link>https://yukihane.github.io/blog/202101/30/gava-oidc-idp/</link>
-      <pubDate>Sat, 30 Jan 2021 06:29:06 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202101/30/gava-oidc-idp/</guid>
-      <description>&lt;p&gt;OIDCフローの調査などで本物でないOIDC IdP Mock Serverが欲しくなったので検索してみました。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.google.com/search?q=oidc&amp;#43;mock&amp;#43;server&#34;&gt;世に数多あるよう&lt;/a&gt;に見えたのですが、結構真面目に認証処理してたりして、ちょっとオーバースペックだと感じたので自作することにしました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/yukihane/gava-idp&#34;&gt;gava-idp&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
   </channel>
 </rss>

@@ -64,6 +64,26 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202605/20/kotlin-default-arg-spring-aop-npe/">Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる</a></h1>
+					<time>2026/05/20</time>
+					<br><div class="description">
+	
+	<h2 id="tldr">TL;DR</h2>
+<ul>
+<li><code>@Transactional</code> 系のアノテーション（Spring AOP のクラスプロキシ）が掛かった Kotlin クラスで、<strong>メソッドのデフォルト引数式が注入フィールドを参照</strong>していると <code>NullPointerException</code> になることがあります。</li>
+<li>原因は「Kotlin のデフォルト引数は <strong>static な合成メソッド <code>xxx$default</code></strong> に展開され、それが Spring AOP プロキシのインターセプトをすり抜ける」ためです。</li>
+<li>同じシグネチャでも <strong>引数を明示的に渡すと再現しません</strong>。そのためテストやコードパスによって出たり出なかったりして気付きにくいです。</li>
+<li>対策はシンプルです。デフォルト引数で注入依存を参照しないこと。必要なら <strong>メソッド本体で <code>val</code> 宣言</strong> するか、オーバーロードで表現します。</li>
+</ul>
+<hr />
+<h2 id="症状">症状</h2>
+<p>ある UseCase をリファクタして、時刻取得を <code>Clock</code> の DI 経由に変えました。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202605/20/kotlin-default-arg-spring-aop-npe/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202602/15/cpp_intro/">江添亮の入門C&#43;&#43; PDF(フォント埋め込み)</a></h1>
 					<time>2026/02/15</time>
 					<br><div class="description">
@@ -223,18 +243,6 @@ public void updatePostTitle(Long postId, String postTitle) {
 	
 </div>
 					<a class="readmore" href="/blog/202505/05/not-recommend-using-jpa/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202505/05/form-cannot-bind-to-record/">Thymeleafのformのバインドにrecord classは使わない方が良さそう</a></h1>
-					<time>2025/05/05</time>
-					<br><div class="description">
-	
-	<p><a href="/blog/202505/04/kotlin-form-binding/">前回</a> のつづき。</p>
-<p>あれ、そういえばJavaのrecord classも似たような性質だな、ということはrecord classもform bindingには使えないのかな？でもあまりそんな話聞いたこと無いな、どうなんだろう…と思い検索してみたのですが、ヒットしたのは自分の記事でしたｗ</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202505/05/form-cannot-bind-to-record/">Read more ⟶</a>
 				</section>
 				
 				

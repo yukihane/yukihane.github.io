@@ -64,6 +64,28 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/201910/setup-amethyst/">Intel iGPU環境でのAmethyst 開発環境セットアップ</a></h1>
+					<time>2019/10/08</time>
+					<br><div class="description">
+	
+	<h1 id="tldr">TL;DR</h1>
+<p>Ubuntu18.04, Coffee Lake iGPU で vulkan での実行を可能にするには</p>
+<ul>
+<li>
+<p><code>mesa-vulkan-drivers</code> パッケージインストール</p>
+</li>
+<li>
+<p><code>/etc/X11/xorg.conf.d/20-intel.conf</code> で DRI3 有効化</p>
+</li>
+</ul>
+<p>の2点が必要。</p>
+<p>(おそらく実際には、実行に <code>libvulkan1</code> 、及び開発には加えて <code>libvulkan-dev</code> も必要と思われるが、最初からインストールされていた)</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201910/setup-amethyst/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/201909/rust-cago.lock/">Cargo.lock をバージョン管理するや否や</a></h1>
 					<time>2019/09/01</time>
 					<br><div class="description">
@@ -233,25 +255,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/201908/rust-format-on-vscode/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201908/use-specific-rustc-version/">cargo build で特定のバージョンの rustc を利用する</a></h1>
-					<time>2019/08/03</time>
-					<br><div class="description">
-	
-	<pre><code>rustup run 1.15.1 cargo build
-</code></pre>
-<p>もちろん事前に使用するバージョンをインストールしておく必要がある:</p>
-<pre><code>rustup install 1.15.1
-</code></pre>
-<p>参考:</p>
-<ul>
-<li><a href="https://doc.rust-lang.org/edition-guide/rust-2018/rustup-for-managing-rust-versions.html">Rustup for managing Rust versions</a></li>
-</ul>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201908/use-specific-rustc-version/">Read more ⟶</a>
 				</section>
 				
 				

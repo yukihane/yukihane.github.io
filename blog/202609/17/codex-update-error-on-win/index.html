@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html><head lang="ja">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>WindowsのpwshからCodexを更新するとGet-FileHashで失敗する - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Windows ネイティブで Codex を使っていて codex update を実行したところ、次のように失敗しました。
+iex : 用語 &#39;Get-FileHash&#39; は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前として認識されません。
+更新処理は powershell -ExecutionPolicy Bypass -c &#39;...&#39; を実行しており、Codex CLI のダウンロード後に SHA-256 を検証するため Get-FileHash を呼び出しています。このため、これはダウンロード元への一時的な接続エラーそのものではなく、検証コマンドを実行できず更新を中断したエラーです。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
+	<meta property="og:url" content="https://yukihane.github.io/blog/202609/17/codex-update-error-on-win/">
+  <meta property="og:site_name" content="発火後忘失">
+  <meta property="og:title" content="WindowsのpwshからCodexを更新するとGet-FileHashで失敗する">
+  <meta property="og:description" content="Windows ネイティブで Codex を使っていて codex update を実行したところ、次のように失敗しました。
+iex : 用語 &#39;Get-FileHash&#39; は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前として認識されません。 更新処理は powershell -ExecutionPolicy Bypass -c &#39;...&#39; を実行しており、Codex CLI のダウンロード後に SHA-256 を検証するため Get-FileHash を呼び出しています。このため、これはダウンロード元への一時的な接続エラーそのものではなく、検証コマンドを実行できず更新を中断したエラーです。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2026-09-17T23:36:33+09:00">
+    <meta property="article:modified_time" content="2026-09-17T23:36:33+09:00">
+    <meta property="article:tag" content="Codex">
+    <meta property="article:tag" content="Windows">
+    <meta property="article:tag" content="Pwsh">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="WindowsのpwshからCodexを更新するとGet-FileHashで失敗する">
+  <meta name="twitter:description" content="Windows ネイティブで Codex を使っていて codex update を実行したところ、次のように失敗しました。
+iex : 用語 &#39;Get-FileHash&#39; は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前として認識されません。 更新処理は powershell -ExecutionPolicy Bypass -c &#39;...&#39; を実行しており、Codex CLI のダウンロード後に SHA-256 を検証するため Get-FileHash を呼び出しています。このため、これはダウンロード元への一時的な接続エラーそのものではなく、検証コマンドを実行できず更新を中断したエラーです。">
+
+        <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://yukihane.github.io/">発火後忘失</a>
+	</div>
+	<nav>
+		
+		<a href="/blog">Blog</a>
+		
+		<a href="/docs">Docs</a>
+		
+		<a href="/tags">Tags</a>
+		
+		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
+		
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
+		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
+		
+	</nav>
+</header>
+
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        <div class="title">
+          <h1 class="title">WindowsのpwshからCodexを更新するとGet-FileHashで失敗する</h1>
+          <div class="meta">Posted on 2026/09/17</div>
+        </div>
+        
+        <section class="body">
+          <p>Windows ネイティブで Codex を使っていて <code>codex update</code> を実行したところ、次のように失敗しました。</p>
+<pre tabindex="0"><code>iex : 用語 &#39;Get-FileHash&#39; は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前として認識されません。
+</code></pre><p>更新処理は <code>powershell -ExecutionPolicy Bypass -c '...'</code> を実行しており、Codex CLI のダウンロード後に SHA-256 を検証するため <code>Get-FileHash</code> を呼び出しています。このため、これはダウンロード元への一時的な接続エラーそのものではなく、検証コマンドを実行できず更新を中断したエラーです。</p>
+<h2 id="原因">原因</h2>
+<p>私は PowerShell 7 (<code>pwsh</code>) を普段のシェルとして使っていました。Codex の Windows 向け standalone updater は、親プロセスが <code>pwsh</code> であっても Windows PowerShell (<code>powershell.exe</code>, 5.1) を子プロセスとして起動します。</p>
+<p>このとき <code>pwsh</code> 用の <code>PSModulePath</code> が子プロセスに引き継がれることがあります。Windows PowerShell 側ではモジュール探索が壊れ、通常は搭載されているはずの <code>Microsoft.PowerShell.Utility</code> 内の <code>Get-FileHash</code> を発見できなくなります。</p>
+<p>同じ事象は Codex の Issue <a href="https://github.com/openai/codex/issues/27117">Windows standalone update from pwsh inherits PSModulePath into powershell.exe, causing Get-FileHash to fail #27117</a> として報告されています。Issue に掲載されている環境では、<code>PSModulePath</code> を外して起動すると Windows PowerShell が Windows PowerShell 用のモジュールパスを再構築し、<code>Get-FileHash</code> が実行できています。</p>
+<p>なお、<code>Get-FileHash</code> はダウンロードしたファイルのハッシュを計算するコマンドレットです。<a href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.utility/get-filehash">Microsoft のドキュメント</a>にもあるとおり、ファイルが改変されていないことを確認する用途なので、検証を飛ばすような回避はしない方がよいです。</p>
+<h2 id="対処法">対処法</h2>
+<p>まずは Windows PowerShell を起動して、そこで更新を実行するのが簡単です。<code>pwsh</code> ではなく、スタートメニューの <strong>Windows PowerShell</strong> を起動するか、<code>Win + R</code> から次を実行します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">powershell</span><span class="p">.</span><span class="py">exe</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>開いた Windows PowerShell で更新します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">codex</span> <span class="n">update</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>pwsh</code> のターミナル内で完結させたい場合は、更新を実行する前に、そのセッションの <code>PSModulePath</code> だけを削除します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Remove-Item</span> <span class="n">Env</span><span class="err">:</span><span class="n">PSModulePath</span>
+</span></span><span class="line"><span class="cl"><span class="n">codex</span> <span class="n">update</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>これはユーザー環境変数やシステム環境変数を変更しません。一時的に起動中の <code>pwsh</code> とその子プロセスから <code>PSModulePath</code> を外すだけです。更新が終わったらターミナルを閉じて開き直せば元の環境に戻ります。</p>
+<p>更新前に原因を確認したい場合は、<code>pwsh</code> から次を実行します。<code>Get-FileHash</code> が見つからなければ今回の問題に該当します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">powershell</span><span class="p">.</span><span class="py">exe</span> <span class="n">-NoProfile</span> <span class="n">-Command</span> <span class="s2">&#34;Get-Command Get-FileHash&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上記を実行しても Windows PowerShell 単体で <code>Get-FileHash</code> が見つからない場合は、<code>PSModulePath</code> の継承ではなく PowerShell / Windows 側の環境に問題があります。通常の Windows 10 / 11 に含まれる Windows PowerShell 5.1 では利用できるはずなので、PowerShell のバージョンとモジュールパスを確認します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$PSVersionTable</span><span class="p">.</span><span class="py">PSVersion</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$env:PSModulePath</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="補足">補足</h2>
+<p>Codex の公式 README では、Windows の standalone installer は既定で <code>releases.openai.com</code> から取得し、利用できない場合は GitHub Releases にフォールバックすると説明されています。エラーログ中の「GitHub Releases から再試行」はこの挙動であり、今回の本体はその後の <code>Get-FileHash</code> エラーでした。</p>
+<p>公式には npm 経由のインストールも案内されているため、standalone installer の問題を避けたい場合は、Node.js を使う運用に切り替える選択肢もあります。ただし、既存の standalone 版との共存でどちらの <code>codex</code> が実行されるか分かりにくくなるため、まずは上記の回避策で standalone 版を更新することにしました。</p>
+<ul>
+<li><a href="https://github.com/openai/codex#installing-and-running-codex-cli">Codex CLI README</a></li>
+</ul>
+
+        </section>
+        <div class="post-tags">
+          
+          
+          <nav class="nav tags">
+            <ul class="tags">
+              
+              <li><a href="/tags/codex/">codex</a></li>
+              
+              <li><a href="/tags/windows/">windows</a></li>
+              
+              <li><a href="/tags/pwsh/">pwsh</a></li>
+              
+            </ul>
+          </nav>
+          
+          
+        </div>
+      </div>
+
+      
+      
+    </div>
+
+    </article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
+  <div class="footer-info">
+    2026  © Yukihane, All Rights Reserved |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E9J8FN5B4Q');
+        }
+      </script>
+
+</div>
+    </body>
+</html>

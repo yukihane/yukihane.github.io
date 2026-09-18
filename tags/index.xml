@@ -7,27 +7,34 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Sat, 05 Sep 2026 20:38:28 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 17 Sep 2026 23:36:33 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Herdr</title>
-      <link>https://yukihane.github.io/tags/herdr/</link>
-      <pubDate>Sat, 05 Sep 2026 20:38:28 +0900</pubDate>
-      <guid>https://yukihane.github.io/tags/herdr/</guid>
+      <title>Codex</title>
+      <link>https://yukihane.github.io/tags/codex/</link>
+      <pubDate>Thu, 17 Sep 2026 23:36:33 +0900</pubDate>
+      <guid>https://yukihane.github.io/tags/codex/</guid>
       <description></description>
     </item>
     <item>
       <title>Pwsh</title>
       <link>https://yukihane.github.io/tags/pwsh/</link>
-      <pubDate>Sat, 05 Sep 2026 20:38:28 +0900</pubDate>
+      <pubDate>Thu, 17 Sep 2026 23:36:33 +0900</pubDate>
       <guid>https://yukihane.github.io/tags/pwsh/</guid>
       <description></description>
     </item>
     <item>
       <title>Windows</title>
       <link>https://yukihane.github.io/tags/windows/</link>
-      <pubDate>Sat, 05 Sep 2026 20:38:28 +0900</pubDate>
+      <pubDate>Thu, 17 Sep 2026 23:36:33 +0900</pubDate>
       <guid>https://yukihane.github.io/tags/windows/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Herdr</title>
+      <link>https://yukihane.github.io/tags/herdr/</link>
+      <pubDate>Sat, 05 Sep 2026 20:38:28 +0900</pubDate>
+      <guid>https://yukihane.github.io/tags/herdr/</guid>
       <description></description>
     </item>
     <item>
@@ -700,13 +707,6 @@
       <link>https://yukihane.github.io/tags/mac/</link>
       <pubDate>Wed, 16 Jan 2019 19:58:26 +0000</pubDate>
       <guid>https://yukihane.github.io/tags/mac/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Azure</title>
-      <link>https://yukihane.github.io/tags/azure/</link>
-      <pubDate>Sat, 29 Sep 2018 19:51:56 +0000</pubDate>
-      <guid>https://yukihane.github.io/tags/azure/</guid>
       <description></description>
     </item>
   </channel>

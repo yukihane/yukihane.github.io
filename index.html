@@ -64,6 +64,19 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202609/17/codex-update-error-on-win/">WindowsのpwshからCodexを更新するとGet-FileHashで失敗する</a></h1>
+					<time>2026/09/17</time>
+					<br><div class="description">
+	
+	<p>Windows ネイティブで Codex を使っていて <code>codex update</code> を実行したところ、次のように失敗しました。</p>
+<pre tabindex="0"><code>iex : 用語 &#39;Get-FileHash&#39; は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前として認識されません。
+</code></pre><p>更新処理は <code>powershell -ExecutionPolicy Bypass -c '...'</code> を実行しており、Codex CLI のダウンロード後に SHA-256 を検証するため <code>Get-FileHash</code> を呼び出しています。このため、これはダウンロード元への一時的な接続エラーそのものではなく、検証コマンドを実行できず更新を中断したエラーです。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202609/17/codex-update-error-on-win/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202609/05/herdr-with-pwsh/">herdrをWindowsで使う場合にはdefault_shellの設定をしよう</a></h1>
 					<time>2026/09/05</time>
 					<br><div class="description">
@@ -257,26 +270,6 @@ herdrをpwshで利用しているのですが、JSONをcatしたときに日本�
 	
 </div>
 					<a class="readmore" href="/blog/202605/20/kotlin-value-class-spring-mvc-binding/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202605/20/kotlin-default-arg-spring-aop-npe/">Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる</a></h1>
-					<time>2026/05/20</time>
-					<br><div class="description">
-	
-	<h2 id="tldr">TL;DR</h2>
-<ul>
-<li><code>@Transactional</code> 系のアノテーション（Spring AOP のクラスプロキシ）が掛かった Kotlin クラスで、<strong>メソッドのデフォルト引数式が注入フィールドを参照</strong>していると <code>NullPointerException</code> になることがあります。</li>
-<li>原因は「Kotlin のデフォルト引数は <strong>static な合成メソッド <code>xxx$default</code></strong> に展開され、それが Spring AOP プロキシのインターセプトをすり抜ける」ためです。</li>
-<li>同じシグネチャでも <strong>引数を明示的に渡すと再現しません</strong>。そのためテストやコードパスによって出たり出なかったりして気付きにくいです。</li>
-<li>対策はシンプルです。デフォルト引数で注入依存を参照しないこと。必要なら <strong>メソッド本体で <code>val</code> 宣言</strong> するか、オーバーロードで表現します。</li>
-</ul>
-<hr />
-<h2 id="症状">症状</h2>
-<p>ある UseCase をリファクタして、時刻取得を <code>Clock</code> の DI 経由に変えました。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202605/20/kotlin-default-arg-spring-aop-npe/">Read more ⟶</a>
 				</section>
 				
 				

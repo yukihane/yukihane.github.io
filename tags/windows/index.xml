@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Sat, 05 Sep 2026 20:38:28 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 17 Sep 2026 23:36:33 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WindowsのpwshからCodexを更新するとGet-FileHashで失敗する</title>
+      <link>https://yukihane.github.io/blog/202609/17/codex-update-error-on-win/</link>
+      <pubDate>Thu, 17 Sep 2026 23:36:33 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202609/17/codex-update-error-on-win/</guid>
+      <description>&lt;p&gt;Windows ネイティブで Codex を使っていて &lt;code&gt;codex update&lt;/code&gt; を実行したところ、次のように失敗しました。&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;iex : 用語 &amp;#39;Get-FileHash&amp;#39; は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前として認識されません。&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;更新処理は &lt;code&gt;powershell -ExecutionPolicy Bypass -c &#39;...&#39;&lt;/code&gt; を実行しており、Codex CLI のダウンロード後に SHA-256 を検証するため &lt;code&gt;Get-FileHash&lt;/code&gt; を呼び出しています。このため、これはダウンロード元への一時的な接続エラーそのものではなく、検証コマンドを実行できず更新を中断したエラーです。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>herdrをWindowsで使う場合にはdefault_shellの設定をしよう</title>
       <link>https://yukihane.github.io/blog/202609/05/herdr-with-pwsh/</link>
