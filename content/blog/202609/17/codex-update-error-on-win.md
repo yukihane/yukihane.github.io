@@ -2,7 +2,7 @@
 title: "WindowsのpwshからCodexを更新するとGet-FileHashで失敗する"
 date: 2026-09-17T23:36:33+09:00
 tags: ["codex", "windows", "pwsh"]
-draft: true
+draft: false
 ---
 
 Windows ネイティブで Codex を使っていて `codex update` を実行したところ、次のように失敗しました。
