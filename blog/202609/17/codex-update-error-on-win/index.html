@@ -84,56 +84,19 @@ iex : 用語 &#39;Get-FileHash&#39; は、コマンドレット、関数、ス�
 <p>なお、<code>Get-FileHash</code> はダウンロードしたファイルのハッシュを計算するコマンドレットです。<a href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.utility/get-filehash">Microsoft のドキュメント</a>にもあるとおり、ファイルが改変されていないことを確認する用途なので、検証を飛ばすような回避はしない方がよいです。</p>
 <h2 id="対処法">対処法</h2>
 <p>まずは Windows PowerShell を起動して、そこで更新を実行するのが簡単です。<code>pwsh</code> ではなく、スタートメニューの <strong>Windows PowerShell</strong> を起動するか、<code>Win + R</code> から次を実行します。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">powershell</span><span class="p">.</span><span class="py">exe</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>開いた Windows PowerShell で更新します。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">codex</span> <span class="n">update</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>pwsh</code> のターミナル内で完結させたい場合は、更新を実行する前に、そのセッションの <code>PSModulePath</code> だけを削除します。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Remove-Item</span> <span class="n">Env</span><span class="err">:</span><span class="n">PSModulePath</span>
-</span></span><span class="line"><span class="cl"><span class="n">codex</span> <span class="n">update</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>これはユーザー環境変数やシステム環境変数を変更しません。一時的に起動中の <code>pwsh</code> とその子プロセスから <code>PSModulePath</code> を外すだけです。更新が終わったらターミナルを閉じて開き直せば元の環境に戻ります。</p>
+<pre tabindex="0"><code>powershell.exe
+</code></pre><p>開いた Windows PowerShell で更新します。</p>
+<pre tabindex="0"><code>codex update
+</code></pre><p><code>pwsh</code> のターミナル内で完結させたい場合は、更新を実行する前に、そのセッションの <code>PSModulePath</code> だけを削除します。</p>
+<pre tabindex="0"><code>Remove-Item Env:PSModulePath
+codex update
+</code></pre><p>これはユーザー環境変数やシステム環境変数を変更しません。一時的に起動中の <code>pwsh</code> とその子プロセスから <code>PSModulePath</code> を外すだけです。更新が終わったらターミナルを閉じて開き直せば元の環境に戻ります。</p>
 <p>更新前に原因を確認したい場合は、<code>pwsh</code> から次を実行します。<code>Get-FileHash</code> が見つからなければ今回の問題に該当します。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">powershell</span><span class="p">.</span><span class="py">exe</span> <span class="n">-NoProfile</span> <span class="n">-Command</span> <span class="s2">&#34;Get-Command Get-FileHash&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>上記を実行しても Windows PowerShell 単体で <code>Get-FileHash</code> が見つからない場合は、<code>PSModulePath</code> の継承ではなく PowerShell / Windows 側の環境に問題があります。通常の Windows 10 / 11 に含まれる Windows PowerShell 5.1 では利用できるはずなので、PowerShell のバージョンとモジュールパスを確認します。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$PSVersionTable</span><span class="p">.</span><span class="py">PSVersion</span>
-</span></span><span class="line"><span class="cl"><span class="nv">$env:PSModulePath</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="補足">補足</h2>
+<pre tabindex="0"><code>powershell.exe -NoProfile -Command &#34;Get-Command Get-FileHash&#34;
+</code></pre><p>上記を実行しても Windows PowerShell 単体で <code>Get-FileHash</code> が見つからない場合は、<code>PSModulePath</code> の継承ではなく PowerShell / Windows 側の環境に問題があります。通常の Windows 10 / 11 に含まれる Windows PowerShell 5.1 では利用できるはずなので、PowerShell のバージョンとモジュールパスを確認します。</p>
+<pre tabindex="0"><code>$PSVersionTable.PSVersion
+$env:PSModulePath
+</code></pre><h2 id="補足">補足</h2>
 <p>Codex の公式 README では、Windows の standalone installer は既定で <code>releases.openai.com</code> から取得し、利用できない場合は GitHub Releases にフォールバックすると説明されています。エラーログ中の「GitHub Releases から再試行」はこの挙動であり、今回の本体はその後の <code>Get-FileHash</code> エラーでした。</p>
 <p>公式には npm 経由のインストールも案内されているため、standalone installer の問題を避けたい場合は、Node.js を使う運用に切り替える選択肢もあります。ただし、既存の standalone 版との共存でどちらの <code>codex</code> が実行されるか分かりにくくなるため、まずは上記の回避策で standalone 版を更新することにしました。</p>
 <ul>
