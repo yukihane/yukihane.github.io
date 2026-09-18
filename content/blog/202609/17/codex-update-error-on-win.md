@@ -27,19 +27,19 @@ iex : 用語 'Get-FileHash' は、コマンドレット、関数、スクリプ�
 
 まずは Windows PowerShell を起動して、そこで更新を実行するのが簡単です。`pwsh` ではなく、スタートメニューの **Windows PowerShell** を起動するか、`Win + R` から次を実行します。
 
-```powershell
+```
 powershell.exe
 ```
 
 開いた Windows PowerShell で更新します。
 
-```powershell
+```
 codex update
 ```
 
 `pwsh` のターミナル内で完結させたい場合は、更新を実行する前に、そのセッションの `PSModulePath` だけを削除します。
 
-```powershell
+```
 Remove-Item Env:PSModulePath
 codex update
 ```
@@ -48,13 +48,13 @@ codex update
 
 更新前に原因を確認したい場合は、`pwsh` から次を実行します。`Get-FileHash` が見つからなければ今回の問題に該当します。
 
-```powershell
+```
 powershell.exe -NoProfile -Command "Get-Command Get-FileHash"
 ```
 
 上記を実行しても Windows PowerShell 単体で `Get-FileHash` が見つからない場合は、`PSModulePath` の継承ではなく PowerShell / Windows 側の環境に問題があります。通常の Windows 10 / 11 に含まれる Windows PowerShell 5.1 では利用できるはずなので、PowerShell のバージョンとモジュールパスを確認します。
 
-```powershell
+```
 $PSVersionTable.PSVersion
 $env:PSModulePath
 ```
