@@ -64,6 +64,19 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202609/22/codex-cli-save-token/">Codex CLIのサブエージェント待機でトークンを無駄遣いしないための設定</a></h1>
+					<time>2026/09/22</time>
+					<br><div class="description">
+	
+	<p>CodexでAstraを使う際、サブエージェントの完了待ちをしているだけなのに利用枠を消費してしまう、という話を見かけました。</p>
+<p>モデルそのものの消費量だけでなく、Codexが「まだ終わっていないかな？」と短い間隔でモデルを呼び出し直すことも原因になり得る、という話です。<br />
+それなら設定で抑えられるところは抑えておきたい、と思い、Codex CLIの設定を変更しました。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202609/22/codex-cli-save-token/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202609/17/codex-update-error-on-win/">WindowsのpwshからCodexを更新するとGet-FileHashで失敗する</a></h1>
 					<time>2026/09/17</time>
 					<br><div class="description">
@@ -250,26 +263,6 @@ herdrをpwshで利用しているのですが、JSONをcatしたときに日本�
 	
 </div>
 					<a class="readmore" href="/blog/202605/20/current-ai-coding/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202605/20/kotlin-value-class-spring-mvc-binding/">Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる</a></h1>
-					<time>2026/05/20</time>
-					<br><div class="description">
-	
-	<h2 id="tldr">TL;DR</h2>
-<ul>
-<li>Kotlin の <code>@JvmInline value class</code> を <code>@ModelAttribute</code> で受ける data class のプロパティに使うと、リクエスト時に <code>BeanInstantiationException</code> が発生します。</li>
-<li>原因は Kotlin リフレクション API が value class のアンラップ済み型を正しく扱えないバグ（<a href="https://youtrack.jetbrains.com/issue/KT-64097">KT-64097</a>）です。Spring Framework 6.1.0 以降のリフレクションベース（<code>KCallable#callBy</code>）のパラメータ解決と噛み合って表面化します。</li>
-<li>Spring 側はこれを「Kotlin のバグ」として <code>NOT_PLANNED</code> でクローズ済みです（<a href="https://github.com/spring-projects/spring-framework/issues/31698">spring-framework#31698</a>）。フレームワークの修正は期待できません。</li>
-<li>回避策はバインディング方式によって異なります。<code>@ModelAttribute</code> の data class では value class を使わず、<code>UUID</code> 等の素の型で受けて Controller 内で value class に変換するのが安全です。</li>
-</ul>
-<hr />
-<h2 id="value-class-とは">value class とは</h2>
-<p>Kotlin の <code>@JvmInline value class</code> は、1つの値を型安全にラップするための仕組みです。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202605/20/kotlin-value-class-spring-mvc-binding/">Read more ⟶</a>
 				</section>
 				
 				

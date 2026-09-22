@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Thu, 17 Sep 2026 23:36:33 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 22 Sep 2026 15:40:44 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Codex CLIのサブエージェント待機でトークンを無駄遣いしないための設定</title>
+      <link>https://yukihane.github.io/blog/202609/22/codex-cli-save-token/</link>
+      <pubDate>Tue, 22 Sep 2026 15:40:44 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202609/22/codex-cli-save-token/</guid>
+      <description>&lt;p&gt;CodexでAstraを使う際、サブエージェントの完了待ちをしているだけなのに利用枠を消費してしまう、という話を見かけました。&lt;/p&gt;&#xA;&lt;p&gt;モデルそのものの消費量だけでなく、Codexが「まだ終わっていないかな？」と短い間隔でモデルを呼び出し直すことも原因になり得る、という話です。&lt;br /&gt;&#xA;それなら設定で抑えられるところは抑えておきたい、と思い、Codex CLIの設定を変更しました。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>WindowsのpwshからCodexを更新するとGet-FileHashで失敗する</title>
       <link>https://yukihane.github.io/blog/202609/17/codex-update-error-on-win/</link>
@@ -701,13 +708,6 @@
       <pubDate>Mon, 01 Feb 2021 16:38:42 +0000</pubDate>
       <guid>https://yukihane.github.io/blog/202102/02/slf4j-placeholder-throwable/</guid>
       <description>&lt;p&gt;SLF4J の &lt;code&gt;Logger&lt;/code&gt; のメソッドを眺めていると、 &lt;code&gt;Throwable&lt;/code&gt; を引数にとれるのは 他に &lt;code&gt;Marker&lt;/code&gt; と &lt;code&gt;String&lt;/code&gt; メッセージだけを持つものばかりで、プレースホルダを利用したい場合にはどうしたら良いのだろう…と思っていたら、普通にプレースホルダと併用できるようです。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>ガバガバOIDCモックサーバを作る</title>
-      <link>https://yukihane.github.io/blog/202101/30/gava-oidc-idp/</link>
-      <pubDate>Sat, 30 Jan 2021 06:29:06 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202101/30/gava-oidc-idp/</guid>
-      <description>&lt;p&gt;OIDCフローの調査などで本物でないOIDC IdP Mock Serverが欲しくなったので検索してみました。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.google.com/search?q=oidc&amp;#43;mock&amp;#43;server&#34;&gt;世に数多あるよう&lt;/a&gt;に見えたのですが、結構真面目に認証処理してたりして、ちょっとオーバースペックだと感じたので自作することにしました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/yukihane/gava-idp&#34;&gt;gava-idp&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
   </channel>
 </rss>
