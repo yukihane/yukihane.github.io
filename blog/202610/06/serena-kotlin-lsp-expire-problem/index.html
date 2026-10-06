@@ -136,19 +136,10 @@ Serenaのログでも、起動開始から約1秒で失敗していました。<
 <h2 id="対処使うバージョンを最新にする">対処：使うバージョンを最新にする</h2>
 <p>Serenaは、使うKotlin LSPのバージョンを設定で指定できます。<br />
 グローバル設定の <code>~/.serena/serena_config.yml</code> に、次のように書きます。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">ls_specific_settings</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">kotlin</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">kotlin_lsp_version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;263.6379.0&#39;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>最新のバージョンは <a href="https://github.com/Kotlin/kotlin-lsp/releases">Kotlin/kotlin-lsp のリリース一覧</a> で確認できます。<br />
+<pre tabindex="0"><code>ls_specific_settings:
+  kotlin:
+    kotlin_lsp_version: &#39;263.6379.0&#39;
+</code></pre><p>最新のバージョンは <a href="https://github.com/Kotlin/kotlin-lsp/releases">Kotlin/kotlin-lsp のリリース一覧</a> で確認できます。<br />
 今回は <a href="https://github.com/Kotlin/kotlin-lsp/releases/tag/kotlin-lsp%2Fv263.6379.0">v263.6379.0</a>（2026-10-03公開）が最新でした。</p>
 <p>書き換えたら、Claude Codeの <code>/mcp</code> からSerenaを再接続します。<br />
 新しいバージョンは再接続のときに自動でダウンロードされ、<code>~/.serena/language_servers/static/KotlinLanguageServer</code> の下に追加されます。<br />
