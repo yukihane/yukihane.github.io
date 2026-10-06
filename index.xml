@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>ja</language>
     <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Tue, 22 Sep 2026 15:40:44 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2026 14:09:55 +0900</lastBuildDate>
     <atom:link href="https://yukihane.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SerenaのKotlin言語サーバーがビルド期限切れで起動しなくなる問題と対処</title>
+      <link>https://yukihane.github.io/blog/202610/06/serena-kotlin-lsp-expire-problem/</link>
+      <pubDate>Tue, 06 Oct 2026 14:09:55 +0900</pubDate>
+      <guid>https://yukihane.github.io/blog/202610/06/serena-kotlin-lsp-expire-problem/</guid>
+      <description>&lt;p&gt;Claude Codeで &lt;a href=&#34;https://github.com/oraios/serena&#34;&gt;Serena&lt;/a&gt; を使ってKotlinのコードを読み書きしていると、ある日突然ツールがすべて失敗するようになりました。&lt;/p&gt;&#xA;&lt;p&gt;原因は、SerenaがKotlinの解析に使っているJetBrains製のKotlin言語サーバーに &lt;strong&gt;ビルドの有効期限がある&lt;/strong&gt; ことでした。&lt;br /&gt;&#xA;しかも自分の環境では、以前直したはずなのに約1か月後にまた同じ問題が起きたので、原因と対処を記録しておきます。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Codex CLIのサブエージェント待機でトークンを無駄遣いしないための設定</title>
       <link>https://yukihane.github.io/blog/202609/22/codex-cli-save-token/</link>
@@ -701,13 +708,6 @@
       <pubDate>Sun, 07 Mar 2021 01:57:49 +0000</pubDate>
       <guid>https://yukihane.github.io/docs/ubuntu/kindle-for-pc-ubuntu20.04/</guid>
       <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;2021-03-07時点では、 &lt;a href=&#34;https://yukihane.github.io/docs/ubuntu/kindle-for-pc/&#34;&gt;UbuntuでKindle for PCを使う&lt;/a&gt; の方法で Ubuntu20.04 に Kindle for PC をインストールして起動すると、次のようなエラーが出てコンテンツにアクセスできなくなってしまっていました:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Ubuntuで使うKindle for PCのメニュー文字化け解消</title>
-      <link>https://yukihane.github.io/blog/202103/06/kindle-menu-tofu/</link>
-      <pubDate>Sat, 06 Mar 2021 05:21:25 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202103/06/kindle-menu-tofu/</guid>
-      <description>&lt;p&gt;Ubuntuに初回セットアップしてから放置していたのですが、ずっとメニューが文字化け(豆腐表示)になっていたのが気になっていました。&lt;/p&gt;&#xA;&lt;p&gt;この度、目次を使い倒す必要ができたので、改めて調べ直し、UbuntuでKindle for PC使う場合でも文字化けせずに利用できるようになる方法がわかりました。 次のリンクを参照してください。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
