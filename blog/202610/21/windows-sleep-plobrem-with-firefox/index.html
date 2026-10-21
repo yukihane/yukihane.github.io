@@ -99,7 +99,12 @@ ACTIVELOCKSCREEN:
 <pre tabindex="0"><code>SYSTEM:
 [DRIVER] High Definition Audio Device (HDAUDIO\FUNC_01&amp;VEN_10EC&amp;DEV_0892&amp;SUBSYS_18497893&amp;REV_1003\5&amp;2a972a77&amp;0&amp;0001)
 現在 1 つのオーディオ ストリームが使用中です。
-</code></pre><p>何かメディアが画面に表示されたりしているのならまだわかるのですが、特に動画埋め込みファイルなどが表れていなくてもなぜか上記のようになります。</p>
+</code></pre><p>何かメディアが画面に表示されたりしているのならまだわかるのですが、特に動画埋め込みファイルなどが表れていなくてもなぜか上記のようになります。<br />
+ちなみに似たような事象がbugzillaに登録されているようでした:</p>
+<ul>
+<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1984881">x.com causes audio interface to be opened (with PipeWire) despite nothing being played</a></li>
+<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1983044">Twitter/X won&rsquo;t let PC enter sleep mode</a></li>
+</ul>
 <p>そして、この状態でWindowsを放置するとスリープが阻害されます。</p>
 <h2 id="効果があった対処法">効果があった対処法</h2>
 <ul>
