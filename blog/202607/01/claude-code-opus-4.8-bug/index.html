@@ -6,21 +6,21 @@
 この問題は 2026 年 5 月末から報告され始め、7 月に入った現在もまだ修正されていません。自分も何度も遭遇しているので、関連 issue をまとめておきます。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202607/01/claude-code-opus-4.8-bug/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Claude Code &#43; Opus 4.8 で tool call が壊れるバグがいつまで経っても直らない">
-  <meta property="og:description" content="Claude Code で Opus 4.8 (1M context) を使っていると、ツールコールが壊れて処理が止まるバグに頻繁に遭遇します。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Claude Code &#43; Opus 4.8 で tool call が壊れるバグがいつまで経っても直らない">
+	<meta property="og:description" content="Claude Code で Opus 4.8 (1M context) を使っていると、ツールコールが壊れて処理が止まるバグに頻繁に遭遇します。
 この問題は 2026 年 5 月末から報告され始め、7 月に入った現在もまだ修正されていません。自分も何度も遭遇しているので、関連 issue をまとめておきます。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2026-07-01T09:39:21+09:00">
-    <meta property="article:modified_time" content="2026-07-01T09:39:21+09:00">
-    <meta property="article:tag" content="Ai-Coding">
-    <meta property="article:tag" content="Claude-Code">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2026-07-01T09:39:21+09:00">
+		<meta property="article:modified_time" content="2026-07-01T09:39:21+09:00">
+		<meta property="article:tag" content="Ai-Coding">
+		<meta property="article:tag" content="Claude-Code">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Claude Code &#43; Opus 4.8 で tool call が壊れるバグがいつまで経っても直らない">
-  <meta name="twitter:description" content="Claude Code で Opus 4.8 (1M context) を使っていると、ツールコールが壊れて処理が止まるバグに頻繁に遭遇します。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Claude Code &#43; Opus 4.8 で tool call が壊れるバグがいつまで経っても直らない">
+	<meta name="twitter:description" content="Claude Code で Opus 4.8 (1M context) を使っていると、ツールコールが壊れて処理が止まるバグに頻繁に遭遇します。
 この問題は 2026 年 5 月末から報告され始め、7 月に入った現在もまだ修正されていません。自分も何度も遭遇しているので、関連 issue をまとめておきます。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -77,10 +77,12 @@
 <h2 id="症状">症状</h2>
 <p>セッション中に突然、以下のようなエラーが表示されて処理が止まります。</p>
 <blockquote>
-<p>Your tool call was malformed and could not be parsed. Please retry.</p></blockquote>
+<p>Your tool call was malformed and could not be parsed. Please retry.</p>
+</blockquote>
 <p>または、リトライも失敗して完全に止まるパターンもあります。</p>
 <blockquote>
-<p>The model&rsquo;s tool call could not be parsed (retry also failed).</p></blockquote>
+<p>The model&rsquo;s tool call could not be parsed (retry also failed).</p>
+</blockquote>
 <p>ユーザーから見ると、Claude がしばらく考えたあと <strong>何も起こらずに沈黙する</strong> ように見えます。ツールは実行されず、テキストの応答も表示されません。手動で再度プロンプトを送り直す必要があります。</p>
 <h2 id="原因">原因</h2>
 <p>モデルが <code>stop_reason: tool_use</code> で応答を終了しているにもかかわらず、レスポンス中に構造化された <code>tool_use</code> ブロックが含まれていない、というのが直接の原因です。</p>
@@ -100,50 +102,50 @@
 <p>ただし、Opus 4.7 でも 2026-05-20 頃に一時的に同様の問題が発生した報告があります (<a href="https://github.com/anthropics/claude-code/issues/61133">#61133</a>)。この issue では、thinking ブロックのシグネチャをデコードして内部モデル名が <code>claude-quoll-v7-hr-fast-ab-high-p</code> に変わったタイミングと障害発生が一致していることが示されており、サーバーサイドのモデル入れ替えが原因だった可能性があります。この issue は現在 CLOSED になっています。</p>
 <h2 id="関連-issue-一覧">関連 issue 一覧</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Issue</th>
-          <th>タイトル</th>
-          <th>状態</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><a href="https://github.com/anthropics/claude-code/issues/72015">#72015</a></td>
-          <td>Opus 4.8 (1M) が legacy <code>&lt;invoke&gt;</code> XML を出力、長い非 ASCII セッションで自己強化</td>
-          <td>Open</td>
-      </tr>
-      <tr>
-          <td><a href="https://github.com/anthropics/claude-code/issues/64235">#64235</a></td>
-          <td>2026-05-29 以降のリグレッション、トランスクリプトレベルの詳細分析</td>
-          <td>Open</td>
-      </tr>
-      <tr>
-          <td><a href="https://github.com/anthropics/claude-code/issues/63604">#63604</a></td>
-          <td>Opus 4.8 で malformed tool_use、テキストブロックごと破棄される問題</td>
-          <td>Open</td>
-      </tr>
-      <tr>
-          <td><a href="https://github.com/anthropics/claude-code/issues/64658">#64658</a></td>
-          <td>Desktop アプリ (Code タブ) でも再現、CJK テキストとの相関</td>
-          <td>Open</td>
-      </tr>
-      <tr>
-          <td><a href="https://github.com/anthropics/claude-code/issues/63875">#63875</a></td>
-          <td>Windows 環境での報告、大きい引数・特殊文字との相関</td>
-          <td>Open</td>
-      </tr>
-      <tr>
-          <td><a href="https://github.com/anthropics/claude-code/issues/62123">#62123</a></td>
-          <td>Opus 4.7 での多発報告（日本語環境）</td>
-          <td>Open</td>
-      </tr>
-      <tr>
-          <td><a href="https://github.com/anthropics/claude-code/issues/61133">#61133</a></td>
-          <td>Opus 4.7 での発生、内部モデル名変更との相関分析</td>
-          <td>Closed</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Issue</th>
+					<th>タイトル</th>
+					<th>状態</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><a href="https://github.com/anthropics/claude-code/issues/72015">#72015</a></td>
+					<td>Opus 4.8 (1M) が legacy <code>&lt;invoke&gt;</code> XML を出力、長い非 ASCII セッションで自己強化</td>
+					<td>Open</td>
+			</tr>
+			<tr>
+					<td><a href="https://github.com/anthropics/claude-code/issues/64235">#64235</a></td>
+					<td>2026-05-29 以降のリグレッション、トランスクリプトレベルの詳細分析</td>
+					<td>Open</td>
+			</tr>
+			<tr>
+					<td><a href="https://github.com/anthropics/claude-code/issues/63604">#63604</a></td>
+					<td>Opus 4.8 で malformed tool_use、テキストブロックごと破棄される問題</td>
+					<td>Open</td>
+			</tr>
+			<tr>
+					<td><a href="https://github.com/anthropics/claude-code/issues/64658">#64658</a></td>
+					<td>Desktop アプリ (Code タブ) でも再現、CJK テキストとの相関</td>
+					<td>Open</td>
+			</tr>
+			<tr>
+					<td><a href="https://github.com/anthropics/claude-code/issues/63875">#63875</a></td>
+					<td>Windows 環境での報告、大きい引数・特殊文字との相関</td>
+					<td>Open</td>
+			</tr>
+			<tr>
+					<td><a href="https://github.com/anthropics/claude-code/issues/62123">#62123</a></td>
+					<td>Opus 4.7 での多発報告（日本語環境）</td>
+					<td>Open</td>
+			</tr>
+			<tr>
+					<td><a href="https://github.com/anthropics/claude-code/issues/61133">#61133</a></td>
+					<td>Opus 4.7 での発生、内部モデル名変更との相関分析</td>
+					<td>Closed</td>
+			</tr>
+	</tbody>
 </table>
 <h2 id="現状の回避策">現状の回避策</h2>
 <p>確実な回避策はありませんが、以下の対処で発生頻度を下げられる可能性があります。</p>
@@ -200,7 +202,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

@@ -12,20 +12,20 @@
 そんな時に参考になるようなドキュメントを目指して記述しました。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/201805/19/building-java-project/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Building Java Project">
-  <meta property="og:description" content="はじめに 他者が作成したプログラムにちょっと変更を加えて使いたい その言語は未経験だけれど、コードの変更自体は検索したり周辺コードのコピペで何とかなりそう しかし、変更したコードをどうやってビルドすれば良いんだ…？ なんてことがたまにあります。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Building Java Project">
+	<meta property="og:description" content="はじめに 他者が作成したプログラムにちょっと変更を加えて使いたい その言語は未経験だけれど、コードの変更自体は検索したり周辺コードのコピペで何とかなりそう しかし、変更したコードをどうやってビルドすれば良いんだ…？ なんてことがたまにあります。
 そんな時に参考になるようなドキュメントを目指して記述しました。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2018-05-19T19:28:37+00:00">
-    <meta property="article:modified_time" content="2018-05-19T19:28:37+00:00">
-    <meta property="article:tag" content="Java">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2018-05-19T19:28:37+00:00">
+		<meta property="article:modified_time" content="2018-05-19T19:28:37+00:00">
+		<meta property="article:tag" content="Java">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Building Java Project">
-  <meta name="twitter:description" content="はじめに 他者が作成したプログラムにちょっと変更を加えて使いたい その言語は未経験だけれど、コードの変更自体は検索したり周辺コードのコピペで何とかなりそう しかし、変更したコードをどうやってビルドすれば良いんだ…？ なんてことがたまにあります。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Building Java Project">
+	<meta name="twitter:description" content="はじめに 他者が作成したプログラムにちょっと変更を加えて使いたい その言語は未経験だけれど、コードの変更自体は検索したり周辺コードのコピペで何とかなりそう しかし、変更したコードをどうやってビルドすれば良いんだ…？ なんてことがたまにあります。
 そんな時に参考になるようなドキュメントを目指して記述しました。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -117,22 +117,22 @@
 <p>Java では Maven 以外にも同じようにプロジェクト構造を管理するアプリケーションがあります。それぞれルートディレクトリに固有のファイルやディレクトリを作成しますので、そのファイル/ディレクトリを見れば何でプロジェクトが管理されているか分かる、ということになります。<br />
 本ドキュメントの対象外ですが、一例を示します。</p>
 <table>
-  <thead>
-      <tr>
-          <th>ファイル</th>
-          <th>説明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>build.gradle</td>
-          <td><a href="https://ja.wikipedia.org/wiki/Gradle">Gradle</a>管理プロジェクト。Android プログラムの標準はこれ。</td>
-      </tr>
-      <tr>
-          <td>build.xml</td>
-          <td><a href="https://ja.wikipedia.org/wiki/Apache_Ant">Apache Ant</a>管理プロジェクト。Maven が主流になる前のデファクトスタンダード。歴史のあるプロダクトでまだ利用されていることも。</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>ファイル</th>
+					<th>説明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>build.gradle</td>
+					<td><a href="https://ja.wikipedia.org/wiki/Gradle">Gradle</a>管理プロジェクト。Android プログラムの標準はこれ。</td>
+			</tr>
+			<tr>
+					<td>build.xml</td>
+					<td><a href="https://ja.wikipedia.org/wiki/Apache_Ant">Apache Ant</a>管理プロジェクト。Maven が主流になる前のデファクトスタンダード。歴史のあるプロダクトでまだ利用されていることも。</td>
+			</tr>
+	</tbody>
 </table>
 <h2 id="ビルドに必要なアプリケーションをインストールする">ビルドに必要なアプリケーションをインストールする</h2>
 <h3 id="必要な-java-バージョンを調べる">必要な Java バージョンを調べる</h3>
@@ -172,22 +172,22 @@ JRE は実行環境のみで、コンパイラなどを含んでいません。<
 <p>モノによっては次の環境変数を要求するものもあります。何かそれっぽいエラーが出たら本節を思い出して設定してみてください。<br />
 具体的な設定値については検索してください。</p>
 <table>
-  <thead>
-      <tr>
-          <th>環境変数名</th>
-          <th>説明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>JAVA_HOME</code></td>
-          <td>Java インストール場所を設定する</td>
-      </tr>
-      <tr>
-          <td><code>M2_HOME</code></td>
-          <td>Maven インストール場所を設定する(最新版を使用していれば<a href="https://issues.apache.org/jira/browse/MNG-5607">これを要求されることはない</a>はずですが)</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>環境変数名</th>
+					<th>説明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>JAVA_HOME</code></td>
+					<td>Java インストール場所を設定する</td>
+			</tr>
+			<tr>
+					<td><code>M2_HOME</code></td>
+					<td>Maven インストール場所を設定する(最新版を使用していれば<a href="https://issues.apache.org/jira/browse/MNG-5607">これを要求されることはない</a>はずですが)</td>
+			</tr>
+	</tbody>
 </table>
 <h2 id="ビルドする">ビルドする</h2>
 <p>プロジェクトルートディレクトリで次のコマンドを実行します。</p>
@@ -255,7 +255,7 @@ JRE は実行環境のみで、コンパイラなどを含んでいません。<
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

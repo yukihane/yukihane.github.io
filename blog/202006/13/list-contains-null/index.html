@@ -5,26 +5,30 @@
 	<meta name="description" content="List(などのコレクション)が要素に null を含むかどうかの判定に、 contains(null) を利用すると NullPointerException が発生することがあります。
 リファレンスには次のようにあります:
 
-NullPointerException - 指定された要素が null で、このリストが null 要素を許可しない場合(オプション)" />
+NullPointerException - 指定された要素が null で、このリストが null 要素を許可しない場合(オプション)
+—  https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/util/List.html#contains(java.lang.Object)
+" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202006/13/list-contains-null/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="List#contains(null)は使わないほうが良い">
-  <meta property="og:description" content="List(などのコレクション)が要素に null を含むかどうかの判定に、 contains(null) を利用すると NullPointerException が発生することがあります。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="List#contains(null)は使わないほうが良い">
+	<meta property="og:description" content="List(などのコレクション)が要素に null を含むかどうかの判定に、 contains(null) を利用すると NullPointerException が発生することがあります。
 リファレンスには次のようにあります:
-NullPointerException - 指定された要素が null で、このリストが null 要素を許可しない場合(オプション)">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2020-06-13T10:34:19+00:00">
-    <meta property="article:modified_time" content="2020-06-13T10:34:19+00:00">
-    <meta property="article:tag" content="Java">
+NullPointerException - 指定された要素が null で、このリストが null 要素を許可しない場合(オプション)
+— https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/util/List.html#contains(java.lang.Object)">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2020-06-13T10:34:19+00:00">
+		<meta property="article:modified_time" content="2020-06-13T10:34:19+00:00">
+		<meta property="article:tag" content="Java">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="List#contains(null)は使わないほうが良い">
-  <meta name="twitter:description" content="List(などのコレクション)が要素に null を含むかどうかの判定に、 contains(null) を利用すると NullPointerException が発生することがあります。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="List#contains(null)は使わないほうが良い">
+	<meta name="twitter:description" content="List(などのコレクション)が要素に null を含むかどうかの判定に、 contains(null) を利用すると NullPointerException が発生することがあります。
 リファレンスには次のようにあります:
-NullPointerException - 指定された要素が null で、このリストが null 要素を許可しない場合(オプション)">
+NullPointerException - 指定された要素が null で、このリストが null 要素を許可しない場合(オプション)
+— https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/util/List.html#contains(java.lang.Object)">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -79,7 +83,8 @@ NullPointerException - 指定された要素が null で、このリストが nu
 <p>リファレンスには次のようにあります:</p>
 <blockquote>
 <p><code>NullPointerException</code> - 指定された要素が <code>null</code> で、このリストが <code>null</code> 要素を許可しない場合(オプション)</p>
-<p>—  <a href="https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/util/List.html#contains%28java.lang.Object">https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/util/List.html#contains(java.lang.Object</a>)</p></blockquote>
+<p>—  <a href="https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/util/List.html#contains%28java.lang.Object">https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/util/List.html#contains(java.lang.Object</a>)</p>
+</blockquote>
 <p>オプション、とあるが、そういう型は実際に存在するのか、というと、Java9から導入された <code>List.of()</code> メソッドで生成される <a href="https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/util/List.html#unmodifiable">インスタンス(変更不能なリスト)</a>がそれです。 簡単に試せます:</p>
 <pre><code>List&lt;String&gt; list = List.of(&quot;hello&quot;);
 list.contains(null);
@@ -131,7 +136,7 @@ list.contains(null);
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

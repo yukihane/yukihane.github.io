@@ -5,20 +5,20 @@
 	<meta name="description" content="Claude Code の plan mode で実装計画（plan）の承認ダイアログが表示されると、plan の部分しかスクロールできず、それより前の会話に遡れない という問題があります。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202607/14/claude-code-scroll-bug/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Claude Code スクロールの不具合とワークアラウンド">
-  <meta property="og:description" content="Claude Code の plan mode で実装計画（plan）の承認ダイアログが表示されると、plan の部分しかスクロールできず、それより前の会話に遡れない という問題があります。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2026-07-14T23:11:13+09:00">
-    <meta property="article:modified_time" content="2026-07-14T23:11:13+09:00">
-    <meta property="article:tag" content="Ai-Coding">
-    <meta property="article:tag" content="Claude-Code">
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Claude Code スクロールの不具合とワークアラウンド">
+	<meta property="og:description" content="Claude Code の plan mode で実装計画（plan）の承認ダイアログが表示されると、plan の部分しかスクロールできず、それより前の会話に遡れない という問題があります。">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2026-07-14T23:11:13+09:00">
+		<meta property="article:modified_time" content="2026-07-14T23:11:13+09:00">
+		<meta property="article:tag" content="Ai-Coding">
+		<meta property="article:tag" content="Claude-Code">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Claude Code スクロールの不具合とワークアラウンド">
-  <meta name="twitter:description" content="Claude Code の plan mode で実装計画（plan）の承認ダイアログが表示されると、plan の部分しかスクロールできず、それより前の会話に遡れない という問題があります。">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Claude Code スクロールの不具合とワークアラウンド">
+	<meta name="twitter:description" content="Claude Code の plan mode で実装計画（plan）の承認ダイアログが表示されると、plan の部分しかスクロールできず、それより前の会話に遡れない という問題があります。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -85,25 +85,25 @@
 <p>この挙動は <a href="https://github.com/anthropics/claude-code/issues/66026">#66026</a> (Plan mode scrolling broken) として報告されています。また、ダイアログが overflow した場合のスクロール操作がドキュメントに記載されていない問題も <a href="https://github.com/anthropics/claude-code/issues/54162">#54162</a> で指摘されています。</p>
 <h2 id="関連-issue-一覧">関連 issue 一覧</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Issue</th>
-          <th>タイトル</th>
-          <th>状態</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><a href="https://github.com/anthropics/claude-code/issues/66026">#66026</a></td>
-          <td>Plan mode scrolling broken — plan がフォーカスを保持し前の会話に遡れない</td>
-          <td>Open</td>
-      </tr>
-      <tr>
-          <td><a href="https://github.com/anthropics/claude-code/issues/54162">#54162</a></td>
-          <td>ダイアログ overflow 時のスクロール操作がドキュメントに未記載</td>
-          <td>Open</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Issue</th>
+					<th>タイトル</th>
+					<th>状態</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><a href="https://github.com/anthropics/claude-code/issues/66026">#66026</a></td>
+					<td>Plan mode scrolling broken — plan がフォーカスを保持し前の会話に遡れない</td>
+					<td>Open</td>
+			</tr>
+			<tr>
+					<td><a href="https://github.com/anthropics/claude-code/issues/54162">#54162</a></td>
+					<td>ダイアログ overflow 時のスクロール操作がドキュメントに未記載</td>
+					<td>Open</td>
+			</tr>
+	</tbody>
 </table>
 <h2 id="回避策">回避策</h2>
 <h3 id="ctrlo-でトランスクリプトモードに切り替える">Ctrl+O でトランスクリプトモードに切り替える</h3>
@@ -155,7 +155,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

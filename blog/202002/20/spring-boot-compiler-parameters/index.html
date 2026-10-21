@@ -4,25 +4,29 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Spring Bootでは -parameters オプションは有効化されている - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="MyBatisの設定項目として useActualParamName というものがあります。マニュアルの説明によると、
 
-ステートメントの引数を参照する際、メソッドシグネチャで宣言されている名前で参照できるようにします。 このオプションを有効にする場合、プロジェクトを Java 8 （コンパイラオプション -parameters 付き）でコンパイルする必要があります。 (導入されたバージョン: 3.4.1)" />
+ステートメントの引数を参照する際、メソッドシグネチャで宣言されている名前で参照できるようにします。 このオプションを有効にする場合、プロジェクトを Java 8 （コンパイラオプション -parameters 付き）でコンパイルする必要があります。 (導入されたバージョン: 3.4.1)
+—  設定 &gt; settings
+" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202002/20/spring-boot-compiler-parameters/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Spring Bootでは -parameters オプションは有効化されている">
-  <meta property="og:description" content="MyBatisの設定項目として useActualParamName というものがあります。マニュアルの説明によると、
-ステートメントの引数を参照する際、メソッドシグネチャで宣言されている名前で参照できるようにします。 このオプションを有効にする場合、プロジェクトを Java 8 （コンパイラオプション -parameters 付き）でコンパイルする必要があります。 (導入されたバージョン: 3.4.1)">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2020-02-20T06:25:59+00:00">
-    <meta property="article:modified_time" content="2020-02-20T06:25:59+00:00">
-    <meta property="article:tag" content="Spring-Boot">
-    <meta property="article:tag" content="Mybatis">
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Spring Bootでは -parameters オプションは有効化されている">
+	<meta property="og:description" content="MyBatisの設定項目として useActualParamName というものがあります。マニュアルの説明によると、
+ステートメントの引数を参照する際、メソッドシグネチャで宣言されている名前で参照できるようにします。 このオプションを有効にする場合、プロジェクトを Java 8 （コンパイラオプション -parameters 付き）でコンパイルする必要があります。 (導入されたバージョン: 3.4.1)
+— 設定 &gt; settings">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2020-02-20T06:25:59+00:00">
+		<meta property="article:modified_time" content="2020-02-20T06:25:59+00:00">
+		<meta property="article:tag" content="Spring-Boot">
+		<meta property="article:tag" content="Mybatis">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Spring Bootでは -parameters オプションは有効化されている">
-  <meta name="twitter:description" content="MyBatisの設定項目として useActualParamName というものがあります。マニュアルの説明によると、
-ステートメントの引数を参照する際、メソッドシグネチャで宣言されている名前で参照できるようにします。 このオプションを有効にする場合、プロジェクトを Java 8 （コンパイラオプション -parameters 付き）でコンパイルする必要があります。 (導入されたバージョン: 3.4.1)">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Spring Bootでは -parameters オプションは有効化されている">
+	<meta name="twitter:description" content="MyBatisの設定項目として useActualParamName というものがあります。マニュアルの説明によると、
+ステートメントの引数を参照する際、メソッドシグネチャで宣言されている名前で参照できるようにします。 このオプションを有効にする場合、プロジェクトを Java 8 （コンパイラオプション -parameters 付き）でコンパイルする必要があります。 (導入されたバージョン: 3.4.1)
+— 設定 &gt; settings">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -76,16 +80,19 @@
           <p>MyBatisの設定項目として <a href="https://github.com/mybatis/mybatis-3/issues/549#issuecomment-218483088"><code>useActualParamName</code></a> というものがあります。マニュアルの説明によると、</p>
 <blockquote>
 <p>ステートメントの引数を参照する際、メソッドシグネチャで宣言されている名前で参照できるようにします。 このオプションを有効にする場合、プロジェクトを Java 8 （コンパイラオプション -parameters 付き）でコンパイルする必要があります。 (導入されたバージョン: 3.4.1)</p>
-<p>—  <a href="https://mybatis.org/mybatis-3/ja/configuration.html#settings">設定 &gt; settings</a></p></blockquote>
+<p>—  <a href="https://mybatis.org/mybatis-3/ja/configuration.html#settings">設定 &gt; settings</a></p>
+</blockquote>
 <p>もう少し具体的には、</p>
 <blockquote>
 <p>3.4.3 以降では、引数名を指定することによって arg 要素を順不同で記述できるようになりました。引数を名前で指定するためには、各引数に @Param アノテーションを追加するか、プロジェクトを &lsquo;-parameters&rsquo; オプション付きでコンパイルし、useActualParamName に true （デフォルト値です）を設定します。</p>
-<p>—  <a href="https://mybatis.org/mybatis-3/ja/sqlmap-xml.html#constructor">Mapper XML ファイル &gt; constructor</a></p></blockquote>
+<p>—  <a href="https://mybatis.org/mybatis-3/ja/sqlmap-xml.html#constructor">Mapper XML ファイル &gt; constructor</a></p>
+</blockquote>
 <p>とあります。説明されているセクションが期待するものと違うのでわかりにくい…</p>
 <p>ちなみに <code>@Param</code> の意味を調べようと検索すると、説明には次のように書かれており、 <code>useActualParamName</code> という機能があることに気づかないので不親切に感じます。</p>
 <blockquote>
 <p>Mapper メソッドが複数の引数を取る場合、このアノテーションを付加することで各引数を名前で参照できるようになります。アノテーションがない場合、各引数は位置を表す数字で #{param1}, #{param2} のように参照します（RowBounds 引数はカウントしません）。 引数に @Param(&ldquo;person&rdquo;) というアノテーションを付加すると、この引数は #{person} として参照できるようになります。</p>
-<p>—  <a href="https://mybatis.org/mybatis-3/ja/java-api.html#Mapper_.E3.82.A2.E3.83.8E.E3.83.86.E3.83.BC.E3.82.B7.E3.83.A7.E3.83.B3">Java API &gt; Mapper アノテーション</a></p></blockquote>
+<p>—  <a href="https://mybatis.org/mybatis-3/ja/java-api.html#Mapper_.E3.82.A2.E3.83.8E.E3.83.86.E3.83.BC.E3.82.B7.E3.83.A7.E3.83.B3">Java API &gt; Mapper アノテーション</a></p>
+</blockquote>
 <p>閑話休題。 この <code>useActualParamName</code> は引用部にある通りデフォルトで <code>true</code> ですが、実際に使うには <code>-parameters</code> オプション付きでコンパイルする必要があります。 この <code>-parameters</code> オプションはどうやって付ければ良いのでしょうか？</p>
 <p>…というのを調べようとしたのですが、Spring Boot の場合、 <code>spring-boot-starter-parent</code> で <a href="https://github.com/spring-projects/spring-boot/blob/v2.1.9.RELEASE/spring-boot-project/spring-boot-starters/spring-boot-starter-parent/pom.xml#L78"><code>-parameters</code> オプションが有効になるような設定が為されている</a> ので、明示的に設定しなくても利用できます。</p>
 
@@ -127,7 +134,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

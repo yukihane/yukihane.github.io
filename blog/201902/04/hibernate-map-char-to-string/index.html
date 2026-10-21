@@ -13,21 +13,21 @@
 が、Hibernate の Native query を用いて同じように実行するとCharacter型にマップされます:" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/201902/04/hibernate-map-char-to-string/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Hibernate で CHAR を String にマップする">
-  <meta property="og:description" content="例えば、生 JDBC でchar型カラムのクエリを書くとString型にマップされます
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Hibernate で CHAR を String にマップする">
+	<meta property="og:description" content="例えば、生 JDBC でchar型カラムのクエリを書くとString型にマップされます
 final Connection connection = DriverManager.getConnection(...); final Statement statement = connection.createStatement(); final ResultSet resultSet = statement.executeQuery(&#34;select char_column from foo_table&#34;); // java.lang.String resultSet.getMetaData().getColumnClassName(1); が、Hibernate の Native query を用いて同じように実行するとCharacter型にマップされます:">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2019-02-04T20:01:19+00:00">
-    <meta property="article:modified_time" content="2019-02-04T20:01:19+00:00">
-    <meta property="article:tag" content="Hibernate">
-    <meta property="article:tag" content="Java">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2019-02-04T20:01:19+00:00">
+		<meta property="article:modified_time" content="2019-02-04T20:01:19+00:00">
+		<meta property="article:tag" content="Hibernate">
+		<meta property="article:tag" content="Java">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Hibernate で CHAR を String にマップする">
-  <meta name="twitter:description" content="例えば、生 JDBC でchar型カラムのクエリを書くとString型にマップされます
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Hibernate で CHAR を String にマップする">
+	<meta name="twitter:description" content="例えば、生 JDBC でchar型カラムのクエリを書くとString型にマップされます
 final Connection connection = DriverManager.getConnection(...); final Statement statement = connection.createStatement(); final ResultSet resultSet = statement.executeQuery(&#34;select char_column from foo_table&#34;); // java.lang.String resultSet.getMetaData().getColumnClassName(1); が、Hibernate の Native query を用いて同じように実行するとCharacter型にマップされます:">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -167,7 +167,7 @@ public class H2CustomDialect extends H2Dialect {
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

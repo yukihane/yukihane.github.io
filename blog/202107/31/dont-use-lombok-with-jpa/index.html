@@ -20,25 +20,25 @@ mutability
 @Data(@EqualsAndHashCode) を付与すると hashCode() は自動で算出されるようになりますが、JPA @Entity では上記のような理由で、ハッシュ値が計算できなかったり要件を満たせなくなったりします。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202107/31/dont-use-lombok-with-jpa/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="JPA Entity には Lombok の @Data(@EqualsAndHashCode) を使用すべきでない">
-  <meta property="og:description" content="問題になりそうなキーワード:
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="JPA Entity には Lombok の @Data(@EqualsAndHashCode) を使用すべきでない">
+	<meta property="og:description" content="問題になりそうなキーワード:
 lazy loading
 collection
 循環参照
 mutability
 @Data(@EqualsAndHashCode) を付与すると hashCode() は自動で算出されるようになりますが、JPA @Entity では上記のような理由で、ハッシュ値が計算できなかったり要件を満たせなくなったりします。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2021-07-30T17:57:08+00:00">
-    <meta property="article:modified_time" content="2021-07-30T17:57:08+00:00">
-    <meta property="article:tag" content="Jpa">
-    <meta property="article:tag" content="Lombok">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2021-07-30T17:57:08+00:00">
+		<meta property="article:modified_time" content="2021-07-30T17:57:08+00:00">
+		<meta property="article:tag" content="Jpa">
+		<meta property="article:tag" content="Lombok">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="JPA Entity には Lombok の @Data(@EqualsAndHashCode) を使用すべきでない">
-  <meta name="twitter:description" content="問題になりそうなキーワード:
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="JPA Entity には Lombok の @Data(@EqualsAndHashCode) を使用すべきでない">
+	<meta name="twitter:description" content="問題になりそうなキーワード:
 lazy loading
 collection
 循環参照
@@ -162,7 +162,7 @@ mutability
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

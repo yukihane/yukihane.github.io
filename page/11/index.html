@@ -7,15 +7,15 @@
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<link rel="alternate" type="application/rss+xml" href="https://yukihane.github.io/index.xml" title="発火後忘失" />
 	<meta property="og:url" content="https://yukihane.github.io/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="発火後忘失">
-  <meta property="og:description" content="Fire and Forget blog">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="website">
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="発火後忘失">
+	<meta property="og:description" content="Fire and Forget blog">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="website">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="発火後忘失">
-  <meta name="twitter:description" content="Fire and Forget blog">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="発火後忘失">
+	<meta name="twitter:description" content="Fire and Forget blog">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -23,6 +23,7 @@
 	
 	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
 		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
+	<meta name="generator" content="Hugo 0.168.0">
 </head>
 
 	<body>
@@ -62,6 +63,51 @@
 				<div class="site-description"></div>
 				
 				
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202007/20/spring-security-oauth-2.0-client/">Spring Security OAuth 2.0 Client の auto-configuration</a></h1>
+					<time>2020/07/20</time>
+					<br><div class="description">
+	
+	<ul>
+<li><a href="https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2ClientAutoConfiguration.java"><code>OAuth2ClientAutoConfiguration</code></a></li>
+</ul>
+<p>上記のクラスが <code>Import</code> しているもの(など):</p>
+<ul>
+<li>
+<p><a href="https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2ClientRegistrationRepositoryConfiguration.java"><code>OAuth2ClientRegistrationRepositoryConfiguration</code></a></p>
+<ul>
+<li>
+<p><code>ClientRegistrationRepository</code> bean 定義。</p>
+<ul>
+<li><a href="https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/OAuth2ClientProperties.java"><code>OAuth2ClientProperties</code></a>(<code>spring.security.oauth2.client</code>)プロパティから定義を取得して生成するインメモリレジストリを生成。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2WebSecurityConfiguration.java"><code>OAuth2WebSecurityConfiguration</code></a></p>
+<ul>
+<li>
+<p><a href="https://github.com/spring-projects/spring-security/blob/5.3.3.RELEASE/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/OAuth2AuthorizedClientService.java"><code>OAuth2AuthorizedClientService</code></a> bean 定義。</p>
+</li>
+<li>
+<p><a href="https://github.com/spring-projects/spring-security/blob/5.3.3.RELEASE/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/web/OAuth2AuthorizedClientRepository.java"><code>OAuth2AuthorizedClientRepository</code></a> bean 定義。</p>
+</li>
+<li>
+<p><code>WebSecurityConfigurerAdapter</code> デフォルト実装。</p>
+<ul>
+<li>全てのリクエストに authenticated を要求する。 oauth2Login, oauth2Client 有効化。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>リファレンスリンク:</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202007/20/spring-security-oauth-2.0-client/">Read more ⟶</a>
+				</section>
 				
 				<section class="list-item">
 					<h1 class="title"><a href="/blog/202007/20/webclientbuilder/">`WebClient` の 覚書</a></h1>
@@ -111,7 +157,8 @@
 	
 	<blockquote>
 <p>世の中に認可サーバー製品がたくさんあるので、Spring Securityではサポートしないことを決定しました</p>
-<p>—  <a href="https://qiita.com/suke_masa/items/4e68012e3b8c92822a9a">Spring Security OAuth2はあと数年でサポート終了、その代替策 - Qiita</a></p>&hellip;
+<p>—  <a href="https://qiita.com/suke_masa/items/4e68012e3b8c92822a9a">Spring Security OAuth2はあと数年でサポート終了、その代替策 - Qiita</a></p>
+</blockquote>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202007/19/spring-security-authentication-server/">Read more ⟶</a>
@@ -254,14 +301,14 @@ public interface VehicleInterface extends JpaRepository&lt;vehicle, Long&gt; {
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-java:MyController.java" data-lang="java:MyController.java"><span class="line"><span class="cl"><span class="nd">@RestController</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyController</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyController</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">index</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;hello&#34;</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="設定">設定</h2>
@@ -314,8 +361,8 @@ public interface VehicleInterface extends JpaRepository&lt;vehicle, Long&gt; {
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-java:WebConfig.java" data-lang="java:WebConfig.java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@EnableWebMvc</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WebConfig</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nd">@EnableWebMvc</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WebConfig</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Bean</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">ServletWebServerFactory</span><span class="w"> </span><span class="nf">servletWebServerFactory</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -326,7 +373,7 @@ public interface VehicleInterface extends JpaRepository&lt;vehicle, Long&gt; {
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">DispatcherServlet</span><span class="w"> </span><span class="nf">dispatcherServlet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DispatcherServlet</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
@@ -340,11 +387,11 @@ public interface VehicleInterface extends JpaRepository&lt;vehicle, Long&gt; {
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-java:MyApplication.java" data-lang="java:MyApplication.java"><span class="line"><span class="cl"><span class="nd">@ComponentScan</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyApplication</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyApplication</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">MyApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div>&hellip;
@@ -368,38 +415,6 @@ public interface VehicleInterface extends JpaRepository&lt;vehicle, Long&gt; {
 	
 </div>
 					<a class="readmore" href="/blog/202007/02/difference-between-doller-and-hash/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202006/30/json-datetime-format-changed-on-springboot-2.3/">Spring 2.3.0 で時刻オフセットの書式コロン付き&#43;09:00みたいに変わっとるやん</a></h1>
-					<time>2020/06/30</time>
-					<br><div class="description">
-	
-	<p>正確には jackson-databind 2.11.0 で。</p>
-<ul>
-<li><a href="https://github.com/FasterXML/jackson/wiki/Jackson-Release-2.11#changes-behavior">jackson 2.11 リリースノート</a></li>
-<li><a href="https://github.com/FasterXML/jackson-databind/issues/2643">Change default textual serialization of <code>java.util.Date</code>/<code>Calendar</code> to include colon in timezone offset #2643</a></li>
-</ul>
-<p><a href="https://docs.spring.io/spring-boot/docs/2.2.8.RELEASE/reference/htmlsingle/#dependency-versions-coordinates">このへん</a>見ると分かるけど、Spring Boot 2.2 系列は jackson-databind 2.10.x が採用されていて、 <a href="https://docs.spring.io/spring-boot/docs/2.3.0.RELEASE/reference/htmlsingle/#dependency-versions-coordinates">2.3.0</a> で 2.11.0 が採用されている。</p>
-<p>コード:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Date</span><span class="w"> </span><span class="nf">date</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">();</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>結果(2.2.8):</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202006/30/json-datetime-format-changed-on-springboot-2.3/">Read more ⟶</a>
 				</section>
 				
 				
@@ -433,7 +448,7 @@ public interface VehicleInterface extends JpaRepository&lt;vehicle, Long&gt; {
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

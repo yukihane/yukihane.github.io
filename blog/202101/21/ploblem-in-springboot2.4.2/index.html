@@ -15,22 +15,22 @@ Update OncePerRequestFilter.isAsyncDispatch to use HttpServletRequest.getDispatc
 これにより、 HttpServletRequest をモック化して実行していたテストケースが(想定外のメソッド呼び出しで null を返すため)失敗するようになっていました。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202101/21/ploblem-in-springboot2.4.2/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Spring Boot 2.4.1-&gt;2.4.2アップグレードで発生した問題メモ">
-  <meta property="og:description" content="Spring Framework 5.3.3 で対応された
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Spring Boot 2.4.1-&gt;2.4.2アップグレードで発生した問題メモ">
+	<meta property="og:description" content="Spring Framework 5.3.3 で対応された
 Update OncePerRequestFilter.isAsyncDispatch to use HttpServletRequest.getDispatcherType() #26282
 コード差分 の影響で、 HttpServletRequest#getDispatcherType() メソッドが呼ばれるようになっています。
 これにより、 HttpServletRequest をモック化して実行していたテストケースが(想定外のメソッド呼び出しで null を返すため)失敗するようになっていました。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2021-01-21T15:51:37+00:00">
-    <meta property="article:modified_time" content="2021-01-21T15:51:37+00:00">
-    <meta property="article:tag" content="Spring-Boot">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2021-01-21T15:51:37+00:00">
+		<meta property="article:modified_time" content="2021-01-21T15:51:37+00:00">
+		<meta property="article:tag" content="Spring-Boot">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Spring Boot 2.4.1-&gt;2.4.2アップグレードで発生した問題メモ">
-  <meta name="twitter:description" content="Spring Framework 5.3.3 で対応された
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Spring Boot 2.4.1-&gt;2.4.2アップグレードで発生した問題メモ">
+	<meta name="twitter:description" content="Spring Framework 5.3.3 で対応された
 Update OncePerRequestFilter.isAsyncDispatch to use HttpServletRequest.getDispatcherType() #26282
 コード差分 の影響で、 HttpServletRequest#getDispatcherType() メソッドが呼ばれるようになっています。
 これにより、 HttpServletRequest をモック化して実行していたテストケースが(想定外のメソッド呼び出しで null を返すため)失敗するようになっていました。">
@@ -132,7 +132,7 @@ Update OncePerRequestFilter.isAsyncDispatch to use HttpServletRequest.getDispatc
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

@@ -7,15 +7,15 @@
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<link rel="alternate" type="application/rss+xml" href="https://yukihane.github.io/index.xml" title="発火後忘失" />
 	<meta property="og:url" content="https://yukihane.github.io/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="発火後忘失">
-  <meta property="og:description" content="Fire and Forget blog">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="website">
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="発火後忘失">
+	<meta property="og:description" content="Fire and Forget blog">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="website">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="発火後忘失">
-  <meta name="twitter:description" content="Fire and Forget blog">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="発火後忘失">
+	<meta name="twitter:description" content="Fire and Forget blog">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -23,6 +23,7 @@
 	
 	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
 		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
+	<meta name="generator" content="Hugo 0.168.0">
 </head>
 
 	<body>
@@ -62,6 +63,18 @@
 				<div class="site-description"></div>
 				
 				
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202004/26/gke-getting-started/">GKE(Goole Kubernetes Engine)の始め方</a></h1>
+					<time>2020/04/26</time>
+					<br><div class="description">
+	
+	<p>Kubernetes入門の書籍やドキュメントの中には、Kubernetes環境が既に手元にある前提で書かれているものも多いです。</p>
+<p>そういう場合、どうやってKubernetes環境を調達して良いのかわからず、一つの手段として自前で環境を作る <a href="https://yukihane.github.io/posts/202004/26/kubernetes-the-hard-way-v1.18.2/">Kubernetes the hard way</a> をやってみたのですが、一旦環境を作ってしまうとインスタンスを起動させ続けねばならず(作り直すの面倒だし)、財布に優しくないので断念しました。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202004/26/gke-getting-started/">Read more ⟶</a>
+				</section>
 				
 				<section class="list-item">
 					<h1 class="title"><a href="/blog/202004/26/kubernetes-the-hard-way-v1.18.2/">Kubernetes the hard way を最新版の1.18.2でやってみた</a></h1>
@@ -150,7 +163,8 @@
 <li>&lt;Route component&gt;</li>
 <li>&lt;Route render&gt;</li>
 <li>&lt;Route children&gt; function</li>
-</ul></blockquote>
+</ul>
+</blockquote>
 <p>つまり、引用部の直前にあるこの書き方:</p>&hellip;
 	
 </div>
@@ -180,7 +194,12 @@
 <p>公式っぽいドキュメントとしてはググると次のものが見つかりました:</p>
 <ul>
 <li>
-<p><a href="https://rustwasm.github.io/docs/book/">The Rust and WebAssembly Book</a> (<a href="https://github.com/rustwasm/book">GitHub repo</a>)</p>&hellip;
+<p><a href="https://rustwasm.github.io/docs/book/">The Rust and WebAssembly Book</a> (<a href="https://github.com/rustwasm/book">GitHub repo</a>)</p>
+</li>
+<li>
+<p><a href="https://developer.mozilla.org/ja/docs/WebAssembly/Rust_to_wasm">Rust から WebAssembly にコンパイルする - WebAssembly | MDN</a></p>
+</li>
+</ul>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202004/08/hello-wasm-with-rust/">Read more ⟶</a>
@@ -239,23 +258,6 @@
 					<a class="readmore" href="/blog/202004/02/java-application-frameworks-cheat-sheet/">Read more ⟶</a>
 				</section>
 				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202003/30/skip-maven-enforcer-plugin/">Maven Enforcer Pluginの実行をスキップする</a></h1>
-					<time>2020/03/30</time>
-					<br><div class="description">
-	
-	<p>とあるMavenプロジェクトを <code>mvn clean install</code> しようとしたところ、次のエラーになり正常終了しませんでした。</p>
-<pre><code>[WARNING] Rule 0: org.apache.maven.plugins.enforcer.BannedRepositories failed with message:
-Current maven session contains banned repository urls, please double check your pom or settings.xml:
-central - http://my.internal.repo/xxx
-snapshots - http://my.internal.repo/yyy
-</code></pre>
-<p>原因は <code>mvn help:effective-pom</code> 実行結果を見て理解したのですが、どうも <code>http://</code> だとエラーになるようで、 <code>https://</code> を使え、ということのようです。 公式リファレンスで該当するのはこれでしょうか:</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202003/30/skip-maven-enforcer-plugin/">Read more ⟶</a>
-				</section>
-				
 				
 
 <ul class="pagination">
@@ -287,7 +289,7 @@ snapshots - http://my.internal.repo/yyy
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

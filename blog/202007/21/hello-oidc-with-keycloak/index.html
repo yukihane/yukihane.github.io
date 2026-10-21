@@ -7,23 +7,23 @@ Spring Boot で Spring Security OAuth 2.0 Login / Client を利用する手順�
 また、認可サーバ(IdP)にはローカルで立てたKeycloakを用いますのでそちらのセットアップ手順も記載します。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202007/21/hello-oidc-with-keycloak/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる">
-  <meta property="og:description" content="はじめに Spring Boot で Spring Security OAuth 2.0 Login / Client を利用する手順をまとめます。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる">
+	<meta property="og:description" content="はじめに Spring Boot で Spring Security OAuth 2.0 Login / Client を利用する手順をまとめます。
 また、認可サーバ(IdP)にはローカルで立てたKeycloakを用いますのでそちらのセットアップ手順も記載します。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2020-07-20T18:54:23+00:00">
-    <meta property="article:modified_time" content="2020-07-20T18:54:23+00:00">
-    <meta property="article:tag" content="Spring-Boot">
-    <meta property="article:tag" content="Spring-Security">
-    <meta property="article:tag" content="Oauth">
-    <meta property="article:tag" content="Oidc">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2020-07-20T18:54:23+00:00">
+		<meta property="article:modified_time" content="2020-07-20T18:54:23+00:00">
+		<meta property="article:tag" content="Spring-Boot">
+		<meta property="article:tag" content="Spring-Security">
+		<meta property="article:tag" content="Oauth">
+		<meta property="article:tag" content="Oidc">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる">
-  <meta name="twitter:description" content="はじめに Spring Boot で Spring Security OAuth 2.0 Login / Client を利用する手順をまとめます。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる">
+	<meta name="twitter:description" content="はじめに Spring Boot で Spring Security OAuth 2.0 Login / Client を利用する手順をまとめます。
 また、認可サーバ(IdP)にはローカルで立てたKeycloakを用いますのでそちらのセットアップ手順も記載します。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -97,22 +97,22 @@ Spring Boot で Spring Security OAuth 2.0 Login / Client を利用する手順�
 <p>adminユーザ未作成状態で <a href="http://localhost:8081/auth/">http://localhost:8081/auth/</a> へアクセスすると、adminユーザのユーザ名とパスワード入力を促されます。</p>
 <p>ここではユーザ名、パスワードとも <code>admin</code> とすることにします。</p>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Username</td>
-          <td>admin</td>
-      </tr>
-      <tr>
-          <td>Password</td>
-          <td>admin</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Username</td>
+					<td>admin</td>
+			</tr>
+			<tr>
+					<td>Password</td>
+					<td>admin</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Create</strong> ボタンを押すと上記で入力したadminユーザが作成されます。</p>
 <p><a href="http://localhost:8081/auth/admin/">Administration Console</a> リンクを押して次の画面に進みます。</p>
@@ -121,18 +121,18 @@ Spring Boot で Spring Security OAuth 2.0 Login / Client を利用する手順�
 <p>ここにマウスカーソルを合わせると &ldquo;Add realm&rdquo; というボタンが表れるのでそれを押します。そうすると <a href="http://localhost:8081/auth/admin/master/console/#/create/realm">http://localhost:8081/auth/admin/master/console/#/create/realm</a> へ遷移します。</p>
 <p>Nameに <code>myrealm</code> と入力ｋし、 Create ボタンを押します。</p>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Name</td>
-          <td>myrealm</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Name</td>
+					<td>myrealm</td>
+			</tr>
+	</tbody>
 </table>
 <p>作成が完了すると Administration Console 画面に戻ります。 このとき、左上のrealm名画先ほど作成した &ldquo;Myrealm&rdquo; になっていると思います。</p>
 <p>続いてこの画面からユーザを作成します。</p>
@@ -140,53 +140,53 @@ Spring Boot で Spring Security OAuth 2.0 Login / Client を利用する手順�
 <p>画面左のメニュー <a href="http://localhost:8081/auth/admin/master/console/#/realms/myrealm/users">Users</a> を選択し、 &ldquo;Add user&rdquo; ボタンを押します。</p>
 <p>Usernameに <code>myuser</code> を、それ以外の項目も適当に埋め &ldquo;Save&rdquo; ボタンを押します。</p>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Username</td>
-          <td>myuser</td>
-      </tr>
-      <tr>
-          <td>Email</td>
-          <td><a href="mailto:myuser@example.com">myuser@example.com</a></td>
-      </tr>
-      <tr>
-          <td>First Name</td>
-          <td>my-firstname</td>
-      </tr>
-      <tr>
-          <td>Last Name</td>
-          <td>my-lastname</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Username</td>
+					<td>myuser</td>
+			</tr>
+			<tr>
+					<td>Email</td>
+					<td><a href="mailto:myuser@example.com">myuser@example.com</a></td>
+			</tr>
+			<tr>
+					<td>First Name</td>
+					<td>my-firstname</td>
+			</tr>
+			<tr>
+					<td>Last Name</td>
+					<td>my-lastname</td>
+			</tr>
+	</tbody>
 </table>
 <p>ユーザ作成が完了したら、続いてパスワード設定を行います。 画面上部の &ldquo;Credentials&rdquo; タブをクリックして開き、パスワードを設定します。ここではユーザ名と同じ <code>myuser</code> としました。 また、&ldquo;Temporary&quot;を <code>OFF</code> にしておきます(ONだと初回ログイン時パスワード変更を求められます)。</p>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Password</td>
-          <td>myuser</td>
-      </tr>
-      <tr>
-          <td>Password Confirmation</td>
-          <td>myuser</td>
-      </tr>
-      <tr>
-          <td>Temporary</td>
-          <td>OFF</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Password</td>
+					<td>myuser</td>
+			</tr>
+			<tr>
+					<td>Password Confirmation</td>
+					<td>myuser</td>
+			</tr>
+			<tr>
+					<td>Temporary</td>
+					<td>OFF</td>
+			</tr>
+	</tbody>
 </table>
 <p>そして、 &ldquo;Set Password&rdquo; ボタンを押しパスワード設定完了です。</p>
 <h2 id="クライアント登録">クライアント登録</h2>
@@ -195,46 +195,46 @@ Spring Boot で Spring Security OAuth 2.0 Login / Client を利用する手順�
 <p>続いて画面右の <a href="http://localhost:8081/auth/admin/master/console/#/create/client/myrealm">Create</a>ボタンを押します。</p>
 <p>この画面で次のように入力して、 &ldquo;Save&rdquo; ボタンを押します。</p>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Client ID</td>
-          <td>myclient</td>
-      </tr>
-      <tr>
-          <td>Client Protocol</td>
-          <td>openid-connect (デフォルトのまま)</td>
-      </tr>
-      <tr>
-          <td>Root URL</td>
-          <td>(空のままでOK)</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Client ID</td>
+					<td>myclient</td>
+			</tr>
+			<tr>
+					<td>Client Protocol</td>
+					<td>openid-connect (デフォルトのまま)</td>
+			</tr>
+			<tr>
+					<td>Root URL</td>
+					<td>(空のままでOK)</td>
+			</tr>
+	</tbody>
 </table>
 <p>クライアント作成が完了したら続いてこのクライアント設定画面で 次の通り設定変更し &ldquo;Save&rdquo; ボタンを押します。</p>
 <p>( <code>myspring</code> というのは、後でSpring Bootに設定する <code>registration-id</code> です。詳細は <a href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#oauth2login-sample-redirect-uri">Spring Security リファレンス</a>を &ldquo;/login/oauth2/code&rdquo; で検索してみてください)</p>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Access Type</td>
-          <td>confidential</td>
-      </tr>
-      <tr>
-          <td>Valid Redirect URL</td>
-          <td>http://localhost:8080/login/oauth2/code/myspring</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Access Type</td>
+					<td>confidential</td>
+			</tr>
+			<tr>
+					<td>Valid Redirect URL</td>
+					<td>http://localhost:8080/login/oauth2/code/myspring</td>
+			</tr>
+	</tbody>
 </table>
 <p>上記の通り Access Type を <code>confidential</code> に設定すると、この画面上部に &ldquo;Credentials&rdquo; タブが表示されます。 このタブで client-secret を確認できます。</p>
 <p>これで認可サーバであるKeycloak側の設定は終了です。</p>
@@ -373,7 +373,7 @@ Spring Boot で Spring Security OAuth 2.0 Login / Client を利用する手順�
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

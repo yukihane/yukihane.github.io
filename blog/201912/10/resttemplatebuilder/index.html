@@ -19,19 +19,19 @@ Java の世界の なんちゃらBuilder (StringBuilderとか Lombok のBuilder�
 と思ってたけど、RestTemplateBuilderの状態設定メソッド(このへん)見て気づいた、 設定メソッドの中で new RestTemplateBuilder() やっとるんかーい！" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/201912/10/resttemplatebuilder/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="RestTemplateBuilderに関する覚書">
-  <meta property="og:description" content="RestTemplateBuilder RestTemplate は Spring Framework(spring-web)だけれども RestTemplateBuilder は Spring Boot。 Java の世界の なんちゃらBuilder (StringBuilderとか Lombok のBuilderアノテーションとか、ざっくり総称で Effective Java 版 Builder とでも呼ぶべきか)の使い方は、「まず builder のインスタンスを生成します」から始まるので RestTempalteBuilder もそれだと思っていた。 つまり、このクラスインスタンスは Spring Boot のデフォルト状態でインジェクション可能だけれども、このインジェクションされたRestTempalteBuilderインスタンスのスコープは(Spring のデフォルトであるところの)singleton-scope ではない と思っていた。 だってbuilderインスタンスが singleton-scope なら、あるbeanで builderに設定したものが他所のbeanにも波及しちゃうじゃない。 けどResttemplateAutoConfigurationの Bean 定義部分どう見ても singleton-scope にしか見えない。何か自分の知らない記法(あるいは暗黙的解釈)がなにかまだあるのか？ また 何か Spring マジックが発動しているのか…？ と思ってたけど、RestTemplateBuilderの状態設定メソッド(このへん)見て気づいた、 設定メソッドの中で new RestTemplateBuilder() やっとるんかーい！">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2019-12-10T20:41:15+00:00">
-    <meta property="article:modified_time" content="2019-12-10T20:41:15+00:00">
-    <meta property="article:tag" content="Spring-Boot">
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="RestTemplateBuilderに関する覚書">
+	<meta property="og:description" content="RestTemplateBuilder RestTemplate は Spring Framework(spring-web)だけれども RestTemplateBuilder は Spring Boot。 Java の世界の なんちゃらBuilder (StringBuilderとか Lombok のBuilderアノテーションとか、ざっくり総称で Effective Java 版 Builder とでも呼ぶべきか)の使い方は、「まず builder のインスタンスを生成します」から始まるので RestTempalteBuilder もそれだと思っていた。 つまり、このクラスインスタンスは Spring Boot のデフォルト状態でインジェクション可能だけれども、このインジェクションされたRestTempalteBuilderインスタンスのスコープは(Spring のデフォルトであるところの)singleton-scope ではない と思っていた。 だってbuilderインスタンスが singleton-scope なら、あるbeanで builderに設定したものが他所のbeanにも波及しちゃうじゃない。 けどResttemplateAutoConfigurationの Bean 定義部分どう見ても singleton-scope にしか見えない。何か自分の知らない記法(あるいは暗黙的解釈)がなにかまだあるのか？ また 何か Spring マジックが発動しているのか…？ と思ってたけど、RestTemplateBuilderの状態設定メソッド(このへん)見て気づいた、 設定メソッドの中で new RestTemplateBuilder() やっとるんかーい！">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2019-12-10T20:41:15+00:00">
+		<meta property="article:modified_time" content="2019-12-10T20:41:15+00:00">
+		<meta property="article:tag" content="Spring-Boot">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="RestTemplateBuilderに関する覚書">
-  <meta name="twitter:description" content="RestTemplateBuilder RestTemplate は Spring Framework(spring-web)だけれども RestTemplateBuilder は Spring Boot。 Java の世界の なんちゃらBuilder (StringBuilderとか Lombok のBuilderアノテーションとか、ざっくり総称で Effective Java 版 Builder とでも呼ぶべきか)の使い方は、「まず builder のインスタンスを生成します」から始まるので RestTempalteBuilder もそれだと思っていた。 つまり、このクラスインスタンスは Spring Boot のデフォルト状態でインジェクション可能だけれども、このインジェクションされたRestTempalteBuilderインスタンスのスコープは(Spring のデフォルトであるところの)singleton-scope ではない と思っていた。 だってbuilderインスタンスが singleton-scope なら、あるbeanで builderに設定したものが他所のbeanにも波及しちゃうじゃない。 けどResttemplateAutoConfigurationの Bean 定義部分どう見ても singleton-scope にしか見えない。何か自分の知らない記法(あるいは暗黙的解釈)がなにかまだあるのか？ また 何か Spring マジックが発動しているのか…？ と思ってたけど、RestTemplateBuilderの状態設定メソッド(このへん)見て気づいた、 設定メソッドの中で new RestTemplateBuilder() やっとるんかーい！">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="RestTemplateBuilderに関する覚書">
+	<meta name="twitter:description" content="RestTemplateBuilder RestTemplate は Spring Framework(spring-web)だけれども RestTemplateBuilder は Spring Boot。 Java の世界の なんちゃらBuilder (StringBuilderとか Lombok のBuilderアノテーションとか、ざっくり総称で Effective Java 版 Builder とでも呼ぶべきか)の使い方は、「まず builder のインスタンスを生成します」から始まるので RestTempalteBuilder もそれだと思っていた。 つまり、このクラスインスタンスは Spring Boot のデフォルト状態でインジェクション可能だけれども、このインジェクションされたRestTempalteBuilderインスタンスのスコープは(Spring のデフォルトであるところの)singleton-scope ではない と思っていた。 だってbuilderインスタンスが singleton-scope なら、あるbeanで builderに設定したものが他所のbeanにも波及しちゃうじゃない。 けどResttemplateAutoConfigurationの Bean 定義部分どう見ても singleton-scope にしか見えない。何か自分の知らない記法(あるいは暗黙的解釈)がなにかまだあるのか？ また 何か Spring マジックが発動しているのか…？ と思ってたけど、RestTemplateBuilderの状態設定メソッド(このへん)見て気づいた、 設定メソッドの中で new RestTemplateBuilder() やっとるんかーい！">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -148,7 +148,7 @@ builder.toString();
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

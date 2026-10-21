@@ -7,20 +7,20 @@
 spring-boot-starter-test の JUnit5 対応はこちらの issue:" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/201904/16/migration-to-junit5/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Testing the Web Layer のコードを JUnit Jupiter にマイグレーションしてみる">
-  <meta property="og:description" content="概要 (追記: ここで試したのは2.1.4.RELEASE時点のもの。2.2.0.M3以降では #14736の通り JUnit5 がデフォルトになっている模様。)
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Testing the Web Layer のコードを JUnit Jupiter にマイグレーションしてみる">
+	<meta property="og:description" content="概要 (追記: ここで試したのは2.1.4.RELEASE時点のもの。2.2.0.M3以降では #14736の通り JUnit5 がデフォルトになっている模様。)
 spring-boot-starter-test の JUnit5 対応はこちらの issue:">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2019-04-16T20:06:33+00:00">
-    <meta property="article:modified_time" content="2019-04-16T20:06:33+00:00">
-    <meta property="article:tag" content="Spring-Boot">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2019-04-16T20:06:33+00:00">
+		<meta property="article:modified_time" content="2019-04-16T20:06:33+00:00">
+		<meta property="article:tag" content="Spring-Boot">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Testing the Web Layer のコードを JUnit Jupiter にマイグレーションしてみる">
-  <meta name="twitter:description" content="概要 (追記: ここで試したのは2.1.4.RELEASE時点のもの。2.2.0.M3以降では #14736の通り JUnit5 がデフォルトになっている模様。)
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Testing the Web Layer のコードを JUnit Jupiter にマイグレーションしてみる">
+	<meta name="twitter:description" content="概要 (追記: ここで試したのは2.1.4.RELEASE時点のもの。2.2.0.M3以降では #14736の通り JUnit5 がデフォルトになっている模様。)
 spring-boot-starter-test の JUnit5 対応はこちらの issue:">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -125,7 +125,8 @@ spring-boot-starter-test の JUnit5 対応はこちらの issue:">
 <p><a href="https://qiita.com/gumimin/items/f15eaede3e0e5b7a11a5">Spring Boot + JUnit5 + Kotlin でテストを書く - Qiita</a> などでは本アノテーションを付与する旨記載されているが、Spring Boot のテストに用いるアノテーションには既に設定されているため、自分(テストコード記述者)が明示的に設定する必要は(もはや)ない。</p>
 <p><a href="https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html#boot-features-testing-spring-boot-applications">46.3 Testing Spring Boot Applications</a> - Spring Boot リファレンス:</p>
 <blockquote>
-<p>If you are using JUnit 5, there’s no need to add the equivalent @ExtendWith(SpringExtension.class) as @SpringBootTest and the other @…Test annotations are already annotated with it.</p></blockquote>
+<p>If you are using JUnit 5, there’s no need to add the equivalent @ExtendWith(SpringExtension.class) as @SpringBootTest and the other @…Test annotations are already annotated with it.</p>
+</blockquote>
 <p>及び関連する issue:</p>
 <ul>
 <li><a href="https://github.com/spring-projects/spring-boot/issues/13739">Annotate @…Test annotations with @ExtendWith(SpringExtension.class) #13739</a></li>
@@ -134,7 +135,8 @@ spring-boot-starter-test の JUnit5 対応はこちらの issue:">
 <p><a href="https://qiita.com/thankkingdom/items/f1b600a3b27ee858c448#%E3%83%86%E3%82%B9%E3%83%88%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A3%E3%82%B0%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%9C%E6%88%90">SpringBoot と JUnit5 で MockMvc を使うには - Qiita</a> では</p>
 <blockquote>
 <p>③ テストコンフィグファイルの作成<br />
-これが重要でした。個々のテストクラスで、コンポーネントスキャンしてクラスを参照できるようにしてあげます。</p></blockquote>
+これが重要でした。個々のテストクラスで、コンポーネントスキャンしてクラスを参照できるようにしてあげます。</p>
+</blockquote>
 <p>と書かれているが、今回無くても動作した。</p>
 
         </section>
@@ -173,7 +175,7 @@ spring-boot-starter-test の JUnit5 対応はこちらの issue:">
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

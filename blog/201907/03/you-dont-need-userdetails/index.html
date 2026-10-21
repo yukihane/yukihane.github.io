@@ -7,20 +7,20 @@ Spring Boot の認証を実装してみた系のサンプルでよく UserDetail
 (おそらく当の実装者も理解していない1。)" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/201907/03/you-dont-need-userdetails/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="ちょっと待って！そのUserDetails、本当に必要ですか？">
-  <meta property="og:description" content="概要 Spring Boot の認証を実装してみた系のサンプルでよく UserDetails や UserDetailsService が用いられているが、必然性が不明なものがほとんどである。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="ちょっと待って！そのUserDetails、本当に必要ですか？">
+	<meta property="og:description" content="概要 Spring Boot の認証を実装してみた系のサンプルでよく UserDetails や UserDetailsService が用いられているが、必然性が不明なものがほとんどである。
 (おそらく当の実装者も理解していない1。)">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2019-07-03T21:55:20+00:00">
-    <meta property="article:modified_time" content="2019-07-03T21:55:20+00:00">
-    <meta property="article:tag" content="Spring-Security">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2019-07-03T21:55:20+00:00">
+		<meta property="article:modified_time" content="2019-07-03T21:55:20+00:00">
+		<meta property="article:tag" content="Spring-Security">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="ちょっと待って！そのUserDetails、本当に必要ですか？">
-  <meta name="twitter:description" content="概要 Spring Boot の認証を実装してみた系のサンプルでよく UserDetails や UserDetailsService が用いられているが、必然性が不明なものがほとんどである。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="ちょっと待って！そのUserDetails、本当に必要ですか？">
+	<meta name="twitter:description" content="概要 Spring Boot の認証を実装してみた系のサンプルでよく UserDetails や UserDetailsService が用いられているが、必然性が不明なものがほとんどである。
 (おそらく当の実装者も理解していない1。)">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -102,7 +102,8 @@ Spring Boot の認証を実装してみた系のサンプルでよく UserDetail
 <h1 id="追記-んで結局-userdetails-ってなんなのさ">追記: んで結局 UserDetails ってなんなのさ</h1>
 <p><a href="https://docs.spring.io/spring-security/site/docs/5.1.5.RELEASE/reference/htmlsingle/#tech-userdetailsservice">https://docs.spring.io/spring-security/site/docs/5.1.5.RELEASE/reference/htmlsingle/#tech-userdetailsservice</a></p>
 <blockquote>
-<p>Think of <code>UserDetails</code> as the adapter between your own user database and what Spring Security needs inside the <code>SecurityContextHolder</code>.</p></blockquote>
+<p>Think of <code>UserDetails</code> as the adapter between your own user database and what Spring Security needs inside the <code>SecurityContextHolder</code>.</p>
+</blockquote>
 <p>だって。そんな汎用的に使えるもんかあ？余計なメソッド多すぎじゃね…？</p>
 <hr />
 <p>spring-security-oauth2 を使ったとき principal を完全に独自の型にしていたらフレームワーク内の <a href="https://github.com/spring-projects/spring-security/blob/5.1.5.RELEASE/core/src/main/java/org/springframework/security/authentication/AbstractAuthenticationToken.java#L93"><code>getName()</code>呼び出しで<code>toString()</code>されて困った</a>ので、<code>UserDetails</code>は実装しなくとも<a href="https://github.com/spring-projects/spring-security/blob/5.1.5.RELEASE/core/src/main/java/org/springframework/security/authentication/AbstractAuthenticationToken.java#L86">AuthenticatedPrincipal</a>は実装しといたほうが良さげ。</p>
@@ -151,7 +152,7 @@ Spring Boot の認証を実装してみた系のサンプルでよく UserDetail
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

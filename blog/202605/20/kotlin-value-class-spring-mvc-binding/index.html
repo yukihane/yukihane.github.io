@@ -14,20 +14,20 @@ value class とは
 Kotlin の @JvmInline value class は、1つの値を型安全にラップするための仕組みです。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202605/20/kotlin-value-class-spring-mvc-binding/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる">
-  <meta property="og:description" content="TL;DR Kotlin の @JvmInline value class を @ModelAttribute で受ける data class のプロパティに使うと、リクエスト時に BeanInstantiationException が発生します。 原因は Kotlin リフレクション API が value class のアンラップ済み型を正しく扱えないバグ（KT-64097）です。Spring Framework 6.1.0 以降のリフレクションベース（KCallable#callBy）のパラメータ解決と噛み合って表面化します。 Spring 側はこれを「Kotlin のバグ」として NOT_PLANNED でクローズ済みです（spring-framework#31698）。フレームワークの修正は期待できません。 回避策はバインディング方式によって異なります。@ModelAttribute の data class では value class を使わず、UUID 等の素の型で受けて Controller 内で value class に変換するのが安全です。 value class とは Kotlin の @JvmInline value class は、1つの値を型安全にラップするための仕組みです。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2026-05-20T03:00:00+09:00">
-    <meta property="article:modified_time" content="2026-05-20T03:00:00+09:00">
-    <meta property="article:tag" content="Kotlin">
-    <meta property="article:tag" content="Spring">
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる">
+	<meta property="og:description" content="TL;DR Kotlin の @JvmInline value class を @ModelAttribute で受ける data class のプロパティに使うと、リクエスト時に BeanInstantiationException が発生します。 原因は Kotlin リフレクション API が value class のアンラップ済み型を正しく扱えないバグ（KT-64097）です。Spring Framework 6.1.0 以降のリフレクションベース（KCallable#callBy）のパラメータ解決と噛み合って表面化します。 Spring 側はこれを「Kotlin のバグ」として NOT_PLANNED でクローズ済みです（spring-framework#31698）。フレームワークの修正は期待できません。 回避策はバインディング方式によって異なります。@ModelAttribute の data class では value class を使わず、UUID 等の素の型で受けて Controller 内で value class に変換するのが安全です。 value class とは Kotlin の @JvmInline value class は、1つの値を型安全にラップするための仕組みです。">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2026-05-20T03:00:00+09:00">
+		<meta property="article:modified_time" content="2026-05-20T03:00:00+09:00">
+		<meta property="article:tag" content="Kotlin">
+		<meta property="article:tag" content="Spring">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる">
-  <meta name="twitter:description" content="TL;DR Kotlin の @JvmInline value class を @ModelAttribute で受ける data class のプロパティに使うと、リクエスト時に BeanInstantiationException が発生します。 原因は Kotlin リフレクション API が value class のアンラップ済み型を正しく扱えないバグ（KT-64097）です。Spring Framework 6.1.0 以降のリフレクションベース（KCallable#callBy）のパラメータ解決と噛み合って表面化します。 Spring 側はこれを「Kotlin のバグ」として NOT_PLANNED でクローズ済みです（spring-framework#31698）。フレームワークの修正は期待できません。 回避策はバインディング方式によって異なります。@ModelAttribute の data class では value class を使わず、UUID 等の素の型で受けて Controller 内で value class に変換するのが安全です。 value class とは Kotlin の @JvmInline value class は、1つの値を型安全にラップするための仕組みです。">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる">
+	<meta name="twitter:description" content="TL;DR Kotlin の @JvmInline value class を @ModelAttribute で受ける data class のプロパティに使うと、リクエスト時に BeanInstantiationException が発生します。 原因は Kotlin リフレクション API が value class のアンラップ済み型を正しく扱えないバグ（KT-64097）です。Spring Framework 6.1.0 以降のリフレクションベース（KCallable#callBy）のパラメータ解決と噛み合って表面化します。 Spring 側はこれを「Kotlin のバグ」として NOT_PLANNED でクローズ済みです（spring-framework#31698）。フレームワークの修正は期待できません。 回避策はバインディング方式によって異なります。@ModelAttribute の data class では value class を使わず、UUID 等の素の型で受けて Controller 内で value class に変換するのが安全です。 value class とは Kotlin の @JvmInline value class は、1つの値を型安全にラップするための仕組みです。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -116,9 +116,9 @@ Kotlin の @JvmInline value class は、1つの値を型安全にラップする
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="c1">// ❌ @ModelAttribute の data class に value class を使用 → BeanInstantiationException
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">data</span> <span class="k">class</span> <span class="nc">ListEmployeesRequest</span><span class="p">(</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">data</span> <span class="k">class</span> <span class="nc">ListEmployeesRequest</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">groupId</span><span class="p">:</span> <span class="n">GroupId</span><span class="p">?,</span> <span class="c1">// Kotlin リフレクションが GroupId を正しく解決できない
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">val</span> <span class="py">keyword</span><span class="p">:</span> <span class="n">String</span><span class="p">?,</span>
+</span></span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">keyword</span><span class="p">:</span> <span class="n">String</span><span class="p">?,</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nd">@GetMapping</span><span class="p">(</span><span class="s2">&#34;...&#34;</span><span class="p">)</span>
@@ -135,34 +135,35 @@ Kotlin の @JvmInline value class は、1つの値を型安全にラップする
 <h2 id="バインディング方式ごとの影響">バインディング方式ごとの影響</h2>
 <p>同じ value class でも、どのバインディング経路を通るかで挙動が変わります。</p>
 <table>
-  <thead>
-      <tr>
-          <th>バインディング方式</th>
-          <th>value class</th>
-          <th>備考</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>@ModelAttribute</code>（data class バインディング）</td>
-          <td>❌ 使用不可</td>
-          <td>Kotlin リフレクションのバグにより <code>BeanInstantiationException</code></td>
-      </tr>
-      <tr>
-          <td><code>@PathVariable</code> / <code>@RequestParam</code>（単独パラメータ）</td>
-          <td>⚠️ 要注意</td>
-          <td>基本的に動作するが、value class マングリングの影響を受ける場合がある</td>
-      </tr>
-      <tr>
-          <td><code>@RequestBody</code>（JSON）</td>
-          <td>✅ 使用可能</td>
-          <td>Jackson がデシリアライズを処理するため影響なし</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>バインディング方式</th>
+					<th>value class</th>
+					<th>備考</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>@ModelAttribute</code>（data class バインディング）</td>
+					<td>❌ 使用不可</td>
+					<td>Kotlin リフレクションのバグにより <code>BeanInstantiationException</code></td>
+			</tr>
+			<tr>
+					<td><code>@PathVariable</code> / <code>@RequestParam</code>（単独パラメータ）</td>
+					<td>⚠️ 要注意</td>
+					<td>基本的に動作するが、value class マングリングの影響を受ける場合がある</td>
+			</tr>
+			<tr>
+					<td><code>@RequestBody</code>（JSON）</td>
+					<td>✅ 使用可能</td>
+					<td>Jackson がデシリアライズを処理するため影響なし</td>
+			</tr>
+	</tbody>
 </table>
 <p>ポイントは「<strong>誰がインスタンスを組み立てるか</strong>」です。<code>@RequestBody</code> は Jackson がデシリアライズを担うのでこのバグの影響を受けません。一方 <code>@ModelAttribute</code> の data class バインディングは Kotlin リフレクション経由のため直撃します。</p>
 <blockquote>
-<p><strong>関連</strong>: <code>@ModelAttribute</code> の Kotlin data class バインディングが脆いのは value class に限った話ではありません。以前 <a href="https://yukihane.github.io/blog/202505/04/kotlin-form-binding/">KotlinでformバインディングするときもやっぱりJava Beansにした方が良さそう</a> で、non-null プロパティや primary constructor 宣言だと壊れ、<code>var</code> + nullable + body 宣言（≒ Java Bean 的な書き方）が必要になる挙動を確認しました。根っこは共通で「Kotlin の data class と、リフレクションでインスタンスを組み立てるフレームワークの相性問題」です。その記事の末尾では「<code>@RequestBody</code> / Jackson なら話が変わるはず」と予想していましたが、本記事の影響表（<code>@RequestBody</code> は ✅）がそれを裏付ける形になりました。</p></blockquote>
+<p><strong>関連</strong>: <code>@ModelAttribute</code> の Kotlin data class バインディングが脆いのは value class に限った話ではありません。以前 <a href="https://yukihane.github.io/blog/202505/04/kotlin-form-binding/">KotlinでformバインディングするときもやっぱりJava Beansにした方が良さそう</a> で、non-null プロパティや primary constructor 宣言だと壊れ、<code>var</code> + nullable + body 宣言（≒ Java Bean 的な書き方）が必要になる挙動を確認しました。根っこは共通で「Kotlin の data class と、リフレクションでインスタンスを組み立てるフレームワークの相性問題」です。その記事の末尾では「<code>@RequestBody</code> / Jackson なら話が変わるはず」と予想していましたが、本記事の影響表（<code>@RequestBody</code> は ✅）がそれを裏付ける形になりました。</p>
+</blockquote>
 <hr />
 <h2 id="回避策">回避策</h2>
 <p><code>@ModelAttribute</code> の data class では value class を使わず、<strong>素の型（<code>UUID</code> 等）で受け取り、Controller 内で value class に変換する</strong>のが確実です。</p>
@@ -181,11 +182,11 @@ Kotlin の @JvmInline value class は、1つの値を型安全にラップする
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="c1">// ✅ UUID で受け取り、Controller で value class に変換
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s2">&#34;...&#34;</span><span class="p">)</span>
+</span></span></span><span class="line"><span class="cl"><span class="nd">@GetMapping</span><span class="p">(</span><span class="s2">&#34;...&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="k">fun</span> <span class="nf">list</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@RequestParam</span><span class="p">(</span><span class="n">required</span> <span class="p">=</span> <span class="k">false</span><span class="p">)</span> <span class="n">groupId</span><span class="p">:</span> <span class="n">UUID</span><span class="p">?</span> <span class="p">=</span> <span class="k">null</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// ...
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">query</span> <span class="p">=</span> <span class="n">EmployeeListQuery</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">        <span class="n">filter</span> <span class="p">=</span> <span class="n">EmployeeFilter</span><span class="p">(</span><span class="n">groupId</span> <span class="p">=</span> <span class="n">groupId</span><span class="o">?.</span><span class="n">let</span> <span class="p">{</span> <span class="n">GroupId</span><span class="p">(</span><span class="k">it</span><span class="p">)</span> <span class="p">}),</span>
 </span></span><span class="line"><span class="cl">    <span class="p">)</span>
@@ -205,7 +206,8 @@ Kotlin の @JvmInline value class は、1つの値を型安全にラップする
 <p>value class は型安全とゼロコストを両立する優れた道具ですが、「コンパイル時に別の型へ消える」という性質上、リフレクションを多用するフレームワークの境界では油断できません。どのバインディング経路が誰によってインスタンス化されるかを意識しておきたいところです。</p>
 <hr />
 <blockquote>
-<p><strong>参考</strong>: <a href="https://youtrack.jetbrains.com/issue/KT-64097">KT-64097</a>、<a href="https://github.com/spring-projects/spring-framework/issues/31698">spring-framework#31698</a>、<a href="https://github.com/spring-projects/spring-framework/issues/28638">spring-framework#28638</a></p></blockquote>
+<p><strong>参考</strong>: <a href="https://youtrack.jetbrains.com/issue/KT-64097">KT-64097</a>、<a href="https://github.com/spring-projects/spring-framework/issues/31698">spring-framework#31698</a>、<a href="https://github.com/spring-projects/spring-framework/issues/28638">spring-framework#28638</a></p>
+</blockquote>
 
         </section>
         <div class="post-tags">
@@ -245,7 +247,7 @@ Kotlin の @JvmInline value class は、1つの値を型安全にラップする
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

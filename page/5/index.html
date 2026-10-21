@@ -7,15 +7,15 @@
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<link rel="alternate" type="application/rss+xml" href="https://yukihane.github.io/index.xml" title="発火後忘失" />
 	<meta property="og:url" content="https://yukihane.github.io/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="発火後忘失">
-  <meta property="og:description" content="Fire and Forget blog">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="website">
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="発火後忘失">
+	<meta property="og:description" content="Fire and Forget blog">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="website">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="発火後忘失">
-  <meta name="twitter:description" content="Fire and Forget blog">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="発火後忘失">
+	<meta name="twitter:description" content="Fire and Forget blog">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -23,6 +23,7 @@
 	
 	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
 		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
+	<meta name="generator" content="Hugo 0.168.0">
 </head>
 
 	<body>
@@ -62,6 +63,17 @@
 				<div class="site-description"></div>
 				
 				
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202206/11/maven-wrapper/">Maven Wrapper が Maven3 に正式導入された</a></h1>
+					<time>2022/06/11</time>
+					<br><div class="description">
+	
+	<p>Gradle には <a href="https://docs.gradle.org/current/userguide/gradle_wrapper.html">Gradle Wrapper</a> といって、 ビルドするためのツールである Gradle の該当バージョンがローカルにインストールされていない場合でも、自動で取得してビルド環境をセットアップしてくれる仕組みがあります。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202206/11/maven-wrapper/">Read more ⟶</a>
+				</section>
 				
 				<section class="list-item">
 					<h1 class="title"><a href="/blog/202206/11/value-object/">Value Object(値オブジェクト)についての覚え書き</a></h1>
@@ -160,7 +172,22 @@
 <p><a href="https://kotlinlang.org/docs/no-arg-plugin.html#jpa-support"><code>kotlin-jpa</code></a> compiler plugin を適用する</p>
 </li>
 <li>
-<p><a href="https://kotlinlang.org/docs/all-open-plugin.html"><code>all-open</code></a> compiler plugin を適用し、 <code>@Entity</code>, <code>@Embeddable</code>, <code>@MappedSuperclass</code> を対象に設定する</p>&hellip;
+<p><a href="https://kotlinlang.org/docs/all-open-plugin.html"><code>all-open</code></a> compiler plugin を適用し、 <code>@Entity</code>, <code>@Embeddable</code>, <code>@MappedSuperclass</code> を対象に設定する</p>
+</li>
+</ul>
+</li>
+<li>
+<p>エンティティ定義について</p>
+<ul>
+<li>
+<p>(原則として) <code>data</code> class や <code>val</code> の利用は諦める</p>
+<ul>
+<li>Java で Lombok の <code>@Data</code> や <code>@Value</code> を付与したときと同じような問題がある(<a href="/blog/202107/31/dont-use-lombok-with-jpa/">参考</a>)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202203/12/kotlin-jpa-definition/">Read more ⟶</a>
@@ -177,7 +204,23 @@
 <p>Jackson は引数なしコンストラクタが必要、というblogを目にしましたが、正しくありません。</p>
 <ul>
 <li>
-<p><code>@JsonCreator</code> を付与することでそのコンストラクタを使ってデシリアライズするように指示できます。</p>&hellip;
+<p><code>@JsonCreator</code> を付与することでそのコンストラクタを使ってデシリアライズするように指示できます。</p>
+<ul>
+<li>コンストラクタが1つしか無い場合は省略できます。</li>
+</ul>
+</li>
+<li>
+<p>JSON プロパティと Java フィールドのマッピングは <code>@JsonProperty</code> で行えます。</p>
+<ul>
+<li>
+<p><a href="https://github.com/FasterXML/jackson-modules-java8/tree/2.14/parameter-names"><code>jackson-module-parameter-names</code></a> を利用すると、メソッドシグネチャのパラメータを利用してマッピングできるので、この設定を省略できます。</p>
+<ul>
+<li>ちなみに、この機能は Jackson 3.x では本体(<code>jackson-databind</code>)に統合されるようです。(2.x は Java7 以前もサポート対象にしているので Java8 以降の機能は切り出しているみたいです)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202203/12/jackson-deserialize-by-constructor/">Read more ⟶</a>
@@ -239,7 +282,32 @@
 <p>先にまとめを書いておきます。</p>
 <ul>
 <li>
-<p>(IntelliJ で Java のコードを <code>.kt</code> にペーストすると Kotlin コードに変換してくれるが、コレジャナイ感溢れるコードになったのであまり自動変換コードを信用するのは危険かも)</p>&hellip;
+<p>(IntelliJ で Java のコードを <code>.kt</code> にペーストすると Kotlin コードに変換してくれるが、コレジャナイ感溢れるコードになったのであまり自動変換コードを信用するのは危険かも)</p>
+</li>
+<li>
+<p><code>@Mock</code> や <code>@InjectMocks</code> を付与したフィールドは <code>lateinit var</code></p>
+</li>
+<li>
+<p><code>static</code> メソッドを書きたい場合は <code>companion object</code> で囲って <code>@JvmStatic</code> アノテーションを付与する</p>
+<ul>
+<li>今回の場合は JUnit4 のパラメータ供給メソッド(<code>@Parameters</code>)が該当</li>
+</ul>
+</li>
+<li>
+<p>Kotlin では <code>when</code> は予約語なのでバッククオートで囲う必要がある</p>
+</li>
+<li>
+<p>Kotlin で Mockito の <code>any()</code> を利用すると &ldquo;ArgumentMatchers.any(mViewModel.CountSubscriber::class.java) must not be null&rdquo; みたいなエラーになる</p>
+<ul>
+<li>
+<p>…​らしいが今回のコードでは再現しなかった</p>
+</li>
+<li>
+<p>対処法は、 <a href="https://stackoverflow.com/a/61746568/4506703"><code>any()</code> を定義し直し</a>たり <a href="https://github.com/mockito/mockito/issues/2200"><code>mockito-kotlin</code></a> を利用したりする方法がある</p>
+</li>
+</ul>
+</li>
+</ul>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202201/10/kotlin-junit4/">Read more ⟶</a>
@@ -262,18 +330,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/202201/09/kotlin-maven-pom/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202201/05/kotlin-lombok-intellij-problem/">IntelliJ 最新版(2021.3) で Kotlin と Lombok が共存できない</a></h1>
-					<time>2022/01/05</time>
-					<br><div class="description">
-	
-	<p>[追記 2022-01-17] 今回リリースされた <code>213-1.6.10-release-944-IJ6461.79</code> で修正されたようです(ただし <code>.idea</code> ディレクトリを削除してからインポートし直す必要がありました)。</p>
-<p><a href="https://kotlinlang.org/docs/whatsnew1520.html">Kotlin 1.5.20</a> から <a href="https://kotlinlang.org/docs/lombok.html">Lombok compiler plugin</a> というものが提供されるようになり、 Kotlin から自動生成される getter などにアクセスできるようになりました(※実験的機能なようですが)。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202201/05/kotlin-lombok-intellij-problem/">Read more ⟶</a>
 				</section>
 				
 				
@@ -307,7 +363,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

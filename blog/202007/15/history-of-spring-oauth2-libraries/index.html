@@ -6,22 +6,22 @@
 2020年現在の状況はまた更新されています。次のURLを参照してください。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202007/15/history-of-spring-oauth2-libraries/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Spring SecurityのOAuth2.0関連の歴史を調査し実装してみた">
-  <meta property="og:description" content="Qiita に昔(2019年中頃)書いていた資料を転記し忘れていたので構成を見直してアップロードし直します。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Spring SecurityのOAuth2.0関連の歴史を調査し実装してみた">
+	<meta property="og:description" content="Qiita に昔(2019年中頃)書いていた資料を転記し忘れていたので構成を見直してアップロードし直します。
 2020年現在の状況はまた更新されています。次のURLを参照してください。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2020-07-14T23:47:11+00:00">
-    <meta property="article:modified_time" content="2020-07-14T23:47:11+00:00">
-    <meta property="article:tag" content="Spring-Security">
-    <meta property="article:tag" content="Oauth">
-    <meta property="article:tag" content="Spring-Boot">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2020-07-14T23:47:11+00:00">
+		<meta property="article:modified_time" content="2020-07-14T23:47:11+00:00">
+		<meta property="article:tag" content="Spring-Security">
+		<meta property="article:tag" content="Oauth">
+		<meta property="article:tag" content="Spring-Boot">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Spring SecurityのOAuth2.0関連の歴史を調査し実装してみた">
-  <meta name="twitter:description" content="Qiita に昔(2019年中頃)書いていた資料を転記し忘れていたので構成を見直してアップロードし直します。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Spring SecurityのOAuth2.0関連の歴史を調査し実装してみた">
+	<meta name="twitter:description" content="Qiita に昔(2019年中頃)書いていた資料を転記し忘れていたので構成を見直してアップロードし直します。
 2020年現在の状況はまた更新されています。次のURLを参照してください。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -119,7 +119,8 @@
 <p>リファレンス <a href="https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/html/boot-features-security.html#_authorization_server">30.3.3 Authorization Server</a> では</p>
 <blockquote>
 <p>Currently, Spring Security does not provide support for implementing an OAuth 2.0 Authorization Server. However, this functionality is available from the Spring Security OAuth project, which will eventually be superseded by Spring Security completely.</p>
-<p>—  Spring Boot 2.1.6.RELEASE リファレンス <a href="https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/html/boot-features-security.html#_authorization_server">30.3.3 Authorization Server</a></p></blockquote>
+<p>—  Spring Boot 2.1.6.RELEASE リファレンス <a href="https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/html/boot-features-security.html#_authorization_server">30.3.3 Authorization Server</a></p>
+</blockquote>
 <p>と若干引っかかる説明になっています。 これはどういうことかというと、この節のリンクの何クリックか先にあるドキュメント</p>
 <ul>
 <li><a href="https://github.com/spring-projects/spring-security/wiki/OAuth-2.0-Features-Matrix">OAuth 2.0 Features Matrix</a></li>
@@ -245,7 +246,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

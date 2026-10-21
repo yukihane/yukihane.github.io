@@ -7,21 +7,21 @@
 簡潔にセットアップできたのは良いのですが、実際にはPolyfillを行いたいので babel-loader をベースに再構築することにします。また、自動テスト( jest )も導入します。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202107/11/spring-boot-with-babel/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle) - Polyfillも必要とする場合">
-  <meta property="og:description" content="はじめに 前回 は ts-loader を用いて TypeScript をビルドしました。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle) - Polyfillも必要とする場合">
+	<meta property="og:description" content="はじめに 前回 は ts-loader を用いて TypeScript をビルドしました。
 簡潔にセットアップできたのは良いのですが、実際にはPolyfillを行いたいので babel-loader をベースに再構築することにします。また、自動テスト( jest )も導入します。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2021-07-10T23:53:20+00:00">
-    <meta property="article:modified_time" content="2021-07-10T23:53:20+00:00">
-    <meta property="article:tag" content="Spring-Boot">
-    <meta property="article:tag" content="Javascript">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2021-07-10T23:53:20+00:00">
+		<meta property="article:modified_time" content="2021-07-10T23:53:20+00:00">
+		<meta property="article:tag" content="Spring-Boot">
+		<meta property="article:tag" content="Javascript">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle) - Polyfillも必要とする場合">
-  <meta name="twitter:description" content="はじめに 前回 は ts-loader を用いて TypeScript をビルドしました。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle) - Polyfillも必要とする場合">
+	<meta name="twitter:description" content="はじめに 前回 は ts-loader を用いて TypeScript をビルドしました。
 簡潔にセットアップできたのは良いのですが、実際にはPolyfillを行いたいので babel-loader をベースに再構築することにします。また、自動テスト( jest )も導入します。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -139,7 +139,7 @@ yarn add core-js
 </span></span><span class="line"><span class="cl">        <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">          <span class="nx">exclude</span><span class="o">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">            <span class="c1">// \\ for Windows, \/ for Mac OS and Linux
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="sr">/node_modules[\\\/]core-js/</span><span class="p">,</span>
+</span></span></span><span class="line"><span class="cl">            <span class="sr">/node_modules[\\\/]core-js/</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="sr">/node_modules[\\\/]webpack[\\\/]buildin/</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">          <span class="p">],</span>
 </span></span><span class="line"><span class="cl">          <span class="nx">presets</span><span class="o">:</span> <span class="p">[</span>
@@ -396,7 +396,7 @@ export 'UAParser' (imported as 'UAParser') was not found in 'ua-parser-js' (modu
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

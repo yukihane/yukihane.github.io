@@ -1,713 +1,719 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>発火後忘失</title>
-    <link>https://yukihane.github.io/</link>
-    <description>Recent content on 発火後忘失</description>
-    <generator>Hugo</generator>
-    <language>ja</language>
-    <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Tue, 06 Oct 2026 14:09:55 +0900</lastBuildDate>
-    <atom:link href="https://yukihane.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>SerenaのKotlin言語サーバーがビルド期限切れで起動しなくなる問題と対処</title>
-      <link>https://yukihane.github.io/blog/202610/06/serena-kotlin-lsp-expire-problem/</link>
-      <pubDate>Tue, 06 Oct 2026 14:09:55 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202610/06/serena-kotlin-lsp-expire-problem/</guid>
-      <description>&lt;p&gt;Claude Codeで &lt;a href=&#34;https://github.com/oraios/serena&#34;&gt;Serena&lt;/a&gt; を使ってKotlinのコードを読み書きしていると、ある日突然ツールがすべて失敗するようになりました。&lt;/p&gt;&#xA;&lt;p&gt;原因は、SerenaがKotlinの解析に使っているJetBrains製のKotlin言語サーバーに &lt;strong&gt;ビルドの有効期限がある&lt;/strong&gt; ことでした。&lt;br /&gt;&#xA;しかも自分の環境では、以前直したはずなのに約1か月後にまた同じ問題が起きたので、原因と対処を記録しておきます。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Codex CLIのサブエージェント待機でトークンを無駄遣いしないための設定</title>
-      <link>https://yukihane.github.io/blog/202609/22/codex-cli-save-token/</link>
-      <pubDate>Tue, 22 Sep 2026 15:40:44 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202609/22/codex-cli-save-token/</guid>
-      <description>&lt;p&gt;CodexでAstraを使う際、サブエージェントの完了待ちをしているだけなのに利用枠を消費してしまう、という話を見かけました。&lt;/p&gt;&#xA;&lt;p&gt;モデルそのものの消費量だけでなく、Codexが「まだ終わっていないかな？」と短い間隔でモデルを呼び出し直すことも原因になり得る、という話です。&lt;br /&gt;&#xA;それなら設定で抑えられるところは抑えておきたい、と思い、Codex CLIの設定を変更しました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>WindowsのpwshからCodexを更新するとGet-FileHashで失敗する</title>
-      <link>https://yukihane.github.io/blog/202609/17/codex-update-error-on-win/</link>
-      <pubDate>Thu, 17 Sep 2026 23:36:33 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202609/17/codex-update-error-on-win/</guid>
-      <description>&lt;p&gt;Windows ネイティブで Codex を使っていて &lt;code&gt;codex update&lt;/code&gt; を実行したところ、次のように失敗しました。&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;iex : 用語 &amp;#39;Get-FileHash&amp;#39; は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前として認識されません。&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;更新処理は &lt;code&gt;powershell -ExecutionPolicy Bypass -c &#39;...&#39;&lt;/code&gt; を実行しており、Codex CLI のダウンロード後に SHA-256 を検証するため &lt;code&gt;Get-FileHash&lt;/code&gt; を呼び出しています。このため、これはダウンロード元への一時的な接続エラーそのものではなく、検証コマンドを実行できず更新を中断したエラーです。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>herdrをWindowsで使う場合にはdefault_shellの設定をしよう</title>
-      <link>https://yukihane.github.io/blog/202609/05/herdr-with-pwsh/</link>
-      <pubDate>Sat, 05 Sep 2026 20:38:28 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202609/05/herdr-with-pwsh/</guid>
-      <description>&lt;p&gt;最近WSLでなくWindowsネイティブでcodexなどを使うようになりました。&lt;br /&gt;&#xA;herdrをpwshで利用しているのですが、JSONをcatしたときに日本語が文字化けしているのに気づきました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Ubuntu26.04でlsコマンドの不具合。GNU版を入れ直す</title>
-      <link>https://yukihane.github.io/blog/202607/27/gnu-coreutils-to-ubuntu2604/</link>
-      <pubDate>Mon, 27 Jul 2026 11:42:47 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202607/27/gnu-coreutils-to-ubuntu2604/</guid>
-      <description>&lt;p&gt;Ubuntu 26.04 で &lt;code&gt;ls&lt;/code&gt; を実行したところ、日本語のファイル名がまともに表示されませんでした。&lt;/p&gt;&#xA;&lt;p&gt;原因を調べたところ、Ubuntu 26.04 の &lt;code&gt;ls&lt;/code&gt; は GNU coreutils ではなく &lt;strong&gt;Rust 実装の &lt;a href=&#34;https://github.com/uutils/coreutils&#34;&gt;uutils/coreutils&lt;/a&gt;&lt;/strong&gt; に置き換わっており、そのロケール判定にバグがあることが分かりました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Claude Code に Plan Mode 時質問をしても回答が出力されない(Fableで頻発)</title>
-      <link>https://yukihane.github.io/blog/202607/23/claude-code-cannot-display-answer/</link>
-      <pubDate>Thu, 23 Jul 2026 03:25:24 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202607/23/claude-code-cannot-display-answer/</guid>
-      <description>&lt;p&gt;Claude Code の plan mode で方針を確認させると、AskUserQuestion の選択ダイアログだけが表示され、&lt;strong&gt;その直前にあるはずの説明テキストが画面に一切出ない&lt;/strong&gt; ことがあります。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Claude Code スクロールの不具合とワークアラウンド</title>
-      <link>https://yukihane.github.io/blog/202607/14/claude-code-scroll-bug/</link>
-      <pubDate>Tue, 14 Jul 2026 23:11:13 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202607/14/claude-code-scroll-bug/</guid>
-      <description>&lt;p&gt;Claude Code の plan mode で実装計画（plan）の承認ダイアログが表示されると、&lt;strong&gt;plan の部分しかスクロールできず、それより前の会話に遡れない&lt;/strong&gt; という問題があります。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Claude Code &#43; Opus 4.8 で tool call が壊れるバグがいつまで経っても直らない</title>
-      <link>https://yukihane.github.io/blog/202607/01/claude-code-opus-4.8-bug/</link>
-      <pubDate>Wed, 01 Jul 2026 09:39:21 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202607/01/claude-code-opus-4.8-bug/</guid>
-      <description>&lt;p&gt;Claude Code で Opus 4.8 (1M context) を使っていると、ツールコールが壊れて処理が止まるバグに頻繁に遭遇します。&lt;/p&gt;&#xA;&lt;p&gt;この問題は 2026 年 5 月末から報告され始め、7 月に入った現在もまだ修正されていません。自分も何度も遭遇しているので、関連 issue をまとめておきます。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>git log と git diff での ... (三点ドット) の意味の違い</title>
-      <link>https://yukihane.github.io/blog/202606/13/git-three-dots/</link>
-      <pubDate>Sat, 13 Jun 2026 22:08:20 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202606/13/git-three-dots/</guid>
-      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;git log A...B&lt;/code&gt; と &lt;code&gt;git diff A...B&lt;/code&gt; は、どちらも &lt;code&gt;...&lt;/code&gt;（三点ドット）を使いますが、意味がまったく異なります&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;git log A...B&lt;/code&gt; は &lt;strong&gt;対称差（symmetric difference）&lt;/strong&gt; で、「A にだけあるコミット」と「B にだけあるコミット」の両方を表示します&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;git diff A...B&lt;/code&gt; は &lt;strong&gt;A と B のマージベース（共通祖先）から B までの差分&lt;/strong&gt; を表示します。つまり「B ブランチで何が変わったか」を見るためのものです&lt;/li&gt;&#xA;&lt;li&gt;GitHub の Pull Request 画面で表示される差分は &lt;code&gt;git diff A...B&lt;/code&gt; 相当です&#xA;&lt;ul&gt;&#xA;&lt;li&gt;つまり、みんなが普段欲しい diff は &lt;code&gt;..&lt;/code&gt; でなく &lt;code&gt;...&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;手元で試すためのセットアップ&#34;&gt;手元で試すためのセットアップ&lt;/h2&gt;&#xA;&lt;p&gt;以下のスクリプトで、本記事の図と同じブランチ構造を持つリポジトリを作れます。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>CI の flaky test を追ったら JDK の HashMap が壊れていた</title>
-      <link>https://yukihane.github.io/blog/202606/13/exposed-flaky-test-hashmap-corruption/</link>
-      <pubDate>Sat, 13 Jun 2026 00:00:00 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202606/13/exposed-flaky-test-hashmap-corruption/</guid>
-      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Kotlin + Exposed ORM のプロジェクトで、CI の並列テスト実行時に &lt;code&gt;ClassCastException: LinkedHashMap$Entry cannot be cast to HashMap$TreeNode&lt;/code&gt; が散発的に発生しました。&lt;/li&gt;&#xA;&lt;li&gt;原因は Exposed 内部の &lt;code&gt;IdentifierManagerApi&lt;/code&gt; が &lt;strong&gt;非スレッドセーフな &lt;code&gt;LinkedHashMap&lt;/code&gt;&lt;/strong&gt; を識別子キャッシュに使っており、Kotest の並列実行で同時書き込みが起きて HashMap の内部構造が壊れるためです。&lt;/li&gt;&#xA;&lt;li&gt;これは &lt;a href=&#34;https://github.com/JetBrains/Exposed/issues/1704&#34;&gt;Exposed #1704&lt;/a&gt; として報告済みの既知バグで、&lt;a href=&#34;https://github.com/JetBrains/Exposed/releases/tag/1.3.0&#34;&gt;Exposed 1.3.0&lt;/a&gt; で修正されています。&lt;/li&gt;&#xA;&lt;li&gt;ローカルの単独テスト実行では再現しません。CI のテストレポート（HTML アーティファクト）を取得して初めて完全なスタックトレースが得られ、原因を特定できました。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;症状-無関係な2テストが同じ例外で落ちる&#34;&gt;症状: 無関係な2テストが同じ例外で落ちる&lt;/h2&gt;&#xA;&lt;p&gt;ある PR の CI で、7,000 件超のテスト中 2 件だけが失敗しました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>GitHub PR が「コンフリクトあり」と言うのにローカルではマージできる</title>
-      <link>https://yukihane.github.io/blog/202606/13/github-pr-conflict-criss-cross-merge/</link>
-      <pubDate>Sat, 13 Jun 2026 00:00:00 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202606/13/github-pr-conflict-criss-cross-merge/</guid>
-      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;GitHub の Pull Request が &amp;ldquo;This branch has conflicts&amp;rdquo; と表示するのに、ローカルで &lt;code&gt;git merge&lt;/code&gt; すると何事もなく成功する、ということがあります。&lt;/li&gt;&#xA;&lt;li&gt;原因は &lt;strong&gt;criss-cross merge&lt;/strong&gt;（交差マージ）で &lt;code&gt;merge-base&lt;/code&gt; が複数存在する状態です。&lt;/li&gt;&#xA;&lt;li&gt;ローカルの git（&lt;code&gt;ort&lt;/code&gt; / &lt;code&gt;recursive&lt;/code&gt; ストラテジー）は複数の merge-base を仮想ベースに統合して賢く解決しますが、GitHub のマージエンジンは同じ状況をうまく処理できないことがあります。&lt;/li&gt;&#xA;&lt;li&gt;解決策は &lt;code&gt;git rebase&lt;/code&gt; で履歴を線形化することです。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;状況&#34;&gt;状況&lt;/h2&gt;&#xA;&lt;p&gt;スタックド PR（PR-A の上に PR-B を積む運用）をしていて、次のようなことが起きました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Jackson &#43; Kotlin の nullable な value class が {&#34;value&#34;:&#34;...&#34;} で出力される</title>
-      <link>https://yukihane.github.io/blog/202606/13/kotlin-nullable-value-class-jackson-boxing/</link>
-      <pubDate>Sat, 13 Jun 2026 00:00:00 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202606/13/kotlin-nullable-value-class-jackson-boxing/</guid>
-      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Kotlin の &lt;code&gt;@JvmInline value class&lt;/code&gt; を &lt;strong&gt;nullable&lt;/strong&gt; なプロパティとして持つ data class を &lt;code&gt;jackson-module-kotlin&lt;/code&gt; でシリアライズすると、auto-unwrap が効かず &lt;code&gt;{&amp;quot;value&amp;quot;:&amp;quot;...&amp;quot;}&lt;/code&gt; の boxed object として出力されることがあります。&lt;/li&gt;&#xA;&lt;li&gt;Jackson 2.17 で value class サポートは正式に入りましたが、公式 docs は &lt;strong&gt;&amp;ldquo;there are many edge cases for the &lt;code&gt;value class&lt;/code&gt; that wraps nullable&amp;rdquo;&lt;/strong&gt; と明記しており、完全解決ではありません。&lt;/li&gt;&#xA;&lt;li&gt;推奨される回避策は value class 側の underlying プロパティに &lt;code&gt;@get:JsonValue&lt;/code&gt; を付与することです。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;何が起きたか&#34;&gt;何が起きたか&lt;/h2&gt;&#xA;&lt;p&gt;Kotlin で ID 系の型安全性を担保するために、こういう value class を定義しているプロジェクトは多いと思います。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>react-select の AsyncSelect が IME 確定後に検索を再実行しない</title>
-      <link>https://yukihane.github.io/blog/202606/13/react-select-async-ime-composition/</link>
-      <pubDate>Sat, 13 Jun 2026 00:00:00 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202606/13/react-select-async-ime-composition/</guid>
-      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;react-select の &lt;code&gt;AsyncSelect&lt;/code&gt; は、IME（日本語入力）で文字を確定した後に &lt;code&gt;loadOptions&lt;/code&gt; を再呼び出ししないケースがあります。&lt;/li&gt;&#xA;&lt;li&gt;原因は &lt;code&gt;compositionEnd&lt;/code&gt; 後に &lt;code&gt;inputValue&lt;/code&gt; が内部的に「変化なし」と判定され、検索が再トリガーされないことです。&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;AsyncSelect&lt;/code&gt; の &lt;code&gt;loadOptions&lt;/code&gt; パターンをやめ、通常の &lt;code&gt;Select&lt;/code&gt; + controlled &lt;code&gt;inputValue&lt;/code&gt; + &lt;code&gt;useEffect&lt;/code&gt; による自前検索に切り替えることで解決しました。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;症状&#34;&gt;症状&lt;/h2&gt;&#xA;&lt;p&gt;非同期検索付きのセレクトボックスを &lt;code&gt;react-select&lt;/code&gt; の &lt;code&gt;AsyncSelect&lt;/code&gt; で実装していました。ユーザーがキーワードを入力すると API を呼んで候補を表示する、よくあるパターンです。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>AIコーディング近況</title>
-      <link>https://yukihane.github.io/blog/202605/20/current-ai-coding/</link>
-      <pubDate>Wed, 20 May 2026 03:21:13 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202605/20/current-ai-coding/</guid>
-      <description>&lt;p&gt;2025-10-26 に次の記事を書きました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202510/26/codex-cli-first-impression/&#34;&gt;これまでのAIコーディングの略歴、Codex Cli ファーストインプレッション&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;これは、私のAI利用略歴と、当時は主に Claude Code(仕事)と Codex CLI(プライベート)を使い分けていた、という内容でした。&lt;br /&gt;&#xA;本記事では、その後の近況を記録しておきます。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる</title>
-      <link>https://yukihane.github.io/blog/202605/20/kotlin-value-class-spring-mvc-binding/</link>
-      <pubDate>Wed, 20 May 2026 03:00:00 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202605/20/kotlin-value-class-spring-mvc-binding/</guid>
-      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Kotlin の &lt;code&gt;@JvmInline value class&lt;/code&gt; を &lt;code&gt;@ModelAttribute&lt;/code&gt; で受ける data class のプロパティに使うと、リクエスト時に &lt;code&gt;BeanInstantiationException&lt;/code&gt; が発生します。&lt;/li&gt;&#xA;&lt;li&gt;原因は Kotlin リフレクション API が value class のアンラップ済み型を正しく扱えないバグ（&lt;a href=&#34;https://youtrack.jetbrains.com/issue/KT-64097&#34;&gt;KT-64097&lt;/a&gt;）です。Spring Framework 6.1.0 以降のリフレクションベース（&lt;code&gt;KCallable#callBy&lt;/code&gt;）のパラメータ解決と噛み合って表面化します。&lt;/li&gt;&#xA;&lt;li&gt;Spring 側はこれを「Kotlin のバグ」として &lt;code&gt;NOT_PLANNED&lt;/code&gt; でクローズ済みです（&lt;a href=&#34;https://github.com/spring-projects/spring-framework/issues/31698&#34;&gt;spring-framework#31698&lt;/a&gt;）。フレームワークの修正は期待できません。&lt;/li&gt;&#xA;&lt;li&gt;回避策はバインディング方式によって異なります。&lt;code&gt;@ModelAttribute&lt;/code&gt; の data class では value class を使わず、&lt;code&gt;UUID&lt;/code&gt; 等の素の型で受けて Controller 内で value class に変換するのが安全です。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;value-class-とは&#34;&gt;value class とは&lt;/h2&gt;&#xA;&lt;p&gt;Kotlin の &lt;code&gt;@JvmInline value class&lt;/code&gt; は、1つの値を型安全にラップするための仕組みです。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる</title>
-      <link>https://yukihane.github.io/blog/202605/20/kotlin-default-arg-spring-aop-npe/</link>
-      <pubDate>Wed, 20 May 2026 02:00:00 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202605/20/kotlin-default-arg-spring-aop-npe/</guid>
-      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;@Transactional&lt;/code&gt; 系のアノテーション（Spring AOP のクラスプロキシ）が掛かった Kotlin クラスで、&lt;strong&gt;メソッドのデフォルト引数式が注入フィールドを参照&lt;/strong&gt;していると &lt;code&gt;NullPointerException&lt;/code&gt; になることがあります。&lt;/li&gt;&#xA;&lt;li&gt;原因は「Kotlin のデフォルト引数は &lt;strong&gt;static な合成メソッド &lt;code&gt;xxx$default&lt;/code&gt;&lt;/strong&gt; に展開され、それが Spring AOP プロキシのインターセプトをすり抜ける」ためです。&lt;/li&gt;&#xA;&lt;li&gt;同じシグネチャでも &lt;strong&gt;引数を明示的に渡すと再現しません&lt;/strong&gt;。そのためテストやコードパスによって出たり出なかったりして気付きにくいです。&lt;/li&gt;&#xA;&lt;li&gt;対策はシンプルです。デフォルト引数で注入依存を参照しないこと。必要なら &lt;strong&gt;メソッド本体で &lt;code&gt;val&lt;/code&gt; 宣言&lt;/strong&gt; するか、オーバーロードで表現します。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;症状&#34;&gt;症状&lt;/h2&gt;&#xA;&lt;p&gt;ある UseCase をリファクタして、時刻取得を &lt;code&gt;Clock&lt;/code&gt; の DI 経由に変えました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>江添亮の入門C&#43;&#43; PDF(フォント埋め込み)</title>
-      <link>https://yukihane.github.io/blog/202602/15/cpp_intro/</link>
-      <pubDate>Sun, 15 Feb 2026 18:29:09 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202602/15/cpp_intro/</guid>
-      <description>&lt;p&gt;最近Xで、&amp;ldquo;ゲームプログラマーになりたいならC++は必須&amp;quot;みたいなポストを見かけ、そういや最近のC++ってどうなっているのか知っといてもいいかも、ということでC++を学べる教材を探すことにしました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>WSL2でWindows Terminalがクラッシュするので利用をやめた</title>
-      <link>https://yukihane.github.io/blog/202602/15/wsl-ime-crash/</link>
-      <pubDate>Sun, 15 Feb 2026 15:27:13 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202602/15/wsl-ime-crash/</guid>
-      <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202511/03/windows-terminal-crash/&#34;&gt;Windows Terminalで日本語入力中 頻繁にクラッシュする&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;でも書きましたが、Windows Terminalが旧MSIMEを使っていると頻繁にクラッシュして困ったので新しいMSIMEを使うことにしました。&lt;br /&gt;&#xA;しかし、新しいMSIMEだとShift+Spaceで日英入力切替ができないのでAutoHotKeyを利用して解決を図りました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>OBS Python Scriptingで利用できるPythonバージョンの調べ方</title>
-      <link>https://yukihane.github.io/blog/202511/03/how-to-find-out-python-version-of-obs-scripting/</link>
-      <pubDate>Mon, 03 Nov 2025 09:26:32 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202511/03/how-to-find-out-python-version-of-obs-scripting/</guid>
-      <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://obsproject.com/forum/threads/which-version-of-python-works-on-obs-30-2-3.181517/post-688250&#34;&gt;Which version of python works on Obs 30.2.3 ? | OBS Forums&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;より。&lt;br /&gt;&#xA;&lt;a href=&#34;https://github.com/obsproject/obs-studio/blob/master/shared/obs-scripting/obs-scripting-python-import.c&#34;&gt;shared/obs-scripting/obs-scripting-python-import.c&lt;/a&gt; を見れば良さそうです。&lt;br /&gt;&#xA;この記事を書いている時点ではは 3.12 までのようですね。&lt;br /&gt;&#xA;現在の最新安定版が 3.14 なのでちょっと注意する必要があります。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Windows11でShift&#43;Spaceで日本語/英語切り替えを行えるようにする</title>
-      <link>https://yukihane.github.io/blog/202511/03/shift_space_with_autohotkey/</link>
-      <pubDate>Mon, 03 Nov 2025 05:14:44 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202511/03/shift_space_with_autohotkey/</guid>
-      <description>&lt;p&gt;ひとつ前のエントリーに記載した通り、これまでShift+Spaceで日本語と英語の切り替えを行うために「以前のバージョンのMicrosoft IMEを使う」の設定を有効化していましたが、Windows Terminalとの相性が悪いため無効化せざるを得なくなりました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Windows Terminalで日本語入力中 頻繁にクラッシュする</title>
-      <link>https://yukihane.github.io/blog/202511/03/windows-terminal-crash/</link>
-      <pubDate>Mon, 03 Nov 2025 05:04:49 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202511/03/windows-terminal-crash/</guid>
-      <description>&lt;p&gt;WSL2上の操作をWindows Terminalで行っているのですが、codexを利用していると(?)、頻繁に次のエラーが出ます。&lt;/p&gt;&#xA;&lt;p&gt;「このターミナルでグラフィックス ドライバーの問題が発生し、時間内に回復できませんでした。ターミナルは一時停止されています。」&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>これまでのAIコーディングの略歴、Codex Cli ファーストインプレッション</title>
-      <link>https://yukihane.github.io/blog/202510/26/codex-cli-first-impression/</link>
-      <pubDate>Sun, 26 Oct 2025 13:29:34 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202510/26/codex-cli-first-impression/</guid>
-      <description>&lt;p&gt;最近はもっぱらAIを利用してコーディングしています。&lt;br /&gt;&#xA;が、blogにそういったことをまだ書いたことがなかったなあということで、記録を残そうと思った次第です。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>IntelliJの自動整形でimportのwildcardを使わないようにする</title>
-      <link>https://yukihane.github.io/blog/202508/20/no-use-wildcard-on-intellij/</link>
-      <pubDate>Wed, 20 Aug 2025 19:48:29 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202508/20/no-use-wildcard-on-intellij/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202507/21/status-report/&#34;&gt;前回のエントリー&lt;/a&gt; では休職について記載しましたが、現在、無事職に着くことができています。&lt;/p&gt;&#xA;&lt;p&gt;さて、そのプロジェクトでの話ですが、CIでKotlinコードに対して&lt;a href=&#34;https://pinterest.github.io/ktlint/latest/&#34;&gt;ktlint&lt;/a&gt;でソースコードのチェックを行っています。&lt;br /&gt;&#xA;ルールは(ほぼ)デフォルト設定を用いているのですが、このデフォルト設定とIntelliJ IDEAのデフォルト設定が競合するルールがあります。&lt;br /&gt;&#xA;つまり、IntelliJ IDEAの設定でフォーマットをかけると、CIが失敗してしまいます。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>キーボードを買い替えた: Majestouch Xacro M10SP</title>
-      <link>https://yukihane.github.io/blog/202507/21/keyboard-majestouch-xacro-m10sp/</link>
-      <pubDate>Mon, 21 Jul 2025 11:17:36 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202507/21/keyboard-majestouch-xacro-m10sp/</guid>
-      <description>&lt;p&gt;これまで、 &lt;a href=&#34;https://archisite.co.jp/products/mistel/eol/barocco-md600-en/&#34;&gt;Mistel Barocco MD600&lt;/a&gt; という左右分離式キーボードを利用していたのですが、USBケーブル接続端子の調子が悪くなったのか、タイピングを認識しなくなることが頻繁に発生するようになり、買い換えることにしました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>近況報告と求職(準委任契約)について</title>
-      <link>https://yukihane.github.io/blog/202507/21/status-report/</link>
-      <pubDate>Mon, 21 Jul 2025 10:46:54 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202507/21/status-report/</guid>
-      <description>&lt;h2 id=&#34;近況報告&#34;&gt;近況報告&lt;/h2&gt;&#xA;&lt;p&gt;4月末で前回の仕事の契約が終わり、時間ができたので歯医者に行ったり健康診断に行ったりしていたところ、健康診断で血糖値(正確にはHbA1c)が正常値よりかなり高くなっていることがわかり、1ヶ月入院していました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>「簡単アニメキャラ抜き出しアプリ」をWSL2 Docker環境で動かす</title>
-      <link>https://yukihane.github.io/blog/202506/01/anime-face-detection-on-docker/</link>
-      <pubDate>Sun, 01 Jun 2025 21:22:10 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202506/01/anime-face-detection-on-docker/</guid>
-      <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://trap.jp/post/1362/&#34;&gt;【夏休み自由研究】実例で学ぶ画像処理【Python】 | 東京科学大学デジタル創作同好会tra&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;という記事をたまたま読み、「そういえばひと昔前、アニメ絵の顔検出流行ってたなあ。今どうなってるんだろう」というのが気になって少し調べてみました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>WSL2環境にwslu(wslview)をインストールしよう</title>
-      <link>https://yukihane.github.io/blog/202505/20/install-wslu-on-wsl2/</link>
-      <pubDate>Tue, 20 May 2025 12:50:13 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202505/20/install-wslu-on-wsl2/</guid>
-      <description>&lt;p&gt;久しぶりに Rust の学習を行っています。&lt;/p&gt;&#xA;&lt;p&gt;URL をウェブブラウザーで開くのに &lt;a href=&#34;https://crates.io/crates/open&#34;&gt;open&lt;/a&gt; というクレートがあるのを見つけ、add してみました。&lt;/p&gt;&#xA;&lt;p&gt;依存関係で &lt;a href=&#34;https://crates.io/crates/is-wsl&#34;&gt;is-wsl&lt;/a&gt; というものも追加されているようだったので、おお、ちゃんと WSL2 環境にも対応しているんだな、と思い利用してみたところ…ブラウザーが開かない。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>JPAを積極的に推奨することはやめようと思う</title>
-      <link>https://yukihane.github.io/blog/202505/05/not-recommend-using-jpa/</link>
-      <pubDate>Mon, 05 May 2025 13:35:57 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202505/05/not-recommend-using-jpa/</guid>
-      <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;@Transactional&#xA;public void updatePostTitle(Long postId, String postTitle) {&#xA;⠀&#xA;    Post post = postRepository.findById(postId).orElseThrow();&#xA;⠀&#xA;    post.setTitle(postTitle);&#xA;⠀&#xA;    postRepository.save(post);&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;これはHibernateのメインcontributorであるVlad Mihalceaさんのブログ記事 &lt;a href=&#34;https://vladmihalcea.com/best-spring-data-jparepository/&#34;&gt;The best Spring Data JpaRepository&lt;/a&gt; で &amp;ldquo;the save method anti-pattern&amp;rdquo; という名前の &lt;strong&gt;アンチパターン&lt;/strong&gt; として紹介されているコードですが、今まで携わってきたプロジェクトでこのコードが間違っていると指摘できるプロジェクトはひとつもありませんでした。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Thymeleafのformのバインドにrecord classは使わない方が良さそう</title>
-      <link>https://yukihane.github.io/blog/202505/05/form-cannot-bind-to-record/</link>
-      <pubDate>Mon, 05 May 2025 11:59:23 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202505/05/form-cannot-bind-to-record/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202505/04/kotlin-form-binding/&#34;&gt;前回&lt;/a&gt; のつづき。&lt;/p&gt;&#xA;&lt;p&gt;あれ、そういえばJavaのrecord classも似たような性質だな、ということはrecord classもform bindingには使えないのかな？でもあまりそんな話聞いたこと無いな、どうなんだろう…と思い検索してみたのですが、ヒットしたのは自分の記事でしたｗ&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>KotlinでformバインディングするときもやっぱりJava Beansにした方が良さそう</title>
-      <link>https://yukihane.github.io/blog/202505/04/kotlin-form-binding/</link>
-      <pubDate>Sun, 04 May 2025 14:17:43 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202505/04/kotlin-form-binding/</guid>
-      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202505/01/spring-boot-form-binding/&#34;&gt;前回&lt;/a&gt; の続きになります。&lt;br /&gt;&#xA;前回はJavaでformバインディングしvalidationを行いました。&lt;/p&gt;&#xA;&lt;p&gt;今回は、Kotlinでformバインディングしてみて挙動を確認します。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Spring Boot(Spring MVC)のform送信の仕組みを少しずつ理解する</title>
-      <link>https://yukihane.github.io/blog/202505/01/spring-boot-form-binding/</link>
-      <pubDate>Thu, 01 May 2025 21:19:38 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202505/01/spring-boot-form-binding/</guid>
-      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;Spring Boot + Thymeleaf でのform送信について、公式ドキュメントとしては&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://spring.io/guides/gs/handling-form-submission&#34;&gt;Handling Form Submission&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://spring.io/guides/gs/validating-form-input&#34;&gt;Validating Form Input&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;があります。&lt;/p&gt;&#xA;&lt;p&gt;しかし、これらのドキュメントは初歩的な説明にとどまり、この知識だけで実践に挑むとかなり苦労します。&lt;br /&gt;&#xA;また、最近は静的webページでformをpostするみたいなことをやる機会が少なくなっており、検索しても実例が出てこなかったりロストテクノロジー化しつつあるように思われました。&lt;br /&gt;&#xA;(「ロストテクノロジー化」については、AIに聞けば良い時代になったので今後は問題にはならないかも？)&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>確定申告(2024年分)振り返り</title>
-      <link>https://yukihane.github.io/blog/202503/20/tax/</link>
-      <pubDate>Thu, 20 Mar 2025 12:58:42 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202503/20/tax/</guid>
-      <description>&lt;p&gt;昨年のものはこちら:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202404/06/final-tax-return/&#34;&gt;確定申告(2023年分)振り返り&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;昨年同様、次回に向けて重要だと考える順に書いていきます:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;次回確定申告までにマイナンバーカードの電子証明書期限が切れるので更新が必要&#xA;&lt;ul&gt;&#xA;&lt;li&gt;有効期限は5回目の誕生日。3ヵ月前から更新可能で、そのあたりで『地方公共団体情報システム機構から送付される「マイナンバーカード・電子証明書　有効期限通知書」』なるものが届くらしい。それが必要&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;下にも書いているがfreeeで口座連携ができていないことはしばしば発生する。確定申告直前に確認するのでなく、日ごろからたまにfreeeにログインして確認すべき&lt;/li&gt;&#xA;&lt;li&gt;freee にみずほ銀行の入出金が去年5月から一切連携できておらず焦ったが、&lt;a href=&#34;https://www.mizuhobank.co.jp/direct/about/service/directpassbook/index.html&#34;&gt;みずほダイレクト通帳&lt;/a&gt;で出力したCSVを、freeeの機能「みずほ銀行ダイレクト（API）でダウンロードしたCSV」インポート機能で取り込めた。&#xA;&lt;ul&gt;&#xA;&lt;li&gt;リンク先にある通り、事前の申請などが必要なので注意。自分はかなり昔に契約していたので助かった&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;国民健康保険料はマイナポータル連携できない(国じゃなくて市の管轄だから推進力が無いのだと思う)。これだけまだ郵送されてくる書類を保管しておく必要がある&#xA;&lt;ul&gt;&#xA;&lt;li&gt;去年も書いた&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;2割特例や簡易課税制度を選択しているのならe-taxで簡単に消費税申請できる。freeeでやろうと思うと上位プランで値段が上がってしまうが、別にfreeeでやる必要はない&lt;/li&gt;&#xA;&lt;li&gt;昨年、「消費税簡易課税制度選択届出書を出しておく必要がありそう」と書いていたがすっかり忘れていた。昨年内に届け出が必要だったが、ギリギリ間に合った&lt;/li&gt;&#xA;&lt;li&gt;楽天のふるさと納税の証明書は、今年から即時に発行できるようになっていた&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;例年なかなかやる気が出なくて、今年も結局最終週まで手を付けられなかった。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>WSLは /etc/environment を読まない</title>
-      <link>https://yukihane.github.io/blog/202502/07/etc-environment-wsl/</link>
-      <pubDate>Fri, 07 Feb 2025 05:47:10 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202502/07/etc-environment-wsl/</guid>
-      <description>&lt;p&gt;このエントリーを書くためにWSL2に&lt;a href=&#34;https://gohugo.io/installation/linux/#snap&#34;&gt;Hugoをsnapで&lt;/a&gt;インストールしました。&lt;/p&gt;&#xA;&lt;p&gt;そして &lt;code&gt;hugo&lt;/code&gt; コマンドを実行すると&amp;hellip;そんなものはないと言われてしまいました。&lt;br /&gt;&#xA;PATHが通っていないからかな？と思い &lt;code&gt;/etc/environment&lt;/code&gt; ファイルを見て見たのですが &lt;code&gt;/snap/bin&lt;/code&gt; は初めから設定されている。むむむと思いググったところ次のような記事がヒットしました:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Scoopでpwshのupdateに失敗する</title>
-      <link>https://yukihane.github.io/blog/202412/15/failed-scoop-update-pwsh/</link>
-      <pubDate>Sun, 15 Dec 2024 02:36:06 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202412/15/failed-scoop-update-pwsh/</guid>
-      <description>&lt;p&gt;Scoop で&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&#xA;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;scoop update pwsh&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;p&gt;を実行してもプロセスが起動しているからスキップする&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ERROR The following instances of &amp;#34;pwsh&amp;#34; are still running. Close them and try again.&#xA;&#xA; NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName&#xA; ------    -----      -----     ------      --  -- -----------&#xA;     71    42.12     104.00       0.52   26500   1 pwsh&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;というメッセージが出てアップデートできない事象がずっと続いていました。&lt;br /&gt;&#xA;(ちゃんと読んでいないのですが)公式のGitHubでissueがいくつか建っているようです。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>ランニングで筋肉痛になったと思ったら1ヶ月経っても治らない</title>
-      <link>https://yukihane.github.io/blog/202411/24/muscle-pain-on-running/</link>
-      <pubDate>Sun, 24 Nov 2024 19:31:00 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202411/24/muscle-pain-on-running/</guid>
-      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;ランニングが原因で筋肉痛になっていたと考えていた痛みが1ヶ月以上治まらず整形外科で診察を受けたところランニング障害と診断されました。&lt;br /&gt;&#xA;この症状について、行った対策などを記録していこうと思います。&lt;br /&gt;&#xA;完治するまで更新予定です。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Minecraft Bedrock で Add-on 開発環境を利用して Hello, world!</title>
-      <link>https://yukihane.github.io/blog/202411/23/minecraft-bedrock-programming/</link>
-      <pubDate>Sat, 23 Nov 2024 19:19:20 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202411/23/minecraft-bedrock-programming/</guid>
-      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;Minecraft Bedrock Edition(いわゆる統合版)には、Java EditionでいうところのMODに相当するAdd-onを開発する環境があります。&lt;br /&gt;&#xA;これを利用して、自作プログラミングをMinecraft上で実行する環境をセットアップします。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Centos7 に Homebrew を導入して Puppeteer を実行する</title>
-      <link>https://yukihane.github.io/blog/202411/17/centos7-homebrew/</link>
-      <pubDate>Sat, 16 Nov 2024 12:09:03 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202411/17/centos7-homebrew/</guid>
-      <description>&lt;p&gt;次の回答の検証になります:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://ja.stackoverflow.com/a/100397/2808&#34;&gt;CentOS7 環境で glibc を 2.27 にアップデートすると、どんな影響がありますか？ - スタック・オーバーフロー&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;環境は&lt;a href=&#34;https://yukihane.github.io/blog/202411/16/centos7-environment/&#34;&gt;前回のエントリー&lt;/a&gt;で用意したものです。&lt;/p&gt;&#xA;&lt;h2 id=&#34;セットアップ&#34;&gt;セットアップ&lt;/h2&gt;&#xA;&lt;h3 id=&#34;development-tools-インストール&#34;&gt;Development Tools インストール&lt;/h3&gt;&#xA;&lt;p&gt;あとでHomebrewに要求されるので先にインストールしておきます:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>CentOS7実行環境を整える</title>
-      <link>https://yukihane.github.io/blog/202411/16/centos7-environment/</link>
-      <pubDate>Sat, 16 Nov 2024 05:30:06 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202411/16/centos7-environment/</guid>
-      <description>&lt;p&gt;今さらCentOS7環境で検証する必要が出たので環境を整えました。&lt;br /&gt;&#xA;その時のメモです。&lt;br /&gt;&#xA;ホストOSはWindows11です。&lt;/p&gt;&#xA;&lt;h2 id=&#34;インストール&#34;&gt;インストール&lt;/h2&gt;&#xA;&lt;h3 id=&#34;vagrant&#34;&gt;Vagrant&lt;/h3&gt;&#xA;&lt;p&gt;scoop でインストールしました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Stable Diffusion Installation on Windows11</title>
-      <link>https://yukihane.github.io/blog/202411/12/stable-diffusion-installation/</link>
-      <pubDate>Tue, 12 Nov 2024 21:16:11 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202411/12/stable-diffusion-installation/</guid>
-      <description>&lt;p&gt;(追記: 後で知りましたが、Stability Matrix というパッケージがここに書いた手順よりインストールが簡単そうでした)&lt;/p&gt;&#xA;&lt;p&gt;Windows11へStable Diffusionをインストールしたときの作業ログです。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Windows Terminal を起動するとフォントが無いというエラーが出た</title>
-      <link>https://yukihane.github.io/blog/202411/12/windows-terminal-font-not-found/</link>
-      <pubDate>Tue, 12 Nov 2024 20:59:43 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202411/12/windows-terminal-font-not-found/</guid>
-      <description>&lt;p&gt;久しぶりにWSL2で作業をしようとWindows Terminalを起動するとフォントが存在しない旨のエラーが出ました。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/miiton/Cica/releases&#34;&gt;Cicaフォント&lt;/a&gt;を指定しているのですが、以前はこの設定で起動していたし、フォントをアンインストールした記憶もないし&amp;hellip;と思ったものの検索してみたところ同じような症状の記事が見つかりました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://note.com/reindex/n/n066a0adffe54&#34;&gt;Windows Terminalのフォントがありません問題の回避｜Re*Index. (ot_inc)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://tech.ateruimashin.com/blog/2021/03/windows-terminal-font/&#34;&gt;Windows Terminalで選択されたフォントが見つからない | がぶろぐ&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;取り敢えず対処としては「すべてのユーザーに対してインストール」を実行すれば良さそうなのでフォントファイルを右クリックしたところ、該当メニューが現れませんでした。ちなみにWindows11です。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Spring Boot 開発で SASS や TypeScript を利用するための設定(Vite)</title>
-      <link>https://yukihane.github.io/blog/202410/26/spring-boot-with-vite/</link>
-      <pubDate>Sat, 26 Oct 2024 01:49:44 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202410/26/spring-boot-with-vite/</guid>
-      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;次のエントリーで、Spring Boot &amp;amp; Thymeleaf な開発時に TypeScript を利用する設定を書きました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202107/10/spring-boot-with-typescript/&#34;&gt;Spring Boot と TypeScript で開発するためのプロジェクト設定(Gradle)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202107/11/spring-boot-with-babel/&#34;&gt;Spring Boot と TypeScript で開発するためのプロジェクト設定(Gradle) - Polyfill も必要とする場合&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;今回は Spring Boot &amp;amp; Thymeleaf な開発で、もうちょっとちゃんとモダンなフロントエンド開発環境を統合する手順です。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Markdownでblogを書くようにしました</title>
-      <link>https://yukihane.github.io/blog/202410/20/blog-with-markdown/</link>
-      <pubDate>Sun, 20 Oct 2024 14:59:16 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202410/20/blog-with-markdown/</guid>
-      <description>&lt;p&gt;これまでは Asciidoc を利用してきましたが、もはや Markdown の覇権は揺るぎそうにないので宗旨変えをすることにしました。&lt;/p&gt;&#xA;&lt;p&gt;blog 用の SSG も、Asciidoc のサポートが良いものを選んできて、今の Hugo も、当時人気だった Gatsby と比較して Asciidoc のサポートが厚いという理由で選択しました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Gradleプロジェクトではリソースファイルを編集してもAutomatic Restartしてしまう</title>
-      <link>https://yukihane.github.io/blog/202410/20/spring-boot-devtools-auto-restart/</link>
-      <pubDate>Sun, 20 Oct 2024 14:51:14 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202410/20/spring-boot-devtools-auto-restart/</guid>
-      <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/spring-projects/spring-boot/issues/20136&#34;&gt;Devtools always triggers restart if build with gradle - spring-projects/spring-boot #20136&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/gradle/gradle/issues/12220&#34;&gt;Delegated build process always triggers Spring-Boot devtools restart - gradle/gradle #12220&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;にある通りですが。&lt;/p&gt;&#xA;&lt;p&gt;spring-boot-devtools の説明では、クラスのリロードが必要になった場合それを検知して自動的に再起動するが、Thymeleaf テンプレートや css などの static リソースファイルが変更された場合は再起動しない、とあります。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Buffaloのルーターはもう買わないことにした</title>
-      <link>https://yukihane.github.io/blog/202404/06/buffalo-router/</link>
-      <pubDate>Sat, 06 Apr 2024 17:28:51 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202404/06/buffalo-router/</guid>
-      <description>&lt;p&gt;2023年2月上旬に WSR-6000AX8(&lt;a href=&#34;https://amzn.to/3PQLASI&#34;&gt;Amazon&lt;/a&gt;) というルーターを購入したのですが、高頻度で受信エラーが発生しました。 リモートワークを行っていますのでこのままだと仕事にならない、とサポートに連絡するも特に有効な情報は得られず。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>確定申告(2023年分)振り返り</title>
-      <link>https://yukihane.github.io/blog/202404/06/final-tax-return/</link>
-      <pubDate>Sat, 06 Apr 2024 07:05:50 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202404/06/final-tax-return/</guid>
-      <description>&lt;p&gt;次回に向けて重要だと考える順に書いていきます。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;消費税簡易課税制度選択届出書を出しておく必要がありそう。現在は２割特例が効いている。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6505.htm&#34;&gt;No.6505 簡易課税制度&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Wayland では gimp でスクリーンショットを撮れなくなったり xeyes が追従しなくなったり</title>
-      <link>https://yukihane.github.io/blog/202404/06/losts-on-wayland/</link>
-      <pubDate>Sat, 06 Apr 2024 06:00:24 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202404/06/losts-on-wayland/</guid>
-      <description>&lt;p&gt;セキュリティ上の理由っぽいのですが、最近 Ubuntu でやろうとしてできないことが重なり、あれ？ってなりました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gitlab.gnome.org/GNOME/gimp/-/issues/8510#note_2014569&#34;&gt;Screenshot not capturing &amp;lsquo;snapped&amp;rsquo; window; Screenshot window pops up behind main GIMP window&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;ここで &amp;ldquo;Screenshot portal&amp;rdquo; を使えと言われてますが、一般名詞過ぎて検索してもなんのこっちゃでしたが、おそらく以下で説明されている &lt;code&gt;xdg-desktop-portal&lt;/code&gt; のことですかね…？&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>asyncなライブラリー関数のテストを書く</title>
-      <link>https://yukihane.github.io/blog/202404/05/rust-test-async/</link>
-      <pubDate>Fri, 05 Apr 2024 05:45:28 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202404/05/rust-test-async/</guid>
-      <description>&lt;h1 id=&#34;今回解決したい問題&#34;&gt;今回解決したい問題&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://docs.rs/reqwest/0.12.2/reqwest/&#34;&gt;reqwestのドキュメント&lt;/a&gt; の最初のサンプルをテスト実行することを考えます。&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&#xA;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;reqwest&lt;/span&gt;::&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;https://www.rust-lang.org&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;await&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;?&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;await&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;?&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;fm&#34;&gt;println!&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;body = &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{body:?}&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;p&gt;まず &lt;code&gt;Cargo.toml&lt;/code&gt; に依存関係を追加して、&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;cargo new --lib test-async&#xA;cd test-async&#xA;cargo add reqwest&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;冒頭のコードを実行する関数を作ります。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>言語実装パターン レビュー</title>
-      <link>https://yukihane.github.io/blog/202209/03/language-implementation-patterns/</link>
-      <pubDate>Sat, 03 Sep 2022 12:16:33 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202209/03/language-implementation-patterns/</guid>
-      <description>&lt;p&gt;(レビュー、という大層な物言いはあまりしたくないのですが、自分が書籍の感想を検索するときには &amp;ldquo;&amp;lt;書籍名&amp;gt; レビュー&amp;rdquo; で検索することが多いので…​)&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>jOOQ で Hello, world</title>
-      <link>https://yukihane.github.io/blog/202208/26/hello-jooq/</link>
-      <pubDate>Fri, 26 Aug 2022 23:43:08 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202208/26/hello-jooq/</guid>
-      <description>&lt;p&gt;jOOQ の挙動を確認する必要が出たので、実行環境を作りました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/yukihane/hello-java/tree/main/jooq/hello-jooq&#34;&gt;https://github.com/yukihane/hello-java/tree/main/jooq/hello-jooq&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;使い方はリンク先の README を参照してください。&lt;/p&gt;&#xA;&lt;p&gt;余談: jOO公式リポジトリに &lt;a href=&#34;https://github.com/jOOQ/jOOQ/tree/main/jOOQ-examples&#34;&gt;&lt;code&gt;jOOQ-examples&lt;/code&gt;&lt;/a&gt; というディレクトリがあって参考になりそうだったのですが、解説がどこにあるかわからず断念しました…​&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Java における value objects</title>
-      <link>https://yukihane.github.io/blog/202206/12/java-value-based-class/</link>
-      <pubDate>Sun, 12 Jun 2022 05:56:40 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202206/12/java-value-based-class/</guid>
-      <description>&lt;p&gt;Java 標準 API のドキュメントには、 &amp;ldquo;値ベース・クラス&amp;rdquo; というページがあります:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/ValueBased.html&#34;&gt;https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/ValueBased.html&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;機械翻訳っぽくて分かりづらい箇所もあるので、併せて &lt;a href=&#34;https://docs.oracle.com/javase/jp/8/docs/api/java/lang/doc-files/ValueBased.html&#34;&gt;Java8 版&lt;/a&gt; や &lt;a href=&#34;https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/doc-files/ValueBased.html&#34;&gt;英語版&lt;/a&gt; も見てみると良いかもです。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Kotlin の似たようなクラス</title>
-      <link>https://yukihane.github.io/blog/202206/11/kotlin-data-class-and-so-on/</link>
-      <pubDate>Sat, 11 Jun 2022 11:55:44 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202206/11/kotlin-data-class-and-so-on/</guid>
-      <description>&lt;p&gt;(昔書きかけて完成していないっぽいですが、置いておいても忘れるだけなのでcommitしてしまいます)&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202206/11/value-object/&#34;&gt;value object&lt;/a&gt; のことを調べていたら、 Kotlin にぱっと見似たような異なるクラス定義方法があることに気付いたので、それらについてまとめておきます。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Maven Wrapper が Maven3 に正式導入された</title>
-      <link>https://yukihane.github.io/blog/202206/11/maven-wrapper/</link>
-      <pubDate>Sat, 11 Jun 2022 10:36:51 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202206/11/maven-wrapper/</guid>
-      <description>&lt;p&gt;Gradle には &lt;a href=&#34;https://docs.gradle.org/current/userguide/gradle_wrapper.html&#34;&gt;Gradle Wrapper&lt;/a&gt; といって、 ビルドするためのツールである Gradle の該当バージョンがローカルにインストールされていない場合でも、自動で取得してビルド環境をセットアップしてくれる仕組みがあります。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Value Object(値オブジェクト)についての覚え書き</title>
-      <link>https://yukihane.github.io/blog/202206/11/value-object/</link>
-      <pubDate>Sat, 11 Jun 2022 04:01:31 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202206/11/value-object/</guid>
-      <description>&lt;p&gt;2022年5月中旬から下旬にかけて Value Object(値オブジェクト) についての議論がさかんに行われていました。&lt;/p&gt;&#xA;&lt;p&gt;そのときに書き起こされた文章へのリンクを、(分かる範囲で)時系列順に残しておきます。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>GitHub の通知をちゃんと使えるように設定する</title>
-      <link>https://yukihane.github.io/blog/202205/15/github-unwatch/</link>
-      <pubDate>Sun, 15 May 2022 19:54:13 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202205/15/github-unwatch/</guid>
-      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;今回初めて仕事で GitHub (&lt;a href=&#34;https://docs.github.com/ja/get-started/onboarding/getting-started-with-github-enterprise-cloud&#34;&gt;GitHub Enterpsise Cloude&lt;/a&gt;) を使うことになりました。&lt;/p&gt;&#xA;&lt;p&gt;始める前は少しアコガレなんかも有ったりしたのですが、いざやってみると、思ったほど素敵では無いですね…​ これまでプライベートスペースだったところに仕事が入り込んでくる居心地の悪さよ。 後日、他の人に聞いてみたり見てみたりした感じ、(規約的にはまずそうですが)アカウントを使い分けている人もそれなりに居そうで、自分もそうすりゃ良かったかも、と思う始末です。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Elixir 開発環境をセットアップする</title>
-      <link>https://yukihane.github.io/blog/202205/01/setup-elixir/</link>
-      <pubDate>Sun, 01 May 2022 12:47:31 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202205/01/setup-elixir/</guid>
-      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4908829306/&#34;&gt;改訂新版 Elixir/Phoenix 初級①: はじめの一歩&lt;/a&gt; という書籍で Phoenix というウェブフレームワークの勉強をはじめました。&lt;/p&gt;&#xA;&lt;p&gt;Elixir という言語で実装していくことになりますが、本書籍は Elixir 言語入門としても優れているので、少なくとも本書を読み進めていくに当たって、言語仕様のことで困ることは無さそうです。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>自分の作成したGitブランチを表示する</title>
-      <link>https://yukihane.github.io/blog/202204/19/listing-my-git-branch/</link>
-      <pubDate>Tue, 19 Apr 2022 12:55:29 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202204/19/listing-my-git-branch/</guid>
-      <description>&lt;p&gt;リモートブランチに一時的なブランチ、テスト的に作ったブランチなどをpushしていたのを掃除したくなりました。&lt;/p&gt;&#xA;&lt;p&gt;複数人で共同作業するために利用しているので、どれが自分のブランチなのかをまずリスト化したかったので、どうすれば出力できるか調べました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>WSL2上のGUIアプリケーションを動かす</title>
-      <link>https://yukihane.github.io/blog/202204/16/gui-on-wsl2/</link>
-      <pubDate>Sat, 16 Apr 2022 17:56:11 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202204/16/gui-on-wsl2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202110/03/hello-tauri/&#34;&gt;Tauri&lt;/a&gt; の開発環境を Windows10 の WSL2 に移行するために、 WSL2 上の GUI アプリを Windows で表示するようにセットアップしました。&lt;/p&gt;&#xA;&lt;p&gt;とは言いつつ、既に次の手順でセットアップしたことがあるので、今回はこれが動くかどうかを確認しただけですが。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>WSL2上にDockerをインストールする</title>
-      <link>https://yukihane.github.io/blog/202203/28/docker-on-wsl2/</link>
-      <pubDate>Mon, 28 Mar 2022 08:24:45 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202203/28/docker-on-wsl2/</guid>
-      <description>&lt;p&gt;現在、 Windows で Docker を利用するには大きく2つ方策があるのかなと思います。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://docs.docker.com/desktop/windows/install/&#34;&gt;Docker Desktop for Windows&lt;/a&gt; を利用する&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;WSL2 上に &lt;a href=&#34;https://docs.docker.com/engine/install/ubuntu/&#34;&gt;Docker Engine&lt;/a&gt; をインストールする&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;自分は元々 Ubuntu 上で Docker を利用してきたので、馴染みのある後者を選択することにしました。 (ちなみにこだわりが無いのなら前者の方が良いと思います)&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Kotlin で JPA エンティティクラスを定義する</title>
-      <link>https://yukihane.github.io/blog/202203/12/kotlin-jpa-definition/</link>
-      <pubDate>Sat, 12 Mar 2022 20:39:32 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202203/12/kotlin-jpa-definition/</guid>
-      <description>&lt;p&gt;Kotlin で JPA エンティティを実装しようと思って調べた結果をまとめた記事です。&lt;/p&gt;&#xA;&lt;p&gt;まとめ:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;プロジェクト構成について&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://kotlinlang.org/docs/no-arg-plugin.html#jpa-support&#34;&gt;&lt;code&gt;kotlin-jpa&lt;/code&gt;&lt;/a&gt; compiler plugin を適用する&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://kotlinlang.org/docs/all-open-plugin.html&#34;&gt;&lt;code&gt;all-open&lt;/code&gt;&lt;/a&gt; compiler plugin を適用し、 &lt;code&gt;@Entity&lt;/code&gt;, &lt;code&gt;@Embeddable&lt;/code&gt;, &lt;code&gt;@MappedSuperclass&lt;/code&gt; を対象に設定する&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Jacksonでコンストラクタを利用してデシリアライズ</title>
-      <link>https://yukihane.github.io/blog/202203/12/jackson-deserialize-by-constructor/</link>
-      <pubDate>Sat, 12 Mar 2022 14:12:33 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202203/12/jackson-deserialize-by-constructor/</guid>
-      <description>&lt;ul&gt;&#xA;&lt;li&gt;今回のコード: &lt;a href=&#34;https://github.com/yukihane/hello-java/tree/main/jackson/jackson-deserialize-by-constructor&#34;&gt;https://github.com/yukihane/hello-java/tree/main/jackson/jackson-deserialize-by-constructor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Jackson は引数なしコンストラクタが必要、というblogを目にしましたが、正しくありません。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;code&gt;@JsonCreator&lt;/code&gt; を付与することでそのコンストラクタを使ってデシリアライズするように指示できます。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>git worktree を利用していると git-commit-id-maven-plugin でエラー</title>
-      <link>https://yukihane.github.io/blog/202201/24/git-commit-id-maven-plugin-on-worktree/</link>
-      <pubDate>Mon, 24 Jan 2022 11:11:35 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202201/24/git-commit-id-maven-plugin-on-worktree/</guid>
-      <description>&lt;p&gt;…​になりました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/git-commit-id/git-commit-id-maven-plugin/issues/215&#34;&gt;Support of git worktree option (for JGIT) · Issue #215 · git-commit-id/git-commit-id-maven-plugin · GitHub&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;コマンドライン引数でスキップさせるには、 &lt;a href=&#34;https://github.com/git-commit-id/git-commit-id-maven-plugin/pull/278&#34;&gt;#278&lt;/a&gt; で導入された &lt;code&gt;maven.gitcommitid.skip&lt;/code&gt; オプション(&lt;a href=&#34;https://github.com/git-commit-id/git-commit-id-maven-plugin/blob/v5.0.0/src/main/java/pl/project13/maven/git/GitCommitIdMojo.java#L241-L251&#34;&gt;現時点最新版の該当コードリンク&lt;/a&gt;)を利用して、&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;mvn -Dmaven.gitcommitid.skip package&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;などとすれば良さそうです。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>JUnit &#43; Mockito テストケースを Kotest &#43; MockK に書き換える</title>
-      <link>https://yukihane.github.io/blog/202201/12/kotlin-kotest-mockk/</link>
-      <pubDate>Wed, 12 Jan 2022 05:14:56 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202201/12/kotlin-kotest-mockk/</guid>
-      <description>&lt;p&gt;Kotest + MockK の組み合わせは Kotlin ではメジャー…​かと思いきや検索してみても公式の&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://kotest.io/docs/framework/integrations/mocking.html&#34;&gt;Mocking and Kotest&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;にあるような例しか見つかりませんでした。 Mockito で言うところの &lt;code&gt;@Mock&lt;/code&gt; や &lt;code&gt;@InjectMocks&lt;/code&gt; を使ってモックを差し込みたいんじゃい！ ということでサンプルです。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Kotlin で JUnit4 のテストケースを書く</title>
-      <link>https://yukihane.github.io/blog/202201/10/kotlin-junit4/</link>
-      <pubDate>Mon, 10 Jan 2022 10:23:22 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202201/10/kotlin-junit4/</guid>
-      <description>&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;JUnit4 / Parameterized&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Mockito 利用&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;テスト対象が Lombok, MapStruct 使用&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;な状況で Kotlin でテストコードを書きます。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;成果物: &lt;a href=&#34;https://github.com/yukihane/hello-kotlin/tree/main/junit4-mockito-example&#34;&gt;https://github.com/yukihane/hello-kotlin/tree/main/junit4-mockito-example&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;先にまとめを書いておきます。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;(IntelliJ で Java のコードを &lt;code&gt;.kt&lt;/code&gt; にペーストすると Kotlin コードに変換してくれるが、コレジャナイ感溢れるコードになったのであまり自動変換コードを信用するのは危険かも)&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Kotolin のプロジェクトを Maven で作成する</title>
-      <link>https://yukihane.github.io/blog/202201/09/kotlin-maven-pom/</link>
-      <pubDate>Sun, 09 Jan 2022 14:41:04 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202201/09/kotlin-maven-pom/</guid>
-      <description>&lt;p&gt;入門書を一通り読み終えたのでサンプルプロジェクトを作成しようと思いました。&lt;/p&gt;&#xA;&lt;p&gt;JetBrains がメンテナンスしている archetype が利用できそうです。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-archetype-jvm&#34;&gt;https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-archetype-jvm&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;!-- --&gt;&#xA;&lt;pre&gt;&lt;code&gt;mvn archetype:generate -DarchetypeGroupId=org.jetbrains.kotlin -DarchetypeArtifactId=kotlin-archetype-jvm&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;IntelliJ IDEA から作成した場合も似た感じの &lt;code&gt;pom.xml&lt;/code&gt; が作成されるかなと思います。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>IntelliJ 最新版(2021.3) で Kotlin と Lombok が共存できない</title>
-      <link>https://yukihane.github.io/blog/202201/05/kotlin-lombok-intellij-problem/</link>
-      <pubDate>Wed, 05 Jan 2022 06:38:51 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202201/05/kotlin-lombok-intellij-problem/</guid>
-      <description>&lt;p&gt;[追記 2022-01-17] 今回リリースされた &lt;code&gt;213-1.6.10-release-944-IJ6461.79&lt;/code&gt; で修正されたようです(ただし &lt;code&gt;.idea&lt;/code&gt; ディレクトリを削除してからインポートし直す必要がありました)。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://kotlinlang.org/docs/whatsnew1520.html&#34;&gt;Kotlin 1.5.20&lt;/a&gt; から &lt;a href=&#34;https://kotlinlang.org/docs/lombok.html&#34;&gt;Lombok compiler plugin&lt;/a&gt; というものが提供されるようになり、 Kotlin から自動生成される getter などにアクセスできるようになりました(※実験的機能なようですが)。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Kotlin in Action (Kotlin イン・アクション) 読書メモ</title>
-      <link>https://yukihane.github.io/blog/202201/01/kotlin-in-action/</link>
-      <pubDate>Sat, 01 Jan 2022 14:17:30 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202201/01/kotlin-in-action/</guid>
-      <description>&lt;h1 id=&#34;kotlin-関連書籍について&#34;&gt;Kotlin 関連書籍について&lt;/h1&gt;&#xA;&lt;p&gt;書籍 &lt;a href=&#34;https://book.mynavi.jp/ec/products/detail/id=78137&#34;&gt;Kotlinイン・アクション&lt;/a&gt; を読んでいます。&lt;/p&gt;&#xA;&lt;p&gt;2022 年 1 月現在の &lt;a href=&#34;https://kotlinlang.org/docs/releases.html#release-details&#34;&gt;Kotlin 最新バージョン&lt;/a&gt; が &lt;code&gt;1.6.10&lt;/code&gt; であるのに対し、本書が解説しているのは &lt;code&gt;1.0&lt;/code&gt; のようなので、役に立つのかな…と当初は考えていましたが、今のところ、これは駄目だ、というところは無さそうです。 (気になる人はドキュメントの &amp;ldquo;Earlier versions&amp;rdquo; (&lt;a href=&#34;https://kotlinlang.org/docs/whatsnew11.html&#34;&gt;このあたり&lt;/a&gt;) で新機能について説明があります)&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Ubuntu で作業していると突然マウスホイールが効かなくなる</title>
-      <link>https://yukihane.github.io/blog/202112/13/mouse-wheel-stop-working-on-ubuntu/</link>
-      <pubDate>Sun, 12 Dec 2021 19:37:57 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202112/13/mouse-wheel-stop-working-on-ubuntu/</guid>
-      <description>&lt;p&gt;表題のような事象がたまに発生していて、これまではOS再起動で直していました。&lt;/p&gt;&#xA;&lt;p&gt;その症状が今しがた出たのですが、ふと &lt;code&gt;imwheel&lt;/code&gt; をインストールしていたことを思い出してこれをアンインストールしてみたところ、再起動せずにスクロール機能が復活しました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Spring Boot でサンプルコードを作成するときのプロパティなど</title>
-      <link>https://yukihane.github.io/blog/202110/31/spring-boot-template/</link>
-      <pubDate>Sun, 31 Oct 2021 10:01:45 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202110/31/spring-boot-template/</guid>
-      <description>&lt;p&gt;Stack Overflow で Spring Boot の質問に回答するときのサンプルプロジェクトを作成するとき、 &lt;a href=&#34;https://start.spring.io/&#34;&gt;Spirng Initializr&lt;/a&gt; を利用しているのですが、よく必要な dependencies を追加し忘れたり、設定しておいた方が良いプロパティってなんだっけかな、と迷うことがあります。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>VSCode でエラー/警告アンダーラインの区別がつかない</title>
-      <link>https://yukihane.github.io/blog/202110/25/vscode-underline-coloring/</link>
-      <pubDate>Mon, 25 Oct 2021 17:31:42 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202110/25/vscode-underline-coloring/</guid>
-      <description>&lt;p&gt;VSCode のデフォルトの色設定だと、エラーの波線と警告の波線との区別が私の目では付けづらいのです。 おそらく赤色と黄色だと思うのですが…&lt;/p&gt;&#xA;&lt;p&gt;色についてのプロパティは次のリンク先に説明がありました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Spring Boot でカスタム validator に injection する</title>
-      <link>https://yukihane.github.io/blog/202110/18/spring-inject-in-validator/</link>
-      <pubDate>Mon, 18 Oct 2021 12:59:08 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202110/18/spring-inject-in-validator/</guid>
-      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;Spring Boot で JPA Validator にインジェクションしようとしたけどできなかった、という話を何度か聞いてその度に調べていたので、次回に備えてまとめておきます。 サンプルコードはこちら:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Spring MVC で Java17 record を試してみる</title>
-      <link>https://yukihane.github.io/blog/202110/18/java17-record-on-spring-mvc/</link>
-      <pubDate>Mon, 18 Oct 2021 10:03:46 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202110/18/java17-record-on-spring-mvc/</guid>
-      <description>&lt;p&gt;(※ &lt;code&gt;record&lt;/code&gt; は Java14 でプレビュー版が導入、 Java16 で正式版が導入されたので Java17 というのは不正確なようですが…)&lt;/p&gt;&#xA;&lt;p&gt;Java17 の &lt;code&gt;record&lt;/code&gt; を今まで利用してきた POJO から置き換えられるのかを簡単に見てみました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Mapstruct Spring Extensions を試してみる</title>
-      <link>https://yukihane.github.io/blog/202110/18/mapstruct-spring-extensions/</link>
-      <pubDate>Mon, 18 Oct 2021 02:44:46 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202110/18/mapstruct-spring-extensions/</guid>
-      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://mapstruct.org/&#34;&gt;MapStruct の公式サイト&lt;/a&gt;を見ていると、 &lt;a href=&#34;https://mapstruct.org/documentation/spring-extensions/reference/html/&#34;&gt;Mapstruct Spring Extensions&lt;/a&gt; なるサブプロジェクトが発足していたので、何者か調べようと試してみました。&lt;/p&gt;&#xA;&lt;p&gt;結果、これは Spring の &lt;a href=&#34;https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#core-convert-ConversionService-API&#34;&gt;&lt;code&gt;ConversionService&lt;/code&gt;&lt;/a&gt; の &lt;a href=&#34;https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#core-convert-Converter-API&#34;&gt;&lt;code&gt;Converter&lt;/code&gt;&lt;/a&gt; と MapStruct の &lt;code&gt;Mapper&lt;/code&gt; を統合して、実装を少し楽にしよう、というもののようでした。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>STS(Eclipse) で Import Getting Started Content が進まない</title>
-      <link>https://yukihane.github.io/blog/202110/16/sts-import-getting-started-content-is-stuck/</link>
-      <pubDate>Sat, 16 Oct 2021 08:16:59 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202110/16/sts-import-getting-started-content-is-stuck/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://spring.io/tools&#34;&gt;Spring Tools 4 for Eclipse&lt;/a&gt; を利用していると、バージョンによって？ プロジェクト新規作成時などで &amp;ldquo;Import Getting Started Content&amp;rdquo; というタスクが走るのですがこれが全く終わらないことがあります。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>map で Result を引き回すときに Err を意識したくない その2</title>
-      <link>https://yukihane.github.io/blog/202110/15/rust-map-with-result/</link>
-      <pubDate>Fri, 15 Oct 2021 21:12:09 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202110/15/rust-map-with-result/</guid>
-      <description>&lt;p&gt;その1はこちらです:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://ja.stackoverflow.com/q/82978/2808&#34;&gt;map で Result を引き回すときに Err を意識したくない - スタック・オーバーフロー&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;その1では戻り値が &lt;code&gt;i * 2&lt;/code&gt; の &lt;code&gt;i32&lt;/code&gt; 型になる話でしたが、その次に考えたかったのは &lt;code&gt;Result&lt;/code&gt; が返ってくるメソッドで引き回すときの話でした。こんな感じで:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Servlet 5.1 で Samesite 属性を設定できるようになる</title>
-      <link>https://yukihane.github.io/blog/202110/15/servlet-with-cookies-samesite/</link>
-      <pubDate>Fri, 15 Oct 2021 20:31:37 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202110/15/servlet-with-cookies-samesite/</guid>
-      <description>&lt;p&gt;現在の Servlet API では &lt;a href=&#34;https://jakarta.ee/specifications/platform/8/apidocs/javax/servlet/http/cookie&#34;&gt;&lt;code&gt;Cookie&lt;/code&gt;&lt;/a&gt; に &lt;a href=&#34;https://developer.mozilla.org/ja/docs/Web/HTTP/Cookies#samesite_attribute&#34;&gt;&lt;code&gt;SameSite&lt;/code&gt; 属性&lt;/a&gt;を設定するメソッドがありません。&lt;/p&gt;&#xA;&lt;p&gt;そのため、仕様外の、フレームワーク固有の方法だったり、低レイヤーの仕組みを使って設定する必要があります。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Android Firefox Webextensions 開発/デバッグ覚え書き</title>
-      <link>https://yukihane.github.io/blog/202110/15/develop-android-firefox-addons/</link>
-      <pubDate>Fri, 15 Oct 2021 16:36:00 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202110/15/develop-android-firefox-addons/</guid>
-      <description>&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;HAXM を有効化するためには &lt;a href=&#34;https://github.com/intel/haxm/wiki/Installation-Instructions-on-Windows?utm_source=pocket_mylist#tips-and-tricks&#34;&gt;今でも Hyper-V を無効化しておく必要があるらしい&lt;/a&gt;です。つまり Android 開発と WSL2 は両立できないということに。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;私は最初 Hyper-V 有効か状態で開発環境インストールを進めたのですが、やはりインストール失敗しました。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;最初コマンドラインツール(&lt;code&gt;sdkmanager&lt;/code&gt;)だけインストールしようとしたものの、どこからダウンロードすればいいのか分からなかったのですが、 &lt;a href=&#34;https://developer.android.com/studio&#34;&gt;Android Studio のダウンロードページ&lt;/a&gt;にリンクがありました(&lt;a href=&#34;https://developer.android.com/studio#span-idcommand-toolsa-namecmdline-toolsacommand-line-tools-onlyspan&#34;&gt;Command line tools only&lt;/a&gt;)。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Android Firefox に addons をインストールする方法</title>
-      <link>https://yukihane.github.io/blog/202110/15/install-addon-to-android-firefox/</link>
-      <pubDate>Fri, 15 Oct 2021 15:27:00 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202110/15/install-addon-to-android-firefox/</guid>
-      <description>&lt;p&gt;Firefox 69 以降かな？ Fenix というコードネームになってから Android Firefox にインストールできる Webextensions(addons) に制約ができ、公式がお薦めとしているものだけしか通常の手順ではインストールできなくなりました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Rust に reduce は、あります</title>
-      <link>https://yukihane.github.io/blog/202110/09/rust-reduce/</link>
-      <pubDate>Sat, 09 Oct 2021 02:14:55 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202110/09/rust-reduce/</guid>
-      <description>&lt;p&gt;ググっていると、ちょくちょく 「Rust に &lt;code&gt;reduce&lt;/code&gt; は無い、代わりに &lt;code&gt;fold&lt;/code&gt; を使え」という話が出てくるのが疑問だったのですが、 &lt;a href=&#34;https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.reduce&#34;&gt;&lt;code&gt;reduce&lt;/code&gt; が導入されたのって &lt;code&gt;1.51.0&lt;/code&gt;&lt;/a&gt;(&lt;a href=&#34;https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-1510-2021-03-25&#34;&gt;2021-03-25&lt;/a&gt;)と、比較的最近だからなんですね。&lt;/p&gt;&#xA;&lt;p&gt;しかしリリースノートを見てもこういう変更は載っていないのですね。 細かすぎるから？ 気付いてない人は気付かないまま過ごしてそう…&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Rust の Result を良い感じにまとめるには</title>
-      <link>https://yukihane.github.io/blog/202110/09/rust-result/</link>
-      <pubDate>Fri, 08 Oct 2021 18:50:43 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202110/09/rust-result/</guid>
-      <description>&lt;p&gt;…というのを検索する用語が &amp;ldquo;エラーハンドリング(error handling)&amp;rdquo; だということに気付くまでにも時間がかかるくらいの初級者です。&lt;/p&gt;&#xA;&lt;p&gt;Rust でのエラーハンドリングについては歴史的変遷があるようで、ググると結局今はどうやったらええねん、という新たな疑問が湧いてきます。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Hello Project Panama, on Java17</title>
-      <link>https://yukihane.github.io/blog/202110/08/hello-project-panama-on-java17/</link>
-      <pubDate>Fri, 08 Oct 2021 04:49:30 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202110/08/hello-project-panama-on-java17/</guid>
-      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202002/11/hello-project-panama/&#34;&gt;Hello Project Panama – 発火後忘失&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;で、 Project Panama (&lt;a href=&#34;https://openjdk.java.net/projects/panama/&#34;&gt;リンク1&lt;/a&gt;, &lt;a href=&#34;https://jdk.java.net/panama/&#34;&gt;リンク2&lt;/a&gt;) の機能を利用して、 Java から Rust を呼び出してみました。&lt;/p&gt;&#xA;&lt;p&gt;当時(Java14)は Project Panama 用にビルドされた JDK を利用する必要がありましたが、 Java17 では incubator ではあるものの &lt;a href=&#34;https://openjdk.java.net/jeps/412&#34;&gt;JEP 412: Foreign Function &amp;amp; Memory API&lt;/a&gt; が標準 JDK に導入された&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Tauri を GUI にして Rust と React に入門する</title>
-      <link>https://yukihane.github.io/blog/202110/03/hello-tauri/</link>
-      <pubDate>Sun, 03 Oct 2021 08:20:21 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202110/03/hello-tauri/</guid>
-      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://tauri.studio/&#34;&gt;Tauri&lt;/a&gt; という、 WebView を利用して GUI を実現する Rust 製フレームワークを試してみました。&lt;/p&gt;&#xA;&lt;p&gt;Rust も React も入門書から陸続きで書き始められるので、余計なことに気を取られずに済みそうです(ただし、 JS - Rust 間のデータ受け渡しに利用する JSON オブジェクトのシリアライズ/デシリアライズに利用する &lt;a href=&#34;https://serde.rs/&#34;&gt;Serde&lt;/a&gt; についての知識は少し必要になりそうでした)。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>JPA Entity には Lombok の @Data(@EqualsAndHashCode) を使用すべきでない</title>
-      <link>https://yukihane.github.io/blog/202107/31/dont-use-lombok-with-jpa/</link>
-      <pubDate>Fri, 30 Jul 2021 17:57:08 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202107/31/dont-use-lombok-with-jpa/</guid>
-      <description>&lt;p&gt;問題になりそうなキーワード:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;lazy loading&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;collection&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;循環参照&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;mutability&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;code&gt;@Data&lt;/code&gt;(&lt;code&gt;@EqualsAndHashCode&lt;/code&gt;) を付与すると &lt;code&gt;hashCode()&lt;/code&gt; は自動で算出されるようになりますが、JPA &lt;code&gt;@Entity&lt;/code&gt; では上記のような理由で、ハッシュ値が計算できなかったり要件を満たせなくなったりします。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>RestTemplateが採用するHTTPクライアント実装の順序</title>
-      <link>https://yukihane.github.io/blog/202107/25/resttemplate-impl-order/</link>
-      <pubDate>Sat, 24 Jul 2021 19:53:33 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202107/25/resttemplate-impl-order/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;By default the built RestTemplate will attempt to use the most suitable ClientHttpRequestFactory&lt;/p&gt;&#xA;&lt;p&gt;—  &lt;a href=&#34;https://docs.spring.io/spring-boot/docs/2.5.3/api/org/springframework/boot/web/client/RestTemplateBuilder.html&#34;&gt;RestTemplateBuilder JavaDoc&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;とありますが、具体的にどうやって決めているの？という話です。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/spring-projects/spring-boot/blob/v2.5.3/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/web/client/ClientHttpRequestFactorySupplier.java&#34;&gt;&lt;code&gt;ClientHttpRequestFactorySupplier&lt;/code&gt;&lt;/a&gt;をみると一目瞭然ですが、&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Apache HttpClient (&lt;code&gt;org.apache.http.client.HttpClient&lt;/code&gt;) がクラスパスに存在すればそれを採用する&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;OkHttp (&lt;code&gt;okhttp3.OkHttpClient&lt;/code&gt;) がクラスパスに存在すればそれを採用する&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle) - Polyfillも必要とする場合</title>
-      <link>https://yukihane.github.io/blog/202107/11/spring-boot-with-babel/</link>
-      <pubDate>Sat, 10 Jul 2021 23:53:20 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202107/11/spring-boot-with-babel/</guid>
-      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202107/10/spring-boot-with-typescript/&#34;&gt;前回&lt;/a&gt; は &lt;code&gt;ts-loader&lt;/code&gt; を用いて TypeScript をビルドしました。&lt;/p&gt;&#xA;&lt;p&gt;簡潔にセットアップできたのは良いのですが、実際にはPolyfillを行いたいので &lt;code&gt;babel-loader&lt;/code&gt; をベースに再構築することにします。また、自動テスト( &lt;code&gt;jest&lt;/code&gt; )も導入します。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle)</title>
-      <link>https://yukihane.github.io/blog/202107/10/spring-boot-with-typescript/</link>
-      <pubDate>Fri, 09 Jul 2021 22:54:04 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202107/10/spring-boot-with-typescript/</guid>
-      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;Spring Boot で JavaScript を扱うときは素のJSをhtml(Thymeleafテンプレート)に &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; タグで埋め込む、というのが多分一般的で手っ取り早い方法かと思います。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Spring Boot 2.5.0(Spring Security 5.5.0-M2)でremoteUserの値が変わった</title>
-      <link>https://yukihane.github.io/blog/202106/30/spring-boot-remoteuser-is-changed/</link>
-      <pubDate>Tue, 29 Jun 2021 20:00:43 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202106/30/spring-boot-remoteuser-is-changed/</guid>
-      <description>&lt;p&gt;&lt;code&gt;HttpServletRequest#getRemoteUser()&lt;/code&gt; をログ出力(Tomcatの &lt;a href=&#34;https://tomcat.apache.org/tomcat-9.0-doc/config/valve.html#Access_Log_Valve/Attributes&#34;&gt;&lt;code&gt;%u&lt;/code&gt;&lt;/a&gt;)しているのですが、Spring Boot 2.5.0 から返ってくる値が変わったようです。&lt;/p&gt;&#xA;&lt;p&gt;どの変更が影響しているのか調べたところ、次のものが該当するようです。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/spring-projects/spring-security/releases/tag/5.5.0-M2&#34;&gt;5.5.0-M2 Release Notes&lt;/a&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/spring-projects/spring-security/pull/9211&#34;&gt;getRemoteUser() returns principal name #9211&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;実際にどうなったか見てみます。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>AWS EC2 で squid プロキシサーバを立てる</title>
-      <link>https://yukihane.github.io/blog/202106/21/aws-squid-proxy/</link>
-      <pubDate>Sun, 20 Jun 2021 23:39:04 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202106/21/aws-squid-proxy/</guid>
-      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;SteamのDLC等をダウンロードしようとしたとき、IPアドレスによるアクセス制限が課されている場合があり、それを回避する必要が出る状況がたまにあります。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Spring Boot で Tomcat のメトリクスを出力する</title>
-      <link>https://yukihane.github.io/blog/202106/12/spring-boot-tomcat-metrics/</link>
-      <pubDate>Sat, 12 Jun 2021 10:07:19 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202106/12/spring-boot-tomcat-metrics/</guid>
-      <description>&lt;p&gt;Spring Boot アプリケーションの性能評価を行っているのですが、実装したアプリケーション部分ではなく、webサーバかどこかがパフォーマンスボトルネックになっているように思われる事象に直面し、その原因を調べたいと思っています。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>GitHub Actions を使って GitHub Pages を定期更新する</title>
-      <link>https://yukihane.github.io/blog/202106/06/hello-github-actions/</link>
-      <pubDate>Sun, 06 Jun 2021 12:50:13 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202106/06/hello-github-actions/</guid>
-      <description>&lt;p&gt;これまで GitHub Actions を使ったことがなかったのですが、&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://ja.stackoverflow.com/q/76279/2808&#34;&gt;GitHub Pagesの更新を自動化したい - スタック・オーバーフロー&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;という質問を見かけ、丁度よいお題だと思ったのでこれを実現してみることにしました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Spring BootでTomcatのデフォルトエラーページが出るのを抑止する</title>
-      <link>https://yukihane.github.io/blog/202105/21/spring-boot-avoid-tomcat-error-page/</link>
-      <pubDate>Thu, 20 May 2021 20:58:00 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202105/21/spring-boot-avoid-tomcat-error-page/</guid>
-      <description>&lt;p&gt;Spring Boot を実行していると、Tomcatのデフォルトエラーページが表示されるような事象に遭遇することがあります。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/spring-projects/spring-boot/issues/21257&#34;&gt;Tomcat invokes ErrorReportValve directly for malformed URLs · Issue #21257 · spring-projects/spring-boot&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;このページのカスタマイズ方法は、上記issueにありますが、現状Spring Boot フレームワークでは提供されておらず少しトリッキーです。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Git の merge も思いの外危険</title>
-      <link>https://yukihane.github.io/blog/202105/19/git-merge-risk/</link>
-      <pubDate>Tue, 18 May 2021 23:01:49 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202105/19/git-merge-risk/</guid>
-      <description>&lt;p&gt;次のblogエントリがバズっていました:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://songmu.jp/riji/entry/2021-05-19-my-git-workflow.html&#34;&gt;Gitのワークフローについての私のスタンス | おそらくはそれさえも平凡な日々&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;大局としては同意なのですが、ミクロな点では、 &lt;code&gt;rebase&lt;/code&gt; 恐怖症というか、 &lt;code&gt;merge&lt;/code&gt; を信頼し過ぎているというか、少し私とは意見が異なると感じました。 そして、上記のblogのような意見が多数派ではないかと思いますので、改めて &lt;code&gt;merge&lt;/code&gt; の怖いところを具体例で示したいと思います。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>script src に設定する URL の &amp; はどう書けば良い？</title>
-      <link>https://yukihane.github.io/blog/202105/19/url-amp/</link>
-      <pubDate>Tue, 18 May 2021 22:38:11 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202105/19/url-amp/</guid>
-      <description>&lt;p&gt;&lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; タグの &lt;code&gt;src&lt;/code&gt; に &lt;code&gt;URL&lt;/code&gt; 書く場合、クエリパラメータ連結の &lt;code&gt;&amp;amp;&lt;/code&gt; ってどう書くべきなんだろう、という話です。&lt;/p&gt;&#xA;&lt;p&gt;結論としては、以下のように、 &lt;code&gt;&amp;amp;amp;&lt;/code&gt; とするのが無難、ということのようです。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>AWS EC2 の Mac インスタンスを試してみた</title>
-      <link>https://yukihane.github.io/blog/202105/16/aws-mac/</link>
-      <pubDate>Sun, 16 May 2021 11:40:48 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202105/16/aws-mac/</guid>
-      <description>&lt;p&gt;最初に注意点:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;初めての場合、使えるようになるまで17時間強かかる。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;最低割り当て時間は24時間。つまり1回利用すると最低 3,000円弱はかかる。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;インスタンスを終了すると、次のインスタンスを起動できるようになるまで1時間半程度かかる。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Authorization(認可)リクエストヘッダに設定するのは認証(authentication)情報</title>
-      <link>https://yukihane.github.io/blog/202105/15/authorization-authentication/</link>
-      <pubDate>Sat, 15 May 2021 09:40:22 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202105/15/authorization-authentication/</guid>
-      <description>&lt;p&gt;今日もOAuthは認証じゃなくて認可の仕組みだ云々という話題でソーシャルネットがもちきりですが、そんなことより表題の方がよっぽど気になりませんか…？&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6)</title>
-      <link>https://yukihane.github.io/blog/202105/06/ling-login-202105/</link>
-      <pubDate>Thu, 06 May 2021 10:43:04 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202105/06/ling-login-202105/</guid>
-      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/201908/line-login-sample/&#34;&gt;LINEログイン機能を試してみる&lt;/a&gt; – 発火後忘失&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;で、 Spring Boot 2.1.7 (Spring Security 5.1.6) を利用してLINEログインを行ってみました。&lt;/p&gt;&#xA;&lt;p&gt;本ドキュメントは、このコードをそのまま Spring Boot 2.4.5 へアップグレードしたところ上手く動かなかったので修正を行った記録です。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>MySQL Connector/J 8.0.23 でタイムゾーン変換メカニズムが変更になった</title>
-      <link>https://yukihane.github.io/blog/202104/29/mysql-connector-j-8.0.23/</link>
-      <pubDate>Wed, 28 Apr 2021 15:55:52 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202104/29/mysql-connector-j-8.0.23/</guid>
-      <description>&lt;p&gt;MySQL Connector/J &lt;code&gt;8.0.23&lt;/code&gt; でタイムゾーン変換のメカニズムが変わりました(Spring Boot では &lt;a href=&#34;https://docs.spring.io/spring-boot/docs/2.3.9.RELEASE/reference/html/appendix-dependency-versions.html#dependency-versions&#34;&gt;&lt;code&gt;2.3.9&lt;/code&gt;&lt;/a&gt;以降, &lt;a href=&#34;https://docs.spring.io/spring-boot/docs/2.4.3/reference/html/appendix-dependency-versions.html#dependency-versions&#34;&gt;&lt;code&gt;2.4.3&lt;/code&gt;&lt;/a&gt;以降でこれを採用しています)。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Important Change&lt;/strong&gt;: A new mechanism has been introduced for users to configure how time zone conversions should occur when time instants are saved to or retrieved from a server by Connector/J.&lt;/p&gt;&#xA;&lt;p&gt;—  &lt;a href=&#34;https://dev.mysql.com/doc/relnotes/connector-j/8.0/en/news-8-0-23.html&#34;&gt;MySQL :: MySQL Connector/J 8.0 Release Notes :: Changes in MySQL Connector/J 8.0.23 (2021-01-18, General Availability)&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>formで(送信ボタンを押さずに)エンターキーで送信する</title>
-      <link>https://yukihane.github.io/blog/202103/21/implicit-submission/</link>
-      <pubDate>Sun, 21 Mar 2021 09:54:35 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202103/21/implicit-submission/</guid>
-      <description>&lt;p&gt;入力フォームに値を入力して、(送信ボタンを押すのではなく)入力フィールド内でエンターキーを押すと送信される機能、&amp;ldquo;Implicit Submission&amp;rdquo;(日本語にすると&amp;quot;暗黙的送信&amp;quot;ですかね？)というそうです。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>メモ: テスト観点</title>
-      <link>https://yukihane.github.io/blog/202103/07/testing-perspective/</link>
-      <pubDate>Sun, 07 Mar 2021 20:21:25 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202103/07/testing-perspective/</guid>
-      <description>&lt;p&gt;書籍「ソフトウェアテストの教科書 - 品質を決定づけるテスト構成の基本と実践」第4章 ブラックボックステスト 表4-4 分類の基準として利用できる指標の一例 より。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Ubuntu20.04 で Kindle for PC</title>
-      <link>https://yukihane.github.io/blog/202103/07/kindle-for-pc-on-ubuntu20.04/</link>
-      <pubDate>Sun, 07 Mar 2021 05:21:25 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202103/07/kindle-for-pc-on-ubuntu20.04/</guid>
-      <description>&lt;p&gt;以前記載していたUbuntu16.04(及び18.04)用の Kindle for PC セットアップ手順だと起動時にネットワーク接続できず利用できなくなってしまっていた&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Ubuntu20.04 で Kindle for PCを使う</title>
-      <link>https://yukihane.github.io/docs/ubuntu/kindle-for-pc-ubuntu20.04/</link>
-      <pubDate>Sun, 07 Mar 2021 01:57:49 +0000</pubDate>
-      <guid>https://yukihane.github.io/docs/ubuntu/kindle-for-pc-ubuntu20.04/</guid>
-      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;2021-03-07時点では、 &lt;a href=&#34;https://yukihane.github.io/docs/ubuntu/kindle-for-pc/&#34;&gt;UbuntuでKindle for PCを使う&lt;/a&gt; の方法で Ubuntu20.04 に Kindle for PC をインストールして起動すると、次のようなエラーが出てコンテンツにアクセスできなくなってしまっていました:&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>発火後忘失</title>
+		<link>https://yukihane.github.io/</link>
+		<description>Recent content on 発火後忘失</description>
+		<generator>Hugo</generator>
+		<language>ja-jp</language>
+		
+		
+		
+			<copyright>© Yukihane, All Rights Reserved</copyright>
+		
+		
+			<lastBuildDate>Wed, 21 Oct 2026 19:22:15 +0900</lastBuildDate>
+		
+			<atom:link href="https://yukihane.github.io/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Firefoxを起動しているとWindows11がスリープしない</title>
+				<link>https://yukihane.github.io/blog/202610/21/windows-sleep-plobrem-with-firefox/</link>
+				<pubDate>Wed, 21 Oct 2026 19:22:15 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202610/21/windows-sleep-plobrem-with-firefox/</guid>
+				<description>&lt;p&gt;最近、Windowsがスリープしていないことに気づきました。&lt;br /&gt;&#xA;ウェブブラウザーで動画コンテンツ(YouTubeとか)を開きっぱなしにしているとそうなってしまうのでそれと混同していたのですが、どうもそれ以外にも原因があるようでした。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>SerenaのKotlin言語サーバーがビルド期限切れで起動しなくなる問題と対処</title>
+				<link>https://yukihane.github.io/blog/202610/06/serena-kotlin-lsp-expire-problem/</link>
+				<pubDate>Tue, 06 Oct 2026 14:09:55 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202610/06/serena-kotlin-lsp-expire-problem/</guid>
+				<description>&lt;p&gt;Claude Codeで &lt;a href=&#34;https://github.com/oraios/serena&#34;&gt;Serena&lt;/a&gt; を使ってKotlinのコードを読み書きしていると、ある日突然ツールがすべて失敗するようになりました。&lt;/p&gt;&#xA;&lt;p&gt;原因は、SerenaがKotlinの解析に使っているJetBrains製のKotlin言語サーバーに &lt;strong&gt;ビルドの有効期限がある&lt;/strong&gt; ことでした。&lt;br /&gt;&#xA;しかも自分の環境では、以前直したはずなのに約1か月後にまた同じ問題が起きたので、原因と対処を記録しておきます。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Codex CLIのサブエージェント待機でトークンを無駄遣いしないための設定</title>
+				<link>https://yukihane.github.io/blog/202609/22/codex-cli-save-token/</link>
+				<pubDate>Tue, 22 Sep 2026 15:40:44 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202609/22/codex-cli-save-token/</guid>
+				<description>&lt;p&gt;CodexでAstraを使う際、サブエージェントの完了待ちをしているだけなのに利用枠を消費してしまう、という話を見かけました。&lt;/p&gt;&#xA;&lt;p&gt;モデルそのものの消費量だけでなく、Codexが「まだ終わっていないかな？」と短い間隔でモデルを呼び出し直すことも原因になり得る、という話です。&lt;br /&gt;&#xA;それなら設定で抑えられるところは抑えておきたい、と思い、Codex CLIの設定を変更しました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>WindowsのpwshからCodexを更新するとGet-FileHashで失敗する</title>
+				<link>https://yukihane.github.io/blog/202609/17/codex-update-error-on-win/</link>
+				<pubDate>Thu, 17 Sep 2026 23:36:33 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202609/17/codex-update-error-on-win/</guid>
+				<description>&lt;p&gt;Windows ネイティブで Codex を使っていて &lt;code&gt;codex update&lt;/code&gt; を実行したところ、次のように失敗しました。&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;iex : 用語 &amp;#39;Get-FileHash&amp;#39; は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前として認識されません。&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;更新処理は &lt;code&gt;powershell -ExecutionPolicy Bypass -c &#39;...&#39;&lt;/code&gt; を実行しており、Codex CLI のダウンロード後に SHA-256 を検証するため &lt;code&gt;Get-FileHash&lt;/code&gt; を呼び出しています。このため、これはダウンロード元への一時的な接続エラーそのものではなく、検証コマンドを実行できず更新を中断したエラーです。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>herdrをWindowsで使う場合にはdefault_shellの設定をしよう</title>
+				<link>https://yukihane.github.io/blog/202609/05/herdr-with-pwsh/</link>
+				<pubDate>Sat, 05 Sep 2026 20:38:28 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202609/05/herdr-with-pwsh/</guid>
+				<description>&lt;p&gt;最近WSLでなくWindowsネイティブでcodexなどを使うようになりました。&lt;br /&gt;&#xA;herdrをpwshで利用しているのですが、JSONをcatしたときに日本語が文字化けしているのに気づきました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Ubuntu26.04でlsコマンドの不具合。GNU版を入れ直す</title>
+				<link>https://yukihane.github.io/blog/202607/27/gnu-coreutils-to-ubuntu2604/</link>
+				<pubDate>Mon, 27 Jul 2026 11:42:47 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202607/27/gnu-coreutils-to-ubuntu2604/</guid>
+				<description>&lt;p&gt;Ubuntu 26.04 で &lt;code&gt;ls&lt;/code&gt; を実行したところ、日本語のファイル名がまともに表示されませんでした。&lt;/p&gt;&#xA;&lt;p&gt;原因を調べたところ、Ubuntu 26.04 の &lt;code&gt;ls&lt;/code&gt; は GNU coreutils ではなく &lt;strong&gt;Rust 実装の &lt;a href=&#34;https://github.com/uutils/coreutils&#34;&gt;uutils/coreutils&lt;/a&gt;&lt;/strong&gt; に置き換わっており、そのロケール判定にバグがあることが分かりました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Claude Code に Plan Mode 時質問をしても回答が出力されない(Fableで頻発)</title>
+				<link>https://yukihane.github.io/blog/202607/23/claude-code-cannot-display-answer/</link>
+				<pubDate>Thu, 23 Jul 2026 03:25:24 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202607/23/claude-code-cannot-display-answer/</guid>
+				<description>&lt;p&gt;Claude Code の plan mode で方針を確認させると、AskUserQuestion の選択ダイアログだけが表示され、&lt;strong&gt;その直前にあるはずの説明テキストが画面に一切出ない&lt;/strong&gt; ことがあります。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Claude Code スクロールの不具合とワークアラウンド</title>
+				<link>https://yukihane.github.io/blog/202607/14/claude-code-scroll-bug/</link>
+				<pubDate>Tue, 14 Jul 2026 23:11:13 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202607/14/claude-code-scroll-bug/</guid>
+				<description>&lt;p&gt;Claude Code の plan mode で実装計画（plan）の承認ダイアログが表示されると、&lt;strong&gt;plan の部分しかスクロールできず、それより前の会話に遡れない&lt;/strong&gt; という問題があります。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Claude Code &#43; Opus 4.8 で tool call が壊れるバグがいつまで経っても直らない</title>
+				<link>https://yukihane.github.io/blog/202607/01/claude-code-opus-4.8-bug/</link>
+				<pubDate>Wed, 01 Jul 2026 09:39:21 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202607/01/claude-code-opus-4.8-bug/</guid>
+				<description>&lt;p&gt;Claude Code で Opus 4.8 (1M context) を使っていると、ツールコールが壊れて処理が止まるバグに頻繁に遭遇します。&lt;/p&gt;&#xA;&lt;p&gt;この問題は 2026 年 5 月末から報告され始め、7 月に入った現在もまだ修正されていません。自分も何度も遭遇しているので、関連 issue をまとめておきます。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>git log と git diff での ... (三点ドット) の意味の違い</title>
+				<link>https://yukihane.github.io/blog/202606/13/git-three-dots/</link>
+				<pubDate>Sat, 13 Jun 2026 22:08:20 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202606/13/git-three-dots/</guid>
+				<description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;git log A...B&lt;/code&gt; と &lt;code&gt;git diff A...B&lt;/code&gt; は、どちらも &lt;code&gt;...&lt;/code&gt;（三点ドット）を使いますが、意味がまったく異なります&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;git log A...B&lt;/code&gt; は &lt;strong&gt;対称差（symmetric difference）&lt;/strong&gt; で、「A にだけあるコミット」と「B にだけあるコミット」の両方を表示します&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;git diff A...B&lt;/code&gt; は &lt;strong&gt;A と B のマージベース（共通祖先）から B までの差分&lt;/strong&gt; を表示します。つまり「B ブランチで何が変わったか」を見るためのものです&lt;/li&gt;&#xA;&lt;li&gt;GitHub の Pull Request 画面で表示される差分は &lt;code&gt;git diff A...B&lt;/code&gt; 相当です&#xA;&lt;ul&gt;&#xA;&lt;li&gt;つまり、みんなが普段欲しい diff は &lt;code&gt;..&lt;/code&gt; でなく &lt;code&gt;...&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;手元で試すためのセットアップ&#34;&gt;手元で試すためのセットアップ&lt;/h2&gt;&#xA;&lt;p&gt;以下のスクリプトで、本記事の図と同じブランチ構造を持つリポジトリを作れます。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>CI の flaky test を追ったら JDK の HashMap が壊れていた</title>
+				<link>https://yukihane.github.io/blog/202606/13/exposed-flaky-test-hashmap-corruption/</link>
+				<pubDate>Sat, 13 Jun 2026 00:00:00 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202606/13/exposed-flaky-test-hashmap-corruption/</guid>
+				<description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Kotlin + Exposed ORM のプロジェクトで、CI の並列テスト実行時に &lt;code&gt;ClassCastException: LinkedHashMap$Entry cannot be cast to HashMap$TreeNode&lt;/code&gt; が散発的に発生しました。&lt;/li&gt;&#xA;&lt;li&gt;原因は Exposed 内部の &lt;code&gt;IdentifierManagerApi&lt;/code&gt; が &lt;strong&gt;非スレッドセーフな &lt;code&gt;LinkedHashMap&lt;/code&gt;&lt;/strong&gt; を識別子キャッシュに使っており、Kotest の並列実行で同時書き込みが起きて HashMap の内部構造が壊れるためです。&lt;/li&gt;&#xA;&lt;li&gt;これは &lt;a href=&#34;https://github.com/JetBrains/Exposed/issues/1704&#34;&gt;Exposed #1704&lt;/a&gt; として報告済みの既知バグで、&lt;a href=&#34;https://github.com/JetBrains/Exposed/releases/tag/1.3.0&#34;&gt;Exposed 1.3.0&lt;/a&gt; で修正されています。&lt;/li&gt;&#xA;&lt;li&gt;ローカルの単独テスト実行では再現しません。CI のテストレポート（HTML アーティファクト）を取得して初めて完全なスタックトレースが得られ、原因を特定できました。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;症状-無関係な2テストが同じ例外で落ちる&#34;&gt;症状: 無関係な2テストが同じ例外で落ちる&lt;/h2&gt;&#xA;&lt;p&gt;ある PR の CI で、7,000 件超のテスト中 2 件だけが失敗しました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>GitHub PR が「コンフリクトあり」と言うのにローカルではマージできる</title>
+				<link>https://yukihane.github.io/blog/202606/13/github-pr-conflict-criss-cross-merge/</link>
+				<pubDate>Sat, 13 Jun 2026 00:00:00 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202606/13/github-pr-conflict-criss-cross-merge/</guid>
+				<description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;GitHub の Pull Request が &amp;ldquo;This branch has conflicts&amp;rdquo; と表示するのに、ローカルで &lt;code&gt;git merge&lt;/code&gt; すると何事もなく成功する、ということがあります。&lt;/li&gt;&#xA;&lt;li&gt;原因は &lt;strong&gt;criss-cross merge&lt;/strong&gt;（交差マージ）で &lt;code&gt;merge-base&lt;/code&gt; が複数存在する状態です。&lt;/li&gt;&#xA;&lt;li&gt;ローカルの git（&lt;code&gt;ort&lt;/code&gt; / &lt;code&gt;recursive&lt;/code&gt; ストラテジー）は複数の merge-base を仮想ベースに統合して賢く解決しますが、GitHub のマージエンジンは同じ状況をうまく処理できないことがあります。&lt;/li&gt;&#xA;&lt;li&gt;解決策は &lt;code&gt;git rebase&lt;/code&gt; で履歴を線形化することです。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;状況&#34;&gt;状況&lt;/h2&gt;&#xA;&lt;p&gt;スタックド PR（PR-A の上に PR-B を積む運用）をしていて、次のようなことが起きました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Jackson &#43; Kotlin の nullable な value class が {&#34;value&#34;:&#34;...&#34;} で出力される</title>
+				<link>https://yukihane.github.io/blog/202606/13/kotlin-nullable-value-class-jackson-boxing/</link>
+				<pubDate>Sat, 13 Jun 2026 00:00:00 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202606/13/kotlin-nullable-value-class-jackson-boxing/</guid>
+				<description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Kotlin の &lt;code&gt;@JvmInline value class&lt;/code&gt; を &lt;strong&gt;nullable&lt;/strong&gt; なプロパティとして持つ data class を &lt;code&gt;jackson-module-kotlin&lt;/code&gt; でシリアライズすると、auto-unwrap が効かず &lt;code&gt;{&amp;quot;value&amp;quot;:&amp;quot;...&amp;quot;}&lt;/code&gt; の boxed object として出力されることがあります。&lt;/li&gt;&#xA;&lt;li&gt;Jackson 2.17 で value class サポートは正式に入りましたが、公式 docs は &lt;strong&gt;&amp;ldquo;there are many edge cases for the &lt;code&gt;value class&lt;/code&gt; that wraps nullable&amp;rdquo;&lt;/strong&gt; と明記しており、完全解決ではありません。&lt;/li&gt;&#xA;&lt;li&gt;推奨される回避策は value class 側の underlying プロパティに &lt;code&gt;@get:JsonValue&lt;/code&gt; を付与することです。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;何が起きたか&#34;&gt;何が起きたか&lt;/h2&gt;&#xA;&lt;p&gt;Kotlin で ID 系の型安全性を担保するために、こういう value class を定義しているプロジェクトは多いと思います。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>react-select の AsyncSelect が IME 確定後に検索を再実行しない</title>
+				<link>https://yukihane.github.io/blog/202606/13/react-select-async-ime-composition/</link>
+				<pubDate>Sat, 13 Jun 2026 00:00:00 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202606/13/react-select-async-ime-composition/</guid>
+				<description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;react-select の &lt;code&gt;AsyncSelect&lt;/code&gt; は、IME（日本語入力）で文字を確定した後に &lt;code&gt;loadOptions&lt;/code&gt; を再呼び出ししないケースがあります。&lt;/li&gt;&#xA;&lt;li&gt;原因は &lt;code&gt;compositionEnd&lt;/code&gt; 後に &lt;code&gt;inputValue&lt;/code&gt; が内部的に「変化なし」と判定され、検索が再トリガーされないことです。&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;AsyncSelect&lt;/code&gt; の &lt;code&gt;loadOptions&lt;/code&gt; パターンをやめ、通常の &lt;code&gt;Select&lt;/code&gt; + controlled &lt;code&gt;inputValue&lt;/code&gt; + &lt;code&gt;useEffect&lt;/code&gt; による自前検索に切り替えることで解決しました。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;症状&#34;&gt;症状&lt;/h2&gt;&#xA;&lt;p&gt;非同期検索付きのセレクトボックスを &lt;code&gt;react-select&lt;/code&gt; の &lt;code&gt;AsyncSelect&lt;/code&gt; で実装していました。ユーザーがキーワードを入力すると API を呼んで候補を表示する、よくあるパターンです。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>AIコーディング近況</title>
+				<link>https://yukihane.github.io/blog/202605/20/current-ai-coding/</link>
+				<pubDate>Wed, 20 May 2026 03:21:13 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202605/20/current-ai-coding/</guid>
+				<description>&lt;p&gt;2025-10-26 に次の記事を書きました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202510/26/codex-cli-first-impression/&#34;&gt;これまでのAIコーディングの略歴、Codex Cli ファーストインプレッション&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;これは、私のAI利用略歴と、当時は主に Claude Code(仕事)と Codex CLI(プライベート)を使い分けていた、という内容でした。&lt;br /&gt;&#xA;本記事では、その後の近況を記録しておきます。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Kotlin の @JvmInline value class が Spring MVC のパラメータバインディングで壊れる</title>
+				<link>https://yukihane.github.io/blog/202605/20/kotlin-value-class-spring-mvc-binding/</link>
+				<pubDate>Wed, 20 May 2026 03:00:00 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202605/20/kotlin-value-class-spring-mvc-binding/</guid>
+				<description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Kotlin の &lt;code&gt;@JvmInline value class&lt;/code&gt; を &lt;code&gt;@ModelAttribute&lt;/code&gt; で受ける data class のプロパティに使うと、リクエスト時に &lt;code&gt;BeanInstantiationException&lt;/code&gt; が発生します。&lt;/li&gt;&#xA;&lt;li&gt;原因は Kotlin リフレクション API が value class のアンラップ済み型を正しく扱えないバグ（&lt;a href=&#34;https://youtrack.jetbrains.com/issue/KT-64097&#34;&gt;KT-64097&lt;/a&gt;）です。Spring Framework 6.1.0 以降のリフレクションベース（&lt;code&gt;KCallable#callBy&lt;/code&gt;）のパラメータ解決と噛み合って表面化します。&lt;/li&gt;&#xA;&lt;li&gt;Spring 側はこれを「Kotlin のバグ」として &lt;code&gt;NOT_PLANNED&lt;/code&gt; でクローズ済みです（&lt;a href=&#34;https://github.com/spring-projects/spring-framework/issues/31698&#34;&gt;spring-framework#31698&lt;/a&gt;）。フレームワークの修正は期待できません。&lt;/li&gt;&#xA;&lt;li&gt;回避策はバインディング方式によって異なります。&lt;code&gt;@ModelAttribute&lt;/code&gt; の data class では value class を使わず、&lt;code&gt;UUID&lt;/code&gt; 等の素の型で受けて Controller 内で value class に変換するのが安全です。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;value-class-とは&#34;&gt;value class とは&lt;/h2&gt;&#xA;&lt;p&gt;Kotlin の &lt;code&gt;@JvmInline value class&lt;/code&gt; は、1つの値を型安全にラップするための仕組みです。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Kotlin のデフォルト引数が Spring AOP プロキシをすり抜けて NPE になる</title>
+				<link>https://yukihane.github.io/blog/202605/20/kotlin-default-arg-spring-aop-npe/</link>
+				<pubDate>Wed, 20 May 2026 02:00:00 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202605/20/kotlin-default-arg-spring-aop-npe/</guid>
+				<description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;@Transactional&lt;/code&gt; 系のアノテーション（Spring AOP のクラスプロキシ）が掛かった Kotlin クラスで、&lt;strong&gt;メソッドのデフォルト引数式が注入フィールドを参照&lt;/strong&gt;していると &lt;code&gt;NullPointerException&lt;/code&gt; になることがあります。&lt;/li&gt;&#xA;&lt;li&gt;原因は「Kotlin のデフォルト引数は &lt;strong&gt;static な合成メソッド &lt;code&gt;xxx$default&lt;/code&gt;&lt;/strong&gt; に展開され、それが Spring AOP プロキシのインターセプトをすり抜ける」ためです。&lt;/li&gt;&#xA;&lt;li&gt;同じシグネチャでも &lt;strong&gt;引数を明示的に渡すと再現しません&lt;/strong&gt;。そのためテストやコードパスによって出たり出なかったりして気付きにくいです。&lt;/li&gt;&#xA;&lt;li&gt;対策はシンプルです。デフォルト引数で注入依存を参照しないこと。必要なら &lt;strong&gt;メソッド本体で &lt;code&gt;val&lt;/code&gt; 宣言&lt;/strong&gt; するか、オーバーロードで表現します。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;症状&#34;&gt;症状&lt;/h2&gt;&#xA;&lt;p&gt;ある UseCase をリファクタして、時刻取得を &lt;code&gt;Clock&lt;/code&gt; の DI 経由に変えました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>江添亮の入門C&#43;&#43; PDF(フォント埋め込み)</title>
+				<link>https://yukihane.github.io/blog/202602/15/cpp_intro/</link>
+				<pubDate>Sun, 15 Feb 2026 18:29:09 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202602/15/cpp_intro/</guid>
+				<description>&lt;p&gt;最近Xで、&amp;ldquo;ゲームプログラマーになりたいならC++は必須&amp;quot;みたいなポストを見かけ、そういや最近のC++ってどうなっているのか知っといてもいいかも、ということでC++を学べる教材を探すことにしました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>WSL2でWindows Terminalがクラッシュするので利用をやめた</title>
+				<link>https://yukihane.github.io/blog/202602/15/wsl-ime-crash/</link>
+				<pubDate>Sun, 15 Feb 2026 15:27:13 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202602/15/wsl-ime-crash/</guid>
+				<description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202511/03/windows-terminal-crash/&#34;&gt;Windows Terminalで日本語入力中 頻繁にクラッシュする&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;でも書きましたが、Windows Terminalが旧MSIMEを使っていると頻繁にクラッシュして困ったので新しいMSIMEを使うことにしました。&lt;br /&gt;&#xA;しかし、新しいMSIMEだとShift+Spaceで日英入力切替ができないのでAutoHotKeyを利用して解決を図りました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>OBS Python Scriptingで利用できるPythonバージョンの調べ方</title>
+				<link>https://yukihane.github.io/blog/202511/03/how-to-find-out-python-version-of-obs-scripting/</link>
+				<pubDate>Mon, 03 Nov 2025 09:26:32 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202511/03/how-to-find-out-python-version-of-obs-scripting/</guid>
+				<description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://obsproject.com/forum/threads/which-version-of-python-works-on-obs-30-2-3.181517/post-688250&#34;&gt;Which version of python works on Obs 30.2.3 ? | OBS Forums&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;より。&lt;br /&gt;&#xA;&lt;a href=&#34;https://github.com/obsproject/obs-studio/blob/master/shared/obs-scripting/obs-scripting-python-import.c&#34;&gt;shared/obs-scripting/obs-scripting-python-import.c&lt;/a&gt; を見れば良さそうです。&lt;br /&gt;&#xA;この記事を書いている時点ではは 3.12 までのようですね。&lt;br /&gt;&#xA;現在の最新安定版が 3.14 なのでちょっと注意する必要があります。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Windows11でShift&#43;Spaceで日本語/英語切り替えを行えるようにする</title>
+				<link>https://yukihane.github.io/blog/202511/03/shift_space_with_autohotkey/</link>
+				<pubDate>Mon, 03 Nov 2025 05:14:44 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202511/03/shift_space_with_autohotkey/</guid>
+				<description>&lt;p&gt;ひとつ前のエントリーに記載した通り、これまでShift+Spaceで日本語と英語の切り替えを行うために「以前のバージョンのMicrosoft IMEを使う」の設定を有効化していましたが、Windows Terminalとの相性が悪いため無効化せざるを得なくなりました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Windows Terminalで日本語入力中 頻繁にクラッシュする</title>
+				<link>https://yukihane.github.io/blog/202511/03/windows-terminal-crash/</link>
+				<pubDate>Mon, 03 Nov 2025 05:04:49 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202511/03/windows-terminal-crash/</guid>
+				<description>&lt;p&gt;WSL2上の操作をWindows Terminalで行っているのですが、codexを利用していると(?)、頻繁に次のエラーが出ます。&lt;/p&gt;&#xA;&lt;p&gt;「このターミナルでグラフィックス ドライバーの問題が発生し、時間内に回復できませんでした。ターミナルは一時停止されています。」&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>これまでのAIコーディングの略歴、Codex Cli ファーストインプレッション</title>
+				<link>https://yukihane.github.io/blog/202510/26/codex-cli-first-impression/</link>
+				<pubDate>Sun, 26 Oct 2025 13:29:34 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202510/26/codex-cli-first-impression/</guid>
+				<description>&lt;p&gt;最近はもっぱらAIを利用してコーディングしています。&lt;br /&gt;&#xA;が、blogにそういったことをまだ書いたことがなかったなあということで、記録を残そうと思った次第です。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>IntelliJの自動整形でimportのwildcardを使わないようにする</title>
+				<link>https://yukihane.github.io/blog/202508/20/no-use-wildcard-on-intellij/</link>
+				<pubDate>Wed, 20 Aug 2025 19:48:29 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202508/20/no-use-wildcard-on-intellij/</guid>
+				<description>&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202507/21/status-report/&#34;&gt;前回のエントリー&lt;/a&gt; では休職について記載しましたが、現在、無事職に着くことができています。&lt;/p&gt;&#xA;&lt;p&gt;さて、そのプロジェクトでの話ですが、CIでKotlinコードに対して&lt;a href=&#34;https://pinterest.github.io/ktlint/latest/&#34;&gt;ktlint&lt;/a&gt;でソースコードのチェックを行っています。&lt;br /&gt;&#xA;ルールは(ほぼ)デフォルト設定を用いているのですが、このデフォルト設定とIntelliJ IDEAのデフォルト設定が競合するルールがあります。&lt;br /&gt;&#xA;つまり、IntelliJ IDEAの設定でフォーマットをかけると、CIが失敗してしまいます。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>キーボードを買い替えた: Majestouch Xacro M10SP</title>
+				<link>https://yukihane.github.io/blog/202507/21/keyboard-majestouch-xacro-m10sp/</link>
+				<pubDate>Mon, 21 Jul 2025 11:17:36 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202507/21/keyboard-majestouch-xacro-m10sp/</guid>
+				<description>&lt;p&gt;これまで、 &lt;a href=&#34;https://archisite.co.jp/products/mistel/eol/barocco-md600-en/&#34;&gt;Mistel Barocco MD600&lt;/a&gt; という左右分離式キーボードを利用していたのですが、USBケーブル接続端子の調子が悪くなったのか、タイピングを認識しなくなることが頻繁に発生するようになり、買い換えることにしました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>近況報告と求職(準委任契約)について</title>
+				<link>https://yukihane.github.io/blog/202507/21/status-report/</link>
+				<pubDate>Mon, 21 Jul 2025 10:46:54 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202507/21/status-report/</guid>
+				<description>&lt;h2 id=&#34;近況報告&#34;&gt;近況報告&lt;/h2&gt;&#xA;&lt;p&gt;4月末で前回の仕事の契約が終わり、時間ができたので歯医者に行ったり健康診断に行ったりしていたところ、健康診断で血糖値(正確にはHbA1c)が正常値よりかなり高くなっていることがわかり、1ヶ月入院していました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>「簡単アニメキャラ抜き出しアプリ」をWSL2 Docker環境で動かす</title>
+				<link>https://yukihane.github.io/blog/202506/01/anime-face-detection-on-docker/</link>
+				<pubDate>Sun, 01 Jun 2025 21:22:10 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202506/01/anime-face-detection-on-docker/</guid>
+				<description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://trap.jp/post/1362/&#34;&gt;【夏休み自由研究】実例で学ぶ画像処理【Python】 | 東京科学大学デジタル創作同好会tra&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;という記事をたまたま読み、「そういえばひと昔前、アニメ絵の顔検出流行ってたなあ。今どうなってるんだろう」というのが気になって少し調べてみました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>WSL2環境にwslu(wslview)をインストールしよう</title>
+				<link>https://yukihane.github.io/blog/202505/20/install-wslu-on-wsl2/</link>
+				<pubDate>Tue, 20 May 2025 12:50:13 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202505/20/install-wslu-on-wsl2/</guid>
+				<description>&lt;p&gt;久しぶりに Rust の学習を行っています。&lt;/p&gt;&#xA;&lt;p&gt;URL をウェブブラウザーで開くのに &lt;a href=&#34;https://crates.io/crates/open&#34;&gt;open&lt;/a&gt; というクレートがあるのを見つけ、add してみました。&lt;/p&gt;&#xA;&lt;p&gt;依存関係で &lt;a href=&#34;https://crates.io/crates/is-wsl&#34;&gt;is-wsl&lt;/a&gt; というものも追加されているようだったので、おお、ちゃんと WSL2 環境にも対応しているんだな、と思い利用してみたところ…ブラウザーが開かない。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>JPAを積極的に推奨することはやめようと思う</title>
+				<link>https://yukihane.github.io/blog/202505/05/not-recommend-using-jpa/</link>
+				<pubDate>Mon, 05 May 2025 13:35:57 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202505/05/not-recommend-using-jpa/</guid>
+				<description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;@Transactional&#xA;public void updatePostTitle(Long postId, String postTitle) {&#xA;⠀&#xA;    Post post = postRepository.findById(postId).orElseThrow();&#xA;⠀&#xA;    post.setTitle(postTitle);&#xA;⠀&#xA;    postRepository.save(post);&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;これはHibernateのメインcontributorであるVlad Mihalceaさんのブログ記事 &lt;a href=&#34;https://vladmihalcea.com/best-spring-data-jparepository/&#34;&gt;The best Spring Data JpaRepository&lt;/a&gt; で &amp;ldquo;the save method anti-pattern&amp;rdquo; という名前の &lt;strong&gt;アンチパターン&lt;/strong&gt; として紹介されているコードですが、今まで携わってきたプロジェクトでこのコードが間違っていると指摘できるプロジェクトはひとつもありませんでした。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Thymeleafのformのバインドにrecord classは使わない方が良さそう</title>
+				<link>https://yukihane.github.io/blog/202505/05/form-cannot-bind-to-record/</link>
+				<pubDate>Mon, 05 May 2025 11:59:23 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202505/05/form-cannot-bind-to-record/</guid>
+				<description>&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202505/04/kotlin-form-binding/&#34;&gt;前回&lt;/a&gt; のつづき。&lt;/p&gt;&#xA;&lt;p&gt;あれ、そういえばJavaのrecord classも似たような性質だな、ということはrecord classもform bindingには使えないのかな？でもあまりそんな話聞いたこと無いな、どうなんだろう…と思い検索してみたのですが、ヒットしたのは自分の記事でしたｗ&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>KotlinでformバインディングするときもやっぱりJava Beansにした方が良さそう</title>
+				<link>https://yukihane.github.io/blog/202505/04/kotlin-form-binding/</link>
+				<pubDate>Sun, 04 May 2025 14:17:43 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202505/04/kotlin-form-binding/</guid>
+				<description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202505/01/spring-boot-form-binding/&#34;&gt;前回&lt;/a&gt; の続きになります。&lt;br /&gt;&#xA;前回はJavaでformバインディングしvalidationを行いました。&lt;/p&gt;&#xA;&lt;p&gt;今回は、Kotlinでformバインディングしてみて挙動を確認します。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Spring Boot(Spring MVC)のform送信の仕組みを少しずつ理解する</title>
+				<link>https://yukihane.github.io/blog/202505/01/spring-boot-form-binding/</link>
+				<pubDate>Thu, 01 May 2025 21:19:38 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202505/01/spring-boot-form-binding/</guid>
+				<description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;Spring Boot + Thymeleaf でのform送信について、公式ドキュメントとしては&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://spring.io/guides/gs/handling-form-submission&#34;&gt;Handling Form Submission&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://spring.io/guides/gs/validating-form-input&#34;&gt;Validating Form Input&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;があります。&lt;/p&gt;&#xA;&lt;p&gt;しかし、これらのドキュメントは初歩的な説明にとどまり、この知識だけで実践に挑むとかなり苦労します。&lt;br /&gt;&#xA;また、最近は静的webページでformをpostするみたいなことをやる機会が少なくなっており、検索しても実例が出てこなかったりロストテクノロジー化しつつあるように思われました。&lt;br /&gt;&#xA;(「ロストテクノロジー化」については、AIに聞けば良い時代になったので今後は問題にはならないかも？)&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>確定申告(2024年分)振り返り</title>
+				<link>https://yukihane.github.io/blog/202503/20/tax/</link>
+				<pubDate>Thu, 20 Mar 2025 12:58:42 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202503/20/tax/</guid>
+				<description>&lt;p&gt;昨年のものはこちら:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202404/06/final-tax-return/&#34;&gt;確定申告(2023年分)振り返り&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;昨年同様、次回に向けて重要だと考える順に書いていきます:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;次回確定申告までにマイナンバーカードの電子証明書期限が切れるので更新が必要&#xA;&lt;ul&gt;&#xA;&lt;li&gt;有効期限は5回目の誕生日。3ヵ月前から更新可能で、そのあたりで『地方公共団体情報システム機構から送付される「マイナンバーカード・電子証明書　有効期限通知書」』なるものが届くらしい。それが必要&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;下にも書いているがfreeeで口座連携ができていないことはしばしば発生する。確定申告直前に確認するのでなく、日ごろからたまにfreeeにログインして確認すべき&lt;/li&gt;&#xA;&lt;li&gt;freee にみずほ銀行の入出金が去年5月から一切連携できておらず焦ったが、&lt;a href=&#34;https://www.mizuhobank.co.jp/direct/about/service/directpassbook/index.html&#34;&gt;みずほダイレクト通帳&lt;/a&gt;で出力したCSVを、freeeの機能「みずほ銀行ダイレクト（API）でダウンロードしたCSV」インポート機能で取り込めた。&#xA;&lt;ul&gt;&#xA;&lt;li&gt;リンク先にある通り、事前の申請などが必要なので注意。自分はかなり昔に契約していたので助かった&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;国民健康保険料はマイナポータル連携できない(国じゃなくて市の管轄だから推進力が無いのだと思う)。これだけまだ郵送されてくる書類を保管しておく必要がある&#xA;&lt;ul&gt;&#xA;&lt;li&gt;去年も書いた&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;2割特例や簡易課税制度を選択しているのならe-taxで簡単に消費税申請できる。freeeでやろうと思うと上位プランで値段が上がってしまうが、別にfreeeでやる必要はない&lt;/li&gt;&#xA;&lt;li&gt;昨年、「消費税簡易課税制度選択届出書を出しておく必要がありそう」と書いていたがすっかり忘れていた。昨年内に届け出が必要だったが、ギリギリ間に合った&lt;/li&gt;&#xA;&lt;li&gt;楽天のふるさと納税の証明書は、今年から即時に発行できるようになっていた&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;例年なかなかやる気が出なくて、今年も結局最終週まで手を付けられなかった。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>WSLは /etc/environment を読まない</title>
+				<link>https://yukihane.github.io/blog/202502/07/etc-environment-wsl/</link>
+				<pubDate>Fri, 07 Feb 2025 05:47:10 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202502/07/etc-environment-wsl/</guid>
+				<description>&lt;p&gt;このエントリーを書くためにWSL2に&lt;a href=&#34;https://gohugo.io/installation/linux/#snap&#34;&gt;Hugoをsnapで&lt;/a&gt;インストールしました。&lt;/p&gt;&#xA;&lt;p&gt;そして &lt;code&gt;hugo&lt;/code&gt; コマンドを実行すると&amp;hellip;そんなものはないと言われてしまいました。&lt;br /&gt;&#xA;PATHが通っていないからかな？と思い &lt;code&gt;/etc/environment&lt;/code&gt; ファイルを見て見たのですが &lt;code&gt;/snap/bin&lt;/code&gt; は初めから設定されている。むむむと思いググったところ次のような記事がヒットしました:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Scoopでpwshのupdateに失敗する</title>
+				<link>https://yukihane.github.io/blog/202412/15/failed-scoop-update-pwsh/</link>
+				<pubDate>Sun, 15 Dec 2024 02:36:06 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202412/15/failed-scoop-update-pwsh/</guid>
+				<description>&lt;p&gt;Scoop で&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&#xA;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;scoop update pwsh&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;p&gt;を実行してもプロセスが起動しているからスキップする&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ERROR The following instances of &amp;#34;pwsh&amp;#34; are still running. Close them and try again.&#xA;&#xA; NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName&#xA; ------    -----      -----     ------      --  -- -----------&#xA;     71    42.12     104.00       0.52   26500   1 pwsh&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;というメッセージが出てアップデートできない事象がずっと続いていました。&lt;br /&gt;&#xA;(ちゃんと読んでいないのですが)公式のGitHubでissueがいくつか建っているようです。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>ランニングで筋肉痛になったと思ったら1ヶ月経っても治らない</title>
+				<link>https://yukihane.github.io/blog/202411/24/muscle-pain-on-running/</link>
+				<pubDate>Sun, 24 Nov 2024 19:31:00 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202411/24/muscle-pain-on-running/</guid>
+				<description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;ランニングが原因で筋肉痛になっていたと考えていた痛みが1ヶ月以上治まらず整形外科で診察を受けたところランニング障害と診断されました。&lt;br /&gt;&#xA;この症状について、行った対策などを記録していこうと思います。&lt;br /&gt;&#xA;完治するまで更新予定です。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Minecraft Bedrock で Add-on 開発環境を利用して Hello, world!</title>
+				<link>https://yukihane.github.io/blog/202411/23/minecraft-bedrock-programming/</link>
+				<pubDate>Sat, 23 Nov 2024 19:19:20 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202411/23/minecraft-bedrock-programming/</guid>
+				<description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;Minecraft Bedrock Edition(いわゆる統合版)には、Java EditionでいうところのMODに相当するAdd-onを開発する環境があります。&lt;br /&gt;&#xA;これを利用して、自作プログラミングをMinecraft上で実行する環境をセットアップします。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Centos7 に Homebrew を導入して Puppeteer を実行する</title>
+				<link>https://yukihane.github.io/blog/202411/17/centos7-homebrew/</link>
+				<pubDate>Sat, 16 Nov 2024 12:09:03 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202411/17/centos7-homebrew/</guid>
+				<description>&lt;p&gt;次の回答の検証になります:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://ja.stackoverflow.com/a/100397/2808&#34;&gt;CentOS7 環境で glibc を 2.27 にアップデートすると、どんな影響がありますか？ - スタック・オーバーフロー&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;環境は&lt;a href=&#34;https://yukihane.github.io/blog/202411/16/centos7-environment/&#34;&gt;前回のエントリー&lt;/a&gt;で用意したものです。&lt;/p&gt;&#xA;&lt;h2 id=&#34;セットアップ&#34;&gt;セットアップ&lt;/h2&gt;&#xA;&lt;h3 id=&#34;development-tools-インストール&#34;&gt;Development Tools インストール&lt;/h3&gt;&#xA;&lt;p&gt;あとでHomebrewに要求されるので先にインストールしておきます:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>CentOS7実行環境を整える</title>
+				<link>https://yukihane.github.io/blog/202411/16/centos7-environment/</link>
+				<pubDate>Sat, 16 Nov 2024 05:30:06 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202411/16/centos7-environment/</guid>
+				<description>&lt;p&gt;今さらCentOS7環境で検証する必要が出たので環境を整えました。&lt;br /&gt;&#xA;その時のメモです。&lt;br /&gt;&#xA;ホストOSはWindows11です。&lt;/p&gt;&#xA;&lt;h2 id=&#34;インストール&#34;&gt;インストール&lt;/h2&gt;&#xA;&lt;h3 id=&#34;vagrant&#34;&gt;Vagrant&lt;/h3&gt;&#xA;&lt;p&gt;scoop でインストールしました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Stable Diffusion Installation on Windows11</title>
+				<link>https://yukihane.github.io/blog/202411/12/stable-diffusion-installation/</link>
+				<pubDate>Tue, 12 Nov 2024 21:16:11 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202411/12/stable-diffusion-installation/</guid>
+				<description>&lt;p&gt;(追記: 後で知りましたが、Stability Matrix というパッケージがここに書いた手順よりインストールが簡単そうでした)&lt;/p&gt;&#xA;&lt;p&gt;Windows11へStable Diffusionをインストールしたときの作業ログです。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Windows Terminal を起動するとフォントが無いというエラーが出た</title>
+				<link>https://yukihane.github.io/blog/202411/12/windows-terminal-font-not-found/</link>
+				<pubDate>Tue, 12 Nov 2024 20:59:43 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202411/12/windows-terminal-font-not-found/</guid>
+				<description>&lt;p&gt;久しぶりにWSL2で作業をしようとWindows Terminalを起動するとフォントが存在しない旨のエラーが出ました。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/miiton/Cica/releases&#34;&gt;Cicaフォント&lt;/a&gt;を指定しているのですが、以前はこの設定で起動していたし、フォントをアンインストールした記憶もないし&amp;hellip;と思ったものの検索してみたところ同じような症状の記事が見つかりました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://note.com/reindex/n/n066a0adffe54&#34;&gt;Windows Terminalのフォントがありません問題の回避｜Re*Index. (ot_inc)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://tech.ateruimashin.com/blog/2021/03/windows-terminal-font/&#34;&gt;Windows Terminalで選択されたフォントが見つからない | がぶろぐ&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;取り敢えず対処としては「すべてのユーザーに対してインストール」を実行すれば良さそうなのでフォントファイルを右クリックしたところ、該当メニューが現れませんでした。ちなみにWindows11です。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Spring Boot 開発で SASS や TypeScript を利用するための設定(Vite)</title>
+				<link>https://yukihane.github.io/blog/202410/26/spring-boot-with-vite/</link>
+				<pubDate>Sat, 26 Oct 2024 01:49:44 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202410/26/spring-boot-with-vite/</guid>
+				<description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;次のエントリーで、Spring Boot &amp;amp; Thymeleaf な開発時に TypeScript を利用する設定を書きました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202107/10/spring-boot-with-typescript/&#34;&gt;Spring Boot と TypeScript で開発するためのプロジェクト設定(Gradle)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202107/11/spring-boot-with-babel/&#34;&gt;Spring Boot と TypeScript で開発するためのプロジェクト設定(Gradle) - Polyfill も必要とする場合&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;今回は Spring Boot &amp;amp; Thymeleaf な開発で、もうちょっとちゃんとモダンなフロントエンド開発環境を統合する手順です。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Markdownでblogを書くようにしました</title>
+				<link>https://yukihane.github.io/blog/202410/20/blog-with-markdown/</link>
+				<pubDate>Sun, 20 Oct 2024 14:59:16 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202410/20/blog-with-markdown/</guid>
+				<description>&lt;p&gt;これまでは Asciidoc を利用してきましたが、もはや Markdown の覇権は揺るぎそうにないので宗旨変えをすることにしました。&lt;/p&gt;&#xA;&lt;p&gt;blog 用の SSG も、Asciidoc のサポートが良いものを選んできて、今の Hugo も、当時人気だった Gatsby と比較して Asciidoc のサポートが厚いという理由で選択しました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Gradleプロジェクトではリソースファイルを編集してもAutomatic Restartしてしまう</title>
+				<link>https://yukihane.github.io/blog/202410/20/spring-boot-devtools-auto-restart/</link>
+				<pubDate>Sun, 20 Oct 2024 14:51:14 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202410/20/spring-boot-devtools-auto-restart/</guid>
+				<description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/spring-projects/spring-boot/issues/20136&#34;&gt;Devtools always triggers restart if build with gradle - spring-projects/spring-boot #20136&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/gradle/gradle/issues/12220&#34;&gt;Delegated build process always triggers Spring-Boot devtools restart - gradle/gradle #12220&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;にある通りですが。&lt;/p&gt;&#xA;&lt;p&gt;spring-boot-devtools の説明では、クラスのリロードが必要になった場合それを検知して自動的に再起動するが、Thymeleaf テンプレートや css などの static リソースファイルが変更された場合は再起動しない、とあります。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Buffaloのルーターはもう買わないことにした</title>
+				<link>https://yukihane.github.io/blog/202404/06/buffalo-router/</link>
+				<pubDate>Sat, 06 Apr 2024 17:28:51 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202404/06/buffalo-router/</guid>
+				<description>&lt;p&gt;2023年2月上旬に WSR-6000AX8(&lt;a href=&#34;https://amzn.to/3PQLASI&#34;&gt;Amazon&lt;/a&gt;) というルーターを購入したのですが、高頻度で受信エラーが発生しました。 リモートワークを行っていますのでこのままだと仕事にならない、とサポートに連絡するも特に有効な情報は得られず。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>確定申告(2023年分)振り返り</title>
+				<link>https://yukihane.github.io/blog/202404/06/final-tax-return/</link>
+				<pubDate>Sat, 06 Apr 2024 07:05:50 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202404/06/final-tax-return/</guid>
+				<description>&lt;p&gt;次回に向けて重要だと考える順に書いていきます。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;消費税簡易課税制度選択届出書を出しておく必要がありそう。現在は２割特例が効いている。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6505.htm&#34;&gt;No.6505 簡易課税制度&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.nta.go.jp/taxes/shiraberu/zeimokubetsu/shohi/keigenzeiritsu/invoice_2tokurei.htm&#34;&gt;２割特例 特設ページ （個人事業者向け）&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;国民健康保険料はマイナポータル連携できない(国じゃなくて市の管轄だから推進力が無いのだと思う)。これだけまだ郵送されてくる書類を保管しておく必要がある。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;ふるさと納税証明書の発行は即時ではなく日数がかかる(3営業日程度)ので年が変わったらすぐ申請しておくくらいでよいと思う。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://event.rakuten.co.jp/furusato/guide/final-return/&#34;&gt;https://event.rakuten.co.jp/furusato/guide/final-return/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;経費に計上するものの大半はAmazonで購入したものだが、事業主貸にするものとの分別が無駄労力に感じる。私物はAmazon以外で購入できるのならそうする。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;マイナポータル連携は営業時間内でないとできないものがあった。(ただ、できるものは全て完了しているので次回確定申告では気にしなくてよいはず)&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.ideco-koushiki.jp/library/pdf/instructions_for_use.pdf&#34;&gt;https://www.ideco-koushiki.jp/library/pdf/instructions_for_use.pdf&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;電気・ガス料金はオンラインで見られるようになったが、水道料金はできない。(ただfreeeが口座見て勝手に記入してくれるので不便はない)&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Wayland では gimp でスクリーンショットを撮れなくなったり xeyes が追従しなくなったり</title>
+				<link>https://yukihane.github.io/blog/202404/06/losts-on-wayland/</link>
+				<pubDate>Sat, 06 Apr 2024 06:00:24 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202404/06/losts-on-wayland/</guid>
+				<description>&lt;p&gt;セキュリティ上の理由っぽいのですが、最近 Ubuntu でやろうとしてできないことが重なり、あれ？ってなりました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gitlab.gnome.org/GNOME/gimp/-/issues/8510#note_2014569&#34;&gt;Screenshot not capturing &amp;lsquo;snapped&amp;rsquo; window; Screenshot window pops up behind main GIMP window&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;ここで &amp;ldquo;Screenshot portal&amp;rdquo; を使えと言われてますが、一般名詞過ぎて検索してもなんのこっちゃでしたが、おそらく以下で説明されている &lt;code&gt;xdg-desktop-portal&lt;/code&gt; のことですかね…？&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>asyncなライブラリー関数のテストを書く</title>
+				<link>https://yukihane.github.io/blog/202404/05/rust-test-async/</link>
+				<pubDate>Fri, 05 Apr 2024 05:45:28 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202404/05/rust-test-async/</guid>
+				<description>&lt;h1 id=&#34;今回解決したい問題&#34;&gt;今回解決したい問題&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://docs.rs/reqwest/0.12.2/reqwest/&#34;&gt;reqwestのドキュメント&lt;/a&gt; の最初のサンプルをテスト実行することを考えます。&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&#xA;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;reqwest&lt;/span&gt;::&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;https://www.rust-lang.org&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;await&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;?&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;await&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;?&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;fm&#34;&gt;println!&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;body = &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{body:?}&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;p&gt;まず &lt;code&gt;Cargo.toml&lt;/code&gt; に依存関係を追加して、&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;cargo new --lib test-async&#xA;cd test-async&#xA;cargo add reqwest&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;冒頭のコードを実行する関数を作ります。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>言語実装パターン レビュー</title>
+				<link>https://yukihane.github.io/blog/202209/03/language-implementation-patterns/</link>
+				<pubDate>Sat, 03 Sep 2022 12:16:33 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202209/03/language-implementation-patterns/</guid>
+				<description>&lt;p&gt;(レビュー、という大層な物言いはあまりしたくないのですが、自分が書籍の感想を検索するときには &amp;ldquo;&amp;lt;書籍名&amp;gt; レビュー&amp;rdquo; で検索することが多いので…​)&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>jOOQ で Hello, world</title>
+				<link>https://yukihane.github.io/blog/202208/26/hello-jooq/</link>
+				<pubDate>Fri, 26 Aug 2022 23:43:08 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202208/26/hello-jooq/</guid>
+				<description>&lt;p&gt;jOOQ の挙動を確認する必要が出たので、実行環境を作りました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/yukihane/hello-java/tree/main/jooq/hello-jooq&#34;&gt;https://github.com/yukihane/hello-java/tree/main/jooq/hello-jooq&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;使い方はリンク先の README を参照してください。&lt;/p&gt;&#xA;&lt;p&gt;余談: jOO公式リポジトリに &lt;a href=&#34;https://github.com/jOOQ/jOOQ/tree/main/jOOQ-examples&#34;&gt;&lt;code&gt;jOOQ-examples&lt;/code&gt;&lt;/a&gt; というディレクトリがあって参考になりそうだったのですが、解説がどこにあるかわからず断念しました…​&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Java における value objects</title>
+				<link>https://yukihane.github.io/blog/202206/12/java-value-based-class/</link>
+				<pubDate>Sun, 12 Jun 2022 05:56:40 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202206/12/java-value-based-class/</guid>
+				<description>&lt;p&gt;Java 標準 API のドキュメントには、 &amp;ldquo;値ベース・クラス&amp;rdquo; というページがあります:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/ValueBased.html&#34;&gt;https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/doc-files/ValueBased.html&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;機械翻訳っぽくて分かりづらい箇所もあるので、併せて &lt;a href=&#34;https://docs.oracle.com/javase/jp/8/docs/api/java/lang/doc-files/ValueBased.html&#34;&gt;Java8 版&lt;/a&gt; や &lt;a href=&#34;https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/doc-files/ValueBased.html&#34;&gt;英語版&lt;/a&gt; も見てみると良いかもです。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Kotlin の似たようなクラス</title>
+				<link>https://yukihane.github.io/blog/202206/11/kotlin-data-class-and-so-on/</link>
+				<pubDate>Sat, 11 Jun 2022 11:55:44 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202206/11/kotlin-data-class-and-so-on/</guid>
+				<description>&lt;p&gt;(昔書きかけて完成していないっぽいですが、置いておいても忘れるだけなのでcommitしてしまいます)&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202206/11/value-object/&#34;&gt;value object&lt;/a&gt; のことを調べていたら、 Kotlin にぱっと見似たような異なるクラス定義方法があることに気付いたので、それらについてまとめておきます。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Maven Wrapper が Maven3 に正式導入された</title>
+				<link>https://yukihane.github.io/blog/202206/11/maven-wrapper/</link>
+				<pubDate>Sat, 11 Jun 2022 10:36:51 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202206/11/maven-wrapper/</guid>
+				<description>&lt;p&gt;Gradle には &lt;a href=&#34;https://docs.gradle.org/current/userguide/gradle_wrapper.html&#34;&gt;Gradle Wrapper&lt;/a&gt; といって、 ビルドするためのツールである Gradle の該当バージョンがローカルにインストールされていない場合でも、自動で取得してビルド環境をセットアップしてくれる仕組みがあります。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Value Object(値オブジェクト)についての覚え書き</title>
+				<link>https://yukihane.github.io/blog/202206/11/value-object/</link>
+				<pubDate>Sat, 11 Jun 2022 04:01:31 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202206/11/value-object/</guid>
+				<description>&lt;p&gt;2022年5月中旬から下旬にかけて Value Object(値オブジェクト) についての議論がさかんに行われていました。&lt;/p&gt;&#xA;&lt;p&gt;そのときに書き起こされた文章へのリンクを、(分かる範囲で)時系列順に残しておきます。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>GitHub の通知をちゃんと使えるように設定する</title>
+				<link>https://yukihane.github.io/blog/202205/15/github-unwatch/</link>
+				<pubDate>Sun, 15 May 2022 19:54:13 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202205/15/github-unwatch/</guid>
+				<description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;今回初めて仕事で GitHub (&lt;a href=&#34;https://docs.github.com/ja/get-started/onboarding/getting-started-with-github-enterprise-cloud&#34;&gt;GitHub Enterpsise Cloude&lt;/a&gt;) を使うことになりました。&lt;/p&gt;&#xA;&lt;p&gt;始める前は少しアコガレなんかも有ったりしたのですが、いざやってみると、思ったほど素敵では無いですね…​ これまでプライベートスペースだったところに仕事が入り込んでくる居心地の悪さよ。 後日、他の人に聞いてみたり見てみたりした感じ、(規約的にはまずそうですが)アカウントを使い分けている人もそれなりに居そうで、自分もそうすりゃ良かったかも、と思う始末です。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Elixir 開発環境をセットアップする</title>
+				<link>https://yukihane.github.io/blog/202205/01/setup-elixir/</link>
+				<pubDate>Sun, 01 May 2022 12:47:31 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202205/01/setup-elixir/</guid>
+				<description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4908829306/&#34;&gt;改訂新版 Elixir/Phoenix 初級①: はじめの一歩&lt;/a&gt; という書籍で Phoenix というウェブフレームワークの勉強をはじめました。&lt;/p&gt;&#xA;&lt;p&gt;Elixir という言語で実装していくことになりますが、本書籍は Elixir 言語入門としても優れているので、少なくとも本書を読み進めていくに当たって、言語仕様のことで困ることは無さそうです。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>自分の作成したGitブランチを表示する</title>
+				<link>https://yukihane.github.io/blog/202204/19/listing-my-git-branch/</link>
+				<pubDate>Tue, 19 Apr 2022 12:55:29 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202204/19/listing-my-git-branch/</guid>
+				<description>&lt;p&gt;リモートブランチに一時的なブランチ、テスト的に作ったブランチなどをpushしていたのを掃除したくなりました。&lt;/p&gt;&#xA;&lt;p&gt;複数人で共同作業するために利用しているので、どれが自分のブランチなのかをまずリスト化したかったので、どうすれば出力できるか調べました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>WSL2上のGUIアプリケーションを動かす</title>
+				<link>https://yukihane.github.io/blog/202204/16/gui-on-wsl2/</link>
+				<pubDate>Sat, 16 Apr 2022 17:56:11 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202204/16/gui-on-wsl2/</guid>
+				<description>&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202110/03/hello-tauri/&#34;&gt;Tauri&lt;/a&gt; の開発環境を Windows10 の WSL2 に移行するために、 WSL2 上の GUI アプリを Windows で表示するようにセットアップしました。&lt;/p&gt;&#xA;&lt;p&gt;とは言いつつ、既に次の手順でセットアップしたことがあるので、今回はこれが動くかどうかを確認しただけですが。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>WSL2上にDockerをインストールする</title>
+				<link>https://yukihane.github.io/blog/202203/28/docker-on-wsl2/</link>
+				<pubDate>Mon, 28 Mar 2022 08:24:45 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202203/28/docker-on-wsl2/</guid>
+				<description>&lt;p&gt;現在、 Windows で Docker を利用するには大きく2つ方策があるのかなと思います。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://docs.docker.com/desktop/windows/install/&#34;&gt;Docker Desktop for Windows&lt;/a&gt; を利用する&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;WSL2 上に &lt;a href=&#34;https://docs.docker.com/engine/install/ubuntu/&#34;&gt;Docker Engine&lt;/a&gt; をインストールする&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;自分は元々 Ubuntu 上で Docker を利用してきたので、馴染みのある後者を選択することにしました。 (ちなみにこだわりが無いのなら前者の方が良いと思います)&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Kotlin で JPA エンティティクラスを定義する</title>
+				<link>https://yukihane.github.io/blog/202203/12/kotlin-jpa-definition/</link>
+				<pubDate>Sat, 12 Mar 2022 20:39:32 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202203/12/kotlin-jpa-definition/</guid>
+				<description>&lt;p&gt;Kotlin で JPA エンティティを実装しようと思って調べた結果をまとめた記事です。&lt;/p&gt;&#xA;&lt;p&gt;まとめ:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;プロジェクト構成について&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://kotlinlang.org/docs/no-arg-plugin.html#jpa-support&#34;&gt;&lt;code&gt;kotlin-jpa&lt;/code&gt;&lt;/a&gt; compiler plugin を適用する&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://kotlinlang.org/docs/all-open-plugin.html&#34;&gt;&lt;code&gt;all-open&lt;/code&gt;&lt;/a&gt; compiler plugin を適用し、 &lt;code&gt;@Entity&lt;/code&gt;, &lt;code&gt;@Embeddable&lt;/code&gt;, &lt;code&gt;@MappedSuperclass&lt;/code&gt; を対象に設定する&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;エンティティ定義について&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;(原則として) &lt;code&gt;data&lt;/code&gt; class や &lt;code&gt;val&lt;/code&gt; の利用は諦める&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Java で Lombok の &lt;code&gt;@Data&lt;/code&gt; や &lt;code&gt;@Value&lt;/code&gt; を付与したときと同じような問題がある(&lt;a href=&#34;https://yukihane.github.io/blog/202107/31/dont-use-lombok-with-jpa/&#34;&gt;参考&lt;/a&gt;)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Jacksonでコンストラクタを利用してデシリアライズ</title>
+				<link>https://yukihane.github.io/blog/202203/12/jackson-deserialize-by-constructor/</link>
+				<pubDate>Sat, 12 Mar 2022 14:12:33 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202203/12/jackson-deserialize-by-constructor/</guid>
+				<description>&lt;ul&gt;&#xA;&lt;li&gt;今回のコード: &lt;a href=&#34;https://github.com/yukihane/hello-java/tree/main/jackson/jackson-deserialize-by-constructor&#34;&gt;https://github.com/yukihane/hello-java/tree/main/jackson/jackson-deserialize-by-constructor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Jackson は引数なしコンストラクタが必要、というblogを目にしましたが、正しくありません。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;code&gt;@JsonCreator&lt;/code&gt; を付与することでそのコンストラクタを使ってデシリアライズするように指示できます。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;コンストラクタが1つしか無い場合は省略できます。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;JSON プロパティと Java フィールドのマッピングは &lt;code&gt;@JsonProperty&lt;/code&gt; で行えます。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/FasterXML/jackson-modules-java8/tree/2.14/parameter-names&#34;&gt;&lt;code&gt;jackson-module-parameter-names&lt;/code&gt;&lt;/a&gt; を利用すると、メソッドシグネチャのパラメータを利用してマッピングできるので、この設定を省略できます。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;ちなみに、この機能は Jackson 3.x では本体(&lt;code&gt;jackson-databind&lt;/code&gt;)に統合されるようです。(2.x は Java7 以前もサポート対象にしているので Java8 以降の機能は切り出しているみたいです)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>git worktree を利用していると git-commit-id-maven-plugin でエラー</title>
+				<link>https://yukihane.github.io/blog/202201/24/git-commit-id-maven-plugin-on-worktree/</link>
+				<pubDate>Mon, 24 Jan 2022 11:11:35 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202201/24/git-commit-id-maven-plugin-on-worktree/</guid>
+				<description>&lt;p&gt;…​になりました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/git-commit-id/git-commit-id-maven-plugin/issues/215&#34;&gt;Support of git worktree option (for JGIT) · Issue #215 · git-commit-id/git-commit-id-maven-plugin · GitHub&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;コマンドライン引数でスキップさせるには、 &lt;a href=&#34;https://github.com/git-commit-id/git-commit-id-maven-plugin/pull/278&#34;&gt;#278&lt;/a&gt; で導入された &lt;code&gt;maven.gitcommitid.skip&lt;/code&gt; オプション(&lt;a href=&#34;https://github.com/git-commit-id/git-commit-id-maven-plugin/blob/v5.0.0/src/main/java/pl/project13/maven/git/GitCommitIdMojo.java#L241-L251&#34;&gt;現時点最新版の該当コードリンク&lt;/a&gt;)を利用して、&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;mvn -Dmaven.gitcommitid.skip package&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;などとすれば良さそうです。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>JUnit &#43; Mockito テストケースを Kotest &#43; MockK に書き換える</title>
+				<link>https://yukihane.github.io/blog/202201/12/kotlin-kotest-mockk/</link>
+				<pubDate>Wed, 12 Jan 2022 05:14:56 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202201/12/kotlin-kotest-mockk/</guid>
+				<description>&lt;p&gt;Kotest + MockK の組み合わせは Kotlin ではメジャー…​かと思いきや検索してみても公式の&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://kotest.io/docs/framework/integrations/mocking.html&#34;&gt;Mocking and Kotest&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;にあるような例しか見つかりませんでした。 Mockito で言うところの &lt;code&gt;@Mock&lt;/code&gt; や &lt;code&gt;@InjectMocks&lt;/code&gt; を使ってモックを差し込みたいんじゃい！ ということでサンプルです。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Kotlin で JUnit4 のテストケースを書く</title>
+				<link>https://yukihane.github.io/blog/202201/10/kotlin-junit4/</link>
+				<pubDate>Mon, 10 Jan 2022 10:23:22 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202201/10/kotlin-junit4/</guid>
+				<description>&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;JUnit4 / Parameterized&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Mockito 利用&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;テスト対象が Lombok, MapStruct 使用&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;な状況で Kotlin でテストコードを書きます。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;成果物: &lt;a href=&#34;https://github.com/yukihane/hello-kotlin/tree/main/junit4-mockito-example&#34;&gt;https://github.com/yukihane/hello-kotlin/tree/main/junit4-mockito-example&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;先にまとめを書いておきます。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;(IntelliJ で Java のコードを &lt;code&gt;.kt&lt;/code&gt; にペーストすると Kotlin コードに変換してくれるが、コレジャナイ感溢れるコードになったのであまり自動変換コードを信用するのは危険かも)&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;code&gt;@Mock&lt;/code&gt; や &lt;code&gt;@InjectMocks&lt;/code&gt; を付与したフィールドは &lt;code&gt;lateinit var&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;code&gt;static&lt;/code&gt; メソッドを書きたい場合は &lt;code&gt;companion object&lt;/code&gt; で囲って &lt;code&gt;@JvmStatic&lt;/code&gt; アノテーションを付与する&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;今回の場合は JUnit4 のパラメータ供給メソッド(&lt;code&gt;@Parameters&lt;/code&gt;)が該当&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Kotlin では &lt;code&gt;when&lt;/code&gt; は予約語なのでバッククオートで囲う必要がある&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Kotlin で Mockito の &lt;code&gt;any()&lt;/code&gt; を利用すると &amp;ldquo;ArgumentMatchers.any(mViewModel.CountSubscriber::class.java) must not be null&amp;rdquo; みたいなエラーになる&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;…​らしいが今回のコードでは再現しなかった&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;対処法は、 &lt;a href=&#34;https://stackoverflow.com/a/61746568/4506703&#34;&gt;&lt;code&gt;any()&lt;/code&gt; を定義し直し&lt;/a&gt;たり &lt;a href=&#34;https://github.com/mockito/mockito/issues/2200&#34;&gt;&lt;code&gt;mockito-kotlin&lt;/code&gt;&lt;/a&gt; を利用したりする方法がある&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Kotolin のプロジェクトを Maven で作成する</title>
+				<link>https://yukihane.github.io/blog/202201/09/kotlin-maven-pom/</link>
+				<pubDate>Sun, 09 Jan 2022 14:41:04 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202201/09/kotlin-maven-pom/</guid>
+				<description>&lt;p&gt;入門書を一通り読み終えたのでサンプルプロジェクトを作成しようと思いました。&lt;/p&gt;&#xA;&lt;p&gt;JetBrains がメンテナンスしている archetype が利用できそうです。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-archetype-jvm&#34;&gt;https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-archetype-jvm&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;!-- --&gt;&#xA;&lt;pre&gt;&lt;code&gt;mvn archetype:generate -DarchetypeGroupId=org.jetbrains.kotlin -DarchetypeArtifactId=kotlin-archetype-jvm&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;IntelliJ IDEA から作成した場合も似た感じの &lt;code&gt;pom.xml&lt;/code&gt; が作成されるかなと思います。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>IntelliJ 最新版(2021.3) で Kotlin と Lombok が共存できない</title>
+				<link>https://yukihane.github.io/blog/202201/05/kotlin-lombok-intellij-problem/</link>
+				<pubDate>Wed, 05 Jan 2022 06:38:51 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202201/05/kotlin-lombok-intellij-problem/</guid>
+				<description>&lt;p&gt;[追記 2022-01-17] 今回リリースされた &lt;code&gt;213-1.6.10-release-944-IJ6461.79&lt;/code&gt; で修正されたようです(ただし &lt;code&gt;.idea&lt;/code&gt; ディレクトリを削除してからインポートし直す必要がありました)。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://kotlinlang.org/docs/whatsnew1520.html&#34;&gt;Kotlin 1.5.20&lt;/a&gt; から &lt;a href=&#34;https://kotlinlang.org/docs/lombok.html&#34;&gt;Lombok compiler plugin&lt;/a&gt; というものが提供されるようになり、 Kotlin から自動生成される getter などにアクセスできるようになりました(※実験的機能なようですが)。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Kotlin in Action (Kotlin イン・アクション) 読書メモ</title>
+				<link>https://yukihane.github.io/blog/202201/01/kotlin-in-action/</link>
+				<pubDate>Sat, 01 Jan 2022 14:17:30 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202201/01/kotlin-in-action/</guid>
+				<description>&lt;h1 id=&#34;kotlin-関連書籍について&#34;&gt;Kotlin 関連書籍について&lt;/h1&gt;&#xA;&lt;p&gt;書籍 &lt;a href=&#34;https://book.mynavi.jp/ec/products/detail/id=78137&#34;&gt;Kotlinイン・アクション&lt;/a&gt; を読んでいます。&lt;/p&gt;&#xA;&lt;p&gt;2022 年 1 月現在の &lt;a href=&#34;https://kotlinlang.org/docs/releases.html#release-details&#34;&gt;Kotlin 最新バージョン&lt;/a&gt; が &lt;code&gt;1.6.10&lt;/code&gt; であるのに対し、本書が解説しているのは &lt;code&gt;1.0&lt;/code&gt; のようなので、役に立つのかな…と当初は考えていましたが、今のところ、これは駄目だ、というところは無さそうです。 (気になる人はドキュメントの &amp;ldquo;Earlier versions&amp;rdquo; (&lt;a href=&#34;https://kotlinlang.org/docs/whatsnew11.html&#34;&gt;このあたり&lt;/a&gt;) で新機能について説明があります)&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Ubuntu で作業していると突然マウスホイールが効かなくなる</title>
+				<link>https://yukihane.github.io/blog/202112/13/mouse-wheel-stop-working-on-ubuntu/</link>
+				<pubDate>Sun, 12 Dec 2021 19:37:57 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202112/13/mouse-wheel-stop-working-on-ubuntu/</guid>
+				<description>&lt;p&gt;表題のような事象がたまに発生していて、これまではOS再起動で直していました。&lt;/p&gt;&#xA;&lt;p&gt;その症状が今しがた出たのですが、ふと &lt;code&gt;imwheel&lt;/code&gt; をインストールしていたことを思い出してこれをアンインストールしてみたところ、再起動せずにスクロール機能が復活しました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Spring Boot でサンプルコードを作成するときのプロパティなど</title>
+				<link>https://yukihane.github.io/blog/202110/31/spring-boot-template/</link>
+				<pubDate>Sun, 31 Oct 2021 10:01:45 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202110/31/spring-boot-template/</guid>
+				<description>&lt;p&gt;Stack Overflow で Spring Boot の質問に回答するときのサンプルプロジェクトを作成するとき、 &lt;a href=&#34;https://start.spring.io/&#34;&gt;Spirng Initializr&lt;/a&gt; を利用しているのですが、よく必要な dependencies を追加し忘れたり、設定しておいた方が良いプロパティってなんだっけかな、と迷うことがあります。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>VSCode でエラー/警告アンダーラインの区別がつかない</title>
+				<link>https://yukihane.github.io/blog/202110/25/vscode-underline-coloring/</link>
+				<pubDate>Mon, 25 Oct 2021 17:31:42 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202110/25/vscode-underline-coloring/</guid>
+				<description>&lt;p&gt;VSCode のデフォルトの色設定だと、エラーの波線と警告の波線との区別が私の目では付けづらいのです。 おそらく赤色と黄色だと思うのですが…&lt;/p&gt;&#xA;&lt;p&gt;色についてのプロパティは次のリンク先に説明がありました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Spring Boot でカスタム validator に injection する</title>
+				<link>https://yukihane.github.io/blog/202110/18/spring-inject-in-validator/</link>
+				<pubDate>Mon, 18 Oct 2021 12:59:08 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202110/18/spring-inject-in-validator/</guid>
+				<description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;Spring Boot で JPA Validator にインジェクションしようとしたけどできなかった、という話を何度か聞いてその度に調べていたので、次回に備えてまとめておきます。 サンプルコードはこちら:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Spring MVC で Java17 record を試してみる</title>
+				<link>https://yukihane.github.io/blog/202110/18/java17-record-on-spring-mvc/</link>
+				<pubDate>Mon, 18 Oct 2021 10:03:46 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202110/18/java17-record-on-spring-mvc/</guid>
+				<description>&lt;p&gt;(※ &lt;code&gt;record&lt;/code&gt; は Java14 でプレビュー版が導入、 Java16 で正式版が導入されたので Java17 というのは不正確なようですが…)&lt;/p&gt;&#xA;&lt;p&gt;Java17 の &lt;code&gt;record&lt;/code&gt; を今まで利用してきた POJO から置き換えられるのかを簡単に見てみました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Mapstruct Spring Extensions を試してみる</title>
+				<link>https://yukihane.github.io/blog/202110/18/mapstruct-spring-extensions/</link>
+				<pubDate>Mon, 18 Oct 2021 02:44:46 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202110/18/mapstruct-spring-extensions/</guid>
+				<description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://mapstruct.org/&#34;&gt;MapStruct の公式サイト&lt;/a&gt;を見ていると、 &lt;a href=&#34;https://mapstruct.org/documentation/spring-extensions/reference/html/&#34;&gt;Mapstruct Spring Extensions&lt;/a&gt; なるサブプロジェクトが発足していたので、何者か調べようと試してみました。&lt;/p&gt;&#xA;&lt;p&gt;結果、これは Spring の &lt;a href=&#34;https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#core-convert-ConversionService-API&#34;&gt;&lt;code&gt;ConversionService&lt;/code&gt;&lt;/a&gt; の &lt;a href=&#34;https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#core-convert-Converter-API&#34;&gt;&lt;code&gt;Converter&lt;/code&gt;&lt;/a&gt; と MapStruct の &lt;code&gt;Mapper&lt;/code&gt; を統合して、実装を少し楽にしよう、というもののようでした。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>STS(Eclipse) で Import Getting Started Content が進まない</title>
+				<link>https://yukihane.github.io/blog/202110/16/sts-import-getting-started-content-is-stuck/</link>
+				<pubDate>Sat, 16 Oct 2021 08:16:59 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202110/16/sts-import-getting-started-content-is-stuck/</guid>
+				<description>&lt;p&gt;&lt;a href=&#34;https://spring.io/tools&#34;&gt;Spring Tools 4 for Eclipse&lt;/a&gt; を利用していると、バージョンによって？ プロジェクト新規作成時などで &amp;ldquo;Import Getting Started Content&amp;rdquo; というタスクが走るのですがこれが全く終わらないことがあります。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>map で Result を引き回すときに Err を意識したくない その2</title>
+				<link>https://yukihane.github.io/blog/202110/15/rust-map-with-result/</link>
+				<pubDate>Fri, 15 Oct 2021 21:12:09 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202110/15/rust-map-with-result/</guid>
+				<description>&lt;p&gt;その1はこちらです:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://ja.stackoverflow.com/q/82978/2808&#34;&gt;map で Result を引き回すときに Err を意識したくない - スタック・オーバーフロー&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;その1では戻り値が &lt;code&gt;i * 2&lt;/code&gt; の &lt;code&gt;i32&lt;/code&gt; 型になる話でしたが、その次に考えたかったのは &lt;code&gt;Result&lt;/code&gt; が返ってくるメソッドで引き回すときの話でした。こんな感じで:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Servlet 5.1 で Samesite 属性を設定できるようになる</title>
+				<link>https://yukihane.github.io/blog/202110/15/servlet-with-cookies-samesite/</link>
+				<pubDate>Fri, 15 Oct 2021 20:31:37 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202110/15/servlet-with-cookies-samesite/</guid>
+				<description>&lt;p&gt;現在の Servlet API では &lt;a href=&#34;https://jakarta.ee/specifications/platform/8/apidocs/javax/servlet/http/cookie&#34;&gt;&lt;code&gt;Cookie&lt;/code&gt;&lt;/a&gt; に &lt;a href=&#34;https://developer.mozilla.org/ja/docs/Web/HTTP/Cookies#samesite_attribute&#34;&gt;&lt;code&gt;SameSite&lt;/code&gt; 属性&lt;/a&gt;を設定するメソッドがありません。&lt;/p&gt;&#xA;&lt;p&gt;そのため、仕様外の、フレームワーク固有の方法だったり、低レイヤーの仕組みを使って設定する必要があります。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Android Firefox Webextensions 開発/デバッグ覚え書き</title>
+				<link>https://yukihane.github.io/blog/202110/15/develop-android-firefox-addons/</link>
+				<pubDate>Fri, 15 Oct 2021 16:36:00 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202110/15/develop-android-firefox-addons/</guid>
+				<description>&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;HAXM を有効化するためには &lt;a href=&#34;https://github.com/intel/haxm/wiki/Installation-Instructions-on-Windows?utm_source=pocket_mylist#tips-and-tricks&#34;&gt;今でも Hyper-V を無効化しておく必要があるらしい&lt;/a&gt;です。つまり Android 開発と WSL2 は両立できないということに。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;私は最初 Hyper-V 有効か状態で開発環境インストールを進めたのですが、やはりインストール失敗しました。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;最初コマンドラインツール(&lt;code&gt;sdkmanager&lt;/code&gt;)だけインストールしようとしたものの、どこからダウンロードすればいいのか分からなかったのですが、 &lt;a href=&#34;https://developer.android.com/studio&#34;&gt;Android Studio のダウンロードページ&lt;/a&gt;にリンクがありました(&lt;a href=&#34;https://developer.android.com/studio#span-idcommand-toolsa-namecmdline-toolsacommand-line-tools-onlyspan&#34;&gt;Command line tools only&lt;/a&gt;)。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;…ですが結局面倒くさくなって All-in-One でインストールしてくれる Android Studio をインストールすることでセットアップを済ませてしまいましたｗ&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;code&gt;adb&lt;/code&gt; コマンドは &lt;code&gt;%LOCALAPPDATA%\Android\sdk\platform-tools&lt;/code&gt; にインストールされていました(参照: &lt;a href=&#34;https://stackoverflow.com/a/35854344&#34;&gt;Where is adb.exe in windows 10 located? - Stack Overflow&lt;/a&gt;)。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;開発手順はこちら: &lt;a href=&#34;https://extensionworkshop.com/documentation/develop/developing-extensions-for-firefox-for-android/&#34;&gt;Developing extensions for Firefox for Android - Firefox Extension Workshop&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;code&gt;web-ext&lt;/code&gt; コマンド引数に &lt;code&gt;--firefox-apk org.mozilla.fenix&lt;/code&gt; を指定していますが、通常の Firefox を対象にする場合は &lt;code&gt;--firefox-apk org.mozilla.firefox&lt;/code&gt;, beta版の場合は &lt;code&gt;--firefox-apk org.mozilla.firefox_beta&lt;/code&gt; を指定すればよかったです。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Firefox を Google Play ストアからインストールのが面倒だったので(Google アカウントでログインする必要がある)、 &lt;a href=&#34;https://github.com/mozilla-mobile/fenix/releases&#34;&gt;GitHub のリリースページ&lt;/a&gt;から &lt;code&gt;apk&lt;/code&gt; をダウンロードしてインストールしました。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Android Firefox に addons をインストールする方法</title>
+				<link>https://yukihane.github.io/blog/202110/15/install-addon-to-android-firefox/</link>
+				<pubDate>Fri, 15 Oct 2021 15:27:00 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202110/15/install-addon-to-android-firefox/</guid>
+				<description>&lt;p&gt;Firefox 69 以降かな？ Fenix というコードネームになってから Android Firefox にインストールできる Webextensions(addons) に制約ができ、公式がお薦めとしているものだけしか通常の手順ではインストールできなくなりました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Rust に reduce は、あります</title>
+				<link>https://yukihane.github.io/blog/202110/09/rust-reduce/</link>
+				<pubDate>Sat, 09 Oct 2021 02:14:55 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202110/09/rust-reduce/</guid>
+				<description>&lt;p&gt;ググっていると、ちょくちょく 「Rust に &lt;code&gt;reduce&lt;/code&gt; は無い、代わりに &lt;code&gt;fold&lt;/code&gt; を使え」という話が出てくるのが疑問だったのですが、 &lt;a href=&#34;https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.reduce&#34;&gt;&lt;code&gt;reduce&lt;/code&gt; が導入されたのって &lt;code&gt;1.51.0&lt;/code&gt;&lt;/a&gt;(&lt;a href=&#34;https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-1510-2021-03-25&#34;&gt;2021-03-25&lt;/a&gt;)と、比較的最近だからなんですね。&lt;/p&gt;&#xA;&lt;p&gt;しかしリリースノートを見てもこういう変更は載っていないのですね。 細かすぎるから？ 気付いてない人は気付かないまま過ごしてそう…&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Rust の Result を良い感じにまとめるには</title>
+				<link>https://yukihane.github.io/blog/202110/09/rust-result/</link>
+				<pubDate>Fri, 08 Oct 2021 18:50:43 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202110/09/rust-result/</guid>
+				<description>&lt;p&gt;…というのを検索する用語が &amp;ldquo;エラーハンドリング(error handling)&amp;rdquo; だということに気付くまでにも時間がかかるくらいの初級者です。&lt;/p&gt;&#xA;&lt;p&gt;Rust でのエラーハンドリングについては歴史的変遷があるようで、ググると結局今はどうやったらええねん、という新たな疑問が湧いてきます。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Hello Project Panama, on Java17</title>
+				<link>https://yukihane.github.io/blog/202110/08/hello-project-panama-on-java17/</link>
+				<pubDate>Fri, 08 Oct 2021 04:49:30 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202110/08/hello-project-panama-on-java17/</guid>
+				<description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202002/11/hello-project-panama/&#34;&gt;Hello Project Panama – 発火後忘失&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;で、 Project Panama (&lt;a href=&#34;https://openjdk.java.net/projects/panama/&#34;&gt;リンク1&lt;/a&gt;, &lt;a href=&#34;https://jdk.java.net/panama/&#34;&gt;リンク2&lt;/a&gt;) の機能を利用して、 Java から Rust を呼び出してみました。&lt;/p&gt;&#xA;&lt;p&gt;当時(Java14)は Project Panama 用にビルドされた JDK を利用する必要がありましたが、 Java17 では incubator ではあるものの &lt;a href=&#34;https://openjdk.java.net/jeps/412&#34;&gt;JEP 412: Foreign Function &amp;amp; Memory API&lt;/a&gt; が標準 JDK に導入された&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Tauri を GUI にして Rust と React に入門する</title>
+				<link>https://yukihane.github.io/blog/202110/03/hello-tauri/</link>
+				<pubDate>Sun, 03 Oct 2021 08:20:21 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202110/03/hello-tauri/</guid>
+				<description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://tauri.studio/&#34;&gt;Tauri&lt;/a&gt; という、 WebView を利用して GUI を実現する Rust 製フレームワークを試してみました。&lt;/p&gt;&#xA;&lt;p&gt;Rust も React も入門書から陸続きで書き始められるので、余計なことに気を取られずに済みそうです(ただし、 JS - Rust 間のデータ受け渡しに利用する JSON オブジェクトのシリアライズ/デシリアライズに利用する &lt;a href=&#34;https://serde.rs/&#34;&gt;Serde&lt;/a&gt; についての知識は少し必要になりそうでした)。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>JPA Entity には Lombok の @Data(@EqualsAndHashCode) を使用すべきでない</title>
+				<link>https://yukihane.github.io/blog/202107/31/dont-use-lombok-with-jpa/</link>
+				<pubDate>Fri, 30 Jul 2021 17:57:08 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202107/31/dont-use-lombok-with-jpa/</guid>
+				<description>&lt;p&gt;問題になりそうなキーワード:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;lazy loading&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;collection&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;循環参照&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;mutability&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;code&gt;@Data&lt;/code&gt;(&lt;code&gt;@EqualsAndHashCode&lt;/code&gt;) を付与すると &lt;code&gt;hashCode()&lt;/code&gt; は自動で算出されるようになりますが、JPA &lt;code&gt;@Entity&lt;/code&gt; では上記のような理由で、ハッシュ値が計算できなかったり要件を満たせなくなったりします。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>RestTemplateが採用するHTTPクライアント実装の順序</title>
+				<link>https://yukihane.github.io/blog/202107/25/resttemplate-impl-order/</link>
+				<pubDate>Sat, 24 Jul 2021 19:53:33 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202107/25/resttemplate-impl-order/</guid>
+				<description>&lt;blockquote&gt;&#xA;&lt;p&gt;By default the built RestTemplate will attempt to use the most suitable ClientHttpRequestFactory&lt;/p&gt;&#xA;&lt;p&gt;—  &lt;a href=&#34;https://docs.spring.io/spring-boot/docs/2.5.3/api/org/springframework/boot/web/client/RestTemplateBuilder.html&#34;&gt;RestTemplateBuilder JavaDoc&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;とありますが、具体的にどうやって決めているの？という話です。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/spring-projects/spring-boot/blob/v2.5.3/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/web/client/ClientHttpRequestFactorySupplier.java&#34;&gt;&lt;code&gt;ClientHttpRequestFactorySupplier&lt;/code&gt;&lt;/a&gt;をみると一目瞭然ですが、&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Apache HttpClient (&lt;code&gt;org.apache.http.client.HttpClient&lt;/code&gt;) がクラスパスに存在すればそれを採用する&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;OkHttp (&lt;code&gt;okhttp3.OkHttpClient&lt;/code&gt;) がクラスパスに存在すればそれを採用する&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;上記のものがいずれも無ければ &lt;code&gt;java.net.HttpURLConnection&lt;/code&gt; を採用する&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+			</item>
+			<item>
+				<title>Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle) - Polyfillも必要とする場合</title>
+				<link>https://yukihane.github.io/blog/202107/11/spring-boot-with-babel/</link>
+				<pubDate>Sat, 10 Jul 2021 23:53:20 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202107/11/spring-boot-with-babel/</guid>
+				<description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202107/10/spring-boot-with-typescript/&#34;&gt;前回&lt;/a&gt; は &lt;code&gt;ts-loader&lt;/code&gt; を用いて TypeScript をビルドしました。&lt;/p&gt;&#xA;&lt;p&gt;簡潔にセットアップできたのは良いのですが、実際にはPolyfillを行いたいので &lt;code&gt;babel-loader&lt;/code&gt; をベースに再構築することにします。また、自動テスト( &lt;code&gt;jest&lt;/code&gt; )も導入します。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle)</title>
+				<link>https://yukihane.github.io/blog/202107/10/spring-boot-with-typescript/</link>
+				<pubDate>Fri, 09 Jul 2021 22:54:04 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202107/10/spring-boot-with-typescript/</guid>
+				<description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;Spring Boot で JavaScript を扱うときは素のJSをhtml(Thymeleafテンプレート)に &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; タグで埋め込む、というのが多分一般的で手っ取り早い方法かと思います。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Spring Boot 2.5.0(Spring Security 5.5.0-M2)でremoteUserの値が変わった</title>
+				<link>https://yukihane.github.io/blog/202106/30/spring-boot-remoteuser-is-changed/</link>
+				<pubDate>Tue, 29 Jun 2021 20:00:43 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202106/30/spring-boot-remoteuser-is-changed/</guid>
+				<description>&lt;p&gt;&lt;code&gt;HttpServletRequest#getRemoteUser()&lt;/code&gt; をログ出力(Tomcatの &lt;a href=&#34;https://tomcat.apache.org/tomcat-9.0-doc/config/valve.html#Access_Log_Valve/Attributes&#34;&gt;&lt;code&gt;%u&lt;/code&gt;&lt;/a&gt;)しているのですが、Spring Boot 2.5.0 から返ってくる値が変わったようです。&lt;/p&gt;&#xA;&lt;p&gt;どの変更が影響しているのか調べたところ、次のものが該当するようです。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/spring-projects/spring-security/releases/tag/5.5.0-M2&#34;&gt;5.5.0-M2 Release Notes&lt;/a&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/spring-projects/spring-security/pull/9211&#34;&gt;getRemoteUser() returns principal name #9211&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;実際にどうなったか見てみます。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>AWS EC2 で squid プロキシサーバを立てる</title>
+				<link>https://yukihane.github.io/blog/202106/21/aws-squid-proxy/</link>
+				<pubDate>Sun, 20 Jun 2021 23:39:04 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202106/21/aws-squid-proxy/</guid>
+				<description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;SteamのDLC等をダウンロードしようとしたとき、IPアドレスによるアクセス制限が課されている場合があり、それを回避する必要が出る状況がたまにあります。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Spring Boot で Tomcat のメトリクスを出力する</title>
+				<link>https://yukihane.github.io/blog/202106/12/spring-boot-tomcat-metrics/</link>
+				<pubDate>Sat, 12 Jun 2021 10:07:19 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202106/12/spring-boot-tomcat-metrics/</guid>
+				<description>&lt;p&gt;Spring Boot アプリケーションの性能評価を行っているのですが、実装したアプリケーション部分ではなく、webサーバかどこかがパフォーマンスボトルネックになっているように思われる事象に直面し、その原因を調べたいと思っています。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>GitHub Actions を使って GitHub Pages を定期更新する</title>
+				<link>https://yukihane.github.io/blog/202106/06/hello-github-actions/</link>
+				<pubDate>Sun, 06 Jun 2021 12:50:13 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202106/06/hello-github-actions/</guid>
+				<description>&lt;p&gt;これまで GitHub Actions を使ったことがなかったのですが、&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://ja.stackoverflow.com/q/76279/2808&#34;&gt;GitHub Pagesの更新を自動化したい - スタック・オーバーフロー&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;という質問を見かけ、丁度よいお題だと思ったのでこれを実現してみることにしました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Spring BootでTomcatのデフォルトエラーページが出るのを抑止する</title>
+				<link>https://yukihane.github.io/blog/202105/21/spring-boot-avoid-tomcat-error-page/</link>
+				<pubDate>Thu, 20 May 2021 20:58:00 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202105/21/spring-boot-avoid-tomcat-error-page/</guid>
+				<description>&lt;p&gt;Spring Boot を実行していると、Tomcatのデフォルトエラーページが表示されるような事象に遭遇することがあります。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/spring-projects/spring-boot/issues/21257&#34;&gt;Tomcat invokes ErrorReportValve directly for malformed URLs · Issue #21257 · spring-projects/spring-boot&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;このページのカスタマイズ方法は、上記issueにありますが、現状Spring Boot フレームワークでは提供されておらず少しトリッキーです。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Git の merge も思いの外危険</title>
+				<link>https://yukihane.github.io/blog/202105/19/git-merge-risk/</link>
+				<pubDate>Tue, 18 May 2021 23:01:49 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202105/19/git-merge-risk/</guid>
+				<description>&lt;p&gt;次のblogエントリがバズっていました:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://songmu.jp/riji/entry/2021-05-19-my-git-workflow.html&#34;&gt;Gitのワークフローについての私のスタンス | おそらくはそれさえも平凡な日々&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;大局としては同意なのですが、ミクロな点では、 &lt;code&gt;rebase&lt;/code&gt; 恐怖症というか、 &lt;code&gt;merge&lt;/code&gt; を信頼し過ぎているというか、少し私とは意見が異なると感じました。 そして、上記のblogのような意見が多数派ではないかと思いますので、改めて &lt;code&gt;merge&lt;/code&gt; の怖いところを具体例で示したいと思います。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>script src に設定する URL の &amp; はどう書けば良い？</title>
+				<link>https://yukihane.github.io/blog/202105/19/url-amp/</link>
+				<pubDate>Tue, 18 May 2021 22:38:11 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202105/19/url-amp/</guid>
+				<description>&lt;p&gt;&lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; タグの &lt;code&gt;src&lt;/code&gt; に &lt;code&gt;URL&lt;/code&gt; 書く場合、クエリパラメータ連結の &lt;code&gt;&amp;amp;&lt;/code&gt; ってどう書くべきなんだろう、という話です。&lt;/p&gt;&#xA;&lt;p&gt;結論としては、以下のように、 &lt;code&gt;&amp;amp;amp;&lt;/code&gt; とするのが無難、ということのようです。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>AWS EC2 の Mac インスタンスを試してみた</title>
+				<link>https://yukihane.github.io/blog/202105/16/aws-mac/</link>
+				<pubDate>Sun, 16 May 2021 11:40:48 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202105/16/aws-mac/</guid>
+				<description>&lt;p&gt;最初に注意点:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;初めての場合、使えるようになるまで17時間強かかる。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;最低割り当て時間は24時間。つまり1回利用すると最低 3,000円弱はかかる。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;インスタンスを終了すると、次のインスタンスを起動できるようになるまで1時間半程度かかる。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Authorization(認可)リクエストヘッダに設定するのは認証(authentication)情報</title>
+				<link>https://yukihane.github.io/blog/202105/15/authorization-authentication/</link>
+				<pubDate>Sat, 15 May 2021 09:40:22 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202105/15/authorization-authentication/</guid>
+				<description>&lt;p&gt;今日もOAuthは認証じゃなくて認可の仕組みだ云々という話題でソーシャルネットがもちきりですが、そんなことより表題の方がよっぽど気になりませんか…？&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6)</title>
+				<link>https://yukihane.github.io/blog/202105/06/ling-login-202105/</link>
+				<pubDate>Thu, 06 May 2021 10:43:04 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202105/06/ling-login-202105/</guid>
+				<description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/201908/line-login-sample/&#34;&gt;LINEログイン機能を試してみる&lt;/a&gt; – 発火後忘失&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;で、 Spring Boot 2.1.7 (Spring Security 5.1.6) を利用してLINEログインを行ってみました。&lt;/p&gt;&#xA;&lt;p&gt;本ドキュメントは、このコードをそのまま Spring Boot 2.4.5 へアップグレードしたところ上手く動かなかったので修正を行った記録です。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>MySQL Connector/J 8.0.23 でタイムゾーン変換メカニズムが変更になった</title>
+				<link>https://yukihane.github.io/blog/202104/29/mysql-connector-j-8.0.23/</link>
+				<pubDate>Wed, 28 Apr 2021 15:55:52 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202104/29/mysql-connector-j-8.0.23/</guid>
+				<description>&lt;p&gt;MySQL Connector/J &lt;code&gt;8.0.23&lt;/code&gt; でタイムゾーン変換のメカニズムが変わりました(Spring Boot では &lt;a href=&#34;https://docs.spring.io/spring-boot/docs/2.3.9.RELEASE/reference/html/appendix-dependency-versions.html#dependency-versions&#34;&gt;&lt;code&gt;2.3.9&lt;/code&gt;&lt;/a&gt;以降, &lt;a href=&#34;https://docs.spring.io/spring-boot/docs/2.4.3/reference/html/appendix-dependency-versions.html#dependency-versions&#34;&gt;&lt;code&gt;2.4.3&lt;/code&gt;&lt;/a&gt;以降でこれを採用しています)。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Important Change&lt;/strong&gt;: A new mechanism has been introduced for users to configure how time zone conversions should occur when time instants are saved to or retrieved from a server by Connector/J.&lt;/p&gt;&#xA;&lt;p&gt;—  &lt;a href=&#34;https://dev.mysql.com/doc/relnotes/connector-j/8.0/en/news-8-0-23.html&#34;&gt;MySQL :: MySQL Connector/J 8.0 Release Notes :: Changes in MySQL Connector/J 8.0.23 (2021-01-18, General Availability)&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+			</item>
+			<item>
+				<title>formで(送信ボタンを押さずに)エンターキーで送信する</title>
+				<link>https://yukihane.github.io/blog/202103/21/implicit-submission/</link>
+				<pubDate>Sun, 21 Mar 2021 09:54:35 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202103/21/implicit-submission/</guid>
+				<description>&lt;p&gt;入力フォームに値を入力して、(送信ボタンを押すのではなく)入力フィールド内でエンターキーを押すと送信される機能、&amp;ldquo;Implicit Submission&amp;rdquo;(日本語にすると&amp;quot;暗黙的送信&amp;quot;ですかね？)というそうです。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>メモ: テスト観点</title>
+				<link>https://yukihane.github.io/blog/202103/07/testing-perspective/</link>
+				<pubDate>Sun, 07 Mar 2021 20:21:25 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202103/07/testing-perspective/</guid>
+				<description>&lt;p&gt;書籍「ソフトウェアテストの教科書 - 品質を決定づけるテスト構成の基本と実践」第4章 ブラックボックステスト 表4-4 分類の基準として利用できる指標の一例 より。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Ubuntu20.04 で Kindle for PC</title>
+				<link>https://yukihane.github.io/blog/202103/07/kindle-for-pc-on-ubuntu20.04/</link>
+				<pubDate>Sun, 07 Mar 2021 05:21:25 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202103/07/kindle-for-pc-on-ubuntu20.04/</guid>
+				<description>&lt;p&gt;以前記載していたUbuntu16.04(及び18.04)用の Kindle for PC セットアップ手順だと起動時にネットワーク接続できず利用できなくなってしまっていた&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

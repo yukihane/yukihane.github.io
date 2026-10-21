@@ -12,25 +12,42 @@ JavaScriptのオブジェクトは、カッコ {…​} で表される。
 JavaScriptのオブジェクトは「プロパティ」の集合 1。
 
 
-プロパティは、「データプロパティ」と「アクセサプロパティ」の2種類がある 2。" />
+プロパティは、「データプロパティ」と「アクセサプロパティ」の2種類がある 2。
+
+
+データプロパティは、よく見かける key : value の形のもの。
+
+
+アクセサプロパティは get , set キーワードを使うgetter/setterのこと？
+
+
+プロパティ属性(Property Attributes) 3というものがある。
+
+" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/frontend/js-fundamentals/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="フロントエンド基礎知識">
-  <meta property="og:description" content="言語仕様 JavaScriptの「オブジェクト」 JavaScriptのオブジェクトは、カッコ {…​} で表される。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="フロントエンド基礎知識">
+	<meta property="og:description" content="言語仕様 JavaScriptの「オブジェクト」 JavaScriptのオブジェクトは、カッコ {…​} で表される。
 JavaScriptのオブジェクトは「プロパティ」の集合 1。
-プロパティは、「データプロパティ」と「アクセサプロパティ」の2種類がある 2。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="docs">
-    <meta property="article:published_time" content="2020-07-23T15:38:25+00:00">
-    <meta property="article:modified_time" content="2020-07-23T15:38:25+00:00">
+プロパティは、「データプロパティ」と「アクセサプロパティ」の2種類がある 2。
+データプロパティは、よく見かける key : value の形のもの。
+アクセサプロパティは get , set キーワードを使うgetter/setterのこと？
+プロパティ属性(Property Attributes) 3というものがある。">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+		<meta property="article:published_time" content="2020-07-23T15:38:25+00:00">
+		<meta property="article:modified_time" content="2020-07-23T15:38:25+00:00">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="フロントエンド基礎知識">
-  <meta name="twitter:description" content="言語仕様 JavaScriptの「オブジェクト」 JavaScriptのオブジェクトは、カッコ {…​} で表される。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="フロントエンド基礎知識">
+	<meta name="twitter:description" content="言語仕様 JavaScriptの「オブジェクト」 JavaScriptのオブジェクトは、カッコ {…​} で表される。
 JavaScriptのオブジェクトは「プロパティ」の集合 1。
-プロパティは、「データプロパティ」と「アクセサプロパティ」の2種類がある 2。">
+プロパティは、「データプロパティ」と「アクセサプロパティ」の2種類がある 2。
+データプロパティは、よく見かける key : value の形のもの。
+アクセサプロパティは get , set キーワードを使うgetter/setterのこと？
+プロパティ属性(Property Attributes) 3というものがある。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -131,9 +148,9 @@ JavaScriptのオブジェクトは「プロパティ」の集合 1。
 </span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="nx">x</span> <span class="o">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">value</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">writable</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>     <span class="c1">// x の値が変更できる
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">enumerable</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>   <span class="c1">// for (var k in obj) で x を辿ることができる
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">configurable</span> <span class="o">:</span> <span class="kc">true</span>  <span class="c1">// 下に説明
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">}}</span>
+</span></span></span><span class="line"><span class="cl">    <span class="nx">enumerable</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>   <span class="c1">// for (var k in obj) で x を辿ることができる
+</span></span></span><span class="line"><span class="cl">    <span class="nx">configurable</span> <span class="o">:</span> <span class="kc">true</span>  <span class="c1">// 下に説明
+</span></span></span><span class="line"><span class="cl">  <span class="p">}}</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -311,7 +328,7 @@ JavaScriptのオブジェクトは「プロパティ」の集合 1。
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

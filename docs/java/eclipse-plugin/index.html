@@ -18,27 +18,68 @@ Eclipse Plug-in Development: Beginner’s Guide - Second Edition 写経時のハ
 Chapter 2
 
 
-p.32: Plug-in Project 作成時の Plug-in with a view というテンプレートは無くなっている。" />
+p.32: Plug-in Project 作成時の Plug-in with a view というテンプレートは無くなっている。
+
+おそらく View contribution using 3.x API が該当するものだと思う。
+
+
+
+p.33: ↑のテンプレートでプロジェクト生成するとコンパイルエラーが発生している。
+
+
+ViewPart 継承クラスから workbench フィールドが漏れている模様。 対応差分
+
+↑の対応策は、Extensions の追加から生成したときのファイルから類推した。
+
+
+
+
+
+p.52: ここに書かれているようなリークは発生していない。
+
+Color#dispose() の Javadoc には次のようにある: &ldquo;Colors do not need to be disposed, however to maintain compatibility with older code, disposing a Color is not an error.&rdquo;
+
+
+
+p.58: テンプレートに入っている画像ファイルは gif 形式でなく png 形式に変わっている。
+
+Java コードに書くファイルパスも変える必要あり。
+
+
+
+p.58: Ubuntu 20.04 で実行しているが、システムトレイにアイコンが出ない。そもそもシステムトレイってどこのこと…？
+
+" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/java/eclipse-plugin/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Eclipse Plugin">
-  <meta property="og:description" content="リソース vogella社のチュートリアル のうちのいくつか
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Eclipse Plugin">
+	<meta property="og:description" content="リソース vogella社のチュートリアル のうちのいくつか
 Packt社刊 Eclipse Plug-in Development: Beginner’s Guide - Second Edition
 Eclipse Plug-in と Eclipse RCP は技術スタックが同じっぽいので、 RCP の記事も参考になる…のだと思う
-Eclipse Plug-in Development: Beginner’s Guide - Second Edition 写経時のハマりポイントメモ Chapter 2 p.32: Plug-in Project 作成時の Plug-in with a view というテンプレートは無くなっている。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="docs">
-    <meta property="article:published_time" content="2020-07-26T02:46:12+00:00">
-    <meta property="article:modified_time" content="2020-07-26T02:46:12+00:00">
+Eclipse Plug-in Development: Beginner’s Guide - Second Edition 写経時のハマりポイントメモ Chapter 2 p.32: Plug-in Project 作成時の Plug-in with a view というテンプレートは無くなっている。
+おそらく View contribution using 3.x API が該当するものだと思う。 p.33: ↑のテンプレートでプロジェクト生成するとコンパイルエラーが発生している。
+ViewPart 継承クラスから workbench フィールドが漏れている模様。 対応差分
+↑の対応策は、Extensions の追加から生成したときのファイルから類推した。 p.52: ここに書かれているようなリークは発生していない。
+Color#dispose() の Javadoc には次のようにある: “Colors do not need to be disposed, however to maintain compatibility with older code, disposing a Color is not an error.” p.58: テンプレートに入っている画像ファイルは gif 形式でなく png 形式に変わっている。
+Java コードに書くファイルパスも変える必要あり。 p.58: Ubuntu 20.04 で実行しているが、システムトレイにアイコンが出ない。そもそもシステムトレイってどこのこと…？">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+		<meta property="article:published_time" content="2020-07-26T02:46:12+00:00">
+		<meta property="article:modified_time" content="2020-07-26T02:46:12+00:00">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Eclipse Plugin">
-  <meta name="twitter:description" content="リソース vogella社のチュートリアル のうちのいくつか
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Eclipse Plugin">
+	<meta name="twitter:description" content="リソース vogella社のチュートリアル のうちのいくつか
 Packt社刊 Eclipse Plug-in Development: Beginner’s Guide - Second Edition
 Eclipse Plug-in と Eclipse RCP は技術スタックが同じっぽいので、 RCP の記事も参考になる…のだと思う
-Eclipse Plug-in Development: Beginner’s Guide - Second Edition 写経時のハマりポイントメモ Chapter 2 p.32: Plug-in Project 作成時の Plug-in with a view というテンプレートは無くなっている。">
+Eclipse Plug-in Development: Beginner’s Guide - Second Edition 写経時のハマりポイントメモ Chapter 2 p.32: Plug-in Project 作成時の Plug-in with a view というテンプレートは無くなっている。
+おそらく View contribution using 3.x API が該当するものだと思う。 p.33: ↑のテンプレートでプロジェクト生成するとコンパイルエラーが発生している。
+ViewPart 継承クラスから workbench フィールドが漏れている模様。 対応差分
+↑の対応策は、Extensions の追加から生成したときのファイルから類推した。 p.52: ここに書かれているようなリークは発生していない。
+Color#dispose() の Javadoc には次のようにある: “Colors do not need to be disposed, however to maintain compatibility with older code, disposing a Color is not an error.” p.58: テンプレートに入っている画像ファイルは gif 形式でなく png 形式に変わっている。
+Java コードに書くファイルパスも変える必要あり。 p.58: Ubuntu 20.04 で実行しているが、システムトレイにアイコンが出ない。そもそもシステムトレイってどこのこと…？">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -199,7 +240,7 @@ Eclipse Plug-in Development: Beginner’s Guide - Second Edition 写経時のハ
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

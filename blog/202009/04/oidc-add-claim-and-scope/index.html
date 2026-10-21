@@ -7,22 +7,22 @@ Keycloak上で新しいclaimと、それを取得できる新しいscopeを定�
 KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる で作成したコードをベースにしています。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202009/04/oidc-add-claim-and-scope/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="claimとscopeを追加して取得してみる">
-  <meta property="og:description" content="はじめに Keycloak上で新しいclaimと、それを取得できる新しいscopeを定義し、Spring Securityを使って参照してみます。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="claimとscopeを追加して取得してみる">
+	<meta property="og:description" content="はじめに Keycloak上で新しいclaimと、それを取得できる新しいscopeを定義し、Spring Securityを使って参照してみます。
 KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる で作成したコードをベースにしています。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2020-09-03T23:24:39+00:00">
-    <meta property="article:modified_time" content="2020-09-03T23:24:39+00:00">
-    <meta property="article:tag" content="Oidc">
-    <meta property="article:tag" content="Spring-Boot">
-    <meta property="article:tag" content="Spring-Security">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2020-09-03T23:24:39+00:00">
+		<meta property="article:modified_time" content="2020-09-03T23:24:39+00:00">
+		<meta property="article:tag" content="Oidc">
+		<meta property="article:tag" content="Spring-Boot">
+		<meta property="article:tag" content="Spring-Security">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="claimとscopeを追加して取得してみる">
-  <meta name="twitter:description" content="はじめに Keycloak上で新しいclaimと、それを取得できる新しいscopeを定義し、Spring Securityを使って参照してみます。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="claimとscopeを追加して取得してみる">
+	<meta name="twitter:description" content="はじめに Keycloak上で新しいclaimと、それを取得できる新しいscopeを定義し、Spring Securityを使って参照してみます。
 KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる で作成したコードをベースにしています。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -87,82 +87,82 @@ KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる
 <p><a href="http://localhost:8081/auth/admin/master/console/#/realms/myrealm/users">Users</a> 設定画面から以前作成したユーザ <code>myuser</code> の編集を行います。</p>
 <p><code>myuser</code> の編集画面で <strong>Attrributes</strong> タブを開き、次のレコードを作成し、保存します。</p>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Key</td>
-          <td>fav-number</td>
-      </tr>
-      <tr>
-          <td>Value</td>
-          <td>8</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Key</td>
+					<td>fav-number</td>
+			</tr>
+			<tr>
+					<td>Value</td>
+					<td>8</td>
+			</tr>
+	</tbody>
 </table>
 <h2 id="scope追加">scope追加</h2>
 <p><a href="http://localhost:8081/auth/admin/master/console/#/realms/myrealm/client-scopes">Client Scopes</a>を選択し、表の右上 <strong>Create</strong> ボタンを押します。</p>
 <p>次の情報を入力し、 <strong>Save</strong> します。</p>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Name</td>
-          <td>extrainfo</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Name</td>
+					<td>extrainfo</td>
+			</tr>
+	</tbody>
 </table>
 <p>つづいて <strong>Mappers</strong> タブを開きます。 <strong>Create</strong> ボタンを押し、次の情報を入力します。</p>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Name</td>
-          <td>extrainfo mapper</td>
-      </tr>
-      <tr>
-          <td>Mapper Type</td>
-          <td>User Attribute</td>
-      </tr>
-      <tr>
-          <td>User Attribute</td>
-          <td>fav-number</td>
-      </tr>
-      <tr>
-          <td>Token Claim Name</td>
-          <td>fav-number</td>
-      </tr>
-      <tr>
-          <td>Claim JSON Type</td>
-          <td>int</td>
-      </tr>
-      <tr>
-          <td>Add to ID token</td>
-          <td>OFF</td>
-      </tr>
-      <tr>
-          <td>Add to access token</td>
-          <td>OFF</td>
-      </tr>
-      <tr>
-          <td>Add to usrinfo</td>
-          <td>ON (デフォルトのまま)</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Name</td>
+					<td>extrainfo mapper</td>
+			</tr>
+			<tr>
+					<td>Mapper Type</td>
+					<td>User Attribute</td>
+			</tr>
+			<tr>
+					<td>User Attribute</td>
+					<td>fav-number</td>
+			</tr>
+			<tr>
+					<td>Token Claim Name</td>
+					<td>fav-number</td>
+			</tr>
+			<tr>
+					<td>Claim JSON Type</td>
+					<td>int</td>
+			</tr>
+			<tr>
+					<td>Add to ID token</td>
+					<td>OFF</td>
+			</tr>
+			<tr>
+					<td>Add to access token</td>
+					<td>OFF</td>
+			</tr>
+			<tr>
+					<td>Add to usrinfo</td>
+					<td>ON (デフォルトのまま)</td>
+			</tr>
+	</tbody>
 </table>
 <h2 id="クライアントから取得できるようにする">クライアントから取得できるようにする</h2>
 <p><a href="http://localhost:8081/auth/admin/master/console/#/realms/myrealm/clients">Clients</a> 画面で <code>myclient</code> を選択し、 <strong>Client Scopes</strong> タブを開きます。</p>
@@ -256,7 +256,7 @@ KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

@@ -8,19 +8,19 @@
 というリリースが先日出されましたが、具体的にどういう問題なのかが書かれていないので調べてみました。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202004/08/twitter-on-firefox-security-issue/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="TwitterをFirefoxで利用した際のセキュリティ問題">
-  <meta property="og:description" content="&gt;Mozilla Firefoxに保存されているTwitterデータのキャッシュについて というリリースが先日出されましたが、具体的にどういう問題なのかが書かれていないので調べてみました。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2020-04-07T20:15:38+00:00">
-    <meta property="article:modified_time" content="2020-04-07T20:15:38+00:00">
-    <meta property="article:tag" content="Security">
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="TwitterをFirefoxで利用した際のセキュリティ問題">
+	<meta property="og:description" content="&gt;Mozilla Firefoxに保存されているTwitterデータのキャッシュについて というリリースが先日出されましたが、具体的にどういう問題なのかが書かれていないので調べてみました。">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2020-04-07T20:15:38+00:00">
+		<meta property="article:modified_time" content="2020-04-07T20:15:38+00:00">
+		<meta property="article:tag" content="Security">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="TwitterをFirefoxで利用した際のセキュリティ問題">
-  <meta name="twitter:description" content="&gt;Mozilla Firefoxに保存されているTwitterデータのキャッシュについて というリリースが先日出されましたが、具体的にどういう問題なのかが書かれていないので調べてみました。">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="TwitterをFirefoxで利用した際のセキュリティ問題">
+	<meta name="twitter:description" content="&gt;Mozilla Firefoxに保存されているTwitterデータのキャッシュについて というリリースが先日出されましたが、具体的にどういう問題なのかが書かれていないので調べてみました。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -102,7 +102,8 @@
 <p>no-cache<br />
 キャッシュコピーをリリースする前に、検証のために元のサーバーへリクエストを送ることをキャッシュに強制します。</p>
 <p>no-store<br />
-クライアントのリクエストであるかサーバーのレスポンスであるかにかかわらず、キャッシュを格納してはいけません。</p></blockquote>
+クライアントのリクエストであるかサーバーのレスポンスであるかにかかわらず、キャッシュを格納してはいけません。</p>
+</blockquote>
 <p><code>no-cache</code> は <strong>リクエストのみ</strong> をキャッシュしない指示に対し(ただしレスポンスもキャッシュしなくなるブラウザも存在する)、 <code>no-store</code> は <strong>リクエストもレスポンスも</strong> キャッシュしない指示なので後者を用いるべきだ、ということのようです。</p>
 
         </section>
@@ -141,7 +142,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

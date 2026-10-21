@@ -26,21 +26,21 @@
 さて、この入力値を受け取れるよう、親エレメントを次のように作成しました。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/201801/21/polymer2-input-bind-to-parent/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Polymer2 で &lt;input&gt; の値を「親エレメントの値と」バインドする">
-  <meta property="og:description" content="Polymer2 で の値をバインドする で my-input なるカスタムエレメントを作成しました。&lt;input&gt;の入力値をそのまま表示するだけのエレメントです。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Polymer2 で &lt;input&gt; の値を「親エレメントの値と」バインドする">
+	<meta property="og:description" content="Polymer2 で の値をバインドする で my-input なるカスタムエレメントを作成しました。&lt;input&gt;の入力値をそのまま表示するだけのエレメントです。
 1 2 3 4 5 6 7 &lt;dom-module id=&#34;my-input&#34;&gt; &lt;template&gt; &lt;input type=&#34;text&#34; value=&#34;{{text::input}}&#34; /&gt; [[text]] &lt;/template&gt; ... &lt;/dom-module&gt; さて、この入力値を受け取れるよう、親エレメントを次のように作成しました。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2018-01-21T19:12:25+00:00">
-    <meta property="article:modified_time" content="2018-01-21T19:12:25+00:00">
-    <meta property="article:tag" content="Polymer">
-    <meta property="article:tag" content="Frontend">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2018-01-21T19:12:25+00:00">
+		<meta property="article:modified_time" content="2018-01-21T19:12:25+00:00">
+		<meta property="article:tag" content="Polymer">
+		<meta property="article:tag" content="Frontend">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Polymer2 で &lt;input&gt; の値を「親エレメントの値と」バインドする">
-  <meta name="twitter:description" content="Polymer2 で の値をバインドする で my-input なるカスタムエレメントを作成しました。&lt;input&gt;の入力値をそのまま表示するだけのエレメントです。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Polymer2 で &lt;input&gt; の値を「親エレメントの値と」バインドする">
+	<meta name="twitter:description" content="Polymer2 で の値をバインドする で my-input なるカスタムエレメントを作成しました。&lt;input&gt;の入力値をそのまま表示するだけのエレメントです。
 1 2 3 4 5 6 7 &lt;dom-module id=&#34;my-input&#34;&gt; &lt;template&gt; &lt;input type=&#34;text&#34; value=&#34;{{text::input}}&#34; /&gt; [[text]] &lt;/template&gt; ... &lt;/dom-module&gt; さて、この入力値を受け取れるよう、親エレメントを次のように作成しました。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -166,10 +166,12 @@
 </ul>
 <p>てっきりカーリーブラケット<code>{{}}</code>は、子エレメントへも親エレメントへも自動で反映してくれるものだと思っていたのですが、正確には、「親エレメントへも反映<strong>できる</strong>」だけで、デフォルトでは反映してくれないようです。</p>
 <blockquote>
-<p><strong>Automatic</strong>, which allows upward (target to host) and downwards (host to target) data flow. Automatic bindings use double curly brackets ({{ }}):</p></blockquote>
+<p><strong>Automatic</strong>, which allows upward (target to host) and downwards (host to target) data flow. Automatic bindings use double curly brackets ({{ }}):</p>
+</blockquote>
 <p><span></span></p>
 <blockquote>
-<p><code>notify</code>. A notifying property supports upward data flow. By default, properties are non-notifying, and don&rsquo;t support upward data flow.</p></blockquote>
+<p><code>notify</code>. A notifying property supports upward data flow. By default, properties are non-notifying, and don&rsquo;t support upward data flow.</p>
+</blockquote>
 <p>そんなわけで、<code>notify</code>を明示的に<code>true</code>に設定してやる必要がありました。</p>
 <p>子エレメント(今回の場合だと<code>my-input</code>)のプロパティ定義で次のようにすれば良いことになります。</p>
 <p>冒頭に書いたような、親エレメント(今回の場合は<code>my-parent</code>)に<code>::input</code>は必要ありません。</p>
@@ -234,7 +236,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

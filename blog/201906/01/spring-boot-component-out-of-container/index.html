@@ -8,20 +8,20 @@ CDI で言うところの CDI.current().getBeans(...) とか CDI.current().selec
 ドキュメントでは、やりたいことが書いてあるように見えたのはこのセクション" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/201906/01/spring-boot-component-out-of-container/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Spring Bootで コンポーネント外からコンポーネントを取得したかった">
-  <meta property="og:description" content="動機 CDI で言うところの CDI.current().getBeans(...) とか CDI.current().select(...)とかそんな感じのことをやりたかった。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Spring Bootで コンポーネント外からコンポーネントを取得したかった">
+	<meta property="og:description" content="動機 CDI で言うところの CDI.current().getBeans(...) とか CDI.current().select(...)とかそんな感じのことをやりたかった。
 参考リファレンス ドキュメントでは、やりたいことが書いてあるように見えたのはこのセクション">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2019-06-01T20:15:54+00:00">
-    <meta property="article:modified_time" content="2019-06-01T20:15:54+00:00">
-    <meta property="article:tag" content="Spring-Boot">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2019-06-01T20:15:54+00:00">
+		<meta property="article:modified_time" content="2019-06-01T20:15:54+00:00">
+		<meta property="article:tag" content="Spring-Boot">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Spring Bootで コンポーネント外からコンポーネントを取得したかった">
-  <meta name="twitter:description" content="動機 CDI で言うところの CDI.current().getBeans(...) とか CDI.current().select(...)とかそんな感じのことをやりたかった。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Spring Bootで コンポーネント外からコンポーネントを取得したかった">
+	<meta name="twitter:description" content="動機 CDI で言うところの CDI.current().getBeans(...) とか CDI.current().select(...)とかそんな感じのことをやりたかった。
 参考リファレンス ドキュメントでは、やりたいことが書いてあるように見えたのはこのセクション">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -353,7 +353,7 @@ public class ApplicationContextProvider implements ApplicationContextAware {
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

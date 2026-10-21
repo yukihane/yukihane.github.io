@@ -14,24 +14,24 @@ feature/server/tomcat ブランチと feature/server/javaee ブランチで diff
 (ちなみに masterブランチや README.md の説明は別の内容向けなので気にしないで下さい)" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/201807/07/jsf-on-tomcat/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Tomcat上でJSF実現">
-  <meta property="og:description" content="非 JavaEE なサーブレットコンテナ上で JSF を実行するように変更する手順。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Tomcat上でJSF実現">
+	<meta property="og:description" content="非 JavaEE なサーブレットコンテナ上で JSF を実行するように変更する手順。
 TL;DR Mojarra を依存関係に含める JSF リソースを javax.faces.webapp.FacesServlet にマップするよう web.xml で設定する 実装例 https://github.com/yukihane/hello-jsf/tree/feature/server/tomcat
 feature/server/tomcat ブランチと feature/server/javaee ブランチで diff を取れば、 JavaEE アプリケーションサーバ向け設定との差異がわかります。
 (ちなみに masterブランチや README.md の説明は別の内容向けなので気にしないで下さい)">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2018-07-07T21:47:59+00:00">
-    <meta property="article:modified_time" content="2018-07-07T21:47:59+00:00">
-    <meta property="article:tag" content="Jsf">
-    <meta property="article:tag" content="Java">
-    <meta property="article:tag" content="Tomcat">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2018-07-07T21:47:59+00:00">
+		<meta property="article:modified_time" content="2018-07-07T21:47:59+00:00">
+		<meta property="article:tag" content="Jsf">
+		<meta property="article:tag" content="Java">
+		<meta property="article:tag" content="Tomcat">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Tomcat上でJSF実現">
-  <meta name="twitter:description" content="非 JavaEE なサーブレットコンテナ上で JSF を実行するように変更する手順。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Tomcat上でJSF実現">
+	<meta name="twitter:description" content="非 JavaEE なサーブレットコンテナ上で JSF を実行するように変更する手順。
 TL;DR Mojarra を依存関係に含める JSF リソースを javax.faces.webapp.FacesServlet にマップするよう web.xml で設定する 実装例 https://github.com/yukihane/hello-jsf/tree/feature/server/tomcat
 feature/server/tomcat ブランチと feature/server/javaee ブランチで diff を取れば、 JavaEE アプリケーションサーバ向け設定との差異がわかります。
 (ちなみに masterブランチや README.md の説明は別の内容向けなので気にしないで下さい)">
@@ -160,7 +160,7 @@ feature/server/tomcat ブランチと feature/server/javaee ブランチで diff
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

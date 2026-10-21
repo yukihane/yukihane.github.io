@@ -10,22 +10,22 @@ LINEログイン機能を試してみる – 発火後忘失
 本ドキュメントは、このコードをそのまま Spring Boot 2.4.5 へアップグレードしたところ上手く動かなかったので修正を行った記録です。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202105/06/ling-login-202105/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6)">
-  <meta property="og:description" content="はじめに LINEログイン機能を試してみる – 発火後忘失 で、 Spring Boot 2.1.7 (Spring Security 5.1.6) を利用してLINEログインを行ってみました。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6)">
+	<meta property="og:description" content="はじめに LINEログイン機能を試してみる – 発火後忘失 で、 Spring Boot 2.1.7 (Spring Security 5.1.6) を利用してLINEログインを行ってみました。
 本ドキュメントは、このコードをそのまま Spring Boot 2.4.5 へアップグレードしたところ上手く動かなかったので修正を行った記録です。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2021-05-06T10:43:04+00:00">
-    <meta property="article:modified_time" content="2021-05-06T10:43:04+00:00">
-    <meta property="article:tag" content="Line">
-    <meta property="article:tag" content="Spring-Security">
-    <meta property="article:tag" content="Oidc">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2021-05-06T10:43:04+00:00">
+		<meta property="article:modified_time" content="2021-05-06T10:43:04+00:00">
+		<meta property="article:tag" content="Line">
+		<meta property="article:tag" content="Spring-Security">
+		<meta property="article:tag" content="Oidc">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6)">
-  <meta name="twitter:description" content="はじめに LINEログイン機能を試してみる – 発火後忘失 で、 Spring Boot 2.1.7 (Spring Security 5.1.6) を利用してLINEログインを行ってみました。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6)">
+	<meta name="twitter:description" content="はじめに LINEログイン機能を試してみる – 発火後忘失 で、 Spring Boot 2.1.7 (Spring Security 5.1.6) を利用してLINEログインを行ってみました。
 本ドキュメントは、このコードをそのまま Spring Boot 2.4.5 へアップグレードしたところ上手く動かなかったので修正を行った記録です。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -149,7 +149,7 @@ LINEログイン機能を試してみる – 発火後忘失
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

@@ -1,62 +1,68 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Wsl on 発火後忘失</title>
-    <link>https://yukihane.github.io/tags/wsl/</link>
-    <description>Recent content in Wsl on 発火後忘失</description>
-    <generator>Hugo</generator>
-    <language>ja</language>
-    <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Mon, 27 Jul 2026 11:42:47 +0900</lastBuildDate>
-    <atom:link href="https://yukihane.github.io/tags/wsl/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Ubuntu26.04でlsコマンドの不具合。GNU版を入れ直す</title>
-      <link>https://yukihane.github.io/blog/202607/27/gnu-coreutils-to-ubuntu2604/</link>
-      <pubDate>Mon, 27 Jul 2026 11:42:47 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202607/27/gnu-coreutils-to-ubuntu2604/</guid>
-      <description>&lt;p&gt;Ubuntu 26.04 で &lt;code&gt;ls&lt;/code&gt; を実行したところ、日本語のファイル名がまともに表示されませんでした。&lt;/p&gt;&#xA;&lt;p&gt;原因を調べたところ、Ubuntu 26.04 の &lt;code&gt;ls&lt;/code&gt; は GNU coreutils ではなく &lt;strong&gt;Rust 実装の &lt;a href=&#34;https://github.com/uutils/coreutils&#34;&gt;uutils/coreutils&lt;/a&gt;&lt;/strong&gt; に置き換わっており、そのロケール判定にバグがあることが分かりました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>WSL2でWindows Terminalがクラッシュするので利用をやめた</title>
-      <link>https://yukihane.github.io/blog/202602/15/wsl-ime-crash/</link>
-      <pubDate>Sun, 15 Feb 2026 15:27:13 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202602/15/wsl-ime-crash/</guid>
-      <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202511/03/windows-terminal-crash/&#34;&gt;Windows Terminalで日本語入力中 頻繁にクラッシュする&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;でも書きましたが、Windows Terminalが旧MSIMEを使っていると頻繁にクラッシュして困ったので新しいMSIMEを使うことにしました。&lt;br /&gt;&#xA;しかし、新しいMSIMEだとShift+Spaceで日英入力切替ができないのでAutoHotKeyを利用して解決を図りました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Windows Terminalで日本語入力中 頻繁にクラッシュする</title>
-      <link>https://yukihane.github.io/blog/202511/03/windows-terminal-crash/</link>
-      <pubDate>Mon, 03 Nov 2025 05:04:49 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202511/03/windows-terminal-crash/</guid>
-      <description>&lt;p&gt;WSL2上の操作をWindows Terminalで行っているのですが、codexを利用していると(?)、頻繁に次のエラーが出ます。&lt;/p&gt;&#xA;&lt;p&gt;「このターミナルでグラフィックス ドライバーの問題が発生し、時間内に回復できませんでした。ターミナルは一時停止されています。」&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>WSL2環境にwslu(wslview)をインストールしよう</title>
-      <link>https://yukihane.github.io/blog/202505/20/install-wslu-on-wsl2/</link>
-      <pubDate>Tue, 20 May 2025 12:50:13 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202505/20/install-wslu-on-wsl2/</guid>
-      <description>&lt;p&gt;久しぶりに Rust の学習を行っています。&lt;/p&gt;&#xA;&lt;p&gt;URL をウェブブラウザーで開くのに &lt;a href=&#34;https://crates.io/crates/open&#34;&gt;open&lt;/a&gt; というクレートがあるのを見つけ、add してみました。&lt;/p&gt;&#xA;&lt;p&gt;依存関係で &lt;a href=&#34;https://crates.io/crates/is-wsl&#34;&gt;is-wsl&lt;/a&gt; というものも追加されているようだったので、おお、ちゃんと WSL2 環境にも対応しているんだな、と思い利用してみたところ…ブラウザーが開かない。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>WSLは /etc/environment を読まない</title>
-      <link>https://yukihane.github.io/blog/202502/07/etc-environment-wsl/</link>
-      <pubDate>Fri, 07 Feb 2025 05:47:10 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202502/07/etc-environment-wsl/</guid>
-      <description>&lt;p&gt;このエントリーを書くためにWSL2に&lt;a href=&#34;https://gohugo.io/installation/linux/#snap&#34;&gt;Hugoをsnapで&lt;/a&gt;インストールしました。&lt;/p&gt;&#xA;&lt;p&gt;そして &lt;code&gt;hugo&lt;/code&gt; コマンドを実行すると&amp;hellip;そんなものはないと言われてしまいました。&lt;br /&gt;&#xA;PATHが通っていないからかな？と思い &lt;code&gt;/etc/environment&lt;/code&gt; ファイルを見て見たのですが &lt;code&gt;/snap/bin&lt;/code&gt; は初めから設定されている。むむむと思いググったところ次のような記事がヒットしました:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>WSL2上のGUIアプリケーションを動かす</title>
-      <link>https://yukihane.github.io/blog/202204/16/gui-on-wsl2/</link>
-      <pubDate>Sat, 16 Apr 2022 17:56:11 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202204/16/gui-on-wsl2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202110/03/hello-tauri/&#34;&gt;Tauri&lt;/a&gt; の開発環境を Windows10 の WSL2 に移行するために、 WSL2 上の GUI アプリを Windows で表示するようにセットアップしました。&lt;/p&gt;&#xA;&lt;p&gt;とは言いつつ、既に次の手順でセットアップしたことがあるので、今回はこれが動くかどうかを確認しただけですが。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>WSL2上にDockerをインストールする</title>
-      <link>https://yukihane.github.io/blog/202203/28/docker-on-wsl2/</link>
-      <pubDate>Mon, 28 Mar 2022 08:24:45 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202203/28/docker-on-wsl2/</guid>
-      <description>&lt;p&gt;現在、 Windows で Docker を利用するには大きく2つ方策があるのかなと思います。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://docs.docker.com/desktop/windows/install/&#34;&gt;Docker Desktop for Windows&lt;/a&gt; を利用する&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;WSL2 上に &lt;a href=&#34;https://docs.docker.com/engine/install/ubuntu/&#34;&gt;Docker Engine&lt;/a&gt; をインストールする&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;自分は元々 Ubuntu 上で Docker を利用してきたので、馴染みのある後者を選択することにしました。 (ちなみにこだわりが無いのなら前者の方が良いと思います)&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Wsl on 発火後忘失</title>
+		<link>https://yukihane.github.io/tags/wsl/</link>
+		<description>Recent content in Wsl on 発火後忘失</description>
+		<generator>Hugo</generator>
+		<language>ja-jp</language>
+		
+		
+		
+			<copyright>© Yukihane, All Rights Reserved</copyright>
+		
+		
+			<lastBuildDate>Mon, 27 Jul 2026 11:42:47 +0900</lastBuildDate>
+		
+			<atom:link href="https://yukihane.github.io/tags/wsl/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Ubuntu26.04でlsコマンドの不具合。GNU版を入れ直す</title>
+				<link>https://yukihane.github.io/blog/202607/27/gnu-coreutils-to-ubuntu2604/</link>
+				<pubDate>Mon, 27 Jul 2026 11:42:47 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202607/27/gnu-coreutils-to-ubuntu2604/</guid>
+				<description>&lt;p&gt;Ubuntu 26.04 で &lt;code&gt;ls&lt;/code&gt; を実行したところ、日本語のファイル名がまともに表示されませんでした。&lt;/p&gt;&#xA;&lt;p&gt;原因を調べたところ、Ubuntu 26.04 の &lt;code&gt;ls&lt;/code&gt; は GNU coreutils ではなく &lt;strong&gt;Rust 実装の &lt;a href=&#34;https://github.com/uutils/coreutils&#34;&gt;uutils/coreutils&lt;/a&gt;&lt;/strong&gt; に置き換わっており、そのロケール判定にバグがあることが分かりました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>WSL2でWindows Terminalがクラッシュするので利用をやめた</title>
+				<link>https://yukihane.github.io/blog/202602/15/wsl-ime-crash/</link>
+				<pubDate>Sun, 15 Feb 2026 15:27:13 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202602/15/wsl-ime-crash/</guid>
+				<description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202511/03/windows-terminal-crash/&#34;&gt;Windows Terminalで日本語入力中 頻繁にクラッシュする&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;でも書きましたが、Windows Terminalが旧MSIMEを使っていると頻繁にクラッシュして困ったので新しいMSIMEを使うことにしました。&lt;br /&gt;&#xA;しかし、新しいMSIMEだとShift+Spaceで日英入力切替ができないのでAutoHotKeyを利用して解決を図りました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Windows Terminalで日本語入力中 頻繁にクラッシュする</title>
+				<link>https://yukihane.github.io/blog/202511/03/windows-terminal-crash/</link>
+				<pubDate>Mon, 03 Nov 2025 05:04:49 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202511/03/windows-terminal-crash/</guid>
+				<description>&lt;p&gt;WSL2上の操作をWindows Terminalで行っているのですが、codexを利用していると(?)、頻繁に次のエラーが出ます。&lt;/p&gt;&#xA;&lt;p&gt;「このターミナルでグラフィックス ドライバーの問題が発生し、時間内に回復できませんでした。ターミナルは一時停止されています。」&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>WSL2環境にwslu(wslview)をインストールしよう</title>
+				<link>https://yukihane.github.io/blog/202505/20/install-wslu-on-wsl2/</link>
+				<pubDate>Tue, 20 May 2025 12:50:13 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202505/20/install-wslu-on-wsl2/</guid>
+				<description>&lt;p&gt;久しぶりに Rust の学習を行っています。&lt;/p&gt;&#xA;&lt;p&gt;URL をウェブブラウザーで開くのに &lt;a href=&#34;https://crates.io/crates/open&#34;&gt;open&lt;/a&gt; というクレートがあるのを見つけ、add してみました。&lt;/p&gt;&#xA;&lt;p&gt;依存関係で &lt;a href=&#34;https://crates.io/crates/is-wsl&#34;&gt;is-wsl&lt;/a&gt; というものも追加されているようだったので、おお、ちゃんと WSL2 環境にも対応しているんだな、と思い利用してみたところ…ブラウザーが開かない。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>WSLは /etc/environment を読まない</title>
+				<link>https://yukihane.github.io/blog/202502/07/etc-environment-wsl/</link>
+				<pubDate>Fri, 07 Feb 2025 05:47:10 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202502/07/etc-environment-wsl/</guid>
+				<description>&lt;p&gt;このエントリーを書くためにWSL2に&lt;a href=&#34;https://gohugo.io/installation/linux/#snap&#34;&gt;Hugoをsnapで&lt;/a&gt;インストールしました。&lt;/p&gt;&#xA;&lt;p&gt;そして &lt;code&gt;hugo&lt;/code&gt; コマンドを実行すると&amp;hellip;そんなものはないと言われてしまいました。&lt;br /&gt;&#xA;PATHが通っていないからかな？と思い &lt;code&gt;/etc/environment&lt;/code&gt; ファイルを見て見たのですが &lt;code&gt;/snap/bin&lt;/code&gt; は初めから設定されている。むむむと思いググったところ次のような記事がヒットしました:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>WSL2上のGUIアプリケーションを動かす</title>
+				<link>https://yukihane.github.io/blog/202204/16/gui-on-wsl2/</link>
+				<pubDate>Sat, 16 Apr 2022 17:56:11 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202204/16/gui-on-wsl2/</guid>
+				<description>&lt;p&gt;&lt;a href=&#34;https://yukihane.github.io/blog/202110/03/hello-tauri/&#34;&gt;Tauri&lt;/a&gt; の開発環境を Windows10 の WSL2 に移行するために、 WSL2 上の GUI アプリを Windows で表示するようにセットアップしました。&lt;/p&gt;&#xA;&lt;p&gt;とは言いつつ、既に次の手順でセットアップしたことがあるので、今回はこれが動くかどうかを確認しただけですが。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>WSL2上にDockerをインストールする</title>
+				<link>https://yukihane.github.io/blog/202203/28/docker-on-wsl2/</link>
+				<pubDate>Mon, 28 Mar 2022 08:24:45 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202203/28/docker-on-wsl2/</guid>
+				<description>&lt;p&gt;現在、 Windows で Docker を利用するには大きく2つ方策があるのかなと思います。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://docs.docker.com/desktop/windows/install/&#34;&gt;Docker Desktop for Windows&lt;/a&gt; を利用する&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;WSL2 上に &lt;a href=&#34;https://docs.docker.com/engine/install/ubuntu/&#34;&gt;Docker Engine&lt;/a&gt; をインストールする&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;自分は元々 Ubuntu 上で Docker を利用してきたので、馴染みのある後者を選択することにしました。 (ちなみにこだわりが無いのなら前者の方が良いと思います)&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

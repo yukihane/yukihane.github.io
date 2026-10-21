@@ -1,83 +1,89 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Git on 発火後忘失</title>
-    <link>https://yukihane.github.io/tags/git/</link>
-    <description>Recent content in Git on 発火後忘失</description>
-    <generator>Hugo</generator>
-    <language>ja</language>
-    <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Sat, 13 Jun 2026 22:08:20 +0900</lastBuildDate>
-    <atom:link href="https://yukihane.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>git log と git diff での ... (三点ドット) の意味の違い</title>
-      <link>https://yukihane.github.io/blog/202606/13/git-three-dots/</link>
-      <pubDate>Sat, 13 Jun 2026 22:08:20 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202606/13/git-three-dots/</guid>
-      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;git log A...B&lt;/code&gt; と &lt;code&gt;git diff A...B&lt;/code&gt; は、どちらも &lt;code&gt;...&lt;/code&gt;（三点ドット）を使いますが、意味がまったく異なります&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;git log A...B&lt;/code&gt; は &lt;strong&gt;対称差（symmetric difference）&lt;/strong&gt; で、「A にだけあるコミット」と「B にだけあるコミット」の両方を表示します&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;git diff A...B&lt;/code&gt; は &lt;strong&gt;A と B のマージベース（共通祖先）から B までの差分&lt;/strong&gt; を表示します。つまり「B ブランチで何が変わったか」を見るためのものです&lt;/li&gt;&#xA;&lt;li&gt;GitHub の Pull Request 画面で表示される差分は &lt;code&gt;git diff A...B&lt;/code&gt; 相当です&#xA;&lt;ul&gt;&#xA;&lt;li&gt;つまり、みんなが普段欲しい diff は &lt;code&gt;..&lt;/code&gt; でなく &lt;code&gt;...&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;手元で試すためのセットアップ&#34;&gt;手元で試すためのセットアップ&lt;/h2&gt;&#xA;&lt;p&gt;以下のスクリプトで、本記事の図と同じブランチ構造を持つリポジトリを作れます。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>GitHub PR が「コンフリクトあり」と言うのにローカルではマージできる</title>
-      <link>https://yukihane.github.io/blog/202606/13/github-pr-conflict-criss-cross-merge/</link>
-      <pubDate>Sat, 13 Jun 2026 00:00:00 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202606/13/github-pr-conflict-criss-cross-merge/</guid>
-      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;GitHub の Pull Request が &amp;ldquo;This branch has conflicts&amp;rdquo; と表示するのに、ローカルで &lt;code&gt;git merge&lt;/code&gt; すると何事もなく成功する、ということがあります。&lt;/li&gt;&#xA;&lt;li&gt;原因は &lt;strong&gt;criss-cross merge&lt;/strong&gt;（交差マージ）で &lt;code&gt;merge-base&lt;/code&gt; が複数存在する状態です。&lt;/li&gt;&#xA;&lt;li&gt;ローカルの git（&lt;code&gt;ort&lt;/code&gt; / &lt;code&gt;recursive&lt;/code&gt; ストラテジー）は複数の merge-base を仮想ベースに統合して賢く解決しますが、GitHub のマージエンジンは同じ状況をうまく処理できないことがあります。&lt;/li&gt;&#xA;&lt;li&gt;解決策は &lt;code&gt;git rebase&lt;/code&gt; で履歴を線形化することです。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;状況&#34;&gt;状況&lt;/h2&gt;&#xA;&lt;p&gt;スタックド PR（PR-A の上に PR-B を積む運用）をしていて、次のようなことが起きました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>自分の作成したGitブランチを表示する</title>
-      <link>https://yukihane.github.io/blog/202204/19/listing-my-git-branch/</link>
-      <pubDate>Tue, 19 Apr 2022 12:55:29 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202204/19/listing-my-git-branch/</guid>
-      <description>&lt;p&gt;リモートブランチに一時的なブランチ、テスト的に作ったブランチなどをpushしていたのを掃除したくなりました。&lt;/p&gt;&#xA;&lt;p&gt;複数人で共同作業するために利用しているので、どれが自分のブランチなのかをまずリスト化したかったので、どうすれば出力できるか調べました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>git worktree を利用していると git-commit-id-maven-plugin でエラー</title>
-      <link>https://yukihane.github.io/blog/202201/24/git-commit-id-maven-plugin-on-worktree/</link>
-      <pubDate>Mon, 24 Jan 2022 11:11:35 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202201/24/git-commit-id-maven-plugin-on-worktree/</guid>
-      <description>&lt;p&gt;…​になりました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/git-commit-id/git-commit-id-maven-plugin/issues/215&#34;&gt;Support of git worktree option (for JGIT) · Issue #215 · git-commit-id/git-commit-id-maven-plugin · GitHub&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;コマンドライン引数でスキップさせるには、 &lt;a href=&#34;https://github.com/git-commit-id/git-commit-id-maven-plugin/pull/278&#34;&gt;#278&lt;/a&gt; で導入された &lt;code&gt;maven.gitcommitid.skip&lt;/code&gt; オプション(&lt;a href=&#34;https://github.com/git-commit-id/git-commit-id-maven-plugin/blob/v5.0.0/src/main/java/pl/project13/maven/git/GitCommitIdMojo.java#L241-L251&#34;&gt;現時点最新版の該当コードリンク&lt;/a&gt;)を利用して、&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;mvn -Dmaven.gitcommitid.skip package&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;などとすれば良さそうです。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Git の merge も思いの外危険</title>
-      <link>https://yukihane.github.io/blog/202105/19/git-merge-risk/</link>
-      <pubDate>Tue, 18 May 2021 23:01:49 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202105/19/git-merge-risk/</guid>
-      <description>&lt;p&gt;次のblogエントリがバズっていました:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://songmu.jp/riji/entry/2021-05-19-my-git-workflow.html&#34;&gt;Gitのワークフローについての私のスタンス | おそらくはそれさえも平凡な日々&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;大局としては同意なのですが、ミクロな点では、 &lt;code&gt;rebase&lt;/code&gt; 恐怖症というか、 &lt;code&gt;merge&lt;/code&gt; を信頼し過ぎているというか、少し私とは意見が異なると感じました。 そして、上記のblogのような意見が多数派ではないかと思いますので、改めて &lt;code&gt;merge&lt;/code&gt; の怖いところを具体例で示したいと思います。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>いつもGitブランチ運用でこまること、考慮すべきポイントのまとめ</title>
-      <link>https://yukihane.github.io/blog/202007/21/why-git-branching-is-difficult/</link>
-      <pubDate>Mon, 20 Jul 2020 17:59:29 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202007/21/why-git-branching-is-difficult/</guid>
-      <description>&lt;p&gt;現在、新しいプロジェクトに参画してGitのブランチ戦略を考えています。&lt;/p&gt;&#xA;&lt;p&gt;何回かブランチ戦略を考え、そして運用してきたのですが、思うところを書いてみます。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>`git config pull.ff only` を設定しておこう</title>
-      <link>https://yukihane.github.io/blog/202007/19/use-git-pull-ff-only/</link>
-      <pubDate>Sun, 19 Jul 2020 06:47:48 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202007/19/use-git-pull-ff-only/</guid>
-      <description>&lt;p&gt;私は普段全く &lt;code&gt;git pull&lt;/code&gt; は使わず、 &lt;code&gt;git fetch&lt;/code&gt; で賄ってきたのですが、今日たまたま &lt;code&gt;git pull&lt;/code&gt; を行ったところ、いつの頃からか次のようなメッセージが出るようになっていることに気づきました:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>bashで標準出力をファイルに、標準エラー出力を画面とファイルに出力したい</title>
-      <link>https://yukihane.github.io/blog/201908/bash-redirect-earch-other/</link>
-      <pubDate>Mon, 19 Aug 2019 00:00:00 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/201908/bash-redirect-earch-other/</guid>
-      <description>&lt;p&gt;Git の pre-push でテスト実行を行おうとした際、通常テスト実行ではデバッグログを出しているところを、エラーを表すものだけに絞って出すようにしようと考えました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>gitで利用するエディタを設定したかった</title>
-      <link>https://yukihane.github.io/blog/201807/27/set-git-commit-editor/</link>
-      <pubDate>Fri, 27 Jul 2018 19:40:03 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/201807/27/set-git-commit-editor/</guid>
-      <description>&lt;p&gt;あるいは vim-plug をセットアップしたら git commit したときに E492: Not an editor command って怒られるようになっちゃった。&lt;/p&gt;&#xA;&lt;p&gt;Vagrant で CentOS の Box を作るたびにひっかかる。&lt;/p&gt;&#xA;&lt;p&gt;Git が使う editor を(vi でなく)vim に設定すればよい。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Git for Windowsでzipコマンドを再現する</title>
-      <link>https://yukihane.github.io/blog/201807/13/zip-on-git-for-windows/</link>
-      <pubDate>Fri, 13 Jul 2018 19:36:48 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/201807/13/zip-on-git-for-windows/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;#ZgotmplZ&#34;&gt;&lt;code&gt;git-archive&lt;/code&gt;&lt;/a&gt;使えば何とかなることに気付きました。&lt;br /&gt;&#xA;ちなみに&lt;code&gt;unzip&lt;/code&gt;コマンドは標準で使えます。&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;mkdir workrepo&#xA;cd workrepo&#xA;git init&#xA;cp -r [target_file_or_dir] .&#xA;git add .&#xA;git commit -m commit&#xA;git archive -o ../myarchive.zip @&#xA;cd ..&#xA;rm -rf workrepo&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;あんまり自信ないんですけどスクリプトファイルに落とすとこんな感じ？&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Git on 発火後忘失</title>
+		<link>https://yukihane.github.io/tags/git/</link>
+		<description>Recent content in Git on 発火後忘失</description>
+		<generator>Hugo</generator>
+		<language>ja-jp</language>
+		
+		
+		
+			<copyright>© Yukihane, All Rights Reserved</copyright>
+		
+		
+			<lastBuildDate>Sat, 13 Jun 2026 22:08:20 +0900</lastBuildDate>
+		
+			<atom:link href="https://yukihane.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>git log と git diff での ... (三点ドット) の意味の違い</title>
+				<link>https://yukihane.github.io/blog/202606/13/git-three-dots/</link>
+				<pubDate>Sat, 13 Jun 2026 22:08:20 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202606/13/git-three-dots/</guid>
+				<description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;git log A...B&lt;/code&gt; と &lt;code&gt;git diff A...B&lt;/code&gt; は、どちらも &lt;code&gt;...&lt;/code&gt;（三点ドット）を使いますが、意味がまったく異なります&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;git log A...B&lt;/code&gt; は &lt;strong&gt;対称差（symmetric difference）&lt;/strong&gt; で、「A にだけあるコミット」と「B にだけあるコミット」の両方を表示します&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;git diff A...B&lt;/code&gt; は &lt;strong&gt;A と B のマージベース（共通祖先）から B までの差分&lt;/strong&gt; を表示します。つまり「B ブランチで何が変わったか」を見るためのものです&lt;/li&gt;&#xA;&lt;li&gt;GitHub の Pull Request 画面で表示される差分は &lt;code&gt;git diff A...B&lt;/code&gt; 相当です&#xA;&lt;ul&gt;&#xA;&lt;li&gt;つまり、みんなが普段欲しい diff は &lt;code&gt;..&lt;/code&gt; でなく &lt;code&gt;...&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;手元で試すためのセットアップ&#34;&gt;手元で試すためのセットアップ&lt;/h2&gt;&#xA;&lt;p&gt;以下のスクリプトで、本記事の図と同じブランチ構造を持つリポジトリを作れます。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>GitHub PR が「コンフリクトあり」と言うのにローカルではマージできる</title>
+				<link>https://yukihane.github.io/blog/202606/13/github-pr-conflict-criss-cross-merge/</link>
+				<pubDate>Sat, 13 Jun 2026 00:00:00 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202606/13/github-pr-conflict-criss-cross-merge/</guid>
+				<description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;GitHub の Pull Request が &amp;ldquo;This branch has conflicts&amp;rdquo; と表示するのに、ローカルで &lt;code&gt;git merge&lt;/code&gt; すると何事もなく成功する、ということがあります。&lt;/li&gt;&#xA;&lt;li&gt;原因は &lt;strong&gt;criss-cross merge&lt;/strong&gt;（交差マージ）で &lt;code&gt;merge-base&lt;/code&gt; が複数存在する状態です。&lt;/li&gt;&#xA;&lt;li&gt;ローカルの git（&lt;code&gt;ort&lt;/code&gt; / &lt;code&gt;recursive&lt;/code&gt; ストラテジー）は複数の merge-base を仮想ベースに統合して賢く解決しますが、GitHub のマージエンジンは同じ状況をうまく処理できないことがあります。&lt;/li&gt;&#xA;&lt;li&gt;解決策は &lt;code&gt;git rebase&lt;/code&gt; で履歴を線形化することです。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;状況&#34;&gt;状況&lt;/h2&gt;&#xA;&lt;p&gt;スタックド PR（PR-A の上に PR-B を積む運用）をしていて、次のようなことが起きました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>自分の作成したGitブランチを表示する</title>
+				<link>https://yukihane.github.io/blog/202204/19/listing-my-git-branch/</link>
+				<pubDate>Tue, 19 Apr 2022 12:55:29 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202204/19/listing-my-git-branch/</guid>
+				<description>&lt;p&gt;リモートブランチに一時的なブランチ、テスト的に作ったブランチなどをpushしていたのを掃除したくなりました。&lt;/p&gt;&#xA;&lt;p&gt;複数人で共同作業するために利用しているので、どれが自分のブランチなのかをまずリスト化したかったので、どうすれば出力できるか調べました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>git worktree を利用していると git-commit-id-maven-plugin でエラー</title>
+				<link>https://yukihane.github.io/blog/202201/24/git-commit-id-maven-plugin-on-worktree/</link>
+				<pubDate>Mon, 24 Jan 2022 11:11:35 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202201/24/git-commit-id-maven-plugin-on-worktree/</guid>
+				<description>&lt;p&gt;…​になりました。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/git-commit-id/git-commit-id-maven-plugin/issues/215&#34;&gt;Support of git worktree option (for JGIT) · Issue #215 · git-commit-id/git-commit-id-maven-plugin · GitHub&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;コマンドライン引数でスキップさせるには、 &lt;a href=&#34;https://github.com/git-commit-id/git-commit-id-maven-plugin/pull/278&#34;&gt;#278&lt;/a&gt; で導入された &lt;code&gt;maven.gitcommitid.skip&lt;/code&gt; オプション(&lt;a href=&#34;https://github.com/git-commit-id/git-commit-id-maven-plugin/blob/v5.0.0/src/main/java/pl/project13/maven/git/GitCommitIdMojo.java#L241-L251&#34;&gt;現時点最新版の該当コードリンク&lt;/a&gt;)を利用して、&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;mvn -Dmaven.gitcommitid.skip package&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;などとすれば良さそうです。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Git の merge も思いの外危険</title>
+				<link>https://yukihane.github.io/blog/202105/19/git-merge-risk/</link>
+				<pubDate>Tue, 18 May 2021 23:01:49 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202105/19/git-merge-risk/</guid>
+				<description>&lt;p&gt;次のblogエントリがバズっていました:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://songmu.jp/riji/entry/2021-05-19-my-git-workflow.html&#34;&gt;Gitのワークフローについての私のスタンス | おそらくはそれさえも平凡な日々&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;大局としては同意なのですが、ミクロな点では、 &lt;code&gt;rebase&lt;/code&gt; 恐怖症というか、 &lt;code&gt;merge&lt;/code&gt; を信頼し過ぎているというか、少し私とは意見が異なると感じました。 そして、上記のblogのような意見が多数派ではないかと思いますので、改めて &lt;code&gt;merge&lt;/code&gt; の怖いところを具体例で示したいと思います。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>いつもGitブランチ運用でこまること、考慮すべきポイントのまとめ</title>
+				<link>https://yukihane.github.io/blog/202007/21/why-git-branching-is-difficult/</link>
+				<pubDate>Mon, 20 Jul 2020 17:59:29 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202007/21/why-git-branching-is-difficult/</guid>
+				<description>&lt;p&gt;現在、新しいプロジェクトに参画してGitのブランチ戦略を考えています。&lt;/p&gt;&#xA;&lt;p&gt;何回かブランチ戦略を考え、そして運用してきたのですが、思うところを書いてみます。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>`git config pull.ff only` を設定しておこう</title>
+				<link>https://yukihane.github.io/blog/202007/19/use-git-pull-ff-only/</link>
+				<pubDate>Sun, 19 Jul 2020 06:47:48 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202007/19/use-git-pull-ff-only/</guid>
+				<description>&lt;p&gt;私は普段全く &lt;code&gt;git pull&lt;/code&gt; は使わず、 &lt;code&gt;git fetch&lt;/code&gt; で賄ってきたのですが、今日たまたま &lt;code&gt;git pull&lt;/code&gt; を行ったところ、いつの頃からか次のようなメッセージが出るようになっていることに気づきました:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>bashで標準出力をファイルに、標準エラー出力を画面とファイルに出力したい</title>
+				<link>https://yukihane.github.io/blog/201908/bash-redirect-earch-other/</link>
+				<pubDate>Mon, 19 Aug 2019 00:00:00 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/201908/bash-redirect-earch-other/</guid>
+				<description>&lt;p&gt;Git の pre-push でテスト実行を行おうとした際、通常テスト実行ではデバッグログを出しているところを、エラーを表すものだけに絞って出すようにしようと考えました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>gitで利用するエディタを設定したかった</title>
+				<link>https://yukihane.github.io/blog/201807/27/set-git-commit-editor/</link>
+				<pubDate>Fri, 27 Jul 2018 19:40:03 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/201807/27/set-git-commit-editor/</guid>
+				<description>&lt;p&gt;あるいは vim-plug をセットアップしたら git commit したときに E492: Not an editor command って怒られるようになっちゃった。&lt;/p&gt;&#xA;&lt;p&gt;Vagrant で CentOS の Box を作るたびにひっかかる。&lt;/p&gt;&#xA;&lt;p&gt;Git が使う editor を(vi でなく)vim に設定すればよい。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Git for Windowsでzipコマンドを再現する</title>
+				<link>https://yukihane.github.io/blog/201807/13/zip-on-git-for-windows/</link>
+				<pubDate>Fri, 13 Jul 2018 19:36:48 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/201807/13/zip-on-git-for-windows/</guid>
+				<description>&lt;p&gt;&lt;a href=&#34;#ZgotmplZ&#34;&gt;&lt;code&gt;git-archive&lt;/code&gt;&lt;/a&gt;使えば何とかなることに気付きました。&lt;br /&gt;&#xA;ちなみに&lt;code&gt;unzip&lt;/code&gt;コマンドは標準で使えます。&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;mkdir workrepo&#xA;cd workrepo&#xA;git init&#xA;cp -r [target_file_or_dir] .&#xA;git add .&#xA;git commit -m commit&#xA;git archive -o ../myarchive.zip @&#xA;cd ..&#xA;rm -rf workrepo&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;あんまり自信ないんですけどスクリプトファイルに落とすとこんな感じ？&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

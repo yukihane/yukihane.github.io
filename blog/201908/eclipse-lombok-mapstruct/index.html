@@ -8,22 +8,22 @@
 上記のコードのようにLombokとMapStructを併用しているプロジェクトを、 Lombokプラグインを適用したEclipseで読み込ませるとMapStructのコードが自動生成されません。 そのため、Eclipse上でJUnitテストを実行すると次のように java.lang.ClassNotFoundException: Cannot find implementation というエラーになります。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/201908/eclipse-lombok-mapstruct/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Lombokプラグインを入れているEclipseでMapStruct自動生成が機能しない">
-  <meta property="og:description" content="サンプルコード: https://github.com/yukihane/hello-java/tree/master/mapstruct/hello-mapstruct 上記のコードのようにLombokとMapStructを併用しているプロジェクトを、 Lombokプラグインを適用したEclipseで読み込ませるとMapStructのコードが自動生成されません。 そのため、Eclipse上でJUnitテストを実行すると次のように java.lang.ClassNotFoundException: Cannot find implementation というエラーになります。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2019-08-18T00:00:00+00:00">
-    <meta property="article:modified_time" content="2019-08-18T00:00:00+00:00">
-    <meta property="article:tag" content="Java">
-    <meta property="article:tag" content="Lombok">
-    <meta property="article:tag" content="Mapstruct">
-    <meta property="article:tag" content="Eclipse">
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Lombokプラグインを入れているEclipseでMapStruct自動生成が機能しない">
+	<meta property="og:description" content="サンプルコード: https://github.com/yukihane/hello-java/tree/master/mapstruct/hello-mapstruct 上記のコードのようにLombokとMapStructを併用しているプロジェクトを、 Lombokプラグインを適用したEclipseで読み込ませるとMapStructのコードが自動生成されません。 そのため、Eclipse上でJUnitテストを実行すると次のように java.lang.ClassNotFoundException: Cannot find implementation というエラーになります。">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2019-08-18T00:00:00+00:00">
+		<meta property="article:modified_time" content="2019-08-18T00:00:00+00:00">
+		<meta property="article:tag" content="Java">
+		<meta property="article:tag" content="Lombok">
+		<meta property="article:tag" content="Mapstruct">
+		<meta property="article:tag" content="Eclipse">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Lombokプラグインを入れているEclipseでMapStruct自動生成が機能しない">
-  <meta name="twitter:description" content="サンプルコード: https://github.com/yukihane/hello-java/tree/master/mapstruct/hello-mapstruct 上記のコードのようにLombokとMapStructを併用しているプロジェクトを、 Lombokプラグインを適用したEclipseで読み込ませるとMapStructのコードが自動生成されません。 そのため、Eclipse上でJUnitテストを実行すると次のように java.lang.ClassNotFoundException: Cannot find implementation というエラーになります。">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Lombokプラグインを入れているEclipseでMapStruct自動生成が機能しない">
+	<meta name="twitter:description" content="サンプルコード: https://github.com/yukihane/hello-java/tree/master/mapstruct/hello-mapstruct 上記のコードのようにLombokとMapStructを併用しているプロジェクトを、 Lombokプラグインを適用したEclipseで読み込ませるとMapStructのコードが自動生成されません。 そのため、Eclipse上でJUnitテストを実行すると次のように java.lang.ClassNotFoundException: Cannot find implementation というエラーになります。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -221,7 +221,7 @@ Caused by: java.lang.ClassNotFoundException: org.mapstruct.ap.spi.AstModifyingAn
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

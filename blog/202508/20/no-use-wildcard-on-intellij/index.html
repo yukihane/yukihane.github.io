@@ -8,22 +8,22 @@
 つまり、IntelliJ IDEAの設定でフォーマットをかけると、CIが失敗してしまいます。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202508/20/no-use-wildcard-on-intellij/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="IntelliJの自動整形でimportのwildcardを使わないようにする">
-  <meta property="og:description" content="前回のエントリー では休職について記載しましたが、現在、無事職に着くことができています。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="IntelliJの自動整形でimportのwildcardを使わないようにする">
+	<meta property="og:description" content="前回のエントリー では休職について記載しましたが、現在、無事職に着くことができています。
 さて、そのプロジェクトでの話ですが、CIでKotlinコードに対してktlintでソースコードのチェックを行っています。
 ルールは(ほぼ)デフォルト設定を用いているのですが、このデフォルト設定とIntelliJ IDEAのデフォルト設定が競合するルールがあります。
 つまり、IntelliJ IDEAの設定でフォーマットをかけると、CIが失敗してしまいます。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2025-08-20T19:48:29+09:00">
-    <meta property="article:modified_time" content="2025-08-20T19:48:29+09:00">
-    <meta property="article:tag" content="Kotlin">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2025-08-20T19:48:29+09:00">
+		<meta property="article:modified_time" content="2025-08-20T19:48:29+09:00">
+		<meta property="article:tag" content="Kotlin">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="IntelliJの自動整形でimportのwildcardを使わないようにする">
-  <meta name="twitter:description" content="前回のエントリー では休職について記載しましたが、現在、無事職に着くことができています。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="IntelliJの自動整形でimportのwildcardを使わないようにする">
+	<meta name="twitter:description" content="前回のエントリー では休職について記載しましたが、現在、無事職に着くことができています。
 さて、そのプロジェクトでの話ですが、CIでKotlinコードに対してktlintでソースコードのチェックを行っています。
 ルールは(ほぼ)デフォルト設定を用いているのですが、このデフォルト設定とIntelliJ IDEAのデフォルト設定が競合するルールがあります。
 つまり、IntelliJ IDEAの設定でフォーマットをかけると、CIが失敗してしまいます。">
@@ -127,7 +127,7 @@ IntelliJ IDEAのデフォルト設定では、5個以上同じパッケージの
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

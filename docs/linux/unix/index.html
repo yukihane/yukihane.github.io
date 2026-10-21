@@ -7,19 +7,19 @@
 /etc/shells に利用可能なシェル一覧がある。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/linux/unix/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Unix">
-  <meta property="og:description" content="ログインシェル変更 さくらレンタルサーバのデフォルトログインシェルは`/bin/csh`なのでLinuxユーザにはちょっと馴染みがない…
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Unix">
+	<meta property="og:description" content="ログインシェル変更 さくらレンタルサーバのデフォルトログインシェルは`/bin/csh`なのでLinuxユーザにはちょっと馴染みがない…
 /etc/shells に利用可能なシェル一覧がある。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="docs">
-    <meta property="article:published_time" content="2020-07-24T01:51:44+00:00">
-    <meta property="article:modified_time" content="2020-07-24T01:51:44+00:00">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+		<meta property="article:published_time" content="2020-07-24T01:51:44+00:00">
+		<meta property="article:modified_time" content="2020-07-24T01:51:44+00:00">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Unix">
-  <meta name="twitter:description" content="ログインシェル変更 さくらレンタルサーバのデフォルトログインシェルは`/bin/csh`なのでLinuxユーザにはちょっと馴染みがない…
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Unix">
+	<meta name="twitter:description" content="ログインシェル変更 さくらレンタルサーバのデフォルトログインシェルは`/bin/csh`なのでLinuxユーザにはちょっと馴染みがない…
 /etc/shells に利用可能なシェル一覧がある。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -104,7 +104,8 @@
 <p><a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html">5.2 BBash Reference Manual: Bash Variables</a>:</p>
 <blockquote>
 <p>BASH_SOURCE</p>
-<p>:: An array variable whose members are the source filenames where the corresponding shell function names in the FUNCNAME array variable are defined. The shell function $\FUNCNAME[$i]} is defined in the file $\BASH_SOURCE[$i]} and called from $\BASH_SOURCE[$i+1]}</p></blockquote>
+<p>:: An array variable whose members are the source filenames where the corresponding shell function names in the FUNCNAME array variable are defined. The shell function $\FUNCNAME[$i]} is defined in the file $\BASH_SOURCE[$i]} and called from $\BASH_SOURCE[$i+1]}</p>
+</blockquote>
 <p>この <code>BASH_SOURCE</code> は <code>sh</code> (<code>dash</code>)にはない模様。 <code>/bin/bash hoge.sh</code> というように、明示的に`bash`を指定してやれば良い。</p>
 <ul>
 <li><a href="http://stackoverflow.com/a/15542250/4506703">bash - SCRIPT_PATH=&quot;${BASH_SOURCE[0]}&quot; Bad substitution - Stack Overflow</a></li>
@@ -247,7 +248,7 @@ I/O サイズ (最小 / 推奨): 512 バイト / 512 バイト
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

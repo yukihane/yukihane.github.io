@@ -6,27 +6,28 @@
 78.10 Add a Servlet, Filter, or Listener to an Application曰く。
 
 any Servlet or Filter beans are registered with the servlet container automatically.
+
 Spring Security 使った自前の認証フィルタを @Component 付けて作ったりなんかした際に意図しない URL path にも認証がかかってしまう。
 んゴ。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/201907/18/spring-boot-filter-bean/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Spring Bootは、セキュリティフィルタBeanを作っている分だけ、無料で認証できちまうんだ">
-  <meta property="og:description" content="要約 78.10 Add a Servlet, Filter, or Listener to an Application曰く。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Spring Bootは、セキュリティフィルタBeanを作っている分だけ、無料で認証できちまうんだ">
+	<meta property="og:description" content="要約 78.10 Add a Servlet, Filter, or Listener to an Application曰く。
 any Servlet or Filter beans are registered with the servlet container automatically.
 Spring Security 使った自前の認証フィルタを @Component 付けて作ったりなんかした際に意図しない URL path にも認証がかかってしまう。
 んゴ。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2019-07-18T20:34:56+00:00">
-    <meta property="article:modified_time" content="2019-07-18T20:34:56+00:00">
-    <meta property="article:tag" content="Spring-Security">
-    <meta property="article:tag" content="Spring-Boot">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2019-07-18T20:34:56+00:00">
+		<meta property="article:modified_time" content="2019-07-18T20:34:56+00:00">
+		<meta property="article:tag" content="Spring-Security">
+		<meta property="article:tag" content="Spring-Boot">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Spring Bootは、セキュリティフィルタBeanを作っている分だけ、無料で認証できちまうんだ">
-  <meta name="twitter:description" content="要約 78.10 Add a Servlet, Filter, or Listener to an Application曰く。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Spring Bootは、セキュリティフィルタBeanを作っている分だけ、無料で認証できちまうんだ">
+	<meta name="twitter:description" content="要約 78.10 Add a Servlet, Filter, or Listener to an Application曰く。
 any Servlet or Filter beans are registered with the servlet container automatically.
 Spring Security 使った自前の認証フィルタを @Component 付けて作ったりなんかした際に意図しない URL path にも認証がかかってしまう。
 んゴ。">
@@ -83,7 +84,8 @@ Spring Security 使った自前の認証フィルタを @Component 付けて作�
           <h1 id="要約">要約</h1>
 <p><a href="https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/html/howto-embedded-web-servers.html#howto-add-a-servlet-filter-or-listener">78.10 Add a Servlet, Filter, or Listener to an Application</a>曰く。</p>
 <blockquote>
-<p>any <code>Servlet</code> or <code>Filter</code> beans are registered with the servlet container automatically.</p></blockquote>
+<p>any <code>Servlet</code> or <code>Filter</code> beans are registered with the servlet container automatically.</p>
+</blockquote>
 <p>Spring Security 使った自前の認証フィルタを <code>@Component</code> 付けて作ったりなんかした際に意図しない URL path にも認証がかかってしまう。<br />
 んゴ。</p>
 <h1 id="困ってる実例集">困ってる実例集</h1>
@@ -145,7 +147,7 @@ Spring Security 使った自前の認証フィルタを @Component 付けて作�
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

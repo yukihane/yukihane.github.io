@@ -1,34 +1,40 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Github on 発火後忘失</title>
-    <link>https://yukihane.github.io/tags/github/</link>
-    <description>Recent content in Github on 発火後忘失</description>
-    <generator>Hugo</generator>
-    <language>ja</language>
-    <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0900</lastBuildDate>
-    <atom:link href="https://yukihane.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>GitHub PR が「コンフリクトあり」と言うのにローカルではマージできる</title>
-      <link>https://yukihane.github.io/blog/202606/13/github-pr-conflict-criss-cross-merge/</link>
-      <pubDate>Sat, 13 Jun 2026 00:00:00 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202606/13/github-pr-conflict-criss-cross-merge/</guid>
-      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;GitHub の Pull Request が &amp;ldquo;This branch has conflicts&amp;rdquo; と表示するのに、ローカルで &lt;code&gt;git merge&lt;/code&gt; すると何事もなく成功する、ということがあります。&lt;/li&gt;&#xA;&lt;li&gt;原因は &lt;strong&gt;criss-cross merge&lt;/strong&gt;（交差マージ）で &lt;code&gt;merge-base&lt;/code&gt; が複数存在する状態です。&lt;/li&gt;&#xA;&lt;li&gt;ローカルの git（&lt;code&gt;ort&lt;/code&gt; / &lt;code&gt;recursive&lt;/code&gt; ストラテジー）は複数の merge-base を仮想ベースに統合して賢く解決しますが、GitHub のマージエンジンは同じ状況をうまく処理できないことがあります。&lt;/li&gt;&#xA;&lt;li&gt;解決策は &lt;code&gt;git rebase&lt;/code&gt; で履歴を線形化することです。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;状況&#34;&gt;状況&lt;/h2&gt;&#xA;&lt;p&gt;スタックド PR（PR-A の上に PR-B を積む運用）をしていて、次のようなことが起きました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>GitHub の通知をちゃんと使えるように設定する</title>
-      <link>https://yukihane.github.io/blog/202205/15/github-unwatch/</link>
-      <pubDate>Sun, 15 May 2022 19:54:13 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202205/15/github-unwatch/</guid>
-      <description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;今回初めて仕事で GitHub (&lt;a href=&#34;https://docs.github.com/ja/get-started/onboarding/getting-started-with-github-enterprise-cloud&#34;&gt;GitHub Enterpsise Cloude&lt;/a&gt;) を使うことになりました。&lt;/p&gt;&#xA;&lt;p&gt;始める前は少しアコガレなんかも有ったりしたのですが、いざやってみると、思ったほど素敵では無いですね…​ これまでプライベートスペースだったところに仕事が入り込んでくる居心地の悪さよ。 後日、他の人に聞いてみたり見てみたりした感じ、(規約的にはまずそうですが)アカウントを使い分けている人もそれなりに居そうで、自分もそうすりゃ良かったかも、と思う始末です。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>GitHub Actions を使って GitHub Pages を定期更新する</title>
-      <link>https://yukihane.github.io/blog/202106/06/hello-github-actions/</link>
-      <pubDate>Sun, 06 Jun 2021 12:50:13 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202106/06/hello-github-actions/</guid>
-      <description>&lt;p&gt;これまで GitHub Actions を使ったことがなかったのですが、&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://ja.stackoverflow.com/q/76279/2808&#34;&gt;GitHub Pagesの更新を自動化したい - スタック・オーバーフロー&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;という質問を見かけ、丁度よいお題だと思ったのでこれを実現してみることにしました。&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Github on 発火後忘失</title>
+		<link>https://yukihane.github.io/tags/github/</link>
+		<description>Recent content in Github on 発火後忘失</description>
+		<generator>Hugo</generator>
+		<language>ja-jp</language>
+		
+		
+		
+			<copyright>© Yukihane, All Rights Reserved</copyright>
+		
+		
+			<lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0900</lastBuildDate>
+		
+			<atom:link href="https://yukihane.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>GitHub PR が「コンフリクトあり」と言うのにローカルではマージできる</title>
+				<link>https://yukihane.github.io/blog/202606/13/github-pr-conflict-criss-cross-merge/</link>
+				<pubDate>Sat, 13 Jun 2026 00:00:00 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202606/13/github-pr-conflict-criss-cross-merge/</guid>
+				<description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;GitHub の Pull Request が &amp;ldquo;This branch has conflicts&amp;rdquo; と表示するのに、ローカルで &lt;code&gt;git merge&lt;/code&gt; すると何事もなく成功する、ということがあります。&lt;/li&gt;&#xA;&lt;li&gt;原因は &lt;strong&gt;criss-cross merge&lt;/strong&gt;（交差マージ）で &lt;code&gt;merge-base&lt;/code&gt; が複数存在する状態です。&lt;/li&gt;&#xA;&lt;li&gt;ローカルの git（&lt;code&gt;ort&lt;/code&gt; / &lt;code&gt;recursive&lt;/code&gt; ストラテジー）は複数の merge-base を仮想ベースに統合して賢く解決しますが、GitHub のマージエンジンは同じ状況をうまく処理できないことがあります。&lt;/li&gt;&#xA;&lt;li&gt;解決策は &lt;code&gt;git rebase&lt;/code&gt; で履歴を線形化することです。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2 id=&#34;状況&#34;&gt;状況&lt;/h2&gt;&#xA;&lt;p&gt;スタックド PR（PR-A の上に PR-B を積む運用）をしていて、次のようなことが起きました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>GitHub の通知をちゃんと使えるように設定する</title>
+				<link>https://yukihane.github.io/blog/202205/15/github-unwatch/</link>
+				<pubDate>Sun, 15 May 2022 19:54:13 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202205/15/github-unwatch/</guid>
+				<description>&lt;h1 id=&#34;はじめに&#34;&gt;はじめに&lt;/h1&gt;&#xA;&lt;p&gt;今回初めて仕事で GitHub (&lt;a href=&#34;https://docs.github.com/ja/get-started/onboarding/getting-started-with-github-enterprise-cloud&#34;&gt;GitHub Enterpsise Cloude&lt;/a&gt;) を使うことになりました。&lt;/p&gt;&#xA;&lt;p&gt;始める前は少しアコガレなんかも有ったりしたのですが、いざやってみると、思ったほど素敵では無いですね…​ これまでプライベートスペースだったところに仕事が入り込んでくる居心地の悪さよ。 後日、他の人に聞いてみたり見てみたりした感じ、(規約的にはまずそうですが)アカウントを使い分けている人もそれなりに居そうで、自分もそうすりゃ良かったかも、と思う始末です。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>GitHub Actions を使って GitHub Pages を定期更新する</title>
+				<link>https://yukihane.github.io/blog/202106/06/hello-github-actions/</link>
+				<pubDate>Sun, 06 Jun 2021 12:50:13 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202106/06/hello-github-actions/</guid>
+				<description>&lt;p&gt;これまで GitHub Actions を使ったことがなかったのですが、&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://ja.stackoverflow.com/q/76279/2808&#34;&gt;GitHub Pagesの更新を自動化したい - スタック・オーバーフロー&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;という質問を見かけ、丁度よいお題だと思ったのでこれを実現してみることにしました。&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

@@ -5,27 +5,28 @@
 	<meta name="description" content="MySQL Connector/J 8.0.23 でタイムゾーン変換のメカニズムが変わりました(Spring Boot では 2.3.9以降, 2.4.3以降でこれを採用しています)。
 
 Important Change: A new mechanism has been introduced for users to configure how time zone conversions should occur when time instants are saved to or retrieved from a server by Connector/J.
-—  MySQL :: MySQL Connector/J 8.0 Release Notes :: Changes in MySQL Connector/J 8.0.23 (2021-01-18, General Availability)" />
+—  MySQL :: MySQL Connector/J 8.0 Release Notes :: Changes in MySQL Connector/J 8.0.23 (2021-01-18, General Availability)
+" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202104/29/mysql-connector-j-8.0.23/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="MySQL Connector/J 8.0.23 でタイムゾーン変換メカニズムが変更になった">
-  <meta property="og:description" content="MySQL Connector/J 8.0.23 でタイムゾーン変換のメカニズムが変わりました(Spring Boot では 2.3.9以降, 2.4.3以降でこれを採用しています)。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="MySQL Connector/J 8.0.23 でタイムゾーン変換メカニズムが変更になった">
+	<meta property="og:description" content="MySQL Connector/J 8.0.23 でタイムゾーン変換のメカニズムが変わりました(Spring Boot では 2.3.9以降, 2.4.3以降でこれを採用しています)。
 Important Change: A new mechanism has been introduced for users to configure how time zone conversions should occur when time instants are saved to or retrieved from a server by Connector/J.
 — MySQL :: MySQL Connector/J 8.0 Release Notes :: Changes in MySQL Connector/J 8.0.23 (2021-01-18, General Availability)">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2021-04-28T15:55:52+00:00">
-    <meta property="article:modified_time" content="2021-04-28T15:55:52+00:00">
-    <meta property="article:tag" content="Spring-Boot">
-    <meta property="article:tag" content="Mysql">
-    <meta property="article:tag" content="Timezone">
-    <meta property="article:tag" content="Datetime">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2021-04-28T15:55:52+00:00">
+		<meta property="article:modified_time" content="2021-04-28T15:55:52+00:00">
+		<meta property="article:tag" content="Spring-Boot">
+		<meta property="article:tag" content="Mysql">
+		<meta property="article:tag" content="Timezone">
+		<meta property="article:tag" content="Datetime">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="MySQL Connector/J 8.0.23 でタイムゾーン変換メカニズムが変更になった">
-  <meta name="twitter:description" content="MySQL Connector/J 8.0.23 でタイムゾーン変換のメカニズムが変わりました(Spring Boot では 2.3.9以降, 2.4.3以降でこれを採用しています)。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="MySQL Connector/J 8.0.23 でタイムゾーン変換メカニズムが変更になった">
+	<meta name="twitter:description" content="MySQL Connector/J 8.0.23 でタイムゾーン変換のメカニズムが変わりました(Spring Boot では 2.3.9以降, 2.4.3以降でこれを採用しています)。
 Important Change: A new mechanism has been introduced for users to configure how time zone conversions should occur when time instants are saved to or retrieved from a server by Connector/J.
 — MySQL :: MySQL Connector/J 8.0 Release Notes :: Changes in MySQL Connector/J 8.0.23 (2021-01-18, General Availability)">
 
@@ -81,7 +82,8 @@ Important Change: A new mechanism has been introduced for users to configure how
           <p>MySQL Connector/J <code>8.0.23</code> でタイムゾーン変換のメカニズムが変わりました(Spring Boot では <a href="https://docs.spring.io/spring-boot/docs/2.3.9.RELEASE/reference/html/appendix-dependency-versions.html#dependency-versions"><code>2.3.9</code></a>以降, <a href="https://docs.spring.io/spring-boot/docs/2.4.3/reference/html/appendix-dependency-versions.html#dependency-versions"><code>2.4.3</code></a>以降でこれを採用しています)。</p>
 <blockquote>
 <p><strong>Important Change</strong>: A new mechanism has been introduced for users to configure how time zone conversions should occur when time instants are saved to or retrieved from a server by Connector/J.</p>
-<p>—  <a href="https://dev.mysql.com/doc/relnotes/connector-j/8.0/en/news-8-0-23.html">MySQL :: MySQL Connector/J 8.0 Release Notes :: Changes in MySQL Connector/J 8.0.23 (2021-01-18, General Availability)</a></p></blockquote>
+<p>—  <a href="https://dev.mysql.com/doc/relnotes/connector-j/8.0/en/news-8-0-23.html">MySQL :: MySQL Connector/J 8.0 Release Notes :: Changes in MySQL Connector/J 8.0.23 (2021-01-18, General Availability)</a></p>
+</blockquote>
 <p>影響を受ける典型的な例としては、 <strong>DBサーバとクライアントで異なるタイムゾーンで動いている場合</strong> です。</p>
 <p>次のリンク先では、DBサーバが UTC, クライアント(<code>mysql-connector-java</code> を利用しているSpring Boot)が JST で動作している環境で検証を行いました。 具体的にどのような挙動になるのかを確認できます。</p>
 <ul>
@@ -130,7 +132,7 @@ Important Change: A new mechanism has been introduced for users to configure how
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

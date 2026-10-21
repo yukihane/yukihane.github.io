@@ -5,21 +5,21 @@
 	<meta name="description" content="dependency について、2.3.2. Servlet based server-side applicationをみると最小構成はjersey-container-servletだけでいいように見える(Servlet3.0 以降の場合)が、実際にはjersey-hk2も必要。含めない場合次の例外が発生する。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/201801/28/java9-jetty-jersey/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Java9でJettyでJerseyのMaven">
-  <meta property="og:description" content="dependency について、2.3.2. Servlet based server-side applicationをみると最小構成はjersey-container-servletだけでいいように見える(Servlet3.0 以降の場合)が、実際にはjersey-hk2も必要。含めない場合次の例外が発生する。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2018-01-28T19:16:07+00:00">
-    <meta property="article:modified_time" content="2018-01-28T19:16:07+00:00">
-    <meta property="article:tag" content="Java">
-    <meta property="article:tag" content="Jetty">
-    <meta property="article:tag" content="Jersey">
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Java9でJettyでJerseyのMaven">
+	<meta property="og:description" content="dependency について、2.3.2. Servlet based server-side applicationをみると最小構成はjersey-container-servletだけでいいように見える(Servlet3.0 以降の場合)が、実際にはjersey-hk2も必要。含めない場合次の例外が発生する。">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2018-01-28T19:16:07+00:00">
+		<meta property="article:modified_time" content="2018-01-28T19:16:07+00:00">
+		<meta property="article:tag" content="Java">
+		<meta property="article:tag" content="Jetty">
+		<meta property="article:tag" content="Jersey">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Java9でJettyでJerseyのMaven">
-  <meta name="twitter:description" content="dependency について、2.3.2. Servlet based server-side applicationをみると最小構成はjersey-container-servletだけでいいように見える(Servlet3.0 以降の場合)が、実際にはjersey-hk2も必要。含めない場合次の例外が発生する。">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Java9でJettyでJerseyのMaven">
+	<meta name="twitter:description" content="dependency について、2.3.2. Servlet based server-side applicationをみると最小構成はjersey-container-servletだけでいいように見える(Servlet3.0 以降の場合)が、実際にはjersey-hk2も必要。含めない場合次の例外が発生する。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -72,7 +72,8 @@
         <section class="body">
           <p>dependency について、<a href="https://jersey.github.io/documentation/latest/modules-and-dependencies.html#servlet-app-general">2.3.2. Servlet based server-side application</a>をみると最小構成は<code>jersey-container-servlet</code>だけでいいように見える(Servlet3.0 以降の場合)が、実際には<code>jersey-hk2</code>も必要。含めない場合次の例外が発生する。</p>
 <blockquote>
-<p>java.lang.IllegalStateException: InjectionManagerFactory not found.</p></blockquote>
+<p>java.lang.IllegalStateException: InjectionManagerFactory not found.</p>
+</blockquote>
 <p><a href="https://jersey.github.io/documentation/latest/getting-started.html#new-from-archetype">1.1. Creating a New Project from Maven Archetype</a>に記載されている archetype を使ってプロジェクトを生成してみても依存関係にちゃっかり入っている。</p>
 <p>検索した感じ、バージョン 2.26(これを書いている時点での最新バージョン)以降の症状かも知れない。</p>
 <pre><code>&lt;dependency&gt;
@@ -88,10 +89,12 @@
 </code></pre>
 <p>次に、Java9 では Java EE 関連のモジュールがデフォルトではロードされなくなったため、Jersey を使った JAX-RS(REST)プログラムを<code>mvn jetty:run</code>で実行しようとすると次の例外が出る。</p>
 <blockquote>
-<p>java.lang.NoClassDefFoundError: javax/activation/DataSource</p></blockquote>
+<p>java.lang.NoClassDefFoundError: javax/activation/DataSource</p>
+</blockquote>
 <p>また、次も発生。</p>
 <blockquote>
-<p>java.lang.NoClassDefFoundError: javax/xml/bind/PropertyException</p></blockquote>
+<p>java.lang.NoClassDefFoundError: javax/xml/bind/PropertyException</p>
+</blockquote>
 <p>それぞれ解消するために <code>--add-modules java.activation,java.xml.bind</code> オプションを付与する。Maven で実行する場合は、 <code>MAVEN_OPTS</code> 環境変数に設定しておけばランタイム実行パラメータとなる。</p>
 <p>マイグレーションガイドの<a href="https://docs.oracle.com/javase/9/migrate/toc.htm#JSMIG-GUID-F640FA9D-FB66-4D85-AD2B-D931174C09A3">Modules Shared with Java EE Not Resolved by Default</a>にある通り、<code>--add-modules java.se.ee</code>の方が簡単で覚えやすいかもしれない。</p>
 <pre><code>MAVEN_OPTS=&quot;--add-modules java.activation,java.xml.bind&quot; mvn jetty:run
@@ -137,7 +140,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

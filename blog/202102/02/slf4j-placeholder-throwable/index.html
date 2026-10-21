@@ -5,19 +5,19 @@
 	<meta name="description" content="SLF4J の Logger のメソッドを眺めていると、 Throwable を引数にとれるのは 他に Marker と String メッセージだけを持つものばかりで、プレースホルダを利用したい場合にはどうしたら良いのだろう…と思っていたら、普通にプレースホルダと併用できるようです。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202102/02/slf4j-placeholder-throwable/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="SLF4Jでplaceholderも使いつつstacktraceも出力したい">
-  <meta property="og:description" content="SLF4J の Logger のメソッドを眺めていると、 Throwable を引数にとれるのは 他に Marker と String メッセージだけを持つものばかりで、プレースホルダを利用したい場合にはどうしたら良いのだろう…と思っていたら、普通にプレースホルダと併用できるようです。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2021-02-01T16:38:42+00:00">
-    <meta property="article:modified_time" content="2021-02-01T16:38:42+00:00">
-    <meta property="article:tag" content="Java">
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="SLF4Jでplaceholderも使いつつstacktraceも出力したい">
+	<meta property="og:description" content="SLF4J の Logger のメソッドを眺めていると、 Throwable を引数にとれるのは 他に Marker と String メッセージだけを持つものばかりで、プレースホルダを利用したい場合にはどうしたら良いのだろう…と思っていたら、普通にプレースホルダと併用できるようです。">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2021-02-01T16:38:42+00:00">
+		<meta property="article:modified_time" content="2021-02-01T16:38:42+00:00">
+		<meta property="article:tag" content="Java">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="SLF4Jでplaceholderも使いつつstacktraceも出力したい">
-  <meta name="twitter:description" content="SLF4J の Logger のメソッドを眺めていると、 Throwable を引数にとれるのは 他に Marker と String メッセージだけを持つものばかりで、プレースホルダを利用したい場合にはどうしたら良いのだろう…と思っていたら、普通にプレースホルダと併用できるようです。">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="SLF4Jでplaceholderも使いつつstacktraceも出力したい">
+	<meta name="twitter:description" content="SLF4J の Logger のメソッドを眺めていると、 Throwable を引数にとれるのは 他に Marker と String メッセージだけを持つものばかりで、プレースホルダを利用したい場合にはどうしたら良いのだろう…と思っていたら、普通にプレースホルダと併用できるようです。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -116,7 +116,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

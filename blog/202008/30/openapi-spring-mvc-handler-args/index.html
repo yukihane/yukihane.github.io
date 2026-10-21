@@ -7,21 +7,21 @@ openapi generator を Spring Boot で利用してみる で openapi-generator �
 その後、これを実際に利用してみて気づいたのですが、ハンドラ(controllerのメソッド)に独自の引数を生やしたいことが多く、このままだと非常に不便です。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202008/30/openapi-spring-mvc-handler-args/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="openapi-generaterで生成したcontrollerにカスタム引数を追加する">
-  <meta property="og:description" content="はじめに openapi generator を Spring Boot で利用してみる で openapi-generator を用いて Spring MVC のコントローラ(のインタフェース)を自動生成してみました。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="openapi-generaterで生成したcontrollerにカスタム引数を追加する">
+	<meta property="og:description" content="はじめに openapi generator を Spring Boot で利用してみる で openapi-generator を用いて Spring MVC のコントローラ(のインタフェース)を自動生成してみました。
 その後、これを実際に利用してみて気づいたのですが、ハンドラ(controllerのメソッド)に独自の引数を生やしたいことが多く、このままだと非常に不便です。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2020-08-29T19:23:06+00:00">
-    <meta property="article:modified_time" content="2020-08-29T19:23:06+00:00">
-    <meta property="article:tag" content="Openapi">
-    <meta property="article:tag" content="Spring-Boot">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2020-08-29T19:23:06+00:00">
+		<meta property="article:modified_time" content="2020-08-29T19:23:06+00:00">
+		<meta property="article:tag" content="Openapi">
+		<meta property="article:tag" content="Spring-Boot">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="openapi-generaterで生成したcontrollerにカスタム引数を追加する">
-  <meta name="twitter:description" content="はじめに openapi generator を Spring Boot で利用してみる で openapi-generator を用いて Spring MVC のコントローラ(のインタフェース)を自動生成してみました。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="openapi-generaterで生成したcontrollerにカスタム引数を追加する">
+	<meta name="twitter:description" content="はじめに openapi generator を Spring Boot で利用してみる で openapi-generator を用いて Spring MVC のコントローラ(のインタフェース)を自動生成してみました。
 その後、これを実際に利用してみて気づいたのですが、ハンドラ(controllerのメソッド)に独自の引数を生やしたいことが多く、このままだと非常に不便です。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -116,7 +116,7 @@ openapi generator を Spring Boot で利用してみる で openapi-generator �
 <pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="line"><span class="cl"> <span class="n">openApiGenerate</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">     <span class="n">templateDir</span> <span class="o">=</span> <span class="s2">&#34;$rootDir/specs/template&#34;</span>
 </span></span><span class="line"><span class="cl">     <span class="c1">// ...
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="o">}</span>
+</span></span></span><span class="line"><span class="cl"> <span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>extension機能を用い、次のようにハンドラの引数を宣言することとしました:</p>
@@ -198,7 +198,7 @@ openapi generator を Spring Boot で利用してみる で openapi-generator �
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

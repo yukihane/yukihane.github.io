@@ -7,15 +7,15 @@
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<link rel="alternate" type="application/rss+xml" href="https://yukihane.github.io/index.xml" title="発火後忘失" />
 	<meta property="og:url" content="https://yukihane.github.io/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="発火後忘失">
-  <meta property="og:description" content="Fire and Forget blog">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="website">
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="発火後忘失">
+	<meta property="og:description" content="Fire and Forget blog">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="website">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="発火後忘失">
-  <meta name="twitter:description" content="Fire and Forget blog">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="発火後忘失">
+	<meta name="twitter:description" content="Fire and Forget blog">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -23,6 +23,7 @@
 	
 	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
 		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
+	<meta name="generator" content="Hugo 0.168.0">
 </head>
 
 	<body>
@@ -62,6 +63,18 @@
 				<div class="site-description"></div>
 				
 				
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202610/21/windows-sleep-plobrem-with-firefox/">Firefoxを起動しているとWindows11がスリープしない</a></h1>
+					<time>2026/10/21</time>
+					<br><div class="description">
+	
+	<p>最近、Windowsがスリープしていないことに気づきました。<br />
+ウェブブラウザーで動画コンテンツ(YouTubeとか)を開きっぱなしにしているとそうなってしまうのでそれと混同していたのですが、どうもそれ以外にも原因があるようでした。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202610/21/windows-sleep-plobrem-with-firefox/">Read more ⟶</a>
+				</section>
 				
 				<section class="list-item">
 					<h1 class="title"><a href="/blog/202610/06/serena-kotlin-lsp-expire-problem/">SerenaのKotlin言語サーバーがビルド期限切れで起動しなくなる問題と対処</a></h1>
@@ -243,25 +256,6 @@ herdrをpwshで利用しているのですが、JSONをcatしたときに日本�
 					<a class="readmore" href="/blog/202606/13/kotlin-nullable-value-class-jackson-boxing/">Read more ⟶</a>
 				</section>
 				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202606/13/react-select-async-ime-composition/">react-select の AsyncSelect が IME 確定後に検索を再実行しない</a></h1>
-					<time>2026/06/13</time>
-					<br><div class="description">
-	
-	<h2 id="tldr">TL;DR</h2>
-<ul>
-<li>react-select の <code>AsyncSelect</code> は、IME（日本語入力）で文字を確定した後に <code>loadOptions</code> を再呼び出ししないケースがあります。</li>
-<li>原因は <code>compositionEnd</code> 後に <code>inputValue</code> が内部的に「変化なし」と判定され、検索が再トリガーされないことです。</li>
-<li><code>AsyncSelect</code> の <code>loadOptions</code> パターンをやめ、通常の <code>Select</code> + controlled <code>inputValue</code> + <code>useEffect</code> による自前検索に切り替えることで解決しました。</li>
-</ul>
-<hr />
-<h2 id="症状">症状</h2>
-<p>非同期検索付きのセレクトボックスを <code>react-select</code> の <code>AsyncSelect</code> で実装していました。ユーザーがキーワードを入力すると API を呼んで候補を表示する、よくあるパターンです。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202606/13/react-select-async-ime-composition/">Read more ⟶</a>
-				</section>
-				
 				
 
 <ul class="pagination">
@@ -291,7 +285,7 @@ herdrをpwshで利用しているのですが、JSONをcatしたときに日本�
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

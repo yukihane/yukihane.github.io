@@ -12,31 +12,52 @@
 kotlin-jpa compiler plugin を適用する
 
 
-all-open compiler plugin を適用し、 @Entity, @Embeddable, @MappedSuperclass を対象に設定する" />
+all-open compiler plugin を適用し、 @Entity, @Embeddable, @MappedSuperclass を対象に設定する
+
+
+
+
+エンティティ定義について
+
+
+(原則として) data class や val の利用は諦める
+
+Java で Lombok の @Data や @Value を付与したときと同じような問題がある(参考)
+
+
+
+
+" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202203/12/kotlin-jpa-definition/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Kotlin で JPA エンティティクラスを定義する">
-  <meta property="og:description" content="Kotlin で JPA エンティティを実装しようと思って調べた結果をまとめた記事です。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Kotlin で JPA エンティティクラスを定義する">
+	<meta property="og:description" content="Kotlin で JPA エンティティを実装しようと思って調べた結果をまとめた記事です。
 まとめ:
 プロジェクト構成について
 kotlin-jpa compiler plugin を適用する
-all-open compiler plugin を適用し、 @Entity, @Embeddable, @MappedSuperclass を対象に設定する">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2022-03-12T20:39:32+09:00">
-    <meta property="article:modified_time" content="2022-03-12T20:39:32+09:00">
-    <meta property="article:tag" content="Jpa">
-    <meta property="article:tag" content="Kotlin">
+all-open compiler plugin を適用し、 @Entity, @Embeddable, @MappedSuperclass を対象に設定する
+エンティティ定義について
+(原則として) data class や val の利用は諦める
+Java で Lombok の @Data や @Value を付与したときと同じような問題がある(参考)">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2022-03-12T20:39:32+09:00">
+		<meta property="article:modified_time" content="2022-03-12T20:39:32+09:00">
+		<meta property="article:tag" content="Jpa">
+		<meta property="article:tag" content="Kotlin">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Kotlin で JPA エンティティクラスを定義する">
-  <meta name="twitter:description" content="Kotlin で JPA エンティティを実装しようと思って調べた結果をまとめた記事です。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Kotlin で JPA エンティティクラスを定義する">
+	<meta name="twitter:description" content="Kotlin で JPA エンティティを実装しようと思って調べた結果をまとめた記事です。
 まとめ:
 プロジェクト構成について
 kotlin-jpa compiler plugin を適用する
-all-open compiler plugin を適用し、 @Entity, @Embeddable, @MappedSuperclass を対象に設定する">
+all-open compiler plugin を適用し、 @Entity, @Embeddable, @MappedSuperclass を対象に設定する
+エンティティ定義について
+(原則として) data class や val の利用は諦める
+Java で Lombok の @Data や @Value を付与したときと同じような問題がある(参考)">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -231,7 +252,7 @@ all-open compiler plugin を適用し、 @Entity, @Embeddable, @MappedSuperclass
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

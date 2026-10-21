@@ -13,21 +13,21 @@ MNG-5607 Don&rsquo;t use M2_HOME in mvn shell/command scripts anymore
 ただし、敢えて設定すべき状況は通常発生しないと思います。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/201807/25/not-required-m2_home/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="M2_HOMEは不要">
-  <meta property="og:description" content="M2_HOME は削除されました。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="M2_HOMEは不要">
+	<meta property="og:description" content="M2_HOME は削除されました。
 MNGSITE-283 Remove M2_HOME from documentation MNG-5607 Don’t use M2_HOME in mvn shell/command scripts anymore 3.5.0 リリースノート “Based on problems in using M2_HOME related to different Maven versions installed and to simplify things, the usage of M2_HOME has been removed and is not supported any more MNG-5823, MNG-5836, MNG-5607.” (変更 commit) 敢えて設定するのであれば、 上の変更 commit リンク先にある通り、M2_HOMEでなくMAVEN_HOMEにしましょう。
 ただし、敢えて設定すべき状況は通常発生しないと思います。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2018-07-25T19:38:38+00:00">
-    <meta property="article:modified_time" content="2018-07-25T19:38:38+00:00">
-    <meta property="article:tag" content="Java">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2018-07-25T19:38:38+00:00">
+		<meta property="article:modified_time" content="2018-07-25T19:38:38+00:00">
+		<meta property="article:tag" content="Java">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="M2_HOMEは不要">
-  <meta name="twitter:description" content="M2_HOME は削除されました。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="M2_HOMEは不要">
+	<meta name="twitter:description" content="M2_HOME は削除されました。
 MNGSITE-283 Remove M2_HOME from documentation MNG-5607 Don’t use M2_HOME in mvn shell/command scripts anymore 3.5.0 リリースノート “Based on problems in using M2_HOME related to different Maven versions installed and to simplify things, the usage of M2_HOME has been removed and is not supported any more MNG-5823, MNG-5836, MNG-5607.” (変更 commit) 敢えて設定するのであれば、 上の変更 commit リンク先にある通り、M2_HOMEでなくMAVEN_HOMEにしましょう。
 ただし、敢えて設定すべき状況は通常発生しないと思います。">
 
@@ -126,7 +126,7 @@ MNGSITE-283 Remove M2_HOME from documentation MNG-5607 Don’t use M2_HOME in mv
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

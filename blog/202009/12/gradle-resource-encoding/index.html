@@ -7,20 +7,20 @@ Spring Bootの自動テストで data.sql を作成しているのですが、 g
 原因を調べたのですが、どうも日本語のカラムを比較しているところで失敗しているようで、出力を見る感じ data.sql のファイルエンコーディングが MS932 で扱われてしまっているようでした。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202009/12/gradle-resource-encoding/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="WindowsでGradleが扱うリソースのファイルエンコーディング設定">
-  <meta property="og:description" content="問題 Spring Bootの自動テストで data.sql を作成しているのですが、 gradle check でテストを実行すると、失敗してしまう。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="WindowsでGradleが扱うリソースのファイルエンコーディング設定">
+	<meta property="og:description" content="問題 Spring Bootの自動テストで data.sql を作成しているのですが、 gradle check でテストを実行すると、失敗してしまう。
 原因を調べたのですが、どうも日本語のカラムを比較しているところで失敗しているようで、出力を見る感じ data.sql のファイルエンコーディングが MS932 で扱われてしまっているようでした。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2020-09-12T12:26:22+00:00">
-    <meta property="article:modified_time" content="2020-09-12T12:26:22+00:00">
-    <meta property="article:tag" content="Gradle">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2020-09-12T12:26:22+00:00">
+		<meta property="article:modified_time" content="2020-09-12T12:26:22+00:00">
+		<meta property="article:tag" content="Gradle">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="WindowsでGradleが扱うリソースのファイルエンコーディング設定">
-  <meta name="twitter:description" content="問題 Spring Bootの自動テストで data.sql を作成しているのですが、 gradle check でテストを実行すると、失敗してしまう。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="WindowsでGradleが扱うリソースのファイルエンコーディング設定">
+	<meta name="twitter:description" content="問題 Spring Bootの自動テストで data.sql を作成しているのですが、 gradle check でテストを実行すると、失敗してしまう。
 原因を調べたのですが、どうも日本語のカラムを比較しているところで失敗しているようで、出力を見る感じ data.sql のファイルエンコーディングが MS932 で扱われてしまっているようでした。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -152,7 +152,7 @@ echo 'file.encoding=UTF-8' &gt;&gt; ~/.gradle/gradle.properties
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

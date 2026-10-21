@@ -5,18 +5,18 @@
 	<meta name="description" content="Ubuntu16.04 の頃には特に問題なくハイバネートできていたがそれ以降のバージョンでうまくいかない/設定方法がわからない、という記事をよく見かけます。 自分もその一人ですが、今回やり方がわかったのでメモしておきます。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/ubuntu/hibernate/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Ubuntu18.04 ハイバネート(休止)">
-  <meta property="og:description" content="Ubuntu16.04 の頃には特に問題なくハイバネートできていたがそれ以降のバージョンでうまくいかない/設定方法がわからない、という記事をよく見かけます。 自分もその一人ですが、今回やり方がわかったのでメモしておきます。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="docs">
-    <meta property="article:published_time" content="2020-07-26T01:39:30+00:00">
-    <meta property="article:modified_time" content="2020-07-26T01:39:30+00:00">
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Ubuntu18.04 ハイバネート(休止)">
+	<meta property="og:description" content="Ubuntu16.04 の頃には特に問題なくハイバネートできていたがそれ以降のバージョンでうまくいかない/設定方法がわからない、という記事をよく見かけます。 自分もその一人ですが、今回やり方がわかったのでメモしておきます。">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+		<meta property="article:published_time" content="2020-07-26T01:39:30+00:00">
+		<meta property="article:modified_time" content="2020-07-26T01:39:30+00:00">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Ubuntu18.04 ハイバネート(休止)">
-  <meta name="twitter:description" content="Ubuntu16.04 の頃には特に問題なくハイバネートできていたがそれ以降のバージョンでうまくいかない/設定方法がわからない、という記事をよく見かけます。 自分もその一人ですが、今回やり方がわかったのでメモしておきます。">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Ubuntu18.04 ハイバネート(休止)">
+	<meta name="twitter:description" content="Ubuntu16.04 の頃には特に問題なくハイバネートできていたがそれ以降のバージョンでうまくいかない/設定方法がわからない、という記事をよく見かけます。 自分もその一人ですが、今回やり方がわかったのでメモしておきます。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -137,7 +137,8 @@ Filename                Type        Size    Used    Priority
 <p><code>/swapfile</code> という約2GBのファイルをスワップ領域として利用しているのが確認できる。(これがUbuntu18.04のデフォルトのはず。以下これを前提としてスワップ領域を拡張する。スワップパーティションを利用していた場合、別の手順となるため、他の解説ページを参照のこと。)</p>
 <p>必要なサイズは、 <a href="https://help.ubuntu.com/community/SwapFaq#How_much_swap_do_I_need.3F">公式FAQ</a>によると</p>
 <blockquote>
-<p>For more modern systems (&gt;1GB), your swap space should be at a minimum be equal to your physical memory (RAM) size &ldquo;if you use hibernation&rdquo;, otherwise you need a minimum of round(sqrt(RAM)) and a maximum of twice the amount of RAM.</p></blockquote>
+<p>For more modern systems (&gt;1GB), your swap space should be at a minimum be equal to your physical memory (RAM) size &ldquo;if you use hibernation&rdquo;, otherwise you need a minimum of round(sqrt(RAM)) and a maximum of twice the amount of RAM.</p>
+</blockquote>
 <p>ということなので、物理メモリ16GBの場合は16GB〜32GB程度、ということだろうか。今回32GBに増やすことにした。</p>
 <pre><code>sudo swapoff /swapfile
 sudo fallocate -l 32G /swapfile
@@ -241,7 +242,7 @@ ExecStartPost=/bin/run-parts -a post /lib/systemd/system-sleep
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

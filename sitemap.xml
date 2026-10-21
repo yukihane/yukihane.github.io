@@ -2,10 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://yukihane.github.io/tags/ai-coding/</loc>
-    <lastmod>2026-10-06T14:09:55+09:00</lastmod>
-  </url><url>
     <loc>https://yukihane.github.io/blog/</loc>
+    <lastmod>2026-10-21T19:22:15+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/firefox/</loc>
+    <lastmod>2026-10-21T19:22:15+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/blog/202610/21/windows-sleep-plobrem-with-firefox/</loc>
+    <lastmod>2026-10-21T19:22:15+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/</loc>
+    <lastmod>2026-10-21T19:22:15+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/windows/</loc>
+    <lastmod>2026-10-21T19:22:15+09:00</lastmod>
+  </url><url>
+    <loc>https://yukihane.github.io/tags/ai-coding/</loc>
     <lastmod>2026-10-06T14:09:55+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/tags/kotlin/</loc>
@@ -17,9 +29,6 @@
     <loc>https://yukihane.github.io/blog/202610/06/serena-kotlin-lsp-expire-problem/</loc>
     <lastmod>2026-10-06T14:09:55+09:00</lastmod>
   </url><url>
-    <loc>https://yukihane.github.io/tags/</loc>
-    <lastmod>2026-10-06T14:09:55+09:00</lastmod>
-  </url><url>
     <loc>https://yukihane.github.io/tags/codex/</loc>
     <lastmod>2026-09-22T15:40:44+09:00</lastmod>
   </url><url>
@@ -27,9 +36,6 @@
     <lastmod>2026-09-22T15:40:44+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/tags/pwsh/</loc>
-    <lastmod>2026-09-17T23:36:33+09:00</lastmod>
-  </url><url>
-    <loc>https://yukihane.github.io/tags/windows/</loc>
     <lastmod>2026-09-17T23:36:33+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/blog/202609/17/codex-update-error-on-win/</loc>
@@ -399,9 +405,6 @@
     <lastmod>2021-10-15T16:36:00+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/blog/202110/15/develop-android-firefox-addons/</loc>
-    <lastmod>2021-10-15T16:36:00+09:00</lastmod>
-  </url><url>
-    <loc>https://yukihane.github.io/tags/firefox/</loc>
     <lastmod>2021-10-15T16:36:00+09:00</lastmod>
   </url><url>
     <loc>https://yukihane.github.io/tags/webextensions/</loc>

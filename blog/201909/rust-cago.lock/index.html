@@ -5,19 +5,19 @@
 	<meta name="description" content="cargo new --bin したパッケージに対して、たまたまデフォルで生成される .gitignore を用いずに https://gitignore.io/ で生成してものを用いていたのですが、 Cargo.lock ファイルの扱いが異なるように思われ、あれ？と思って見直してみました。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/201909/rust-cago.lock/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Cargo.lock をバージョン管理するや否や">
-  <meta property="og:description" content="cargo new --bin したパッケージに対して、たまたまデフォルで生成される .gitignore を用いずに https://gitignore.io/ で生成してものを用いていたのですが、 Cargo.lock ファイルの扱いが異なるように思われ、あれ？と思って見直してみました。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2019-09-01T00:00:00+00:00">
-    <meta property="article:modified_time" content="2019-09-01T00:00:00+00:00">
-    <meta property="article:tag" content="Rust">
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Cargo.lock をバージョン管理するや否や">
+	<meta property="og:description" content="cargo new --bin したパッケージに対して、たまたまデフォルで生成される .gitignore を用いずに https://gitignore.io/ で生成してものを用いていたのですが、 Cargo.lock ファイルの扱いが異なるように思われ、あれ？と思って見直してみました。">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2019-09-01T00:00:00+00:00">
+		<meta property="article:modified_time" content="2019-09-01T00:00:00+00:00">
+		<meta property="article:tag" content="Rust">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Cargo.lock をバージョン管理するや否や">
-  <meta name="twitter:description" content="cargo new --bin したパッケージに対して、たまたまデフォルで生成される .gitignore を用いずに https://gitignore.io/ で生成してものを用いていたのですが、 Cargo.lock ファイルの扱いが異なるように思われ、あれ？と思って見直してみました。">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Cargo.lock をバージョン管理するや否や">
+	<meta name="twitter:description" content="cargo new --bin したパッケージに対して、たまたまデフォルで生成される .gitignore を用いずに https://gitignore.io/ で生成してものを用いていたのですが、 Cargo.lock ファイルの扱いが異なるように思われ、あれ？と思って見直してみました。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -73,7 +73,8 @@
 <blockquote>
 <p># Remove Cargo.lock from gitignore if creating an executable, leave it for libraries<br />
 # More information here <a href="https://doc.rust-lang.org/cargo/guide/cargo-toml-vs-cargo-lock.html">https://doc.rust-lang.org/cargo/guide/cargo-toml-vs-cargo-lock.html</a> Cargo.lock</p>
-<p>—  <a href="https://gitignore.io/api/rust">https://gitignore.io/api/rust</a></p></blockquote>
+<p>—  <a href="https://gitignore.io/api/rust">https://gitignore.io/api/rust</a></p>
+</blockquote>
 <p><code>bin</code> ならバージョン管理し、 <code>lib</code> ならバージョン管理しないのが正しいようです。 <code>cargo new</code> した場合はそれぞれそのような <code>.gitignore</code> が生成されていました。</p>
 <p>次のリンクでは 1.3.7.0 以降、 publish 時もそれぞれそういう動作になる、ということを言っているのでしょうかね。</p>
 <ul>
@@ -116,7 +117,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

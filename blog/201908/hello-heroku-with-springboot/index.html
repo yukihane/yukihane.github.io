@@ -7,22 +7,22 @@
 そういった考えで、今回、単純なSpringBoot hello-worldアプリをHerokuにデプロイして接続確認してみることにしました。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/201908/hello-heroku-with-springboot/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="HerokuでSpringBootアプリを動かしてみる">
-  <meta property="og:description" content="背景 最終的にはLINE platformのAPIを理解したいのですが、 リファレンスを読んでいるとサンプルプログラム(サンプルbot)をHerokuにデプロイして試してみる、というような説明が多数あったので、Herokuについて理解しておこう、と考えました。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="HerokuでSpringBootアプリを動かしてみる">
+	<meta property="og:description" content="背景 最終的にはLINE platformのAPIを理解したいのですが、 リファレンスを読んでいるとサンプルプログラム(サンプルbot)をHerokuにデプロイして試してみる、というような説明が多数あったので、Herokuについて理解しておこう、と考えました。
 そういった考えで、今回、単純なSpringBoot hello-worldアプリをHerokuにデプロイして接続確認してみることにしました。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2019-08-22T00:00:00+00:00">
-    <meta property="article:modified_time" content="2019-08-22T00:00:00+00:00">
-    <meta property="article:tag" content="Java">
-    <meta property="article:tag" content="Spring-Boot">
-    <meta property="article:tag" content="Heroku">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2019-08-22T00:00:00+00:00">
+		<meta property="article:modified_time" content="2019-08-22T00:00:00+00:00">
+		<meta property="article:tag" content="Java">
+		<meta property="article:tag" content="Spring-Boot">
+		<meta property="article:tag" content="Heroku">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="HerokuでSpringBootアプリを動かしてみる">
-  <meta name="twitter:description" content="背景 最終的にはLINE platformのAPIを理解したいのですが、 リファレンスを読んでいるとサンプルプログラム(サンプルbot)をHerokuにデプロイして試してみる、というような説明が多数あったので、Herokuについて理解しておこう、と考えました。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="HerokuでSpringBootアプリを動かしてみる">
+	<meta name="twitter:description" content="背景 最終的にはLINE platformのAPIを理解したいのですが、 リファレンスを読んでいるとサンプルプログラム(サンプルbot)をHerokuにデプロイして試してみる、というような説明が多数あったので、Herokuについて理解しておこう、と考えました。
 そういった考えで、今回、単純なSpringBoot hello-worldアプリをHerokuにデプロイして接続確認してみることにしました。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -191,7 +191,7 @@ remote: -----&gt; Executing: mvn -DskipTests clean dependency:list install
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

@@ -6,21 +6,21 @@
 Ctrl キーと b キーの同時押しを ^b と表記しています。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202004/25/tmux/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Kubernetes the hard wayを試すためのtmux基礎知識">
-  <meta property="og:description" content="Kubernetes the hard wayをやるのに`tmux`の操作を覚えておくのが良さそうだったので使いそうなものを記載しておくことにしました。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Kubernetes the hard wayを試すためのtmux基礎知識">
+	<meta property="og:description" content="Kubernetes the hard wayをやるのに`tmux`の操作を覚えておくのが良さそうだったので使いそうなものを記載しておくことにしました。
 Ctrl キーと b キーの同時押しを ^b と表記しています。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2020-04-25T02:43:13+00:00">
-    <meta property="article:modified_time" content="2020-04-25T02:43:13+00:00">
-    <meta property="article:tag" content="Tmux">
-    <meta property="article:tag" content="Kubernetes">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2020-04-25T02:43:13+00:00">
+		<meta property="article:modified_time" content="2020-04-25T02:43:13+00:00">
+		<meta property="article:tag" content="Tmux">
+		<meta property="article:tag" content="Kubernetes">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Kubernetes the hard wayを試すためのtmux基礎知識">
-  <meta name="twitter:description" content="Kubernetes the hard wayをやるのに`tmux`の操作を覚えておくのが良さそうだったので使いそうなものを記載しておくことにしました。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Kubernetes the hard wayを試すためのtmux基礎知識">
+	<meta name="twitter:description" content="Kubernetes the hard wayをやるのに`tmux`の操作を覚えておくのが良さそうだったので使いそうなものを記載しておくことにしました。
 Ctrl キーと b キーの同時押しを ^b と表記しています。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -75,50 +75,50 @@ Ctrl キーと b キーの同時押しを ^b と表記しています。">
           <p><a href="https://github.com/yukihane/kubernetes-the-hard-way">Kubernetes the hard wayをやる</a>のに`tmux`の操作を覚えておくのが良さそうだったので使いそうなものを記載しておくことにしました。</p>
 <p><code>Ctrl</code> キーと <code>b</code> キーの同時押しを <code>^b</code> と表記しています。</p>
 <table>
-  <thead>
-      <tr>
-          <th>機能</th>
-          <th>キー操作</th>
-          <th>補足・説明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>起動</td>
-          <td><code>tmux</code> コマンド</td>
-          <td>当然ですが tmux のセッション外で実行します。</td>
-      </tr>
-      <tr>
-          <td>デタッチ</td>
-          <td><code>^b</code> <code>d</code></td>
-          <td>終了とは異なり状態が保存されます。</td>
-      </tr>
-      <tr>
-          <td>アタッチ</td>
-          <td><code>tmux a</code> コマンド</td>
-          <td><code>-t &lt;session名&gt;</code> でアタッチするセッションを選択可能。セッション一覧は <code>tmux list-sessions</code> コマンド。</td>
-      </tr>
-      <tr>
-          <td>上下分割</td>
-          <td><code>^b</code> <code>&quot;</code></td>
-          <td>分割されたエリアはpaneと呼ばれます。</td>
-      </tr>
-      <tr>
-          <td>上下分割したpaneの高さを均等にする</td>
-          <td><code>^b</code> <code>Alt+2</code></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>pane移動</td>
-          <td><code>^b</code> <code>矢印キー</code></td>
-          <td>マウスクリックでも。</td>
-      </tr>
-      <tr>
-          <td>全paneに同じ入力を行う/解除する</td>
-          <td><code>^b</code> <code>:setw synchronize-panes</code></td>
-          <td><a href="https://github.com/yukihane/kubernetes-the-hard-way/blob/master/docs/01-prerequisites.md#running-commands-in-parallel-with-tmux">the hard wayの説明</a>では <code>setw</code> でなく <code>set</code> を用いているが、 <code>set</code> はセッションに対して適用するコマンド(<code>setw</code> はウィンドウに対して適用)。</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>機能</th>
+					<th>キー操作</th>
+					<th>補足・説明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>起動</td>
+					<td><code>tmux</code> コマンド</td>
+					<td>当然ですが tmux のセッション外で実行します。</td>
+			</tr>
+			<tr>
+					<td>デタッチ</td>
+					<td><code>^b</code> <code>d</code></td>
+					<td>終了とは異なり状態が保存されます。</td>
+			</tr>
+			<tr>
+					<td>アタッチ</td>
+					<td><code>tmux a</code> コマンド</td>
+					<td><code>-t &lt;session名&gt;</code> でアタッチするセッションを選択可能。セッション一覧は <code>tmux list-sessions</code> コマンド。</td>
+			</tr>
+			<tr>
+					<td>上下分割</td>
+					<td><code>^b</code> <code>&quot;</code></td>
+					<td>分割されたエリアはpaneと呼ばれます。</td>
+			</tr>
+			<tr>
+					<td>上下分割したpaneの高さを均等にする</td>
+					<td><code>^b</code> <code>Alt+2</code></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>pane移動</td>
+					<td><code>^b</code> <code>矢印キー</code></td>
+					<td>マウスクリックでも。</td>
+			</tr>
+			<tr>
+					<td>全paneに同じ入力を行う/解除する</td>
+					<td><code>^b</code> <code>:setw synchronize-panes</code></td>
+					<td><a href="https://github.com/yukihane/kubernetes-the-hard-way/blob/master/docs/01-prerequisites.md#running-commands-in-parallel-with-tmux">the hard wayの説明</a>では <code>setw</code> でなく <code>set</code> を用いているが、 <code>set</code> はセッションに対して適用するコマンド(<code>setw</code> はウィンドウに対して適用)。</td>
+			</tr>
+	</tbody>
 </table>
 
         </section>
@@ -159,7 +159,7 @@ Ctrl キーと b キーの同時押しを ^b と表記しています。">
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

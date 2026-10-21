@@ -14,20 +14,20 @@ GitHub の Pull Request が &ldquo;This branch has conflicts&rdquo; と表示す
 スタックド PR（PR-A の上に PR-B を積む運用）をしていて、次のようなことが起きました。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202606/13/github-pr-conflict-criss-cross-merge/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="GitHub PR が「コンフリクトあり」と言うのにローカルではマージできる">
-  <meta property="og:description" content="TL;DR GitHub の Pull Request が “This branch has conflicts” と表示するのに、ローカルで git merge すると何事もなく成功する、ということがあります。 原因は criss-cross merge（交差マージ）で merge-base が複数存在する状態です。 ローカルの git（ort / recursive ストラテジー）は複数の merge-base を仮想ベースに統合して賢く解決しますが、GitHub のマージエンジンは同じ状況をうまく処理できないことがあります。 解決策は git rebase で履歴を線形化することです。 状況 スタックド PR（PR-A の上に PR-B を積む運用）をしていて、次のようなことが起きました。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2026-06-13T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-06-13T00:00:00+09:00">
-    <meta property="article:tag" content="Git">
-    <meta property="article:tag" content="Github">
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="GitHub PR が「コンフリクトあり」と言うのにローカルではマージできる">
+	<meta property="og:description" content="TL;DR GitHub の Pull Request が “This branch has conflicts” と表示するのに、ローカルで git merge すると何事もなく成功する、ということがあります。 原因は criss-cross merge（交差マージ）で merge-base が複数存在する状態です。 ローカルの git（ort / recursive ストラテジー）は複数の merge-base を仮想ベースに統合して賢く解決しますが、GitHub のマージエンジンは同じ状況をうまく処理できないことがあります。 解決策は git rebase で履歴を線形化することです。 状況 スタックド PR（PR-A の上に PR-B を積む運用）をしていて、次のようなことが起きました。">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2026-06-13T00:00:00+09:00">
+		<meta property="article:modified_time" content="2026-06-13T00:00:00+09:00">
+		<meta property="article:tag" content="Git">
+		<meta property="article:tag" content="Github">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="GitHub PR が「コンフリクトあり」と言うのにローカルではマージできる">
-  <meta name="twitter:description" content="TL;DR GitHub の Pull Request が “This branch has conflicts” と表示するのに、ローカルで git merge すると何事もなく成功する、ということがあります。 原因は criss-cross merge（交差マージ）で merge-base が複数存在する状態です。 ローカルの git（ort / recursive ストラテジー）は複数の merge-base を仮想ベースに統合して賢く解決しますが、GitHub のマージエンジンは同じ状況をうまく処理できないことがあります。 解決策は git rebase で履歴を線形化することです。 状況 スタックド PR（PR-A の上に PR-B を積む運用）をしていて、次のようなことが起きました。">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="GitHub PR が「コンフリクトあり」と言うのにローカルではマージできる">
+	<meta name="twitter:description" content="TL;DR GitHub の Pull Request が “This branch has conflicts” と表示するのに、ローカルで git merge すると何事もなく成功する、ということがあります。 原因は criss-cross merge（交差マージ）で merge-base が複数存在する状態です。 ローカルの git（ort / recursive ストラテジー）は複数の merge-base を仮想ベースに統合して賢く解決しますが、GitHub のマージエンジンは同じ状況をうまく処理できないことがあります。 解決策は git rebase で履歴を線形化することです。 状況 スタックド PR（PR-A の上に PR-B を積む運用）をしていて、次のようなことが起きました。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -152,7 +152,7 @@ GitHub の Pull Request が &ldquo;This branch has conflicts&rdquo; と表示す
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nb">set</span> -e
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span> -e
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 準備</span>
 </span></span><span class="line"><span class="cl">mkdir criss-cross-demo <span class="o">&amp;&amp;</span> <span class="nb">cd</span> criss-cross-demo
@@ -248,7 +248,7 @@ GitHub の Pull Request が &ldquo;This branch has conflicts&rdquo; と表示す
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span> git merge-base --is-ancestor ea6a724 831f6a0<span class="p">;</span> <span class="nb">echo</span> <span class="nv">$?</span>
 </span></span><span class="line"><span class="cl"><span class="go">1    # 祖先ではない
-</span></span></span><span class="line"><span class="cl"><span class="go"></span><span class="gp">$</span> git merge-base --is-ancestor 831f6a0 ea6a724<span class="p">;</span> <span class="nb">echo</span> <span class="nv">$?</span>
+</span></span></span><span class="line"><span class="cl"><span class="gp">$</span> git merge-base --is-ancestor 831f6a0 ea6a724<span class="p">;</span> <span class="nb">echo</span> <span class="nv">$?</span>
 </span></span><span class="line"><span class="cl"><span class="go">1    # こちらも祖先ではない
 </span></span></span></code></pre></td></tr></table>
 </div>
@@ -356,7 +356,7 @@ GitHub の Pull Request が &ldquo;This branch has conflicts&rdquo; と表示す
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

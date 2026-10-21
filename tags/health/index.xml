@@ -1,27 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Health on 発火後忘失</title>
-    <link>https://yukihane.github.io/tags/health/</link>
-    <description>Recent content in Health on 発火後忘失</description>
-    <generator>Hugo</generator>
-    <language>ja</language>
-    <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Mon, 21 Jul 2025 10:46:54 +0900</lastBuildDate>
-    <atom:link href="https://yukihane.github.io/tags/health/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>近況報告と求職(準委任契約)について</title>
-      <link>https://yukihane.github.io/blog/202507/21/status-report/</link>
-      <pubDate>Mon, 21 Jul 2025 10:46:54 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202507/21/status-report/</guid>
-      <description>&lt;h2 id=&#34;近況報告&#34;&gt;近況報告&lt;/h2&gt;&#xA;&lt;p&gt;4月末で前回の仕事の契約が終わり、時間ができたので歯医者に行ったり健康診断に行ったりしていたところ、健康診断で血糖値(正確にはHbA1c)が正常値よりかなり高くなっていることがわかり、1ヶ月入院していました。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>ランニングで筋肉痛になったと思ったら1ヶ月経っても治らない</title>
-      <link>https://yukihane.github.io/blog/202411/24/muscle-pain-on-running/</link>
-      <pubDate>Sun, 24 Nov 2024 19:31:00 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202411/24/muscle-pain-on-running/</guid>
-      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;ランニングが原因で筋肉痛になっていたと考えていた痛みが1ヶ月以上治まらず整形外科で診察を受けたところランニング障害と診断されました。&lt;br /&gt;&#xA;この症状について、行った対策などを記録していこうと思います。&lt;br /&gt;&#xA;完治するまで更新予定です。&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Health on 発火後忘失</title>
+		<link>https://yukihane.github.io/tags/health/</link>
+		<description>Recent content in Health on 発火後忘失</description>
+		<generator>Hugo</generator>
+		<language>ja-jp</language>
+		
+		
+		
+			<copyright>© Yukihane, All Rights Reserved</copyright>
+		
+		
+			<lastBuildDate>Mon, 21 Jul 2025 10:46:54 +0900</lastBuildDate>
+		
+			<atom:link href="https://yukihane.github.io/tags/health/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>近況報告と求職(準委任契約)について</title>
+				<link>https://yukihane.github.io/blog/202507/21/status-report/</link>
+				<pubDate>Mon, 21 Jul 2025 10:46:54 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202507/21/status-report/</guid>
+				<description>&lt;h2 id=&#34;近況報告&#34;&gt;近況報告&lt;/h2&gt;&#xA;&lt;p&gt;4月末で前回の仕事の契約が終わり、時間ができたので歯医者に行ったり健康診断に行ったりしていたところ、健康診断で血糖値(正確にはHbA1c)が正常値よりかなり高くなっていることがわかり、1ヶ月入院していました。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>ランニングで筋肉痛になったと思ったら1ヶ月経っても治らない</title>
+				<link>https://yukihane.github.io/blog/202411/24/muscle-pain-on-running/</link>
+				<pubDate>Sun, 24 Nov 2024 19:31:00 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202411/24/muscle-pain-on-running/</guid>
+				<description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;ランニングが原因で筋肉痛になっていたと考えていた痛みが1ヶ月以上治まらず整形外科で診察を受けたところランニング障害と診断されました。&lt;br /&gt;&#xA;この症状について、行った対策などを記録していこうと思います。&lt;br /&gt;&#xA;完治するまで更新予定です。&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

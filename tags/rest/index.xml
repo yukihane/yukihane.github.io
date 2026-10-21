@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Rest on 発火後忘失</title>
-    <link>https://yukihane.github.io/tags/rest/</link>
-    <description>Recent content in Rest on 発火後忘失</description>
-    <generator>Hugo</generator>
-    <language>ja</language>
-    <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Sun, 23 Aug 2020 17:24:37 +0000</lastBuildDate>
-    <atom:link href="https://yukihane.github.io/tags/rest/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Restful API, path を使うか query を使うか</title>
-      <link>https://yukihane.github.io/blog/202008/24/rest-path-or-query/</link>
-      <pubDate>Sun, 23 Aug 2020 17:24:37 +0000</pubDate>
-      <guid>https://yukihane.github.io/blog/202008/24/rest-path-or-query/</guid>
-      <description>&lt;p&gt;特に結論はなく、情報収集です。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Google の検索 URI「http://www.google.com/search?q=jellyfish」について考えてみよう。Google Web アプリケーションがパス変数を使用していたならば、この URI はアルゴリズムの実行結果というよりも、ディレクトリのようになっていただろう（http://www.google.com/search/jellyfish）。&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Rest on 発火後忘失</title>
+		<link>https://yukihane.github.io/tags/rest/</link>
+		<description>Recent content in Rest on 発火後忘失</description>
+		<generator>Hugo</generator>
+		<language>ja-jp</language>
+		
+		
+		
+			<copyright>© Yukihane, All Rights Reserved</copyright>
+		
+		
+			<lastBuildDate>Sun, 23 Aug 2020 17:24:37 +0000</lastBuildDate>
+		
+			<atom:link href="https://yukihane.github.io/tags/rest/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Restful API, path を使うか query を使うか</title>
+				<link>https://yukihane.github.io/blog/202008/24/rest-path-or-query/</link>
+				<pubDate>Sun, 23 Aug 2020 17:24:37 +0000</pubDate>
+				<guid>https://yukihane.github.io/blog/202008/24/rest-path-or-query/</guid>
+				<description>&lt;p&gt;特に結論はなく、情報収集です。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Google の検索 URI「http://www.google.com/search?q=jellyfish」について考えてみよう。Google Web アプリケーションがパス変数を使用していたならば、この URI はアルゴリズムの実行結果というよりも、ディレクトリのようになっていただろう（http://www.google.com/search/jellyfish）。&lt;/p&gt;&#xA;&lt;p&gt;これらの URI はどちらも「クラゲに関する Web ページのディレクトリ」リソースに対する正当なリソース指向の名前である。私たちは URI を調べる方法に順応してしまっているので、2 つ目の URI は正しくないように見える。パス変数は階層をトラバースしているように見えるし、クエリ変数はアルゴリズムに引数を渡しているように見える。「検索」にはアルゴリズムのような響きがある。たとえば、 &lt;a href=&#34;http://www.google.com/directory/jellyfish&#34;&gt;http://www.google.com/directory/jellyfish&lt;/a&gt; は/search/jellyfish よりもよさそうに思える。&lt;/p&gt;&#xA;&lt;p&gt;クエリ変数に対するこの認識は、私たちが Web を使用するたびに強化される。Web ブラウザで HTML フォームに入力しているとき、入力したデータはクエリ変数になる。「クラゲ」をフォームに入力して、 &lt;a href=&#34;http://www.google.com/search/jellyfish&#34;&gt;http://www.google.com/search/jellyfish&lt;/a&gt; に送信する方法はない。HTML フォームの送信先は &lt;a href=&#34;http://www.google.com/search&#34;&gt;http://www.google.com/search&lt;/a&gt;に ハードコーディングされているので、そのフォームに入力すると、 &lt;a href=&#34;http://www.google.com/search?q=jellyfish&#34;&gt;http://www.google.com/search?q=jellyfish&lt;/a&gt; になる。ブラウザはクエリ変数をベースURI に追加する方法を知っている。だが、変数を &lt;a href=&#34;http://www.google.com/search/%7Bq%7D&#34;&gt;http://www.google.com/search/{q}&lt;/a&gt;のような汎用URI に置き換える方法は知らない。&lt;/p&gt;&#xA;&lt;p&gt;—  &lt;a href=&#34;https://www.oreilly.co.jp/books/9784873113531/&#34;&gt;RESTful Webサービス&lt;/a&gt; - 5.5.3 アルゴリズムリソースに対するクエリ変数の使用&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+			</item>
+	</channel>
 </rss>

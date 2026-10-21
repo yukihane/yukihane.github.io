@@ -6,20 +6,20 @@
 ちょうど私が調べている時期と重なって、関心対象が同じ資料がアップロードされていました:" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202008/15/capability-url/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="ランダム文字列URL生成に関するメモ">
-  <meta property="og:description" content="推測されないような文字列を動的に生成しURLに利用できるような仕組みを調べていますが、その調査メモです。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="ランダム文字列URL生成に関するメモ">
+	<meta property="og:description" content="推測されないような文字列を動的に生成しURLに利用できるような仕組みを調べていますが、その調査メモです。
 ちょうど私が調べている時期と重なって、関心対象が同じ資料がアップロードされていました:">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2020-08-15T10:26:40+00:00">
-    <meta property="article:modified_time" content="2020-08-15T10:26:40+00:00">
-    <meta property="article:tag" content="Web">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2020-08-15T10:26:40+00:00">
+		<meta property="article:modified_time" content="2020-08-15T10:26:40+00:00">
+		<meta property="article:tag" content="Web">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="ランダム文字列URL生成に関するメモ">
-  <meta name="twitter:description" content="推測されないような文字列を動的に生成しURLに利用できるような仕組みを調べていますが、その調査メモです。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="ランダム文字列URL生成に関するメモ">
+	<meta name="twitter:description" content="推測されないような文字列を動的に生成しURLに利用できるような仕組みを調べていますが、その調査メモです。
 ちょうど私が調べている時期と重なって、関心対象が同じ資料がアップロードされていました:">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -93,7 +93,8 @@
 <p>次のように、RFCにがっつり明記してあります。</p>
 <blockquote>
 <p>Do not assume that UUIDs are hard to guess; they should not be used as security capabilities (identifiers whose mere possession grants access), for example. A predictable random number source will exacerbate the situation.</p>
-<p>—  6.Security Considerations <a href="https://tools.ietf.org/html/rfc4122#section-6">RFC4122 A Universally Unique IDentifier (UUID) URN Namespace</a></p></blockquote>
+<p>—  6.Security Considerations <a href="https://tools.ietf.org/html/rfc4122#section-6">RFC4122 A Universally Unique IDentifier (UUID) URN Namespace</a></p>
+</blockquote>
 <ul>
 <li><a href="https://security.stackexchange.com/a/140753">Java UUID.randomUUID() or SecureRandom for id segment on URL? - Information Security Stack Exchange</a></li>
 </ul>
@@ -145,7 +146,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

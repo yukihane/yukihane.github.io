@@ -12,22 +12,22 @@ spring.JPA.database_platform=mysql
 Relaxed binding - Spring Boot Configuration Binding:" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/201911/28/kebab-format-recommended-on-spring-boot-properties/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Spring Boot のプロパティではkebab-formatが推奨されている">
-  <meta property="og:description" content="Relaxed Binding 2.0 という仕組みにより
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Spring Boot のプロパティではkebab-formatが推奨されている">
+	<meta property="og:description" content="Relaxed Binding 2.0 という仕組みにより
 spring.jpa.database-platform=mysql spring.jpa.databasePlatform=mysql spring.JPA.database_platform=mysql いずれの形式でも正しくバインドできる。
 が、公式ドキュメントからは一番上の database-platform が推奨されているように読み取れる。
 Relaxed binding - Spring Boot Configuration Binding:">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2019-11-28T20:38:12+00:00">
-    <meta property="article:modified_time" content="2019-11-28T20:38:12+00:00">
-    <meta property="article:tag" content="Spring-Boot">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2019-11-28T20:38:12+00:00">
+		<meta property="article:modified_time" content="2019-11-28T20:38:12+00:00">
+		<meta property="article:tag" content="Spring-Boot">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Spring Boot のプロパティではkebab-formatが推奨されている">
-  <meta name="twitter:description" content="Relaxed Binding 2.0 という仕組みにより
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Spring Boot のプロパティではkebab-formatが推奨されている">
+	<meta name="twitter:description" content="Relaxed Binding 2.0 という仕組みにより
 spring.jpa.database-platform=mysql spring.jpa.databasePlatform=mysql spring.JPA.database_platform=mysql いずれの形式でも正しくバインドできる。
 が、公式ドキュメントからは一番上の database-platform が推奨されているように読み取れる。
 Relaxed binding - Spring Boot Configuration Binding:">
@@ -90,10 +90,12 @@ spring.JPA.database_platform=mysql
 <hr />
 <p><a href="https://github.com/spring-projects/spring-booT/wiki/Spring-Boot-Configuration-Binding#relaxed-binding">Relaxed binding</a> - Spring Boot Configuration Binding:</p>
 <blockquote>
-<p>Spring Boot uses a canonical format that is lower case and use hyphen to separate words.</p></blockquote>
+<p>Spring Boot uses a canonical format that is lower case and use hyphen to separate words.</p>
+</blockquote>
 <p><a href="https://github.com/spring-projects/spring-boot/wiki/relaxed-binding-2.0#properties-files">Properties Files</a> - Relaxed Binding 2.0:</p>
 <blockquote>
-<p>We recommend that properties are stored in lowercase kabab format. i.e. <code>my.property-name=foo</code>.</p></blockquote>
+<p>We recommend that properties are stored in lowercase kabab format. i.e. <code>my.property-name=foo</code>.</p>
+</blockquote>
 
         </section>
         <div class="post-tags">
@@ -131,7 +133,7 @@ spring.JPA.database_platform=mysql
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

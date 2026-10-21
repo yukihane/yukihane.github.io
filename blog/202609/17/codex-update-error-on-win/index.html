@@ -7,22 +7,22 @@ iex : 用語 &#39;Get-FileHash&#39; は、コマンドレット、関数、ス�
 更新処理は powershell -ExecutionPolicy Bypass -c &#39;...&#39; を実行しており、Codex CLI のダウンロード後に SHA-256 を検証するため Get-FileHash を呼び出しています。このため、これはダウンロード元への一時的な接続エラーそのものではなく、検証コマンドを実行できず更新を中断したエラーです。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202609/17/codex-update-error-on-win/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="WindowsのpwshからCodexを更新するとGet-FileHashで失敗する">
-  <meta property="og:description" content="Windows ネイティブで Codex を使っていて codex update を実行したところ、次のように失敗しました。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="WindowsのpwshからCodexを更新するとGet-FileHashで失敗する">
+	<meta property="og:description" content="Windows ネイティブで Codex を使っていて codex update を実行したところ、次のように失敗しました。
 iex : 用語 &#39;Get-FileHash&#39; は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前として認識されません。 更新処理は powershell -ExecutionPolicy Bypass -c &#39;...&#39; を実行しており、Codex CLI のダウンロード後に SHA-256 を検証するため Get-FileHash を呼び出しています。このため、これはダウンロード元への一時的な接続エラーそのものではなく、検証コマンドを実行できず更新を中断したエラーです。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2026-09-17T23:36:33+09:00">
-    <meta property="article:modified_time" content="2026-09-17T23:36:33+09:00">
-    <meta property="article:tag" content="Codex">
-    <meta property="article:tag" content="Windows">
-    <meta property="article:tag" content="Pwsh">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2026-09-17T23:36:33+09:00">
+		<meta property="article:modified_time" content="2026-09-17T23:36:33+09:00">
+		<meta property="article:tag" content="Codex">
+		<meta property="article:tag" content="Windows">
+		<meta property="article:tag" content="Pwsh">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="WindowsのpwshからCodexを更新するとGet-FileHashで失敗する">
-  <meta name="twitter:description" content="Windows ネイティブで Codex を使っていて codex update を実行したところ、次のように失敗しました。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="WindowsのpwshからCodexを更新するとGet-FileHashで失敗する">
+	<meta name="twitter:description" content="Windows ネイティブで Codex を使っていて codex update を実行したところ、次のように失敗しました。
 iex : 用語 &#39;Get-FileHash&#39; は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前として認識されません。 更新処理は powershell -ExecutionPolicy Bypass -c &#39;...&#39; を実行しており、Codex CLI のダウンロード後に SHA-256 を検証するため Get-FileHash を呼び出しています。このため、これはダウンロード元への一時的な接続エラーそのものではなく、検証コマンドを実行できず更新を中断したエラーです。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -143,7 +143,7 @@ $env:PSModulePath
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

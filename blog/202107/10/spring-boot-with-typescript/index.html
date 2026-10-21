@@ -6,20 +6,20 @@
 Spring Boot で JavaScript を扱うときは素のJSをhtml(Thymeleafテンプレート)に &lt;script&gt; タグで埋め込む、というのが多分一般的で手っ取り早い方法かと思います。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202107/10/spring-boot-with-typescript/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle)">
-  <meta property="og:description" content="はじめに Spring Boot で JavaScript を扱うときは素のJSをhtml(Thymeleafテンプレート)に &lt;script&gt; タグで埋め込む、というのが多分一般的で手っ取り早い方法かと思います。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2021-07-09T22:54:04+00:00">
-    <meta property="article:modified_time" content="2021-07-09T22:54:04+00:00">
-    <meta property="article:tag" content="Spring-Boot">
-    <meta property="article:tag" content="Javascript">
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle)">
+	<meta property="og:description" content="はじめに Spring Boot で JavaScript を扱うときは素のJSをhtml(Thymeleafテンプレート)に &lt;script&gt; タグで埋め込む、というのが多分一般的で手っ取り早い方法かと思います。">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2021-07-09T22:54:04+00:00">
+		<meta property="article:modified_time" content="2021-07-09T22:54:04+00:00">
+		<meta property="article:tag" content="Spring-Boot">
+		<meta property="article:tag" content="Javascript">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle)">
-  <meta name="twitter:description" content="はじめに Spring Boot で JavaScript を扱うときは素のJSをhtml(Thymeleafテンプレート)に &lt;script&gt; タグで埋め込む、というのが多分一般的で手っ取り早い方法かと思います。">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Spring BootとTypeScriptで開発するためのプロジェクト設定(Gradle)">
+	<meta name="twitter:description" content="はじめに Spring Boot で JavaScript を扱うときは素のJSをhtml(Thymeleafテンプレート)に &lt;script&gt; タグで埋め込む、というのが多分一般的で手っ取り早い方法かと思います。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -116,7 +116,7 @@ Spring Boot で JavaScript を扱うときは素のJSをhtml(Thymeleafテンプ�
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="line"><span class="cl"><span class="n">plugins</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// ...
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">id</span> <span class="s1">&#39;eclipse&#39;</span>
+</span></span></span><span class="line"><span class="cl">    <span class="n">id</span> <span class="s1">&#39;eclipse&#39;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">id</span> <span class="s1">&#39;com.diffplug.eclipse.apt&#39;</span> <span class="n">version</span> <span class="s1">&#39;3.30.0&#39;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">id</span> <span class="s1">&#39;com.dorongold.task-tree&#39;</span> <span class="n">version</span> <span class="s1">&#39;2.1.0&#39;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
@@ -139,46 +139,46 @@ yarn webpack init
 </code></pre>
 <p><code>yarn webpack init</code> を実行するとインタラクティブにプロジェクトが構成されます。 それぞれの質問には次のように返答します:</p>
 <table>
-  <thead>
-      <tr>
-          <th>質問</th>
-          <th>返答</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Would you like to install &lsquo;@webpack-cli/generators&rsquo; package?</td>
-          <td>Yes</td>
-      </tr>
-      <tr>
-          <td>Which of the following JS solutions do you want to use?</td>
-          <td>Typescript</td>
-      </tr>
-      <tr>
-          <td>Do you want to use webpack-dev-server?</td>
-          <td>No</td>
-      </tr>
-      <tr>
-          <td>Do you want to simplify the creation of HTML files for your bundle?</td>
-          <td>No</td>
-      </tr>
-      <tr>
-          <td>Do you want to add PWA support?</td>
-          <td>No</td>
-      </tr>
-      <tr>
-          <td>Which of the following CSS solutions do you want to use?</td>
-          <td>none</td>
-      </tr>
-      <tr>
-          <td>Do you like to install prettier to format generated configuration?</td>
-          <td>Yes</td>
-      </tr>
-      <tr>
-          <td>Overwrite package.json?</td>
-          <td>y (overwrite)</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>質問</th>
+					<th>返答</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Would you like to install &lsquo;@webpack-cli/generators&rsquo; package?</td>
+					<td>Yes</td>
+			</tr>
+			<tr>
+					<td>Which of the following JS solutions do you want to use?</td>
+					<td>Typescript</td>
+			</tr>
+			<tr>
+					<td>Do you want to use webpack-dev-server?</td>
+					<td>No</td>
+			</tr>
+			<tr>
+					<td>Do you want to simplify the creation of HTML files for your bundle?</td>
+					<td>No</td>
+			</tr>
+			<tr>
+					<td>Do you want to add PWA support?</td>
+					<td>No</td>
+			</tr>
+			<tr>
+					<td>Which of the following CSS solutions do you want to use?</td>
+					<td>none</td>
+			</tr>
+			<tr>
+					<td>Do you like to install prettier to format generated configuration?</td>
+					<td>Yes</td>
+			</tr>
+			<tr>
+					<td>Overwrite package.json?</td>
+					<td>y (overwrite)</td>
+			</tr>
+	</tbody>
 </table>
 <p>続いて、不要なファイルが生成されているので削除します:</p>
 <pre><code>rm README.md index.html src/index.ts
@@ -264,15 +264,15 @@ yarn webpack init
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="s2">&#34;use strict&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="c1">// Generated using webpack-cli https://github.com/webpack/webpack-cli
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;path&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">isProduction</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span> <span class="o">==</span> <span class="s2">&#34;production&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// https://webpack.js.org/concepts/output/#multiple-entry-points
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// https://webpack.js.org/configuration/output/#outputlibrary
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">entry</span><span class="o">:</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl">  <span class="c1">// https://webpack.js.org/configuration/output/#outputlibrary
+</span></span></span><span class="line"><span class="cl">  <span class="nx">entry</span><span class="o">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">mylib</span><span class="o">:</span> <span class="s2">&#34;./src/main/js/index.ts&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">output</span><span class="o">:</span> <span class="p">{</span>
@@ -281,8 +281,8 @@ yarn webpack init
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// Add your plugins here
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// Learn more about plugins from https://webpack.js.org/configuration/plugins/
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">],</span>
+</span></span></span><span class="line"><span class="cl">    <span class="c1">// Learn more about plugins from https://webpack.js.org/configuration/plugins/
+</span></span></span><span class="line"><span class="cl">  <span class="p">],</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">module</span><span class="o">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">rules</span><span class="o">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">      <span class="p">{</span>
@@ -292,8 +292,8 @@ yarn webpack init
 </span></span><span class="line"><span class="cl">      <span class="p">},</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">      <span class="c1">// Add your rules for custom modules here
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="c1">// Learn more about loaders from https://webpack.js.org/loaders/
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">],</span>
+</span></span></span><span class="line"><span class="cl">      <span class="c1">// Learn more about loaders from https://webpack.js.org/loaders/
+</span></span></span><span class="line"><span class="cl">    <span class="p">],</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">resolve</span><span class="o">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">extensions</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;.tsx&#34;</span><span class="p">,</span> <span class="s2">&#34;.ts&#34;</span><span class="p">,</span> <span class="s2">&#34;.js&#34;</span><span class="p">],</span>
@@ -346,10 +346,10 @@ yarn webpack init
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="line"><span class="cl"><span class="n">plugins</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// ...
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">id</span> <span class="s1">&#39;com.github.node-gradle.node&#39;</span> <span class="n">version</span> <span class="s1">&#39;3.1.0&#39;</span>
+</span></span></span><span class="line"><span class="cl">    <span class="n">id</span> <span class="s1">&#39;com.github.node-gradle.node&#39;</span> <span class="n">version</span> <span class="s1">&#39;3.1.0&#39;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="c1">// ...
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">yarn_build</span><span class="o">.</span><span class="na">dependsOn</span> <span class="n">yarn_install</span>
 </span></span><span class="line"><span class="cl"><span class="n">processResources</span><span class="o">.</span><span class="na">dependsOn</span> <span class="n">yarn_build</span>
 </span></span></code></pre></td></tr></table>
@@ -380,15 +380,15 @@ yarn add --dev @types/ua-parser-js
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Controller</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyController</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyController</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@GetMapping</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">index</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">Model</span><span class="w"> </span><span class="n">model</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&#34;now&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">());</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;index&#34;</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><div class="formalpara-title">
@@ -623,7 +623,7 @@ java -jar build/libs/with-ts-0.0.1-SNAPSHOT.jar
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

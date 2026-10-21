@@ -11,21 +11,21 @@ Firefox 70.0.1
 また実行に際しては、キャッシュ等の影響を避けるため、Chrome ではゲストモード、Firefox では今回新規作成したプロファイルで確認しました。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/201912/03/auto-redirecting-chrome/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="https://hatena.ne.jp/ にアクセスできてるとお思いで？">
-  <meta property="og:description" content="はじめに: 試した環境 Windows10 の現時点での最新安定版 Google Chrome および Firefox を用いました。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="https://hatena.ne.jp/ にアクセスできてるとお思いで？">
+	<meta property="og:description" content="はじめに: 試した環境 Windows10 の現時点での最新安定版 Google Chrome および Firefox を用いました。
 Google Chrome 78.0.3904.108 Firefox 70.0.1 また実行に際しては、キャッシュ等の影響を避けるため、Chrome ではゲストモード、Firefox では今回新規作成したプロファイルで確認しました。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2019-12-03T20:39:39+00:00">
-    <meta property="article:modified_time" content="2019-12-03T20:39:39+00:00">
-    <meta property="article:tag" content="Web">
-    <meta property="article:tag" content="Chrome">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2019-12-03T20:39:39+00:00">
+		<meta property="article:modified_time" content="2019-12-03T20:39:39+00:00">
+		<meta property="article:tag" content="Web">
+		<meta property="article:tag" content="Chrome">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="https://hatena.ne.jp/ にアクセスできてるとお思いで？">
-  <meta name="twitter:description" content="はじめに: 試した環境 Windows10 の現時点での最新安定版 Google Chrome および Firefox を用いました。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="https://hatena.ne.jp/ にアクセスできてるとお思いで？">
+	<meta name="twitter:description" content="はじめに: 試した環境 Windows10 の現時点での最新安定版 Google Chrome および Firefox を用いました。
 Google Chrome 78.0.3904.108 Firefox 70.0.1 また実行に際しては、キャッシュ等の影響を避けるため、Chrome ではゲストモード、Firefox では今回新規作成したプロファイルで確認しました。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -105,7 +105,8 @@ Google Chrome 78.0.3904.108 Firefox 70.0.1 また実行に際しては、キャ�
 <h1 id="解決編">解決編</h1>
 <p>いやまあ、DevTools の console を見ればわかることなんですけれども。</p>
 <blockquote>
-<p>Redirecting navigation hatena.ne.jp -&gt; <a href="https://www.hatena.ne.jp">www.hatena.ne.jp</a> because the server presented a certificate valid for <a href="https://www.hatena.ne.jp">www.hatena.ne.jp</a> but not for hatena.ne.jp. To disable such redirects launch Chrome with the following flag: &ndash;disable-features=SSLCommonNameMismatchHandling</p></blockquote>
+<p>Redirecting navigation hatena.ne.jp -&gt; <a href="https://www.hatena.ne.jp">www.hatena.ne.jp</a> because the server presented a certificate valid for <a href="https://www.hatena.ne.jp">www.hatena.ne.jp</a> but not for hatena.ne.jp. To disable such redirects launch Chrome with the following flag: &ndash;disable-features=SSLCommonNameMismatchHandling</p>
+</blockquote>
 <p>関連する issue は多分これ:</p>
 <ul>
 <li><a href="https://bugs.chromium.org/p/chromium/issues/detail?id=507454">Issue 507454: Implement Redirect for the WWW Subdomain Mismatch case</a></li>
@@ -159,7 +160,7 @@ Google Chrome 78.0.3904.108 Firefox 70.0.1 また実行に際しては、キャ�
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

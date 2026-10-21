@@ -5,6 +5,7 @@
 	<meta name="description" content="
 By default the built RestTemplate will attempt to use the most suitable ClientHttpRequestFactory
 —  RestTemplateBuilder JavaDoc
+
 とありますが、具体的にどうやって決めているの？という話です。
 ClientHttpRequestFactorySupplierをみると一目瞭然ですが、
 
@@ -12,32 +13,39 @@ ClientHttpRequestFactorySupplierをみると一目瞭然ですが、
 Apache HttpClient (org.apache.http.client.HttpClient) がクラスパスに存在すればそれを採用する
 
 
-OkHttp (okhttp3.OkHttpClient) がクラスパスに存在すればそれを採用する" />
+OkHttp (okhttp3.OkHttpClient) がクラスパスに存在すればそれを採用する
+
+
+上記のものがいずれも無ければ java.net.HttpURLConnection を採用する
+
+" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202107/25/resttemplate-impl-order/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="RestTemplateが採用するHTTPクライアント実装の順序">
-  <meta property="og:description" content="By default the built RestTemplate will attempt to use the most suitable ClientHttpRequestFactory
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="RestTemplateが採用するHTTPクライアント実装の順序">
+	<meta property="og:description" content="By default the built RestTemplate will attempt to use the most suitable ClientHttpRequestFactory
 — RestTemplateBuilder JavaDoc
 とありますが、具体的にどうやって決めているの？という話です。
 ClientHttpRequestFactorySupplierをみると一目瞭然ですが、
 Apache HttpClient (org.apache.http.client.HttpClient) がクラスパスに存在すればそれを採用する
-OkHttp (okhttp3.OkHttpClient) がクラスパスに存在すればそれを採用する">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2021-07-24T19:53:33+00:00">
-    <meta property="article:modified_time" content="2021-07-24T19:53:33+00:00">
-    <meta property="article:tag" content="Spring-Boot">
+OkHttp (okhttp3.OkHttpClient) がクラスパスに存在すればそれを採用する
+上記のものがいずれも無ければ java.net.HttpURLConnection を採用する">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2021-07-24T19:53:33+00:00">
+		<meta property="article:modified_time" content="2021-07-24T19:53:33+00:00">
+		<meta property="article:tag" content="Spring-Boot">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="RestTemplateが採用するHTTPクライアント実装の順序">
-  <meta name="twitter:description" content="By default the built RestTemplate will attempt to use the most suitable ClientHttpRequestFactory
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="RestTemplateが採用するHTTPクライアント実装の順序">
+	<meta name="twitter:description" content="By default the built RestTemplate will attempt to use the most suitable ClientHttpRequestFactory
 — RestTemplateBuilder JavaDoc
 とありますが、具体的にどうやって決めているの？という話です。
 ClientHttpRequestFactorySupplierをみると一目瞭然ですが、
 Apache HttpClient (org.apache.http.client.HttpClient) がクラスパスに存在すればそれを採用する
-OkHttp (okhttp3.OkHttpClient) がクラスパスに存在すればそれを採用する">
+OkHttp (okhttp3.OkHttpClient) がクラスパスに存在すればそれを採用する
+上記のものがいずれも無ければ java.net.HttpURLConnection を採用する">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -90,7 +98,8 @@ OkHttp (okhttp3.OkHttpClient) がクラスパスに存在すればそれを採�
         <section class="body">
           <blockquote>
 <p>By default the built RestTemplate will attempt to use the most suitable ClientHttpRequestFactory</p>
-<p>—  <a href="https://docs.spring.io/spring-boot/docs/2.5.3/api/org/springframework/boot/web/client/RestTemplateBuilder.html">RestTemplateBuilder JavaDoc</a></p></blockquote>
+<p>—  <a href="https://docs.spring.io/spring-boot/docs/2.5.3/api/org/springframework/boot/web/client/RestTemplateBuilder.html">RestTemplateBuilder JavaDoc</a></p>
+</blockquote>
 <p>とありますが、具体的にどうやって決めているの？という話です。</p>
 <p><a href="https://github.com/spring-projects/spring-boot/blob/v2.5.3/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/web/client/ClientHttpRequestFactorySupplier.java"><code>ClientHttpRequestFactorySupplier</code></a>をみると一目瞭然ですが、</p>
 <ol>
@@ -142,7 +151,7 @@ OkHttp (okhttp3.OkHttpClient) がクラスパスに存在すればそれを採�
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

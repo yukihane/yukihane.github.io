@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Parser on 発火後忘失</title>
-    <link>https://yukihane.github.io/tags/parser/</link>
-    <description>Recent content in Parser on 発火後忘失</description>
-    <generator>Hugo</generator>
-    <language>ja</language>
-    <copyright>© Yukihane, All Rights Reserved</copyright>
-    <lastBuildDate>Sat, 03 Sep 2022 12:16:33 +0900</lastBuildDate>
-    <atom:link href="https://yukihane.github.io/tags/parser/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>言語実装パターン レビュー</title>
-      <link>https://yukihane.github.io/blog/202209/03/language-implementation-patterns/</link>
-      <pubDate>Sat, 03 Sep 2022 12:16:33 +0900</pubDate>
-      <guid>https://yukihane.github.io/blog/202209/03/language-implementation-patterns/</guid>
-      <description>&lt;p&gt;(レビュー、という大層な物言いはあまりしたくないのですが、自分が書籍の感想を検索するときには &amp;ldquo;&amp;lt;書籍名&amp;gt; レビュー&amp;rdquo; で検索することが多いので…​)&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Parser on 発火後忘失</title>
+		<link>https://yukihane.github.io/tags/parser/</link>
+		<description>Recent content in Parser on 発火後忘失</description>
+		<generator>Hugo</generator>
+		<language>ja-jp</language>
+		
+		
+		
+			<copyright>© Yukihane, All Rights Reserved</copyright>
+		
+		
+			<lastBuildDate>Sat, 03 Sep 2022 12:16:33 +0900</lastBuildDate>
+		
+			<atom:link href="https://yukihane.github.io/tags/parser/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>言語実装パターン レビュー</title>
+				<link>https://yukihane.github.io/blog/202209/03/language-implementation-patterns/</link>
+				<pubDate>Sat, 03 Sep 2022 12:16:33 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202209/03/language-implementation-patterns/</guid>
+				<description>&lt;p&gt;(レビュー、という大層な物言いはあまりしたくないのですが、自分が書籍の感想を検索するときには &amp;ldquo;&amp;lt;書籍名&amp;gt; レビュー&amp;rdquo; で検索することが多いので…​)&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

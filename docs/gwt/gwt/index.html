@@ -25,23 +25,25 @@ mvn archetype:generate \
 オフィシャルサイトにはAntでのセットアップ方法が書かれているが、この方法は古いため用いない方が良い。
 
 
-現在ではMavenを用いるのが良い。gwt pluginは2つ並行で開発されていたことがあるが、そのうちの一方 mojo GWT maven pluginは自身をレガシーと呼び、もう一方を使用することを推奨している。" />
+現在ではMavenを用いるのが良い。gwt pluginは2つ並行で開発されていたことがあるが、そのうちの一方 mojo GWT maven pluginは自身をレガシーと呼び、もう一方を使用することを推奨している。
+
+" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/gwt/gwt/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="GWT">
-  <meta property="og:description" content="プロジェクトのセットアップ 手順 Mavenを用い、次のコマンドで pom.xml を生成する。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="GWT">
+	<meta property="og:description" content="プロジェクトのセットアップ 手順 Mavenを用い、次のコマンドで pom.xml を生成する。
 1 2 3 4 mvn archetype:generate \ -DarchetypeGroupId=net.ltgt.gwt.archetypes \ -DarchetypeVersion=2017.10.20 \ -DarchetypeArtifactId=modular-webapp 備考 オフィシャルサイトにはAntでのセットアップ方法が書かれているが、この方法は古いため用いない方が良い。
 現在ではMavenを用いるのが良い。gwt pluginは2つ並行で開発されていたことがあるが、そのうちの一方 mojo GWT maven pluginは自身をレガシーと呼び、もう一方を使用することを推奨している。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="docs">
-    <meta property="article:published_time" content="2020-07-26T02:07:09+00:00">
-    <meta property="article:modified_time" content="2020-07-26T02:07:09+00:00">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+		<meta property="article:published_time" content="2020-07-26T02:07:09+00:00">
+		<meta property="article:modified_time" content="2020-07-26T02:07:09+00:00">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="GWT">
-  <meta name="twitter:description" content="プロジェクトのセットアップ 手順 Mavenを用い、次のコマンドで pom.xml を生成する。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="GWT">
+	<meta name="twitter:description" content="プロジェクトのセットアップ 手順 Mavenを用い、次のコマンドで pom.xml を生成する。
 1 2 3 4 mvn archetype:generate \ -DarchetypeGroupId=net.ltgt.gwt.archetypes \ -DarchetypeVersion=2017.10.20 \ -DarchetypeArtifactId=modular-webapp 備考 オフィシャルサイトにはAntでのセットアップ方法が書かれているが、この方法は古いため用いない方が良い。
 現在ではMavenを用いるのが良い。gwt pluginは2つ並行で開発されていたことがあるが、そのうちの一方 mojo GWT maven pluginは自身をレガシーと呼び、もう一方を使用することを推奨している。">
 
@@ -106,9 +108,9 @@ mvn archetype:generate \
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mvn archetype:generate <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>   -DarchetypeGroupId<span class="o">=</span>net.ltgt.gwt.archetypes <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>   -DarchetypeVersion<span class="o">=</span>2017.10.20 <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>   -DarchetypeArtifactId<span class="o">=</span>modular-webapp
+</span></span></span><span class="line"><span class="cl">   -DarchetypeGroupId<span class="o">=</span>net.ltgt.gwt.archetypes <span class="se">\
+</span></span></span><span class="line"><span class="cl">   -DarchetypeVersion<span class="o">=</span>2017.10.20 <span class="se">\
+</span></span></span><span class="line"><span class="cl">   -DarchetypeArtifactId<span class="o">=</span>modular-webapp
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="備考">備考</h2>
@@ -148,9 +150,9 @@ mvn archetype:generate \
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> mvn archetype:generate <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>   -DarchetypeGroupId<span class="o">=</span>org.codehaus.mojo <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>   -DarchetypeArtifactId<span class="o">=</span>gwt-maven-plugin <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>   -DarchetypeVersion<span class="o">=</span>2.7.0
+</span></span></span><span class="line"><span class="cl">   -DarchetypeGroupId<span class="o">=</span>org.codehaus.mojo <span class="se">\
+</span></span></span><span class="line"><span class="cl">   -DarchetypeArtifactId<span class="o">=</span>gwt-maven-plugin <span class="se">\
+</span></span></span><span class="line"><span class="cl">   -DarchetypeVersion<span class="o">=</span>2.7.0
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>gxtを組み込むにはhttps://docs.sencha.com/gxt/3.x/guides/getting_started/Getting_Started.html#getting_started-<em>-Getting_Started</em>-_getting_started_general_configuration[gxtのマニュアル Getting started general configuration]参照。</p>
@@ -196,7 +198,7 @@ mvn archetype:generate \
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

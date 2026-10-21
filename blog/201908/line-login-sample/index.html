@@ -8,22 +8,22 @@
 Spring SecurityのOAuth実装は こちらに書いたとおり 歴史的経緯により複数存在しますが、 https://start.spring.io/ の Dependencies で &ldquo;OAuth2 Client&rdquo; を選択した場合に追加されるものは一番新しいSpring Securityの spring-security-oauth2-client (及び spring-security-oauth2-jose)でした。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/201908/line-login-sample/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="LINEログイン機能を試してみる(Spring Boot 2.1.7/Spring Security 5.1.6)">
-  <meta property="og:description" content="本ページは Spring Boot 2.1.7 の頃のものですが、後続として 2.4.5 対応版があります: LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6) – 発火後忘失
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="LINEログイン機能を試してみる(Spring Boot 2.1.7/Spring Security 5.1.6)">
+	<meta property="og:description" content="本ページは Spring Boot 2.1.7 の頃のものですが、後続として 2.4.5 対応版があります: LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6) – 発火後忘失
 Spring SecurityのOAuth実装は こちらに書いたとおり 歴史的経緯により複数存在しますが、 https://start.spring.io/ の Dependencies で “OAuth2 Client” を選択した場合に追加されるものは一番新しいSpring Securityの spring-security-oauth2-client (及び spring-security-oauth2-jose)でした。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2019-08-25T00:00:00+00:00">
-    <meta property="article:modified_time" content="2019-08-25T00:00:00+00:00">
-    <meta property="article:tag" content="Java">
-    <meta property="article:tag" content="Spring-Boot">
-    <meta property="article:tag" content="Line">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2019-08-25T00:00:00+00:00">
+		<meta property="article:modified_time" content="2019-08-25T00:00:00+00:00">
+		<meta property="article:tag" content="Java">
+		<meta property="article:tag" content="Spring-Boot">
+		<meta property="article:tag" content="Line">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="LINEログイン機能を試してみる(Spring Boot 2.1.7/Spring Security 5.1.6)">
-  <meta name="twitter:description" content="本ページは Spring Boot 2.1.7 の頃のものですが、後続として 2.4.5 対応版があります: LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6) – 発火後忘失
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="LINEログイン機能を試してみる(Spring Boot 2.1.7/Spring Security 5.1.6)">
+	<meta name="twitter:description" content="本ページは Spring Boot 2.1.7 の頃のものですが、後続として 2.4.5 対応版があります: LINEログインを試してみる(Spring Boot 2.4.5/Spring Security 5.4.6) – 発火後忘失
 Spring SecurityのOAuth実装は こちらに書いたとおり 歴史的経緯により複数存在しますが、 https://start.spring.io/ の Dependencies で “OAuth2 Client” を選択した場合に追加されるものは一番新しいSpring Securityの spring-security-oauth2-client (及び spring-security-oauth2-jose)でした。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -133,7 +133,8 @@ Spring SecurityのOAuth実装は こちらに書いたとおり 歴史的経緯�
 <h2 id="scopeの区切り文字">scopeの区切り文字</h2>
 <p><a href="https://developers.line.biz/ja/docs/line-login/web/integrate-line-login/#scopes">リファレンスの説明</a> によると</p>
 <blockquote>
-<p>URLエンコードされた空白文字（%20）で区切って、複数のスコープを指定できます。</p></blockquote>
+<p>URLエンコードされた空白文字（%20）で区切って、複数のスコープを指定できます。</p>
+</blockquote>
 <p>とのことですが、 <code>application.properties</code> で空白で区切って設定値を書くと <code>+</code> (<code>%2B</code>)になってしまってどうしたものかと思いましたが、LINE側はこれでも受け付けてくれているようなので良しとしています。</p>
 <div class="footnotes" role="doc-endnotes">
 <hr />
@@ -184,7 +185,7 @@ Spring SecurityのOAuth実装は こちらに書いたとおり 歴史的経緯�
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

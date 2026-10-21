@@ -7,15 +7,15 @@
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<link rel="alternate" type="application/rss+xml" href="https://yukihane.github.io/index.xml" title="発火後忘失" />
 	<meta property="og:url" content="https://yukihane.github.io/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="発火後忘失">
-  <meta property="og:description" content="Fire and Forget blog">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="website">
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="発火後忘失">
+	<meta property="og:description" content="Fire and Forget blog">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="website">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="発火後忘失">
-  <meta name="twitter:description" content="Fire and Forget blog">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="発火後忘失">
+	<meta name="twitter:description" content="Fire and Forget blog">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -23,6 +23,7 @@
 	
 	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
 		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
+	<meta name="generator" content="Hugo 0.168.0">
 </head>
 
 	<body>
@@ -64,6 +65,21 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202008/30/gradle-bootrun-parameter/">gradle bootRun でプロファイルを指定するには？</a></h1>
+					<time>2020/08/29</time>
+					<br><div class="description">
+	
+	<p><code>gradle bootRun</code> を実行する際にアクティブ化するプロファイルの指定を行いたかったのですが、ぱっと思いつかなかったのでメモ。</p>
+<p>まず、</p>
+<pre><code>gradle bootRun -Dprofiles.active=myproile
+</code></pre>
+<p>はうまくいきません。`profiles.active`システムプロパティは (アプリケーションでなく) Gradle に渡されるためです。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202008/30/gradle-bootrun-parameter/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202008/30/openapi-spring-mvc-handler-args/">openapi-generaterで生成したcontrollerにカスタム引数を追加する</a></h1>
 					<time>2020/08/29</time>
 					<br><div class="description">
@@ -83,7 +99,11 @@
 	
 	<p>特に結論はなく、情報収集です。</p>
 <blockquote>
-<p>Google の検索 URI「http://www.google.com/search?q=jellyfish」について考えてみよう。Google Web アプリケーションがパス変数を使用していたならば、この URI はアルゴリズムの実行結果というよりも、ディレクトリのようになっていただろう（http://www.google.com/search/jellyfish）。</p>&hellip;
+<p>Google の検索 URI「http://www.google.com/search?q=jellyfish」について考えてみよう。Google Web アプリケーションがパス変数を使用していたならば、この URI はアルゴリズムの実行結果というよりも、ディレクトリのようになっていただろう（http://www.google.com/search/jellyfish）。</p>
+<p>これらの URI はどちらも「クラゲに関する Web ページのディレクトリ」リソースに対する正当なリソース指向の名前である。私たちは URI を調べる方法に順応してしまっているので、2 つ目の URI は正しくないように見える。パス変数は階層をトラバースしているように見えるし、クエリ変数はアルゴリズムに引数を渡しているように見える。「検索」にはアルゴリズムのような響きがある。たとえば、 <a href="http://www.google.com/directory/jellyfish">http://www.google.com/directory/jellyfish</a> は/search/jellyfish よりもよさそうに思える。</p>
+<p>クエリ変数に対するこの認識は、私たちが Web を使用するたびに強化される。Web ブラウザで HTML フォームに入力しているとき、入力したデータはクエリ変数になる。「クラゲ」をフォームに入力して、 <a href="http://www.google.com/search/jellyfish">http://www.google.com/search/jellyfish</a> に送信する方法はない。HTML フォームの送信先は <a href="http://www.google.com/search">http://www.google.com/search</a>に ハードコーディングされているので、そのフォームに入力すると、 <a href="http://www.google.com/search?q=jellyfish">http://www.google.com/search?q=jellyfish</a> になる。ブラウザはクエリ変数をベースURI に追加する方法を知っている。だが、変数を <a href="http://www.google.com/search/%7Bq%7D">http://www.google.com/search/{q}</a>のような汎用URI に置き換える方法は知らない。</p>
+<p>—  <a href="https://www.oreilly.co.jp/books/9784873113531/">RESTful Webサービス</a> - 5.5.3 アルゴリズムリソースに対するクエリ変数の使用</p>
+</blockquote>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202008/24/rest-path-or-query/">Read more ⟶</a>
@@ -161,7 +181,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">dependencies</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// これらは自動生成クラスが import しているので必要
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">implementation</span> <span class="s1">&#39;org.springframework.boot:spring-boot-starter-validation&#39;</span>
+</span></span></span><span class="line"><span class="cl">    <span class="n">implementation</span> <span class="s1">&#39;org.springframework.boot:spring-boot-starter-validation&#39;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">implementation</span> <span class="s1">&#39;org.openapitools:jackson-databind-nullable:0.2.1&#39;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">compileOnly</span> <span class="s1">&#39;io.swagger:swagger-annotations:1.6.2&#39;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
@@ -305,51 +325,6 @@
 					<a class="readmore" href="/blog/202007/21/why-git-branching-is-difficult/">Read more ⟶</a>
 				</section>
 				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202007/20/spring-security-oauth-2.0-client/">Spring Security OAuth 2.0 Client の auto-configuration</a></h1>
-					<time>2020/07/20</time>
-					<br><div class="description">
-	
-	<ul>
-<li><a href="https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2ClientAutoConfiguration.java"><code>OAuth2ClientAutoConfiguration</code></a></li>
-</ul>
-<p>上記のクラスが <code>Import</code> しているもの(など):</p>
-<ul>
-<li>
-<p><a href="https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2ClientRegistrationRepositoryConfiguration.java"><code>OAuth2ClientRegistrationRepositoryConfiguration</code></a></p>
-<ul>
-<li>
-<p><code>ClientRegistrationRepository</code> bean 定義。</p>
-<ul>
-<li><a href="https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/OAuth2ClientProperties.java"><code>OAuth2ClientProperties</code></a>(<code>spring.security.oauth2.client</code>)プロパティから定義を取得して生成するインメモリレジストリを生成。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p><a href="https://github.com/spring-projects/spring-boot/blob/v2.3.1.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2WebSecurityConfiguration.java"><code>OAuth2WebSecurityConfiguration</code></a></p>
-<ul>
-<li>
-<p><a href="https://github.com/spring-projects/spring-security/blob/5.3.3.RELEASE/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/OAuth2AuthorizedClientService.java"><code>OAuth2AuthorizedClientService</code></a> bean 定義。</p>
-</li>
-<li>
-<p><a href="https://github.com/spring-projects/spring-security/blob/5.3.3.RELEASE/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/web/OAuth2AuthorizedClientRepository.java"><code>OAuth2AuthorizedClientRepository</code></a> bean 定義。</p>
-</li>
-<li>
-<p><code>WebSecurityConfigurerAdapter</code> デフォルト実装。</p>
-<ul>
-<li>全てのリクエストに authenticated を要求する。 oauth2Login, oauth2Client 有効化。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>リファレンスリンク:</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202007/20/spring-security-oauth-2.0-client/">Read more ⟶</a>
-				</section>
-				
 				
 
 <ul class="pagination">
@@ -381,7 +356,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

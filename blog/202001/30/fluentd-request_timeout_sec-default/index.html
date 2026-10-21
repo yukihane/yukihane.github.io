@@ -7,20 +7,20 @@ fluent-plugin-bigquery の README を読んでいると、 request_timeout_sec �
 結論としては、 request_timeout_sec は最終的に httpclient の send_timeout 及び receive_timeout パラメータとして利用され、未設定の場合は そこで指定されているデフォルト値である send_timeout = 120, receive_timeout = 60 が採用されるようです。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202001/30/fluentd-request_timeout_sec-default/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="`fluent-plugin-bigquery` のパラメータ `request_timeout_sec` 、未設定の場合はどうなるの？">
-  <meta property="og:description" content="要旨 fluent-plugin-bigquery の README を読んでいると、 request_timeout_sec のデフォルト値が nil になっている(その下の request_open_timeout_sec には 60 が設定されているのに)のが気になりました。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="`fluent-plugin-bigquery` のパラメータ `request_timeout_sec` 、未設定の場合はどうなるの？">
+	<meta property="og:description" content="要旨 fluent-plugin-bigquery の README を読んでいると、 request_timeout_sec のデフォルト値が nil になっている(その下の request_open_timeout_sec には 60 が設定されているのに)のが気になりました。
 結論としては、 request_timeout_sec は最終的に httpclient の send_timeout 及び receive_timeout パラメータとして利用され、未設定の場合は そこで指定されているデフォルト値である send_timeout = 120, receive_timeout = 60 が採用されるようです。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2020-01-30T02:17:02+00:00">
-    <meta property="article:modified_time" content="2020-01-30T02:17:02+00:00">
-    <meta property="article:tag" content="Fluentd">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2020-01-30T02:17:02+00:00">
+		<meta property="article:modified_time" content="2020-01-30T02:17:02+00:00">
+		<meta property="article:tag" content="Fluentd">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="`fluent-plugin-bigquery` のパラメータ `request_timeout_sec` 、未設定の場合はどうなるの？">
-  <meta name="twitter:description" content="要旨 fluent-plugin-bigquery の README を読んでいると、 request_timeout_sec のデフォルト値が nil になっている(その下の request_open_timeout_sec には 60 が設定されているのに)のが気になりました。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="`fluent-plugin-bigquery` のパラメータ `request_timeout_sec` 、未設定の場合はどうなるの？">
+	<meta name="twitter:description" content="要旨 fluent-plugin-bigquery の README を読んでいると、 request_timeout_sec のデフォルト値が nil になっている(その下の request_open_timeout_sec には 60 が設定されているのに)のが気になりました。
 結論としては、 request_timeout_sec は最終的に httpclient の send_timeout 及び receive_timeout パラメータとして利用され、未設定の場合は そこで指定されているデフォルト値である send_timeout = 120, receive_timeout = 60 が採用されるようです。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -117,7 +117,7 @@ fluent-plugin-bigquery の README を読んでいると、 request_timeout_sec �
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

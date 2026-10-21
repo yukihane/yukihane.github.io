@@ -67,21 +67,21 @@ create table greeting_table (
 (注: spring.datasource.generate-unique-name 設定は Spring Boot 2.3.0 からデフォルト値が変わったため必要になったもので、リンク先 Git リポジトリには含まれていません(参考))" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/201907/12/h2-console-on-spring-boot/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="h2-consoleとspring-boot-starter-securityと私">
-  <meta property="og:description" content="概要 spring-boot-starter-security を導入しても http://localhost:8080/h2-console にアクセスしたかった。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="h2-consoleとspring-boot-starter-securityと私">
+	<meta property="og:description" content="概要 spring-boot-starter-security を導入しても http://localhost:8080/h2-console にアクセスしたかった。
 作業結果: https://github.com/yukihane/hello-java/tree/master/spring/h2-console-spring-security-example
 手順 h2-console が使える依存関係を追加してプロジェクトセットアップ 8113d7 1 2 3 4 5 6 7 8 9 10 11 12 13 14 &lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-jdbc&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;com.h2database&lt;/groupId&gt; &lt;artifactId&gt;h2&lt;/artifactId&gt; &lt;scope&gt;runtime&lt;/scope&gt; &lt;/dependency&gt; h2-console を表示してみる 1b16dc 1 2 spring.h2.console.enabled=true spring.datasource.generate-unique-name=false 1 2 3 create table greeting_table ( message varchar(256) not null ); (注: spring.datasource.generate-unique-name 設定は Spring Boot 2.3.0 からデフォルト値が変わったため必要になったもので、リンク先 Git リポジトリには含まれていません(参考))">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2019-07-12T20:33:40+00:00">
-    <meta property="article:modified_time" content="2019-07-12T20:33:40+00:00">
-    <meta property="article:tag" content="Spring-Boot">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2019-07-12T20:33:40+00:00">
+		<meta property="article:modified_time" content="2019-07-12T20:33:40+00:00">
+		<meta property="article:tag" content="Spring-Boot">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="h2-consoleとspring-boot-starter-securityと私">
-  <meta name="twitter:description" content="概要 spring-boot-starter-security を導入しても http://localhost:8080/h2-console にアクセスしたかった。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="h2-consoleとspring-boot-starter-securityと私">
+	<meta name="twitter:description" content="概要 spring-boot-starter-security を導入しても http://localhost:8080/h2-console にアクセスしたかった。
 作業結果: https://github.com/yukihane/hello-java/tree/master/spring/h2-console-spring-security-example
 手順 h2-console が使える依存関係を追加してプロジェクトセットアップ 8113d7 1 2 3 4 5 6 7 8 9 10 11 12 13 14 &lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-jdbc&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;com.h2database&lt;/groupId&gt; &lt;artifactId&gt;h2&lt;/artifactId&gt; &lt;scope&gt;runtime&lt;/scope&gt; &lt;/dependency&gt; h2-console を表示してみる 1b16dc 1 2 spring.h2.console.enabled=true spring.datasource.generate-unique-name=false 1 2 3 create table greeting_table ( message varchar(256) not null ); (注: spring.datasource.generate-unique-name 設定は Spring Boot 2.3.0 からデフォルト値が変わったため必要になったもので、リンク先 Git リポジトリには含まれていません(参考))">
 
@@ -193,36 +193,36 @@ create table greeting_table (
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-schema.sql" data-lang="schema.sql"><span class="line"><span class="cl"><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="nf">greeting_table</span><span class="w"> </span><span class="p">(</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">message</span><span class="w"> </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="no">null</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">);</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>(注: <code>spring.datasource.generate-unique-name</code> 設定は Spring Boot 2.3.0 からデフォルト値が変わったため必要になったもので、リンク先 Git リポジトリには含まれていません(<a href="https://qiita.com/yukihane/items/2be37518f42525c8327d">参考</a>))</p>
 <p>の設定を行った上で http://localhost:8080/h2-console/ へアクセス。</p>
 <table>
-  <thead>
-      <tr>
-          <th>項目名</th>
-          <th>設定値</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Driver Class</td>
-          <td>org.h2.Driver</td>
-      </tr>
-      <tr>
-          <td>JDBC URL</td>
-          <td>jdbc:h2:mem:testdb</td>
-      </tr>
-      <tr>
-          <td>User Name</td>
-          <td>sa</td>
-      </tr>
-      <tr>
-          <td>Password</td>
-          <td>(空)</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>項目名</th>
+					<th>設定値</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Driver Class</td>
+					<td>org.h2.Driver</td>
+			</tr>
+			<tr>
+					<td>JDBC URL</td>
+					<td>jdbc:h2:mem:testdb</td>
+			</tr>
+			<tr>
+					<td>User Name</td>
+					<td>sa</td>
+			</tr>
+			<tr>
+					<td>Password</td>
+					<td>(空)</td>
+			</tr>
+	</tbody>
 </table>
 <h2 id="spring-boot-starter-security-を追加してアクセスしてみる-61357fe"><code>spring-boot-starter-security</code> を追加してアクセスしてみる <a href="https://github.com/yukihane/hello-java/commit/61357fe7316c4fca72090466d1cb66a874fcb055">61357fe</a></h2>
 <div class="highlight"><div class="chroma">
@@ -281,7 +281,8 @@ public class MyWebSecConfig extends WebSecurityConfigurerAdapter {
 This application has no explicit mapping for /error, so you are seeing this as a fallback.</p>
 <p>Fri Jul 12 11:30:17 JST 2019<br />
 There was an unexpected error (type=Forbidden, status=403).<br />
-Forbidden</p></blockquote>
+Forbidden</p>
+</blockquote>
 <p>なぜなのか。</p>
 <h1 id="対処-d4b449b">対処 <a href="https://github.com/yukihane/hello-java/commit/d4b449b635c19c2b0a66732ca083aaae3585b36d">d4b449b</a></h1>
 <pre tabindex="0"><code>@Configuration
@@ -330,7 +331,7 @@ public class MyWebSecConfig extends WebSecurityConfigurerAdapter {
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

@@ -15,21 +15,21 @@ Exception in thread &#34;main&#34; java.time.DateTimeException: year, month, and
 JapaneseChronology#resolveDate(や IsoChronology#resolveDate)を使えばゆるふわ(lenient)な検証でゆるしてくれたりも。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/201906/12/java-datetime/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="元号が令和に変わったことを知らない人のための日付処理方法">
-  <meta property="og:description" content="問題 JapaneseDate.of(や LocalDate.of)を使うと厳密(strict)に検証されてしまう。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="元号が令和に変わったことを知らない人のための日付処理方法">
+	<meta property="og:description" content="問題 JapaneseDate.of(や LocalDate.of)を使うと厳密(strict)に検証されてしまう。
 結果、例外が出る。
 // 平成31年6月12日 final JapaneseDate today = JapaneseDate.of(JapaneseEra.HEISEI, 31, 6, 12); System.out.println(today); Exception in thread &#34;main&#34; java.time.DateTimeException: year, month, and day not valid for Era at java.base/java.time.chrono.JapaneseDate.of(JapaneseDate.java:231) at com.github.yukihane.datetime.App.main(App.java:21) 解決策 JapaneseChronology#resolveDate(や IsoChronology#resolveDate)を使えばゆるふわ(lenient)な検証でゆるしてくれたりも。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2019-06-12T20:24:45+00:00">
-    <meta property="article:modified_time" content="2019-06-12T20:24:45+00:00">
-    <meta property="article:tag" content="Java">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2019-06-12T20:24:45+00:00">
+		<meta property="article:modified_time" content="2019-06-12T20:24:45+00:00">
+		<meta property="article:tag" content="Java">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="元号が令和に変わったことを知らない人のための日付処理方法">
-  <meta name="twitter:description" content="問題 JapaneseDate.of(や LocalDate.of)を使うと厳密(strict)に検証されてしまう。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="元号が令和に変わったことを知らない人のための日付処理方法">
+	<meta name="twitter:description" content="問題 JapaneseDate.of(や LocalDate.of)を使うと厳密(strict)に検証されてしまう。
 結果、例外が出る。
 // 平成31年6月12日 final JapaneseDate today = JapaneseDate.of(JapaneseEra.HEISEI, 31, 6, 12); System.out.println(today); Exception in thread &#34;main&#34; java.time.DateTimeException: year, month, and day not valid for Era at java.base/java.time.chrono.JapaneseDate.of(JapaneseDate.java:231) at com.github.yukihane.datetime.App.main(App.java:21) 解決策 JapaneseChronology#resolveDate(や IsoChronology#resolveDate)を使えばゆるふわ(lenient)な検証でゆるしてくれたりも。">
 
@@ -110,7 +110,8 @@ System.out.println(today);
 <blockquote>
 <ul>
 <li>YEAR_OF_ERA と ERA - 両方とも存在する場合、それらが組み合わされて YEAR を形成します。 lenient モードでは YEAR_OF_ERA の範囲は検証されず、smart および strict モードでは検証されます。</li>
-</ul></blockquote>
+</ul>
+</blockquote>
 <p><code>smart</code>は平成 31 年 6 月は許してくれるけど平成 32 年 6 月は許してくれない。賢いか…？<br />
 (※ 検証するのは&quot;YEAR_OF_ERA の範囲&quot;だけだから言ってることとやってることは合ってる)</p>
 
@@ -150,7 +151,7 @@ System.out.println(today);
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

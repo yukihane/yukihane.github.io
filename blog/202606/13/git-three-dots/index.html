@@ -18,19 +18,19 @@ GitHub の Pull Request 画面で表示される差分は git diff A...B 相当�
 以下のスクリプトで、本記事の図と同じブランチ構造を持つリポジトリを作れます。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202606/13/git-three-dots/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="git log と git diff での ... (三点ドット) の意味の違い">
-  <meta property="og:description" content="TL;DR git log A...B と git diff A...B は、どちらも ...（三点ドット）を使いますが、意味がまったく異なります git log A...B は 対称差（symmetric difference） で、「A にだけあるコミット」と「B にだけあるコミット」の両方を表示します git diff A...B は A と B のマージベース（共通祖先）から B までの差分 を表示します。つまり「B ブランチで何が変わったか」を見るためのものです GitHub の Pull Request 画面で表示される差分は git diff A...B 相当です つまり、みんなが普段欲しい diff は .. でなく ... 手元で試すためのセットアップ 以下のスクリプトで、本記事の図と同じブランチ構造を持つリポジトリを作れます。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2026-06-13T22:08:20+09:00">
-    <meta property="article:modified_time" content="2026-06-13T22:08:20+09:00">
-    <meta property="article:tag" content="Git">
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="git log と git diff での ... (三点ドット) の意味の違い">
+	<meta property="og:description" content="TL;DR git log A...B と git diff A...B は、どちらも ...（三点ドット）を使いますが、意味がまったく異なります git log A...B は 対称差（symmetric difference） で、「A にだけあるコミット」と「B にだけあるコミット」の両方を表示します git diff A...B は A と B のマージベース（共通祖先）から B までの差分 を表示します。つまり「B ブランチで何が変わったか」を見るためのものです GitHub の Pull Request 画面で表示される差分は git diff A...B 相当です つまり、みんなが普段欲しい diff は .. でなく ... 手元で試すためのセットアップ 以下のスクリプトで、本記事の図と同じブランチ構造を持つリポジトリを作れます。">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2026-06-13T22:08:20+09:00">
+		<meta property="article:modified_time" content="2026-06-13T22:08:20+09:00">
+		<meta property="article:tag" content="Git">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="git log と git diff での ... (三点ドット) の意味の違い">
-  <meta name="twitter:description" content="TL;DR git log A...B と git diff A...B は、どちらも ...（三点ドット）を使いますが、意味がまったく異なります git log A...B は 対称差（symmetric difference） で、「A にだけあるコミット」と「B にだけあるコミット」の両方を表示します git diff A...B は A と B のマージベース（共通祖先）から B までの差分 を表示します。つまり「B ブランチで何が変わったか」を見るためのものです GitHub の Pull Request 画面で表示される差分は git diff A...B 相当です つまり、みんなが普段欲しい diff は .. でなく ... 手元で試すためのセットアップ 以下のスクリプトで、本記事の図と同じブランチ構造を持つリポジトリを作れます。">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="git log と git diff での ... (三点ドット) の意味の違い">
+	<meta name="twitter:description" content="TL;DR git log A...B と git diff A...B は、どちらも ...（三点ドット）を使いますが、意味がまったく異なります git log A...B は 対称差（symmetric difference） で、「A にだけあるコミット」と「B にだけあるコミット」の両方を表示します git diff A...B は A と B のマージベース（共通祖先）から B までの差分 を表示します。つまり「B ブランチで何が変わったか」を見るためのものです GitHub の Pull Request 画面で表示される差分は git diff A...B 相当です つまり、みんなが普段欲しい diff は .. でなく ... 手元で試すためのセットアップ 以下のスクリプトで、本記事の図と同じブランチ構造を持つリポジトリを作れます。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -159,7 +159,7 @@ GitHub の Pull Request 画面で表示される差分は git diff A...B 相当�
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nb">set</span> -e
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span> -e
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 一時ディレクトリにリポジトリを作成</span>
 </span></span><span class="line"><span class="cl"><span class="nv">dir</span><span class="o">=</span><span class="k">$(</span>mktemp -d<span class="k">)</span>
@@ -281,30 +281,31 @@ A---B---F---G    (main)
 <hr />
 <h2 id="まとめ">まとめ</h2>
 <table>
-  <thead>
-      <tr>
-          <th>コマンド</th>
-          <th><code>..</code>（二点）</th>
-          <th><code>...</code>（三点）</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>git log</code></td>
-          <td>A にない B のコミット（差集合）</td>
-          <td>どちらか片方にしかないコミット（対称差）</td>
-      </tr>
-      <tr>
-          <td><code>git diff</code></td>
-          <td>A と B の単純な差分（<code>git diff A B</code> と同じ）</td>
-          <td>マージベースと B の差分</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>コマンド</th>
+					<th><code>..</code>（二点）</th>
+					<th><code>...</code>（三点）</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>git log</code></td>
+					<td>A にない B のコミット（差集合）</td>
+					<td>どちらか片方にしかないコミット（対称差）</td>
+			</tr>
+			<tr>
+					<td><code>git diff</code></td>
+					<td>A と B の単純な差分（<code>git diff A B</code> と同じ）</td>
+					<td>マージベースと B の差分</td>
+			</tr>
+	</tbody>
 </table>
 <p><code>...</code> は同じ記号ですが、<code>log</code> と <code>diff</code> で意味が異なるというのがポイントです。特に <code>git diff A...B</code> の「マージベースからの差分」は PR レビューの文脈で頻出するので、覚えておくと役立ちます。</p>
 <hr />
 <blockquote>
-<p><strong>参考</strong>: <a href="https://git-scm.com/docs/git-log">git-log</a>、<a href="https://git-scm.com/docs/git-diff">git-diff</a>、<a href="https://git-scm.com/docs/gitrevisions">gitrevisions</a></p></blockquote>
+<p><strong>参考</strong>: <a href="https://git-scm.com/docs/git-log">git-log</a>、<a href="https://git-scm.com/docs/git-diff">git-diff</a>、<a href="https://git-scm.com/docs/gitrevisions">gitrevisions</a></p>
+</blockquote>
 
         </section>
         <div class="post-tags">
@@ -342,7 +343,7 @@ A---B---F---G    (main)
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

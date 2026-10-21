@@ -6,22 +6,22 @@
 Lombokのchangelogに説明があります:" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202011/14/mapstruct-with-spring-boot-2.3.5/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Spring Boot 2.3.5 で MapStruct を利用しているプロジェクトのビルドが失敗した">
-  <meta property="og:description" content="調査したところSpring Bootの問題と言うよりは、Lombokのバージョンが 1.18.12 から 1.18.16 に上がったことによる非互換性の問題でした。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Spring Boot 2.3.5 で MapStruct を利用しているプロジェクトのビルドが失敗した">
+	<meta property="og:description" content="調査したところSpring Bootの問題と言うよりは、Lombokのバージョンが 1.18.12 から 1.18.16 に上がったことによる非互換性の問題でした。
 Lombokのchangelogに説明があります:">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2020-11-14T07:41:01+00:00">
-    <meta property="article:modified_time" content="2020-11-14T07:41:01+00:00">
-    <meta property="article:tag" content="Mapstruct">
-    <meta property="article:tag" content="Lombok">
-    <meta property="article:tag" content="Spring-Boot">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2020-11-14T07:41:01+00:00">
+		<meta property="article:modified_time" content="2020-11-14T07:41:01+00:00">
+		<meta property="article:tag" content="Mapstruct">
+		<meta property="article:tag" content="Lombok">
+		<meta property="article:tag" content="Spring-Boot">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Spring Boot 2.3.5 で MapStruct を利用しているプロジェクトのビルドが失敗した">
-  <meta name="twitter:description" content="調査したところSpring Bootの問題と言うよりは、Lombokのバージョンが 1.18.12 から 1.18.16 に上がったことによる非互換性の問題でした。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Spring Boot 2.3.5 で MapStruct を利用しているプロジェクトのビルドが失敗した">
+	<meta name="twitter:description" content="調査したところSpring Bootの問題と言うよりは、Lombokのバージョンが 1.18.12 から 1.18.16 に上がったことによる非互換性の問題でした。
 Lombokのchangelogに説明があります:">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -79,7 +79,8 @@ Lombokのchangelogに説明があります:">
 <ul>
 <li>BREAKING CHANGE: mapstruct users should now add a dependency to lombok-mapstruct-binding. This solves compiling modules with lombok (and mapstruct).</li>
 </ul>
-<p>—  <a href="https://projectlombok.org/changelog">https://projectlombok.org/changelog</a></p></blockquote>
+<p>—  <a href="https://projectlombok.org/changelog">https://projectlombok.org/changelog</a></p>
+</blockquote>
 <p>なお、上記引用文中にはdependencyに追加する、というような説明が為されていますが、正確にはアノテーションプロセッサとして <code>lombok-mapstruct-binding</code> を設定する必要があるようです。</p>
 <ul>
 <li><a href="https://github.com/mapstruct/mapstruct/issues/2267#issuecomment-722233808">https://github.com/mapstruct/mapstruct/issues/2267#issuecomment-722233808</a></li>
@@ -129,7 +130,7 @@ Lombokのchangelogに説明があります:">
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

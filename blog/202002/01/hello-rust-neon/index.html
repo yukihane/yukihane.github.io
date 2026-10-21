@@ -6,21 +6,21 @@
 その前調査としてNodeのネイティブモジュールとしてRustプログラムを利用できるようにする Neon というツールを使ってHello, worldしてみることにしました。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202002/01/hello-rust-neon/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Nodeのnative moduleをRustで書いてみる(Neon)">
-  <meta property="og:description" content="RustプログラムのGUIにElectronを使うことを考えています。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Nodeのnative moduleをRustで書いてみる(Neon)">
+	<meta property="og:description" content="RustプログラムのGUIにElectronを使うことを考えています。
 その前調査としてNodeのネイティブモジュールとしてRustプログラムを利用できるようにする Neon というツールを使ってHello, worldしてみることにしました。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2020-02-01T05:09:38+00:00">
-    <meta property="article:modified_time" content="2020-02-01T05:09:38+00:00">
-    <meta property="article:tag" content="Rust">
-    <meta property="article:tag" content="Neon">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2020-02-01T05:09:38+00:00">
+		<meta property="article:modified_time" content="2020-02-01T05:09:38+00:00">
+		<meta property="article:tag" content="Rust">
+		<meta property="article:tag" content="Neon">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Nodeのnative moduleをRustで書いてみる(Neon)">
-  <meta name="twitter:description" content="RustプログラムのGUIにElectronを使うことを考えています。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Nodeのnative moduleをRustで書いてみる(Neon)">
+	<meta name="twitter:description" content="RustプログラムのGUIにElectronを使うことを考えています。
 その前調査としてNodeのネイティブモジュールとしてRustプログラムを利用できるようにする Neon というツールを使ってHello, worldしてみることにしました。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -135,7 +135,8 @@ neon build --release
 <blockquote>
 <ul>
 <li><code>native/index.node</code>: the native module itself, which is loaded by lib/index.js.</li>
-</ul></blockquote>
+</ul>
+</blockquote>
 <h2 id="rustでロジックを実装する">Rustでロジックを実装する</h2>
 <p><code>native</code> ディレクトリをRustプロジェクトルートディレクトリとみなして作業すれば良さそうです。</p>
 <p>1点注意があるとすれば、自動生成された <code>Cargo.toml</code> に <code>edition</code> の指定が無かったため、自分の見慣れない <code>exrern</code> が現れたりして？？？となってしまいました。 <code>edition = &quot;2018&quot;</code> は即追加しておきましょう。</p>
@@ -178,7 +179,7 @@ neon build --release
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

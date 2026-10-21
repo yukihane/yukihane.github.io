@@ -25,20 +25,20 @@ async/await 構文が標準に取り込まれた、ということは非同期�
 https://github.com/seanmonstar/reqwest" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202001/01/rust-reqwest/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="reqwest使おうとしたけどよくわからん">
-  <meta property="og:description" content="はじめに 年の瀬にスクレイピングしたくなって Rust 勉強し始めたけれど、直前に reqwest ライブラリに更新が入ったみたいでコピペコーディングが阻まれた。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="reqwest使おうとしたけどよくわからん">
+	<meta property="og:description" content="はじめに 年の瀬にスクレイピングしたくなって Rust 勉強し始めたけれど、直前に reqwest ライブラリに更新が入ったみたいでコピペコーディングが阻まれた。
 知っとかないといけなかったこと 今回の更新 reqwest 0.10.0 で async/await がデフォルトになった(ので従来のサンプルコードは動かなくなった)。 Cargo には feature flag(feature toggle) 機能があって、reqwest やら(オフィシャルサンプルで利用している)tokio やらもこれを利用している。 (async/await を使わない、従来の)blocking 版をどうやって使うのか全然わからなかったけれど、features で明示的に指定する必要があった。 オフィシャルサンプルを動かすにしてもこれを知っておかないといけなかった。 tokioを用いる必要があった。 自分が見ていた(古い)サンプルではfuturesのfutures::executor::block_onを利用していたので当初それをコピペったのだが次のエラーが出た: ’not currently running on the Tokio runtime.&#39;, async/await 構文が標準に取り込まれた、ということは非同期ランタイムを別のものにすげ替えることが可能、みたいなイメージを持っていたのだが、そうではなさそう。 おそらく自転車本の補遺が言うところの「非同期エコシステム」が関係する話題。 サンプルを動かすには https://github.com/seanmonstar/reqwest">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2020-01-01T20:42:42+00:00">
-    <meta property="article:modified_time" content="2020-01-01T20:42:42+00:00">
-    <meta property="article:tag" content="Rust">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2020-01-01T20:42:42+00:00">
+		<meta property="article:modified_time" content="2020-01-01T20:42:42+00:00">
+		<meta property="article:tag" content="Rust">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="reqwest使おうとしたけどよくわからん">
-  <meta name="twitter:description" content="はじめに 年の瀬にスクレイピングしたくなって Rust 勉強し始めたけれど、直前に reqwest ライブラリに更新が入ったみたいでコピペコーディングが阻まれた。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="reqwest使おうとしたけどよくわからん">
+	<meta name="twitter:description" content="はじめに 年の瀬にスクレイピングしたくなって Rust 勉強し始めたけれど、直前に reqwest ライブラリに更新が入ったみたいでコピペコーディングが阻まれた。
 知っとかないといけなかったこと 今回の更新 reqwest 0.10.0 で async/await がデフォルトになった(ので従来のサンプルコードは動かなくなった)。 Cargo には feature flag(feature toggle) 機能があって、reqwest やら(オフィシャルサンプルで利用している)tokio やらもこれを利用している。 (async/await を使わない、従来の)blocking 版をどうやって使うのか全然わからなかったけれど、features で明示的に指定する必要があった。 オフィシャルサンプルを動かすにしてもこれを知っておかないといけなかった。 tokioを用いる必要があった。 自分が見ていた(古い)サンプルではfuturesのfutures::executor::block_onを利用していたので当初それをコピペったのだが次のエラーが出た: ’not currently running on the Tokio runtime.&#39;, async/await 構文が標準に取り込まれた、ということは非同期ランタイムを別のものにすげ替えることが可能、みたいなイメージを持っていたのだが、そうではなさそう。 おそらく自転車本の補遺が言うところの「非同期エコシステム」が関係する話題。 サンプルを動かすには https://github.com/seanmonstar/reqwest">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -181,7 +181,7 @@ reqwest = {version = &#34;0.10.0&#34;, features=[&#34;json&#34;,&#34;blocking&#3
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

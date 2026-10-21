@@ -7,15 +7,15 @@
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<link rel="alternate" type="application/rss+xml" href="https://yukihane.github.io/index.xml" title="発火後忘失" />
 	<meta property="og:url" content="https://yukihane.github.io/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="発火後忘失">
-  <meta property="og:description" content="Fire and Forget blog">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="website">
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="発火後忘失">
+	<meta property="og:description" content="Fire and Forget blog">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="website">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="発火後忘失">
-  <meta name="twitter:description" content="Fire and Forget blog">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="発火後忘失">
+	<meta name="twitter:description" content="Fire and Forget blog">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -23,6 +23,7 @@
 	
 	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
 		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
+	<meta name="generator" content="Hugo 0.168.0">
 </head>
 
 	<body>
@@ -62,6 +63,18 @@
 				<div class="site-description"></div>
 				
 				
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/202110/09/rust-reduce/">Rust に reduce は、あります</a></h1>
+					<time>2021/10/09</time>
+					<br><div class="description">
+	
+	<p>ググっていると、ちょくちょく 「Rust に <code>reduce</code> は無い、代わりに <code>fold</code> を使え」という話が出てくるのが疑問だったのですが、 <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.reduce"><code>reduce</code> が導入されたのって <code>1.51.0</code></a>(<a href="https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-1510-2021-03-25">2021-03-25</a>)と、比較的最近だからなんですね。</p>
+<p>しかしリリースノートを見てもこういう変更は載っていないのですね。 細かすぎるから？ 気付いてない人は気付かないまま過ごしてそう…</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202110/09/rust-reduce/">Read more ⟶</a>
+				</section>
 				
 				<section class="list-item">
 					<h1 class="title"><a href="/blog/202110/09/rust-result/">Rust の Result を良い感じにまとめるには</a></h1>
@@ -137,7 +150,8 @@
 	
 	<blockquote>
 <p>By default the built RestTemplate will attempt to use the most suitable ClientHttpRequestFactory</p>
-<p>—  <a href="https://docs.spring.io/spring-boot/docs/2.5.3/api/org/springframework/boot/web/client/RestTemplateBuilder.html">RestTemplateBuilder JavaDoc</a></p></blockquote>
+<p>—  <a href="https://docs.spring.io/spring-boot/docs/2.5.3/api/org/springframework/boot/web/client/RestTemplateBuilder.html">RestTemplateBuilder JavaDoc</a></p>
+</blockquote>
 <p>とありますが、具体的にどうやって決めているの？という話です。</p>
 <p><a href="https://github.com/spring-projects/spring-boot/blob/v2.5.3/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/web/client/ClientHttpRequestFactorySupplier.java"><code>ClientHttpRequestFactorySupplier</code></a>をみると一目瞭然ですが、</p>
 <ol>
@@ -145,7 +159,12 @@
 <p>Apache HttpClient (<code>org.apache.http.client.HttpClient</code>) がクラスパスに存在すればそれを採用する</p>
 </li>
 <li>
-<p>OkHttp (<code>okhttp3.OkHttpClient</code>) がクラスパスに存在すればそれを採用する</p>&hellip;
+<p>OkHttp (<code>okhttp3.OkHttpClient</code>) がクラスパスに存在すればそれを採用する</p>
+</li>
+<li>
+<p>上記のものがいずれも無ければ <code>java.net.HttpURLConnection</code> を採用する</p>
+</li>
+</ol>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202107/25/resttemplate-impl-order/">Read more ⟶</a>
@@ -250,21 +269,6 @@
 					<a class="readmore" href="/blog/202105/21/spring-boot-avoid-tomcat-error-page/">Read more ⟶</a>
 				</section>
 				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202105/19/git-merge-risk/">Git の merge も思いの外危険</a></h1>
-					<time>2021/05/18</time>
-					<br><div class="description">
-	
-	<p>次のblogエントリがバズっていました:</p>
-<ul>
-<li><a href="https://songmu.jp/riji/entry/2021-05-19-my-git-workflow.html">Gitのワークフローについての私のスタンス | おそらくはそれさえも平凡な日々</a></li>
-</ul>
-<p>大局としては同意なのですが、ミクロな点では、 <code>rebase</code> 恐怖症というか、 <code>merge</code> を信頼し過ぎているというか、少し私とは意見が異なると感じました。 そして、上記のblogのような意見が多数派ではないかと思いますので、改めて <code>merge</code> の怖いところを具体例で示したいと思います。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202105/19/git-merge-risk/">Read more ⟶</a>
-				</section>
-				
 				
 
 <ul class="pagination">
@@ -296,7 +300,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

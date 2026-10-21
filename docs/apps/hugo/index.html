@@ -5,18 +5,18 @@
 	<meta name="description" content="AsciiDoc形式でblogを書くためにHugoをセットアップする。 Hugo自体はGo言語製、またAsciiDocの処理にはAsciidoctorが必要で、こちらはRuby製。 これらの環境をローカルで行いたくないのでDockerコンテナ上で実行させることにする。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/apps/hugo/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="hugo">
-  <meta property="og:description" content="AsciiDoc形式でblogを書くためにHugoをセットアップする。 Hugo自体はGo言語製、またAsciiDocの処理にはAsciidoctorが必要で、こちらはRuby製。 これらの環境をローカルで行いたくないのでDockerコンテナ上で実行させることにする。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="docs">
-    <meta property="article:published_time" content="2020-07-23T17:01:48+00:00">
-    <meta property="article:modified_time" content="2020-07-23T17:01:48+00:00">
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="hugo">
+	<meta property="og:description" content="AsciiDoc形式でblogを書くためにHugoをセットアップする。 Hugo自体はGo言語製、またAsciiDocの処理にはAsciidoctorが必要で、こちらはRuby製。 これらの環境をローカルで行いたくないのでDockerコンテナ上で実行させることにする。">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+		<meta property="article:published_time" content="2020-07-23T17:01:48+00:00">
+		<meta property="article:modified_time" content="2020-07-23T17:01:48+00:00">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="hugo">
-  <meta name="twitter:description" content="AsciiDoc形式でblogを書くためにHugoをセットアップする。 Hugo自体はGo言語製、またAsciiDocの処理にはAsciidoctorが必要で、こちらはRuby製。 これらの環境をローカルで行いたくないのでDockerコンテナ上で実行させることにする。">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="hugo">
+	<meta name="twitter:description" content="AsciiDoc形式でblogを書くためにHugoをセットアップする。 Hugo自体はGo言語製、またAsciiDocの処理にはAsciidoctorが必要で、こちらはRuby製。 これらの環境をローカルで行いたくないのでDockerコンテナ上で実行させることにする。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -128,7 +128,7 @@ alias hugo-server='docker run --rm -it -u $(id -u $USER) -v $(pwd):/src -v $(pwd
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

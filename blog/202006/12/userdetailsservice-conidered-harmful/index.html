@@ -5,20 +5,20 @@
 	<meta name="description" content="サンプルコード等だけを見ていると UserDetailsService を利用することがSpring Securityの唯一の認証処理実現方法だと誤解しがちですが、 UserDetailsService はむしろユーティリティライブラリくらいの立ち位置で、別に利用しなくても実現可能です。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202006/12/userdetailsservice-conidered-harmful/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="UserDetailsServiceは誤解されている">
-  <meta property="og:description" content="サンプルコード等だけを見ていると UserDetailsService を利用することがSpring Securityの唯一の認証処理実現方法だと誤解しがちですが、 UserDetailsService はむしろユーティリティライブラリくらいの立ち位置で、別に利用しなくても実現可能です。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2020-06-12T09:37:26+00:00">
-    <meta property="article:modified_time" content="2020-06-12T09:37:26+00:00">
-    <meta property="article:tag" content="Spring-Boot">
-    <meta property="article:tag" content="Spring-Security">
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="UserDetailsServiceは誤解されている">
+	<meta property="og:description" content="サンプルコード等だけを見ていると UserDetailsService を利用することがSpring Securityの唯一の認証処理実現方法だと誤解しがちですが、 UserDetailsService はむしろユーティリティライブラリくらいの立ち位置で、別に利用しなくても実現可能です。">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2020-06-12T09:37:26+00:00">
+		<meta property="article:modified_time" content="2020-06-12T09:37:26+00:00">
+		<meta property="article:tag" content="Spring-Boot">
+		<meta property="article:tag" content="Spring-Security">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="UserDetailsServiceは誤解されている">
-  <meta name="twitter:description" content="サンプルコード等だけを見ていると UserDetailsService を利用することがSpring Securityの唯一の認証処理実現方法だと誤解しがちですが、 UserDetailsService はむしろユーティリティライブラリくらいの立ち位置で、別に利用しなくても実現可能です。">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="UserDetailsServiceは誤解されている">
+	<meta name="twitter:description" content="サンプルコード等だけを見ていると UserDetailsService を利用することがSpring Securityの唯一の認証処理実現方法だと誤解しがちですが、 UserDetailsService はむしろユーティリティライブラリくらいの立ち位置で、別に利用しなくても実現可能です。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -75,7 +75,8 @@
 <blockquote>
 <p><code>UserDetailsService</code> is a DAO interface for loading data that is specific to a user account. It has no other function other to load that data for use by other components within the framework. It is not responsible for authenticating the user. Authenticating a user with a username/password combination is most commonly performed by the <code>DaoAuthenticationProvider</code>, which is injected with a <code>UserDetailsService</code> to allow it to load the password (and other data) for a user in order to compare it with the submitted value. Note that if you are using LDAP, this approach may not work.</p>
 <p>If you want to customize the authentication process then you should implement AuthenticationProvider yourself.</p>
-<p>—  <a href="https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#appendix-faq-what-is-userdetailservice">What is a UserDetailsService and do I need one?</a></p></blockquote>
+<p>—  <a href="https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#appendix-faq-what-is-userdetailservice">What is a UserDetailsService and do I need one?</a></p>
+</blockquote>
 <p>その他、次のQ&amp;Aも参照してみてください:</p>
 <ul>
 <li>
@@ -140,7 +141,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

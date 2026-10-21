@@ -8,23 +8,23 @@ Eclipse.app/Contents/Eclipse　にある eclipse.ini に、所望のバージョ
 /usr/libexec/java_home -V で JAVA_HOME 候補一覧が参照できますので、このディレクトリ &#43; /bin を指定することになります。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/201901/16/set-jvm-to-eclipse-on-mac/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="Eclipseの起動に使用するJDKを指定する（Mac）">
-  <meta property="og:description" content="最新の JDK をインストールしたが、古いバージョンの Eclipse も利用したい(が最新のバージョンでは起動できない)ような場合に必要となる設定です。
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="Eclipseの起動に使用するJDKを指定する（Mac）">
+	<meta property="og:description" content="最新の JDK をインストールしたが、古いバージョンの Eclipse も利用したい(が最新のバージョンでは起動できない)ような場合に必要となる設定です。
 設定するファイルと設定方法 Eclipse.app/Contents/Eclipse　にある eclipse.ini に、所望のバージョンの java コマンドが入っているディレクトリを指定します。
 /usr/libexec/java_home -V で JAVA_HOME 候補一覧が参照できますので、このディレクトリ &#43; /bin を指定することになります。">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2019-01-16T19:58:26+00:00">
-    <meta property="article:modified_time" content="2019-01-16T19:58:26+00:00">
-    <meta property="article:tag" content="Mac">
-    <meta property="article:tag" content="Java">
-    <meta property="article:tag" content="Eclipse">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2019-01-16T19:58:26+00:00">
+		<meta property="article:modified_time" content="2019-01-16T19:58:26+00:00">
+		<meta property="article:tag" content="Mac">
+		<meta property="article:tag" content="Java">
+		<meta property="article:tag" content="Eclipse">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Eclipseの起動に使用するJDKを指定する（Mac）">
-  <meta name="twitter:description" content="最新の JDK をインストールしたが、古いバージョンの Eclipse も利用したい(が最新のバージョンでは起動できない)ような場合に必要となる設定です。
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Eclipseの起動に使用するJDKを指定する（Mac）">
+	<meta name="twitter:description" content="最新の JDK をインストールしたが、古いバージョンの Eclipse も利用したい(が最新のバージョンでは起動できない)ような場合に必要となる設定です。
 設定するファイルと設定方法 Eclipse.app/Contents/Eclipse　にある eclipse.ini に、所望のバージョンの java コマンドが入っているディレクトリを指定します。
 /usr/libexec/java_home -V で JAVA_HOME 候補一覧が参照できますので、このディレクトリ &#43; /bin を指定することになります。">
 
@@ -99,7 +99,8 @@ Matching Java Virtual Machines (2):
 <p>メニューの Eclipe &gt; Eclipse について で &ldquo;About Eclipse&rdquo; ダイアログを開き、&ldquo;Installation Details&quot;ボタン &gt; &ldquo;Configuration&quot;タブに表示されている情報から <code>-vm</code> オプションを探します。</p>
 <h2 id="-vmを明示的に指定しなかった場合には何が使われるの"><code>-vm</code>を明示的に指定しなかった場合には何が使われるの？</h2>
 <blockquote>
-<p>If not specified, the Eclipse executable uses a search algorithm to locate a suitable VM.</p></blockquote>
+<p>If not specified, the Eclipse executable uses a search algorithm to locate a suitable VM.</p>
+</blockquote>
 <p>参考: <a href="https://help.eclipse.org/2018-12/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Freference%2Fmisc%2Fruntime-options.html&amp;resultof=%22Runtime%22%20%22runtim%22%20%22Options%22%20%22option%22%20">The Eclipse runtime options - Eclipse documentation</a></p>
 <h2 id="usrbinを指定しておけばjava_homeを切り替えるだけで良いんじゃ"><code>/usr/bin</code>を指定しておけば<code>JAVA_HOME</code>を切り替えるだけで良いんじゃ？</h2>
 <p>確かに <code>java</code>コマンドを実行したときのバージョンが切り替わるのですが、Eclipse には効かないようです。<br />
@@ -151,7 +152,7 @@ Matching Java Virtual Machines (2):
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }

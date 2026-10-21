@@ -7,15 +7,15 @@
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<link rel="alternate" type="application/rss+xml" href="https://yukihane.github.io/index.xml" title="発火後忘失" />
 	<meta property="og:url" content="https://yukihane.github.io/">
-  <meta property="og:site_name" content="発火後忘失">
-  <meta property="og:title" content="発火後忘失">
-  <meta property="og:description" content="Fire and Forget blog">
-  <meta property="og:locale" content="ja">
-  <meta property="og:type" content="website">
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="発火後忘失">
+	<meta property="og:description" content="Fire and Forget blog">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="website">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="発火後忘失">
-  <meta name="twitter:description" content="Fire and Forget blog">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="発火後忘失">
+	<meta name="twitter:description" content="Fire and Forget blog">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -23,6 +23,7 @@
 	
 	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a0a79e0f1e1b1461143426d13d803a6ca343eab47102f3e6b899d9c06bbd5134.css" />
 		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.f163b79c6de51d14a766ff9f0563053de7f06a4d1bf7b85a59608bf96e566710.css"  disabled />
+	<meta name="generator" content="Hugo 0.168.0">
 </head>
 
 	<body>
@@ -64,6 +65,21 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202105/19/git-merge-risk/">Git の merge も思いの外危険</a></h1>
+					<time>2021/05/18</time>
+					<br><div class="description">
+	
+	<p>次のblogエントリがバズっていました:</p>
+<ul>
+<li><a href="https://songmu.jp/riji/entry/2021-05-19-my-git-workflow.html">Gitのワークフローについての私のスタンス | おそらくはそれさえも平凡な日々</a></li>
+</ul>
+<p>大局としては同意なのですが、ミクロな点では、 <code>rebase</code> 恐怖症というか、 <code>merge</code> を信頼し過ぎているというか、少し私とは意見が異なると感じました。 そして、上記のblogのような意見が多数派ではないかと思いますので、改めて <code>merge</code> の怖いところを具体例で示したいと思います。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202105/19/git-merge-risk/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202105/19/url-amp/">script src に設定する URL の &amp; はどう書けば良い？</a></h1>
 					<time>2021/05/18</time>
 					<br><div class="description">
@@ -89,7 +105,9 @@
 <p>最低割り当て時間は24時間。つまり1回利用すると最低 3,000円弱はかかる。</p>
 </li>
 <li>
-<p>インスタンスを終了すると、次のインスタンスを起動できるようになるまで1時間半程度かかる。</p>&hellip;
+<p>インスタンスを終了すると、次のインスタンスを起動できるようになるまで1時間半程度かかる。</p>
+</li>
+</ul>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202105/16/aws-mac/">Read more ⟶</a>
@@ -130,7 +148,8 @@
 	<p>MySQL Connector/J <code>8.0.23</code> でタイムゾーン変換のメカニズムが変わりました(Spring Boot では <a href="https://docs.spring.io/spring-boot/docs/2.3.9.RELEASE/reference/html/appendix-dependency-versions.html#dependency-versions"><code>2.3.9</code></a>以降, <a href="https://docs.spring.io/spring-boot/docs/2.4.3/reference/html/appendix-dependency-versions.html#dependency-versions"><code>2.4.3</code></a>以降でこれを採用しています)。</p>
 <blockquote>
 <p><strong>Important Change</strong>: A new mechanism has been introduced for users to configure how time zone conversions should occur when time instants are saved to or retrieved from a server by Connector/J.</p>
-<p>—  <a href="https://dev.mysql.com/doc/relnotes/connector-j/8.0/en/news-8-0-23.html">MySQL :: MySQL Connector/J 8.0 Release Notes :: Changes in MySQL Connector/J 8.0.23 (2021-01-18, General Availability)</a></p>&hellip;
+<p>—  <a href="https://dev.mysql.com/doc/relnotes/connector-j/8.0/en/news-8-0-23.html">MySQL :: MySQL Connector/J 8.0 Release Notes :: Changes in MySQL Connector/J 8.0.23 (2021-01-18, General Availability)</a></p>
+</blockquote>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202104/29/mysql-connector-j-8.0.23/">Read more ⟶</a>
@@ -221,20 +240,6 @@
 					<a class="readmore" href="/blog/202101/24/spring-boot-cors-permit-all/">Read more ⟶</a>
 				</section>
 				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202101/24/spring-session-in-memory/">Spring Sessionをインメモリで利用する</a></h1>
-					<time>2021/01/24</time>
-					<br><div class="description">
-	
-	<ul>
-<li><a href="https://stackoverflow.com/q/48906697/4506703">What should be a replacement for StoreType.HASH_MAP in spring-boot 2</a></li>
-</ul>
-<p>昔は <code>spring.session.store-type</code> の選択肢に <code>hash_map</code> というものがあったようですが、現在は存在しません。(ちなみに <code>none</code> は Spring Session を利用しない、という意味になるようで、挙動が変わってしまいます( <code>JSESSIONID</code> と <code>SESSIONID</code> とか))</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202101/24/spring-session-in-memory/">Read more ⟶</a>
-				</section>
-				
 				
 
 <ul class="pagination">
@@ -266,7 +271,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
