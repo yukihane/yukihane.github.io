@@ -47,6 +47,9 @@ SYSTEM:
 ```
 
 何かメディアが画面に表示されたりしているのならまだわかるのですが、特に動画埋め込みファイルなどが表れていなくてもなぜか上記のようになります。
+ちなみに似たような事象がbugzillaに登録されているようでした:
+- [x.com causes audio interface to be opened (with PipeWire) despite nothing being played](https://bugzilla.mozilla.org/show_bug.cgi?id=1984881)
+- [Twitter/X won't let PC enter sleep mode](https://bugzilla.mozilla.org/show_bug.cgi?id=1983044)
 
 そして、この状態でWindowsを放置するとスリープが阻害されます。
 
