@@ -24,6 +24,6 @@ weight = 4
 
 [[main]]
 identifier = "search"
-name = "検索"
+name = "Search"
 url = "/search/"
 weight = 5
