@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html><head lang="ja">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>検索 - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="キーワードで記事のタイトル・タグ・本文を検索できます。" />
+	<meta property="og:image" content="https://yukihane.github.io/"/>
+	<meta property="og:url" content="https://yukihane.github.io/search/">
+	<meta property="og:site_name" content="発火後忘失">
+	<meta property="og:title" content="検索">
+	<meta property="og:description" content="キーワードで記事のタイトル・タグ・本文を検索できます。">
+	<meta property="og:locale" content="ja_jp">
+	<meta property="og:type" content="article">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="検索">
+	<meta name="twitter:description" content="キーワードで記事のタイトル・タグ・本文を検索できます。">
+
+        <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://yukihane.github.io/css/main.a220e9b3ba098db760b13753f3c871211dc94903b1509e236de3ea8c8eacc200.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://yukihane.github.io/css/dark.4529c04ce20ceac5a42e37a63e092c89354fbd00e6209bd2995100d61b71e8df.css"  disabled />
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://yukihane.github.io/">発火後忘失</a>
+	</div>
+	<nav>
+		
+		<a href="/blog">Blog</a>
+		
+		<a href="/docs">Docs</a>
+		
+		<a href="/tags">Tags</a>
+		
+		<a href="/search/">Search</a>
+		
+		<a href="https://github.com/yukihane/resume/blob/main/README.md">Resume</a>
+		
+		<button id="dark-mode-toggle" class="nav-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" type="button"><svg class="feather" viewBox="0 0 24 24" fill="none" stroke="#232333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg></button>
+		<script src="https://yukihane.github.io/js/themetoggle.js"></script>
+		
+	</nav>
+</header>
+
+<main>
+  <article class="search-page">
+    <div class="title">
+      <h1 class="title">検索</h1>
+    </div>
+
+    
+    <section class="body search-intro">
+      <p>キーワードで記事のタイトル・タグ・本文を検索できます。</p>
+
+    </section>
+    
+
+    <section
+      class="search-panel"
+      data-search-root
+      data-search-index-url="/search/index.json">
+      <label class="search-label" for="search-query">Find entries</label>
+      <input
+        id="search-query"
+        class="search-input"
+        data-search-input
+        type="search"
+        name="q"
+        autocomplete="off"
+        spellcheck="false"
+        aria-controls="search-results"
+        aria-describedby="search-help search-status"
+        placeholder="Search by title, tag, or content">
+      <p id="search-help" class="search-hint">
+        Search across your indexed content. Press <kbd>/</kbd> to focus the field.
+      </p>
+      <p id="search-status" class="search-status" data-search-status aria-live="polite">
+        Loading search index...
+      </p>
+      <ul id="search-results" class="search-results" data-search-results></ul>
+    </section>
+
+    <noscript>
+      <p class="search-status search-status-error">Search requires JavaScript to load the index and filter results.</p>
+    </noscript>
+  </article>
+</main>
+<script defer src="https://yukihane.github.io/js/search.js"></script>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/yukihane" rel="me" title="GitHub"><svg class="feather">
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
+  <div class="footer-info">
+    2026  © Yukihane, All Rights Reserved |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9J8FN5B4Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E9J8FN5B4Q');
+        }
+      </script>
+
+</div>
+    </body>
+</html>
