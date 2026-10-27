@@ -23,7 +23,7 @@ xHTML = true
 
 [markup.highlight]
 codeFences = true
-lineNos = true
+lineNos = false
 lineNumbersInTable = true
 noClasses = false
 
