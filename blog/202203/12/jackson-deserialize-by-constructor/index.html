@@ -124,38 +124,7 @@ jackson-module-parameter-names を利用すると、メソッドシグネチャ�
 </li>
 </ul>
 <p>というわけで、今 Jackson を使うなら、次のようにすれば良いです:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">com.fasterxml.jackson.annotation.JsonCreator</span><span class="p">;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">com.fasterxml.jackson.annotation.JsonCreator</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">com.fasterxml.jackson.core.JsonProcessingException</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">com.fasterxml.jackson.databind.ObjectMapper</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">com.fasterxml.jackson.module.paramnames.ParameterNamesModule</span><span class="p">;</span><span class="w">
@@ -182,57 +151,20 @@ jackson-module-parameter-names を利用すると、メソッドシグネチャ�
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>Java17 なら <code>record</code> class に置き換えられるので、 <code>Person</code> はもはや Lombok を利用しなくとも簡単に書けるようになりました:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">record</span> <span class="nc">Person</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span></code></pre></div><p>Java17 なら <code>record</code> class に置き換えられるので、 <code>Person</code> はもはや Lombok を利用しなくとも簡単に書けるようになりました:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">record</span> <span class="nc">Person</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>コンパイルオプションに、メソッドシグネチャに仮引数名を残す設定 <code>-parameters</code> を追加する必要もあります。</p>
+</span></span></span></code></pre></div><p>コンパイルオプションに、メソッドシグネチャに仮引数名を残す設定 <code>-parameters</code> を追加する必要もあります。</p>
 <p>これは、 <code>maven-compiler-plugin</code> の <a href="https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html#parameters"><code>parameters</code></a> を <code>true</code> にすることで実現できます。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;plugin&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;plugin&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;version&gt;</span>3.10.1<span class="nt">&lt;/version&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;configuration&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;parameters&gt;</span>true<span class="nt">&lt;/parameters&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/configuration&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>プラグインのバージョンが古い(<code>3.6.2</code> 未満)場合はこのオプションが無いので、代わりに <a href="https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html#compilerArgs"><code>compilerArgs</code></a> で設定します。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;plugin&gt;</span>
+</span></span></code></pre></div><p>プラグインのバージョンが古い(<code>3.6.2</code> 未満)場合はこのオプションが無いので、代わりに <a href="https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html#compilerArgs"><code>compilerArgs</code></a> で設定します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;plugin&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;version&gt;</span>3.5.1<span class="nt">&lt;/version&gt;</span>
@@ -242,9 +174,7 @@ jackson-module-parameter-names を利用すると、メソッドシグネチャ�
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;/compilerArgs&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/configuration&gt;</span>
 </span></span><span class="line"><span class="cl">    ...
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>関連:</p>
+</span></span></code></pre></div><p>関連:</p>
 <ul>
 <li>
 <p><a href="/blog/202002/20/spring-boot-compiler-parameters/">Spring Bootでは -parameters オプションは有効化されている </a></p>

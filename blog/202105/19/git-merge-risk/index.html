@@ -82,38 +82,7 @@ Gitのワークフローについての私のスタンス | おそらくはそ�
 </ul>
 <p>大局としては同意なのですが、ミクロな点では、 <code>rebase</code> 恐怖症というか、 <code>merge</code> を信頼し過ぎているというか、少し私とは意見が異なると感じました。 そして、上記のblogのような意見が多数派ではないかと思いますので、改めて <code>merge</code> の怖いところを具体例で示したいと思います。</p>
 <p>次のようにGitを操作してみてください。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
 </span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nb">set</span> -eux
 </span></span><span class="line"><span class="cl">
@@ -140,9 +109,7 @@ Gitのワークフローについての私のスタンス | おそらくはそ�
 </span></span><span class="line"><span class="cl">git -c core.editor<span class="o">=</span>/bin/true merge --continue
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">git checkout -- .
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>git-log</code> や履歴グラフでは <code>feature</code> で行った変更が <code>master</code> にマージされているように見えます。 が、実際にはそうなっておらず、 <code>master</code> では <code>feature</code> で削除した <code>hello.txt</code> が存在しています。</p>
+</span></span></code></pre></div><p><code>git-log</code> や履歴グラフでは <code>feature</code> で行った変更が <code>master</code> にマージされているように見えます。 が、実際にはそうなっておらず、 <code>master</code> では <code>feature</code> で削除した <code>hello.txt</code> が存在しています。</p>
 <p>このように、 <code>merge</code> はぱっと見と実際が異なっている場合があるので注意を要します(このようなマージは、悪意が無くとも、 conflict が発生したときにポカミスとかでやってしまうことがあります)。</p>
 
         </section>

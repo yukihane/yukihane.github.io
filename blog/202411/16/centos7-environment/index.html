@@ -97,39 +97,18 @@ scoop でインストールしました。" />
 <li><a href="https://zenn.dev/oto/articles/8dbdb48d9a10ce#hyper-v-administrators%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AB%E5%85%A5%E3%82%8C%E3%82%8B">hyper-v + vagrant環境構築 &gt; Hyper-V Administratorsグループに入れる</a></li>
 </ul>
 <p>で説明されている通り、自分を <strong>Hyper-V Administrators</strong> グループに追加しました。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-pwsh" data-lang="pwsh"><span class="line"><span class="cl"><span class="nb">Add-LocalGroupMember</span> <span class="n">-Group</span> <span class="s2">&#34;Hyper-V Administrators&#34;</span> <span class="n">-Member</span> <span class="n">yukihane</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(<code>yukihane</code> というのが私のアカウント名です)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-pwsh" data-lang="pwsh"><span class="line"><span class="cl"><span class="nb">Add-LocalGroupMember</span> <span class="n">-Group</span> <span class="s2">&#34;Hyper-V Administrators&#34;</span> <span class="n">-Member</span> <span class="n">yukihane</span>
+</span></span></code></pre></div><p>(<code>yukihane</code> というのが私のアカウント名です)</p>
 <p>設定有効化にはOSの再起動が必要なようでした。</p>
 <h3 id="vagrant-1">Vagrant</h3>
 <p><a href="https://portal.cloud.hashicorp.com/vagrant/discover/centos/7">centos/7</a> のboxを利用することにしました。<br />
 (これって信頼している人が作ったものだというのをどうやったら確認できるんだっけ？)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vagrant init centos/7 --box-version 2004.01
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="実行">実行</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vagrant init centos/7 --box-version 2004.01
+</span></span></code></pre></div><h2 id="実行">実行</h2>
 <h3 id="仮想マシン起動">仮想マシン起動</h3>
 <p>自動的に適切なプロバイダーが選ばれるはずなのですが、起動しなかったので明示的にプロバイダーを指定しています。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vagrant up --provider<span class="o">=</span>hyperv
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>そうすると次のエラーが出て起動しませんでした:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vagrant up --provider<span class="o">=</span>hyperv
+</span></span></code></pre></div><p>そうすると次のエラーが出て起動しませんでした:</p>
 <pre tabindex="0"><code>Bringing machine &#39;default&#39; up with &#39;hyperv&#39; provider...
 ==&gt; default: Verifying Hyper-V is enabled...
 The Hyper-V cmdlets for PowerShell are not available! Vagrant
@@ -142,44 +121,21 @@ requires these to control Hyper-V. Please enable them in the
 </ul>
 <p>私の環境では部分的にしか(?)Hyper-Vが有効になっていなかったのが原因のようでした。<br />
 次のコマンドを実行後再起動することで <code>vagrant up</code> がうまく動くようになりました。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-pwsh" data-lang="pwsh"><span class="line"><span class="cl"><span class="nb">Enable-WindowsOptionalFeature</span> <span class="n">-Online</span> <span class="n">-FeatureName</span> <span class="nb">Microsoft-Hyper</span><span class="n">-V</span> <span class="n">-All</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-pwsh" data-lang="pwsh"><span class="line"><span class="cl"><span class="nb">Enable-WindowsOptionalFeature</span> <span class="n">-Online</span> <span class="n">-FeatureName</span> <span class="nb">Microsoft-Hyper</span><span class="n">-V</span> <span class="n">-All</span>
+</span></span></code></pre></div><ul>
 <li>ref. <a href="https://developer.hashicorp.com/vagrant/docs/providers/hyperv">Hyper-V Provider | Vagrant | HashiCorp Developer</a></li>
 </ul>
 <h2 id="centos-初期セットアップ">CentOS 初期セットアップ</h2>
 <h3 id="yum-リポジトリー設定">Yum リポジトリー設定</h3>
 <p>CentOS7はEOLを迎え、デフォルトで設定されているリポジトリーはもはや接続できなくなっており、 <code>yum</code> コマンドが利用できません。<br />
 これを修復します。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vagrant ssh
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>で仮想マシンに入ります。<br />
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vagrant ssh
+</span></span></code></pre></div><p>で仮想マシンに入ります。<br />
 以下、仮想マシン内での操作です。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -L -O https://gist.githubusercontent.com/yukihane/5c8ad63ee07c51893d9cae4050d05372/raw/7796d9af0c9e3f162101cca7327b65f7266e9b84/replace-centos7-repo.sh
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -L -O https://gist.githubusercontent.com/yukihane/5c8ad63ee07c51893d9cae4050d05372/raw/7796d9af0c9e3f162101cca7327b65f7266e9b84/replace-centos7-repo.sh
 </span></span><span class="line"><span class="cl">sudo bash ./replace-centos7-repo.sh
 </span></span><span class="line"><span class="cl">sudo yum update -y
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>次のQiitaエントリーに記載されているスクリプトを <a href="https://gist.github.com/yukihane/5c8ad63ee07c51893d9cae4050d05372">gist</a> からダウンロードして実行しています。</p>
+</span></span></code></pre></div><p>次のQiitaエントリーに記載されているスクリプトを <a href="https://gist.github.com/yukihane/5c8ad63ee07c51893d9cae4050d05372">gist</a> からダウンロードして実行しています。</p>
 <p>-ref. <a href="https://qiita.com/owayo/items/81c843fb11d27b217433">緊急対応！CentOS 7 サポート終了後のyumエラー解消法 - Qiita</a></p>
 <p>以上でCentOS7実行環境が用意できました。</p>
 <!--

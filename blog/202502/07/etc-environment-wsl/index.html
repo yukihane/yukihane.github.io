@@ -89,15 +89,8 @@ PATHが通っていないからかな？と思い <code>/etc/environment</code> 
 </ul>
 <p>WSL2特有の事情で <code>/etc/environment</code> が読まれないそうです。</p>
 <p>色々workaroundが提示されていたりもしますが、素直に <code>.bashrc</code> などでPATHを追加すれば良いでしょう。たとえばsnapのコマンドを使いたい場合は、<code>~/.bashrc</code> の末尾に次のように追記します:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;/snap/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>追記したら、新しいシェルを開くか、現在のシェルで <code>source ~/.bashrc</code> を実行すれば反映されます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;/snap/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
+</span></span></code></pre></div><p>追記したら、新しいシェルを開くか、現在のシェルで <code>source ~/.bashrc</code> を実行すれば反映されます。</p>
 
         </section>
         <div class="post-tags">

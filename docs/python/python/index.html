@@ -78,67 +78,32 @@ pip を使い、非rootでインストールするには --user オプション�
 <h2 id="pip">pip</h2>
 <p><code>pip</code> を使い、非rootでインストールするには <code>--user</code> オプションを付ける。 このオプションをつけると <code>~/.local</code> 以下にインストールされる。</p>
 <p>ただ、 <code>pip</code> のアップグレードは</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip install --user --upgrade pip
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>とせず、 <code>--user</code> を付けなくても <code>~/.local</code> にインストールされた。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip install --user --upgrade pip
+</span></span></code></pre></div><p>とせず、 <code>--user</code> を付けなくても <code>~/.local</code> にインストールされた。</p>
 <h2 id="環境変数">環境変数</h2>
 <p>前述の通り <code>pip</code> を使うと <code>~/.local/bin</code> に実行ファイルがインストールされるので、ここにPATHを通しておく。</p>
 <h1 id="unixコマンド実行-subprocess">UNIXコマンド実行 subprocess</h1>
 <ul>
 <li><a href="https://docs.python.jp/3/library/subprocess.html">https://docs.python.jp/3/library/subprocess.html</a></li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">subprocess</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">subprocess</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">proc</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span> <span class="s1">&#39;-l&#39;</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="n">text</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h1 id="標準入力">標準入力</h1>
+</span></span></code></pre></div><h1 id="標準入力">標準入力</h1>
 <p><a href="http://docs.python.jp/3.5/library/sys.html">sys.stdin</a> か <a href="http://docs.python.jp/3.5/library/fileinput.html#module-fileinput">fileinput.input()</a> を使用する？</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="k">with</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>とすればストリーム的に扱えたが、正しい利用法なのか確証がない(ドキュメントに書かれているのを見つけられていない)。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="k">with</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span></code></pre></div><p>とすればストリーム的に扱えたが、正しい利用法なのか確証がない(ドキュメントに書かれているのを見つけられていない)。</p>
 <h1 id="正規表現">正規表現</h1>
 <ul>
 <li><a href="https://docs.python.jp/3/library/re.html">https://docs.python.jp/3/library/re.html</a></li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&#34;xxx&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="k">match</span><span class="p">(</span><span class="n">target_text</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>`match`あるいは`search`が使用できる。</p>
+</span></span></code></pre></div><p>`match`あるいは`search`が使用できる。</p>
 <h1 id="データ構造">データ構造</h1>
 <ul>
 <li>

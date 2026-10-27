@@ -5,20 +5,10 @@
 	<meta name="description" content="プロジェクトのセットアップ
 手順
 Mavenを用い、次のコマンドで pom.xml を生成する。
-
-
-1
-2
-3
-4
-
-
 mvn archetype:generate \
    -DarchetypeGroupId=net.ltgt.gwt.archetypes \
    -DarchetypeVersion=2017.10.20 \
    -DarchetypeArtifactId=modular-webapp
-
-
 備考
 
 
@@ -33,7 +23,7 @@ mvn archetype:generate \
 	<meta property="og:site_name" content="発火後忘失">
 	<meta property="og:title" content="GWT">
 	<meta property="og:description" content="プロジェクトのセットアップ 手順 Mavenを用い、次のコマンドで pom.xml を生成する。
-1 2 3 4 mvn archetype:generate \ -DarchetypeGroupId=net.ltgt.gwt.archetypes \ -DarchetypeVersion=2017.10.20 \ -DarchetypeArtifactId=modular-webapp 備考 オフィシャルサイトにはAntでのセットアップ方法が書かれているが、この方法は古いため用いない方が良い。
+mvn archetype:generate \ -DarchetypeGroupId=net.ltgt.gwt.archetypes \ -DarchetypeVersion=2017.10.20 \ -DarchetypeArtifactId=modular-webapp 備考 オフィシャルサイトにはAntでのセットアップ方法が書かれているが、この方法は古いため用いない方が良い。
 現在ではMavenを用いるのが良い。gwt pluginは2つ並行で開発されていたことがあるが、そのうちの一方 mojo GWT maven pluginは自身をレガシーと呼び、もう一方を使用することを推奨している。">
 	<meta property="og:locale" content="ja_jp">
 	<meta property="og:type" content="article">
@@ -44,7 +34,7 @@ mvn archetype:generate \
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="GWT">
 	<meta name="twitter:description" content="プロジェクトのセットアップ 手順 Mavenを用い、次のコマンドで pom.xml を生成する。
-1 2 3 4 mvn archetype:generate \ -DarchetypeGroupId=net.ltgt.gwt.archetypes \ -DarchetypeVersion=2017.10.20 \ -DarchetypeArtifactId=modular-webapp 備考 オフィシャルサイトにはAntでのセットアップ方法が書かれているが、この方法は古いため用いない方が良い。
+mvn archetype:generate \ -DarchetypeGroupId=net.ltgt.gwt.archetypes \ -DarchetypeVersion=2017.10.20 \ -DarchetypeArtifactId=modular-webapp 備考 オフィシャルサイトにはAntでのセットアップ方法が書かれているが、この方法は古いため用いない方が良い。
 現在ではMavenを用いるのが良い。gwt pluginは2つ並行で開発されていたことがあるが、そのうちの一方 mojo GWT maven pluginは自身をレガシーと呼び、もう一方を使用することを推奨している。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -101,21 +91,11 @@ mvn archetype:generate \
           <h1 id="プロジェクトのセットアップ">プロジェクトのセットアップ</h1>
 <h2 id="手順">手順</h2>
 <p>Mavenを用い、次のコマンドで <code>pom.xml</code> を生成する。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mvn archetype:generate <span class="se">\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mvn archetype:generate <span class="se">\
 </span></span></span><span class="line"><span class="cl">   -DarchetypeGroupId<span class="o">=</span>net.ltgt.gwt.archetypes <span class="se">\
 </span></span></span><span class="line"><span class="cl">   -DarchetypeVersion<span class="o">=</span>2017.10.20 <span class="se">\
 </span></span></span><span class="line"><span class="cl">   -DarchetypeArtifactId<span class="o">=</span>modular-webapp
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="備考">備考</h2>
+</span></span></code></pre></div><h2 id="備考">備考</h2>
 <ul>
 <li>
 <p><a href="http://www.gwtproject.org/gettingstarted.html">オフィシャルサイト</a>にはAntでのセットアップ方法が書かれているが、この方法は古いため用いない方が良い。</p>
@@ -143,35 +123,18 @@ mvn archetype:generate \
 <p>またSencha社は独自のMavenリポジトリ <a href="https://maven.sencha.com/repo/webapp/browserepo.html">https://maven.sencha.com/repo/webapp/browserepo.html</a> を持っている(が、商用プロダクトを購入しないなら不要だろう)。</p>
 <h1 id="maven-archetype">Maven archetype</h1>
 <p><a href="https://gwt-maven-plugin.github.io/gwt-maven-plugin/user-guide/archetype.html">Mojo’s Maven Plugin for GWT – GWT Archetype</a></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> mvn archetype:generate <span class="se">\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> mvn archetype:generate <span class="se">\
 </span></span></span><span class="line"><span class="cl">   -DarchetypeGroupId<span class="o">=</span>org.codehaus.mojo <span class="se">\
 </span></span></span><span class="line"><span class="cl">   -DarchetypeArtifactId<span class="o">=</span>gwt-maven-plugin <span class="se">\
 </span></span></span><span class="line"><span class="cl">   -DarchetypeVersion<span class="o">=</span>2.7.0
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>gxtを組み込むにはhttps://docs.sencha.com/gxt/3.x/guides/getting_started/Getting_Started.html#getting_started-<em>-Getting_Started</em>-_getting_started_general_configuration[gxtのマニュアル Getting started general configuration]参照。</p>
+</span></span></code></pre></div><p>gxtを組み込むにはhttps://docs.sencha.com/gxt/3.x/guides/getting_started/Getting_Started.html#getting_started-<em>-Getting_Started</em>-_getting_started_general_configuration[gxtのマニュアル Getting started general configuration]参照。</p>
 <p><code>pom.xml</code> にdependencyを追加すること(ちなみにGPL版の3.x最新バージョンは3.1.1なので例の通りのバージョン指定では駄目)、 <code>[module名].gwt.xml</code> にinheritを追加する。</p>
 <p><a href="https://docs.sencha.com/gxt/3.x/guides/getting_started/maven/Archetypes.html">最初からGXTが使えるarchetype</a>もあるようだが使用したことはない。</p>
 <h1 id="実行">実行</h1>
 <h2 id="superdevmode">SuperDevMode</h2>
 <p>昔は普通のDevModeというのがあり、これを本プラグインのドキュメントではClassicと呼んでいるが、既にdeprecatedな仕様であり気にする必要はない。 <a href="https://gwt-maven-plugin.github.io/gwt-maven-plugin/run-mojo.html">https://gwt-maven-plugin.github.io/gwt-maven-plugin/run-mojo.html</a></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mvn process-classes war:exploded gwt:run
-</span></span></code></pre></td></tr></table>
-</div>
-</div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mvn process-classes war:exploded gwt:run
+</span></span></code></pre></div>
         </section>
         <div class="post-tags">
           

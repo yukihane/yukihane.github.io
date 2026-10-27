@@ -101,20 +101,7 @@ Rust(1.41.0)と Java(<a href="https://jdk.java.net/panama/">14-panama</a>)を使
 <h2 id="実装">実装</h2>
 <p>ハローワールド案件です。Java で処理を要求&amp;結果を受け取る、Rust では要求された処理を行って結果を返します。</p>
 <p>まず Rust 側。<code>name</code>を受け取って文字列連結して<code>message</code>として返します。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="cp">#[no_mangle]</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="cp">#[no_mangle]</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="k">pub</span><span class="w"> </span><span class="k">unsafe</span><span class="w"> </span><span class="k">extern</span><span class="w"> </span><span class="s">&#34;C&#34;</span><span class="w"> </span><span class="k">fn</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span>: <span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">c_char</span><span class="p">,</span><span class="w"> </span><span class="n">message</span>: <span class="o">*</span><span class="k">mut</span><span class="w"> </span><span class="n">c_char</span><span class="p">,</span><span class="w"> </span><span class="n">count</span>: <span class="nc">size_t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CStr</span>::<span class="n">from_ptr</span><span class="p">(</span><span class="n">name</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">.</span><span class="n">to_str</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
@@ -123,49 +110,19 @@ Rust(1.41.0)と Java(<a href="https://jdk.java.net/panama/">14-panama</a>)を使
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">message</span><span class="p">.</span><span class="n">copy_from</span><span class="p">(</span><span class="n">text</span><span class="p">.</span><span class="n">as_ptr</span><span class="p">(),</span><span class="w"> </span><span class="n">count</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>上の関数に対応する C ヘッダファイルを生成します。<br />
+</span></span></span></code></pre></div><p>上の関数に対応する C ヘッダファイルを生成します。<br />
 <a href="https://github.com/eqrion/cbindgen">cbindgen</a>というツールで自動生成できました。</p>
 <pre><code>cbindgen -l c -o bridges/greeter.h librust
 </code></pre>
 <p>自動生成したそのままでも使えると思うのですが、冗長だと思ったので、今回は不要部分を削って commit してしまっています。</p>
 <p>続いてヘッダファイルと cdylib から<code>jextract</code>を用いてプロパナ の glue 部分を自動生成します。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">jextract <span class="se">\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">jextract <span class="se">\
 </span></span></span><span class="line"><span class="cl">-L librust/target/release/ <span class="se">\
 </span></span></span><span class="line"><span class="cl">-l greeter <span class="se">\
 </span></span></span><span class="line"><span class="cl">-o bridges/greeter.jar <span class="se">\
 </span></span></span><span class="line"><span class="cl">./bridges/greeter.h
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>上記で生成された jar を利用して Rust 呼び出し部分を Java で実装します。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">final</span><span class="w"> </span><span class="n">JButton</span><span class="w"> </span><span class="n">greetButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JButton</span><span class="p">(</span><span class="s">&#34;greet&#34;</span><span class="p">);</span><span class="w">
+</span></span></code></pre></div><p>上記で生成された jar を利用して Rust 呼び出し部分を Java で実装します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">final</span><span class="w"> </span><span class="n">JButton</span><span class="w"> </span><span class="n">greetButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JButton</span><span class="p">(</span><span class="s">&#34;greet&#34;</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="n">greetButton</span><span class="p">.</span><span class="na">addActionListener</span><span class="p">((</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">Scope</span><span class="w"> </span><span class="n">scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Scope</span><span class="p">.</span><span class="na">globalScope</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -178,9 +135,7 @@ Rust(1.41.0)と Java(<a href="https://jdk.java.net/panama/">14-panama</a>)を使
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">retval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pointer</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">message</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">outputField</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">retval</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">});</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>以上。</p>
+</span></span></span></code></pre></div><p>以上。</p>
 
         </section>
         <div class="post-tags">

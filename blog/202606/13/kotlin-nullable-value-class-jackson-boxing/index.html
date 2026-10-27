@@ -88,70 +88,26 @@ Kotlin で ID 系の型安全性を担保するために、こういう value cl
 <hr />
 <h2 id="何が起きたか">何が起きたか</h2>
 <p>Kotlin で ID 系の型安全性を担保するために、こういう value class を定義しているプロジェクトは多いと思います。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@JvmInline</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@JvmInline</span>
 </span></span><span class="line"><span class="cl"><span class="k">value</span> <span class="k">class</span> <span class="nc">UserId</span><span class="p">(</span><span class="k">private</span> <span class="k">val</span> <span class="py">value</span><span class="p">:</span> <span class="n">UUID</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">override</span> <span class="k">fun</span> <span class="nf">toString</span><span class="p">()</span> <span class="p">=</span> <span class="k">value</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>これを REST API の Response model でそのまま露出します。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="k">data</span> <span class="k">class</span> <span class="nc">UserResponse</span><span class="p">(</span>
+</span></span></code></pre></div><p>これを REST API の Response model でそのまま露出します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="k">data</span> <span class="k">class</span> <span class="nc">UserResponse</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">userId</span><span class="p">:</span> <span class="n">UserId</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>jackson-module-kotlin</code> の <code>registerKotlinModule()</code> を効かせていれば、<code>@JvmInline value class</code> は auto-unwrap されて中身の値だけで serialize されます。<code>userId</code> は <code>&quot;01HW...UUID...&quot;</code> の文字列で出ます。ここまでは想定通りです。</p>
+</span></span></code></pre></div><p><code>jackson-module-kotlin</code> の <code>registerKotlinModule()</code> を効かせていれば、<code>@JvmInline value class</code> は auto-unwrap されて中身の値だけで serialize されます。<code>userId</code> は <code>&quot;01HW...UUID...&quot;</code> の文字列で出ます。ここまでは想定通りです。</p>
 <p>ところがプロパティを <strong>nullable</strong> にした瞬間、挙動が変わります。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="k">data</span> <span class="k">class</span> <span class="nc">CommentResponse</span><span class="p">(</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="k">data</span> <span class="k">class</span> <span class="nc">CommentResponse</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">commentId</span><span class="p">:</span> <span class="n">CommentId</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">replyToId</span><span class="p">:</span> <span class="n">CommentId</span><span class="p">?,</span> <span class="c1">// ← nullable
 </span></span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>replyToId</code> が non-null のとき、期待していたのは:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span> <span class="nt">&#34;commentId&#34;</span><span class="p">:</span> <span class="s2">&#34;01HW...&#34;</span><span class="p">,</span> <span class="nt">&#34;replyToId&#34;</span><span class="p">:</span> <span class="s2">&#34;01HX...&#34;</span> <span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>実際に出るのは:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span> <span class="nt">&#34;commentId&#34;</span><span class="p">:</span> <span class="s2">&#34;01HW...&#34;</span><span class="p">,</span> <span class="nt">&#34;replyToId&#34;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="s2">&#34;01HX...&#34;</span> <span class="p">}</span> <span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>フロントエンド側で <code>z.string().nullish()</code> のような Zod schema を当てていると、当然 parse に失敗します。</p>
+</span></span></code></pre></div><p><code>replyToId</code> が non-null のとき、期待していたのは:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span> <span class="nt">&#34;commentId&#34;</span><span class="p">:</span> <span class="s2">&#34;01HW...&#34;</span><span class="p">,</span> <span class="nt">&#34;replyToId&#34;</span><span class="p">:</span> <span class="s2">&#34;01HX...&#34;</span> <span class="p">}</span>
+</span></span></code></pre></div><p>実際に出るのは:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span> <span class="nt">&#34;commentId&#34;</span><span class="p">:</span> <span class="s2">&#34;01HW...&#34;</span><span class="p">,</span> <span class="nt">&#34;replyToId&#34;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="s2">&#34;01HX...&#34;</span> <span class="p">}</span> <span class="p">}</span>
+</span></span></code></pre></div><p>フロントエンド側で <code>z.string().nullish()</code> のような Zod schema を当てていると、当然 parse に失敗します。</p>
 <hr />
 <h2 id="なぜ起きるか">なぜ起きるか</h2>
 <p>Kotlin の inline / value class は、コンパイル後に「可能なら」underlying value 1個に展開されます。ただしこれは <strong>non-null 文脈に限った最適化</strong> で、nullable にした瞬間に Kotlin コンパイラは実行時に wrapper object として box する必要があります（null と underlying value の <code>0</code> を区別できないため）。</p>
@@ -174,19 +130,7 @@ Kotlin で ID 系の型安全性を担保するために、こういう value cl
 <hr />
 <h2 id="推奨される回避策-getjsonvalue">推奨される回避策: <code>@get:JsonValue</code></h2>
 <p>公式 docs もワークアラウンドとして案内しているのが <code>@JsonValue</code> の付与です。value class の underlying プロパティに付けます。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">com.fasterxml.jackson.annotation.JsonValue</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">com.fasterxml.jackson.annotation.JsonValue</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nd">@JvmInline</span>
 </span></span><span class="line"><span class="cl"><span class="k">value</span> <span class="k">class</span> <span class="nc">UserId</span><span class="p">(</span>
@@ -194,9 +138,7 @@ Kotlin で ID 系の型安全性を担保するために、こういう value cl
 </span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">override</span> <span class="k">fun</span> <span class="nf">toString</span><span class="p">()</span> <span class="p">=</span> <span class="k">value</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>ポイントは2つです。</p>
+</span></span></code></pre></div><p>ポイントは2つです。</p>
 <ol>
 <li><strong><code>@get:</code> 接頭辞が必須</strong> — value class の primary constructor プロパティに直接 <code>@JsonValue</code> を付けても getter には伝播しません。<code>@get:</code> で明示的に getter にアノテーションを付ける必要があります。</li>
 <li><code>@JsonValue</code> は「このクラスを serialize するときは、このプロパティ単体の値で表現する」と Jackson に伝えるアノテーションです。auto-unwrap の有無に関わらず、nullable / non-null 問わず一貫して中の値だけが出ます。</li>
@@ -238,21 +180,11 @@ Kotlin で ID 系の型安全性を担保するために、こういう value cl
 <hr />
 <h2 id="デシリアライズ側について">デシリアライズ側について</h2>
 <p>Jackson 2.17+ で value class の deserialization もサポートされましたが、Request body で受ける用途があるなら <code>@JsonCreator</code> を value class に付けておくとより堅いです。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@JvmInline</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@JvmInline</span>
 </span></span><span class="line"><span class="cl"><span class="k">value</span> <span class="k">class</span> <span class="nc">UserId</span> <span class="nd">@JsonCreator</span><span class="p">(</span><span class="n">mode</span> <span class="p">=</span> <span class="nc">JsonCreator</span><span class="p">.</span><span class="nc">Mode</span><span class="p">.</span><span class="n">DELEGATING</span><span class="p">)</span> <span class="k">constructor</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@get</span><span class="p">:</span><span class="n">JsonValue</span> <span class="k">private</span> <span class="k">val</span> <span class="py">value</span><span class="p">:</span> <span class="n">UUID</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><hr />
+</span></span></code></pre></div><hr />
 <h2 id="まとめ">まとめ</h2>
 <ul>
 <li>nullable な <code>@JvmInline value class</code> プロパティは Jackson の auto-unwrap が効かず <code>{&quot;value&quot;:&quot;...&quot;}</code> として box されます。</li>

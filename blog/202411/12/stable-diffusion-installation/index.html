@@ -90,17 +90,9 @@ Windows11へStable Diffusionをインストールしたときの作業ログで�
 <li>ref: <a href="https://github.com/pyenv-win/pyenv-win/issues/449">scoop-installed pyenv install fails with &rsquo;error installing &ldquo;core&rdquo; component MSI&rsquo; #449</a></li>
 </ul>
 <p>Pythonのバージョンは <code>3.10.6</code> を使えとREADMEにあるので、このバージョンをインストールします:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pyenv update
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pyenv update
 </span></span><span class="line"><span class="cl">pyenv install 3.10.6
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>デフォルトの <code>python</code> コマンドが利用されるのを停止します。READMEにある次の文章に相当する作業です:</p>
+</span></span></code></pre></div><p>デフォルトの <code>python</code> コマンドが利用されるのを停止します。READMEにある次の文章に相当する作業です:</p>
 <blockquote>
 <p>NOTE: If you are running Windows 10 1905 or newer, you might need to disable the built-in Python launcher via Start &gt; &ldquo;Manage App Execution Aliases&rdquo; and turning off the &ldquo;App Installer&rdquo; aliases for Python</p>
 </blockquote>
@@ -113,45 +105,13 @@ Windows11へStable Diffusionをインストールしたときの作業ログで�
 <p>Gitはインストール済み。<br />
 Git Bash上で作業します。<br />
 stable-diffusion-webui リポジトリーをclone:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone git@github.com:AUTOMATIC1111/stable-diffusion-webui.git
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="python呼び出し方法編集">Python呼び出し方法編集</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> stable-diffusion-webui
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone git@github.com:AUTOMATIC1111/stable-diffusion-webui.git
+</span></span></code></pre></div><h3 id="python呼び出し方法編集">Python呼び出し方法編集</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> stable-diffusion-webui
 </span></span><span class="line"><span class="cl">pyenv <span class="nb">local</span> 3.10.6
 </span></span><span class="line"><span class="cl">python -V <span class="c1"># バージョン確認</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>利用したいバージョンの <code>python</code> が使われることを確認したら、 <code>webui-user.bat</code> を次の通り編集します:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="cl"><span class="gh">diff --git a/webui-user.bat b/webui-user.bat
+</span></span></code></pre></div><p>利用したいバージョンの <code>python</code> が使われることを確認したら、 <code>webui-user.bat</code> を次の通り編集します:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="cl"><span class="gh">diff --git a/webui-user.bat b/webui-user.bat
 </span></span></span><span class="line"><span class="cl"><span class="gh">index e5a257be..0ce2cfd4 100644
 </span></span></span><span class="line"><span class="cl"><span class="gd">--- a/webui-user.bat
 </span></span></span><span class="line"><span class="cl"><span class="gi">+++ b/webui-user.bat
@@ -163,9 +123,7 @@ stable-diffusion-webui リポジトリーをclone:</p>
 </span></span></span><span class="line"><span class="cl"> set GIT=
 </span></span><span class="line"><span class="cl"> set VENV_DIR=
 </span></span><span class="line"><span class="cl"> set COMMANDLINE_ARGS=
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+</span></span></code></pre></div><ul>
 <li>ref: <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues/16205#issuecomment-2250949619">[Bug]: Calling webui-user.bat hangs because python commands are not called with &lsquo;call&rsquo; statement #16205</a></li>
 </ul>
 <h3 id="実行">実行</h3>

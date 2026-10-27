@@ -89,19 +89,10 @@
 <p>今回は <code>zsh</code> を使ってみるので <code>chsh -s /usr/local/bin/zsh</code></p>
 <p><code>.zshrc</code> は <a href="http://mollifier.hatenablog.com/entry/2013/02/22/025415">こちら</a> で紹介されている <a href="https://gist.github.com/mollifier/4979906">https://gist.github.com/mollifier/4979906</a> を採用。</p>
 <p>追加で <a href="http://d.hatena.ne.jp/littlebuddha/20090216/1234785251">さくらの共有サーバーでシェルを zsh に変更してから、zsh: permission denied: /var/mail/youraccount と怒られないようにする - make world</a> の設定も行う。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">% vi ~/.zshrc
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">% vi ~/.zshrc
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">MAILCHECK</span><span class="o">=</span><span class="m">0</span>
 </span></span><span class="line"><span class="cl">% <span class="nb">source</span> ~/.zshrc
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h1 id="ubuntuのbashdashには-bash_source-はない">Ubuntuのbash(dash)には BASH_SOURCE はない</h1>
+</span></span></code></pre></div><h1 id="ubuntuのbashdashには-bash_source-はない">Ubuntuのbash(dash)には BASH_SOURCE はない</h1>
 <p>Bad substitution などと言われてしまう。</p>
 <p><a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html">5.2 BBash Reference Manual: Bash Variables</a>:</p>
 <blockquote>

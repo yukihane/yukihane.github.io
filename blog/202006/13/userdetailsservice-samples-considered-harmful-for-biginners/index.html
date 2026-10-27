@@ -140,20 +140,7 @@
 <p>続いて色々基本的な設定を加えていくよ。</p>
 <h3 id="依存ライブラリの追加">依存ライブラリの追加</h3>
 <p>参考元に書いてある通り、今回のサンプルでは次のライブラリが追加で必要なので<code>pom.xml</code>の<code>dependencies</code>に追加します:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml:pom.xml" data-lang="xml:pom.xml"><span class="line"><span class="cl">    <span class="nt">&lt;dependency&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml:pom.xml" data-lang="xml:pom.xml"><span class="line"><span class="cl">    <span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;groupId&gt;</span>javax.xml.bind<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;artifactId&gt;</span>jaxb-api<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependency&gt;</span>
@@ -162,36 +149,13 @@
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;artifactId&gt;</span>java-jwt<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;version&gt;</span>3.10.3<span class="nt">&lt;/version&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependency&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="sql-ログ出力">SQL ログ出力</h3>
+</span></span></code></pre></div><h3 id="sql-ログ出力">SQL ログ出力</h3>
 <p>インメモリ DB 使うのでホンマに DB に入ってんの？とか気になると思うので SQL をログ出力するようにしときます。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-properties:src/main/resources/application.properties" data-lang="properties:src/main/resources/application.properties"><span class="line"><span class="cl"><span class="na">logging.level.org.hibernate.SQL</span><span class="o">=</span><span class="s">DEBUG</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-properties:src/main/resources/application.properties" data-lang="properties:src/main/resources/application.properties"><span class="line"><span class="cl"><span class="na">logging.level.org.hibernate.SQL</span><span class="o">=</span><span class="s">DEBUG</span>
 </span></span><span class="line"><span class="cl"><span class="na">logging.level.org.hibernate.type.descriptor.sql.BasicBinder</span><span class="o">=</span><span class="s">TRACE</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="userdetailsservice-の-auto-configuration-を無効化">UserDetailsService の auto-configuration を無効化</h3>
+</span></span></code></pre></div><h3 id="userdetailsservice-の-auto-configuration-を無効化">UserDetailsService の auto-configuration を無効化</h3>
 <p>今回の目玉、<code>UserDetailsService</code>を使わない、を確実にするために<code>UserDetailsServiceAutoConfiguration</code>を disable します。デフォルトだと良い感じに設定されちゃってるので、使ってないつもりで使ってた、みたいなことが(SpringBoot あるある)。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java:src/main/java/com/example/springbootauthexample202006/SpringbootAuthExample202006Application.java" data-lang="java:src/main/java/com/example/springbootauthexample202006/SpringbootAuthExample202006Application.java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.springbootauthexample202006</span><span class="p">;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java:src/main/java/com/example/springbootauthexample202006/SpringbootAuthExample202006Application.java" data-lang="java:src/main/java/com/example/springbootauthexample202006/SpringbootAuthExample202006Application.java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.springbootauthexample202006</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.boot.SpringApplication</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.boot.autoconfigure.SpringBootApplication</span><span class="p">;</span><span class="w">
@@ -200,29 +164,9 @@
 </span></span></span><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span><span class="p">(</span><span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UserDetailsServiceAutoConfiguration</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SpringbootAuthExample202006Application</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">...</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="websecurityconfg-の-auto-configuration-を無効化">websecurityconfg の auto-configuration を無効化</h3>
+</span></span></span></code></pre></div><h3 id="websecurityconfg-の-auto-configuration-を無効化">websecurityconfg の auto-configuration を無効化</h3>
 <p><a href="https://qiita.com/yukihane/items/cdb7f348da9b32b2ff4d">この件</a>です。未設定の状態だと Boot 君がよしなに設定してくれちゃうんで取り敢えず次の設定をぶち込んでおきます:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java:src/main/java/com/example/springbootauthexample202006/security/MyWebSecurityConfig.java" data-lang="java:src/main/java/com/example/springbootauthexample202006/security/MyWebSecurityConfig.java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.springbootauthexample202006.security</span><span class="p">;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java:src/main/java/com/example/springbootauthexample202006/security/MyWebSecurityConfig.java" data-lang="java:src/main/java/com/example/springbootauthexample202006/security/MyWebSecurityConfig.java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.springbootauthexample202006.security</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.context.annotation.Configuration</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.security.config.annotation.web.builders.HttpSecurity</span><span class="p">;</span><span class="w">
@@ -236,53 +180,14 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">sessionManagement</span><span class="p">().</span><span class="na">sessionCreationPolicy</span><span class="p">(</span><span class="n">SessionCreationPolicy</span><span class="p">.</span><span class="na">STATELESS</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>いや空設定ちゃうんかい！<code>csrf</code>とか何やねんそれ！というツッコミについては、今回のスコープから外れるのでパス。<br />
+</span></span></span></code></pre></div><p>いや空設定ちゃうんかい！<code>csrf</code>とか何やねんそれ！というツッコミについては、今回のスコープから外れるのでパス。<br />
 画面じゃない Web API なんでこれで良いんですぅ。</p>
 <p>ここまでのコード: <a href="https://github.com/yukihane/hello-java/tree/31312e8c94530bb6f6272d0b9c6c9607a83939ec/spring/springboot-auth-example-202006">31312e8c94530bb6f6272d0b9c6c9607a83939ec</a></p>
 <h2 id="ユーザエンティティの作成">ユーザエンティティの作成</h2>
 <p>さてベースを設定し終わったので実装に入りましょう。</p>
 <p>何から作るのが自然かと聞かれたときユーザのエンティティから作ると答えるのは別に変じゃなかろうもん。<br />
 ログイン ID とかパスワードを保持するところ、最初に欲しいよね？</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.springbootauthexample202006.user</span><span class="p">;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.springbootauthexample202006.user</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">javax.persistence.Column</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">javax.persistence.Entity</span><span class="p">;</span><span class="w">
@@ -315,9 +220,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">password</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>はい。特筆すべきところが無い普通の JPA Entity クラスです。もうちょっとそれっぽく email とかの項目有っても良いんじゃないかとも一瞬考えましたが面倒なのでやめました。</p>
+</span></span></span></code></pre></div><p>はい。特筆すべきところが無い普通の JPA Entity クラスです。もうちょっとそれっぽく email とかの項目有っても良いんじゃないかとも一瞬考えましたが面倒なのでやめました。</p>
 <p>ところでいきなり余談に入るんだけれど(なので読み飛ばして OK)、<code>UserDetailsService</code>を使う場合、<code>UserDetails</code>は上記のようなユーザエンティティに実装すべきでしょうか？</p>
 <p>自分は、</p>
 <ul>
@@ -366,53 +269,7 @@
 <p>さあさ続きましてはさっきの<code>ApplicationUser</code>の永続化でございます。<br />
 まだ Spring Security 関係ないのでサクッと行きましょう。</p>
 <p>コントローラと、コントローラがつこてる<code>ApplicationUser</code>リポジトリを実装。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java:src/main/java/com/example/springbootauthexample202006/user/UserController.java" data-lang="java:src/main/java/com/example/springbootauthexample202006/user/UserController.java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.springbootauthexample202006.user</span><span class="p">;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java:src/main/java/com/example/springbootauthexample202006/user/UserController.java" data-lang="java:src/main/java/com/example/springbootauthexample202006/user/UserController.java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.springbootauthexample202006.user</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">lombok.Data</span><span class="p">;</span><span class="w">
@@ -454,21 +311,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">applicationUserRepository</span><span class="p">.</span><span class="na">findAll</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java:src/main/java/com/example/springbootauthexample202006/user/ApplicationUserRepository.java" data-lang="java:src/main/java/com/example/springbootauthexample202006/user/ApplicationUserRepository.java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.springbootauthexample202006.user</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java:src/main/java/com/example/springbootauthexample202006/user/ApplicationUserRepository.java" data-lang="java:src/main/java/com/example/springbootauthexample202006/user/ApplicationUserRepository.java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.springbootauthexample202006.user</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.data.jpa.repository.JpaRepository</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.stereotype.Repository</span><span class="p">;</span><span class="w">
@@ -476,64 +319,21 @@
 </span></span></span><span class="line"><span class="cl"><span class="nd">@Repository</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">ApplicationUserRepository</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">ApplicationUser</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>ここまでのコード: <a href="https://github.com/yukihane/hello-java/tree/916d7bed6d26787b73091725a662a39051130f04/spring/springboot-auth-example-202006">916d7bed6d26787b73091725a662a39051130f04</a></p>
+</span></span></span></code></pre></div><p>ここまでのコード: <a href="https://github.com/yukihane/hello-java/tree/916d7bed6d26787b73091725a662a39051130f04/spring/springboot-auth-example-202006">916d7bed6d26787b73091725a662a39051130f04</a></p>
 <p>ここまで実装できたら実際に動かしてみよう。<code>curl</code>を使って次を実行だ:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Content-Type: application/json&#34;</span> -X POST -d <span class="s1">&#39;{
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Content-Type: application/json&#34;</span> -X POST -d <span class="s1">&#39;{
 </span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;username&#34;: &#34;yamada&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;password&#34;: &#34;password&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s1">}&#39;</span> http://localhost:8080/users/sign-up
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>これで<code>yamada</code>君が登録された。ログにそれっぽい出力があるはずだ。あるいは、</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl http://localhost:8080/users
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>で登録ユーザ一覧が見られる。</p>
+</span></span></code></pre></div><p>これで<code>yamada</code>君が登録された。ログにそれっぽい出力があるはずだ。あるいは、</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl http://localhost:8080/users
+</span></span></code></pre></div><p>で登録ユーザ一覧が見られる。</p>
 <h3 id="パスワードのハッシュ化">パスワードのハッシュ化</h3>
 <p>(今回の流れで出すには少し細かい話なのかなと思ったのだけれど、)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl http://localhost:8080/users
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>を見て気づいたであろうか。そう！！誰も！！パスワードをハッシュ化していないのである！！</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl http://localhost:8080/users
+</span></span></code></pre></div><p>を見て気づいたであろうか。そう！！誰も！！パスワードをハッシュ化していないのである！！</p>
 <p>というわけでハッシュ化しましょう。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java:src/main/java/com/example/springbootauthexample202006/user/UserController.java" data-lang="java:src/main/java/com/example/springbootauthexample202006/user/UserController.java"><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&#34;/sign-up&#34;</span><span class="p">)</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java:src/main/java/com/example/springbootauthexample202006/user/UserController.java" data-lang="java:src/main/java/com/example/springbootauthexample202006/user/UserController.java"><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&#34;/sign-up&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">signUp</span><span class="p">(</span><span class="nd">@RequestBody</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">UserForm</span><span class="w"> </span><span class="n">form</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">PasswordEncoder</span><span class="w"> </span><span class="n">passwordEncoder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PasswordEncoderFactories</span><span class="p">.</span><span class="na">createDelegatingPasswordEncoder</span><span class="p">();</span><span class="w">
@@ -546,166 +346,48 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&#34;User sign-upped: {}&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">saved</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>ここまでのコード: <a href="https://github.com/yukihane/hello-java/tree/ec6b8045d0b007c1c6dd3eb58b31bd8b117ee362/spring/springboot-auth-example-202006">ec6b8045d0b007c1c6dd3eb58b31bd8b117ee362</a></p>
+</span></span></span></code></pre></div><p>ここまでのコード: <a href="https://github.com/yukihane/hello-java/tree/ec6b8045d0b007c1c6dd3eb58b31bd8b117ee362/spring/springboot-auth-example-202006">ec6b8045d0b007c1c6dd3eb58b31bd8b117ee362</a></p>
 <p>もう一度上に書いた<code>curl</code>コマンドを実行してみよう。今度は生パスワードでなくハッシュ化されたパスワードが DB に保存されたはずだ。</p>
 <p>ちなみにこの<code>PasswordEncoder</code>、巷のやってみた記事では次のように Bean 化しているものが多い。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyConfig</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Bean</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">PasswordEncoder</span><span class="w"> </span><span class="nf">passwordEncoder</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BCryptPasswordEncoder</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">...</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>だけどなァ、これをするとなァ、<a href="https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#authentication-password-storage-configuration">Spring Security のグローバルのデフォルト設定が置き換わ</a>っちまうんだよなァ。</p>
+</span></span></span></code></pre></div><p>だけどなァ、これをするとなァ、<a href="https://docs.spring.io/spring-security/site/docs/5.3.3.RELEASE/reference/html5/#authentication-password-storage-configuration">Spring Security のグローバルのデフォルト設定が置き換わ</a>っちまうんだよなァ。</p>
 <p>わかっててやってるなら良いんだけど、何の説明もなしにいきなり書くなら参考元のように<code>BCryptPasswordEncoder</code>を Bean 化するのが無難じゃなかろかいな。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Bean</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Bean</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">BCryptPasswordEncoder</span><span class="w"> </span><span class="nf">bCryptPasswordEncoder</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BCryptPasswordEncoder</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="セキュリティ設定">セキュリティ設定</h2>
+</span></span></span></code></pre></div><h2 id="セキュリティ設定">セキュリティ設定</h2>
 <p>ﾋｬﾊｯｰ!ついに Spring Security の時間だぜ！</p>
 <p>取り敢えず原則認証受けてないとアクセスできないように設定しよう。<br />
 ただし、上で実装したサインアップエンドポイントだけは例外だ。誰でもアクセスできなくちゃあならない。<br />
 (さもなくば、服を買いに行くための服が無い状態だ。)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java:src/main/java/com/example/springbootauthexample202006/security/MyWebSecurityConfig.java" data-lang="java:src/main/java/com/example/springbootauthexample202006/security/MyWebSecurityConfig.java"><span class="line"><span class="cl"><span class="n">http</span><span class="p">.</span><span class="na">authorizeRequests</span><span class="p">()</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java:src/main/java/com/example/springbootauthexample202006/security/MyWebSecurityConfig.java" data-lang="java:src/main/java/com/example/springbootauthexample202006/security/MyWebSecurityConfig.java"><span class="line"><span class="cl"><span class="n">http</span><span class="p">.</span><span class="na">authorizeRequests</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">antMatchers</span><span class="p">(</span><span class="n">HttpMethod</span><span class="p">.</span><span class="na">POST</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;/users/sign-up&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">permitAll</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">anyRequest</span><span class="p">().</span><span class="na">authenticated</span><span class="p">();</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>ここもまあハマりポイントとかいろいろ有ったりすると思うんだけど涙をのんで今回は詳しい話をパス！</p>
+</span></span></span></code></pre></div><p>ここもまあハマりポイントとかいろいろ有ったりすると思うんだけど涙をのんで今回は詳しい話をパス！</p>
 <p>ここまでのコード: <a href="https://github.com/yukihane/hello-java/tree/2692a5c1fc141d412777d3e9126c6f4f99727d87/spring/springboot-auth-example-202006">2692a5c1fc141d412777d3e9126c6f4f99727d87</a></p>
 <p>さて上記セキュリティ設定が済んだらもう一度上の<code>curl</code>コマンドを実行してみよう。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Content-Type: application/json&#34;</span> -X POST -d <span class="s1">&#39;{
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Content-Type: application/json&#34;</span> -X POST -d <span class="s1">&#39;{
 </span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;username&#34;: &#34;tanaka&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;password&#34;: &#34;password&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s1">}&#39;</span> http://localhost:8080/users/sign-up
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>ふむ、ユーザ登録は登録できているように見える。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl http://localhost:8080/users
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>ん？<code>403</code>に変わったぞ？となったら正解だ。自由にアクセスできないようにセキュリティ設定したんだからな！</p>
+</span></span></code></pre></div><p>ふむ、ユーザ登録は登録できているように見える。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl http://localhost:8080/users
+</span></span></code></pre></div><p>ん？<code>403</code>に変わったぞ？となったら正解だ。自由にアクセスできないようにセキュリティ設定したんだからな！</p>
 <h2 id="認証の実現">認証の実現</h2>
 <h3 id="認証フィルタ">認証フィルタ</h3>
 <p>さあそろそろヤマ場だ。<br />
 認証フィルタは冒頭「はじめに」で書いた通りリクエストをフックして認証処理を行わせるところだ。</p>
 <p>今回、敢えて自作するサンプルを選んだわけだけれども、そういう場合でも 1 から作るみたいなことはあんまりないと思う。<br />
 一番よくあるのは今回みたいに <code>UsernamePasswordAuthenticationFilter</code> を継承してカスタマイズする、みたいなものなんじゃなかろうか。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-src/main/java/com/example/springbootauthexample202006/security/JWTAuthenticationFilter.java" data-lang="src/main/java/com/example/springbootauthexample202006/security/JWTAuthenticationFilter.java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.springbootauthexample202006.security</span><span class="p">;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-src/main/java/com/example/springbootauthexample202006/security/JWTAuthenticationFilter.java" data-lang="src/main/java/com/example/springbootauthexample202006/security/JWTAuthenticationFilter.java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.springbootauthexample202006.security</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">com.auth0.jwt.algorithms.Algorithm.HMAC512</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -767,9 +449,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">res</span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="n">HEADER_STRING</span><span class="p">,</span><span class="w"> </span><span class="n">TOKEN_PREFIX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">token</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>ここまでのコード: <a href="https://github.com/yukihane/hello-java/tree/2d84598819a0574f188b57c930a06c23ff7c2db7/spring/springboot-auth-example-202006">2d84598819a0574f188b57c930a06c23ff7c2db7</a></p>
+</span></span></span></code></pre></div><p>ここまでのコード: <a href="https://github.com/yukihane/hello-java/tree/2d84598819a0574f188b57c930a06c23ff7c2db7/spring/springboot-auth-example-202006">2d84598819a0574f188b57c930a06c23ff7c2db7</a></p>
 <p>長い割に重要なポイントは 2 つだけなんだけど、</p>
 <ul>
 <li><code>getAuthenticationManager().authenticate(creds);</code> としてるのが認証プロバイダ(※次節で実装)に認証処理を委譲しているところ。フィルタがやってるのはその認証プロバイダが認証を行うのに必要な情報の抽出。</li>
@@ -779,55 +459,7 @@
 <h3 id="認証プロバイダ">認証プロバイダ</h3>
 <p>入力されたユーザ名とパスワードが DB データと一致してるか確認する、これが！これこそが！みんなの思い描く認証だ！</p>
 <p><code>UserDetailsSevice</code>使ったときのモヤモヤが晴れるだろう！この素直な実装！</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java:src/main/java/com/example/springbootauthexample202006/security/ApplicationUserAuthenticationProvider.java" data-lang="java:src/main/java/com/example/springbootauthexample202006/security/ApplicationUserAuthenticationProvider.java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.springbootauthexample202006.security</span><span class="p">;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java:src/main/java/com/example/springbootauthexample202006/security/ApplicationUserAuthenticationProvider.java" data-lang="java:src/main/java/com/example/springbootauthexample202006/security/ApplicationUserAuthenticationProvider.java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.springbootauthexample202006.security</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">com.example.springbootauthexample202006.user.ApplicationUser</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">com.example.springbootauthexample202006.user.ApplicationUserRepository</span><span class="p">;</span><span class="w">
@@ -871,34 +503,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>ここまでのコード: <a href="https://github.com/yukihane/hello-java/tree/a9478f869c84248cb7dcddff8d192878e0388810/spring/springboot-auth-example-202006">a9478f869c84248cb7dcddff8d192878e0388810</a></p>
+</span></span></span></code></pre></div><p>ここまでのコード: <a href="https://github.com/yukihane/hello-java/tree/a9478f869c84248cb7dcddff8d192878e0388810/spring/springboot-auth-example-202006">a9478f869c84248cb7dcddff8d192878e0388810</a></p>
 <h3 id="認証処理の利用設定">認証処理の利用設定</h3>
 <p>さあ、認証の実装は行ったので、後はこの実装を使うように設定変更するだけだ。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java:src/main/java/com/example/springbootauthexample202006/security/MyWebSecurityConfig.java" data-lang="java:src/main/java/com/example/springbootauthexample202006/security/MyWebSecurityConfig.java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java:src/main/java/com/example/springbootauthexample202006/security/MyWebSecurityConfig.java" data-lang="java:src/main/java/com/example/springbootauthexample202006/security/MyWebSecurityConfig.java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nd">@RequiredArgsConstructor</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyWebSecurityConfig</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">WebSecurityConfigurerAdapter</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -916,9 +524,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">http</span><span class="p">.</span><span class="na">addFilter</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">JWTAuthenticationFilter</span><span class="p">(</span><span class="n">manager</span><span class="p">));</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>ここまでのコード: <a href="https://github.com/yukihane/hello-java/tree/973f5f7a33b84ffbc2f9a069c0a9bd0b9393395c/spring/springboot-auth-example-202006">973f5f7a33b84ffbc2f9a069c0a9bd0b9393395c</a></p>
+</span></span></span></code></pre></div><p>ここまでのコード: <a href="https://github.com/yukihane/hello-java/tree/973f5f7a33b84ffbc2f9a069c0a9bd0b9393395c/spring/springboot-auth-example-202006">973f5f7a33b84ffbc2f9a069c0a9bd0b9393395c</a></p>
 <p><code>http.addFilter()</code>で使用するフィルタを登録する、ってのがこのコードの本質。<br />
 そしてフィルタが利用する認証プロバイダ(を管理する認証マネージャ)をコンストラクタで指定してるってわけ。イージーだね！</p>
 <p>当然だけど<code>PasswordEncorder</code>は sign-up でユーザ登録したときのものと同じものを使わないと検証できないよ！</p>
@@ -927,35 +533,15 @@
 <p>前述の<code>PasswordEncoder</code>もそうだけど、よくわからんけど他人のコードコピペして Bean 化しました！ってやると予期しない範囲まで波及してしまうという、これも Spring Boot あるあるだね！</p>
 <p>閑話休題。あとここで言っとくべきことは、フィルタの適用順って重要、ってことなんだけど、今回のサンプルではもう 1 個フィルタ追加するのでそんときに説明します。</p>
 <p>さあさあ！ついに認証処理を通るリクエストが投げられるようになりましたよ！サインアップしてログインしてみよう！</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Content-Type: application/json&#34;</span> -X POST -d <span class="s1">&#39;{
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Content-Type: application/json&#34;</span> -X POST -d <span class="s1">&#39;{
 </span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;username&#34;: &#34;suzuki&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;password&#34;: &#34;password&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s1">}&#39;</span> http://localhost:8080/users/sign-up
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -i -H <span class="s2">&#34;Content-Type: application/json&#34;</span> -X POST -d <span class="s1">&#39;{
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -i -H <span class="s2">&#34;Content-Type: application/json&#34;</span> -X POST -d <span class="s1">&#39;{
 </span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;username&#34;: &#34;suzuki&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;password&#34;: &#34;password&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s1">}&#39;</span> http://localhost:8080/login
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>そうするとログイン成功してこんな感じのヘッダが付いて返ってくるはず。<a href="https://ja.wikipedia.org/wiki/Bearer%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3">Bearer トークン</a>てやつだね！<br />
+</span></span></code></pre></div><p>そうするとログイン成功してこんな感じのヘッダが付いて返ってくるはず。<a href="https://ja.wikipedia.org/wiki/Bearer%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3">Bearer トークン</a>てやつだね！<br />
 (今回説明した事の本質からは逸れてるのであんまり触れないけど、これは <code>JWTAuthenticationFilter</code>が認証が正常に終了した後に<code>successfulAuthentication</code>で生成してるので気になる人はそこを見てね！)</p>
 <pre tabindex="0"><code>Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXp1a2kiLCJleHAiOjE1OTI4OTM3MDN9.ul4oibmjgOMZPoyqu6NqMENIRmoQ92Ht8WsDFr9UupsUo_FeJH4pCwzAa8RP3XNPojYxaJjjq6u91HKJuraz1g
 </code></pre><p>次はこのトークンを使えば保護されたリソースへアクセスできる、ようにする実装だ。</p>
@@ -966,63 +552,7 @@
 http://localhost:8080/users
 </code></pre><p>みたいにヘッダにつけて保護されたリソースを要求すると、サーバは、「おうおう、あんたなら見せてやれるよ」って言ってくれるわけね。</p>
 <p>ただ現時点ではそんな実装してないので上のリクエスト投げても敢え無く<code>403</code>になるわけなのよ。それを何とかするのが 2 つめのフィルタ。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.springbootauthexample202006.security</span><span class="p">;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.springbootauthexample202006.security</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">com.example.springbootauthexample202006.security.SecurityConstants.HEADER_STRING</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">com.example.springbootauthexample202006.security.SecurityConstants.SECRET</span><span class="p">;</span><span class="w">
@@ -1074,28 +604,12 @@ http://localhost:8080/users
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>ここまでのコード: <a href="https://github.com/yukihane/hello-java/tree/90c26b3dcf6e3ba52651f1ad00e9c8c52b0fd35a/spring/springboot-auth-example-202006">90c26b3dcf6e3ba52651f1ad00e9c8c52b0fd35a</a></p>
+</span></span></span></code></pre></div><p>ここまでのコード: <a href="https://github.com/yukihane/hello-java/tree/90c26b3dcf6e3ba52651f1ad00e9c8c52b0fd35a/spring/springboot-auth-example-202006">90c26b3dcf6e3ba52651f1ad00e9c8c52b0fd35a</a></p>
 <p>ヘッダに設定されている Bearer トークンをデコードして、その結果から得られる情報をもとに <code>Authentication</code>を生成し<code>SecurityContextHolder.getContext().setAuthentication()</code>でセキュリティコンテキストへセットする、というのが日本語での簡単な説明。</p>
 <p>ここでセットされた<code>Authentiction</code>の<a href="https://github.com/spring-projects/spring-security/blob/5.3.3.RELEASE/core/src/main/java/org/springframework/security/core/Authentication.java#L103-L122"><code>isAuthenticated()</code>が<code>true</code></a>なので、SpringBoot 君は保護されたリソースへのアクセスを許してくれる。</p>
 <h3 id="認可フィルタの利用設定">認可フィルタの利用設定</h3>
 <p>フィルタの登録。基本は 1 つめのフィルタと同じだね。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java:src/main/java/com/example/springbootauthexample202006/security/MyWebSecurityConfig.java" data-lang="java:src/main/java/com/example/springbootauthexample202006/security/MyWebSecurityConfig.java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java:src/main/java/com/example/springbootauthexample202006/security/MyWebSecurityConfig.java" data-lang="java:src/main/java/com/example/springbootauthexample202006/security/MyWebSecurityConfig.java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nd">@RequiredArgsConstructor</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyWebSecurityConfig</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">WebSecurityConfigurerAdapter</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -1105,9 +619,7 @@ http://localhost:8080/users
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">http</span><span class="p">.</span><span class="na">addFilterAfter</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">JWTAuthorizationFilter</span><span class="p">(),</span><span class="w"> </span><span class="n">JWTAuthenticationFilter</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>ここまでのコード: <a href="https://github.com/yukihane/hello-java/tree/881cf366e10ba61162470936e267cab6930a2e57/spring/springboot-auth-example-202006">881cf366e10ba61162470936e267cab6930a2e57</a></p>
+</span></span></span></code></pre></div><p>ここまでのコード: <a href="https://github.com/yukihane/hello-java/tree/881cf366e10ba61162470936e267cab6930a2e57/spring/springboot-auth-example-202006">881cf366e10ba61162470936e267cab6930a2e57</a></p>
 <p>んで前に触れたフィルタの適用順の話。<br />
 フィルタが適用される順番はもちろん重要で、例えば今回のフィルタを例にとると、 http://localhost:8080/login にアクセスしたとき、<code>JWTAuthorizationFilter</code>(Bearer トークンのデコード)より<code>JWTAuthenticationFilter</code>(Bearer トークンの生成)を優先してほしいわけですよ。<br />
 だってログインしようとしてるんだから Bearer トークン持ってるはずないじゃん。<br />
@@ -1126,45 +638,17 @@ http://localhost:8080/users
 </code></pre><p>ってやってるわけ。</p>
 <h1 id="完成">完成</h1>
 <p>んじゃ実行してみましょうよ。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Content-Type: application/json&#34;</span> -X POST -d <span class="s1">&#39;{
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Content-Type: application/json&#34;</span> -X POST -d <span class="s1">&#39;{
 </span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;username&#34;: &#34;ito&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;password&#34;: &#34;password&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s1">}&#39;</span> http://localhost:8080/users/sign-up
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -i -H <span class="s2">&#34;Content-Type: application/json&#34;</span> -X POST -d <span class="s1">&#39;{
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -i -H <span class="s2">&#34;Content-Type: application/json&#34;</span> -X POST -d <span class="s1">&#39;{
 </span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;username&#34;: &#34;ito&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;password&#34;: &#34;password&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s1">}&#39;</span> http://localhost:8080/login
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -i -H <span class="s2">&#34;Authorization: Bearer &lt;loginで取得したトークン文字列&gt;&#34;</span> <span class="se">\
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -i -H <span class="s2">&#34;Authorization: Bearer &lt;loginで取得したトークン文字列&gt;&#34;</span> <span class="se">\
 </span></span></span><span class="line"><span class="cl">http://localhost:8080/users
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>いかがでしたか？</p>
+</span></span></code></pre></div><p>いかがでしたか？</p>
 
         </section>
         <div class="post-tags">

@@ -97,70 +97,7 @@ GitHub の Pull Request 画面で表示される差分は git diff A...B 相当�
 <hr />
 <h2 id="手元で試すためのセットアップ">手元で試すためのセットアップ</h2>
 <p>以下のスクリプトで、本記事の図と同じブランチ構造を持つリポジトリを作れます。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
 </span></span></span><span class="line"><span class="cl"><span class="nb">set</span> -e
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 一時ディレクトリにリポジトリを作成</span>
@@ -219,9 +156,7 @@ GitHub の Pull Request 画面で表示される差分は git diff A...B 相当�
 </span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;リポジトリのパス: </span><span class="nv">$dir</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;cd </span><span class="nv">$dir</span><span class="s2"> で移動して自由に試せます&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>実行すると、各コマンドの出力の違いが一目でわかります。特に <code>git diff</code> の <code>--stat</code> 出力を見比べると、<code>..</code> では <code>main.txt</code> の変更が含まれるのに対し、<code>...</code> では <code>feature.txt</code> の変更だけが表示されるのが確認できます。</p>
+</span></span></code></pre></div><p>実行すると、各コマンドの出力の違いが一目でわかります。特に <code>git diff</code> の <code>--stat</code> 出力を見比べると、<code>..</code> では <code>main.txt</code> の変更が含まれるのに対し、<code>...</code> では <code>feature.txt</code> の変更だけが表示されるのが確認できます。</p>
 <hr />
 <h2 id="二点ドット--のおさらい">二点ドット <code>..</code> のおさらい</h2>
 <p>三点ドットの前に、まず二点ドット <code>..</code> の挙動を確認しておきます。</p>
@@ -243,25 +178,13 @@ A---B---F---G    (main)
 A---B---F---G    (main)
 </code></pre><p><code>git log main...feature</code> は <code>C, D, E, F, G</code> を返します。<code>main</code> にだけあるコミット（<code>F, G</code>）と <code>feature</code> にだけあるコミット（<code>C, D, E</code>）の和集合です。</p>
 <p><code>--left-right</code> オプションをつけると、各コミットがどちら側のものかを <code>&lt;</code> <code>&gt;</code> で表示してくれるので、理解しやすくなります。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git log --oneline --left-right main...feature
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git log --oneline --left-right main...feature
 </span></span><span class="line"><span class="cl">&lt; G ...
 </span></span><span class="line"><span class="cl">&lt; F ...
 </span></span><span class="line"><span class="cl">&gt; E ...
 </span></span><span class="line"><span class="cl">&gt; D ...
 </span></span><span class="line"><span class="cl">&gt; C ...
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="git-diff-ab--マージベースとの差分">git diff A&hellip;B — マージベースとの差分</h3>
+</span></span></code></pre></div><h3 id="git-diff-ab--マージベースとの差分">git diff A&hellip;B — マージベースとの差分</h3>
 <p><code>git diff A...B</code> は <strong>A と B のマージベース（共通祖先）と B の差分</strong> を返します。</p>
 <pre tabindex="0"><code>      C---D---E  (feature)
      /

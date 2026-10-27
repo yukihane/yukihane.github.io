@@ -172,27 +172,14 @@ Java で Lombok の @Data や @Value を付与したときと同じような問�
 </ul>
 <p>ちなみに、上記したリンク先に書かれいることに反しているとうまく動かないのかと言うと、必ずしもそうではありません。 が、もしあなたが JPA に精通していないのであればそれらに従っておくのが無難かと考えます(問題が発生したとき、何が原因なのか突き止められない可能性があります)。</p>
 <p>例えば、次のエンティティは正常に永続化できますが、これは何故動作するのかを説明できるでしょうか(なぜ <code>id</code> は <code>val</code> なのに値が変わるのでしょうか)。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@Entity</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@Entity</span>
 </span></span><span class="line"><span class="cl"><span class="k">data</span> <span class="k">class</span> <span class="nc">MyData</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@Id</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@GeneratedValue</span>
 </span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">id</span> <span class="p">:</span><span class="n">Int</span><span class="p">?</span> <span class="p">=</span> <span class="k">null</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+</span></span></code></pre></div><ul>
 <li>
 <p>JPA 仕様上は許されていません</p>
 <ul>

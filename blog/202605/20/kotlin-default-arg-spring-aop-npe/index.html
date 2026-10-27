@@ -90,24 +90,7 @@
 <hr />
 <h2 id="症状">症状</h2>
 <p>ある UseCase をリファクタして、時刻取得を <code>Clock</code> の DI 経由に変えました。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@Service</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@Service</span>
 </span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ResumeDeliveryUseCase</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">val</span> <span class="py">repository</span><span class="p">:</span> <span class="n">SomeRepository</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">val</span> <span class="py">clock</span><span class="p">:</span> <span class="n">Clock</span><span class="p">,</span>
@@ -120,9 +103,7 @@
 </span></span><span class="line"><span class="cl">        <span class="c1">// now を使った期限判定など
 </span></span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>ユニットテストは大半が緑のままでした。ところが<strong>特定のテストだけ</strong> <code>NullPointerException</code> で落ちます。落ちるテストと落ちないテストの差を見ると、次のようになっていました。</p>
+</span></span></code></pre></div><p>ユニットテストは大半が緑のままでした。ところが<strong>特定のテストだけ</strong> <code>NullPointerException</code> で落ちます。落ちるテストと落ちないテストの差を見ると、次のようになっていました。</p>
 <ul>
 <li>落ちるテスト: <code>useCase(projectId)</code> と <code>now</code> を<strong>省略</strong>して呼んでいる</li>
 <li>落ちないテスト: <code>useCase(projectId, now = fixedTime)</code> と <code>now</code> を<strong>明示的に渡している</strong></li>
@@ -131,35 +112,14 @@
 <hr />
 <h2 id="前提知識1-kotlin-のデフォルト引数のコンパイル結果">前提知識1: Kotlin のデフォルト引数のコンパイル結果</h2>
 <p>Kotlin はデフォルト引数を持つ関数を、<strong>2つのメソッド</strong>にコンパイルします。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="k">fun</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">projectId</span><span class="p">:</span> <span class="n">ProjectId</span><span class="p">,</span> <span class="n">now</span><span class="p">:</span> <span class="n">OffsetDateTime</span> <span class="p">=</span> <span class="nc">OffsetDateTime</span><span class="p">.</span><span class="n">now</span><span class="p">(</span><span class="n">clock</span><span class="p">))</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>がコンパイルされると、概念的には次の2つになります。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="k">fun</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">projectId</span><span class="p">:</span> <span class="n">ProjectId</span><span class="p">,</span> <span class="n">now</span><span class="p">:</span> <span class="n">OffsetDateTime</span> <span class="p">=</span> <span class="nc">OffsetDateTime</span><span class="p">.</span><span class="n">now</span><span class="p">(</span><span class="n">clock</span><span class="p">))</span>
+</span></span></code></pre></div><p>がコンパイルされると、概念的には次の2つになります。</p>
 <ol>
 <li><strong>実体メソッド</strong> <code>invoke(projectId, now)</code> — 全引数を取る通常のインスタンスメソッド</li>
 <li><strong>合成ブリッジ</strong> <code>invoke$default(receiver, projectId, now, mask, marker)</code> — <strong><code>static</code> な synthetic メソッド</strong></li>
 </ol>
 <p>呼び出し側のコードは、引数を省略すると実体メソッドではなく <code>invoke$default(...)</code> を呼ぶようにコンパイルされます。<code>invoke$default</code> の中身はざっくり次のとおりです。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">static</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">invoke$default</span><span class="p">(</span><span class="n">ResumeDeliveryUseCase</span><span class="w"> </span><span class="n">receiver</span><span class="p">,</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">static</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">invoke$default</span><span class="p">(</span><span class="n">ResumeDeliveryUseCase</span><span class="w"> </span><span class="n">receiver</span><span class="p">,</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">                             </span><span class="n">ProjectId</span><span class="w"> </span><span class="n">projectId</span><span class="p">,</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">                             </span><span class="n">OffsetDateTime</span><span class="w"> </span><span class="n">now</span><span class="p">,</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">                             </span><span class="kt">int</span><span class="w"> </span><span class="n">mask</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">marker</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -169,20 +129,11 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">receiver</span><span class="p">.</span><span class="na">invoke</span><span class="p">(</span><span class="n">projectId</span><span class="p">,</span><span class="w"> </span><span class="n">now</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="static-な-synthetic-メソッドとは">「<code>static</code> な synthetic メソッド」とは</h3>
+</span></span></span></code></pre></div><h3 id="static-な-synthetic-メソッドとは">「<code>static</code> な synthetic メソッド」とは</h3>
 <p><code>invoke$default</code> を理解する鍵は <strong><code>static</code></strong> と <strong>synthetic</strong> の2語にあります。</p>
 <p><strong><code>static</code>（静的）メソッド</strong> とは、特定のインスタンスではなく<strong>クラスそのものに属する</strong>メソッドのことです。インスタンスメソッドが暗黙の <code>this</code>（レシーバ）を持つのに対し、<code>static</code> メソッドには <code>this</code> が存在しません。そのため <code>invoke$default</code> は、本来 <code>this</code> だったはずのレシーバを<strong>第1引数 <code>receiver</code> として明示的に受け取る</strong>形になっています。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">static</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">invoke$default</span><span class="p">(</span><span class="n">ResumeDeliveryUseCase</span><span class="w"> </span><span class="n">receiver</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span><span class="w"> </span><span class="c1">// ← this の代わりに receiver を引数で受ける</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>この「インスタンスメソッドではなく static」という点が、後述する AOP プロキシすり抜けの核心になります。CGLIB はサブクラスでインスタンスメソッドを<strong>オーバーライド</strong>して横取りしますが、<code>static</code> メソッドはオーバーライドの対象外なので素通りしてしまいます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">static</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">invoke$default</span><span class="p">(</span><span class="n">ResumeDeliveryUseCase</span><span class="w"> </span><span class="n">receiver</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span><span class="w"> </span><span class="c1">// ← this の代わりに receiver を引数で受ける</span><span class="w">
+</span></span></span></code></pre></div><p>この「インスタンスメソッドではなく static」という点が、後述する AOP プロキシすり抜けの核心になります。CGLIB はサブクラスでインスタンスメソッドを<strong>オーバーライド</strong>して横取りしますが、<code>static</code> メソッドはオーバーライドの対象外なので素通りしてしまいます。</p>
 <p><strong>synthetic（合成）メソッド</strong> とは、<strong>ソースコードには書かれていないのに、コンパイラが自動生成した</strong>メソッドのことです。バイトコード上では <code>ACC_SYNTHETIC</code> フラグが付きます。開発者は <code>now: OffsetDateTime = OffsetDateTime.now(clock)</code> というデフォルト引数付きの関数を1つ書いただけですが、コンパイラが裏で「引数省略時にデフォルト式を埋めて本体を呼ぶ」橋渡し役を勝手に作ります。それが <code>invoke$default</code> です。名前に含まれる <code>$</code> は、こうしたコンパイラ生成物であることを示す慣習的な目印になっています。</p>
 <p>まとめると、次のようになります。</p>
 <blockquote>
@@ -222,23 +173,12 @@ useCase(projectId, now = t)     → proxy.invoke(projectId, t) → advise → ta
 </code></pre><hr />
 <h2 id="修正">修正</h2>
 <p>デフォルト引数で注入依存を参照するのをやめます。今回はデフォルト引数を撤去し、メソッド本体の先頭で <code>val</code> 宣言にしました。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@ExposedTransactional</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@ExposedTransactional</span>
 </span></span><span class="line"><span class="cl"><span class="k">operator</span> <span class="k">fun</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">projectId</span><span class="p">:</span> <span class="n">ProjectId</span><span class="p">):</span> <span class="n">Result</span><span class="p">&lt;</span><span class="err">…</span><span class="p">&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">now</span> <span class="p">=</span> <span class="nc">OffsetDateTime</span><span class="p">.</span><span class="n">now</span><span class="p">(</span><span class="n">clock</span><span class="p">)</span> <span class="c1">// 本体内 → 実体メソッド経由 → target で評価される
 </span></span></span><span class="line"><span class="cl">    <span class="c1">// …
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>これで <code>clock</code> の参照は <strong>実体メソッドの内部</strong>に移ります。実体メソッドはアドバイス経由でターゲット（<code>clock</code> 注入済み）上で実行されるため、<code>$default</code> 経路そのものが消えて NPE しなくなります。</p>
+</span></span></code></pre></div><p>これで <code>clock</code> の参照は <strong>実体メソッドの内部</strong>に移ります。実体メソッドはアドバイス経由でターゲット（<code>clock</code> 注入済み）上で実行されるため、<code>$default</code> 経路そのものが消えて NPE しなくなります。</p>
 <p>「テスト時に時刻を差し替えたい」という意図でデフォルト引数のシームを置いていた場合でも、<code>Clock</code> を DI して固定 <code>Clock</code> Bean に差し替える設計にしていれば、デフォルト引数のシームは不要になります。テストは固定 <code>Clock</code> を注入するだけで決定的になります。</p>
 <hr />
 <h2 id="一般化できる教訓">一般化できる教訓</h2>

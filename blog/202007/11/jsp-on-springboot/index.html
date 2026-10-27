@@ -7,19 +7,6 @@
 
 pom.xml
 
-
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-
-
 &lt;dependency&gt;
     &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
     &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
@@ -29,9 +16,13 @@ pom.xml
     &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
     &lt;artifactId&gt;jstl&lt;/artifactId&gt;
 &lt;/dependency&gt;
+appliction.properties に次を追加します:
 
+application.properties
 
-appliction.properties に次を追加します:" />
+spring.mvc.view.prefix=/WEB-INF/view/
+spring.mvc.view.suffix=.jsp
+src/main/webapp/WEB-INF/view/ の下に JSP ファイルを作成します。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202007/11/jsp-on-springboot/">
 	<meta property="og:site_name" content="発火後忘失">
@@ -39,7 +30,9 @@ appliction.properties に次を追加します:" />
 	<meta property="og:description" content="https://start.spring.io/ で depencencies に Spring Web を追加して生成します。
 生成された pom.xml に次の依存関係を追加します:
 pom.xml
-1 2 3 4 5 6 7 8 9 &lt;dependency&gt; &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt; &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;!-- 必要に応じて --&gt; &lt;groupId&gt;javax.servlet&lt;/groupId&gt; &lt;artifactId&gt;jstl&lt;/artifactId&gt; &lt;/dependency&gt; appliction.properties に次を追加します:">
+&lt;dependency&gt; &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt; &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;!-- 必要に応じて --&gt; &lt;groupId&gt;javax.servlet&lt;/groupId&gt; &lt;artifactId&gt;jstl&lt;/artifactId&gt; &lt;/dependency&gt; appliction.properties に次を追加します:
+application.properties
+spring.mvc.view.prefix=/WEB-INF/view/ spring.mvc.view.suffix=.jsp src/main/webapp/WEB-INF/view/ の下に JSP ファイルを作成します。">
 	<meta property="og:locale" content="ja_jp">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="blog">
@@ -53,7 +46,9 @@ pom.xml
 	<meta name="twitter:description" content="https://start.spring.io/ で depencencies に Spring Web を追加して生成します。
 生成された pom.xml に次の依存関係を追加します:
 pom.xml
-1 2 3 4 5 6 7 8 9 &lt;dependency&gt; &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt; &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;!-- 必要に応じて --&gt; &lt;groupId&gt;javax.servlet&lt;/groupId&gt; &lt;artifactId&gt;jstl&lt;/artifactId&gt; &lt;/dependency&gt; appliction.properties に次を追加します:">
+&lt;dependency&gt; &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt; &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;!-- 必要に応じて --&gt; &lt;groupId&gt;javax.servlet&lt;/groupId&gt; &lt;artifactId&gt;jstl&lt;/artifactId&gt; &lt;/dependency&gt; appliction.properties に次を追加します:
+application.properties
+spring.mvc.view.prefix=/WEB-INF/view/ spring.mvc.view.suffix=.jsp src/main/webapp/WEB-INF/view/ の下に JSP ファイルを作成します。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -111,20 +106,7 @@ pom.xml
 <div class="formalpara-title">
 <p><strong>pom.xml</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>org.apache.tomcat.embed<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>tomcat-embed-jasper<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
@@ -133,23 +115,13 @@ pom.xml
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>javax.servlet<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>jstl<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>appliction.properties</code> に次を追加します:</p>
+</span></span></code></pre></div><p><code>appliction.properties</code> に次を追加します:</p>
 <div class="formalpara-title">
 <p><strong>application.properties</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="na">spring.mvc.view.prefix</span><span class="o">=</span><span class="s">/WEB-INF/view/</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="na">spring.mvc.view.prefix</span><span class="o">=</span><span class="s">/WEB-INF/view/</span>
 </span></span><span class="line"><span class="cl"><span class="na">spring.mvc.view.suffix</span><span class="o">=</span><span class="s">.jsp</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>src/main/webapp/WEB-INF/view/</code> の下に JSP ファイルを作成します。</p>
+</span></span></code></pre></div><p><code>src/main/webapp/WEB-INF/view/</code> の下に JSP ファイルを作成します。</p>
 <p>コントローラではThymeleaf利用時などと同様、 <code>return &quot;index&quot;;</code> とすることで <code>index.jsp</code> を返すようになります。</p>
 <p>参考:</p>
 <ul>

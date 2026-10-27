@@ -88,45 +88,17 @@ Spring Boot で JPA Validator にインジェクションしようとしたけ�
 </ul>
 <p>の 2 つのタイミングがあるのかなと思っています。</p>
 <p>前者は次のような感じのものです:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">)</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">MyEntity</span><span class="w"> </span><span class="nf">index</span><span class="p">(</span><span class="nd">@Valid</span><span class="w"> </span><span class="nd">@RequestBody</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MyRequest</span><span class="w"> </span><span class="n">req</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">...</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">MyRequest</span><span class="p">(</span><span class="nd">@MyConstraint</span><span class="p">(</span><span class="s">&#34;1&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>こちらは、 Spring Framework のリファレンス <a href="https://docs.spring.io/spring-framework/docs/5.3.3/reference/html/core.html#validation-beanvalidation-spring">3.7.2. Configuring a Bean Validation Provider</a> に説明があり、この設定を行うことでカスタム validator でも <code>@Autowired</code> が利用できるようになります。</p>
+</span></span></span></code></pre></div><p>こちらは、 Spring Framework のリファレンス <a href="https://docs.spring.io/spring-framework/docs/5.3.3/reference/html/core.html#validation-beanvalidation-spring">3.7.2. Configuring a Bean Validation Provider</a> に説明があり、この設定を行うことでカスタム validator でも <code>@Autowired</code> が利用できるようになります。</p>
 <p>ちなみに Spring Boot では自動設定されます(<a href="https://github.com/spring-projects/spring-boot/blob/v2.5.5/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/validation/ValidationAutoConfiguration.java"><code>ValidationAutoConfiguration</code></a>)ので明示的なコンフィグレーションは不要です。</p>
 <p>よく困るのは後者です。エンティティにアノテーションを付与して、永続化時に検証するものです:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Entity</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Entity</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyEntity</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Id</span><span class="w">
@@ -137,33 +109,8 @@ Spring Boot で JPA Validator にインジェクションしようとしたけ�
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>こちらは自動設定されないので明示的なコンフィグレーションが必要になります。 次のような設定を行います:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>こちらは自動設定されないので明示的なコンフィグレーションが必要になります。 次のような設定を行います:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">javax.validation.Validator</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.boot.autoconfigure.orm.jpa.HibernatePropertiesCustomizer</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.context.annotation.Bean</span><span class="p">;</span><span class="w">
@@ -182,9 +129,7 @@ Spring Boot で JPA Validator にインジェクションしようとしたけ�
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">};</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>この設定を行うことで、 JPA フレームワークが用いる validator インスタンスの生成が Spring Framework に委譲され、 Spring Bean として管理されることになります。 そのため <code>@Autowired</code> も利用できるようになります。</p>
+</span></span></span></code></pre></div><p>この設定を行うことで、 JPA フレームワークが用いる validator インスタンスの生成が Spring Framework に委譲され、 Spring Bean として管理されることになります。 そのため <code>@Autowired</code> も利用できるようになります。</p>
 <p>参考:</p>
 <ul>
 <li><a href="https://ja.stackoverflow.com/a/73728/2808">@AutowiredでインジェクトしたUserServiceがnullになってしまう</a> - スタック・オーバーフロー</li>

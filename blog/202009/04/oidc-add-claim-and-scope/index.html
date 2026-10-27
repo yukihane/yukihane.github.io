@@ -175,38 +175,14 @@ KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる
 <div class="formalpara-title">
 <p><strong>application.yml</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="w">        </span><span class="nt">registration</span><span class="p">:</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="w">        </span><span class="nt">registration</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">myspring</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">scope</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="l">openid</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="l">extrainfo</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="取得した情報を表示してみる">取得した情報を表示してみる</h2>
+</span></span></span></code></pre></div><h2 id="取得した情報を表示してみる">取得した情報を表示してみる</h2>
 <p>コントローラで情報を取得してみます。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@GetMapping</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@GetMapping</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">index</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Authentication</span><span class="w"> </span><span class="n">authn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SecurityContextHolder</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getAuthentication</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&#34;Authentication: {}&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">authn</span><span class="p">);</span><span class="w">
@@ -215,9 +191,7 @@ KeycloakをIdPにしてSpring Security OAuth 2.0 Login/Client を試してみる
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">favNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="na">getAttribute</span><span class="p">(</span><span class="s">&#34;fav-number&#34;</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;Hello &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">authn</span><span class="p">.</span><span class="na">getName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;! Your fav is &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">favNum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;.&#34;</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div>
+</span></span></span></code></pre></div>
         </section>
         <div class="post-tags">
           

@@ -123,76 +123,7 @@ Spring Boot プロジェクトディレクトリのルート(<code>gradlew</code
 </code></pre><p>次に作成するファイルで型を効かせたいので <code>@types/node</code> をインストールしておきます:</p>
 <pre tabindex="0"><code>npm install --save-dev `@types/node`
 </code></pre><p><code>vite.config.ts</code> ファイルを作成し、次の内容を記述します:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// 参考: https://ja.vite.dev/config/
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// 参考: https://ja.vite.dev/config/
 </span></span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="kr">type</span> <span class="p">{</span> <span class="nx">UserConfig</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;vite&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">resolve</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;path&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">promises</span> <span class="kr">as</span> <span class="nx">fs</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;fs&#34;</span><span class="p">;</span>
@@ -257,9 +188,7 @@ Spring Boot プロジェクトディレクトリのルート(<code>gradlew</code
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="p">],</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="nx">satisfies</span> <span class="nx">UserConfig</span><span class="p">;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="ページを作成してみる">ページを作成してみる</h2>
+</span></span></code></pre></div><h2 id="ページを作成してみる">ページを作成してみる</h2>
 <p>簡単なページを作成してみます。</p>
 <p><code>.scss</code> を扱いたいのでモジュールをインストールします:</p>
 <pre tabindex="0"><code>npm install --save-dev sass-embedded
@@ -268,58 +197,19 @@ Spring Boot プロジェクトディレクトリのルート(<code>gradlew</code
 # ここでは ImageMagick で画像生成していますが、別に何でも構わないので public/vite/image/hello.png という名前で画像ファイルを保存します
 convert -size 300x100 xc:lightblue -gravity center -pointsize 20 -draw &#34;text 0,0 &#39;Hello, World!&#39;&#34; public/vite/image/hello.png
 </code></pre><p><code>src</code> ディレクトリーにリソースを作成します:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// src/hello/main.ts
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// src/hello/main.ts
 </span></span></span><span class="line"><span class="cl"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Hello, Vite!&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">});</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="cm">/* src/hello/style.scss */</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="cm">/* src/hello/style.scss */</span>
 </span></span><span class="line"><span class="cl"><span class="nt">div</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nc">.hello</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="na">border</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="ni">dotted</span> <span class="no">blue</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>上記したリソースを参照する Thymeleaf テンプレート(.html)を <code>themplates</code> ディレクトリーに作成します:</p>
+</span></span></code></pre></div><p>上記したリソースを参照する Thymeleaf テンプレート(.html)を <code>themplates</code> ディレクトリーに作成します:</p>
 <pre tabindex="0"><code>mkdir -p templates/hello
-</code></pre><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE html&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;ja&#34;</span> <span class="na">xmlns:th</span><span class="o">=</span><span class="s">&#34;http://www.thymeleaf.org&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/src/hello/style.scss&#34;</span> <span class="p">/&gt;</span>
@@ -332,50 +222,20 @@ convert -size 300x100 xc:lightblue -gravity center -pointsize 20 -draw &#34;text
 </span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;module&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;/src/hello/main.ts&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>dev モードで起動し、挙動を確かめてみます。</p>
+</span></span></code></pre></div><p>dev モードで起動し、挙動を確かめてみます。</p>
 <pre tabindex="0"><code>npm run dev
 </code></pre><p>を実行すると web サーバーが起動するのでブラウザーで http://localhost:5173/templates/hello/index.html にアクセスしてみます。scss が適用されていたり、(ブラウザーの devtools でコンソールを見てみると)TypeScript が実行されていたりするのが確認できたかと思います。</p>
 <p>それでは、Spring Boot プロジェクトに出力してみます。</p>
 <p><code>vite.config.ts</code> ファイルをひらき、 <code>build.input</code> 設定を次のように書き換えます:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl">      <span class="nx">input</span><span class="o">:</span> <span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl">      <span class="nx">input</span><span class="o">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// ここに thymeleaf テンプレートファイルを列挙する
 </span></span></span><span class="line"><span class="cl">        <span class="s2">&#34;hello/index&#34;</span><span class="o">:</span> <span class="s2">&#34;templates/hello/index.html&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="p">},</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>そして次のコマンドでビルド&amp;配備を行います:</p>
+</span></span></code></pre></div><p>そして次のコマンドでビルド&amp;配備を行います:</p>
 <pre tabindex="0"><code>npm run build
 </code></pre><p>これで Spring Boot プロジェクトの <code>src/main/resources</code> 以下にファイルがコピーされました。</p>
 <p>最後に Spring Boot 側にコントローラーを作ります:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">org.springframework.stereotype.Controller</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">org.springframework.stereotype.Controller</span>
 </span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">org.springframework.ui.Model</span>
 </span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">org.springframework.web.bind.annotation.GetMapping</span>
 </span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">org.springframework.web.bind.annotation.RequestMapping</span>
@@ -389,9 +249,7 @@ convert -size 300x100 xc:lightblue -gravity center -pointsize 20 -draw &#34;text
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s2">&#34;hello/index&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>これで完成です。 Spring Boot を起動し、 http://localhost:8080/hello へアクセスしてみてください。</p>
+</span></span></code></pre></div><p>これで完成です。 Spring Boot を起動し、 http://localhost:8080/hello へアクセスしてみてください。</p>
 <h2 id="実際に開発する上での追加設定">実際に開発する上での追加設定</h2>
 <h3 id="gitignore-追加設定">.gitignore 追加設定</h3>
 <p>Spring Boot の <code>src/main/resources/static/vite/</code>, <code>src/main/resources/templates/</code> には Vite が生成するファイルが置かれますので、このディレクトリ以下はバージョン管理対象外にします。<br />
@@ -400,19 +258,7 @@ convert -size 300x100 xc:lightblue -gravity center -pointsize 20 -draw &#34;text
 /src/main/resources/templates/
 </code></pre><h3 id="継続的ビルド">継続的ビルド</h3>
 <p><code>thyemeleaf/package.json</code> の <code>script</code> 節に <code>watch</code> コマンドを追加します:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="err">...</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;scripts&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;watch&#34;</span><span class="p">:</span> <span class="s2">&#34;tsc &amp;&amp; vite build -w&#34;</span><span class="p">,</span>
@@ -420,9 +266,7 @@ convert -size 300x100 xc:lightblue -gravity center -pointsize 20 -draw &#34;text
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="err">...</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>thymeleaf</code> ディレクトリーで <code>npm run watch</code> を実行しておくと、ファイル変更があるたびにビルドが走り Spring Boot のプロジェクトファイルへ同期されるので、リアルタイムで変更が反映されます。</p>
+</span></span></code></pre></div><p><code>thymeleaf</code> ディレクトリーで <code>npm run watch</code> を実行しておくと、ファイル変更があるたびにビルドが走り Spring Boot のプロジェクトファイルへ同期されるので、リアルタイムで変更が反映されます。</p>
 <h3 id="既存のプロジェクトへ適用する場合の考慮">既存のプロジェクトへ適用する場合の考慮</h3>
 <p>既に普通のやり方で <code>src/resources/templates</code> に Thymeleaf テンプレートファイルを作成している場合でも、基本的には今回の Vite で管理するようにする方法と同居できます。</p>
 <p>ただし上記の設定だと Vite のビルド時に <code>src/resources/templates</code> を削除するようにしているので、この辺りの設定を見直す必要があります。</p>

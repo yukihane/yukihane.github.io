@@ -90,34 +90,14 @@ Kotlin の @JvmInline value class は、1つの値を型安全にラップする
 <hr />
 <h2 id="value-class-とは">value class とは</h2>
 <p>Kotlin の <code>@JvmInline value class</code> は、1つの値を型安全にラップするための仕組みです。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@JvmInline</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="nd">@JvmInline</span>
 </span></span><span class="line"><span class="cl"><span class="k">value</span> <span class="k">class</span> <span class="nc">GroupId</span><span class="p">(</span><span class="k">val</span> <span class="py">value</span><span class="p">:</span> <span class="n">UUID</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>UUID</code> をそのまま引き回すと「どの ID なのか」が型で表現されず取り違えが起きやすくなります。<code>GroupId</code> のような value class でラップすると、コンパイラが型レベルで区別してくれます。しかも <strong>コンパイル時にラップ先の型（ここでは <code>UUID</code>）へ展開（アンボクシング）される</strong> ため、実行時のオブジェクト生成コストがほぼありません。型安全とゼロコストを両立できる、Kotlin らしい道具です。</p>
+</span></span></code></pre></div><p><code>UUID</code> をそのまま引き回すと「どの ID なのか」が型で表現されず取り違えが起きやすくなります。<code>GroupId</code> のような value class でラップすると、コンパイラが型レベルで区別してくれます。しかも <strong>コンパイル時にラップ先の型（ここでは <code>UUID</code>）へ展開（アンボクシング）される</strong> ため、実行時のオブジェクト生成コストがほぼありません。型安全とゼロコストを両立できる、Kotlin らしい道具です。</p>
 <p>ところが、この「コンパイル時に別の型へ展開される」性質が、リフレクションを多用するフレームワークと相性が悪いのです。</p>
 <hr />
 <h2 id="症状">症状</h2>
 <p><code>@ModelAttribute</code> で受け取る data class のプロパティに value class を使うと、リクエスト時に <code>BeanInstantiationException</code> が発生します。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="c1">// ❌ @ModelAttribute の data class に value class を使用 → BeanInstantiationException
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="c1">// ❌ @ModelAttribute の data class に value class を使用 → BeanInstantiationException
 </span></span></span><span class="line"><span class="cl"><span class="k">data</span> <span class="k">class</span> <span class="nc">ListEmployeesRequest</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">groupId</span><span class="p">:</span> <span class="n">GroupId</span><span class="p">?,</span> <span class="c1">// Kotlin リフレクションが GroupId を正しく解決できない
 </span></span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">keyword</span><span class="p">:</span> <span class="n">String</span><span class="p">?,</span>
@@ -125,9 +105,7 @@ Kotlin の @JvmInline value class は、1つの値を型安全にラップする
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nd">@GetMapping</span><span class="p">(</span><span class="s2">&#34;...&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="k">fun</span> <span class="nf">list</span><span class="p">(</span><span class="nd">@Valid</span> <span class="n">request</span><span class="p">:</span> <span class="n">ListEmployeesRequest</span><span class="p">)</span> <span class="c1">// 実行時エラー
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>コンパイルは通ります。テストの書き方やリクエストパラメータの有無によっては表面化しないこともあり、特定のエンドポイントだけ実行時に落ちる、という形で現れます。</p>
+</span></span></span></code></pre></div><p>コンパイルは通ります。テストの書き方やリクエストパラメータの有無によっては表面化しないこともあり、特定のエンドポイントだけ実行時に落ちる、という形で現れます。</p>
 <hr />
 <h2 id="原因-kotlin-リフレクションと-value-class-アンラップのズレ">原因: Kotlin リフレクションと value class アンラップのズレ</h2>
 <p>Spring Framework 6.1.0 以降、Kotlin の data class バインディングは Kotlin リフレクション（<code>KCallable#callBy</code>）ベースのパラメータ解決を使うようになりました。コンストラクタの引数を名前で解決し、リフレクション経由でインスタンスを生成する方式です。</p>
@@ -169,21 +147,7 @@ Kotlin の @JvmInline value class は、1つの値を型安全にラップする
 <hr />
 <h2 id="回避策">回避策</h2>
 <p><code>@ModelAttribute</code> の data class では value class を使わず、<strong>素の型（<code>UUID</code> 等）で受け取り、Controller 内で value class に変換する</strong>のが確実です。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="c1">// ✅ UUID で受け取り、Controller で value class に変換
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="c1">// ✅ UUID で受け取り、Controller で value class に変換
 </span></span></span><span class="line"><span class="cl"><span class="nd">@GetMapping</span><span class="p">(</span><span class="s2">&#34;...&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="k">fun</span> <span class="nf">list</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@RequestParam</span><span class="p">(</span><span class="n">required</span> <span class="p">=</span> <span class="k">false</span><span class="p">)</span> <span class="n">groupId</span><span class="p">:</span> <span class="n">UUID</span><span class="p">?</span> <span class="p">=</span> <span class="k">null</span><span class="p">,</span>
@@ -193,9 +157,7 @@ Kotlin の @JvmInline value class は、1つの値を型安全にラップする
 </span></span><span class="line"><span class="cl">        <span class="n">filter</span> <span class="p">=</span> <span class="n">EmployeeFilter</span><span class="p">(</span><span class="n">groupId</span> <span class="p">=</span> <span class="n">groupId</span><span class="o">?.</span><span class="n">let</span> <span class="p">{</span> <span class="n">GroupId</span><span class="p">(</span><span class="k">it</span><span class="p">)</span> <span class="p">}),</span>
 </span></span><span class="line"><span class="cl">    <span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>境界（Controller の引数）では素の型で受け、ドメイン層へ渡す手前で value class に包みます。型安全の恩恵はドメイン層で受けつつ、リフレクションの罠を避けられます。</p>
+</span></span></code></pre></div><p>境界（Controller の引数）では素の型で受け、ドメイン層へ渡す手前で value class に包みます。型安全の恩恵はドメイン層で受けつつ、リフレクションの罠を避けられます。</p>
 <hr />
 <h2 id="まとめ">まとめ</h2>
 <ul>

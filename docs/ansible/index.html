@@ -4,22 +4,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Ansible - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="チュートリアル
 http://docs.ansible.com/ansible/intro_getting_started.html の通り実行しようとすると以下のエラーとなった。
-
-
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-
-
 ubuntu:~$ ansible all -m ping
 mama | UNREACHABLE! =&gt; {
     &#34;changed&#34;: false,
@@ -32,15 +16,13 @@ mama | FAILED! =&gt; {
     &#34;failed&#34;: true,
     &#34;msg&#34;: &#34;to use the &#39;ssh&#39; connection type with passwords, you must install the sshpass program&#34;
 }
-
-
 Ubuntuであれば sshpass は apt-get install sshpass でインストール可能。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/docs/ansible/">
 	<meta property="og:site_name" content="発火後忘失">
 	<meta property="og:title" content="Ansible">
 	<meta property="og:description" content="チュートリアル http://docs.ansible.com/ansible/intro_getting_started.html の通り実行しようとすると以下のエラーとなった。
-1 2 3 4 5 6 7 8 9 10 11 12 ubuntu:~$ ansible all -m ping mama | UNREACHABLE! =&gt; { &#34;changed&#34;: false, &#34;msg&#34;: &#34;Failed to connect to the host via ssh: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).\r\n&#34;, &#34;unreachable&#34;: true } ubuntu:~$ ansible all -m ping --ask-pass SSH password: mama | FAILED! =&gt; { &#34;failed&#34;: true, &#34;msg&#34;: &#34;to use the &#39;ssh&#39; connection type with passwords, you must install the sshpass program&#34; } Ubuntuであれば sshpass は apt-get install sshpass でインストール可能。">
+ubuntu:~$ ansible all -m ping mama | UNREACHABLE! =&gt; { &#34;changed&#34;: false, &#34;msg&#34;: &#34;Failed to connect to the host via ssh: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).\r\n&#34;, &#34;unreachable&#34;: true } ubuntu:~$ ansible all -m ping --ask-pass SSH password: mama | FAILED! =&gt; { &#34;failed&#34;: true, &#34;msg&#34;: &#34;to use the &#39;ssh&#39; connection type with passwords, you must install the sshpass program&#34; } Ubuntuであれば sshpass は apt-get install sshpass でインストール可能。">
 	<meta property="og:locale" content="ja_jp">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -50,7 +32,7 @@ Ubuntuであれば sshpass は apt-get install sshpass でインストール可�
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Ansible">
 	<meta name="twitter:description" content="チュートリアル http://docs.ansible.com/ansible/intro_getting_started.html の通り実行しようとすると以下のエラーとなった。
-1 2 3 4 5 6 7 8 9 10 11 12 ubuntu:~$ ansible all -m ping mama | UNREACHABLE! =&gt; { &#34;changed&#34;: false, &#34;msg&#34;: &#34;Failed to connect to the host via ssh: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).\r\n&#34;, &#34;unreachable&#34;: true } ubuntu:~$ ansible all -m ping --ask-pass SSH password: mama | FAILED! =&gt; { &#34;failed&#34;: true, &#34;msg&#34;: &#34;to use the &#39;ssh&#39; connection type with passwords, you must install the sshpass program&#34; } Ubuntuであれば sshpass は apt-get install sshpass でインストール可能。">
+ubuntu:~$ ansible all -m ping mama | UNREACHABLE! =&gt; { &#34;changed&#34;: false, &#34;msg&#34;: &#34;Failed to connect to the host via ssh: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).\r\n&#34;, &#34;unreachable&#34;: true } ubuntu:~$ ansible all -m ping --ask-pass SSH password: mama | FAILED! =&gt; { &#34;failed&#34;: true, &#34;msg&#34;: &#34;to use the &#39;ssh&#39; connection type with passwords, you must install the sshpass program&#34; } Ubuntuであれば sshpass は apt-get install sshpass でインストール可能。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -105,23 +87,7 @@ Ubuntuであれば sshpass は apt-get install sshpass でインストール可�
         <section class="body">
           <h1 id="チュートリアル">チュートリアル</h1>
 <p><a href="http://docs.ansible.com/ansible/intro_getting_started.html">http://docs.ansible.com/ansible/intro_getting_started.html</a> の通り実行しようとすると以下のエラーとなった。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ubuntu:~$ ansible all -m ping
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ubuntu:~$ ansible all -m ping
 </span></span><span class="line"><span class="cl">mama <span class="p">|</span> UNREACHABLE! <span class="o">=</span>&gt; <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;changed&#34;</span>: false,
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;msg&#34;</span>: <span class="s2">&#34;Failed to connect to the host via ssh: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).\r\n&#34;</span>,
@@ -133,9 +99,7 @@ Ubuntuであれば sshpass は apt-get install sshpass でインストール可�
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;failed&#34;</span>: true,
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;msg&#34;</span>: <span class="s2">&#34;to use the &#39;ssh&#39; connection type with passwords, you must install the sshpass program&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Ubuntuであれば <code>sshpass</code> は <code>apt-get install sshpass</code> でインストール可能。</p>
+</span></span></code></pre></div><p>Ubuntuであれば <code>sshpass</code> は <code>apt-get install sshpass</code> でインストール可能。</p>
 <h1 id="公開鍵認証">公開鍵認証</h1>
 <p>次のplaybook.ymlを実行すれば自分の公開鍵をターゲットのホストにコピーできる。 以降、パスワード入力は不要になる。</p>
 <pre><code>- hosts: all

@@ -121,15 +121,8 @@ Minecraft Bedrock Edition(いわゆる統合版)には、Java Editionでいう�
 <li><a href="https://www.npmjs.com/package/@minecraft/creator-tools"><code>mct</code> コマンド</a>で生成する</li>
 </ul>
 <p>後者2つは本質的に同じっぽいので、コマンドで生成することにします。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx -p @minecraft/creator-tools -c <span class="s1">&#39;mct create&#39;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>ウィザードの質問には次のように回答:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx -p @minecraft/creator-tools -c <span class="s1">&#39;mct create&#39;</span>
+</span></span></code></pre></div><p>ウィザードの質問には次のように回答:</p>
 <pre tabindex="0"><code>? What&#39;s your preferred project title? hello_world
 ? What&#39;s your preferred project description? My first programming for Minecraft
 ? What&#39;s your creator name? yukihane
@@ -140,42 +133,11 @@ Minecraft Bedrock Edition(いわゆる統合版)には、Java Editionでいう�
 <h3 id="生成されたファイルの編集">生成されたファイルの編集</h3>
 <h4 id="依存モジュール設定">依存モジュール設定</h4>
 <p>ディレクトリー名を変更してVSCodeで開きます:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mv out hello-world
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mv out hello-world
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span> hello-world
 </span></span><span class="line"><span class="cl">code .
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>package.json</code> を開いて、一旦 <code>dependencies</code> セクションに入っているモジュールを全部削除します:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="cl"><span class="gh">diff --git a/package.json b/package.json
+</span></span></code></pre></div><p><code>package.json</code> を開いて、一旦 <code>dependencies</code> セクションに入っているモジュールを全部削除します:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="cl"><span class="gh">diff --git a/package.json b/package.json
 </span></span></span><span class="line"><span class="cl"><span class="gh">index cc7d3b6..52b3306 100644
 </span></span></span><span class="line"><span class="cl"><span class="gd">--- a/package.json
 </span></span></span><span class="line"><span class="cl"><span class="gi">+++ b/package.json
@@ -193,40 +155,14 @@ Minecraft Bedrock Edition(いわゆる統合版)には、Java Editionでいう�
 </span></span></span><span class="line"><span class="cl">\ No newline at end of file
 </span></span><span class="line"><span class="cl"><span class="gi">+  &#34;dependencies&#34;: {}
 </span></span></span><span class="line"><span class="cl"><span class="gi">+}
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>beta版のモジュールをインストールします:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm i @minecraft/server@beta
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>ちなみにこのモジュール、 <code>node_modules/@minecraft/server/</code> を覗くとわかりますがTypeScriptの型定義だけです。<br />
+</span></span></span></code></pre></div><p>beta版のモジュールをインストールします:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm i @minecraft/server@beta
+</span></span></code></pre></div><p>ちなみにこのモジュール、 <code>node_modules/@minecraft/server/</code> を覗くとわかりますがTypeScriptの型定義だけです。<br />
 実際に利用するAPIのバージョンを指定するのは次の設定です。</p>
 <h4 id="apiバージョン指定">APIバージョン指定</h4>
 <p><code>node_modules/@minecraft/server/index.d.ts</code> の冒頭に書かれている通り <code>manifest.json</code> でバージョンの指定を行います。<br />
 <code>behavior_packs/yuki_hell/manifest.json</code> を開き次のように変更します:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="cl"><span class="gh">diff --git a/behavior_packs/yuki_hell/manifest.json b/behavior_packs/yuki_hell/manifest.json
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="cl"><span class="gh">diff --git a/behavior_packs/yuki_hell/manifest.json b/behavior_packs/yuki_hell/manifest.json
 </span></span></span><span class="line"><span class="cl"><span class="gh">index 9671af5..541b044 100644
 </span></span></span><span class="line"><span class="cl"><span class="gd">--- a/behavior_packs/yuki_hell/manifest.json
 </span></span></span><span class="line"><span class="cl"><span class="gi">+++ b/behavior_packs/yuki_hell/manifest.json
@@ -239,9 +175,7 @@ Minecraft Bedrock Edition(いわゆる統合版)には、Java Editionでいう�
 </span></span></span><span class="line"><span class="cl">     },
 </span></span><span class="line"><span class="cl">     {
 </span></span><span class="line"><span class="cl">       &#34;uuid&#34;: &#34;6f97a93c-67e7-4c14-894d-e227d5c35053&#34;,
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>ちなみに利用可能なバージョンは以下のリンク先に一覧があります:</p>
+</span></span></code></pre></div><p>ちなみに利用可能なバージョンは以下のリンク先に一覧があります:</p>
 <ul>
 <li><a href="https://learn.microsoft.com/ja-jp/minecraft/creator/scriptapi/minecraft/server/minecraft-server?view=minecraft-bedrock-stable#available-versions">https://learn.microsoft.com/ja-jp/minecraft/creator/scriptapi/minecraft/server/minecraft-server?view=minecraft-bedrock-stable#available-versions</a></li>
 </ul>
@@ -250,20 +184,7 @@ Minecraft Bedrock Edition(いわゆる統合版)には、Java Editionでいう�
 (正確に言うとexperimentalなAPIを実装しているのがbetaバージョン、ということかなと思いますが。気づくまで私は少し混乱しました)</p>
 <h4 id="インストール先を-preview-環境にする">インストール先を preview 環境にする</h4>
 <p><code>.env</code> を開き <code>MINECRAFT_PRODUCT</code> の値を <code>PreviewUWP</code> に変更します:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="cl"><span class="gh">diff --git a/.env b/.env
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="cl"><span class="gh">diff --git a/.env b/.env
 </span></span></span><span class="line"><span class="cl"><span class="gh">index 46c9fa1..84917bd 100644
 </span></span></span><span class="line"><span class="cl"><span class="gd">--- a/.env
 </span></span></span><span class="line"><span class="cl"><span class="gi">+++ b/.env
@@ -272,20 +193,11 @@ Minecraft Bedrock Edition(いわゆる統合版)には、Java Editionでいう�
 </span></span><span class="line"><span class="cl"><span class="gd">-MINECRAFT_PRODUCT=&#34;BedrockUWP&#34;
 </span></span></span><span class="line"><span class="cl"><span class="gi">+MINECRAFT_PRODUCT=&#34;PreviewUWP&#34;
 </span></span></span><span class="line"><span class="cl"> CUSTOM_DEPLOYMENT_PATH=&#34;&#34;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="実行確認">実行確認</h3>
+</span></span></code></pre></div><h3 id="実行確認">実行確認</h3>
 <p>取り敢えずテンプレートにデフォルト実装されている挙動 <code>scripts/main.ts</code> が動作することを確認します。</p>
 <h4 id="デプロイ">デプロイ</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm run local-deploy
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>でデプロイします。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm run local-deploy
+</span></span></code></pre></div><p>でデプロイします。</p>
 <h4 id="minecraft起動">Minecraft起動</h4>
 <p>Minecraft Launcher から Bedrock Edition を選択し、「最新のプレビュー」に切り替えて「プレイ」。<br />
 ワールドの新規作成へ進み、次の設定を変更します:</p>
@@ -316,15 +228,8 @@ Minecraft Bedrock Edition(いわゆる統合版)には、Java Editionでいう�
 <h3 id="hello-world">Hello, world!</h3>
 <p>最後にプログラムを編集し、内容が反映されることを確認します。</p>
 <p>まず次のコマンドをプロジェクトディレクトリーで実行します:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm run local-deploy -- --watch
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>これで継続的に変更したファイルがデプロイされるようになります。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm run local-deploy -- --watch
+</span></span></code></pre></div><p>これで継続的に変更したファイルがデプロイされるようになります。</p>
 <p>続いて <code>scripts\main.ts</code> を編集します。<br />
 何かMinecraft上で実行したいとき、チャットメッセージをトリガーにするのがぱっと思いつく方法かと思いますのでそれを実現してみます。</p>
 <ul>
@@ -332,38 +237,7 @@ Minecraft Bedrock Edition(いわゆる統合版)には、Java Editionでいう�
 </ul>
 <p>がまさにそういうサンプルなので、これを <code>main.ts</code> に反映します。<br />
 最終的に次のようなコードになりました(テンプレートのコードも、動作しているかどうかを確認するためにそのまま残しています):</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">world</span><span class="p">,</span> <span class="nx">system</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;@minecraft/server&#34;</span><span class="p">;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">world</span><span class="p">,</span> <span class="nx">system</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;@minecraft/server&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">mainTick() {</span>
 </span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">system</span><span class="p">.</span><span class="nx">currentTick</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
@@ -390,9 +264,7 @@ Minecraft Bedrock Edition(いわゆる統合版)には、Java Editionでいう�
 </span></span><span class="line"><span class="cl">      <span class="k">break</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">});</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>上記で利用している <a href="https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/worldbeforeevents?view=minecraft-bedrock-experimental#chatsend"><code>world.beforeEvents.chatSend</code></a> がexperimentalなもので、現時点ではbeta版APIにしか存在しないものです。</p>
+</span></span></code></pre></div><p>上記で利用している <a href="https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/worldbeforeevents?view=minecraft-bedrock-experimental#chatsend"><code>world.beforeEvents.chatSend</code></a> がexperimentalなもので、現時点ではbeta版APIにしか存在しないものです。</p>
 <p>さて、上記コードを保存するとdeployが自動で行われますので、ゲーム内コマンドでリロードします:</p>
 <pre tabindex="0"><code>/reload
 </code></pre><p>(スラッシュを入力するとメッセージ入力欄が現れますので続けて入力します)</p>

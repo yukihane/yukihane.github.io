@@ -82,29 +82,7 @@ Rust でのエラーハンドリングについては歴史的変遷があるよ
 <div class="formalpara-title">
 <p><strong>src/bin/gear07.rs</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">use</span><span class="w"> </span><span class="n">anyhow</span>::<span class="nb">Result</span><span class="p">;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">use</span><span class="w"> </span><span class="n">anyhow</span>::<span class="nb">Result</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="k">fn</span> <span class="nf">get_int_from_file</span><span class="p">()</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;number.txt&#34;</span><span class="p">;</span><span class="w">
@@ -122,9 +100,7 @@ Rust でのエラーハンドリングについては歴史的変遷があるよ
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nb">Err</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&#34;</span><span class="si">{:#?}</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">),</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>それ以外、外部クレートを利用しない方式としては、</p>
+</span></span></span></code></pre></div><p>それ以外、外部クレートを利用しない方式としては、</p>
 <ul>
 <li>
 <p><a href="https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html">The Rust Programming Language &gt; 9.2. Recoverable Errors with Result</a> (※ <a href="https://doc.rust-jp.rs/book-ja/ch09-02-recoverable-errors-with-result.html">日本語版</a>にはまだ反映されていないようです)</p>
@@ -137,29 +113,7 @@ Rust でのエラーハンドリングについては歴史的変遷があるよ
 <div class="formalpara-title">
 <p><strong>src/bin/rust-book.rs</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">error</span>::<span class="n">Error</span><span class="p">;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">error</span>::<span class="n">Error</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="k">fn</span> <span class="nf">get_int_from_file</span><span class="p">()</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="nb">Box</span><span class="o">&lt;</span><span class="k">dyn</span><span class="w"> </span><span class="n">Error</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;number.txt&#34;</span><span class="p">;</span><span class="w">
@@ -177,9 +131,7 @@ Rust でのエラーハンドリングについては歴史的変遷があるよ
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nb">Err</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&#34;</span><span class="si">{}</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">),</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>あるいは別の方法として 自前のエラー型でラップする(<a href="https://doc.rust-jp.rs/rust-by-example-ja/error/multiple_error_types/wrap_error.html">18.4.5. エラーをラップする</a>, <a href="https://doc.rust-lang.org/rust-by-example/error/multiple_error_types/wrap_error.html">原文</a>)方法も解説がありました(<a href="https://github.com/yukihane/hello-rust/blob/master/error-handling/src/bin/gear03.rs"><code>src/bin/gear03.rs</code></a>)。</p>
+</span></span></span></code></pre></div><p>あるいは別の方法として 自前のエラー型でラップする(<a href="https://doc.rust-jp.rs/rust-by-example-ja/error/multiple_error_types/wrap_error.html">18.4.5. エラーをラップする</a>, <a href="https://doc.rust-lang.org/rust-by-example/error/multiple_error_types/wrap_error.html">原文</a>)方法も解説がありました(<a href="https://github.com/yukihane/hello-rust/blob/master/error-handling/src/bin/gear03.rs"><code>src/bin/gear03.rs</code></a>)。</p>
 
         </section>
         <div class="post-tags">

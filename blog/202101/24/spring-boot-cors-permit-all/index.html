@@ -77,25 +77,7 @@ Spring Boot のリファレンス 4.7.1. The “Spring Web MVC Framework” &gt;
 <li><a href="https://stackoverflow.com/a/65867566/4506703">How to configure CORS in a Spring Boot + Spring Security application?</a> - Stack Overflow</li>
 </ul>
 <p>Spring Boot のリファレンス <a href="https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#boot-features-cors">4.7.1. The “Spring Web MVC Framework” &gt; CORS Support</a> を見ると、次のように設定すれば良いように見えます。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#boot-features-cors</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// https://docs.spring.io/spring-boot/docs/2.4.2/reference/htmlsingle/#boot-features-cors</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyConfiguration</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -109,33 +91,10 @@ Spring Boot のリファレンス 4.7.1. The “Spring Web MVC Framework” &gt;
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">};</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>この設定は Spring MVC だけを使っている場合には上手くいきますが、 <code>spring-boot-starter-security</code> を導入するとクライアントサイドでCORSの問題で通信が失敗するような状況が発生します。</p>
+</span></span></span></code></pre></div><p>この設定は Spring MVC だけを使っている場合には上手くいきますが、 <code>spring-boot-starter-security</code> を導入するとクライアントサイドでCORSの問題で通信が失敗するような状況が発生します。</p>
 <p>なぜならば、 <a href="https://developer.mozilla.org/ja/docs/Web/HTTP/CORS#preflighted_requests">プリフライトリクエスト</a> には <a href="https://fetch.spec.whatwg.org/#cors-preflight-fetch"><code>Authorization</code> ヘッダ(等、規定されていないヘッダ)が含まれない</a>ため、プリフライトリクエストがSpring Securityフィルタで <code>401 Unauthorized</code> になって Spring MVC 部分まで到達しないからです。</p>
 <p>幸い、Spring Securityには <a href="https://docs.spring.io/spring-security/site/docs/5.4.2/reference/html5/#cors">上記で設定したCORS設定を <code>CorsFilter</code> で統合できます</a>。 コンフィグで CORS 有効化すればデフォルトでそのような設定になります。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// https://docs.spring.io/spring-security/site/docs/5.4.2/reference/html5/#cors</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// https://docs.spring.io/spring-security/site/docs/5.4.2/reference/html5/#cors</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nd">@EnableWebSecurity</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WebSecurityConfig</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">WebSecurityConfigurerAdapter</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -152,9 +111,7 @@ Spring Boot のリファレンス 4.7.1. The “Spring Web MVC Framework” &gt;
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">http</span><span class="p">.</span><span class="na">cors</span><span class="p">(</span><span class="n">Customizer</span><span class="p">.</span><span class="na">withDefaults</span><span class="p">());</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p><a href="https://github.com/yukihane/hello-java/tree/master/spring/cors/cors-sample">サンプルコード</a></p>
+</span></span></span></code></pre></div><p><a href="https://github.com/yukihane/hello-java/tree/master/spring/cors/cors-sample">サンプルコード</a></p>
 
         </section>
         <div class="post-tags">

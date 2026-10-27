@@ -252,20 +252,7 @@ public interface VehicleInterface extends JpaRepository&lt;vehicle, Long&gt; {
 <div class="formalpara-title">
 <p><strong>pom.xml</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>org.apache.tomcat.embed<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>tomcat-embed-jasper<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
@@ -274,9 +261,13 @@ public interface VehicleInterface extends JpaRepository&lt;vehicle, Long&gt; {
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>javax.servlet<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>jstl<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
-</span></span></code></pre></td></tr></table>
+</span></span></code></pre></div><p><code>appliction.properties</code> に次を追加します:</p>
+<div class="formalpara-title">
+<p><strong>application.properties</strong></p>
 </div>
-</div><p><code>appliction.properties</code> に次を追加します:</p>&hellip;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="na">spring.mvc.view.prefix</span><span class="o">=</span><span class="s">/WEB-INF/view/</span>
+</span></span><span class="line"><span class="cl"><span class="na">spring.mvc.view.suffix</span><span class="o">=</span><span class="s">.jsp</span>
+</span></span></code></pre></div><p><code>src/main/webapp/WEB-INF/view/</code> の下に JSP ファイルを作成します。</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202007/11/jsp-on-springboot/">Read more ⟶</a>
@@ -289,20 +280,7 @@ public interface VehicleInterface extends JpaRepository&lt;vehicle, Long&gt; {
 	
 	<p>特に実用性とかは考えていない。何となくやってみたというだけ。</p>
 <h2 id="動かしたいやつ">動かしたいやつ</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java:MyController.java" data-lang="java:MyController.java"><span class="line"><span class="cl"><span class="nd">@RestController</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java:MyController.java" data-lang="java:MyController.java"><span class="line"><span class="cl"><span class="nd">@RestController</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyController</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -311,26 +289,8 @@ public interface VehicleInterface extends JpaRepository&lt;vehicle, Long&gt; {
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;hello&#34;</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="設定">設定</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml:pom.xml" data-lang="xml:pom.xml"><span class="line"><span class="cl">    <span class="nt">&lt;dependency&gt;</span>
+</span></span></span></code></pre></div><h2 id="設定">設定</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml:pom.xml" data-lang="xml:pom.xml"><span class="line"><span class="cl">    <span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;artifactId&gt;</span>spring-boot<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependency&gt;</span>
@@ -342,27 +302,7 @@ public interface VehicleInterface extends JpaRepository&lt;vehicle, Long&gt; {
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;groupId&gt;</span>org.apache.tomcat.embed<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;artifactId&gt;</span>tomcat-embed-core<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependency&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java:WebConfig.java" data-lang="java:WebConfig.java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java:WebConfig.java" data-lang="java:WebConfig.java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nd">@EnableWebMvc</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WebConfig</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -376,27 +316,13 @@ public interface VehicleInterface extends JpaRepository&lt;vehicle, Long&gt; {
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DispatcherServlet</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java:MyApplication.java" data-lang="java:MyApplication.java"><span class="line"><span class="cl"><span class="nd">@ComponentScan</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java:MyApplication.java" data-lang="java:MyApplication.java"><span class="line"><span class="cl"><span class="nd">@ComponentScan</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyApplication</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">MyApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div>&hellip;
+</span></span></span></code></pre></div>&hellip;
 	
 </div>
 					<a class="readmore" href="/blog/202007/02/minimal-webmvc-with-springboot/">Read more ⟶</a>

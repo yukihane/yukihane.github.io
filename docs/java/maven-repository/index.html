@@ -84,25 +84,13 @@ $M2_HOME/conf/settings.xmlを`~/.m2/`ディレクトリに無ければコピー�
 <li><a href="https://maven.apache.org/settings.html"><code>$M2_HOME/conf/settings.xml</code></a>を`~/.m2/`ディレクトリに無ければコピーする。</li>
 </ol>
 <p># `servers`タグの下に`server`タグを作成し、上記ページのようにサーバ情報を記述する。今回記述したのは`id`と`username`のみでよかった。(公開鍵認証)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;servers&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;servers&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;server&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;id&gt;</span>default<span class="nt">&lt;/id&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;username&gt;</span>myname<span class="nt">&lt;/username&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/server&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/servers&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol>
+</span></span></code></pre></div><ol>
 <li>
 <p>deployするモジュールの`pom.xml`を編集する。これも上記ページに記載がある。`distributionManagement`にデプロイ先のリポジトリ情報を書き、`extension`で`wagon-ssh-external`を記述。</p>
 </li>

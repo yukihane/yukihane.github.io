@@ -81,40 +81,7 @@ map で Result を引き回すときに Err を意識したくない - スタッ
 <li><a href="https://ja.stackoverflow.com/q/82978/2808">map で Result を引き回すときに Err を意識したくない - スタック・オーバーフロー</a></li>
 </ul>
 <p>その1では戻り値が <code>i * 2</code> の <code>i32</code> 型になる話でしたが、その次に考えたかったのは <code>Result</code> が返ってくるメソッドで引き回すときの話でした。こんな感じで:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="c1">// and_then を利用すれば可能だが
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="c1">// and_then を利用すれば可能だが
 </span></span></span><span class="line"><span class="cl"><span class="c1">// この and_then を省きたい
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="k">use</span><span class="w"> </span><span class="n">anyhow</span>::<span class="p">{</span><span class="n">anyhow</span><span class="p">,</span><span class="w"> </span><span class="nb">Result</span><span class="p">};</span><span class="w">
@@ -143,9 +110,7 @@ map で Result を引き回すときに Err を意識したくない - スタッ
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&#34;Results: </span><span class="si">{:?}</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">numbers</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// Results: [Err(invalid digit found in string), Err(too large), Ok(72)]
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>anyhow::Result&lt;i32&gt;</code> な関数を <code>map</code> でつなげて、最終的な結果を <code>anyhow::Result&lt;i32&gt;</code> のベクタで得たかったのです。</p>
+</span></span></span></code></pre></div><p><code>anyhow::Result&lt;i32&gt;</code> な関数を <code>map</code> でつなげて、最終的な結果を <code>anyhow::Result&lt;i32&gt;</code> のベクタで得たかったのです。</p>
 <p>なんとなくその1の結果からするにイテレータを自作すれば良さそうに思われるのですが、現時点では <a href="https://stackoverflow.com/questions/36368843/whats-the-most-idiomatic-way-of-working-with-an-iterator-of-results/36370251#36370251">実装</a>がさっぱり理解できないので、将来の自分に任せたいと思います…</p>
 
         </section>

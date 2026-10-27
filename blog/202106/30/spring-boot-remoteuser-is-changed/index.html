@@ -107,20 +107,7 @@ getRemoteUser() returns principal name #9211 実際にどうなったか見て�
 </ul>
 <p>を利用します。</p>
 <p>上記のサンプル実装を次のように変更します。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HelloController</span><span class="w"> </span><span class="p">{</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HelloController</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@GetMapping</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">index</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -129,9 +116,7 @@ getRemoteUser() returns principal name #9211 実際にどうなったか見て�
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getRemoteUser</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>また、Spring Bootのバージョンを <code>2.4</code> 系の最新版である <code>2.4.8</code> にアップグレードします(Spring Security のバージョンは <code>5.4.7</code> になります)。</p>
+</span></span></span></code></pre></div><p>また、Spring Bootのバージョンを <code>2.4</code> 系の最新版である <code>2.4.8</code> にアップグレードします(Spring Security のバージョンは <code>5.4.7</code> になります)。</p>
 <p>その上で <a href="http://localhost:8080">http://localhost:8080</a> にアクセスしてログインすると、次の出力を得ます。</p>
 <pre><code>Name: [myuser], Granted Authorities: [[ROLE_USER, SCOPE_email, SCOPE_profile]], User Attributes: [{sub=5512f41b-43b1-40cf-858c-ab27bc6a5e9f, email_verified=false, name=my-firstname my-lastname, preferred_username=myuser, given_name=my-firstname, family_name=my-lastname, email=myuser@example.com}]
 </code></pre>

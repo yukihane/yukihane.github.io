@@ -106,25 +106,13 @@ Spring Boot で JavaScript を扱うときは素のJSをhtml(Thymeleafテンプ�
 <div class="formalpara-title">
 <p><strong>build.gradle</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="line"><span class="cl"><span class="n">plugins</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="line"><span class="cl"><span class="n">plugins</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// ...
 </span></span></span><span class="line"><span class="cl">    <span class="n">id</span> <span class="s1">&#39;eclipse&#39;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">id</span> <span class="s1">&#39;com.diffplug.eclipse.apt&#39;</span> <span class="n">version</span> <span class="s1">&#39;3.30.0&#39;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">id</span> <span class="s1">&#39;com.dorongold.task-tree&#39;</span> <span class="n">version</span> <span class="s1">&#39;2.1.0&#39;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Eclipseプロジェクトを構成します。</p>
+</span></span></code></pre></div><p>Eclipseプロジェクトを構成します。</p>
 <pre><code>gradle build cleanEclipse eclipse
 </code></pre>
 <p>Eclipse メニューの <strong>File &gt; Import</strong> を選択し、ダイアログの <strong>General &gt; Existing Projects into Workspace</strong> から今回のプロジェクトをインポートします。</p>
@@ -189,82 +177,18 @@ yarn webpack init
 <div class="formalpara-title">
 <p><strong>tsconfig.json</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;compilerOptions&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;strict&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;module&#34;</span><span class="p">:</span> <span class="s2">&#34;es6&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;target&#34;</span><span class="p">:</span> <span class="s2">&#34;es5&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>javascript</code> ファイルは <code>src/main/js</code> に、そして出力は <code>build/resources/main/static/static</code> に出力するよう設定します。 また、 <code>mylib</code> という名前のライブラリとして生成します。</p>
+</span></span></code></pre></div><p><code>javascript</code> ファイルは <code>src/main/js</code> に、そして出力は <code>build/resources/main/static/static</code> に出力するよう設定します。 また、 <code>mylib</code> という名前のライブラリとして生成します。</p>
 <div class="formalpara-title">
 <p><strong>webpack.config.js</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="s2">&#34;use strict&#34;</span><span class="p">;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="s2">&#34;use strict&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="c1">// Generated using webpack-cli https://github.com/webpack/webpack-cli
 </span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;path&#34;</span><span class="p">);</span>
@@ -311,9 +235,7 @@ yarn webpack init
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">config</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="補足-1">補足</h3>
+</span></span></code></pre></div><h3 id="補足-1">補足</h3>
 <p><code>yarn add</code> の対象は次のページを参考にしました:</p>
 <ul>
 <li><a href="https://webpack.js.org/guides/getting-started/#basic-setup">Getting Started | webpack</a></li>
@@ -334,19 +256,7 @@ yarn webpack init
 <div class="formalpara-title">
 <p><strong>build.gradle</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="line"><span class="cl"><span class="n">plugins</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="line"><span class="cl"><span class="n">plugins</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// ...
 </span></span></span><span class="line"><span class="cl">    <span class="n">id</span> <span class="s1">&#39;com.github.node-gradle.node&#39;</span> <span class="n">version</span> <span class="s1">&#39;3.1.0&#39;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
@@ -354,9 +264,7 @@ yarn webpack init
 </span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">yarn_build</span><span class="o">.</span><span class="na">dependsOn</span> <span class="n">yarn_install</span>
 </span></span><span class="line"><span class="cl"><span class="n">processResources</span><span class="o">.</span><span class="na">dependsOn</span> <span class="n">yarn_build</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="ビルドしてみる">ビルドしてみる</h2>
+</span></span></code></pre></div><h2 id="ビルドしてみる">ビルドしてみる</h2>
 <p>設定はここまでで完了しました。 試しにサンプルコードをおいてビルドしてみます。</p>
 <p>なお、サンプルコードでは <a href="https://github.com/faisalman/ua-parser-js"><code>UAParser.js</code></a> を利用していますので、事前に</p>
 <pre><code>yarn add ua-parser-js
@@ -367,21 +275,7 @@ yarn add --dev @types/ua-parser-js
 <div class="formalpara-title">
 <p><strong>src/main/java/com/github/yukihane/withts/MyController.java</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Controller</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Controller</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyController</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -391,62 +285,10 @@ yarn add --dev @types/ua-parser-js
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;index&#34;</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><div class="formalpara-title">
+</span></span></span></code></pre></div><div class="formalpara-title">
 <p><strong>src/main/resources/templates/index.html</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE html&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;ja&#34;</span> <span class="na">xmlns:th</span><span class="o">=</span><span class="s">&#34;http://www.thymeleaf.org&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span> <span class="p">/&gt;</span>
@@ -492,30 +334,16 @@ yarn add --dev @types/ua-parser-js
 </span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="formalpara-title">
+</span></span></code></pre></div><div class="formalpara-title">
 <p><strong>src/main/js/index.ts</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">UAParser</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;ua-parser-js&#34;</span><span class="p">;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">UAParser</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;ua-parser-js&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">getOS</span> <span class="o">=</span> <span class="p">(</span><span class="nx">userAgent</span><span class="o">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">parser</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UAParser</span><span class="p">(</span><span class="nx">userAgent</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">parser</span><span class="p">.</span><span class="nx">getOS</span><span class="p">());</span>
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>上記のソースを作成し終わったら、ビルドし、実行してみます:</p>
+</span></span></code></pre></div><p>上記のソースを作成し終わったら、ビルドし、実行してみます:</p>
 <pre><code>gradle clean build
 java -jar build/libs/with-ts-0.0.1-SNAPSHOT.jar
 </code></pre>
@@ -537,23 +365,12 @@ java -jar build/libs/with-ts-0.0.1-SNAPSHOT.jar
 <div class="formalpara-title">
 <p><strong>build.gradle</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="line"><span class="cl"><span class="n">bootRun</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="line"><span class="cl"><span class="n">bootRun</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">debugOptions</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">suspend</span> <span class="o">=</span> <span class="kc">false</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>そして、前節で説明した最後のコマンド <code>gradle bootRun -x yarn_build</code> に、 <code>--debug-jvm</code> オプションを付けて実行します:</p>
+</span></span></code></pre></div><p>そして、前節で説明した最後のコマンド <code>gradle bootRun -x yarn_build</code> に、 <code>--debug-jvm</code> オプションを付けて実行します:</p>
 <pre><code>gradle bootRun -x yarn_build --debug-jvm
 </code></pre>
 <p>これでデバッガをアタッチできるような状態でSpring Bootが起動しました。</p>

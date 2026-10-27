@@ -89,31 +89,14 @@ CentOS7 環境で glibc を 2.27 にアップデートすると、どんな影�
 <h2 id="セットアップ">セットアップ</h2>
 <h3 id="development-tools-インストール">Development Tools インストール</h3>
 <p>あとでHomebrewに要求されるので先にインストールしておきます:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo yum groupinstall -y <span class="s1">&#39;Development Tools&#39;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="git-最新化">Git 最新化</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo yum groupinstall -y <span class="s1">&#39;Development Tools&#39;</span>
+</span></span></code></pre></div><h3 id="git-最新化">Git 最新化</h3>
 <p>Homebrewインストール時にGitが古いと怒られるので最新版をインストールします:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo yum remove -y git
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo yum remove -y git
 </span></span><span class="line"><span class="cl">sudo yum -y install https://repo.ius.io/ius-release-el7.rpm https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 </span></span><span class="line"><span class="cl">sudo yum -y install libsecret pcre2 emacs-filesystem
 </span></span><span class="line"><span class="cl">sudo yum -y install git --enablerepo<span class="o">=</span>ius --disablerepo<span class="o">=</span>base,epel,extras,updates
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+</span></span></code></pre></div><ul>
 <li>ref. <a href="https://qiita.com/Crow314/items/5e99c9933546d6577e34">CentOS7でYumを使って最新版gitを導入する - Qiita</a></li>
 </ul>
 <h3 id="curl-最新化">Curl 最新化</h3>
@@ -143,79 +126,18 @@ sudo ldconfig
 cd ~
 rm -rf curl-${VERSION}
 </code></pre><p>またこれもHomebrewに怒られるので先に設定しておきます:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export HOMEBREW_CURL_PATH=/usr/local/bin/curl&#39;</span> &gt;&gt; ~/.bashrc
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export HOMEBREW_CURL_PATH=/usr/local/bin/curl&#39;</span> &gt;&gt; ~/.bashrc
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">HOMEBREW_CURL_PATH</span><span class="o">=</span>/usr/local/bin/curl
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="homebrew-インストール">Homebrew インストール</h3>
+</span></span></code></pre></div><h3 id="homebrew-インストール">Homebrew インストール</h3>
 <p>公式サイト <a href="https://brew.sh/">https://brew.sh/</a> にある通りコマンドを実行します:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">/bin/bash -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>インストール後に指示される通り <code>.bashrc</code> への書き込みと、 <code>brew</code> コマンドでのGCCインストールを実行します。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> &gt;&gt; /home/vagrant/.bashrc
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">/bin/bash -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&#34;</span>
+</span></span></code></pre></div><p>インストール後に指示される通り <code>.bashrc</code> への書き込みと、 <code>brew</code> コマンドでのGCCインストールを実行します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> &gt;&gt; /home/vagrant/.bashrc
 </span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;eval &#34;$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)&#34;&#39;</span> &gt;&gt; /home/vagrant/.bashrc
 </span></span><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>/home/linuxbrew/.linuxbrew/bin/brew shellenv<span class="k">)</span><span class="s2">&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install gcc
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="puppeteer実行">Puppeteer実行</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo yum install -y chromium-browser
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install gcc
+</span></span></code></pre></div><h2 id="puppeteer実行">Puppeteer実行</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo yum install -y chromium-browser
 </span></span><span class="line"><span class="cl">brew install node@18
 </span></span><span class="line"><span class="cl">mkdir ~/hello-puppeteer
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span> ~/hello-puppeteer
@@ -241,18 +163,9 @@ rm -rf curl-${VERSION}
 </span></span></span><span class="line"><span class="cl"><span class="s">  await browser.close();
 </span></span></span><span class="line"><span class="cl"><span class="s">})();
 </span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>実行してみます:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">node main.js
-</span></span></code></pre></td></tr></table>
-</div>
-</div>
+</span></span></code></pre></div><p>実行してみます:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">node main.js
+</span></span></code></pre></div>
         </section>
         <div class="post-tags">
           

@@ -102,36 +102,14 @@ pom.xml
 <p>参考: <a href="https://github.com/swagger-api/swagger-core/wiki/Swagger-Core-RESTEasy-2.X-Project-Setup-1.5#adding-the-dependencies-to-your-application">Adding the dependencies to your application</a> Jersyの場合は専用の別ライブラリがある。</p>
 <h2 id="webxml">web.xml</h2>
 <p>自動でJAX-RSのリソースプロバイダをスキャンするために、`web.xml`に次を追記する。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;context-param&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;context-param&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-name&gt;</span>resteasy.scan<span class="nt">&lt;/param-name&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-value&gt;</span>true<span class="nt">&lt;/param-value&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/context-param&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>参考: <a href="https://github.com/swagger-api/swagger-core/wiki/Swagger-Core-RESTEasy-2.X-Project-Setup-1.5#automatic-scanning-and-registration">Hooking up Swagger-Core in your Application - Automatic scanning and registration</a> 上記のほか、手動追加など他の選択肢も有る。</p>
+</span></span></code></pre></div><p>参考: <a href="https://github.com/swagger-api/swagger-core/wiki/Swagger-Core-RESTEasy-2.X-Project-Setup-1.5#automatic-scanning-and-registration">Hooking up Swagger-Core in your Application - Automatic scanning and registration</a> 上記のほか、手動追加など他の選択肢も有る。</p>
 <h2 id="コード">コード</h2>
 <p>`Application`継承クラスのコンストラクタに次を記載する。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">        </span><span class="n">BeanConfig</span><span class="w"> </span><span class="n">beanConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BeanConfig</span><span class="p">();</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">        </span><span class="n">BeanConfig</span><span class="w"> </span><span class="n">beanConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BeanConfig</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">beanConfig</span><span class="p">.</span><span class="na">setVersion</span><span class="p">(</span><span class="s">&#34;0.1.0&#34;</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">beanConfig</span><span class="p">.</span><span class="na">setSchemes</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">&#34;http&#34;</span><span class="w"> </span><span class="p">});</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">beanConfig</span><span class="p">.</span><span class="na">setHost</span><span class="p">(</span><span class="s">&#34;localhost:8080&#34;</span><span class="p">);</span><span class="w">
@@ -139,9 +117,7 @@ pom.xml
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">beanConfig</span><span class="p">.</span><span class="na">setResourcePackage</span><span class="p">(</span><span class="s">&#34;jp.himeji_cs.hello_wildfly_rest.rest&#34;</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">beanConfig</span><span class="p">.</span><span class="na">setScan</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">beanConfig</span><span class="p">.</span><span class="na">setPrettyPrint</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>参考: <a href="https://github.com/swagger-api/swagger-core/wiki/Swagger-Core-RESTEasy-2.X-Project-Setup-1.5#using-the-application-class">Configure and Initialize Swagger - Using Swagger’s BeanConfig - Using the Application class</a> これ以外の設定方法も記載が有る。</p>
+</span></span></span></code></pre></div><p>参考: <a href="https://github.com/swagger-api/swagger-core/wiki/Swagger-Core-RESTEasy-2.X-Project-Setup-1.5#using-the-application-class">Configure and Initialize Swagger - Using Swagger’s BeanConfig - Using the Application class</a> これ以外の設定方法も記載が有る。</p>
 <h1 id="swagger-ui-セットアップ">Swagger-UI セットアップ</h1>
 <ol>
 <li>WildFlyのホームディレクトリ(以下、<code>$JBOSS_HOME</code>)直下に`swagger`というディレクトリを作成し、https://github.com/swagger-api/swagger-ui[swagger-ui]の`dist`以下をコピーする。</li>

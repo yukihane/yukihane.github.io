@@ -99,19 +99,7 @@ AsyncSelect の loadOptions パターンをやめ、通常の Select &#43; contr
 <hr />
 <h2 id="前提-asyncselect-の検索メカニズム">前提: AsyncSelect の検索メカニズム</h2>
 <p><code>AsyncSelect</code> は <code>loadOptions</code> という callback を受け取り、ユーザーの入力が変わるたびにこれを呼び出します。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">AsyncSelect</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">AsyncSelect</span>
 </span></span><span class="line"><span class="cl">  <span class="na">loadOptions</span><span class="o">=</span><span class="p">{(</span><span class="nx">inputValue</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// inputValue が変わるたびに呼ばれる
 </span></span></span><span class="line"><span class="cl">    <span class="nx">fetch</span><span class="p">(</span><span class="sb">`/api/search?q=</span><span class="si">${</span><span class="nx">inputValue</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
@@ -119,9 +107,7 @@ AsyncSelect の loadOptions パターンをやめ、通常の Select &#43; contr
 </span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="nx">callback</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}}</span>
 </span></span><span class="line"><span class="cl"><span class="p">/&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>内部的には <code>inputValue</code> の state が変わったタイミングで <code>loadOptions</code> が発火します。</p>
+</span></span></code></pre></div><p>内部的には <code>inputValue</code> の state が変わったタイミングで <code>loadOptions</code> が発火します。</p>
 <hr />
 <h2 id="衝突-ime-の-composition-イベントと-react-select-の内部状態">衝突: IME の composition イベントと react-select の内部状態</h2>
 <p>日本語入力では、ブラウザが以下の順序でイベントを発火します:</p>
@@ -133,30 +119,7 @@ AsyncSelect の loadOptions パターンをやめ、通常の Select &#43; contr
 </ol>
 <p>問題は <strong>ステップ 2 の時点で react-select の内部 <code>inputValue</code> が中間文字列で更新されてしまう</strong> ことです。</p>
 <p>IME 変換中の不要な検索を防ぐため、<code>compositionStart</code>/<code>compositionEnd</code> をフックして <code>isComposing</code> フラグを管理し、変換中は <code>loadOptions</code> 内で <code>callback([])</code> して即 return する実装にしていました:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">isComposingRef</span> <span class="o">=</span> <span class="nx">useRef</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">isComposingRef</span> <span class="o">=</span> <span class="nx">useRef</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">selectComponents</span> <span class="o">=</span> <span class="nx">useMemo</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">({</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">Input</span><span class="o">:</span> <span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span>
@@ -175,9 +138,7 @@ AsyncSelect の loadOptions パターンをやめ、通常の Select &#43; contr
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// ... API 呼び出し
 </span></span></span><span class="line"><span class="cl"><span class="p">},</span> <span class="p">[])</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>一見合理的ですが、ここに落とし穴があります。</p>
+</span></span></code></pre></div><p>一見合理的ですが、ここに落とし穴があります。</p>
 <hr />
 <h2 id="compositionend-後に-loadoptions-が呼ばれない"><code>compositionEnd</code> 後に <code>loadOptions</code> が呼ばれない</h2>
 <p><code>compositionEnd</code> で <code>isComposingRef.current = false</code> にしても、<strong><code>AsyncSelect</code> が <code>loadOptions</code> を再呼び出ししません</strong>。</p>
@@ -197,42 +158,16 @@ AsyncSelect の loadOptions パターンをやめ、通常の Select &#43; contr
 <h2 id="試して失敗したアプローチ">試して失敗したアプローチ</h2>
 <h3 id="1-iscomposing-チェックを-debounce-の内側に移動">1. <code>isComposing</code> チェックを debounce の内側に移動</h3>
 <p><code>loadOptions</code> の先頭で即 return する代わりに、300ms の debounce 後にチェックすれば <code>compositionEnd</code> が間に合うのでは、と考えました。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="nx">debounceTimerRef</span><span class="p">.</span><span class="nx">current</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="kr">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="nx">debounceTimerRef</span><span class="p">.</span><span class="nx">current</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="kr">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">isComposingRef</span><span class="p">.</span><span class="nx">current</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// ← debounce 後にチェック
 </span></span></span><span class="line"><span class="cl">    <span class="nx">callback</span><span class="p">([])</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// ... API 呼び出し
 </span></span></span><span class="line"><span class="cl"><span class="p">},</span> <span class="mi">300</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>結果: 効果なし。</strong> そもそも <code>loadOptions</code> 自体が再呼び出しされないため、debounce の内外は関係ありませんでした。</p>
+</span></span></code></pre></div><p><strong>結果: 効果なし。</strong> そもそも <code>loadOptions</code> 自体が再呼び出しされないため、debounce の内外は関係ありませんでした。</p>
 <h3 id="2-compositionend-で-key-をインクリメントして再マウント">2. <code>compositionEnd</code> で <code>key</code> をインクリメントして再マウント</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">selectKey</span><span class="p">,</span> <span class="nx">setSelectKey</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">selectKey</span><span class="p">,</span> <span class="nx">setSelectKey</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// compositionEnd で key を変える → コンポーネント再マウント
 </span></span></span><span class="line"><span class="cl"><span class="nx">onCompositionEnd</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -241,67 +176,11 @@ AsyncSelect の loadOptions パターンをやめ、通常の Select &#43; contr
 </span></span></span><span class="line"><span class="cl"><span class="p">}}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">AsyncSelect</span> <span class="na">key</span><span class="o">=</span><span class="p">{</span><span class="nx">selectKey</span><span class="p">}</span> <span class="na">...</span> <span class="p">/&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>結果: 症状悪化。</strong> 再マウントで入力中のテキストが消え、ユーザー体験が壊れました。</p>
+</span></span></code></pre></div><p><strong>結果: 症状悪化。</strong> 再マウントで入力中のテキストが消え、ユーザー体験が壊れました。</p>
 <hr />
 <h2 id="修正-asyncselect-をやめて-select--controlled-inputvalue--useeffect">修正: <code>AsyncSelect</code> をやめて <code>Select</code> + controlled <code>inputValue</code> + <code>useEffect</code></h2>
 <p><code>AsyncSelect</code> の <code>loadOptions</code> callback パターンに頼ること自体が問題でした。<code>inputValue</code> の変更検知を react-select の内部に任せるのではなく、自分で制御します。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">Select</span> <span class="kr">from</span> <span class="s1">&#39;react-select&#39;</span>  <span class="c1">// ← AsyncSelect ではない
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">Select</span> <span class="kr">from</span> <span class="s1">&#39;react-select&#39;</span>  <span class="c1">// ← AsyncSelect ではない
 </span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">inputValue</span><span class="p">,</span> <span class="nx">setInputValue</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">isComposing</span><span class="p">,</span> <span class="nx">setIsComposing</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
@@ -351,9 +230,7 @@ AsyncSelect の loadOptions パターンをやめ、通常の Select &#43; contr
 </span></span></span><span class="line"><span class="cl">    <span class="na">...</span>
 </span></span><span class="line"><span class="cl">  <span class="p">/&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>ポイントは3つです。</p>
+</span></span></code></pre></div><p>ポイントは3つです。</p>
 <ol>
 <li><strong><code>inputValue</code> を controlled state で管理</strong> — react-select の内部状態に依存しません</li>
 <li><strong><code>compositionEnd</code> で <code>setInputValue(e.currentTarget.value)</code> を明示呼び出し</strong> — IME 確定後に state が変わることが保証されます</li>
@@ -371,27 +248,14 @@ AsyncSelect の loadOptions パターンをやめ、通常の Select &#43; contr
 <li><code>'menu-close'</code> — メニューが閉じた</li>
 </ul>
 <p><code>action === 'input-change'</code> のみで <code>setInputValue</code> していると、<code>set-value</code> 時のリセット（空文字への変更）が反映されず、古い検索キーワードが <code>inputValue</code> に残り続けます。結果として <code>value</code>（選択済みの値）のラベルが表示されず、検索テキストが表示されます。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="nx">onInputChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">newValue</span><span class="p">,</span> <span class="p">{</span> <span class="nx">action</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="nx">onInputChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">newValue</span><span class="p">,</span> <span class="p">{</span> <span class="nx">action</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">action</span> <span class="o">===</span> <span class="s1">&#39;input-change&#39;</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">setInputValue</span><span class="p">(</span><span class="nx">newValue</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">action</span> <span class="o">===</span> <span class="s1">&#39;set-value&#39;</span> <span class="o">||</span> <span class="nx">action</span> <span class="o">===</span> <span class="s1">&#39;menu-close&#39;</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">setInputValue</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>  <span class="c1">// ← これが必要
 </span></span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><hr />
+</span></span></code></pre></div><hr />
 <h2 id="さらなる改善-react-query-への移行">さらなる改善: React Query への移行</h2>
 <p><code>useEffect</code> + 直接 API 呼び出しパターンには別の問題もあります:</p>
 <ul>
@@ -399,33 +263,7 @@ AsyncSelect の loadOptions パターンをやめ、通常の Select &#43; contr
 <li><strong>状態管理の肥大化</strong>: <code>options</code>, <code>isLoading</code>, <code>isError</code> をコンポーネント内で個別に <code>useState</code> 管理</li>
 </ul>
 <p>React Query (<code>useQuery</code>) に移行するとこれらが自動的に解決されます:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="c1">// カスタムフック
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="c1">// カスタムフック
 </span></span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">useSearchTargetCandidates</span> <span class="o">=</span> <span class="p">(</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">projectId</span>: <span class="kt">string</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">keyword</span>: <span class="kt">string</span><span class="p">,</span>
@@ -447,9 +285,7 @@ AsyncSelect の loadOptions パターンをやめ、通常の Select &#43; contr
 </span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">{</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">isLoading</span><span class="p">,</span> <span class="nx">isError</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">useSearchTargetCandidates</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">projectId</span><span class="p">,</span> <span class="nx">debouncedKeyword</span><span class="p">,</span> <span class="o">!</span><span class="nx">isComposing</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>queryKey</code> が変わると React Query が古いリクエストの結果を自動破棄するため、stale response 競合は構造的に起きません。<code>enabled</code> フラグで IME 変換中の検索抑止も統一的に制御できます。</p>
+</span></span></code></pre></div><p><code>queryKey</code> が変わると React Query が古いリクエストの結果を自動破棄するため、stale response 競合は構造的に起きません。<code>enabled</code> フラグで IME 変換中の検索抑止も統一的に制御できます。</p>
 <hr />
 <h2 id="まとめ">まとめ</h2>
 <table>

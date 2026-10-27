@@ -106,19 +106,10 @@
 <h1 id="アノテーションプロセッシング">アノテーションプロセッシング</h1>
 <p>気になっているのは処理する順番を明示的に設定できるのかどうかという点。 MavenでMapStructとLombokを併用する場合も問題になったが、Gradleではどうなのか。</p>
 <p>結論としては、 <a href="https://github.com/mapstruct/mapstruct-examples/blob/master/mapstruct-lombok/build.gradle">ここ</a> にあるような書き方で行けそうなんじゃないかな、と。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="line"><span class="cl"><span class="n">dependencies</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="line"><span class="cl"><span class="n">dependencies</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">annotationProcessor</span> <span class="s2">&#34;org.mapstruct:mapstruct-processor:${mapstructVersion}&#34;</span><span class="o">,</span> <span class="s2">&#34;org.projectlombok:lombok:${lombokVersion}&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>やってみたところ、コマンドラインからは上手く行っているように見えます。</p>
+</span></span></code></pre></div><p>やってみたところ、コマンドラインからは上手く行っているように見えます。</p>
 <p>ただし、Eclipseで操作するとMapStructアノテーションプロセッシングが動作しません。おそらく以下のissueが関連しています。</p>
 <ul>
 <li><a href="https://github.com/eclipse/buildship/issues/329">Annotation Processor configuration from Gradle Eclipse Plugin #329</a> - eclipse/buildship</li>

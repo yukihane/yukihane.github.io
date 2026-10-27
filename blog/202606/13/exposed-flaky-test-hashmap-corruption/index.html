@@ -135,19 +135,7 @@ at o.j.exposed.sql.statements.api.IdentifierManagerApi.needQuotes(...)
 <h2 id="原因-exposed-の識別子キャッシュが非スレッドセーフだった">原因: Exposed の識別子キャッシュが非スレッドセーフだった</h2>
 <p>スタックトレースを遡ると、壊れた <code>HashMap</code> の出所は Exposed ORM の <code>IdentifierManagerApi.needQuotes()</code> でした。</p>
 <p>Exposed はテーブル名やカラム名をクォートする際、結果を <code>LinkedHashMap</code>（LRU キャッシュ、上限 1,000 エントリ）にキャッシュします。この <code>IdentifierManagerApi</code> は <strong>DB の URL ごとに 1 インスタンスが生成され、全トランザクションで共有されます</strong>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="c1">// Exposed 内部（簡略化）
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="c1">// Exposed 内部（簡略化）
 </span></span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">IdentifierManagerApi</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// ⚠️ スレッドセーフではない
 </span></span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">val</span> <span class="py">cache</span> <span class="p">=</span> <span class="n">LinkedHashMap</span><span class="p">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Boolean</span><span class="p">&gt;(</span><span class="mi">1000</span><span class="p">,</span> <span class="mf">0.75f</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span>
@@ -155,9 +143,7 @@ at o.j.exposed.sql.statements.api.IdentifierManagerApi.needQuotes(...)
 </span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">needQuotes</span><span class="p">(</span><span class="n">identifier</span><span class="p">:</span> <span class="n">String</span><span class="p">):</span> <span class="n">Boolean</span> <span class="p">=</span>
 </span></span><span class="line"><span class="cl">        <span class="n">cache</span><span class="p">.</span><span class="n">getOrPut</span><span class="p">(</span><span class="n">identifier</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* クォートが必要か判定 */</span> <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>LinkedHashMap</code> はスレッドセーフではありません。このプロジェクトでは Kotest の <code>parallelism = 3</code> 設定で 3 つのテストスペックが同一 JVM 内で並列実行されるため、共有キャッシュへの同時書き込みが発生し、HashMap の内部構造が破壊されていたのです。</p>
+</span></span></code></pre></div><p><code>LinkedHashMap</code> はスレッドセーフではありません。このプロジェクトでは Kotest の <code>parallelism = 3</code> 設定で 3 つのテストスペックが同一 JVM 内で並列実行されるため、共有キャッシュへの同時書き込みが発生し、HashMap の内部構造が破壊されていたのです。</p>
 <p>2つの無関係なテストが同じ例外で落ちた理由もこれで説明がつきます。どちらのテストも Exposed を通じて SQL を組み立てる際に同じ <code>IdentifierManagerApi</code> を経由しており、壊れた HashMap を引き当てたに過ぎません。</p>
 <hr />
 <h2 id="なぜローカルでは再現しないのか">なぜローカルでは再現しないのか</h2>
@@ -170,19 +156,7 @@ at o.j.exposed.sql.statements.api.IdentifierManagerApi.needQuotes(...)
 <hr />
 <h2 id="修正の所在">修正の所在</h2>
 <p>この問題は <a href="https://github.com/JetBrains/Exposed/issues/1704">Exposed #1704</a> として報告されており、<a href="https://github.com/JetBrains/Exposed/pull/2783">PR #2783</a> で修正されました。修正内容は <code>LinkedHashMap</code> を <code>Collections.synchronizedMap</code> でラップし、<code>getOrPut</code> をアトミックに行うようにするものです。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="c1">// 修正後（概念）
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="c1">// 修正後（概念）
 </span></span></span><span class="line"><span class="cl"><span class="k">private</span> <span class="k">val</span> <span class="py">delegate</span><span class="p">:</span> <span class="n">MutableMap</span><span class="p">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">V</span><span class="p">&gt;</span> <span class="p">=</span>
 </span></span><span class="line"><span class="cl">    <span class="nc">Collections</span><span class="p">.</span><span class="n">synchronizedMap</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">        <span class="k">object</span> <span class="err">: </span><span class="nc">LinkedHashMap</span><span class="p">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">V</span><span class="p">&gt;(</span><span class="n">cacheSize</span><span class="p">,</span> <span class="mf">0.75f</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span> <span class="p">{</span>
@@ -190,9 +164,7 @@ at o.j.exposed.sql.statements.api.IdentifierManagerApi.needQuotes(...)
 </span></span><span class="line"><span class="cl">                <span class="n">size</span> <span class="o">&gt;=</span> <span class="n">cacheSize</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>この修正は <strong>Exposed 1.3.0</strong>（2026 年 5 月リリース）に含まれています。</p>
+</span></span></code></pre></div><p>この修正は <strong>Exposed 1.3.0</strong>（2026 年 5 月リリース）に含まれています。</p>
 <hr />
 <h2 id="production-は大丈夫なのか">Production は大丈夫なのか</h2>
 <p>テスト環境で顕在化しやすい問題ですが、Production でもリスクはゼロではありません。</p>

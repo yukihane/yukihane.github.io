@@ -97,63 +97,14 @@ GitHub の Pull Request が &ldquo;This branch has conflicts&rdquo; と表示す
 <li><code>feature-b</code> の PR の base が main に切り替わった</li>
 </ol>
 <p>この時点で GitHub が &ldquo;This branch has conflicts that must be resolved&rdquo; と表示します。ところが手元で試すと：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span> git fetch origin main
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span> git fetch origin main
 </span></span><span class="line"><span class="cl"><span class="gp">$</span> git merge --no-commit --no-ff origin/main
 </span></span><span class="line"><span class="cl"><span class="go">Automatic merge went well; stopped before committing as requested
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>問題なくマージできてしまいます。</p>
+</span></span></span></code></pre></div><p>問題なくマージできてしまいます。</p>
 <hr />
 <h2 id="再現手順">再現手順</h2>
 <p>以下のスクリプトでこの状態を手元で再現できます。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
 </span></span></span><span class="line"><span class="cl"><span class="nb">set</span> -e
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 準備</span>
@@ -189,28 +140,8 @@ GitHub の Pull Request が &ldquo;This branch has conflicts&rdquo; と表示す
 </span></span><span class="line"><span class="cl">git checkout main
 </span></span><span class="line"><span class="cl">git merge feature-a -m <span class="s2">&#34;merge feature-a into main&#34;</span>
 </span></span><span class="line"><span class="cl">git merge feature-c -m <span class="s2">&#34;merge feature-c into main&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>ここまで実行すると、次のようなコミットグラフになります。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span> git log --oneline --all --graph
+</span></span></code></pre></div><p>ここまで実行すると、次のようなコミットグラフになります。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span> git log --oneline --all --graph
 </span></span><span class="line"><span class="cl"><span class="go">*   0fe9585 merge feature-c into main
 </span></span></span><span class="line"><span class="cl"><span class="go">|\
 </span></span></span><span class="line"><span class="cl"><span class="go">| | *   cfd8223 merge feature-c into feature-b
@@ -224,50 +155,20 @@ GitHub の Pull Request が &ldquo;This branch has conflicts&rdquo; と表示す
 </span></span></span><span class="line"><span class="cl"><span class="go">* | ea6a724 feature-a: greet with name
 </span></span></span><span class="line"><span class="cl"><span class="go">|/
 </span></span></span><span class="line"><span class="cl"><span class="go">* ea3e8d0 initial
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>feature-b</code> と <code>main</code> の merge-base を調べると、2つ返ってきます。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span> git merge-base --all main feature-b
+</span></span></span></code></pre></div><p><code>feature-b</code> と <code>main</code> の merge-base を調べると、2つ返ってきます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span> git merge-base --all main feature-b
 </span></span><span class="line"><span class="cl"><span class="go">ea6a724...  # feature-a のコミット
 </span></span></span><span class="line"><span class="cl"><span class="go">831f6a0...  # feature-c のコミット
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>この2つは互いに祖先関係にありません。これが criss-cross merge です。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span> git merge-base --is-ancestor ea6a724 831f6a0<span class="p">;</span> <span class="nb">echo</span> <span class="nv">$?</span>
+</span></span></span></code></pre></div><p>この2つは互いに祖先関係にありません。これが criss-cross merge です。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span> git merge-base --is-ancestor ea6a724 831f6a0<span class="p">;</span> <span class="nb">echo</span> <span class="nv">$?</span>
 </span></span><span class="line"><span class="cl"><span class="go">1    # 祖先ではない
 </span></span></span><span class="line"><span class="cl"><span class="gp">$</span> git merge-base --is-ancestor 831f6a0 ea6a724<span class="p">;</span> <span class="nb">echo</span> <span class="nv">$?</span>
 </span></span><span class="line"><span class="cl"><span class="go">1    # こちらも祖先ではない
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>そしてローカルでのマージは成功します。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span> git checkout feature-b
+</span></span></span></code></pre></div><p>そしてローカルでのマージは成功します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span> git checkout feature-b
 </span></span><span class="line"><span class="cl"><span class="gp">$</span> git merge --no-commit --no-ff main
 </span></span><span class="line"><span class="cl"><span class="go">Automatic merge went well; stopped before committing as requested
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>この状態で GitHub に push して PR を作ると、GitHub 側では &ldquo;This branch has conflicts&rdquo; と表示されうるわけです。</p>
+</span></span></span></code></pre></div><p>この状態で GitHub に push して PR を作ると、GitHub 側では &ldquo;This branch has conflicts&rdquo; と表示されうるわけです。</p>
 <hr />
 <h2 id="原因-criss-cross-merge-とは">原因: criss-cross merge とは</h2>
 <p>通常の 3-way merge では、2つのブランチの共通祖先（merge-base）が <strong>1つに定まります</strong>。しかし上のケースでは、<code>feature-b</code> に <code>feature-a</code> と <code>feature-c</code> が <strong>それぞれ独立に取り込まれ</strong>、main にも <strong>それぞれ独立にマージされている</strong> ため、最近共通祖先が2つ存在します。</p>
@@ -290,27 +191,12 @@ GitHub の Pull Request が &ldquo;This branch has conflicts&rdquo; と表示す
 <hr />
 <h2 id="解決策-rebase-で線形化する">解決策: rebase で線形化する</h2>
 <p><code>feature-b</code> を main の上に rebase すると、criss-cross 構造が解消されて merge-base が一意になります。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span> git rebase main  <span class="c1"># （リモートなら origin/main）</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>rebase 中にコンフリクトが出る場合がありますが、これは git が正直に示してくれるコンフリクトなので、通常どおり解決して <code>git rebase --continue</code> すれば OK です。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span> git rebase main  <span class="c1"># （リモートなら origin/main）</span>
+</span></span></code></pre></div><p>rebase 中にコンフリクトが出る場合がありますが、これは git が正直に示してくれるコンフリクトなので、通常どおり解決して <code>git rebase --continue</code> すれば OK です。</p>
 <p>rebase 後は merge-base が1つになっていることを確認できます。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span> git merge-base --all main feature-b
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">$</span> git merge-base --all main feature-b
 </span></span><span class="line"><span class="cl"><span class="go">（1つだけ返る）
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>rebase 後に force push すれば、GitHub のコンフリクト表示も解消されます。</p>
+</span></span></span></code></pre></div><p>rebase 後に force push すれば、GitHub のコンフリクト表示も解消されます。</p>
 <hr />
 <h2 id="まとめ">まとめ</h2>
 <ul>

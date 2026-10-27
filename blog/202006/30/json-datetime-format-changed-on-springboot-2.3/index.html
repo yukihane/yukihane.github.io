@@ -9,20 +9,10 @@ Change default textual serialization of java.util.Date/Calendar to include colon
 
 このへん見ると分かるけど、Spring Boot 2.2 系列は jackson-databind 2.10.x が採用されていて、 2.3.0 で 2.11.0 が採用されている。
 コード:
-
-
-1
-2
-3
-4
-
-
     @GetMapping(&#34;/&#34;)
     public Date date() {
         return new Date();
     }
-
-
 結果(2.2.8):" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/202006/30/json-datetime-format-changed-on-springboot-2.3/">
@@ -31,7 +21,7 @@ Change default textual serialization of java.util.Date/Calendar to include colon
 	<meta property="og:description" content="正確には jackson-databind 2.11.0 で。
 jackson 2.11 リリースノート Change default textual serialization of java.util.Date/Calendar to include colon in timezone offset #2643 このへん見ると分かるけど、Spring Boot 2.2 系列は jackson-databind 2.10.x が採用されていて、 2.3.0 で 2.11.0 が採用されている。
 コード:
-1 2 3 4 @GetMapping(&#34;/&#34;) public Date date() { return new Date(); } 結果(2.2.8):">
+@GetMapping(&#34;/&#34;) public Date date() { return new Date(); } 結果(2.2.8):">
 	<meta property="og:locale" content="ja_jp">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="blog">
@@ -46,7 +36,7 @@ jackson 2.11 リリースノート Change default textual serialization of java.
 	<meta name="twitter:description" content="正確には jackson-databind 2.11.0 で。
 jackson 2.11 リリースノート Change default textual serialization of java.util.Date/Calendar to include colon in timezone offset #2643 このへん見ると分かるけど、Spring Boot 2.2 系列は jackson-databind 2.10.x が採用されていて、 2.3.0 で 2.11.0 が採用されている。
 コード:
-1 2 3 4 @GetMapping(&#34;/&#34;) public Date date() { return new Date(); } 結果(2.2.8):">
+@GetMapping(&#34;/&#34;) public Date date() { return new Date(); } 結果(2.2.8):">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -106,21 +96,11 @@ jackson 2.11 リリースノート Change default textual serialization of java.
 </ul>
 <p><a href="https://docs.spring.io/spring-boot/docs/2.2.8.RELEASE/reference/htmlsingle/#dependency-versions-coordinates">このへん</a>見ると分かるけど、Spring Boot 2.2 系列は jackson-databind 2.10.x が採用されていて、 <a href="https://docs.spring.io/spring-boot/docs/2.3.0.RELEASE/reference/htmlsingle/#dependency-versions-coordinates">2.3.0</a> で 2.11.0 が採用されている。</p>
 <p>コード:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">)</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Date</span><span class="w"> </span><span class="nf">date</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>結果(2.2.8):</p>
+</span></span></span></code></pre></div><p>結果(2.2.8):</p>
 <pre tabindex="0"><code>&#34;2020-06-30T13:46:24.265+0000&#34;
 </code></pre><p>結果(2.3.1):</p>
 <pre tabindex="0"><code>&#34;2020-06-30T13:47:09.532+00:00&#34;

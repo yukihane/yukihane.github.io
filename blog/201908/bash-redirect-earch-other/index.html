@@ -72,25 +72,7 @@
         
         <section class="body">
           <p>Git の pre-push でテスト実行を行おうとした際、通常テスト実行ではデバッグログを出しているところを、エラーを表すものだけに絞って出すようにしようと考えました。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
 </span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nb">set</span> -eu
 </span></span><span class="line"><span class="cl">
@@ -104,9 +86,7 @@
 </span></span><span class="line"><span class="cl"><span class="k">fi</span>
 </span></span><span class="line"><span class="cl"><span class="o">{</span> mvn <span class="nb">test</span> 1&gt; <span class="nv">$targetdir</span>/pre-push.stdout.txt<span class="p">;</span> <span class="o">}</span> 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> tee <span class="nv">$targetdir</span>/pre-push.stderr.txt
 </span></span><span class="line"><span class="cl"><span class="nb">exit</span> <span class="si">${</span><span class="nv">PIPESTATUS</span><span class="p">[0]</span><span class="si">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>{ …​; }</code> は <a href="https://www.gnu.org/software/bash/manual/html_node/Command-Grouping.html">command grouping</a>と言うそうです。</p>
+</span></span></code></pre></div><p><code>{ …​; }</code> は <a href="https://www.gnu.org/software/bash/manual/html_node/Command-Grouping.html">command grouping</a>と言うそうです。</p>
 <p>参考:</p>
 <ul>
 <li>

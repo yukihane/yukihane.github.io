@@ -107,21 +107,11 @@ openapi generator を Spring Boot で利用してみる で openapi-generator �
 <div class="formalpara-title">
 <p><strong>build.gradle</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="line"><span class="cl"> <span class="n">openApiGenerate</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="line"><span class="cl"> <span class="n">openApiGenerate</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">     <span class="n">templateDir</span> <span class="o">=</span> <span class="s2">&#34;$rootDir/specs/template&#34;</span>
 </span></span><span class="line"><span class="cl">     <span class="c1">// ...
 </span></span></span><span class="line"><span class="cl"> <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>extension機能を用い、次のようにハンドラの引数を宣言することとしました:</p>
+</span></span></code></pre></div><p>extension機能を用い、次のようにハンドラの引数を宣言することとしました:</p>
 <div class="formalpara-title">
 <p><strong>specs/test.yml</strong></p>
 </div>

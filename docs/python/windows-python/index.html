@@ -86,19 +86,7 @@ Ansible インストール 結論としては色々障害があり諦めた。�
 <li><a href="http://qiita.com/walkure/items/09516cb711ff1c886286">Windows(x64)でPython3.6.0(x64)にPyCryptoを入れるメモ - Qiita</a></li>
 </ul>
 <p><code>pip</code> コマンドでインストールしようとすると以下のエラーになる。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-winbatch" data-lang="winbatch"><span class="line"><span class="cl"><span class="p">&gt;</span>pip install ansible
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-winbatch" data-lang="winbatch"><span class="line"><span class="cl"><span class="p">&gt;</span>pip install ansible
 </span></span><span class="line"><span class="cl"><span class="p">(</span>中略<span class="p">)</span>
 </span></span><span class="line"><span class="cl">    warning: GMP or MPIR library not found; Not building Crypto.PublicKey._fastmath.
 </span></span><span class="line"><span class="cl">    building &#39;Crypto.Random.OSRNG.winrandom&#39; extension
@@ -106,9 +94,7 @@ Ansible インストール 結論としては色々障害があり諦めた。�
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    ----------------------------------------
 </span></span><span class="line"><span class="cl">Command <span class="s2">&#34;c:\python36\python.exe -u -c &#34;</span>import setuptools, tokenize;__file__=&#39;C:\\Users\\xxx\\AppData\\Local\\Temp\\pip-build-6vc171ni\\pycrypto\\setup.py&#39;;f=getattr(tokenize, &#39;open&#39;, open)(__file__);code=f.read().replace(&#39;\r\n&#39;, &#39;\n&#39;);f.close();exec(compile(code, __file__, &#39;exec&#39;))<span class="s2">&#34; install --record C:\Users\xxx\AppData\Local\Temp\pip-5ckp1rdw-record\install-record.txt --single-version-externally-managed --compile&#34;</span> failed with error code 1 in C:\Users\xxx\AppData\Local\Temp\pip-build-6vc171ni\pycrypto\
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>メッセージに従い、 <a href="http://landinghub.visualstudio.com/visual-cpp-build-tools">http://landinghub.visualstudio.com/visual-cpp-build-tools</a> で &ldquo;Visual C++ Build Tools 2015&rdquo; をダウンロードしインストールする。インストールオプションはデフォルトのまま。</p>
+</span></span></code></pre></div><p>メッセージに従い、 <a href="http://landinghub.visualstudio.com/visual-cpp-build-tools">http://landinghub.visualstudio.com/visual-cpp-build-tools</a> で &ldquo;Visual C++ Build Tools 2015&rdquo; をダウンロードしインストールする。インストールオプションはデフォルトのまま。</p>
 <p>その後、再度インストールを試みるも、別のエラーが発生。</p>
 <pre><code>    C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\BIN\x86_amd64\cl.exe /c /nologo /Ox /W3 /GL /DNDEBUG /MD -Isrc/ -Isrc/inc-msvc/ -Ic:\python36\include -Ic:\python36\include &quot;-IC:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt&quot; &quot;-IC:\Program Files (x86)\Windows Kits\8.1\include\shared&quot; &quot;-IC:\Program Files (x86)\Windows Kits\8.1\include\um&quot; &quot;-IC:\Program Files (x86)\Windows Kits\8.1\include\winrt&quot; /Tcsrc/winrand.c /Fobuild\temp.win-amd64-3.6\Release\src/winrand.obj    winrand.c
     C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt\inttypes.h(26): error C2061: syntax error: identifier 'intmax_t'

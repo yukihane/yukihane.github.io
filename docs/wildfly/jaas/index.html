@@ -102,23 +102,7 @@ standalone/configuration/standalone.xml の security サブシステム設定部
 </li>
 </ul>
 <p><code>standalone/configuration/standalone.xml</code> の security サブシステム設定部分にsecurity-domainを追加:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">        <span class="nt">&lt;subsystem</span> <span class="na">xmlns=</span><span class="s">&#34;urn:jboss:domain:security:1.2&#34;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">        <span class="nt">&lt;subsystem</span> <span class="na">xmlns=</span><span class="s">&#34;urn:jboss:domain:security:1.2&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&lt;security-domains&gt;</span>
 </span></span><span class="line"><span class="cl">                <span class="nt">&lt;security-domain</span> <span class="na">name=</span><span class="s">&#34;own-domain&#34;</span> <span class="na">cache-type=</span><span class="s">&#34;default&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">                    <span class="nt">&lt;authentication&gt;</span>
@@ -130,70 +114,18 @@ standalone/configuration/standalone.xml の security サブシステム設定部
 </span></span><span class="line"><span class="cl">                    <span class="nt">&lt;/authentication&gt;</span>
 </span></span><span class="line"><span class="cl">                <span class="nt">&lt;/security-domain&gt;</span>
 </span></span><span class="line"><span class="cl">(後略)
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>login-module の code や module-option については前述のリンク先に説明がある。</p>
+</span></span></code></pre></div><p>login-module の code や module-option については前述のリンク先に説明がある。</p>
 <p>`rolesQuery`についてはクエリの1項目目がロール、2項目目がロールグループだそうだが、2項目目はhttps://docs.jboss.org/author/display/WFLY10/Authentication+Modules[`Roles`固定でないといけない]らしい。</p>
 <p>また、ここでは認証(authentication)だけ行いたく、認可(authorization)はアプリケーション独自で行う想定なので、1項目目も`user`固定としている。</p>
 <h1 id="warで利用する">WARで利用する</h1>
 <h2 id="jboss-webxml">jboss-web.xml</h2>
 <p><code>WEB-INF</code> ディレクトリ以下に <code>jboss-web.xml</code> ファイルを作成し、次の内容を記載する:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;jboss-web&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;security-domain&gt;</span>own-domain<span class="nt">&lt;/security-domain&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/jboss-web&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="webxml">web.xml</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;web-app&gt;</span>
+</span></span></code></pre></div><h2 id="webxml">web.xml</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;web-app&gt;</span>
 </span></span><span class="line"><span class="cl">(前略)
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;security-constraint&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;display-name&gt;</span>None Authorized Resource<span class="nt">&lt;/display-name&gt;</span>
@@ -229,50 +161,9 @@ standalone/configuration/standalone.xml の security サブシステム設定部
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;role-name&gt;</span>user<span class="nt">&lt;/role-name&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/security-role&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/web-app&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h1 id="ejb-で利用する">EJB で利用する</h1>
+</span></span></code></pre></div><h1 id="ejb-で利用する">EJB で利用する</h1>
 <h2 id="jboss-ejb3xml">jboss-ejb3.xml</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;jboss:ejb-jar</span> <span class="na">xmlns:jboss=</span><span class="s">&#34;http://www.jboss.com/xml/ns/javaee&#34;</span> <span class="na">xmlns=</span><span class="s">&#34;http://java.sun.com/xml/ns/javaee&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="na">xmlns:s=</span><span class="s">&#34;urn:security&#34;</span> <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.jboss.com/xml/ns/javaee http://www.jboss.org/j2ee/schema/jboss-ejb3-2_0.xsd
@@ -307,9 +198,7 @@ standalone/configuration/standalone.xml の security サブシステム設定部
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/method-permission&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/assembly-descriptor&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/jboss:ejb-jar&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>認証不要にしたいものは <code>ejb-name</code> , <code>method-name</code> を <code>*</code> にせず明示した上で <code>&lt;unchecked /&gt;</code> とする必要があった。 例えば <code>method-name</code> を <code>*</code> にしてしまうと想定通り動かない( <code>user</code> ロール権限が必要になった)。</p>
+</span></span></code></pre></div><p>認証不要にしたいものは <code>ejb-name</code> , <code>method-name</code> を <code>*</code> にせず明示した上で <code>&lt;unchecked /&gt;</code> とする必要があった。 例えば <code>method-name</code> を <code>*</code> にしてしまうと想定通り動かない( <code>user</code> ロール権限が必要になった)。</p>
 
         </section>
         <div class="post-tags">

@@ -151,15 +151,8 @@ Bean Validator は名前の通りBean(Javaオブジェクト)を検証するも�
 (<code>th:field</code>とか、実際にform作るのには必須だと思うのですが冒頭で紹介したSpring Boot側のチュートリアルでは一切出てこないですからね…)</p>
 <h3 id="実行方法">実行方法</h3>
 <p>次のコマンド</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">./gradlew bootRun
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>で実行し、 http://localhost:8080/java へアクセスします。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">./gradlew bootRun
+</span></span></code></pre></div><p>で実行し、 http://localhost:8080/java へアクセスします。</p>
 <p>次の項目が入力、送信できます:</p>
 <ul>
 <li>name(<code>String</code>): <code>@NotNull</code>, <code>@NotEmpty</code>, <code>@Size(min = 1, max = 10)</code></li>
@@ -204,43 +197,21 @@ Bean Validator は名前の通りBean(Javaオブジェクト)を検証するも�
 <p>閑話休題。<br />
 Thymeleafとしては、コレクション要素の <code>name</code> は <code>families[0].familyName</code> というような形式になります。<br />
 これを自動で設定するには</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">th:field=&#34;*{families[__${iterStat.index}__].familyName}&#34;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>のような書き方をすることになります。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">th:field=&#34;*{families[__${iterStat.index}__].familyName}&#34;
+</span></span></code></pre></div><p>のような書き方をすることになります。</p>
 <h3 id="メッセージのカスタマイズ">メッセージのカスタマイズ</h3>
 <h4 id="bean-validator">Bean Validator</h4>
 <p>Bean Validationのメッセージのカスタマイズ方法は、<a href="https://jakarta.ee/specifications/bean-validation/3.0/jakarta-bean-validation-spec-3.0.html#validationapi-message">Bean Validation 仕様書</a>に記述があります。<br />
 メッセージバンドル <code>ValidationMessages.properties</code> を見るので、クラスパスにこの形式のファイルを置いて(優先度を上げて)やればデフォルト設定のメッセージを上書きできます。</p>
 <p>具体的には、 <a href="https://github.com/yukihane/hello-java/blob/912a460c01739e0e7b6accdf6f57107476281d43/spring/validation/kotlin-form-binding/src/main/resources/ValidationMessages.properties"><code>src/main/resources/ValidationMessages.properties</code> ファイル</a>を作成し、次のように編集します(実際のエンコーディングは ISO-8859-1(Latin-1) です):</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="na">jakarta.validation.constraints.NotNull.message</span><span class="o">=</span><span class="s">必須項目です</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>そうして、アプリケーションを再起動した後前回と同じように空のまま送信すると、メッセージが今回設定した「必須項目です」に変わっているはずです。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="na">jakarta.validation.constraints.NotNull.message</span><span class="o">=</span><span class="s">必須項目です</span>
+</span></span></code></pre></div><p>そうして、アプリケーションを再起動した後前回と同じように空のまま送信すると、メッセージが今回設定した「必須項目です」に変わっているはずです。</p>
 <p>key値 <code>jakarta.validation.constraints.NotNull.message</code> の部分はどうやって調べるの？という点については、標準のものであれば仕様書の <a href="https://jakarta.ee/specifications/bean-validation/3.0/jakarta-bean-validation-spec-3.0.html#standard-resolver-messages">Appendix B: Standard ResourceBundle messages</a> に載っています。<br />
 が、IDEのクラスファイル(やコンパイル前ソースコード)を覗く機能で実装を見た方が早いでしょう。<br />
 例えば <code>@NotNull</code> のクラスを見ると次のように実装されています:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="nd">@interface</span><span class="w"> </span><span class="n">NotNull</span><span class="w"> </span><span class="p">{</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="nd">@interface</span><span class="w"> </span><span class="n">NotNull</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="nf">message</span><span class="p">()</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="s">&#34;{jakarta.validation.constraints.NotNull.message}&#34;</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="データバインディング">データバインディング</h4>
+</span></span></span></code></pre></div><h4 id="データバインディング">データバインディング</h4>
 <p>ではデータバインディング失敗時のエラーメッセージはどうやってカスタマイズするのでしょう？<br />
 検索してみたのですが、どうも公式のドキュメントに明示的には書かれていないようです。</p>
 <p>前回試したように、生年月日に不正な文字列を入力して送信します。<br />

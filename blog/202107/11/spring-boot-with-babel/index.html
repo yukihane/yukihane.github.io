@@ -107,35 +107,7 @@ yarn add core-js
 <div class="formalpara-title">
 <p><strong>webpack.config.js</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="p">...</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="p">...</span>
 </span></span><span class="line"><span class="cl">      <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">loader</span><span class="o">:</span> <span class="s2">&#34;babel-loader&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
@@ -159,9 +131,7 @@ yarn add core-js
 </span></span><span class="line"><span class="cl">        <span class="p">},</span>
 </span></span><span class="line"><span class="cl">      <span class="p">},</span>
 </span></span><span class="line"><span class="cl"><span class="p">...</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>更に、 <code>package.json</code> へ <code>browserslist</code> の設定を追記します。</p>
+</span></span></code></pre></div><p>更に、 <code>package.json</code> へ <code>browserslist</code> の設定を追記します。</p>
 <div class="formalpara-title">
 <p><strong>package.json</strong></p>
 </div>
@@ -199,22 +169,7 @@ yarn add core-js
 <div class="formalpara-title">
 <p><strong>webpack.config.js</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="p">...</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="p">...</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">module</span><span class="o">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">rules</span><span class="o">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">      <span class="p">{</span>
@@ -225,9 +180,7 @@ yarn add core-js
 </span></span><span class="line"><span class="cl">            <span class="o">/</span><span class="nx">node_modules</span><span class="p">[</span><span class="err">\\\</span><span class="o">/</span><span class="p">]</span><span class="nx">ua</span><span class="o">-</span><span class="nx">parser</span><span class="o">-</span><span class="nx">js</span><span class="o">/</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">          <span class="p">],</span>
 </span></span><span class="line"><span class="cl"><span class="p">...</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="補足-1">補足</h3>
+</span></span></code></pre></div><h3 id="補足-1">補足</h3>
 <p>上記の設定追加を行わない場合、コンパイル時に次の警告</p>
 <pre><code>WARNING in ./src/main/js/index.ts 3:19-27
 export 'UAParser' (imported as 'UAParser') was not found in 'ua-parser-js' (module has no exports)
@@ -250,27 +203,7 @@ export 'UAParser' (imported as 'UAParser') was not found in 'ua-parser-js' (modu
 <div class="formalpara-title">
 <p><strong>package.json</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">  <span class="s2">&#34;jest&#34;</span><span class="err">:</span> <span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">  <span class="s2">&#34;jest&#34;</span><span class="err">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;roots&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">      <span class="s2">&#34;&lt;rootDir&gt;/src/main/js&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">],</span>
@@ -286,29 +219,16 @@ export 'UAParser' (imported as 'UAParser') was not found in 'ua-parser-js' (modu
 </span></span><span class="line"><span class="cl">      <span class="s2">&#34;jsx&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">]</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>script</code> セクションを編集し、testを組み込みます。</p>
+</span></span></code></pre></div><p><code>script</code> セクションを編集し、testを組み込みます。</p>
 <div class="formalpara-title">
 <p><strong>package.json</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">  <span class="s2">&#34;scripts&#34;</span><span class="err">:</span> <span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">  <span class="s2">&#34;scripts&#34;</span><span class="err">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;build&#34;</span><span class="p">:</span> <span class="s2">&#34;yarn run test &amp;&amp; webpack --mode=production --node-env=production&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="err">...</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;test&#34;</span><span class="p">:</span> <span class="s2">&#34;jest&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span><span class="err">,</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="補足-2">補足</h3>
+</span></span></code></pre></div><h3 id="補足-2">補足</h3>
 <p>Jest の設定は次を参考にしています:</p>
 <ul>
 <li><a href="https://typescript-jp.gitbook.io/deep-dive/intro-1/jest">Jest - TypeScript Deep Dive 日本語版</a></li>

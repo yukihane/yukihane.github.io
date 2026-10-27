@@ -20,42 +20,6 @@ spring generator
 
 build.gradle
 
-
-
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-
-
 plugins {
     id &#39;eclipse&#39;
     id &#39;org.openapi.generator&#39; version &#39;4.3.1&#39;
@@ -88,8 +52,6 @@ openApiGenerate {
 }
 
 compileJava.dependsOn tasks.openApiGenerate
-
-
 specs/test.yml
 上の build.gradle で指定している、今回の OpenAPI spec ファイルです。" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
@@ -100,7 +62,7 @@ specs/test.yml
 spring generator
 辺りを参考にしています。
 build.gradle
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 plugins { id &#39;eclipse&#39; id &#39;org.openapi.generator&#39; version &#39;4.3.1&#39; } ext { openApiOutputDir = &#34;$rootDir/build/generated/openapi&#34; } sourceSets.main.java.srcDirs &#43;= [&#34;$openApiOutputDir/src/main/java&#34;] dependencies { // これらは自動生成クラスが import しているので必要 implementation &#39;org.springframework.boot:spring-boot-starter-validation&#39; implementation &#39;org.openapitools:jackson-databind-nullable:0.2.1&#39; compileOnly &#39;io.swagger:swagger-annotations:1.6.2&#39; } openApiGenerate { generatorName = &#39;spring&#39; inputSpec = &#34;$rootDir/specs/test.yml&#34; outputDir = &#34;$openApiOutputDir&#34; apiPackage = &#39;org.openapi.example.api&#39; modelPackage = &#39;org.openapi.example.model&#39; configOptions = [ dateLibrary: &#39;java8&#39;, interfaceOnly: &#39;true&#39;, skipDefaultInterface: &#39;true&#39;, ] } compileJava.dependsOn tasks.openApiGenerate specs/test.yml 上の build.gradle で指定している、今回の OpenAPI spec ファイルです。">
+plugins { id &#39;eclipse&#39; id &#39;org.openapi.generator&#39; version &#39;4.3.1&#39; } ext { openApiOutputDir = &#34;$rootDir/build/generated/openapi&#34; } sourceSets.main.java.srcDirs &#43;= [&#34;$openApiOutputDir/src/main/java&#34;] dependencies { // これらは自動生成クラスが import しているので必要 implementation &#39;org.springframework.boot:spring-boot-starter-validation&#39; implementation &#39;org.openapitools:jackson-databind-nullable:0.2.1&#39; compileOnly &#39;io.swagger:swagger-annotations:1.6.2&#39; } openApiGenerate { generatorName = &#39;spring&#39; inputSpec = &#34;$rootDir/specs/test.yml&#34; outputDir = &#34;$openApiOutputDir&#34; apiPackage = &#39;org.openapi.example.api&#39; modelPackage = &#39;org.openapi.example.model&#39; configOptions = [ dateLibrary: &#39;java8&#39;, interfaceOnly: &#39;true&#39;, skipDefaultInterface: &#39;true&#39;, ] } compileJava.dependsOn tasks.openApiGenerate specs/test.yml 上の build.gradle で指定している、今回の OpenAPI spec ファイルです。">
 	<meta property="og:locale" content="ja_jp">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="blog">
@@ -115,7 +77,7 @@ build.gradle
 spring generator
 辺りを参考にしています。
 build.gradle
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 plugins { id &#39;eclipse&#39; id &#39;org.openapi.generator&#39; version &#39;4.3.1&#39; } ext { openApiOutputDir = &#34;$rootDir/build/generated/openapi&#34; } sourceSets.main.java.srcDirs &#43;= [&#34;$openApiOutputDir/src/main/java&#34;] dependencies { // これらは自動生成クラスが import しているので必要 implementation &#39;org.springframework.boot:spring-boot-starter-validation&#39; implementation &#39;org.openapitools:jackson-databind-nullable:0.2.1&#39; compileOnly &#39;io.swagger:swagger-annotations:1.6.2&#39; } openApiGenerate { generatorName = &#39;spring&#39; inputSpec = &#34;$rootDir/specs/test.yml&#34; outputDir = &#34;$openApiOutputDir&#34; apiPackage = &#39;org.openapi.example.api&#39; modelPackage = &#39;org.openapi.example.model&#39; configOptions = [ dateLibrary: &#39;java8&#39;, interfaceOnly: &#39;true&#39;, skipDefaultInterface: &#39;true&#39;, ] } compileJava.dependsOn tasks.openApiGenerate specs/test.yml 上の build.gradle で指定している、今回の OpenAPI spec ファイルです。">
+plugins { id &#39;eclipse&#39; id &#39;org.openapi.generator&#39; version &#39;4.3.1&#39; } ext { openApiOutputDir = &#34;$rootDir/build/generated/openapi&#34; } sourceSets.main.java.srcDirs &#43;= [&#34;$openApiOutputDir/src/main/java&#34;] dependencies { // これらは自動生成クラスが import しているので必要 implementation &#39;org.springframework.boot:spring-boot-starter-validation&#39; implementation &#39;org.openapitools:jackson-databind-nullable:0.2.1&#39; compileOnly &#39;io.swagger:swagger-annotations:1.6.2&#39; } openApiGenerate { generatorName = &#39;spring&#39; inputSpec = &#34;$rootDir/specs/test.yml&#34; outputDir = &#34;$openApiOutputDir&#34; apiPackage = &#39;org.openapi.example.api&#39; modelPackage = &#39;org.openapi.example.model&#39; configOptions = [ dateLibrary: &#39;java8&#39;, interfaceOnly: &#39;true&#39;, skipDefaultInterface: &#39;true&#39;, ] } compileJava.dependsOn tasks.openApiGenerate specs/test.yml 上の build.gradle で指定している、今回の OpenAPI spec ファイルです。">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -186,43 +148,7 @@ build.gradle
 <div class="formalpara-title">
 <p><strong>build.gradle</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="line"><span class="cl"><span class="n">plugins</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="line"><span class="cl"><span class="n">plugins</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">id</span> <span class="s1">&#39;eclipse&#39;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">id</span> <span class="s1">&#39;org.openapi.generator&#39;</span> <span class="n">version</span> <span class="s1">&#39;4.3.1&#39;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
@@ -254,95 +180,12 @@ build.gradle
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">compileJava</span><span class="o">.</span><span class="na">dependsOn</span> <span class="n">tasks</span><span class="o">.</span><span class="na">openApiGenerate</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="specstestyml">specs/test.yml</h2>
+</span></span></code></pre></div><h2 id="specstestyml">specs/test.yml</h2>
 <p>上の <code>build.gradle</code> で指定している、今回の OpenAPI spec ファイルです。</p>
 <ul>
 <li><a href="https://swagger.io/specification/">https://swagger.io/specification/</a></li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span><span class="lnt">71
-</span><span class="lnt">72
-</span><span class="lnt">73
-</span><span class="lnt">74
-</span><span class="lnt">75
-</span><span class="lnt">76
-</span><span class="lnt">77
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">openapi</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.0.3&#34;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">openapi</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.0.3&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">info</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">OpenAPI Sample Project</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;1.0&#34;</span><span class="w">
@@ -419,9 +262,7 @@ build.gradle
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">string</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">series</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">integer</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h1 id="コード自動生成">コード自動生成</h1>
+</span></span></span></code></pre></div><h1 id="コード自動生成">コード自動生成</h1>
 <pre><code>gradle openApiGenerate
 </code></pre>
 <p>で <code>build/generated/openapi</code> にソース一式が生成されます。また、 <code>compileJava.dependsOn tasks.openApiGenerate</code> と設定しているので、明示せずとも</p>

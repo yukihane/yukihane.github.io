@@ -72,30 +72,7 @@
         <section class="body">
           <p><a href="https://ja.stackoverflow.com/a/63099/2808">https://ja.stackoverflow.com/a/63099/2808</a> を見ていて気づいたのですが、 <code>実質final</code> というのは脳内(コンパイラ)で <code>final</code> を補完してくれる、というような処理が行われるわけではないのですね。</p>
 <p>下記コード中の(2) と (3) の違いは、連結前の <code>String</code> 変数を <code>final</code> 付きで宣言しているか否かだけですが、結果がお互い異なっています。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">literal_neko</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;ネコ&#34;</span><span class="p">;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">literal_neko</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;ネコ&#34;</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">literal_ne_ko</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;ネ&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;コ&#34;</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// (1) https://docs.oracle.com/javase/specs/jls/se13/html/jls-3.html#jls-3.10.5</span><span class="w">
@@ -114,9 +91,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">ne_and_ko</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ne</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ko</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;literal_neko == ne_and_ko: &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">literal_neko</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ne_and_ko</span><span class="p">));</span><span class="w"> </span><span class="c1">// false</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div>
+</span></span></span></code></pre></div>
         </section>
         <div class="post-tags">
           

@@ -115,17 +115,9 @@ wslview https://www.google.co.jp
 </code></pre><p>Windows 側の既定ブラウザーが開けば OK です。</p>
 <h3 id="xdg-open-経由でも呼べるようにする">xdg-open 経由でも呼べるようにする</h3>
 <p>CLI ツールによっては <code>wslview</code> を直接呼ぶのではなく、<code>xdg-open</code> や <code>BROWSER</code> 環境変数を見にいくものがあります。そのため、以下も設定しておくとよいです。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># ~/.bashrc</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># ~/.bashrc</span>
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">BROWSER</span><span class="o">=</span><span class="s2">&#34;/usr/bin/wslview&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><pre tabindex="0"><code>sudo ln -sf /usr/bin/wslview /usr/local/bin/xdg-open
+</span></span></code></pre></div><pre tabindex="0"><code>sudo ln -sf /usr/bin/wslview /usr/local/bin/xdg-open
 </code></pre><p>さらに古い CLI やライブラリーは <code>x-www-browser</code> / <code>www-browser</code> を参照することがあるので、必要に応じて <code>update-alternatives</code> にも登録します。</p>
 <pre tabindex="0"><code>sudo update-alternatives --install /usr/bin/x-www-browser x-www-browser /usr/bin/wslview 1
 sudo update-alternatives --install /usr/bin/www-browser www-browser /usr/bin/wslview 1

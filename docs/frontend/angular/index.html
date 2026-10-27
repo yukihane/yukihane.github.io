@@ -134,24 +134,10 @@ CSS
 <h2 id="nvmを使うとbashの起動が遅い">nvmを使うとbashの起動が遅い</h2>
 <p>Angularのためにもろもろのセットアップを行ったらterminalの起動が遅くなった。</p>
 <p><code>~/.bashrc</code>, <code>~/.profile</code> 双方の冒頭に</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">set</span> -x
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>を、最後尾に</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">set</span> +x
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>を追加する<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>とデバッグ出力が行われるようになるのでどこに時間がかかっているか特定できる。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">set</span> -x
+</span></span></code></pre></div><p>を、最後尾に</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">set</span> +x
+</span></span></code></pre></div><p>を追加する<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>とデバッグ出力が行われるようになるのでどこに時間がかかっているか特定できる。</p>
 <p>結果として`npm config &ndash;loglevel=warn get prefix`という`~/.nvm/nvm.sh`内で実行している処理が遅いことがわかった。</p>
 <p><a href="https://github.com/creationix/nvm/issues/1277">NVM getting very slow on startup in Bash · Issue #1277 · creationix/nvm</a>というIssueが登録されていた。 <a href="http://qiita.com/uasi/items/80865646607b966aedc8">NVM の nvm.sh を遅延ロードしてシェルの起動を高速化する - Qiita</a>という記事もある。</p>
 <div class="footnotes" role="doc-endnotes">

@@ -99,39 +99,16 @@ https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redir
 <div class="formalpara-title">
 <p><strong>application.yml</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="w">        </span><span class="nt">registration</span><span class="p">:</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="w">        </span><span class="nt">registration</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">myspring</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">redirect-uri</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{baseUrl}/my_redirect_uri&#34;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="security-config">security config</h3>
+</span></span></span></code></pre></div><h3 id="security-config">security config</h3>
 <p>前回のコードでは security config はデフォルト(<a href="https://github.com/spring-projects/spring-boot/blob/v2.3.3.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2WebSecurityConfiguration.java#L54-L65"><code>OAuth2WebSecurityConfigurerAdapter</code></a>)のままで良かったので何も書きませんでした。</p>
 <p>今回は設定を追加する必要があるので、 <code>OAuth2WebSecurityConfigurerAdapter</code> 実装をコピーした上で、必要な設定を追加します。</p>
 <div class="formalpara-title">
 <p><strong>MyOAuth2WebSecurityConfiguration.java</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@EnableWebSecurity</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@EnableWebSecurity</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyOAuth2WebSecurityConfiguration</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">WebSecurityConfigurerAdapter</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">configure</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">HttpSecurity</span><span class="w"> </span><span class="n">http</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -141,9 +118,7 @@ https://github.com/yukihane/hello-java/tree/master/spring/oidc/oidc-change-redir
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">http</span><span class="p">.</span><span class="na">oauth2Client</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>以上です。結果だけ見ると簡単なんですが、どうやってみんなこの結論にたどり着いているのか疑問です… (自分はデバッガで追ったりSpring Securityのコードをcloneしてきてgrepしたりした。リファレンスにも書いてないよね…)</p>
+</span></span></span></code></pre></div><p>以上です。結果だけ見ると簡単なんですが、どうやってみんなこの結論にたどり着いているのか疑問です… (自分はデバッガで追ったりSpring Securityのコードをcloneしてきてgrepしたりした。リファレンスにも書いてないよね…)</p>
 
         </section>
         <div class="post-tags">

@@ -88,15 +88,8 @@ Spring Initializrを使ってGradle形式でプロジェクトを作成した場
 }
 </code></pre>
 <p>次に下記コマンドを実行し、Eclipseのプロジェクト構成ファイル群を生成します。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gradle build cleanEclipse eclipse
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>eclipse</code> プラグインは、実行した時点で存在しないディレクトリは無視するようになっているようです。そのため上記では一旦 <code>build</code> を行って自動生成ディレクトリなどを確実に作成するようにしています。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gradle build cleanEclipse eclipse
+</span></span></code></pre></div><p><code>eclipse</code> プラグインは、実行した時点で存在しないディレクトリは無視するようになっているようです。そのため上記では一旦 <code>build</code> を行って自動生成ディレクトリなどを確実に作成するようにしています。</p>
 <p>そして、Eclipseでインポートします。このとき選択するのは <strong>Existing Projects into Workspace</strong> です。Existing Gradle Projectではないことに注意してください(こちらを選ぶとBuildshipでインポートされ、annotation processorの設定が行われません)。</p>
 <p>Gradleの設定を変更した場合は、 <code>gradle cleanEclipse eclipse</code> コマンドを実行し直し、インポートし直せばよいかと思います。</p>
 <p>なお、Gradleが出力するディレクトリ(<code>/build</code>)と、Eclipseが出力するディレクトリ(<code>/bin</code>, <code>.apt_generated</code> など)が異なるのは敢えてそうなっているようです。 Maven を利用し続けてきた身からすると違和感がありますが、問題が起きたときの切り分けのしやすさ的にはこちらの方が良いですよね。</p>

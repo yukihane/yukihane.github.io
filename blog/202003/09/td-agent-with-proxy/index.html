@@ -2,14 +2,7 @@
 <html><head lang="ja">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>td-agentにプロキシを設定する - 発火後忘失</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="
-
-1
-
-
-sudo systemctl edit td-agent
-
-
+	<meta name="description" content="sudo systemctl edit td-agent
 で編集画面を開き、次を記述:
 [Service]
 Environment=&quot;HTTP_PROXY=http://myproxy.example.com:8080&quot;
@@ -18,7 +11,7 @@ Environment=&quot;HTTP_PROXY=http://myproxy.example.com:8080&quot;
 	<meta property="og:url" content="https://yukihane.github.io/blog/202003/09/td-agent-with-proxy/">
 	<meta property="og:site_name" content="発火後忘失">
 	<meta property="og:title" content="td-agentにプロキシを設定する">
-	<meta property="og:description" content="1 sudo systemctl edit td-agent で編集画面を開き、次を記述:
+	<meta property="og:description" content="sudo systemctl edit td-agent で編集画面を開き、次を記述:
 [Service] Environment=&#34;HTTP_PROXY=http://myproxy.example.com:8080&#34;">
 	<meta property="og:locale" content="ja_jp">
 	<meta property="og:type" content="article">
@@ -29,7 +22,7 @@ Environment=&quot;HTTP_PROXY=http://myproxy.example.com:8080&quot;
 
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="td-agentにプロキシを設定する">
-	<meta name="twitter:description" content="1 sudo systemctl edit td-agent で編集画面を開き、次を記述:
+	<meta name="twitter:description" content="sudo systemctl edit td-agent で編集画面を開き、次を記述:
 [Service] Environment=&#34;HTTP_PROXY=http://myproxy.example.com:8080&#34;">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -83,15 +76,8 @@ Environment=&quot;HTTP_PROXY=http://myproxy.example.com:8080&quot;
         </div>
         
         <section class="body">
-          <div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo systemctl edit td-agent
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>で編集画面を開き、次を記述:</p>
+          <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo systemctl edit td-agent
+</span></span></code></pre></div><p>で編集画面を開き、次を記述:</p>
 <pre><code>[Service]
 Environment=&quot;HTTP_PROXY=http://myproxy.example.com:8080&quot;
 </code></pre>

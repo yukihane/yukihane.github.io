@@ -78,28 +78,14 @@ Spring Bootの自動テストで data.sql を作成しているのですが、 g
 <p>Spring Bootの自動テストで <a href="https://docs.spring.io/spring-boot/docs/2.3.3.RELEASE/reference/htmlsingle/#howto-initialize-a-database-using-spring-jdbc"><code>data.sql</code></a> を作成しているのですが、 <code>gradle check</code> でテストを実行すると、失敗してしまう。</p>
 <p>原因を調べたのですが、どうも日本語のカラムを比較しているところで失敗しているようで、出力を見る感じ <code>data.sql</code> のファイルエンコーディングが <code>MS932</code> で扱われてしまっているようでした。</p>
 <p>この解決策としては、</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gradle -Dfile.encoding<span class="o">=</span>UTF-8 check
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>とすれば良いことに気づきました。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gradle -Dfile.encoding<span class="o">=</span>UTF-8 check
+</span></span></code></pre></div><p>とすれば良いことに気づきました。</p>
 <p>ただ、毎回この <code>-Dfile.encoding=UTF-8</code> を打ちたくないので、デフォルトオプションに指定したく、色々と試行錯誤した結果、次の設定が等価のようです。</p>
 <h1 id="解決手順">解決手順</h1>
 <p>自分はGradleをSDKMAN!でインストールしてGit Bashでのみ利用しています。解決の確認もこの環境で行っています。</p>
 <p>まず、環境変数 <code>GRADLE_USER_HOME</code> を設定します <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export GRADLE_USER_HOME=$HOME/.gradle&#39;</span> &gt;&gt; ~/.bashrc
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>続いて、 <code>gradle.properties</code> でファイルエンコーディングを設定します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export GRADLE_USER_HOME=$HOME/.gradle&#39;</span> &gt;&gt; ~/.bashrc
+</span></span></code></pre></div><p>続いて、 <code>gradle.properties</code> でファイルエンコーディングを設定します。</p>
 <pre><code>mkdir -p ~/.gradle
 echo 'file.encoding=UTF-8' &gt;&gt; ~/.gradle/gradle.properties
 </code></pre>

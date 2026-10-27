@@ -125,28 +125,9 @@ JavaScriptのオブジェクトは「プロパティ」の集合 1。
 <h2 id="プロパティ属性">プロパティ属性</h2>
 <p><a href="https://javascript.g.hatena.ne.jp/edvakf/20091117/1258442026">https://javascript.g.hatena.ne.jp/edvakf/20091117/1258442026</a></p>
 <p>ES3 互換のオブジェクト定義。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">x</span> <span class="o">:</span> <span class="mi">1</span> <span class="p">};</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>これが以下と等価となる。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">,</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">x</span> <span class="o">:</span> <span class="mi">1</span> <span class="p">};</span>
+</span></span></code></pre></div><p>これが以下と等価となる。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="nx">x</span> <span class="o">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">value</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">writable</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>     <span class="c1">// x の値が変更できる
@@ -154,40 +135,18 @@ JavaScriptのオブジェクトは「プロパティ」の集合 1。
 </span></span></span><span class="line"><span class="cl">    <span class="nx">configurable</span> <span class="o">:</span> <span class="kc">true</span>  <span class="c1">// 下に説明
 </span></span></span><span class="line"><span class="cl">  <span class="p">}}</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="メソッド定義の簡略構文">メソッド定義の簡略構文</h2>
+</span></span></code></pre></div><h2 id="メソッド定義の簡略構文">メソッド定義の簡略構文</h2>
 <p><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Functions_and_function_scope/Method_definitions">https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Functions_and_function_scope/Method_definitions</a></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">foo</span><span class="p">()</span> <span class="p">{},</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">bar</span><span class="p">()</span> <span class="p">{}</span>
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>上のような構文はデータプロパティの形式( <code>キー : バリュー</code> )でないのでアクセサプロパティか？と思うが違う。 単に下のものを簡略した書式であり、データプロパティ。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+</span></span></code></pre></div><p>上のような構文はデータプロパティの形式( <code>キー : バリュー</code> )でないのでアクセサプロパティか？と思うが違う。 単に下のものを簡略した書式であり、データプロパティ。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">foo</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{},</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">bar</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span>
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h1 id="webブラウザ">Webブラウザ</h1>
+</span></span></code></pre></div><h1 id="webブラウザ">Webブラウザ</h1>
 <h2 id="windows81にはedgeはインストールできないie11まで">Windows8.1にはEdgeはインストールできない(IE11まで)</h2>
 <p>MS Edgeをインストールできるのは現時点ではWindows10のみ。</p>
 <p>Windows8.1の延長サポート期限は <strong>2023年1月10日</strong> であり、このOSにインストールできるMS製ブラウザは <strong>IE11</strong> だけ。</p>
@@ -247,43 +206,20 @@ JavaScriptのオブジェクトは「プロパティ」の集合 1。
 <li><a href="https://www.polymer-project.org/2.0/docs/about_20#type-extension">https://www.polymer-project.org/2.0/docs/about_20#type-extension</a></li>
 </ul>
 <p><a href="https://www.youtube.com/watch?v=qzh56Ja1eaw&amp;t=3h46m35s">https://www.youtube.com/watch?v=qzh56Ja1eaw&t=3h46m35s</a> で説明していた頃(v0.x)には存在していたようだが、現在はない。 ここで説明している</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">is</span><span class="o">=</span><span class="s">&#34;core-input&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;{{text}}&#34;</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>は、</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">iron-input</span><span class="p">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">is</span><span class="o">=</span><span class="s">&#34;core-input&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;{{text}}&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>は、</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">iron-input</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;{{text}}&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">iron-input</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>と書くようだ <sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>。</p>
+</span></span></code></pre></div><p>と書くようだ <sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>。</p>
 <h1 id="bower">Bower</h1>
 <ul>
 <li><a href="https://bower.io/blog/">https://bower.io/blog/</a></li>
 </ul>
 <p>Bower自身がコミュニティからもはやdeprecatedとみなされている。 新規プロジェクトで仕様すべきでは無さそう。</p>
 <h2 id="bower-install">bower install</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bower install  PolymerElements/iron-list
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>としたときの引数 <code>PolymerElements/iron-list</code> はgithub.comのリポジトリ名の模様。 例えばこの例の場合だと <a href="https://github.com/PolymerElements/iron-list">https://github.com/PolymerElements/iron-list</a> 。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bower install  PolymerElements/iron-list
+</span></span></code></pre></div><p>としたときの引数 <code>PolymerElements/iron-list</code> はgithub.comのリポジトリ名の模様。 例えばこの例の場合だと <a href="https://github.com/PolymerElements/iron-list">https://github.com/PolymerElements/iron-list</a> 。</p>
 <div class="footnotes" role="doc-endnotes">
 <hr />
 <ol>

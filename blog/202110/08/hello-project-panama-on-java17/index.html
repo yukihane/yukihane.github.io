@@ -114,56 +114,21 @@ Hello Project Panama – 発火後忘失
 <h1 id="作成手順">作成手順</h1>
 <h2 id="rust-でダイナミックリンクライブラリ作成">Rust でダイナミックリンクライブラリ作成</h2>
 <p><code>greeter</code> という名前でプロジェクトを作成します。 プロジェクトルートディレクトリで次のコマンドを実行します。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cargo new --lib greeter
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cargo new --lib greeter
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span> greeter
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><a href="https://crates.io/crates/libc"><code>libc</code> クレート</a>を依存関係に追加します。 また、ダイナミックリンクライブラリを生成するように <code>crate-type</code> に <code>cdylib</code> を設定します。</p>
+</span></span></code></pre></div><p><a href="https://crates.io/crates/libc"><code>libc</code> クレート</a>を依存関係に追加します。 また、ダイナミックリンクライブラリを生成するように <code>crate-type</code> に <code>cdylib</code> を設定します。</p>
 <div class="formalpara-title">
 <p><strong>Cargo.toml</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">dependencies</span><span class="p">]</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">dependencies</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="nx">libc</span> <span class="p">=</span> <span class="s2">&#34;0.2.103&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">lib</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="nx">crate-type</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;cdylib&#34;</span><span class="p">]</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Rust 側で行う処理を実装します。</p>
+</span></span></code></pre></div><p>Rust 側で行う処理を実装します。</p>
 <div class="formalpara-title">
 <p><strong>src/lib.rs</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">use</span><span class="w"> </span><span class="n">libc</span>::<span class="n">size_t</span><span class="p">;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">use</span><span class="w"> </span><span class="n">libc</span>::<span class="n">size_t</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">ffi</span>::<span class="p">{</span><span class="n">CStr</span><span class="p">,</span><span class="w"> </span><span class="n">CString</span><span class="p">};</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">os</span>::<span class="n">raw</span>::<span class="n">c_char</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -176,18 +141,9 @@ Hello Project Panama – 発火後忘失
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">message</span><span class="p">.</span><span class="n">copy_from</span><span class="p">(</span><span class="n">text</span><span class="p">.</span><span class="n">as_ptr</span><span class="p">(),</span><span class="w"> </span><span class="n">count</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>ビルドします。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cargo build --release
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="参考">参考</h3>
+</span></span></span></code></pre></div><p>ビルドします。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cargo build --release
+</span></span></code></pre></div><h3 id="参考">参考</h3>
 <ul>
 <li>
 <p><a href="https://doc.rust-lang.org/cargo/reference/cargo-targets.html#the-crate-type-field">The Cargo Book &gt; 3.2.1. Cargo Targets &gt; The crate-type field</a></p>
@@ -199,46 +155,20 @@ Hello Project Panama – 発火後忘失
 <h2 id="ダイナミックリンクライブラリの-c-ヘッダ自動生成">ダイナミックリンクライブラリの C ヘッダ自動生成</h2>
 <p>上で作成したライブラリのヘッダファイルを自動生成します。</p>
 <p><a href="https://github.com/eqrion/cbindgen"><code>cbindgen</code></a> コマンドをインストールします。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cargo install --force cbindgen
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>プロジェクトルートディレクトリで次のコマンドを実行します。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cbindgen -l c -o bridges/greeter.h greeter
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>上記コマンド実行により <code>bridges/greeter.h</code> ヘッダファイルが生成されます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cargo install --force cbindgen
+</span></span></code></pre></div><p>プロジェクトルートディレクトリで次のコマンドを実行します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cbindgen -l c -o bridges/greeter.h greeter
+</span></span></code></pre></div><p>上記コマンド実行により <code>bridges/greeter.h</code> ヘッダファイルが生成されます。</p>
 <div class="formalpara-title">
 <p><strong>bridges/greeter.h</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdarg.h&gt;</span><span class="cp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdarg.h&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdbool.h&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">greet</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">message</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">count</span><span class="p">);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="c-ヘッダから-java-api-自動生成">C ヘッダから Java API 自動生成</h2>
+</span></span></code></pre></div><h2 id="c-ヘッダから-java-api-自動生成">C ヘッダから Java API 自動生成</h2>
 <p><code>jextract</code> コマンドを利用してヘッダファイルから Java API を自動生成します。</p>
 <p><code>jextract</code> コマンドは <a href="https://jdk.java.net/panama/">Project Panama の Early Access Build</a> をダウンロードし展開すると <code>bin</code> ディレクトリ下にあります。</p>
 <p>プロジェクトルートディレクトリで次のコマンドを実行します。</p>
@@ -274,65 +204,7 @@ Hello Project Panama – 発火後忘失
 <div class="formalpara-title">
 <p><strong>src/Main.java</strong></p>
 </div>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">com.example.greeter_h.*</span><span class="p">;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">com.example.greeter_h.*</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">jdk.incubator.foreign.CLinker.*</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">jdk.incubator.foreign.*</span><span class="p">;</span><span class="w">
@@ -386,9 +258,7 @@ Hello Project Panama – 発火後忘失
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">});</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="補足">補足</h3>
+</span></span></span></code></pre></div><h3 id="補足">補足</h3>
 <ul>
 <li>
 <p>IDE を用いる場合、次のリンク先に IntelliJ の設定方法が説明されています。</p>
@@ -404,45 +274,21 @@ Hello Project Panama – 発火後忘失
 </ul>
 <h2 id="java-コードビルド">Java コードビルド</h2>
 <p>上記のコードを JDK17 でビルドするには <code>--add-modules jdk.incubator.foreign</code> オプションを付与する必要があります。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">javac <span class="se">\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">javac <span class="se">\
 </span></span></span><span class="line"><span class="cl">-encoding utf-8 <span class="se">\
 </span></span></span><span class="line"><span class="cl">-d ./classes <span class="se">\
 </span></span></span><span class="line"><span class="cl">-cp ./classes <span class="se">\
 </span></span></span><span class="line"><span class="cl">--add-modules jdk.incubator.foreign <span class="se">\
 </span></span></span><span class="line"><span class="cl">./src/Main.java
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="実行">実行</h2>
+</span></span></code></pre></div><h2 id="実行">実行</h2>
 <p><code>--enable-native-access=ALL-UNNAMED</code>, <code>--add-modules jdk.incubator.foreign</code> オプションが必要です。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>./greeter/target/release <span class="se">\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>./greeter/target/release <span class="se">\
 </span></span></span><span class="line"><span class="cl">java <span class="se">\
 </span></span></span><span class="line"><span class="cl">-Dfile.encoding<span class="o">=</span>utf-8 <span class="se">\
 </span></span></span><span class="line"><span class="cl">--enable-native-access<span class="o">=</span>ALL-UNNAMED <span class="se">\
 </span></span></span><span class="line"><span class="cl">--add-modules jdk.incubator.foreign <span class="se">\
 </span></span></span><span class="line"><span class="cl">-cp ./classes Main
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="参考補足">参考/補足</h3>
+</span></span></code></pre></div><h3 id="参考補足">参考/補足</h3>
 <ul>
 <li>
 <p>Windows で実行する場合、 <code>LD_LIBRARY_PATH</code> は機能しません。 代わりに、 <code>./greeter/target/release/greeter.dll</code> をカレントディレクトリにコピーしてから上のコマンドを実行します。</p>

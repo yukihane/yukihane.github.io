@@ -87,15 +87,8 @@ Spring Boot で Spring Security OAuth 2.0 Login / Client を利用する手順�
 <p><a href="https://www.keycloak.org/downloads">https://www.keycloak.org/downloads</a> からスタンドアロンサーバをダウンロードして展開します(これはWildFlyベースのサーバのようです)。本エントリ記載時点では <a href="https://downloads.jboss.org/keycloak/10.0.2/keycloak-10.0.2.tar.gz">https://downloads.jboss.org/keycloak/10.0.2/keycloak-10.0.2.tar.gz</a> です。</p>
 <h2 id="keycloak起動">Keycloak起動</h2>
 <p>続いて、Keycloakを起動します(この起動方法がまさにWildFlyですね)。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./bin/standalone.sh -Djboss.socket.binding.port-offset<span class="o">=</span><span class="m">1</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="admin-ユーザ作成">admin ユーザ作成</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./bin/standalone.sh -Djboss.socket.binding.port-offset<span class="o">=</span><span class="m">1</span>
+</span></span></code></pre></div><h2 id="admin-ユーザ作成">admin ユーザ作成</h2>
 <p>adminユーザ未作成状態で <a href="http://localhost:8081/auth/">http://localhost:8081/auth/</a> へアクセスすると、adminユーザのユーザ名とパスワード入力を促されます。</p>
 <p>ここではユーザ名、パスワードとも <code>admin</code> とすることにします。</p>
 <table>

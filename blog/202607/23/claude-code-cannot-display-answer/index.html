@@ -94,17 +94,9 @@
 <p>報告者は Windows 11 / 2.1.215 ですが、自分は macOS / 2.1.217 で再現しており、プラットフォーム非依存です。</p>
 <h3 id="テキスト自体は失われていない">テキスト自体は失われていない</h3>
 <p>発生時のセッション <code>.jsonl</code> ファイルを grep で確認したところ、落ちたテキストは <strong>両方ともファイル内に全文が存在</strong> していました。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ grep -l <span class="s2">&#34;3 つ目は&#34;</span> ~/.claude/projects/&lt;project&gt;/*.jsonl
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ grep -l <span class="s2">&#34;3 つ目は&#34;</span> ~/.claude/projects/&lt;project&gt;/*.jsonl
 </span></span><span class="line"><span class="cl">&lt;session-id&gt;.jsonl   <span class="c1"># ヒット</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>つまり損失はモデル → API → 保存の経路では起きておらず、ライブ描画とトランスクリプトビューの両方を含む <strong>TUI 表示層のみ</strong> で起きています。</p>
+</span></span></code></pre></div><p>つまり損失はモデル → API → 保存の経路では起きておらず、ライブ描画とトランスクリプトビューの両方を含む <strong>TUI 表示層のみ</strong> で起きています。</p>
 <h2 id="関連-issue-の系統">関連 issue の系統</h2>
 <p>類似報告を辿ると、症状は 2 系統に分かれます。</p>
 <p><strong>系統 1: 覆い隠し・スクロール不能（テキストは描画されている）</strong></p>
@@ -156,17 +148,9 @@
 <p>最速の対処です。「いま出力しようとした回答をテキストのみで再出力して」と依頼します。モデルのコンテキストには回答が残っているため確実に取り出せます。</p>
 <h3 id="セッション外からの回収-jsonl-から抽出する">セッション外からの回収: jsonl から抽出する</h3>
 <p>セッションファイルには全文が残っているので、jq で assistant のテキストブロックを抽出できます。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">jq -r <span class="s1">&#39;select(.type==&#34;assistant&#34;) | .message.content[]? | select(.type==&#34;text&#34;) | .text&#39;</span> <span class="se">\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">jq -r <span class="s1">&#39;select(.type==&#34;assistant&#34;) | .message.content[]? | select(.type==&#34;text&#34;) | .text&#39;</span> <span class="se">\
 </span></span></span><span class="line"><span class="cl">  ~/.claude/projects/&lt;project-dir&gt;/&lt;session-id&gt;.jsonl <span class="p">|</span> tail -50
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="予防-出力スタイルのルールを追加する">予防: 出力スタイルのルールを追加する</h3>
+</span></span></code></pre></div><h3 id="予防-出力スタイルのルールを追加する">予防: 出力スタイルのルールを追加する</h3>
 <p>CLAUDE.md やメモリに「実質的な説明はツール呼び出しを伴わないテキストのみのターンで届け、AskUserQuestion は次ターンで行うか、選択肢の description に文脈を自己完結で埋め込む」というルールを追加しておくと、バグを踏むターン形状自体を避けられます。自分はエージェントメモリに保存して運用しています。</p>
 <p>なお、<a href="/blog/202607/14/claude-code-scroll-bug/">スクロール不具合の記事</a>では回避策として有効だった Ctrl+O は、本件では <strong>復旧手段になりません</strong>。表示層のバグがトランスクリプトビューにも及んでいるためです。</p>
 <h2 id="所感">所感</h2>

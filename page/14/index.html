@@ -100,15 +100,8 @@ snapshots - http://my.internal.repo/yyy
 					<time>2020/03/09</time>
 					<br><div class="description">
 	
-	<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo systemctl edit td-agent
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>で編集画面を開き、次を記述:</p>
+	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo systemctl edit td-agent
+</span></span></code></pre></div><p>で編集画面を開き、次を記述:</p>
 <pre><code>[Service]
 Environment=&quot;HTTP_PROXY=http://myproxy.example.com:8080&quot;
 </code></pre>&hellip;

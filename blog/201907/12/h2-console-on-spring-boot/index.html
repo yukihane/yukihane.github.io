@@ -7,24 +7,6 @@ spring-boot-starter-security を導入しても http://localhost:8080/h2-console
 作業結果: https://github.com/yukihane/hello-java/tree/master/spring/h2-console-spring-security-example
 手順
 h2-console が使える依存関係を追加してプロジェクトセットアップ 8113d7
-
-
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-
-
     &lt;dependencies&gt;
         &lt;dependency&gt;
             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
@@ -39,31 +21,12 @@ h2-console が使える依存関係を追加してプロジェクトセットア
             &lt;artifactId&gt;h2&lt;/artifactId&gt;
             &lt;scope&gt;runtime&lt;/scope&gt;
         &lt;/dependency&gt;
-
-
 h2-console を表示してみる 1b16dc
-
-
-1
-2
-
-
 spring.h2.console.enabled=true
 spring.datasource.generate-unique-name=false
-
-
-
-
-1
-2
-3
-
-
 create table greeting_table (
   message varchar(256) not null
 );
-
-
 (注: spring.datasource.generate-unique-name 設定は Spring Boot 2.3.0 からデフォルト値が変わったため必要になったもので、リンク先 Git リポジトリには含まれていません(参考))" />
 	<meta property="og:image" content="https://yukihane.github.io/"/>
 	<meta property="og:url" content="https://yukihane.github.io/blog/201907/12/h2-console-on-spring-boot/">
@@ -71,7 +34,7 @@ create table greeting_table (
 	<meta property="og:title" content="h2-consoleとspring-boot-starter-securityと私">
 	<meta property="og:description" content="概要 spring-boot-starter-security を導入しても http://localhost:8080/h2-console にアクセスしたかった。
 作業結果: https://github.com/yukihane/hello-java/tree/master/spring/h2-console-spring-security-example
-手順 h2-console が使える依存関係を追加してプロジェクトセットアップ 8113d7 1 2 3 4 5 6 7 8 9 10 11 12 13 14 &lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-jdbc&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;com.h2database&lt;/groupId&gt; &lt;artifactId&gt;h2&lt;/artifactId&gt; &lt;scope&gt;runtime&lt;/scope&gt; &lt;/dependency&gt; h2-console を表示してみる 1b16dc 1 2 spring.h2.console.enabled=true spring.datasource.generate-unique-name=false 1 2 3 create table greeting_table ( message varchar(256) not null ); (注: spring.datasource.generate-unique-name 設定は Spring Boot 2.3.0 からデフォルト値が変わったため必要になったもので、リンク先 Git リポジトリには含まれていません(参考))">
+手順 h2-console が使える依存関係を追加してプロジェクトセットアップ 8113d7 &lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-jdbc&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;com.h2database&lt;/groupId&gt; &lt;artifactId&gt;h2&lt;/artifactId&gt; &lt;scope&gt;runtime&lt;/scope&gt; &lt;/dependency&gt; h2-console を表示してみる 1b16dc spring.h2.console.enabled=true spring.datasource.generate-unique-name=false create table greeting_table ( message varchar(256) not null ); (注: spring.datasource.generate-unique-name 設定は Spring Boot 2.3.0 からデフォルト値が変わったため必要になったもので、リンク先 Git リポジトリには含まれていません(参考))">
 	<meta property="og:locale" content="ja_jp">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="blog">
@@ -83,7 +46,7 @@ create table greeting_table (
 	<meta name="twitter:title" content="h2-consoleとspring-boot-starter-securityと私">
 	<meta name="twitter:description" content="概要 spring-boot-starter-security を導入しても http://localhost:8080/h2-console にアクセスしたかった。
 作業結果: https://github.com/yukihane/hello-java/tree/master/spring/h2-console-spring-security-example
-手順 h2-console が使える依存関係を追加してプロジェクトセットアップ 8113d7 1 2 3 4 5 6 7 8 9 10 11 12 13 14 &lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-jdbc&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;com.h2database&lt;/groupId&gt; &lt;artifactId&gt;h2&lt;/artifactId&gt; &lt;scope&gt;runtime&lt;/scope&gt; &lt;/dependency&gt; h2-console を表示してみる 1b16dc 1 2 spring.h2.console.enabled=true spring.datasource.generate-unique-name=false 1 2 3 create table greeting_table ( message varchar(256) not null ); (注: spring.datasource.generate-unique-name 設定は Spring Boot 2.3.0 からデフォルト値が変わったため必要になったもので、リンク先 Git リポジトリには含まれていません(参考))">
+手順 h2-console が使える依存関係を追加してプロジェクトセットアップ 8113d7 &lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-jdbc&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;com.h2database&lt;/groupId&gt; &lt;artifactId&gt;h2&lt;/artifactId&gt; &lt;scope&gt;runtime&lt;/scope&gt; &lt;/dependency&gt; h2-console を表示してみる 1b16dc spring.h2.console.enabled=true spring.datasource.generate-unique-name=false create table greeting_table ( message varchar(256) not null ); (注: spring.datasource.generate-unique-name 設定は Spring Boot 2.3.0 からデフォルト値が変わったため必要になったもので、リンク先 Git リポジトリには含まれていません(参考))">
 
         <link href="https://yukihane.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -141,25 +104,7 @@ create table greeting_table (
 <p>作業結果: <a href="https://github.com/yukihane/hello-java/tree/master/spring/h2-console-spring-security-example">https://github.com/yukihane/hello-java/tree/master/spring/h2-console-spring-security-example</a></p>
 <h1 id="手順">手順</h1>
 <h2 id="h2-console-が使える依存関係を追加してプロジェクトセットアップ-8113d7">h2-console が使える依存関係を追加してプロジェクトセットアップ <a href="https://github.com/yukihane/hello-java/commit/8113d7bc552c11f3e1cf3d6e64fe97be922d2596">8113d7</a></h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-pom.xml" data-lang="pom.xml"><span class="line"><span class="cl">    <span class="nt">&lt;dependencies&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-pom.xml" data-lang="pom.xml"><span class="line"><span class="cl">    <span class="nt">&lt;dependencies&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
@@ -173,32 +118,13 @@ create table greeting_table (
 </span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>h2<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&lt;scope&gt;</span>runtime<span class="nt">&lt;/scope&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="h2-console-を表示してみる-1b16dc">h2-console を表示してみる <a href="https://github.com/yukihane/hello-java/commit/1b16dcc49ca9a83dd0a80b947800a63be0d39422">1b16dc</a></h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-application.properties" data-lang="application.properties"><span class="line"><span class="cl"><span class="na">spring.h2.console.enabled</span><span class="o">=</span><span class="s">true</span>
+</span></span></code></pre></div><h2 id="h2-console-を表示してみる-1b16dc">h2-console を表示してみる <a href="https://github.com/yukihane/hello-java/commit/1b16dcc49ca9a83dd0a80b947800a63be0d39422">1b16dc</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-application.properties" data-lang="application.properties"><span class="line"><span class="cl"><span class="na">spring.h2.console.enabled</span><span class="o">=</span><span class="s">true</span>
 </span></span><span class="line"><span class="cl"><span class="na">spring.datasource.generate-unique-name</span><span class="o">=</span><span class="s">false</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-schema.sql" data-lang="schema.sql"><span class="line"><span class="cl"><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="nf">greeting_table</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-schema.sql" data-lang="schema.sql"><span class="line"><span class="cl"><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="nf">greeting_table</span><span class="w"> </span><span class="p">(</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">message</span><span class="w"> </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="no">null</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">);</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>(注: <code>spring.datasource.generate-unique-name</code> 設定は Spring Boot 2.3.0 からデフォルト値が変わったため必要になったもので、リンク先 Git リポジトリには含まれていません(<a href="https://qiita.com/yukihane/items/2be37518f42525c8327d">参考</a>))</p>
+</span></span></span></code></pre></div><p>(注: <code>spring.datasource.generate-unique-name</code> 設定は Spring Boot 2.3.0 からデフォルト値が変わったため必要になったもので、リンク先 Git リポジトリには含まれていません(<a href="https://qiita.com/yukihane/items/2be37518f42525c8327d">参考</a>))</p>
 <p>の設定を行った上で http://localhost:8080/h2-console/ へアクセス。</p>
 <table>
 	<thead>
@@ -227,28 +153,7 @@ create table greeting_table (
 	</tbody>
 </table>
 <h2 id="spring-boot-starter-security-を追加してアクセスしてみる-61357fe"><code>spring-boot-starter-security</code> を追加してアクセスしてみる <a href="https://github.com/yukihane/hello-java/commit/61357fe7316c4fca72090466d1cb66a874fcb055">61357fe</a></h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-pom.xml" data-lang="pom.xml"><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-pom.xml" data-lang="pom.xml"><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>
@@ -265,9 +170,7 @@ create table greeting_table (
 </span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>h2<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&lt;scope&gt;</span>runtime<span class="nt">&lt;/scope&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>http://localhost:8080/h2-console/</p>
+</span></span></code></pre></div><p>http://localhost:8080/h2-console/</p>
 <p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/85594/f802cb71-b4ac-b7e5-5ee8-3dfa2ed9d66c.png" alt="spring-boot-login.png"></p>
 <p>はいはい<a href="https://qiita.com/yukihane/items/cdb7f348da9b32b2ff4d">これ</a>ね。 <a href="https://github.com/yukihane/hello-java/commit/15e7b26b3b23ec2c3df4218ff20bbc2b58aed9ed">15e7b26</a></p>
 <pre tabindex="0"><code>@Configuration
