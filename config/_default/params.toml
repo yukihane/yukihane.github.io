@@ -2,6 +2,7 @@ logo = true
 logoText = "発火後忘失"
 logoType = "short" # long, short
 description = "Yukihane official site"
+searchSections = ["blog", "docs"]
 themeOptions = ["light", "dark"]
 wideViewAsDefault = true
 useFaviconGenerator = true # https://www.favicon-generator.org/

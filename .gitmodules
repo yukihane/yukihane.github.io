@@ -9,4 +9,4 @@
 	url = https://github.com/zzossig/hugo-theme-zdoc.git
 [submodule "themes/archie"]
 	path = themes/archie
-	url = git@github.com:athul/archie.git
+	url = git@github.com:yukihane/archie.git
