@@ -21,3 +21,9 @@ identifier = "resume"
 name = "Resume"
 url = "https://github.com/yukihane/resume/blob/main/README.md"
 weight = 4
+
+[[main]]
+identifier = "search"
+name = "検索"
+url = "/search/"
+weight = 5
