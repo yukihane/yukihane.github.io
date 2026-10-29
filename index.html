@@ -67,6 +67,17 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202610/29/git-no-main/">Gitでローカルにmainブランチを作らない</a></h1>
+					<time>2026/10/29</time>
+					<br><div class="description">
+	
+	<p>直接 <code>main</code> ブランチにコミットしないような運用をしている場合(組織内などで複数人が関わってソフトウェア開発しているような状況で一般的だと思います)、敢えて <code>main</code> ブランチをローカルに作成する必要はないのでは、という話です。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202610/29/git-no-main/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202610/21/windows-sleep-plobrem-with-firefox/">Firefoxを起動しているとWindows11がスリープしない</a></h1>
 					<time>2026/10/21</time>
 					<br><div class="description">
@@ -237,25 +248,6 @@ herdrをpwshで利用しているのですが、JSONをcatしたときに日本�
 	
 </div>
 					<a class="readmore" href="/blog/202606/13/github-pr-conflict-criss-cross-merge/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202606/13/kotlin-nullable-value-class-jackson-boxing/">Jackson &#43; Kotlin の nullable な value class が {&#34;value&#34;:&#34;...&#34;} で出力される</a></h1>
-					<time>2026/06/13</time>
-					<br><div class="description">
-	
-	<h2 id="tldr">TL;DR</h2>
-<ul>
-<li>Kotlin の <code>@JvmInline value class</code> を <strong>nullable</strong> なプロパティとして持つ data class を <code>jackson-module-kotlin</code> でシリアライズすると、auto-unwrap が効かず <code>{&quot;value&quot;:&quot;...&quot;}</code> の boxed object として出力されることがあります。</li>
-<li>Jackson 2.17 で value class サポートは正式に入りましたが、公式 docs は <strong>&ldquo;there are many edge cases for the <code>value class</code> that wraps nullable&rdquo;</strong> と明記しており、完全解決ではありません。</li>
-<li>推奨される回避策は value class 側の underlying プロパティに <code>@get:JsonValue</code> を付与することです。</li>
-</ul>
-<hr />
-<h2 id="何が起きたか">何が起きたか</h2>
-<p>Kotlin で ID 系の型安全性を担保するために、こういう value class を定義しているプロジェクトは多いと思います。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202606/13/kotlin-nullable-value-class-jackson-boxing/">Read more ⟶</a>
 				</section>
 				
 				

@@ -12,9 +12,16 @@
 			<copyright>© Yukihane, All Rights Reserved</copyright>
 		
 		
-			<lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0900</lastBuildDate>
+			<lastBuildDate>Thu, 29 Oct 2026 10:39:30 +0900</lastBuildDate>
 		
 			<atom:link href="https://yukihane.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Gitでローカルにmainブランチを作らない</title>
+				<link>https://yukihane.github.io/blog/202610/29/git-no-main/</link>
+				<pubDate>Thu, 29 Oct 2026 10:39:30 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202610/29/git-no-main/</guid>
+				<description>&lt;p&gt;直接 &lt;code&gt;main&lt;/code&gt; ブランチにコミットしないような運用をしている場合(組織内などで複数人が関わってソフトウェア開発しているような状況で一般的だと思います)、敢えて &lt;code&gt;main&lt;/code&gt; ブランチをローカルに作成する必要はないのでは、という話です。&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>GitHub PR が「コンフリクトあり」と言うのにローカルではマージできる</title>
 				<link>https://yukihane.github.io/blog/202606/13/github-pr-conflict-criss-cross-merge/</link>

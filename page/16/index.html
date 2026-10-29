@@ -67,6 +67,17 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/201908/jbake-tags/">JBakeのタグページが想定通り動いていない</a></h1>
+					<time>2019/08/22</time>
+					<br><div class="description">
+	
+	<p><a href="https://himeji-cs.jp/blog2/tags/index.html">タグのindexページ</a>は正しくタグを収集しているようですが、それぞれのタグ個別ページがちゃんと生成されていないですね… テンプレートは <a href="https://github.com/jbake-org/jbake-example-project-thymeleaf/blob/master/templates/tags.thyme">標準のもの</a>そのまま使っているはずなのだけれど。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/201908/jbake-tags/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/201908/bash-redirect-earch-other/">bashで標準出力をファイルに、標準エラー出力を画面とファイルに出力したい</a></h1>
 					<time>2019/08/19</time>
 					<br><div class="description">
@@ -301,30 +312,6 @@ The short display format for Heisei is 平成 in the ja locale in CLDR data. Hen
 	
 </div>
 					<a class="readmore" href="/blog/201906/11/simpledateformat/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/201906/11/format-pass-to-null/">%s に null を渡したらどうなるんだっけ</a></h1>
-					<time>2019/06/11</time>
-					<br><div class="description">
-	
-	<h1 id="こたえ">こたえ</h1>
-<p>文字列 <code>null</code> が出力される。</p>
-<h1 id="コード">コード</h1>
-<pre><code>    final String text = null;
-    System.out.printf(&quot;%s&quot;, text);
-</code></pre>
-<h1 id="参考">参考</h1>
-<ul>
-<li><a href="https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Formatter.html">java.util.Formatter</a></li>
-</ul>
-<blockquote>
-<p>For category General, Character, Numberic, Integral and Date/Time conversion, unless otherwise specified, if the argument arg is null, then the result is &ldquo;null&rdquo;.</p>
-</blockquote>
-<p>リンク先の表にある通り、 <code>s</code> はカテゴリ&quot;general&quot;に属す。ちなみに<a href="https://docs.oracle.com/javase/jp/12/docs/api/java.base/java/util/Formatter.html#syntax">日本語</a>ではこうなっている(わかりにくい):</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/201906/11/format-pass-to-null/">Read more ⟶</a>
 				</section>
 				
 				

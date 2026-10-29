@@ -67,6 +67,25 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/blog/202606/13/kotlin-nullable-value-class-jackson-boxing/">Jackson &#43; Kotlin の nullable な value class が {&#34;value&#34;:&#34;...&#34;} で出力される</a></h1>
+					<time>2026/06/13</time>
+					<br><div class="description">
+	
+	<h2 id="tldr">TL;DR</h2>
+<ul>
+<li>Kotlin の <code>@JvmInline value class</code> を <strong>nullable</strong> なプロパティとして持つ data class を <code>jackson-module-kotlin</code> でシリアライズすると、auto-unwrap が効かず <code>{&quot;value&quot;:&quot;...&quot;}</code> の boxed object として出力されることがあります。</li>
+<li>Jackson 2.17 で value class サポートは正式に入りましたが、公式 docs は <strong>&ldquo;there are many edge cases for the <code>value class</code> that wraps nullable&rdquo;</strong> と明記しており、完全解決ではありません。</li>
+<li>推奨される回避策は value class 側の underlying プロパティに <code>@get:JsonValue</code> を付与することです。</li>
+</ul>
+<hr />
+<h2 id="何が起きたか">何が起きたか</h2>
+<p>Kotlin で ID 系の型安全性を担保するために、こういう value class を定義しているプロジェクトは多いと思います。</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/blog/202606/13/kotlin-nullable-value-class-jackson-boxing/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/blog/202606/13/react-select-async-ime-composition/">react-select の AsyncSelect が IME 確定後に検索を再実行しない</a></h1>
 					<time>2026/06/13</time>
 					<br><div class="description">
@@ -242,18 +261,6 @@
 	
 </div>
 					<a class="readmore" href="/blog/202507/21/keyboard-majestouch-xacro-m10sp/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/blog/202507/21/status-report/">近況報告と求職(準委任契約)について</a></h1>
-					<time>2025/07/21</time>
-					<br><div class="description">
-	
-	<h2 id="近況報告">近況報告</h2>
-<p>4月末で前回の仕事の契約が終わり、時間ができたので歯医者に行ったり健康診断に行ったりしていたところ、健康診断で血糖値(正確にはHbA1c)が正常値よりかなり高くなっていることがわかり、1ヶ月入院していました。</p>&hellip;
-	
-</div>
-					<a class="readmore" href="/blog/202507/21/status-report/">Read more ⟶</a>
 				</section>
 				
 				

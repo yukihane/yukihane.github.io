@@ -12,9 +12,16 @@
 			<copyright>© Yukihane, All Rights Reserved</copyright>
 		
 		
-			<lastBuildDate>Wed, 21 Oct 2026 19:22:15 +0900</lastBuildDate>
+			<lastBuildDate>Thu, 29 Oct 2026 10:39:30 +0900</lastBuildDate>
 		
 			<atom:link href="https://yukihane.github.io/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Gitでローカルにmainブランチを作らない</title>
+				<link>https://yukihane.github.io/blog/202610/29/git-no-main/</link>
+				<pubDate>Thu, 29 Oct 2026 10:39:30 +0900</pubDate>
+				<guid>https://yukihane.github.io/blog/202610/29/git-no-main/</guid>
+				<description>&lt;p&gt;直接 &lt;code&gt;main&lt;/code&gt; ブランチにコミットしないような運用をしている場合(組織内などで複数人が関わってソフトウェア開発しているような状況で一般的だと思います)、敢えて &lt;code&gt;main&lt;/code&gt; ブランチをローカルに作成する必要はないのでは、という話です。&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>Firefoxを起動しているとWindows11がスリープしない</title>
 				<link>https://yukihane.github.io/blog/202610/21/windows-sleep-plobrem-with-firefox/</link>
@@ -707,13 +714,6 @@
 				<pubDate>Sun, 07 Mar 2021 20:21:25 +0000</pubDate>
 				<guid>https://yukihane.github.io/blog/202103/07/testing-perspective/</guid>
 				<description>&lt;p&gt;書籍「ソフトウェアテストの教科書 - 品質を決定づけるテスト構成の基本と実践」第4章 ブラックボックステスト 表4-4 分類の基準として利用できる指標の一例 より。&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>Ubuntu20.04 で Kindle for PC</title>
-				<link>https://yukihane.github.io/blog/202103/07/kindle-for-pc-on-ubuntu20.04/</link>
-				<pubDate>Sun, 07 Mar 2021 05:21:25 +0000</pubDate>
-				<guid>https://yukihane.github.io/blog/202103/07/kindle-for-pc-on-ubuntu20.04/</guid>
-				<description>&lt;p&gt;以前記載していたUbuntu16.04(及び18.04)用の Kindle for PC セットアップ手順だと起動時にネットワーク接続できず利用できなくなってしまっていた&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>
