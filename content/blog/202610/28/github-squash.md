@@ -5,42 +5,45 @@ tags: ["git", "github"]
 draft: true
 ---
 
-私はずっとGitHubのSquash and merge方式(以降squash方式と呼称)を採用している人/組織が、Create a merge commit方式(以降merge commit方式と呼称)よりもsquash方式を好む理由って、何を差し置いてもマージ後のコミット履歴がすっきりすることに価値がある、という美意識が理由だと思っていました。
+## はじめに・本記事の目的
 
-しかし、もしかするとmerge commit方式では実現不可能、あるいは非常に煩雑な操作を行わなければならないことが、squash方式だと解決できると考えている可能性もあることに気づきました。
+私はずっとGitHubのSquash and merge方式(以降squash方式と呼称)を採用している人/組織が、Create a merge commit方式(以降merge commit方式と呼称)よりもsquash方式を好む理由は、何を差し置いてもマージ後のコミット履歴がすっきりすることに価値がある、という美意識が理由だと思い込んでいました。
+
+しかし、もしかするとmerge commit方式では実現不可能、あるいは非常に煩雑な操作を行わなければならないことが、squash方式だと容易に解決できると考えている可能性もあることに気づきました。
 
 例えば、「PR単位で履歴を見たい」「PRをまとめてrevertしたい」という理由です。
-これらはmerge commit方式でも、Gitの標準機能で実現できます。
-しかも、作業中のコミットを事前にきれいに整理しておく必要もありません。
+
+しかし実際は、これらはmerge commit方式であろうがGitの標準機能で実現できます。
 
 もしこのあたりに誤解があるのなら、
 
 - squash方式のメリットとして挙げられる操作の多くは、merge commit方式でもできる
 - むしろ、merge commit方式では必要ない手間がsquash方式では発生することがある
 
-という説明をしたいと考えたのがこの記事の主旨です。
+ことを理解してほしいと考えたのがこの記事の主旨です。
 
-もちろん、途中のコミットをmainの履歴に残さないこと自体が目的なら、両方式には違いがあります。
-その違いと、履歴を読む・操作する上での違いを分けて考えてみます。
+というのも、今回初めてsquash方式を利用したのですが、結構この方式の問題は大きいな、と感じたからです。
+これについても後述します。
 
-以下のコマンドと後述のコンフリクトの例は、Git `2.56.0` のローカルリポジトリで確認しました。
+以下の具体例はいずれもGit `2.56.0` で実行したものになります。また、管理にはGitHubを用いる前提です。
 
 ## squash方式でしかできないことがある、という誤解について
 
-AIにsquash方式を推している記事を検索し、主張をまとめてほしい、と指示しました。
+本節では、一般的にsquash方式を採用することのメリットとして挙げられているものが、実際のところそうでもない、ということを具体例で示していきたいと思います。
+
+次に挙げる具体例は、AIにsquash方式を推している記事を検索し、主張をまとめてほしい、と指示して集めたものです。
 調査メモには日本語11件・英語14件の計25件が集まりました(比較記事も1件含みます)。
-ただし、推奨する記事を中心に集めたものなので、世の中の意見の割合を示すような調査ではありません。
 
 そのうち、この記事を書く際に本文を確認した代表例は次のとおりです。
 右欄は私による要約です。
 
-| 記事 | squash方式を選ぶ理由として挙げられていること |
-|---|---|
-| [featureブランチのGitマージは頼むからSquashを使ってくれ](https://qiita.com/hondaYoshitaka/items/e2c961dc820df8d5705c) | 個人の作業記録をツリーから除き、ApproveされたPRの単位で見やすくする |
-| [GitHub のマージ方式を人間に毎回選ばせるのは、もうやめよう（やめた）](https://www.m3tech.blog/entry/github-auto-merge) | blameなどで変更を追う際、PR単位の粒度で履歴が並ぶ方が追いやすい |
-| [My preferred merge strategy for Pull Requests](https://dev.to/igorsantos07/my-preferred-merge-strategy-for-pull-requests-1lo5) | 平坦な履歴にし、途中のコミットがblameを煩雑にすることを避ける |
-| [Two years of squash merge](https://blog.dnsimple.com/2019/01/two-years-of-squash-merge/) | 変更の意図が分かる履歴にし、作業の自由度を保ち、revertを簡単にする |
-| [To Squash or Not to Squash: The Merge Debate](https://spin.atomicobject.com/squash-merge/) | コミットの整理やrebaseの負担を減らし、履歴を読みやすくする |
+| 記事                                                                                                                            | squash方式を選ぶ理由として挙げられていること                        |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| [featureブランチのGitマージは頼むからSquashを使ってくれ](https://qiita.com/hondaYoshitaka/items/e2c961dc820df8d5705c)           | 個人の作業記録をツリーから除き、ApproveされたPRの単位で見やすくする |
+| [GitHub のマージ方式を人間に毎回選ばせるのは、もうやめよう（やめた）](https://www.m3tech.blog/entry/github-auto-merge)          | blameなどで変更を追う際、PR単位の粒度で履歴が並ぶ方が追いやすい     |
+| [My preferred merge strategy for Pull Requests](https://dev.to/igorsantos07/my-preferred-merge-strategy-for-pull-requests-1lo5) | 平坦な履歴にし、途中のコミットがblameを煩雑にすることを避ける       |
+| [Two years of squash merge](https://blog.dnsimple.com/2019/01/two-years-of-squash-merge/)                                       | 変更の意図が分かる履歴にし、作業の自由度を保ち、revertを簡単にする  |
+| [To Squash or Not to Squash: The Merge Debate](https://spin.atomicobject.com/squash-merge/)                                     | コミットの整理やrebaseの負担を減らし、履歴を読みやすくする          |
 
 なお、これらは必ずしも「どんなブランチでもsquashすべき」と主張している記事ではありません。
 例えば最初の記事は個人のfeatureブランチに対象を限っていますし、エムスリーの記事でもprotectedブランチやepicブランチからのPRはsquashしない運用です。
@@ -60,6 +63,42 @@ O-----------------M    main
 ```
 
 `A1`〜`A3` はPR内の作業コミット、`M` はマージコミットです。
+
+この履歴は、次のスクリプトで再現できます。
+
+```sh
+mkdir myproj
+cd myproj
+git init -b main
+
+# 分岐元のコミットOを作る
+echo O > example.txt
+git add example.txt
+git commit -m "O"
+
+# featureブランチで3つの作業コミットを作る
+git switch -c feature
+echo A1 >> example.txt
+git add example.txt
+git commit -m "A1"
+
+echo A2 >> example.txt
+git add example.txt
+git commit -m "A2"
+
+echo A3 >> example.txt
+git add example.txt
+git commit -m "A3"
+
+# mainへ戻り、マージコミットMを作る
+# (実際にはGitHub上の操作 "Create a merge commit")
+git switch main
+git merge --no-ff feature -m "M"
+
+# 作成した履歴を確認する
+git log --graph --oneline main
+```
+
 ここで普通に `git log main` を実行すると、作業コミットも出てきます。
 
 しかし、次のようにすればmain側の履歴だけをたどれます。
@@ -75,12 +114,9 @@ git log --first-parent --oneline main
 通常、mainにfeatureをマージしたコミットの第1親は、マージ直前のmainです。[git-logの公式ドキュメント](https://git-scm.com/docs/git-log#Documentation/git-log.txt---first-parent)
 
 GitHubのCreate a merge commitは `--no-ff` によるマージなので、PRごとにマージコミットが作られます。
-mainへの取り込みをこの方式に統一していれば、mainのfirst-parentをたどることで、PRの取り込み単位の履歴を見られます。[GitHubの公式ドキュメント](https://docs.github.com/en/pull-requests/reference/pull-request-merges)
+mainへの取り込みをこの方式に統一していれば、mainのfirst-parentをたどることで、PRの取り込み単位の履歴を見られます。[GitHubの公式ドキュメント](https://docs.github.com/ja/pull-requests/reference/pull-request-merges)
 
 つまり、「履歴をPR単位で見たい」というだけなら、途中のコミットをsquashする必要はありません。
-
-なお、この説明はmainをチェックアウトしてfeatureをマージする、という親の向きが揃っていることを前提にしています。
-ローカルで逆向きにマージしてmainをfast-forwardした場合など、どんな履歴でも自動的にPR単位になるわけではありません。
 
 ### PR全体の差分を見る
 
@@ -97,15 +133,14 @@ git log --first-parent -p main
 git log --first-parent --diff-merges=first-parent -p main
 ```
 
-特定のマージコミットだけを見たいなら、マージ前後を直接比較してもよいです。
+特定のマージコミットについて、第1親との差分を見たいなら、次のようにします。
 以下の `MERGE_COMMIT` は実際のコミットIDに置き換えます。
 
 ```sh
-git diff MERGE_COMMIT^1 MERGE_COMMIT
+git show --first-parent MERGE_COMMIT
+# あるいは、git-diffで実現するなら (^1 は第1親を示す)
+# git diff MERGE_COMMIT^1 MERGE_COMMIT
 ```
-
-`^1` は第1親です。
-これなら、mainへそのPRを取り込むことで何が変わったのかを、コンフリクト解消の結果も含めて確認できます。
 
 ### PR単位でblameする: git blame --first-parent
 
@@ -117,7 +152,7 @@ git blame --first-parent main -- path/to/file
 
 通常のblameでは、featureブランチ内でその行を変更したコミットまでさかのぼります。
 `--first-parent` を付けると、その行がmainへ入った時点を調べられます。
-先ほどの図でfeature側から追加された行なら、作業コミットではなく `M` に帰属します。[git-blameの公式ドキュメント](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---first-parent)
+先ほどの図でfeature側から追加された行なら、作業コミットではなく `M` に帰属します。[git-blameの公式ドキュメント](https://git-scm.com/docs/git-blame/ja)
 
 したがって、merge commit方式でも、
 
@@ -146,7 +181,7 @@ git bisect reset
 ```
 
 これならmainのfirst-parent上を探索するので、featureブランチ内の未完成なコミットをテストする必要はありません。
-公式ドキュメントでも、マージされたブランチにビルドできないコミットが含まれている場合に有用だと説明されています。[git-bisectの公式ドキュメント](https://git-scm.com/docs/git-bisect#Documentation/git-bisect.txt---first-parent)
+公式ドキュメントでも、マージされたブランチにビルドできないコミットが含まれている場合に有用だと説明されています。[git-bisectの公式ドキュメント](https://git-scm.com/docs/git-bisect/ja)
 
 また、merge commit方式なら、原因のPRが分かった後に、そのPR内のコミットをさらに調べる余地も残ります。
 途中のコミットがテスト可能とは限らないので、必ず細かくbisectできるという意味ではありませんが。
@@ -267,12 +302,12 @@ mainとBの共通祖先は、この例では依然として `O` です。
 
 例えば次の順番で変更した場合です。
 
-| 時点 | value.txtの内容 | B独自の変更 |
-|---|---|---|
-| 分岐前のO | `value=0` | なし |
-| Aの実装完了時点 | `value=2` | なし |
-| AからBを分岐して作業 | `value=2` | 別ファイルb.txtを追加 |
-| Aをmainに取り込んだ後、mainで修正 | `value=3` | mainにはまだ入っていない |
+| 時点                              | value.txtの内容 | B独自の変更              |
+| --------------------------------- | --------------- | ------------------------ |
+| 分岐前のO                         | `value=0`       | なし                     |
+| Aの実装完了時点                   | `value=2`       | なし                     |
+| AからBを分岐して作業              | `value=2`       | 別ファイルb.txtを追加    |
+| Aをmainに取り込んだ後、mainで修正 | `value=3`       | mainにはまだ入っていない |
 
 Bでは `value.txt` を一切変更していません。
 それでも、Aをsquashしていると、Bにmainをマージした際に `value=2` と `value=3` が衝突します。
@@ -394,14 +429,14 @@ merge commit方式なら、普段はfirst-parentで概要を読み、必要な�
 
 squash方式のメリットとしてよく挙げられる操作と、merge commit方式での対応をまとめると、次のようになります。
 
-| やりたいこと | merge commit方式での操作 |
-|---|---|
-| PR単位で履歴を見る | `git log --first-parent` |
-| PR単位で差分を見る | `git log --first-parent -p` |
-| 行がどのPRでmainに入ったかを調べる | `git blame --first-parent` |
-| PRの取り込み単位で不具合を絞る | `git bisect start --first-parent` |
-| PR全体をrevertする | `git revert -m 1` |
-| PR全体の変更を別ブランチへ移す | `git cherry-pick -m 1` |
+| やりたいこと                       | merge commit方式での操作          |
+| ---------------------------------- | --------------------------------- |
+| PR単位で履歴を見る                 | `git log --first-parent`          |
+| PR単位で差分を見る                 | `git log --first-parent -p`       |
+| 行がどのPRでmainに入ったかを調べる | `git blame --first-parent`        |
+| PRの取り込み単位で不具合を絞る     | `git bisect start --first-parent` |
+| PR全体をrevertする                 | `git revert -m 1`                 |
+| PR全体の変更を別ブランチへ移す     | `git cherry-pick -m 1`            |
 
 これらが使えるなら、履歴をPR単位で扱うために途中のコミットを除く必要はありません。
 途中のコミットの整理を全員に義務付ける必要もありません。
